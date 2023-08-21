@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  BuildUp
+
+  Created by Mohammed Khaled on 06/06/2023.
+  
+*/
+
+// MARK: - Messages
+"message.error.title" = "Error" ;
+"message.success.title" = "Success" ;
+"message.error.invalidAmount" = "Please enter a valid amount" ;
+"networkError.noInternet" = "Check Your Internet Connection";
+"networkError.serverError" = "Internal Server Error";
+
+// MARK: Force Update
+"forceUpdate.title" = "New Version is Available!" ;
+"forceUpdate.message" = "You have to update Your version!" ;
+"forceUpdate.updateACtion.title" = "Update" ;

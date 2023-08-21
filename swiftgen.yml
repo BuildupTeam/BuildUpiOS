@@ -1,0 +1,24 @@
+input_dir: BuildUp
+output_dir: BuildUp
+strings:
+  inputs:
+    - Resources/Locale/en.lproj/Localizable.strings
+  outputs:
+    templatePath: ./buildUpStringsTemplete.stencil
+    output: Resources/Locale/Localized.swift
+  fallback: Base
+#custom_rules:
+#  swiftgen_strings:
+#    name: "SwiftGen Strings"
+#    regex: 'NSLocalizedString'
+#    message: "Use L10n.key instead"
+#    severity: error
+    
+xcassets:
+  inputs:
+     - Resources/Assets/Assets.xcassets
+  outputs:
+     templateName: swift4
+     output: Resources/Assets/Assets.swift
+
+

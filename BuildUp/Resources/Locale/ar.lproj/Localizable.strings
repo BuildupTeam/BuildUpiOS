@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  BuildUp
+
+  Created by Mohammed Khaled on 06/06/2023.
+  
+*/
+
+// MARK: - Messages
+"message.error.title" = "خطأ" ;
+"message.success.title" = "تم بنجاح" ;
+"message.error.invalidAmount" = "يرجى إدخال مبلغ صالح" ;
+"networkError.noInternet" = "تأكد من إتصالك بالإنترنت";
+"networkError.serverError" = "حدث خطاْ في الخادم";
+
+// MARK: Force Update
+"forceUpdate.title" = "نسخة جديدة متاحة!" ;
+"forceUpdate.message" = "يلزم تحديث النسخه" ;
+"forceUpdate.updateACtion.title" = "تحديث" ;
