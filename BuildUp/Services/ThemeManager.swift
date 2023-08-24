@@ -13,8 +13,18 @@ enum Theme: String {
 }
 
 class ThemeManager {
+    
+    static var colorPalette: ColorPaletteModel? {
+        return CachingService.getThemeData()?.colorPalette
+    }
+    
     static func setCornerRadious(element: UIView, radius: CGFloat) {
-        var isCurved = false //from cache
+        var isCurved = false
+        if let themeData = CachingService.getThemeData() {
+            if themeData.systemStyle == "curved" {
+                isCurved = true
+            }
+        }
         
         if isCurved {
             element.layer.cornerRadius = radius
@@ -23,3 +33,4 @@ class ThemeManager {
         }
     }
 }
+

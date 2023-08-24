@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ShimmerProductVerticalListTableViewCell" customModule="BuildUp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgu-KD-qLr">
+                        <rect key="frame" x="8" y="8" width="398" height="106"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsL-rW-j33">
+                                <rect key="frame" x="8" y="8" width="90" height="90"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BLF-iL-eMN">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="BXC-nx-fje"/>
+                                    <constraint firstItem="BLF-iL-eMN" firstAttribute="leading" secondItem="UsL-rW-j33" secondAttribute="leading" id="HX0-3W-wXB"/>
+                                    <constraint firstAttribute="bottom" secondItem="BLF-iL-eMN" secondAttribute="bottom" id="OO7-pd-46u"/>
+                                    <constraint firstAttribute="width" constant="90" id="gxd-tb-3wK"/>
+                                    <constraint firstItem="BLF-iL-eMN" firstAttribute="top" secondItem="UsL-rW-j33" secondAttribute="top" id="o46-K0-mSS"/>
+                                    <constraint firstAttribute="trailing" secondItem="BLF-iL-eMN" secondAttribute="trailing" id="xtX-EJ-hng"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zara’s Collection Blazer with golden bottoms" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2k-bh-qlA">
+                                <rect key="frame" x="112" y="17.999999999999996" width="266" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g7D-qq-K2R">
+                                <rect key="frame" x="112" y="65.666666666666671" width="116" height="15.666666666666671"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="239 SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lF-ln-eD0">
+                                        <rect key="frame" x="0.0" y="0.0" width="53" height="15.666666666666666"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.94117647059999998" green="0.47058823529999999" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="239 SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sl-7u-ZdH">
+                                        <rect key="frame" x="63" y="0.0" width="53" height="15.666666666666666"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.4823529412" green="0.56078431370000004" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="106" id="6jg-iE-wRn"/>
+                            <constraint firstAttribute="trailing" secondItem="D2k-bh-qlA" secondAttribute="trailing" constant="20" id="A8F-Y5-U8v"/>
+                            <constraint firstItem="g7D-qq-K2R" firstAttribute="top" secondItem="D2k-bh-qlA" secondAttribute="bottom" constant="14" id="PN1-YV-qZT"/>
+                            <constraint firstItem="D2k-bh-qlA" firstAttribute="top" secondItem="BLF-iL-eMN" secondAttribute="top" constant="10" id="e6T-aY-RCi"/>
+                            <constraint firstItem="g7D-qq-K2R" firstAttribute="leading" secondItem="UsL-rW-j33" secondAttribute="trailing" constant="14" id="ggm-ds-ldS"/>
+                            <constraint firstItem="D2k-bh-qlA" firstAttribute="leading" secondItem="UsL-rW-j33" secondAttribute="trailing" constant="14" id="kth-Gj-GeF"/>
+                            <constraint firstItem="UsL-rW-j33" firstAttribute="leading" secondItem="Rgu-KD-qLr" secondAttribute="leading" constant="8" id="nKY-zJ-57i"/>
+                            <constraint firstItem="UsL-rW-j33" firstAttribute="centerY" secondItem="Rgu-KD-qLr" secondAttribute="centerY" id="nKd-sK-p0k"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Rgu-KD-qLr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="G9r-iw-m3R"/>
+                    <constraint firstItem="Rgu-KD-qLr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="UgF-NH-e4j"/>
+                    <constraint firstAttribute="trailing" secondItem="Rgu-KD-qLr" secondAttribute="trailing" constant="8" id="aM8-qI-mFe"/>
+                    <constraint firstAttribute="bottom" secondItem="Rgu-KD-qLr" secondAttribute="bottom" constant="8" id="gWm-En-QNl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="shimmerImageView" destination="BLF-iL-eMN" id="sPv-sz-JbK"/>
+            </connections>
+            <point key="canvasLocation" x="98" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

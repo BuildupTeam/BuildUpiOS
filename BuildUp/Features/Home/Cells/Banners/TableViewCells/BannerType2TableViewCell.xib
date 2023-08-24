@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BannerType2TableViewCell" customModule="BuildUp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoK-hO-yhM">
+                        <rect key="frame" x="16" y="8" width="288" height="138"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gk3-j3-QzO">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="138"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ofj-V0-nvq">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="138"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nike Shoes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8K-b9-gIN">
+                                                <rect key="frame" x="14" y="26" width="116" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sale up to 80% off" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAF-b1-k8S">
+                                                <rect key="frame" x="14" y="56.333333333333329" width="116" height="40.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="hAF-b1-k8S" firstAttribute="top" secondItem="E8K-b9-gIN" secondAttribute="bottom" constant="10" id="CEk-si-tG0"/>
+                                            <constraint firstAttribute="trailing" secondItem="hAF-b1-k8S" secondAttribute="trailing" constant="14" id="ERo-mO-kXO"/>
+                                            <constraint firstItem="E8K-b9-gIN" firstAttribute="leading" secondItem="Ofj-V0-nvq" secondAttribute="leading" constant="14" id="MM3-Mm-KbB"/>
+                                            <constraint firstItem="hAF-b1-k8S" firstAttribute="leading" secondItem="Ofj-V0-nvq" secondAttribute="leading" constant="14" id="Nx6-h6-Dg3"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hAF-b1-k8S" secondAttribute="bottom" constant="20" id="R50-vW-rE1"/>
+                                            <constraint firstAttribute="trailing" secondItem="E8K-b9-gIN" secondAttribute="trailing" constant="14" id="VjQ-N0-kav"/>
+                                            <constraint firstItem="E8K-b9-gIN" firstAttribute="top" secondItem="Ofj-V0-nvq" secondAttribute="top" constant="26" id="ax2-DG-s4x"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS7-Na-kzV">
+                                        <rect key="frame" x="144" y="0.0" width="144" height="138"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="e7j-z7-uSf">
+                                                <rect key="frame" x="0.0" y="0.0" width="144" height="138"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.83921568629999999" green="0.86274509799999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="e7j-z7-uSf" secondAttribute="bottom" id="61a-ZZ-hnB"/>
+                                            <constraint firstAttribute="trailing" secondItem="e7j-z7-uSf" secondAttribute="trailing" id="K8G-fy-3tA"/>
+                                            <constraint firstItem="e7j-z7-uSf" firstAttribute="top" secondItem="AS7-Na-kzV" secondAttribute="top" id="Tyy-jZ-5is"/>
+                                            <constraint firstItem="e7j-z7-uSf" firstAttribute="leading" secondItem="AS7-Na-kzV" secondAttribute="leading" id="oMy-4b-91E"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gk3-j3-QzO" firstAttribute="top" secondItem="UoK-hO-yhM" secondAttribute="top" id="9Xz-E9-wsa"/>
+                            <constraint firstAttribute="height" constant="138" id="T34-Fa-Msw"/>
+                            <constraint firstAttribute="trailing" secondItem="gk3-j3-QzO" secondAttribute="trailing" id="UVI-ur-9YI"/>
+                            <constraint firstAttribute="bottom" secondItem="gk3-j3-QzO" secondAttribute="bottom" id="XFx-bZ-oHC"/>
+                            <constraint firstItem="gk3-j3-QzO" firstAttribute="leading" secondItem="UoK-hO-yhM" secondAttribute="leading" id="m5c-r3-6GW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="UoK-hO-yhM" secondAttribute="bottom" constant="8" id="SNc-ft-ZbZ"/>
+                    <constraint firstItem="UoK-hO-yhM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Xex-9C-LA3"/>
+                    <constraint firstItem="UoK-hO-yhM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="oov-jK-1Qd"/>
+                    <constraint firstAttribute="trailing" secondItem="UoK-hO-yhM" secondAttribute="trailing" constant="16" id="rxq-Ey-wiP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="bannerContentLabel" destination="hAF-b1-k8S" id="Kv4-VG-IzN"/>
+                <outlet property="bannerImageContainerView" destination="AS7-Na-kzV" id="5lt-hZ-pRO"/>
+                <outlet property="bannerImageView" destination="e7j-z7-uSf" id="AKc-q9-kEB"/>
+                <outlet property="bannerTitleLabel" destination="E8K-b9-gIN" id="XmS-JY-fCF"/>
+                <outlet property="containerView" destination="UoK-hO-yhM" id="tiu-Ot-HGu"/>
+            </connections>
+            <point key="canvasLocation" x="100.76335877862596" y="19.718309859154932"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img_placeholder" width="35.333332061767578" height="35.333332061767578"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

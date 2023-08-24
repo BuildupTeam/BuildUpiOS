@@ -26,7 +26,6 @@ extension UIImageView {
     
     func setImage(with imageModel: String, placeholderImage: UIImage? = nil ) {
         if let imageUrl = URL(string: imageModel) {
-//            let coder = SDImageFormat
             let SVGCoder = SDImageSVGCoder.shared
             SDImageCodersManager.shared.addCoder(SVGCoder)
             
