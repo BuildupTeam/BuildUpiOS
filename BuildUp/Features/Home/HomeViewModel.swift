@@ -20,6 +20,8 @@ class HomeViewModel: BaseViewModel {
     // MARK: - Model
     var homeData = HomeModel()
     
+    var viewTitle: String?
+    
     // MARK: - Data Observables
     public var onData: (() -> Void)?
     
@@ -52,27 +54,6 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
-    func getHomeCategories(componentModel: ComponentConfigurationModel) {
-        guard let service = service else {
-            return
-        }
-        service.getHomeCategories(limit: 4, componentModel: componentModel) { (result) in
-            switch result {
-            case .success(let response):
-                if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                    
-                } else {
-                    self.handleError(response: response)
-                }
-            case .failure(let error):
-                print(error)
-                if error.message != "Request explicitly cancelled." {
-                    self.onNetworkError?(error)
-                }
-            }
-        }
-    }
-    
     func getProducts(limit: Int,
                      componentModel: ComponentConfigurationModel,
                      contentTypeCompletion: @escaping (() -> String),
@@ -89,6 +70,37 @@ class HomeViewModel: BaseViewModel {
                         contentType: contentTypeCompletion(),
                         order: orderCompletion(),
                         products: response.data ?? [])
+                    
+                    self.checkDataAvailability()
+                } else {
+                    self.handleError(response: response)
+                }
+            case .failure(let error):
+                print(error)
+                if error.message != "Request explicitly cancelled." {
+                    self.onNetworkError?(error)
+                }
+            }
+        }
+    }
+    
+    func getCategories(limit: Int,
+                       componentModel: ComponentConfigurationModel,
+                       contentTypeCompletion: @escaping (() -> String),
+                       orderCompletion: @escaping (() -> String)) {
+        guard let service = service else {
+            return
+        }
+        service.getHomeCategories(limit: limit, componentModel: componentModel) { (result) in
+            switch result {
+            case .success(let response):
+                if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
+                    self.homeData.editHomeSectionsArrayWIthData(
+                        contentType: contentTypeCompletion(),
+                        order: orderCompletion(),
+                        categories: response.data ?? [])
+                    
+                    self.checkDataAvailability()
                 } else {
                     self.handleError(response: response)
                 }
@@ -114,6 +126,16 @@ extension HomeViewModel {
                     contentTypeCompletion: contentTypeCompletion,
                     orderCompletion: orderCompletion)
     }
+    
+    func getHomeCategories(order: String, componentModel: ComponentConfigurationModel) {
+        let contentTypeCompletion: (() -> String) = { () in return "\(HomeContentType.categories.rawValue)" }
+        let orderCompletion: (() -> String) = { () in return "\(order)" }
+        
+        getCategories(limit: 4,
+                      componentModel: componentModel,
+                      contentTypeCompletion: contentTypeCompletion,
+                      orderCompletion: orderCompletion)
+    }
 }
 
 // MARK: - Dynamic Components Logic
@@ -133,7 +155,6 @@ extension HomeViewModel {
                 let homeSectionModel = HomeSectionModel(order: index, contentType: contentType, component: component)
                 self.homeData.homeSections.append(homeSectionModel)
                 self.cacheHomeData()
-//                self.onData?()
             } else {
                 print(section.components?.first?.design ?? "")
             }
@@ -153,8 +174,7 @@ extension HomeViewModel {
         case HomeContentType.products.rawValue:
             self.getHomeProducts(order: order, componentModel: componentModel)
         case HomeContentType.categories.rawValue:
-//            self.getHomeCategories(componentModel: componentModel)
-            return
+            self.getHomeCategories(order: order, componentModel: componentModel)
         default:
             print("No Such Component")
         }
@@ -181,6 +201,7 @@ extension HomeViewModel {
     func cacheThemeData(_ theme: ThemeConfigurationDataModel?) {
         if let theme = theme {
             CachingService.setThemeData(theme: theme)
+            viewTitle = CachingService.getThemeData()?.pages?.first?.page ?? ""
         }
     }
     

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HomeHeaderTableViewCell" customModule="BuildUp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwG-cO-pcO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRD-fs-RU7">
+                                <rect key="frame" x="16" y="11.999999999999998" width="183" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lli-eR-Ocy">
+                                <rect key="frame" x="229" y="4.6666666666666679" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="uYJ-8T-Pdv"/>
+                                </constraints>
+                                <color key="tintColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="0.6424987995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="see all"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HRD-fs-RU7" firstAttribute="leading" secondItem="IwG-cO-pcO" secondAttribute="leading" constant="16" id="9gS-uT-A3C"/>
+                            <constraint firstAttribute="height" constant="44" id="SII-Xp-zdu"/>
+                            <constraint firstItem="lli-eR-Ocy" firstAttribute="leading" secondItem="HRD-fs-RU7" secondAttribute="trailing" constant="30" id="Z0P-IQ-Wsb"/>
+                            <constraint firstAttribute="trailing" secondItem="lli-eR-Ocy" secondAttribute="trailing" constant="16" id="dP3-aY-TIZ"/>
+                            <constraint firstItem="HRD-fs-RU7" firstAttribute="centerY" secondItem="IwG-cO-pcO" secondAttribute="centerY" id="j8F-9S-n73"/>
+                            <constraint firstItem="lli-eR-Ocy" firstAttribute="centerY" secondItem="HRD-fs-RU7" secondAttribute="centerY" id="x13-uB-IjR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="IwG-cO-pcO" secondAttribute="bottom" id="CPP-IW-Z0o"/>
+                    <constraint firstAttribute="trailing" secondItem="IwG-cO-pcO" secondAttribute="trailing" id="KRb-Kl-qHs"/>
+                    <constraint firstItem="IwG-cO-pcO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="L4J-pQ-0Db"/>
+                    <constraint firstItem="IwG-cO-pcO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SJo-mk-C6U"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="seeAllButton" destination="lli-eR-Ocy" id="f8X-ot-hBQ"/>
+                <outlet property="titleLabel" destination="HRD-fs-RU7" id="doY-ax-OJa"/>
+            </connections>
+            <point key="canvasLocation" x="85" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

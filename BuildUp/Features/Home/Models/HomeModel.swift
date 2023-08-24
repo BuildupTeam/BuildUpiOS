@@ -34,7 +34,7 @@ class HomeModel: NSObject, NSCoding {
         case HomeContentType.banner.rawValue:
             return true
         default:
-            return false
+            return true
         }
     }
     

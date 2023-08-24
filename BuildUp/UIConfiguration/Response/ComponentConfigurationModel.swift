@@ -17,8 +17,8 @@ class ComponentConfigurationModel: NSObject, NSCoding, Mappable {
     var backgroundColor: String?
     var displayTitle: Bool?
     var allowShowMore: Bool?
-    var backgroundImage: String?
-    var image: String?
+    var backgroundImage: MainImageModel?
+    var image: MainImageModel?
     var filters: ComponentsFilterModel?
     var title: String?
     var categories: [ComponentCategoryModel]?
@@ -59,8 +59,8 @@ class ComponentConfigurationModel: NSObject, NSCoding, Mappable {
         backgroundColor = aDecoder.decodeObject(forKey: "backgroundColor") as? String
         displayTitle = aDecoder.decodeObject(forKey: "displayTitle") as? Bool
         allowShowMore = aDecoder.decodeObject(forKey: "allowShowMore") as? Bool
-        backgroundImage = aDecoder.decodeObject(forKey: "backgroundImage") as? String
-        image = aDecoder.decodeObject(forKey: "image") as? String
+        backgroundImage = aDecoder.decodeObject(forKey: "backgroundImage") as? MainImageModel
+        image = aDecoder.decodeObject(forKey: "image") as? MainImageModel
         filters = aDecoder.decodeObject(forKey: "filters") as? ComponentsFilterModel
         title = aDecoder.decodeObject(forKey: "title") as? String
         categories = aDecoder.decodeObject(forKey: "categories") as? [ComponentCategoryModel]

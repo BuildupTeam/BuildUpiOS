@@ -93,10 +93,16 @@ extension HomeViewController {
         self.tableView.register(
             UINib(nibName: BannerType3TableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: BannerType3TableViewCell.identifier)
+        self.tableView.register(
+            UINib(nibName: HomeHeaderTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: HomeHeaderTableViewCell.identifier)
         
         self.tableView.register(
             UINib(nibName: ShimmerProductVerticalListTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ShimmerProductVerticalListTableViewCell.identifier)
+        self.tableView.register(
+            UINib(nibName: ShimmerBannerType1TableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ShimmerBannerType1TableViewCell.identifier)
         
     }
 }
@@ -189,7 +195,7 @@ extension HomeViewController {
             case HomeDesign.banner1.rawValue,
                 HomeDesign.banner2.rawValue,
                 HomeDesign.banner3.rawValue:
-                return UITableViewCell()
+                return getBannerType1ShimmerCell(indexPath: indexPath)
             default:
                 return UITableViewCell()
             }
@@ -233,13 +239,22 @@ extension HomeViewController {
                 return getBanner3TableViewCell(indexPath: indexPath, homeSectionModel: homeSectionModel)
             default:
                 return UITableViewCell()
-                
             }
         }
     }
 }
 
 extension HomeViewController {
+    private func getSectionHeaderCell(homeSectionModel: HomeSectionModel) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: HomeHeaderTableViewCell.identifier) as? HomeHeaderTableViewCell
+            else { return UITableViewCell() }
+        
+        cell.homeSectionModel = homeSectionModel
+        cell.selectionStyle = .none
+        return cell
+    }
+    
     private func getProductVerticalList1TableViewCell(indexPath: IndexPath, homeSectionModel: HomeSectionModel) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ProductVerticalList1TableViewCell.identifier,
@@ -348,6 +363,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
 //        cell.delegate = self
+        cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -476,6 +492,18 @@ extension HomeViewController {
         cell.selectionStyle = .none
         return cell
     }
+    
+    private func getBannerType1ShimmerCell(indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ShimmerBannerType1TableViewCell.identifier,
+            for: indexPath) as? ShimmerBannerType1TableViewCell
+        else { return UITableViewCell() }
+        
+        cell.isExclusiveTouch = true
+        cell.selectionStyle = .none
+        return cell
+    }
 }
 
 // MARK: TableView Delegate
@@ -487,6 +515,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //            return 0
 //        }
         
+        print("viewModel.homeData.homeSections.count = \(viewModel.homeData.homeSections.count)")
         return viewModel.homeData.homeSections.count
     }
     
@@ -502,5 +531,36 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+
+    // Bottom space for sections
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect.zero)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        guard let component = viewModel.homeData.homeSections[section].component else {
+//            return nil
+//        }
+        let homeSectionModel = viewModel.homeData.homeSections[section]
+        return getSectionHeaderCell(homeSectionModel: homeSectionModel)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let component = viewModel.homeData.homeSections[section].component else {
+            return 0
+        }
+        if isLoadingShimmer {
+            return 0
+        } else {
+            if component.displayTitle ?? false && !(component.title?.isEmptyString ?? false )  {
+                return 44
+            }
+        }
+        return 0
     }
 }

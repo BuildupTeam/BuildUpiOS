@@ -321,6 +321,5 @@ class ColorPaletteModel: NSObject, NSCoding, Mappable {
         if indicatorInactiveColor != nil {
             aCoder.encode(indicatorInactiveColor, forKey: "indicatorInactiveColor")
         }
-        
     }
 }

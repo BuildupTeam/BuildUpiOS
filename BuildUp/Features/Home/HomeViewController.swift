@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: BaseViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: HomeViewModel!
@@ -26,18 +26,30 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         PersistanceManager.setLatestViewController(Constant.ControllerName.home)
         setupView()
+        startShimmer()
         setupResponse()
         self.getHomeData()
-        
-        startShimmerOn(tableView: tableView)
     }
-
+    
 }
 
 // MARK: - SetupUI
 extension HomeViewController {
     private func setupView() {
+        isLoadingShimmer = true
         registerTableViewCells()
+        
+        if #available(iOS 15.0, *) {
+          tableView.sectionHeaderTopPadding = 0.0
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    private func startShimmer() {
+        startShimmerOn(tableView: tableView)
     }
 }
 
@@ -60,10 +72,9 @@ extension HomeViewController {
         viewModel.onData = { [weak self] () in
             guard let `self` = self else { return }
             print("Normal Reload")
+            self.title = viewModel.viewTitle
             self.hideLoading()
-//            self.tableView.refreshControl?.endRefreshing()
-//            self.isLoadingShimmer = false
-//            self.stopShimmerOn(tableView: self.tableView)
+            self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()
         }
     }
