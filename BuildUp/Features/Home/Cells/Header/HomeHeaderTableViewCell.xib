@@ -34,6 +34,9 @@
                                 <color key="tintColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="0.6424987995" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="see all"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,6 +48,9 @@
                             <constraint firstItem="HRD-fs-RU7" firstAttribute="centerY" secondItem="IwG-cO-pcO" secondAttribute="centerY" id="j8F-9S-n73"/>
                             <constraint firstItem="lli-eR-Ocy" firstAttribute="centerY" secondItem="HRD-fs-RU7" secondAttribute="centerY" id="x13-uB-IjR"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -55,6 +61,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="seeAllButton" destination="lli-eR-Ocy" id="f8X-ot-hBQ"/>
                 <outlet property="titleLabel" destination="HRD-fs-RU7" id="doY-ax-OJa"/>

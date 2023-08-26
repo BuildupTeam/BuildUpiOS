@@ -10,7 +10,8 @@ import UIKit
 class HomeViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var containerView: UIView!
+
     var viewModel: HomeViewModel!
     
     init(viewModel: HomeViewModel) {
@@ -42,6 +43,8 @@ extension HomeViewController {
         if #available(iOS 15.0, *) {
           tableView.sectionHeaderTopPadding = 0.0
         }
+        containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        self.view.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -50,7 +50,6 @@ class CategoriesHorizontalList2CollectionViewCell: UICollectionViewCell {
             } else {
                 categoryImageView.image = Asset.icPlaceholderProduct.image
             }
-            
         }
     }
 }

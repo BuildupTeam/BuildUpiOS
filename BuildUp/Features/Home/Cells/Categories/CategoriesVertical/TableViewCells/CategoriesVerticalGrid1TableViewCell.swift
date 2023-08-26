@@ -11,6 +11,8 @@ class CategoriesVerticalGrid1TableViewCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
+    var isLoadingShimmer: Bool?
+
     var homeSectionModel: HomeSectionModel? {
         didSet {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -42,6 +44,10 @@ class CategoriesVerticalGrid1TableViewCell: UITableViewCell {
         self.collectionView.register(
             UINib(nibName: CategoriesVerticalGrid1CollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: CategoriesVerticalGrid1CollectionViewCell.identifier)
+        
+        self.collectionView.register(
+            UINib(nibName: ShimmerCategoriesVerticalGrid1CollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: ShimmerCategoriesVerticalGrid1CollectionViewCell.identifier)
     }
     
 }
@@ -49,6 +55,9 @@ class CategoriesVerticalGrid1TableViewCell: UITableViewCell {
 // MARK: - CollectionView Delegate && DataSource
 extension CategoriesVerticalGrid1TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let sectionModel = homeSectionModel, !(sectionModel.categories?.isEmpty ?? false) {
+            return sectionModel.categories?.count ?? 0
+        }
         return 4
     }
     
@@ -56,10 +65,20 @@ extension CategoriesVerticalGrid1TableViewCell: UICollectionViewDelegate, UIColl
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
+            if let isLoadingShimmer = isLoadingShimmer, isLoadingShimmer == true {
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ShimmerCategoriesVerticalGrid1CollectionViewCell.identifier,
+                    for: indexPath) as? ShimmerCategoriesVerticalGrid1CollectionViewCell else { return UICollectionViewCell() }
+                
+                return cell
+            }
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: CategoriesVerticalGrid1CollectionViewCell.identifier,
                 for: indexPath) as? CategoriesVerticalGrid1CollectionViewCell else { return UICollectionViewCell() }
             
+            if let sectionModel = homeSectionModel, !(sectionModel.categories?.isEmpty ?? false) {
+                cell.categoryModel = sectionModel.categories?[indexPath.row]
+            }
             
             return cell
         }

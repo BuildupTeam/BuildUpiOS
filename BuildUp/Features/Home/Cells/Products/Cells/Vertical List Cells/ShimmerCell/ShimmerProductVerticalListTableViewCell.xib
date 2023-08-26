@@ -75,7 +75,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="106" id="6jg-iE-wRn"/>
+                            <constraint firstAttribute="height" constant="106" id="6jg-iE-wRn"/>
                             <constraint firstAttribute="trailing" secondItem="D2k-bh-qlA" secondAttribute="trailing" constant="20" id="A8F-Y5-U8v"/>
                             <constraint firstItem="g7D-qq-K2R" firstAttribute="top" secondItem="D2k-bh-qlA" secondAttribute="bottom" constant="14" id="PN1-YV-qZT"/>
                             <constraint firstItem="D2k-bh-qlA" firstAttribute="top" secondItem="BLF-iL-eMN" secondAttribute="top" constant="10" id="e6T-aY-RCi"/>

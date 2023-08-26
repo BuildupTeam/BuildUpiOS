@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShimmerCategoriesVerticalGrid1CollectionViewCell" customModule="BuildUp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="128"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="128"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9P-EB-AW7">
+                        <rect key="frame" x="8" y="8" width="164" height="112"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pH2-Tn-5k6">
+                                <rect key="frame" x="0.0" y="81" width="164" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottoms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioY-dQ-4g0">
+                                        <rect key="frame" x="5" y="5" width="154" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.10980392160000001" green="0.16862745100000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ioY-dQ-4g0" firstAttribute="top" secondItem="pH2-Tn-5k6" secondAttribute="top" constant="5" id="3rF-t6-USz"/>
+                                    <constraint firstAttribute="trailing" secondItem="ioY-dQ-4g0" secondAttribute="trailing" constant="5" id="OyE-NX-RwJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="ioY-dQ-4g0" secondAttribute="bottom" constant="5" id="qaE-li-WWd"/>
+                                    <constraint firstItem="ioY-dQ-4g0" firstAttribute="leading" secondItem="pH2-Tn-5k6" secondAttribute="leading" constant="5" id="suQ-Nf-tyA"/>
+                                    <constraint firstAttribute="height" constant="31" id="x5P-QI-qmF"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="37Q-3G-Wnq">
+                                <rect key="frame" x="64" y="27" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="GHj-wS-OPr"/>
+                                    <constraint firstAttribute="height" constant="36" id="olf-xV-6a8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83921568629999999" green="0.86274509799999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pH2-Tn-5k6" secondAttribute="bottom" id="8Rm-Wn-orC"/>
+                            <constraint firstAttribute="trailing" secondItem="pH2-Tn-5k6" secondAttribute="trailing" id="BL9-CZ-zkJ"/>
+                            <constraint firstItem="37Q-3G-Wnq" firstAttribute="centerX" secondItem="L9P-EB-AW7" secondAttribute="centerX" id="EHQ-ww-cSz"/>
+                            <constraint firstItem="37Q-3G-Wnq" firstAttribute="top" secondItem="L9P-EB-AW7" secondAttribute="top" constant="27" id="XsC-aV-ACE"/>
+                            <constraint firstItem="pH2-Tn-5k6" firstAttribute="leading" secondItem="L9P-EB-AW7" secondAttribute="leading" id="hOz-ua-jXu"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="L9P-EB-AW7" secondAttribute="trailing" constant="8" id="Mo2-gp-hnD"/>
+                <constraint firstItem="L9P-EB-AW7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="bAP-ZL-H1e"/>
+                <constraint firstItem="L9P-EB-AW7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="qOs-kr-UMj"/>
+                <constraint firstAttribute="bottom" secondItem="L9P-EB-AW7" secondAttribute="bottom" constant="8" id="xw1-Fz-DJ2"/>
+            </constraints>
+            <point key="canvasLocation" x="21" y="20"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="img_placeholder" width="35.333332061767578" height="35.333332061767578"/>
+    </resources>
+</document>

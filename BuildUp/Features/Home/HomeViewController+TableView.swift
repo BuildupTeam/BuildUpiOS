@@ -389,6 +389,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
 //        cell.delegate = self
+        cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -401,6 +402,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
 //        cell.delegate = self
+        cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -413,6 +415,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
 //        cell.delegate = self
+        cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -425,6 +428,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
 //        cell.delegate = self
+        cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -437,6 +441,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
 //        cell.delegate = self
+        cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -530,22 +535,37 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        guard let design = viewModel.homeData.homeSections[indexPath.section].component?.design else {
+            return UITableView.automaticDimension
+        }
+        let homeSectionModel = viewModel.homeData.homeSections[indexPath.section]
+        
+        switch design {
+        case HomeDesign.productVerticalList1.rawValue,
+            HomeDesign.productVerticalList2.rawValue,
+            HomeDesign.productVerticalList3.rawValue:
+            if isLoadingShimmer {
+                return 150
+            }
+            return CGFloat((homeSectionModel.products?.count ?? 0) * 122)
+        default:
+            return UITableView.automaticDimension
+        }
     }
 
-    // Bottom space for sections
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: CGRect.zero)
-    }
+//    // Bottom space for sections
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 0.01
+//    }
+//
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        return UIView(frame: CGRect.zero)
+//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        guard let component = viewModel.homeData.homeSections[section].component else {
-//            return nil
-//        }
+        if isLoadingShimmer {
+            return nil
+        }
         let homeSectionModel = viewModel.homeData.homeSections[section]
         return getSectionHeaderCell(homeSectionModel: homeSectionModel)
     }

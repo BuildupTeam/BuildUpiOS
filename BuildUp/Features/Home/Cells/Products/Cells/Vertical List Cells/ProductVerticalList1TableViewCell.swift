@@ -9,21 +9,12 @@ import UIKit
 
 class ProductVerticalList1TableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var productImageView: UIImageView!
-    
-    @IBOutlet private weak var productNameLabel: UILabel!
-    @IBOutlet private weak var productOldPriceLabel: UILabel!
-    @IBOutlet private weak var productNewPriceLabel: UILabel!
-    @IBOutlet private weak var productCountLabel: UILabel!
-    
-    @IBOutlet private weak var addToCartButton: UIButton!
-    
-    @IBOutlet private weak var addToCartView: UIView!
-    @IBOutlet private weak var containerView: UIView!
-        
+    @IBOutlet private weak var tableView: UITableView!
+    var isLoadingShimmer: Bool?
+
     var homeSectionModel: HomeSectionModel? {
         didSet {
-            bindData()
+            self.tableView.reloadData()
         }
     }
 
@@ -34,49 +25,58 @@ class ProductVerticalList1TableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
-        productNameLabel.font = .appFont(ofSize: 13, weight: .bold)
-        productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
-        productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
-        productCountLabel.font = .appFont(ofSize: 15, weight: .semiBold)
-        addToCartButton.titleLabel?.font = .appFont(ofSize: 13, weight: .semiBold)
-
-        productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
-        productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
-        productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
-        productCountLabel.textColor = ThemeManager.colorPalette?.quantityCounterColor?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? "")
-//        addToCartButton.setTitleColor(ThemeManager.colorPalette?.bu?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? ""), for: <#T##UIControl.State#>)
-        addToCartButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
-        ThemeManager.setCornerRadious(element: productImageView, radius: 8)
-        ThemeManager.setCornerRadious(element: addToCartView, radius: 8)
+        registerTableViewCell()
     }
     
-    private func bindData() {
-        if let products = homeSectionModel?.products {
-            if let model = products.first {
-                productNameLabel.text = model.name ?? ""
-                productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
-                productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
-                
-                if let imageUrl = model.mainImage?.path {
-                    productImageView.setImage(with: imageUrl)
-                } else {
-                    productImageView.image = Asset.icPlaceholderProduct.image
-                }
-            }
+    private func registerTableViewCell() {
+        self.tableView.register(
+            UINib(nibName: ProductVerticalList1InnerTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ProductVerticalList1InnerTableViewCell.identifier)
+        self.tableView.register(
+            UINib(nibName: ShimmerProductVerticalListTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ShimmerProductVerticalListTableViewCell.identifier)
+    }
+}
+
+extension ProductVerticalList1TableViewCell: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
+            return sectionModel.products?.count ?? 0
         }
+        return 1
     }
     
-    @IBAction func addToCartAction(_ sender: UIButton) {
-        addToCartButton.isHidden = true
-        addToCartView.isHidden = false
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let isLoadingShimmer = isLoadingShimmer, isLoadingShimmer == true {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ShimmerProductVerticalListTableViewCell.identifier,
+                for: indexPath) as? ShimmerProductVerticalListTableViewCell
+            else { return UITableViewCell() }
+            
+            
+            cell.selectionStyle = .none
+            return cell
+        }
+        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ProductVerticalList1InnerTableViewCell.identifier,
+            for: indexPath) as? ProductVerticalList1InnerTableViewCell
+        else { return UITableViewCell() }
+        
+        if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
+            cell.productModel = sectionModel.products?[indexPath.row]
+        }
+        
+        cell.selectionStyle = .none
+        return cell
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
 }

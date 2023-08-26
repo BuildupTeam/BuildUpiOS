@@ -11,9 +11,7 @@ class CategoriesHorizontalList1CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var categoryNameLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
-    
-    var isCurved: Bool?
-    
+        
     var categoryModel: CategoryModel? {
         didSet {
             bindData()

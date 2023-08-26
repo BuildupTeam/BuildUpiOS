@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="BuildUp" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="ll3-km-qgo" id="IZJ-bf-c2G"/>
                 <outlet property="tableView" destination="8hc-Ki-KhF" id="pQk-hc-i2z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,24 +20,36 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8hc-Ki-KhF">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ll3-km-qgo">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8hc-Ki-KhF">
+                            <rect key="frame" x="0.0" y="60" width="393" height="758"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Alc-mn-O32"/>
+                                <outlet property="delegate" destination="-1" id="oYC-pZ-7k6"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="Alc-mn-O32"/>
-                        <outlet property="delegate" destination="-1" id="oYC-pZ-7k6"/>
-                    </connections>
-                </tableView>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="8hc-Ki-KhF" secondAttribute="trailing" id="FM3-d5-WU0"/>
+                        <constraint firstItem="8hc-Ki-KhF" firstAttribute="leading" secondItem="ll3-km-qgo" secondAttribute="leading" id="UJX-q1-uXy"/>
+                        <constraint firstItem="8hc-Ki-KhF" firstAttribute="top" secondItem="ll3-km-qgo" secondAttribute="top" constant="60" id="dF4-jz-eWJ"/>
+                        <constraint firstAttribute="bottom" secondItem="8hc-Ki-KhF" secondAttribute="bottom" id="tmr-vg-pDs"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="8hc-Ki-KhF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZOe-B7-JPH"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8hc-Ki-KhF" secondAttribute="bottom" id="nBz-iw-scW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8hc-Ki-KhF" secondAttribute="trailing" id="vbC-Us-vdb"/>
-                <constraint firstItem="8hc-Ki-KhF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yyR-jU-Dk8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ll3-km-qgo" secondAttribute="trailing" id="Noa-vn-A5T"/>
+                <constraint firstItem="ll3-km-qgo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WsJ-Zu-Khg"/>
+                <constraint firstItem="ll3-km-qgo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YKs-Pp-Jfk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ll3-km-qgo" secondAttribute="bottom" id="bPJ-h3-PZ6"/>
             </constraints>
-            <point key="canvasLocation" x="98" y="21"/>
+            <point key="canvasLocation" x="96.946564885496173" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>

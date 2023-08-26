@@ -36,7 +36,7 @@ class Coordinator {
             
             navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigation.navigationBar.shadowImage = UIImage()
-            navigation.navigationBar.backgroundColor = .clear
+            navigation.navigationBar.backgroundColor = .white
             navigation.navigationBar.tintColor = .titlesBlack
             
             let extraHeight: CGFloat = 10

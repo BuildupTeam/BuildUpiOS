@@ -71,7 +71,6 @@ extension CategoriesHorizontalList1TableViewCell: UICollectionViewDelegate, UICo
                 
                 return cell
             }
-            
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: CategoriesHorizontalList1CollectionViewCell.identifier,
                 for: indexPath) as? CategoriesHorizontalList1CollectionViewCell else { return UICollectionViewCell() }

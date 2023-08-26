@@ -10,6 +10,7 @@ import UIKit
 class CategoriesHorizontalList2TableViewCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    var isLoadingShimmer: Bool?
 
     var homeSectionModel: HomeSectionModel? {
         didSet {
@@ -42,6 +43,10 @@ class CategoriesHorizontalList2TableViewCell: UITableViewCell {
         self.collectionView.register(
             UINib(nibName: CategoriesHorizontalList2CollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: CategoriesHorizontalList2CollectionViewCell.identifier)
+        
+        self.collectionView.register(
+            UINib(nibName: ShimmerCategoriesHorizontal2CollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: ShimmerCategoriesHorizontal2CollectionViewCell.identifier)
     }
     
 }
@@ -59,6 +64,13 @@ extension CategoriesHorizontalList2TableViewCell: UICollectionViewDelegate, UICo
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
+            if let isLoadingShimmer = isLoadingShimmer, isLoadingShimmer == true {
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ShimmerCategoriesHorizontal2CollectionViewCell.identifier,
+                    for: indexPath) as? ShimmerCategoriesHorizontal2CollectionViewCell else { return UICollectionViewCell() }
+                
+                return cell
+            }
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: CategoriesHorizontalList2CollectionViewCell.identifier,
                 for: indexPath) as? CategoriesHorizontalList2CollectionViewCell else { return UICollectionViewCell() }
