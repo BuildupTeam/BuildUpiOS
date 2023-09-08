@@ -1,6 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+# source 'https://github.com/CocoaPods/Specs.git'
+
 def ui_pods
   pod 'MessageViewController'
   pod 'SwiftMessages'
@@ -11,7 +13,6 @@ def ui_pods
   pod 'PopupDialog'
   pod 'PanModal'
   pod 'Cosmos'
-  
   pod 'PhoneNumberKit', '~> 3.1'
   pod 'CountryPickerView'
   pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
@@ -19,6 +20,11 @@ def ui_pods
   pod 'UICircleProgressView'
   pod 'RangeSeekSlider'
   pod 'DPOTPView'
+  pod "SCPageControl", :git => 'https://github.com/MahmoudNasserIbtikar/SCPageControl.git'
+  pod 'Firebase'
+  pod 'FirebaseMessaging'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseAuth'
 end
 
 def date_tools

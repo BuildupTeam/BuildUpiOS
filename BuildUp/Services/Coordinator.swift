@@ -67,6 +67,14 @@ class Coordinator {
     }
     
     class Controllers {
+        class func createProductDetailsViewController(
+            productModel: ProductModel? = nil,
+            isShareAction: Bool = false,
+            viewModel: ProductDetailsViewModel = ProductDetailsViewModel()) -> ProductDetailsViewController {
+                viewModel.productModel = productModel
+                let viewController = ProductDetailsViewController(viewModel: viewModel)
+                return viewController
+            }
         
 //        class func createLoginViewController(viewModel: LoginViewModel = LoginViewModel()) -> UIViewController {
 //            let loginVC = LoginViewController(viewModel: viewModel)

@@ -11,6 +11,7 @@ import ObjectMapper
 class PageConfigurationModel: NSObject, NSCoding, Mappable {
     var page: String?
     var sections: [SectionConfigurationModel]?
+    var settings: SettingsConfigurationModel?
     
     required init?(map: Map) {
         
@@ -19,6 +20,7 @@ class PageConfigurationModel: NSObject, NSCoding, Mappable {
     func mapping(map: Map) {
         page <- map["page"]
         sections <- map["sections"]
+        settings <- map["settings"]
     }
     
     override init() {
@@ -28,6 +30,7 @@ class PageConfigurationModel: NSObject, NSCoding, Mappable {
         self.init()
         page = aDecoder.decodeObject(forKey: "page") as? String
         sections = aDecoder.decodeObject(forKey: "sections") as? [SectionConfigurationModel]
+        settings = aDecoder.decodeObject(forKey: "settings") as? SettingsConfigurationModel
     }
     
     @objc
@@ -37,6 +40,9 @@ class PageConfigurationModel: NSObject, NSCoding, Mappable {
         }
         if sections != nil {
             aCoder.encode(sections, forKey: "sections")
+        }
+        if settings != nil {
+            aCoder.encode(settings, forKey: "settings")
         }
     }
 }

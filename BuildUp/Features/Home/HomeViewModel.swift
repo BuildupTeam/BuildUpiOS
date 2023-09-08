@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum PageName: String {
+    case home = "home"
+    case productDetails = "product-details"
+    
+}
+
 enum HomeContentType: String {
     case products = "products"
     case categories = "categories"
@@ -39,9 +45,15 @@ class HomeViewModel: BaseViewModel {
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                    self.createHomeSectionArray(responseSections: response.data?.pages?.first?.sections ?? [])
+                    if let model = response.data?.pages?.first(where: {$0.page == PageName.home.rawValue}) {
+                        if let sections = model.sections {
+                            self.createHomeSectionArray(responseSections: sections)
+                        }
+                    }
+                    
                     self.prepareAndRequestHomeApis()
                     self.cacheThemeData(response.data)
+                    self.cacheProductDetailsSettings(response.data)
                 } else {
                     self.handleError(response: response)
                 }
@@ -198,10 +210,20 @@ extension HomeViewModel {
         CachingService.setHomeData(homeSections: homeData.homeSections)
     }
     
+    func cacheProductDetailsSettings(_ theme: ThemeConfigurationDataModel?) {
+        if let theme = theme {
+            if let model = theme.pages?.first(where: {$0.page == PageName.productDetails.rawValue}) {
+                if let settings = model.settings {
+                    CachingService.setProductDetailsSettings(settingsConfigurationModel: settings)
+                }
+            }
+        }
+    }
+    
     func cacheThemeData(_ theme: ThemeConfigurationDataModel?) {
         if let theme = theme {
             CachingService.setThemeData(theme: theme)
-            viewTitle = CachingService.getThemeData()?.pages?.first?.page ?? ""
+            viewTitle = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.home.rawValue})?.page
         }
     }
     

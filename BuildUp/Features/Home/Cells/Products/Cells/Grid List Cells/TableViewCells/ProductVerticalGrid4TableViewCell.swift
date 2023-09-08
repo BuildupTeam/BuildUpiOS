@@ -12,6 +12,8 @@ class ProductVerticalGrid4TableViewCell: UITableViewCell {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewHeightConstrains: NSLayoutConstraint!
 
+    weak var delegate: HomeProductsCellDelegate?
+
     var isLoadingShimmer: Bool?
 
     var homeSectionModel: HomeSectionModel? {
@@ -106,8 +108,9 @@ extension ProductVerticalGrid4TableViewCell: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        delegate?.homeCityTapped(cityModel: cities[indexPath.row])
+        if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
+            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
+        }
     }
 }
 

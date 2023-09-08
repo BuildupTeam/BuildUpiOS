@@ -25,11 +25,22 @@ internal enum Asset {
   internal static let bannerType1Placeholder = ImageAsset(name: "banner_type1_placeholder")
   internal static let bannerType3Placeholder = ImageAsset(name: "banner_type3_placeholder")
   internal static let imgPlaceholder = ImageAsset(name: "img_placeholder")
+  internal static let add = ImageAsset(name: "add")
+  internal static let addProductSpecification = ImageAsset(name: "add_product_specification")
+  internal static let arrowDown = ImageAsset(name: "arrow_down")
+  internal static let arrowDownBlack = ImageAsset(name: "arrow_down_black")
+  internal static let arrowRight = ImageAsset(name: "arrow_right")
+  internal static let plusWhite = ImageAsset(name: "plus_white")
+  internal static let productDetailsCart = ImageAsset(name: "product_details_cart")
+  internal static let productDetailsFav = ImageAsset(name: "product_details_fav")
+  internal static let productDetailsShare = ImageAsset(name: "product_details_share")
+  internal static let remove = ImageAsset(name: "remove")
   internal static let icPlaceholderProduct = ImageAsset(name: "ic_Placeholder_product")
   internal static let productAddtoCart = ImageAsset(name: "product_addtoCart")
   internal static let productAddtoCartWhite = ImageAsset(name: "product_addtoCart_white")
   internal static let productFavorite = ImageAsset(name: "product_favorite")
   internal static let productUnFavorite = ImageAsset(name: "product_unFavorite")
+  internal static let productImage = ImageAsset(name: "productImage")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

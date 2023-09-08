@@ -9,19 +9,14 @@ import UIKit
 
 class ProductVerticalList2TableViewCell: UITableViewCell {
 
-    @IBOutlet private weak var productImageView: UIImageView!
+    @IBOutlet private weak var tableView: UITableView!
     
-    @IBOutlet private weak var productNameLabel: UILabel!
-    @IBOutlet private weak var productOldPriceLabel: UILabel!
-    @IBOutlet private weak var productNewPriceLabel: UILabel!
-    @IBOutlet private weak var productDiscountLabel: UILabel!
-    
-    @IBOutlet private weak var productDiscountView: UIView!
-    @IBOutlet private weak var containerView: UIView!
-    
+    var isLoadingShimmer: Bool?
+    weak var delegate: HomeProductsCellDelegate?
+
     var homeSectionModel: HomeSectionModel? {
         didSet {
-            bindData()
+            self.tableView.reloadData()
         }
     }
     
@@ -32,50 +27,69 @@ class ProductVerticalList2TableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
-        productNameLabel.font = .appFont(ofSize: 14, weight: .semiBold)
-        productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
-        productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
-        productDiscountLabel.font = .appFont(ofSize: 12, weight: .bold)
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
-        productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
-        productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
-        productDiscountLabel.textColor = ThemeManager.colorPalette?.badgeTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.badgeTextColor ?? "")
-        
-        containerView.setShadow(
-            shadowRadius: CGFloat(5),
-            xOffset: 0,
-            yOffset: 0,
-            color: .black,
-            opacity: 0.15,
-            cornerRadius: 8,
-            masksToBounds: false)
-        
-        ThemeManager.setCornerRadious(element: containerView, radius: 8)
-        ThemeManager.setCornerRadious(element: productImageView, radius: 8)
-        ThemeManager.setCornerRadious(element: productDiscountView, radius: 8)
+        registerTableViewCell()
     }
     
     private func bindData() {
-        if let products = homeSectionModel?.products {
-            if let model = products.first {
-                productNameLabel.text = model.name ?? ""
-                productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
-                productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
-                
-                if let imageUrl = model.mainImage?.path {
-                    productImageView.setImage(with: imageUrl)
-                } else {
-                    productImageView.image = Asset.icPlaceholderProduct.image
-                }
-            }
-        }
+       
     }
+    
+    private func registerTableViewCell() {
+        self.tableView.register(
+            UINib(nibName: ProductVerticalList2InnerTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ProductVerticalList2InnerTableViewCell.identifier)
+        self.tableView.register(
+            UINib(nibName: ShimmerProductVerticalListTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ShimmerProductVerticalListTableViewCell.identifier)
+    }
+    
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+extension ProductVerticalList2TableViewCell: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
+            return sectionModel.products?.count ?? 0
+        }
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let isLoadingShimmer = isLoadingShimmer, isLoadingShimmer == true {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ShimmerProductVerticalListTableViewCell.identifier,
+                for: indexPath) as? ShimmerProductVerticalListTableViewCell
+            else { return UITableViewCell() }
+            
+            
+            cell.selectionStyle = .none
+            return cell
+        }
+        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ProductVerticalList2InnerTableViewCell.identifier,
+            for: indexPath) as? ProductVerticalList2InnerTableViewCell
+        else { return UITableViewCell() }
+        
+        if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
+            cell.productModel = sectionModel.products?[indexPath.row]
+        }
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
+            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
+        }
     }
     
 }

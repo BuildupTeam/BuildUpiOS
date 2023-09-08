@@ -175,9 +175,9 @@ extension UIViewController {
 }
 
 extension UIButton {
-    func setCornerRadius() {
+    func setCornerRadius(_ radious: CGFloat ) {
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = radious
     }
 }
 

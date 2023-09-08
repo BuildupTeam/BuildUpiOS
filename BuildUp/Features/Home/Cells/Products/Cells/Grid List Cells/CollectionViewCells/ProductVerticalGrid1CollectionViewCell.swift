@@ -17,7 +17,7 @@ class ProductVerticalGrid1CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var addToFavoriteView: UIView!
     @IBOutlet private weak var containerView: UIView!
-        
+            
     var productModel: ProductModel? {
         didSet {
             bindData()

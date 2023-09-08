@@ -12,6 +12,7 @@ import NotificationCenter
 import ObjectMapper
 import UserNotifications
 import Moya
+import FirebaseMessaging
 
 // MARK: - Setup
 extension AppDelegate {

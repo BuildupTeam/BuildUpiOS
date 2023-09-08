@@ -29,7 +29,7 @@ class HomeViewController: BaseViewController {
         setupView()
         startShimmer()
         setupResponse()
-        self.getHomeData()
+        getHomeData()
     }
     
 }
@@ -81,5 +81,13 @@ extension HomeViewController {
             self.tableView.reloadData()
         }
     }
-    
+}
+
+// MARK: - Delegates
+extension HomeViewController: HomeProductsCellDelegate {
+    func homeProductTapped(productModel: ProductModel?) {
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController()
+        detailsVC.productModel = productModel
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
 }

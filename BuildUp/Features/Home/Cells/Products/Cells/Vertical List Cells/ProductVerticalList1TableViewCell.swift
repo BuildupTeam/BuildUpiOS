@@ -11,6 +11,7 @@ class ProductVerticalList1TableViewCell: UITableViewCell {
     
     @IBOutlet private weak var tableView: UITableView!
     var isLoadingShimmer: Bool?
+    weak var delegate: HomeProductsCellDelegate?
 
     var homeSectionModel: HomeSectionModel? {
         didSet {
@@ -77,6 +78,12 @@ extension ProductVerticalList1TableViewCell: UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
+            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
+        }
     }
     
 }

@@ -72,10 +72,18 @@
                                 <color key="textColor" red="0.4823529412" green="0.56078431370000004" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hk-pK-zQn">
+                                <rect key="frame" x="0.0" y="224.33333333333334" width="53" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.6424987995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="sZI-6l-42e"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Rmw-Uv-jdN" firstAttribute="top" secondItem="BSb-1e-NQZ" secondAttribute="bottom" constant="4" id="7R9-BH-3DL"/>
+                            <constraint firstItem="1hk-pK-zQn" firstAttribute="trailing" secondItem="Rmw-Uv-jdN" secondAttribute="trailing" id="7tv-ar-NIO"/>
                             <constraint firstItem="BSb-1e-NQZ" firstAttribute="leading" secondItem="NrE-hp-omd" secondAttribute="leading" id="AFB-xD-nnN"/>
                             <constraint firstItem="gLP-tJ-y4e" firstAttribute="top" secondItem="NrE-hp-omd" secondAttribute="top" constant="10" id="DeC-Qi-Tld"/>
                             <constraint firstAttribute="trailing" secondItem="YGa-4Z-qeL" secondAttribute="trailing" id="IF4-BR-snW"/>
@@ -83,7 +91,9 @@
                             <constraint firstItem="BSb-1e-NQZ" firstAttribute="top" secondItem="h3e-AV-5fp" secondAttribute="bottom" constant="4" id="T94-c2-9K2"/>
                             <constraint firstItem="gLP-tJ-y4e" firstAttribute="leading" secondItem="NrE-hp-omd" secondAttribute="leading" constant="10" id="e6O-Q5-wlE"/>
                             <constraint firstItem="YGa-4Z-qeL" firstAttribute="top" secondItem="NrE-hp-omd" secondAttribute="top" id="fbp-0h-yYh"/>
+                            <constraint firstItem="1hk-pK-zQn" firstAttribute="centerX" secondItem="Rmw-Uv-jdN" secondAttribute="centerX" id="flW-xZ-dFj"/>
                             <constraint firstItem="YGa-4Z-qeL" firstAttribute="leading" secondItem="NrE-hp-omd" secondAttribute="leading" id="hS1-De-Rzb"/>
+                            <constraint firstItem="1hk-pK-zQn" firstAttribute="centerY" secondItem="Rmw-Uv-jdN" secondAttribute="centerY" id="kJP-Tf-Os9"/>
                             <constraint firstItem="Rmw-Uv-jdN" firstAttribute="leading" secondItem="NrE-hp-omd" secondAttribute="leading" id="lB1-9o-6bC"/>
                             <constraint firstAttribute="trailing" secondItem="h3e-AV-5fp" secondAttribute="trailing" id="ruL-Rm-8Fm"/>
                             <constraint firstItem="h3e-AV-5fp" firstAttribute="leading" secondItem="NrE-hp-omd" secondAttribute="leading" id="tGZ-wo-rJn"/>
@@ -104,7 +114,7 @@
                 <outlet property="addToFavoriteImage" destination="Tqg-xT-BS8" id="Z0C-9r-XmF"/>
                 <outlet property="addToFavoriteView" destination="gLP-tJ-y4e" id="Nnn-Rg-Fsw"/>
                 <outlet property="containerView" destination="NrE-hp-omd" id="zPf-Yw-zL3"/>
-                <outlet property="productImage" destination="YGa-4Z-qeL" id="wi2-gu-dZr"/>
+                <outlet property="productImageView" destination="YGa-4Z-qeL" id="Edp-w7-anG"/>
                 <outlet property="productNameLabel" destination="h3e-AV-5fp" id="nOp-sJ-B7G"/>
                 <outlet property="productNewPriceLabel" destination="BSb-1e-NQZ" id="uu5-26-cHo"/>
                 <outlet property="productOldPriceLabel" destination="Rmw-Uv-jdN" id="i6U-zY-bBj"/>

@@ -16,5 +16,7 @@ struct ApiUrls {
         static let loginUrl = "/api/login"
         static let homeProducts = "/api/v1/ec/f/products"
         static let homeCategories = "/api/v1/ec/f/categories"
+        static let productDetails = "/api/v1/ec/f/products/{id}"
+        static let relatedProducts = "/api/v1/ec/f/products"
     }
 }

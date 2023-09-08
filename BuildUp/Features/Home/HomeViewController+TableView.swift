@@ -244,6 +244,7 @@ extension HomeViewController {
     }
 }
 
+// MARK: Get Home Cells
 extension HomeViewController {
     private func getSectionHeaderCell(homeSectionModel: HomeSectionModel) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
@@ -261,7 +262,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalList1TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -273,7 +274,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalList2TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -285,7 +286,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalList3TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -297,7 +298,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalGrid1TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -310,7 +311,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalGrid2TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -323,7 +324,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalGrid3TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -336,7 +337,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalGrid4TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -349,7 +350,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalGrid5TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -553,14 +554,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-//    // Bottom space for sections
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 0.01
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        return UIView(frame: CGRect.zero)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let design = viewModel.homeData.homeSections[indexPath.section].component?.design else {
+            return
+        }
+        let homeSectionModel = viewModel.homeData.homeSections[indexPath.section]
+        
+        switch design {
+        case HomeDesign.productVerticalList1.rawValue,
+            HomeDesign.productVerticalList2.rawValue,
+            HomeDesign.productVerticalList3.rawValue:
+            let detailsVC = Coordinator.Controllers.createProductDetailsViewController()
+            detailsVC.productModel = homeSectionModel.products?[indexPath.row]
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        default:
+            return
+        }
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if isLoadingShimmer {

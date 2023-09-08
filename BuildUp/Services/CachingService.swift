@@ -74,6 +74,35 @@ class CachingService: NSObject {
         return nil
     }
     
+    static func setProductDetailsSettings(settingsConfigurationModel: SettingsConfigurationModel) {
+        let userDefaults = UserDefaults.standard
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(
+                withRootObject: settingsConfigurationModel,
+                requiringSecureCoding: false)
+            userDefaults.set(encodedData, forKey: Constant.Keys.productDetails)
+            userDefaults.synchronize()
+            
+        } catch {
+            
+        }
+    }
+    
+    static func getProductDetailsSettings() -> SettingsConfigurationModel? {
+        if UserDefaults.standard.object(forKey: Constant.Keys.productDetails) != nil {
+            guard let decoded = UserDefaults.standard.object(forKey: Constant.Keys.productDetails) as? Data else { return nil }
+            do {
+                if let productDetailsSettings = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
+                    decoded as Data) as? SettingsConfigurationModel {
+                    return productDetailsSettings
+                }
+            } catch {
+                
+            }
+        }
+        return nil
+    }
+    
     static func setThemeData(theme: ThemeConfigurationDataModel) {
         let userDefaults = UserDefaults.standard
         do {

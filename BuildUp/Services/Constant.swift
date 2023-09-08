@@ -18,10 +18,12 @@ class Constant {
         static let selectedCountry = "selectedCountry"
         static let selectedCategory = "selectedCategory"
         static let homeModel = "homeModel"
+        static let productDetails = "product_details"
         static let theme = "theme"
     }
     
     struct ControllerName {
         static let home = "home"
+        static let productDetials = "product-details"
     }
 }

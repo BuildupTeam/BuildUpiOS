@@ -65,7 +65,7 @@ public extension Windless {
             }
             let animation = AnimationFactory(configuration: self.configuration).locationAnimation()
             self.context.start(animation)
-//            self.setupScrollEnabled(false)
+            self.setupScrollEnabled(false)
         }
         let transition = TransitionFactory.fade()
         context.container.layer.add(transition, forKey: TransitionKeys.fade)

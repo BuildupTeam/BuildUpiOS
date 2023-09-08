@@ -8,7 +8,6 @@
 import Foundation
 import Moya
 import Alamofire
-import FirebaseCrashlytics
 
 final class MainWebService {
     static var isRefreshingToken: Bool = false
@@ -173,7 +172,7 @@ extension MainWebService {
             code: response.statusCode,
             userInfo: info)
         
-        Crashlytics.crashlytics().record(error: error)
+//        Crashlytics.crashlytics().record(error: error)
     }
     
     static func recordNonFetalError(error: MoyaError) {
@@ -187,6 +186,6 @@ extension MainWebService {
             code: error.errorCode,
             userInfo: info)
         
-        Crashlytics.crashlytics().record(error: errorObject)
+//        Crashlytics.crashlytics().record(error: errorObject)
     }
 }

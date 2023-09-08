@@ -28,7 +28,7 @@ class CategoriesVerticalGrid2CollectionViewCell: UICollectionViewCell {
 
     private func setupCell() {
         categoryNameLabel.font = .appFont(ofSize: 13, weight: .semiBold)
-        categoryNameLabel.textColor = .white
+        categoryNameLabel.textColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
         categoryNameContainerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         
         ThemeManager.setCornerRadious(element: containerView, radius: 8)
