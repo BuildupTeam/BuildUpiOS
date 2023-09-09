@@ -33,7 +33,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVS-Zt-3SX">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="fVS-Zt-3SX">
                                 <rect key="frame" x="0.0" y="8" width="304" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tva-Iv-rhS">
@@ -62,7 +62,7 @@
                         <constraints>
                             <constraint firstItem="T2J-hO-Avz" firstAttribute="leading" secondItem="FXu-xc-1yY" secondAttribute="leading" id="SCE-tc-lUb"/>
                             <constraint firstAttribute="bottom" secondItem="T2J-hO-Avz" secondAttribute="bottom" id="Uju-UP-BAc"/>
-                            <constraint firstItem="T2J-hO-Avz" firstAttribute="top" secondItem="fVS-Zt-3SX" secondAttribute="bottom" constant="8" id="ZLR-j5-c55"/>
+                            <constraint firstAttribute="height" constant="322" id="a7j-fJ-QPj"/>
                             <constraint firstAttribute="trailing" secondItem="fVS-Zt-3SX" secondAttribute="trailing" id="f4J-pA-pMB"/>
                             <constraint firstItem="fVS-Zt-3SX" firstAttribute="leading" secondItem="FXu-xc-1yY" secondAttribute="leading" id="h3m-pa-TUD"/>
                             <constraint firstAttribute="trailing" secondItem="T2J-hO-Avz" secondAttribute="trailing" id="kz3-Jd-ghQ"/>
@@ -80,9 +80,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionView" destination="T2J-hO-Avz" id="EB1-Ma-0Cj"/>
+                <outlet property="containerViewHeightContraints" destination="a7j-fJ-QPj" id="A6i-qD-xEv"/>
                 <outlet property="headerSeeMoreButton" destination="FDQ-hc-PGx" id="ebG-sx-IAO"/>
                 <outlet property="headerTitleLabel" destination="tva-Iv-rhS" id="qd0-Fo-Rz1"/>
                 <outlet property="headerView" destination="fVS-Zt-3SX" id="jcn-Qq-hf0"/>
+                <outlet property="headerViewHeightContraints" destination="fbl-IX-lmQ" id="ZT2-dv-m5J"/>
             </connections>
             <point key="canvasLocation" x="1.5267175572519083" y="20.422535211267608"/>
         </tableViewCell>

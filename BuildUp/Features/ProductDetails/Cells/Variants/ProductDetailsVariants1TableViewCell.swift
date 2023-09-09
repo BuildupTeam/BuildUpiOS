@@ -1,5 +1,5 @@
 //
-//  ProductDetailsAttributeType2TableViewCell.swift
+//  ProductDetailsAttributeType1TableViewCell.swift
 //  BuildUp
 //
 //  Created by Mohammed Khaled on 31/08/2023.
@@ -7,19 +7,18 @@
 
 import UIKit
 
-class ProductDetailsVariants2TableViewCell: UITableViewCell {
+protocol ProductDetailsVarientSelectedDelegate: AnyObject {
+    func optionValueSelected(_ optionModel: ProductDetailsOptionsModel)
+}
+
+class ProductDetailsVariants1TableViewCell: UITableViewCell {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var seperatorView: UIView!
 
-    var optionModel: ProductDetailsOptionsModel? {
-        didSet {
-            self.bindData()
-            self.collectionView.reloadData()
-        }
-    }
+    weak var delegate: ProductDetailsVarientSelectedDelegate?
     
-    var productModel: ProductModel? {
+    var optionModel: ProductDetailsOptionsModel? {
         didSet {
             self.bindData()
             self.collectionView.reloadData()
@@ -48,13 +47,13 @@ class ProductDetailsVariants2TableViewCell: UITableViewCell {
     
     private func registerCollectionViewCells() {
         self.collectionView.register(
-            UINib(nibName: ProductDetailsVariants2CollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: ProductDetailsVariants2CollectionViewCell.identifier)
+            UINib(nibName: ProductDetailsVariants1CollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: ProductDetailsVariants1CollectionViewCell.identifier)
     }
 }
 
 // MARK: - CollectionView Delegate && DataSource
-extension ProductDetailsVariants2TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ProductDetailsVariants1TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let options = optionModel?.optionValues, !options.isEmpty {
             return options.count
@@ -66,8 +65,8 @@ extension ProductDetailsVariants2TableViewCell: UICollectionViewDelegate, UIColl
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: ProductDetailsVariants2CollectionViewCell.identifier,
-                for: indexPath) as? ProductDetailsVariants2CollectionViewCell else { return UICollectionViewCell() }
+                withReuseIdentifier: ProductDetailsVariants1CollectionViewCell.identifier,
+                for: indexPath) as? ProductDetailsVariants1CollectionViewCell else { return UICollectionViewCell() }
             
             if let options = optionModel?.optionValues, !options.isEmpty {
                 cell.optionValueModel = options[indexPath.row]
@@ -81,18 +80,35 @@ extension ProductDetailsVariants2TableViewCell: UICollectionViewDelegate, UIColl
             let optionValueModel = options[indexPath.row]
             var textWidth = (optionValueModel.name?.width(withConstrainedHeight: 32, font: .appFont(ofSize: 12, weight: .semiBold)) ?? 0) + 32
             
-            if textWidth < 60 {
-                textWidth = 60
+            if textWidth < 70 {
+                textWidth = 70
             }
             
-            return CGSize(width: textWidth, height: 50)
+            return CGSize(width: textWidth, height: 70)
         }
         
+        /*
+         let optionValueModel = options[indexPath.row]
+         let textWidth = optionValueModel.name?.width(withConstrainedHeight: 32, font: .appFont(ofSize: 12, weight: .semiBold)) ?? 0
+         return CGSize(width: textWidth + 32, height: 70)
+         */
         return CGSize.zero
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        delegate?.homeCityTapped(cityModel: cities[indexPath.row])
+        if var  options = optionModel?.optionValues, !options.isEmpty {
+            for option in options {
+                option.isSelected = false
+            }
+            
+            let option = options[indexPath.row]
+            option.isSelected = true
+            options[indexPath.row] = option
+            self.optionModel?.optionValues = options
+            self.collectionView.reloadData()
+            if let model = self.optionModel {
+                delegate?.optionValueSelected(model)
+            }
+        }
     }
 }

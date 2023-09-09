@@ -14,6 +14,7 @@ class ProductDetailsViewModel: BaseViewModel {
     // MARK: - Model
     var productModel: ProductModel?
     var productDetailsSettings: SettingsConfigurationModel?
+    var selectedOptionsValues: [String: String] = [:]
     
     var viewTitle: String?
     
@@ -25,6 +26,18 @@ class ProductDetailsViewModel: BaseViewModel {
         super.init(observationType: .all)
         self.service = service
         self.getCachedData()
+    }
+    
+    func getVaialbleCombinations(productModel: ProductModel) -> [ProductDetailsCombinationsModel]? {
+        let combinations = productModel.combinations
+        for combination in combinations ?? [] {
+            let combinationIds = combination.options?.map({$0.optionValueId})
+            let selectedValuesIds = selectedOptionsValues.values.map({$0.hashValue})
+//            if combinationIds.containsSameElements(as: selectedValuesIds) {
+//                return [combination]
+//            }
+        }
+        return []
     }
     
     func getProductDetails(uuid: String) {

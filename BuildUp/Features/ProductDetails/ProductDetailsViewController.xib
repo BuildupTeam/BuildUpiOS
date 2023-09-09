@@ -17,6 +17,8 @@
                 <outlet property="quantityCircleViewWidthConstraint" destination="Hok-xl-6ZH" id="Uot-Nf-ACG"/>
                 <outlet property="quantityDropDownView" destination="uIa-0D-NGd" id="wik-2H-rzg"/>
                 <outlet property="quantityDropDownViewWidthConstraint" destination="iEq-Kh-DAX" id="Duk-qe-3IF"/>
+                <outlet property="subTotalPriceLabel" destination="ebn-eO-t2q" id="4bL-bP-O5u"/>
+                <outlet property="subTotalPriceTitleLabel" destination="9wa-VU-S1N" id="Spr-lT-fjb"/>
                 <outlet property="subtotalViewHeightConstraint" destination="wnP-Ck-qM2" id="1g4-qQ-5Ka"/>
                 <outlet property="tableView" destination="EGS-IT-gmQ" id="rbZ-fw-QL0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -38,7 +40,7 @@
                                 <outlet property="delegate" destination="-1" id="9AB-fc-40e"/>
                             </connections>
                         </tableView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uO-dm-Tk2">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uO-dm-Tk2">
                             <rect key="frame" x="0.0" y="656" width="393" height="137"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pir-sB-Rzx">
@@ -89,6 +91,9 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                                    <connections>
+                                                                        <action selector="plusButtonAction:" destination="HQe-jn-mTm" eventType="touchUpInside" id="RSb-as-uLO"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -117,6 +122,9 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                                    <connections>
+                                                                        <action selector="minusButtonAction:" destination="HQe-jn-mTm" eventType="touchUpInside" id="ZAy-1d-8LC"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,7 +139,7 @@
                                                                 <constraint firstAttribute="height" constant="40" id="uyy-dJ-d0t"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="446-eD-WeG">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="446-eD-WeG">
                                                             <rect key="frame" x="56.000000000000007" y="18" width="20.333333333333336" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -215,7 +223,7 @@
                                                     </constraints>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Add To Cart"/>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

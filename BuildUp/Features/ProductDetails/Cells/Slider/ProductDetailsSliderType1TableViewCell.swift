@@ -53,7 +53,7 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         collectionView.dataSource = self
         
         productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
-        productDescriptionLabel.font = .appFont(ofSize: 14, weight: .regular)
+        productDescriptionLabel.font = .appFont(ofSize: 14, weight: .black)
         productOldPriceLabel.font = .appFont(ofSize: 14, weight: .semiBold)
         productNewPriceLabel.font = .appFont(ofSize: 17, weight: .semiBold)
         productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .semiBold)
@@ -67,7 +67,7 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         seperatorView.backgroundColor = ThemeManager.colorPalette?.separator?.toUIColor(hexa: ThemeManager.colorPalette?.separator ?? "")
         addToFavoriteSeparatedView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
         addToFavoriteSeparatedView.layer.masksToBounds = true
-        addToFavoriteSeparatedView.layer.cornerRadius = addToFavoriteSeparatedView.frame.width / 2
+        addToFavoriteSeparatedView.layer.cornerRadius = 8
         
         productOutOfStockView.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBg?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBg ?? "")
         productOutOfStockView.layer.masksToBounds = true
@@ -101,7 +101,7 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
-            productDescriptionLabel.text = (model.productDescription ?? "").maxLength(length: 80)
+            productDescriptionLabel.text = (model.productDescription ?? "").maxLength(length: 70)
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
             

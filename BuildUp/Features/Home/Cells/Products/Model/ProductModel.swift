@@ -25,6 +25,21 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var orderInOutOfStock: Bool?
     var options: [ProductDetailsOptionsModel]?
     var relatedProducts: [ProductModel]?
+    var combinations: [ProductDetailsCombinationsModel]?
+    var maxAddedQuantity: Int?
+    var quantitySelected = 1
+    
+    var selectedCombinationPrice: Int? {
+        return getSelectedCombinationPrice()
+    }
+    
+    var selectedCombination: ProductDetailsCombinationsModel? {
+        return getSelectedCombination()
+    }
+    
+    var selectedValues: [Int] {
+        return getSelectedOptions()
+    }
     
     required init?(map: Map) {
         
@@ -46,6 +61,8 @@ class ProductModel: NSObject, NSCoding, Mappable {
         quantity <- map["quantity"]
         quantity <- map["order_in_out_of_stock"]
         options <- map["options"]
+        combinations <- map["combinations"]
+        maxAddedQuantity <- map["max_added_quantity"]
     }
     
     override init() {
@@ -93,5 +110,37 @@ class ProductModel: NSObject, NSCoding, Mappable {
         if mainImage != nil {
             aCoder.encode(mainImage, forKey: "mainImage")
         }
+    }
+    
+    private func getSelectedOptions() -> [Int] {
+        var selectedValues: [ProductDetailsOptionValueModel] = []
+        
+        for option in options ?? [] {
+            selectedValues.append(contentsOf: option.optionValues?.filter({ (value) -> Bool in
+                return value.isSelected
+            }) ?? [])
+        }
+        
+        return selectedValues.map { $0.id ?? 0 }
+    }
+    
+    private func getSelectedCombinationPrice() -> Int? {
+        for combination in combinations ?? [] {
+            let combinationIds = combination.options?.map({$0.optionValueId ?? 0}) ?? []
+            if combinationIds.containsSameElements(as: selectedValues) {
+                return combination.price
+            }
+        }
+        return 0
+    }
+    
+    private func getSelectedCombination() -> ProductDetailsCombinationsModel? {
+        for combination in combinations ?? [] {
+            let combinationIds = combination.options?.map({$0.optionValueId ?? 0}) ?? []
+            if combinationIds.containsSameElements(as: selectedValues) {
+                return combination
+            }
+        }
+        return nil
     }
 }

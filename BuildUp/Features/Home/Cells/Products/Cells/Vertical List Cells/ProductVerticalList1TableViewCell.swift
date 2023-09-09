@@ -85,5 +85,4 @@ extension ProductVerticalList1TableViewCell: UITableViewDataSource, UITableViewD
             delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
         }
     }
-    
 }

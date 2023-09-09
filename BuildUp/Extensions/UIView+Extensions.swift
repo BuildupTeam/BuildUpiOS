@@ -70,8 +70,8 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    func setViewCornerRadius() {
-        self.layer.cornerRadius = 5.0
+    func setViewCornerRadius(_ radius: CGFloat) {
+        self.layer.cornerRadius = radius
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.primaryColor.cgColor
         

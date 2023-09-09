@@ -11,6 +11,8 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var headerViewHeightContraints: NSLayoutConstraint!
+    @IBOutlet private weak var containerViewHeightContraints: NSLayoutConstraint!
     @IBOutlet private weak var headerTitleLabel: UILabel!
     @IBOutlet private weak var headerSeeMoreButton: UIButton!
 
@@ -37,18 +39,27 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
         headerSeeMoreButton.setTitleColor(ThemeManager.colorPalette?.lightTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.lightTextColor ?? ""), for: .normal)
         
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
-            headerTitleLabel.text = settings.recommendedProducts?.title
-            
-            if settings.recommendedProducts?.displayTitle ?? false {
+            if ((settings.recommendedProducts?.title) != nil) {
+                headerTitleLabel.text = settings.recommendedProducts?.title
+                if settings.recommendedProducts?.displayTitle ?? false {
+                    headerView.isHidden = false
+                } else {
+                    headerView.isHidden = false
+                }
+                
+                if settings.recommendedProducts?.displaySeeMore ?? false {
+                    headerSeeMoreButton.isHidden = false
+                } else {
+                    headerSeeMoreButton.isHidden = true
+                }
+                
                 headerView.isHidden = false
+                containerViewHeightContraints.constant = 322
+                headerViewHeightContraints.constant = 40
             } else {
-                headerView.isHidden = false
-            }
-            
-            if settings.recommendedProducts?.displaySeeMore ?? false {
-                headerSeeMoreButton.isHidden = false
-            } else {
-                headerSeeMoreButton.isHidden = true
+                headerView.isHidden = true
+                containerViewHeightContraints.constant = 282
+                headerViewHeightContraints.constant = 0
             }
         }
     }

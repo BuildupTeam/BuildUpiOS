@@ -38,17 +38,18 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
             for view in scPageControl.subviews {
                 view.removeFromSuperview()
             }
-            
-            scPageControl.set_view(productModel?.files?.count ?? 0,
-                                   current: 0,
-                                   current_color: ThemeManager.colorPalette?.indicatorActiveColor?.toUIColor(hexa: ThemeManager.colorPalette?.indicatorActiveColor ?? "") ?? .backgroundLightGray,
-                                   scNormal_width: 15,
-                                   scNormal_height: 10)
-            self.collectionView.reloadData()
-            collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: false)
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            if !(productModel?.files?.isEmpty ?? false) {
+                scPageControl.set_view(productModel?.files?.count ?? 0,
+                                       current: 0,
+                                       current_color: ThemeManager.colorPalette?.indicatorActiveColor?.toUIColor(hexa: ThemeManager.colorPalette?.indicatorActiveColor ?? "") ?? .backgroundLightGray,
+                                       scNormal_width: 15,
+                                       scNormal_height: 10)
                 self.collectionView.reloadData()
+                collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: false)
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }
@@ -72,7 +73,7 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
         setupPageControl()
 
         productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
-        productDescriptionLabel.font = .appFont(ofSize: 14, weight: .regular)
+        productDescriptionLabel.font = .appFont(ofSize: 14, weight: .black)
         productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .semiBold)
 
         productNameLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
@@ -88,7 +89,9 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
         productOutOfStockView.layer.masksToBounds = true
         productOutOfStockView.layer.cornerRadius = 4
         
-//        ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
+        addToFavoriteGroupedView.layer.masksToBounds = true
+        addToFavoriteGroupedView.layer.cornerRadius = 8
+        
     }
     
     private func setupPageControl() {
@@ -118,12 +121,18 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
-            productDescriptionLabel.text = model.productDescription ?? "".maxLength(length: 80)
+            productDescriptionLabel.text = model.productDescription ?? "" //.maxLength(length: 80)
+            
+            let readmoreFont = UIFont.appFont(ofSize: 14, weight: .black)
+            let readmoreFontColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") ?? UIColor.titlesBlack
+            DispatchQueue.main.async {
+                self.productDescriptionLabel.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
+            }
             
             if let quantity = model.quantity, quantity > 0 {
-                productOutOfStockView.isHidden = false
-            } else {
                 productOutOfStockView.isHidden = true
+            } else {
+                productOutOfStockView.isHidden = false
             }
         }
         

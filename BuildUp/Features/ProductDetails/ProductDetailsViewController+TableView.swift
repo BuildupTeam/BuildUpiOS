@@ -89,23 +89,48 @@ extension ProductDetailsViewController {
             UINib(nibName: RecommentedProductsType2TableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: RecommentedProductsType2TableViewCell.identifier)
         self.tableView.register(
-            UINib(nibName: ShimmerProductDetailsSilderTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: ShimmerProductDetailsSilderTableViewCell.identifier)
-        self.tableView.register(
             UINib(nibName: ProductDetailsQuantityCircleTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ProductDetailsQuantityCircleTableViewCell.identifier)
         self.tableView.register(
             UINib(nibName: ProductHorizontalList1TableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ProductHorizontalList1TableViewCell.identifier)
+        self.tableView.register(
+            UINib(nibName: ShimmerProductDetailsSilderTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ShimmerProductDetailsSilderTableViewCell.identifier)
+        self.tableView.register(
+            UINib(nibName: ShimmerProductDetailsVariantsTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ShimmerProductDetailsVariantsTableViewCell.identifier)
+        self.tableView.register(
+            UINib(nibName: ShimmerProductDetailsQuantityTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ShimmerProductDetailsQuantityTableViewCell.identifier)
     }
 }
 
 extension ProductDetailsViewController {
-    // ShimmerProductDetailsSilderTableViewCell
     private func getShimmerProductDetailsSilderTableViewCell(indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ShimmerProductDetailsSilderTableViewCell.identifier,
             for: indexPath) as? ShimmerProductDetailsSilderTableViewCell
+        else { return UITableViewCell() }
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    private func getShimmerProductDetailsVariantsTableViewCell(indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ShimmerProductDetailsVariantsTableViewCell.identifier,
+            for: indexPath) as? ShimmerProductDetailsVariantsTableViewCell
+        else { return UITableViewCell() }
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    private func getShimmerProductDetailsQuantityTableViewCell(indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ShimmerProductDetailsQuantityTableViewCell.identifier,
+            for: indexPath) as? ShimmerProductDetailsQuantityTableViewCell
         else { return UITableViewCell() }
         
         cell.selectionStyle = .none
@@ -142,7 +167,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? ProductDetailsVariants1TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.optionModel = productModel.options?[indexPath.row]
         cell.selectionStyle = .none
         return cell
@@ -154,7 +179,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? ProductDetailsVariants2TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.optionModel = productModel.options?[indexPath.row]
         cell.selectionStyle = .none
         return cell
@@ -167,7 +192,7 @@ extension ProductDetailsViewController {
         else { return UITableViewCell() }
         
 //        cell.delegate = self
-        cell.productModel = productModel
+        cell.optionModel = productModel.options?[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
@@ -216,6 +241,10 @@ extension ProductDetailsViewController {
             switch indexPath.section {
             case ProductDetailsSection.slider.rawValue:
                 return self.getShimmerProductDetailsSilderTableViewCell(indexPath: indexPath)
+            case ProductDetailsSection.quantity.rawValue:
+                return self.getShimmerProductDetailsQuantityTableViewCell(indexPath: indexPath)
+            case ProductDetailsSection.variants.rawValue:
+                return self.getShimmerProductDetailsVariantsTableViewCell(indexPath: indexPath)
             default:
                 return UITableViewCell()
             }
@@ -244,7 +273,7 @@ extension ProductDetailsViewController {
                     case ProductDetailsVarianrs.variants1.rawValue:
                         return self.getProductDetailsVariants1Cell(indexPath: indexPath, productModel: productModel)
                     case ProductDetailsVarianrs.variants2.rawValue:
-                        return self.getProductDetailsVariants2Cell(indexPath: indexPath, productModel: productModel)
+                        return self.getProductDetailsVariants3Cell(indexPath: indexPath, productModel: productModel)
                     case ProductDetailsVarianrs.variants3.rawValue:
                         return self.getProductDetailsVariants3Cell(indexPath: indexPath, productModel: productModel)
                     default:
@@ -283,6 +312,14 @@ extension ProductDetailsViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let productModel = viewModel.productModel else {
+            if isLoadingShimmer {
+                switch section {
+                case ProductDetailsSection.variants.rawValue:
+                    return 3
+                default:
+                    return 1
+                }
+            }
             return 1
         }
         
@@ -301,7 +338,14 @@ extension ProductDetailsViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isLoadingShimmer {
+            return UITableView.automaticDimension
+        }
         switch indexPath.section {
+        case ProductDetailsSection.variants.rawValue:
+            if viewModel.productDetailsSettings?.variants == ProductDetailsVarianrs.variants2.rawValue {
+                return CGFloat((viewModel.productModel?.options?.count ?? 0) * 60)
+            }
         case ProductDetailsSection.quantity.rawValue:
             if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
                 if settings.quantityPosition == ProductDetailsQuantityPosition.bottom.rawValue {

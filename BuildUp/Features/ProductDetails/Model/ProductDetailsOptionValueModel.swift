@@ -11,6 +11,7 @@ import ObjectMapper
 class ProductDetailsOptionValueModel: Mappable {
     var id: Int?
     var name: String?
+    var isSelected: Bool = false
     
     required init?(map: Map) {
         

@@ -15,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppManager.launchApp(application)
         
+//        for family in UIFont.familyNames {
+//            print("\(family)")
+//
+//            for name in UIFont.fontNames(forFamilyName: family) {
+//                print("   \(name)")
+//            }
+//        }
+        
         return true
     }
 

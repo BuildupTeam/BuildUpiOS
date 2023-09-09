@@ -29,30 +29,30 @@ extension UIFont {
     class func setupEnglishFont(ofSize: CGFloat, weight: FontWeight) -> UIFont {
         switch weight {
         case .regular:
-            return UIFont(name: "NunitoSans-Regular", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont(name: "NotoSansMyanmar-Regular", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .black:
-            return UIFont(name: "NunitoSans-Black", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont.systemFont(ofSize: ofSize)
         case .semiBold:
-            return UIFont(name: "NunitoSans-SemiBold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .bold:
-            return UIFont(name: "NunitoSans-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .light:
-            return UIFont(name: "NunitoSans-Light", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont(name: "NotoSansMyanmar-Light", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         }
     }
     
     class func setupArabicFont(ofSize: CGFloat, weight: FontWeight) -> UIFont {
         switch weight {
         case .regular:
-            return UIFont(name: "DNunitoSans-Regular", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont(name: "NotoSansMyanmar-Regular", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .black:
-            return UIFont(name: "NunitoSans-Black", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont.systemFont(ofSize: ofSize)
         case .semiBold:
-            return UIFont(name: "NunitoSans-SemiBold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .bold:
-            return UIFont(name: "NunitoSans-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .light:
-            return UIFont(name: "NunitoSans-Light", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+            return UIFont(name: "NotoSansMyanmar-Light", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         }
     }
 }
