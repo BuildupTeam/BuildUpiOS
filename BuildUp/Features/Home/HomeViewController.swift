@@ -31,6 +31,7 @@ class HomeViewController: BaseViewController {
         setupResponse()
         getHomeData()
     }
+//    quantityActionButton.menu = menu
     
 }
 
@@ -39,12 +40,25 @@ extension HomeViewController {
     private func setupView() {
         isLoadingShimmer = true
         registerTableViewCells()
+        setupNavigationBar()
         
         if #available(iOS 15.0, *) {
           tableView.sectionHeaderTopPadding = 0.0
         }
         containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+    }
+    
+    private func setupNavigationBar() {
+        
+        let refreshItem = UIBarButtonItem(
+            image: Asset.productDetailsCart.image,
+            style: .plain,
+            target: self,
+            action: #selector(refreshAction(sender:))
+        )
+        
+        self.navigationItem.rightBarButtonItem = refreshItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +70,14 @@ extension HomeViewController {
     }
 }
 
+// MARK: - Actions
+extension HomeViewController {
+    
+    @objc
+    func refreshAction(sender: UIBarButtonItem) {
+        self.getHomeData()
+    }
+}
 // MARK: - Requests
 extension HomeViewController {
     
@@ -75,7 +97,6 @@ extension HomeViewController {
         viewModel.onData = { [weak self] () in
             guard let `self` = self else { return }
             print("Normal Reload")
-            self.title = viewModel.viewTitle
             self.hideLoading()
             self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()

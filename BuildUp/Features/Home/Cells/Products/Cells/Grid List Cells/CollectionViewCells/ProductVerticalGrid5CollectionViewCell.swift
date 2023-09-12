@@ -29,6 +29,7 @@ class ProductVerticalGrid5CollectionViewCell: UICollectionViewCell {
         productNameLabel.font = .appFont(ofSize: 13, weight: .regular)
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
+        ThemeManager.setCornerRadious(element: containerView, radius: 8)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
     }
 

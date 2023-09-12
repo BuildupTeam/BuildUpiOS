@@ -34,17 +34,24 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
+        containerView.setShadow(
+            shadowRadius: CGFloat(5),
+            xOffset: 0,
+            yOffset: 0,
+            color: .black,
+            opacity: 0.15,
+            cornerRadius: 8,
+            masksToBounds: false)
+        
         productNameLabel.font = .appFont(ofSize: 13, weight: .regular)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
-        productCountLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
-        productCountLabel.textColor = ThemeManager.colorPalette?.quantityCounterColor?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? "")
         
-        ThemeManager.setCornerRadious(element: productImageView, radius: 8)
+        ThemeManager.setCornerRadious(element: productImageView, radius: 11)
         ThemeManager.setCornerRadious(element: addToCartView, radius: addToCartView.frame.width / 2)
-        ThemeManager.setCornerRadious(element: containerView, radius: 8)
+        ThemeManager.setCornerRadious(element: containerView, radius: 11)
     }
     
     func bindData() {

@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CdZ-ns-xZN">
-                        <rect key="frame" x="8" y="8" width="54" height="34"/>
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7E-Cz-9l8">
-                                <rect key="frame" x="8" y="8" width="38" height="18"/>
+                                <rect key="frame" x="8" y="8" width="54" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,10 +40,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="CdZ-ns-xZN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="GJd-I5-56y"/>
-                <constraint firstItem="CdZ-ns-xZN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="jsM-sx-BMF"/>
-                <constraint firstAttribute="trailing" secondItem="CdZ-ns-xZN" secondAttribute="trailing" constant="8" id="pni-cZ-UWs"/>
-                <constraint firstAttribute="bottom" secondItem="CdZ-ns-xZN" secondAttribute="bottom" constant="8" id="uNL-pN-ist"/>
+                <constraint firstItem="CdZ-ns-xZN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GJd-I5-56y"/>
+                <constraint firstItem="CdZ-ns-xZN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jsM-sx-BMF"/>
+                <constraint firstAttribute="trailing" secondItem="CdZ-ns-xZN" secondAttribute="trailing" id="pni-cZ-UWs"/>
+                <constraint firstAttribute="bottom" secondItem="CdZ-ns-xZN" secondAttribute="bottom" id="uNL-pN-ist"/>
             </constraints>
             <connections>
                 <outlet property="containerView" destination="CdZ-ns-xZN" id="fHo-c7-qLe"/>

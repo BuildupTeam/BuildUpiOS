@@ -20,6 +20,8 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
     @IBOutlet private weak var seperatorView: UIView!
     @IBOutlet private weak var pageControlView: UIView!
 
+    @IBOutlet private weak var containerViewHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet private weak var addToFavoriteImage: UIImageView!
 
     @IBOutlet private weak var productNameLabel: UILabel!
@@ -72,6 +74,8 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
         collectionView.dataSource = self
         setupPageControl()
 
+        containerViewHeightConstraint.constant = 540
+        
         productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
         productDescriptionLabel.font = .appFont(ofSize: 14, weight: .black)
         productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .semiBold)
@@ -121,18 +125,20 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
-            productDescriptionLabel.text = model.productDescription ?? "" //.maxLength(length: 80)
+            productDescriptionLabel.text = model.productDescription ?? "".maxLength(length: 70)
             
-            let readmoreFont = UIFont.appFont(ofSize: 14, weight: .black)
+            let readmoreFont = UIFont.appFont(ofSize: 14, weight: .bold)
             let readmoreFontColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") ?? UIColor.titlesBlack
             DispatchQueue.main.async {
-                self.productDescriptionLabel.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
+//                self.productDescriptionLabel.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
             }
             
             if let quantity = model.quantity, quantity > 0 {
                 productOutOfStockView.isHidden = true
+                containerViewHeightConstraint.constant = 524
             } else {
                 productOutOfStockView.isHidden = false
+                containerViewHeightConstraint.constant = 570
             }
         }
         

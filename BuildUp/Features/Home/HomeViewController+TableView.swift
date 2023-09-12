@@ -543,12 +543,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch design {
         case HomeDesign.productVerticalList1.rawValue,
-            HomeDesign.productVerticalList2.rawValue,
-            HomeDesign.productVerticalList3.rawValue:
+            HomeDesign.productVerticalList2.rawValue:
             if isLoadingShimmer {
                 return 150
             }
             return CGFloat((homeSectionModel.products?.count ?? 0) * 122)
+        case HomeDesign.productVerticalList3.rawValue:
+            if isLoadingShimmer {
+                return 150
+            }
+            return CGFloat((homeSectionModel.products?.count ?? 0) * 136)
         default:
             return UITableView.automaticDimension
         }

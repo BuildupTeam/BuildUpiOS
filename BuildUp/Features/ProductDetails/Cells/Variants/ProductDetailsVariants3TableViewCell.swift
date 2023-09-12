@@ -9,13 +9,14 @@ import UIKit
 
 class ProductDetailsVariants3TableViewCell: UITableViewCell {
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var variantValueLabel: UILabel!
+    @IBOutlet private weak var variantNameLabel: UILabel!
+    @IBOutlet private weak var variantActionButton: UIButton!
     @IBOutlet private weak var seperatorView: UIView!
 
     var optionModel: ProductDetailsOptionsModel? {
         didSet {
             self.bindData()
-            self.tableView.reloadData()
         }
     }
     
@@ -25,56 +26,35 @@ class ProductDetailsVariants3TableViewCell: UITableViewCell {
         setupCell()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     private func setupCell() {
-        registerTableViewCell()
-        tableView.delegate = self
-        tableView.dataSource = self
+        variantValueLabel.font = .appFont(ofSize: 12, weight: .regular)
+        variantNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         
         seperatorView.backgroundColor = ThemeManager.colorPalette?.separator?.toUIColor(hexa: ThemeManager.colorPalette?.separator ?? "")
-    }
-    
-    private func registerTableViewCell() {
-        self.tableView.register(
-            UINib(nibName: ProductDetailsVariants3InnerTableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: ProductDetailsVariants3InnerTableViewCell.identifier)
+        variantValueLabel.textColor = ThemeManager.colorPalette?.quantityCounterColor?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? "")
+        variantNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
     }
     
     private func bindData() {
-        
-    }
-}
-
-extension ProductDetailsVariants3TableViewCell: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let options = optionModel?.optionValues, !options.isEmpty {
-            return options.count
+        if let model = optionModel {
+            variantNameLabel.text = model.option?.name
+            variantValueLabel.text = model.optionValues?.first?.name
         }
-        return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: ProductDetailsVariants3InnerTableViewCell.identifier,
-            for: indexPath) as? ProductDetailsVariants3InnerTableViewCell
-        else { return UITableViewCell() }
-        
-        cell.optionModel = self.optionModel
-        
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    @IBAction func variantButtonAction(_ sender: UIButton) {
+        var elements: [UIAction] = []
+        if let options = optionModel?.optionValues {
+            for option in options {
+                let element = UIAction(title: option.name ?? "", image: UIImage(), attributes: [], state: .off) { action in
+                    print(option.name ?? "")
+                    self.variantValueLabel.text = option.name
+                }
+                elements.append(element)
+            }
+        }
+        let menu = UIMenu(title: optionModel?.option?.name ?? "",identifier: .alignment, options: .displayInline, children: elements)
+        variantActionButton.showsMenuAsPrimaryAction = true
+        variantActionButton.menu = menu
     }
 }

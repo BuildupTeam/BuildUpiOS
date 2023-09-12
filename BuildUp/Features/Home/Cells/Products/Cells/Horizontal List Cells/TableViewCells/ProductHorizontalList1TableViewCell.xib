@@ -17,25 +17,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="266"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NOR-cY-jSW">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUd-dz-Z2m">
                         <rect key="frame" x="8" y="8" width="304" height="250"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="NOR-cY-jSW">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="DJp-34-9p2"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LyU-GV-3wz">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="250" id="DJp-34-9p2"/>
+                            <constraint firstAttribute="height" constant="250" id="Db6-4g-0IW"/>
+                            <constraint firstItem="NOR-cY-jSW" firstAttribute="leading" secondItem="sUd-dz-Z2m" secondAttribute="leading" id="HNP-I3-Ay3"/>
+                            <constraint firstItem="NOR-cY-jSW" firstAttribute="top" secondItem="sUd-dz-Z2m" secondAttribute="top" id="cS8-lB-PqH"/>
+                            <constraint firstAttribute="bottom" secondItem="NOR-cY-jSW" secondAttribute="bottom" id="p1u-eZ-ndo"/>
+                            <constraint firstAttribute="trailing" secondItem="NOR-cY-jSW" secondAttribute="trailing" id="tzU-KX-MrI"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LyU-GV-3wz">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                    </collectionView>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="NOR-cY-jSW" secondAttribute="bottom" constant="8" id="N0g-pE-Xwz"/>
-                    <constraint firstAttribute="trailing" secondItem="NOR-cY-jSW" secondAttribute="trailing" constant="8" id="caC-z8-DEq"/>
-                    <constraint firstItem="NOR-cY-jSW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="non-vJ-s3S"/>
-                    <constraint firstItem="NOR-cY-jSW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="tlg-De-bbj"/>
+                    <constraint firstItem="sUd-dz-Z2m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Qj4-Qf-7sb"/>
+                    <constraint firstAttribute="bottom" secondItem="sUd-dz-Z2m" secondAttribute="bottom" constant="8" id="Ym0-yV-2ng"/>
+                    <constraint firstItem="sUd-dz-Z2m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="i2c-Rb-WFb"/>
+                    <constraint firstAttribute="trailing" secondItem="sUd-dz-Z2m" secondAttribute="trailing" constant="8" id="wOC-6X-eFA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -78,13 +78,13 @@ extension ProductDetailsVariants1TableViewCell: UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let options = optionModel?.optionValues, !options.isEmpty {
             let optionValueModel = options[indexPath.row]
-            var textWidth = (optionValueModel.name?.width(withConstrainedHeight: 32, font: .appFont(ofSize: 12, weight: .semiBold)) ?? 0) + 32
+            var textWidth = (optionValueModel.name?.width(withConstrainedHeight: 32, font: .appFont(ofSize: 12, weight: .regular)) ?? 0) + 32
             
-            if textWidth < 70 {
-                textWidth = 70
+            if textWidth < 46 {
+                textWidth = 46
             }
             
-            return CGSize(width: textWidth, height: 70)
+            return CGSize(width: textWidth, height: 46)
         }
         
         /*

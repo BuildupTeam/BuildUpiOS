@@ -26,11 +26,11 @@ class ProductDetailsVariants1CollectionViewCell: UICollectionViewCell {
     
     private func setupCell() {
         containerView.layer.masksToBounds = true
-        containerView.layer.cornerRadius = 25 //containerView.frame.size.width / 2
+        containerView.layer.cornerRadius = 23 //containerView.frame.size.width / 2
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
         
-        titleLabel.font = .appFont(ofSize: 12, weight: .semiBold)
+        titleLabel.font = .appFont(ofSize: 12, weight: .regular)
         
         titleLabel.textColor = ThemeManager.colorPalette?.tabsTextInactive?.toUIColor(hexa: ThemeManager.colorPalette?.tabsTextInactive ?? "")
     }

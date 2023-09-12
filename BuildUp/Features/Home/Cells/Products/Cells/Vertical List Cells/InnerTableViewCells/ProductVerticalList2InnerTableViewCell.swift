@@ -17,6 +17,7 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var productDiscountLabel: UILabel!
     
     @IBOutlet private weak var productDiscountView: UIView!
+    @IBOutlet private weak var productOldPriceMarkedView: UIView!
     @IBOutlet private weak var containerView: UIView!
     
     var productModel: ProductModel? {
@@ -61,6 +62,17 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
             productNameLabel.text = model.name ?? ""
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
+            productDiscountLabel.text = String(model.discount ?? 0) + " %"
+            
+            if (model.discount ?? 0) > 0 {
+                productDiscountView.isHidden = false
+                productOldPriceLabel.isHidden = false
+                productOldPriceMarkedView.isHidden = false
+            } else {
+                productOldPriceLabel.isHidden = true
+                productDiscountView.isHidden = true
+                productOldPriceMarkedView.isHidden = true
+            }
             
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)

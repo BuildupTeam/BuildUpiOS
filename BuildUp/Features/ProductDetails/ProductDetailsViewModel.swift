@@ -93,6 +93,7 @@ class ProductDetailsViewModel: BaseViewModel {
     func getCachedData() {
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
             self.productDetailsSettings = settings
+            viewTitle = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.page
         }
     }
 }

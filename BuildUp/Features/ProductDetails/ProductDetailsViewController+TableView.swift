@@ -42,8 +42,9 @@ enum ProductDetailsQuantityStyle: String {
 }
 
 enum RecommendedProductsDesign: String {
-    case grid = "grid"
-    case list = "list"
+    case horizontal = "product-horizontal-list-1"
+    case grid1 = "product-vertical-grid-1"
+    case grid2 = "product-vertical-grid-2"
 }
 
 // MARK: Register TableView Cells
@@ -89,8 +90,14 @@ extension ProductDetailsViewController {
             UINib(nibName: RecommentedProductsType2TableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: RecommentedProductsType2TableViewCell.identifier)
         self.tableView.register(
+            UINib(nibName: RecommendedProductsType3TableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: RecommendedProductsType3TableViewCell.identifier)
+        self.tableView.register(
             UINib(nibName: ProductDetailsQuantityCircleTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ProductDetailsQuantityCircleTableViewCell.identifier)
+        self.tableView.register(
+            UINib(nibName: ProductDetailsQuantityDropDownTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ProductDetailsQuantityDropDownTableViewCell.identifier)
         self.tableView.register(
             UINib(nibName: ProductHorizontalList1TableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ProductHorizontalList1TableViewCell.identifier)
@@ -197,7 +204,7 @@ extension ProductDetailsViewController {
         return cell
     }
     
-    private func getProductDetailsQuantityCell(indexPath: IndexPath, productModel: ProductModel) -> UITableViewCell {
+    private func getProductDetailsQuantityCircleCell(indexPath: IndexPath, productModel: ProductModel) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ProductDetailsQuantityCircleTableViewCell.identifier,
             for: indexPath) as? ProductDetailsQuantityCircleTableViewCell
@@ -209,7 +216,19 @@ extension ProductDetailsViewController {
         return cell
     }
     
-    private func getRelatedProductsGridCell(indexPath: IndexPath, productModel: ProductModel) -> UITableViewCell {
+    private func getProductDetailsQuantityDropDownCell(indexPath: IndexPath, productModel: ProductModel) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ProductDetailsQuantityDropDownTableViewCell.identifier,
+            for: indexPath) as? ProductDetailsQuantityDropDownTableViewCell
+        else { return UITableViewCell() }
+        
+//        cell.delegate = self
+        cell.productModel = productModel
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    private func getRelatedProductsHorizontalCell(indexPath: IndexPath, productModel: ProductModel) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: RecommentedProductsType1TableViewCell.identifier,
             for: indexPath) as? RecommentedProductsType1TableViewCell
@@ -221,10 +240,22 @@ extension ProductDetailsViewController {
         return cell
     }
     
-    private func getRelatedProductsListCell(indexPath: IndexPath, productModel: ProductModel) -> UITableViewCell {
+    private func getRelatedProductsGrid1Cell(indexPath: IndexPath, productModel: ProductModel) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: RecommentedProductsType2TableViewCell.identifier,
             for: indexPath) as? RecommentedProductsType2TableViewCell
+        else { return UITableViewCell() }
+        
+//        cell.delegate = self
+        cell.productModel = productModel
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    private func getRelatedProductsGrid2Cell(indexPath: IndexPath, productModel: ProductModel) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: RecommendedProductsType3TableViewCell.identifier,
+            for: indexPath) as? RecommendedProductsType3TableViewCell
         else { return UITableViewCell() }
         
 //        cell.delegate = self
@@ -266,14 +297,23 @@ extension ProductDetailsViewController {
                     }
                 }
             case ProductDetailsSection.quantity.rawValue:
-                return self.getProductDetailsQuantityCell(indexPath: indexPath, productModel: productModel)
+                if let settings = viewModel.productDetailsSettings {
+                    switch settings.quantityStyle {
+                    case ProductDetailsQuantityStyle.circle.rawValue:
+                        return self.getProductDetailsQuantityCircleCell(indexPath: indexPath, productModel: productModel)
+                    case ProductDetailsQuantityStyle.dropdown.rawValue:
+                        return self.getProductDetailsQuantityDropDownCell(indexPath: indexPath, productModel: productModel)
+                    default:
+                        return UITableViewCell()
+                    }
+                }
             case ProductDetailsSection.variants.rawValue:
                 if let settings = viewModel.productDetailsSettings {
                     switch settings.variants {
                     case ProductDetailsVarianrs.variants1.rawValue:
                         return self.getProductDetailsVariants1Cell(indexPath: indexPath, productModel: productModel)
                     case ProductDetailsVarianrs.variants2.rawValue:
-                        return self.getProductDetailsVariants3Cell(indexPath: indexPath, productModel: productModel)
+                        return self.getProductDetailsVariants2Cell(indexPath: indexPath, productModel: productModel)
                     case ProductDetailsVarianrs.variants3.rawValue:
                         return self.getProductDetailsVariants3Cell(indexPath: indexPath, productModel: productModel)
                     default:
@@ -283,10 +323,12 @@ extension ProductDetailsViewController {
             case ProductDetailsSection.recommendedProducts.rawValue:
                 if let settings = viewModel.productDetailsSettings {
                     switch settings.recommendedProducts?.design {
-                    case RecommendedProductsDesign.grid.rawValue:
-                        return self.getRelatedProductsGridCell(indexPath: indexPath, productModel: productModel)
-                    case RecommendedProductsDesign.list.rawValue:
-                        return self.getRelatedProductsListCell(indexPath: indexPath, productModel: productModel)
+                    case RecommendedProductsDesign.horizontal.rawValue:
+                        return self.getRelatedProductsHorizontalCell(indexPath: indexPath, productModel: productModel)
+                    case RecommendedProductsDesign.grid1.rawValue:
+                        return self.getRelatedProductsGrid1Cell(indexPath: indexPath, productModel: productModel)
+                    case RecommendedProductsDesign.grid2.rawValue:
+                        return self.getRelatedProductsGrid2Cell(indexPath: indexPath, productModel: productModel)
                     default:
                         return UITableViewCell()
                     }
@@ -342,10 +384,6 @@ extension ProductDetailsViewController: UITableViewDelegate, UITableViewDataSour
             return UITableView.automaticDimension
         }
         switch indexPath.section {
-        case ProductDetailsSection.variants.rawValue:
-            if viewModel.productDetailsSettings?.variants == ProductDetailsVarianrs.variants2.rawValue {
-                return CGFloat((viewModel.productModel?.options?.count ?? 0) * 60)
-            }
         case ProductDetailsSection.quantity.rawValue:
             if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
                 if settings.quantityPosition == ProductDetailsQuantityPosition.bottom.rawValue {

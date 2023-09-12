@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWT-OX-TJ7">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="106"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K4X-wY-QQ3">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K4X-wY-QQ3">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="106"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZD-jY-OAx">
@@ -119,6 +119,7 @@
                 <outlet property="productNameLabel" destination="z8W-pW-D9H" id="U0k-bb-SKA"/>
                 <outlet property="productNewPriceLabel" destination="m1b-Qe-bSK" id="tIo-bz-iIu"/>
                 <outlet property="productOldPriceLabel" destination="VAE-r3-cSI" id="ky8-Vf-dX2"/>
+                <outlet property="productOldPriceMarkedView" destination="rLb-wP-Cp2" id="xRz-5M-Oy4"/>
             </connections>
             <point key="canvasLocation" x="43" y="20"/>
         </tableViewCell>

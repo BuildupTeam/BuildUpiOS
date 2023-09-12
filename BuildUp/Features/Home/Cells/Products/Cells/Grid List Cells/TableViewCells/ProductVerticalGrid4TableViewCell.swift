@@ -48,7 +48,7 @@ class ProductVerticalGrid4TableViewCell: UITableViewCell {
     private func bindData() {
         if let homeSection = homeSectionModel {
             if !(homeSection.products?.isEmpty ?? false) {
-                if homeSection.products?.count ?? 0 > 2 {
+                if homeSection.products?.count ?? 0 > 3 {
                     collectionViewHeightConstrains.constant = 320
                 } else {
                     collectionViewHeightConstrains.constant = 155
@@ -75,6 +75,7 @@ extension ProductVerticalGrid4TableViewCell: UICollectionViewDelegate, UICollect
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
             return sectionModel.products?.count ?? 0
         }
+        
         return 4
     }
     
@@ -101,10 +102,19 @@ extension ProductVerticalGrid4TableViewCell: UICollectionViewDelegate, UICollect
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
-        let cellWidth = (screenWidth - 32) / 3
+        //        let screenWidth = UIScreen.main.bounds.width
+        //        let cellWidth = (screenWidth - 16) / 3
+        //
+        //        return CGSize(width: cellWidth, height: 155)
         
-        return CGSize(width: cellWidth, height: 310)
+        let noOfCellsInRow = 3   //number of column you want
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let totalSpace = flowLayout.sectionInset.left
+        + flowLayout.sectionInset.right
+        + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+        
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
+        return CGSize(width: size, height: 155)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -10,14 +10,17 @@ import UIKit
 class RecommentedProductsType2TableViewCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionViewHeightConstrains: NSLayoutConstraint!
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var headerViewHeightContraints: NSLayoutConstraint!
     @IBOutlet private weak var containerViewHeightContraints: NSLayoutConstraint!
     @IBOutlet private weak var headerTitleLabel: UILabel!
     @IBOutlet private weak var headerSeeMoreButton: UIButton!
+    
 
     var productModel: ProductModel? {
         didSet {
+            self.bindData()
             self.collectionView.reloadData()
         }
     }
@@ -54,20 +57,34 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
                 }
                 
                 headerView.isHidden = false
-                containerViewHeightContraints.constant = 322
+                containerViewHeightContraints.constant = 272
                 headerViewHeightContraints.constant = 40
             } else {
                 headerView.isHidden = true
-                containerViewHeightContraints.constant = 282
+                containerViewHeightContraints.constant = 232
                 headerViewHeightContraints.constant = 0
+            }
+        }
+    }
+    
+    private func bindData() {
+        
+        if let productModel = productModel {
+            if !(productModel.relatedProducts?.isEmpty ?? false) {
+                if productModel.relatedProducts?.count ?? 0 > 2 {
+                    collectionViewHeightConstrains.constant = 400
+                    containerViewHeightContraints.constant += 200
+                } else {
+                    collectionViewHeightConstrains.constant = 200
+                }
             }
         }
     }
     
     private func registerCollectionViewCells() {
         self.collectionView.register(
-            UINib(nibName: RecommentedProductsType2CollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: RecommentedProductsType2CollectionViewCell.identifier)
+            UINib(nibName: ProductVerticalGrid1CollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: ProductVerticalGrid1CollectionViewCell.identifier)
     }
     
 }
@@ -85,8 +102,8 @@ extension RecommentedProductsType2TableViewCell: UICollectionViewDelegate, UICol
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: RecommentedProductsType2CollectionViewCell.identifier,
-                for: indexPath) as? RecommentedProductsType2CollectionViewCell else { return UICollectionViewCell() }
+                withReuseIdentifier: ProductVerticalGrid1CollectionViewCell.identifier,
+                for: indexPath) as? ProductVerticalGrid1CollectionViewCell else { return UICollectionViewCell() }
             
             if let model = productModel, !(model.relatedProducts?.isEmpty ?? false) {
                 cell.productModel = model.relatedProducts?[indexPath.row]
@@ -96,8 +113,10 @@ extension RecommentedProductsType2TableViewCell: UICollectionViewDelegate, UICol
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let cellWidth = (screenWidth - 32) / 2
         
-        return CGSize(width: 182, height: 266)
+        return CGSize(width: cellWidth, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

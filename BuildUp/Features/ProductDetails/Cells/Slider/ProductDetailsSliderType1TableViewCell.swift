@@ -65,9 +65,14 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         productOutOfStockLabel.textColor = ThemeManager.colorPalette?.tabsTextInactive?.toUIColor(hexa: ThemeManager.colorPalette?.tabsTextInactive ?? "")
         
         seperatorView.backgroundColor = ThemeManager.colorPalette?.separator?.toUIColor(hexa: ThemeManager.colorPalette?.separator ?? "")
+        
         addToFavoriteSeparatedView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
         addToFavoriteSeparatedView.layer.masksToBounds = true
-        addToFavoriteSeparatedView.layer.cornerRadius = 8
+        addToFavoriteSeparatedView.layer.cornerRadius = addToFavoriteSeparatedView.frame.size.width / 2
+        
+        addToFavoriteGroupedView.backgroundColor = ThemeManager.colorPalette?.navButtonBgColor?.toUIColor(hexa: ThemeManager.colorPalette?.navButtonBgColor ?? "")
+        addToFavoriteGroupedView.layer.masksToBounds = true
+        addToFavoriteGroupedView.layer.cornerRadius = 16
         
         productOutOfStockView.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBg?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBg ?? "")
         productOutOfStockView.layer.masksToBounds = true
@@ -101,7 +106,7 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
-            productDescriptionLabel.text = (model.productDescription ?? "").maxLength(length: 70)
+            productDescriptionLabel.text = (model.productDescription ?? "").maxLength(length: 69)
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
             

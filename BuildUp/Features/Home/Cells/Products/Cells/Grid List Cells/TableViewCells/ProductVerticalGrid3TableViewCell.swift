@@ -97,7 +97,7 @@ extension ProductVerticalGrid3TableViewCell: UICollectionViewDelegate, UICollect
         let screenWidth = UIScreen.main.bounds.width
         let cellWidth = (screenWidth - 32) / 2
         
-        return CGSize(width: cellWidth, height: 516)
+        return CGSize(width: cellWidth, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

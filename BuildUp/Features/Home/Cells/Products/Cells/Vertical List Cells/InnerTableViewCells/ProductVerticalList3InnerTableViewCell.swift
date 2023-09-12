@@ -46,6 +46,9 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productCountLabel.textColor = ThemeManager.colorPalette?.quantityCounterColor?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? "")
         
+        addToFavoriteView.layer.masksToBounds = true
+        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
+        
         containerView.setShadow(
             shadowRadius: CGFloat(5),
             xOffset: 0,

@@ -35,6 +35,7 @@ internal enum Asset {
   internal static let productDetailsFav = ImageAsset(name: "product_details_fav")
   internal static let productDetailsShare = ImageAsset(name: "product_details_share")
   internal static let remove = ImageAsset(name: "remove")
+  internal static let addToCart = ImageAsset(name: "Add_to_cart")
   internal static let icPlaceholderProduct = ImageAsset(name: "ic_Placeholder_product")
   internal static let productAddtoCart = ImageAsset(name: "product_addtoCart")
   internal static let productAddtoCartWhite = ImageAsset(name: "product_addtoCart_white")

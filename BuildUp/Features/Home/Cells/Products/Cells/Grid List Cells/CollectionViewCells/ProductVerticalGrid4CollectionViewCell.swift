@@ -25,6 +25,7 @@ class ProductVerticalGrid4CollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {        
+        ThemeManager.setCornerRadious(element: containerView, radius: 8)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
     }
 

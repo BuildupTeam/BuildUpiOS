@@ -76,11 +76,11 @@ extension ProductDetailsVariants2TableViewCell: UICollectionViewDelegate, UIColl
             let optionValueModel = options[indexPath.row]
             var textWidth = (optionValueModel.name?.width(withConstrainedHeight: 32, font: .appFont(ofSize: 12, weight: .semiBold)) ?? 0) + 32
             
-            if textWidth < 50 {
-                textWidth = 50
+            if textWidth < 34 {
+                textWidth = 34
             }
             
-            return CGSize(width: textWidth, height: 50)
+            return CGSize(width: textWidth, height: 34)
         }
         
         return CGSize.zero

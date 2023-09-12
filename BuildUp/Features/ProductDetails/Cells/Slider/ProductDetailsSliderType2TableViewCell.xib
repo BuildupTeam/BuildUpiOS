@@ -193,6 +193,7 @@
                 <outlet property="cartButton" destination="sZx-Pc-ldd" id="EIi-7C-CRi"/>
                 <outlet property="collectionView" destination="qQT-sE-ToC" id="eVH-fu-pet"/>
                 <outlet property="containerView" destination="cU8-DZ-Clm" id="eUP-C7-SqY"/>
+                <outlet property="containerViewHeightConstraint" destination="zYO-2T-hlx" id="Ln4-iF-xiJ"/>
                 <outlet property="favoriteButton" destination="jQi-2c-bW5" id="2CS-Na-vo2"/>
                 <outlet property="pageControlView" destination="ENI-1A-M1I" id="341-9c-80i"/>
                 <outlet property="productDescriptionLabel" destination="2rT-m2-n8Q" id="uHt-hE-igI"/>
