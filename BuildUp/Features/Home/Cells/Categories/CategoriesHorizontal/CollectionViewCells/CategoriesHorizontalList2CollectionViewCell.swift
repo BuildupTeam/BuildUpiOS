@@ -32,13 +32,18 @@ class CategoriesHorizontalList2CollectionViewCell: UICollectionViewCell {
         categoryNameLabel.font = .appFont(ofSize: 13, weight: .semiBold)
         categoryNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = UIColor.lightGray.cgColor
-        
-        categoryImageContainerView.layer.masksToBounds = true
-        categoryImageContainerView.layer.cornerRadius = 4
+        containerView.setShadow(
+            shadowRadius: CGFloat(5),
+            xOffset: 0,
+            yOffset: 0,
+            color: .black,
+            opacity: 0.15,
+            cornerRadius: 8,
+            masksToBounds: false)
         
         ThemeManager.setCornerRadious(element: containerView, radius: 8)
+        ThemeManager.setCornerRadious(element: categoryImageContainerView, radius: 4)
+        ThemeManager.setCornerRadious(element: categoryImageView, radius: 4)
     }
     
     func bindData() {
@@ -48,7 +53,7 @@ class CategoriesHorizontalList2CollectionViewCell: UICollectionViewCell {
             if let imageUrl = model.image?.path {
                 categoryImageView.setImage(with: imageUrl)
             } else {
-                categoryImageView.image = Asset.icPlaceholderProduct.image
+                categoryImageView.image = UIImage() //Asset.icPlaceholderProduct.image
             }
         }
     }

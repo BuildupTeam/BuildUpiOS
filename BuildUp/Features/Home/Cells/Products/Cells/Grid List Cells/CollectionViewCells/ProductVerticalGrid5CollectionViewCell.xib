@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAu-4l-FNC">
-                        <rect key="frame" x="8" y="8" width="104" height="194"/>
+                        <rect key="frame" x="4" y="8" width="112" height="194"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oco-oE-c9Z">
-                                <rect key="frame" x="0.0" y="0.0" width="104" height="139"/>
+                                <rect key="frame" x="0.0" y="0.0" width="112" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="139" id="eHR-qk-ase"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blazer with golden bottoms with leather jacket" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icy-eo-KER">
-                                <rect key="frame" x="0.0" y="149" width="104" height="37"/>
+                                <rect key="frame" x="8" y="149" width="96" height="37"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,21 +36,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="194" id="2Ty-zt-QuM"/>
-                            <constraint firstAttribute="trailing" secondItem="icy-eo-KER" secondAttribute="trailing" id="AuT-QD-Rsy"/>
+                            <constraint firstAttribute="trailing" secondItem="icy-eo-KER" secondAttribute="trailing" constant="8" id="AuT-QD-Rsy"/>
                             <constraint firstItem="icy-eo-KER" firstAttribute="top" secondItem="oco-oE-c9Z" secondAttribute="bottom" constant="10" id="RQ8-Ey-K4m"/>
                             <constraint firstItem="oco-oE-c9Z" firstAttribute="top" secondItem="DAu-4l-FNC" secondAttribute="top" id="Wdw-9d-D3U"/>
                             <constraint firstAttribute="trailing" secondItem="oco-oE-c9Z" secondAttribute="trailing" id="faZ-m0-BDF"/>
                             <constraint firstItem="oco-oE-c9Z" firstAttribute="leading" secondItem="DAu-4l-FNC" secondAttribute="leading" id="kE0-Yn-Hz8"/>
                             <constraint firstAttribute="bottom" secondItem="icy-eo-KER" secondAttribute="bottom" constant="8" id="uEF-w3-bDq"/>
-                            <constraint firstItem="icy-eo-KER" firstAttribute="leading" secondItem="DAu-4l-FNC" secondAttribute="leading" id="y1e-VB-NrQ"/>
+                            <constraint firstItem="icy-eo-KER" firstAttribute="leading" secondItem="DAu-4l-FNC" secondAttribute="leading" constant="8" id="y1e-VB-NrQ"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="DAu-4l-FNC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="CeT-rM-60f"/>
-                <constraint firstAttribute="trailing" secondItem="DAu-4l-FNC" secondAttribute="trailing" constant="8" id="a8h-vd-VzM"/>
+                <constraint firstItem="DAu-4l-FNC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="CeT-rM-60f"/>
+                <constraint firstAttribute="trailing" secondItem="DAu-4l-FNC" secondAttribute="trailing" constant="4" id="a8h-vd-VzM"/>
                 <constraint firstAttribute="bottom" secondItem="DAu-4l-FNC" secondAttribute="bottom" constant="8" id="e66-lC-rpk"/>
                 <constraint firstItem="DAu-4l-FNC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="iog-Jh-Opd"/>
             </constraints>

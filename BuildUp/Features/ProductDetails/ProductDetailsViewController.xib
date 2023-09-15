@@ -181,6 +181,9 @@
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain"/>
+                                                            <connections>
+                                                                <action selector="quantityActionButton:" destination="uIa-0D-NGd" eventType="touchUpInside" id="wkL-GS-9bZ"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMW-nh-m9s">
                                                             <rect key="frame" x="46.666666666666671" y="17.666666666666629" width="21" height="20.666666666666671"/>

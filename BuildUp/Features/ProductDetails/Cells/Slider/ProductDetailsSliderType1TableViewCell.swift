@@ -120,7 +120,7 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
                 if let imageUrl = fileModel.path {
                     productImageView.setImage(with: imageUrl)
                 } else {
-                    productImageView.image = Asset.icPlaceholderProduct.image
+                    productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
                 }
             }
             

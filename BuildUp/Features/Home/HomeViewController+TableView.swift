@@ -252,6 +252,7 @@ extension HomeViewController {
             else { return UITableViewCell() }
         
         cell.homeSectionModel = homeSectionModel
+        cell.delegate = self
         cell.selectionStyle = .none
         return cell
     }

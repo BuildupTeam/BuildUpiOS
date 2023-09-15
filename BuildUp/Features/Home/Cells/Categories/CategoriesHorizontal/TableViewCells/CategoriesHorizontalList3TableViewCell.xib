@@ -21,7 +21,7 @@
                         <rect key="frame" x="8" y="8" width="304" height="190"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="190" id="7ow-4d-Ac8"/>
+                            <constraint firstAttribute="height" constant="190" id="7ow-4d-Ac8"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KFO-ei-Phy">
                             <size key="itemSize" width="128" height="128"/>

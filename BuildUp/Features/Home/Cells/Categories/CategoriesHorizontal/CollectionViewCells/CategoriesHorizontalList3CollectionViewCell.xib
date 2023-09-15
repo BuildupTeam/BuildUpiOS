@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-W4-bML">
-                        <rect key="frame" x="8" y="8" width="104" height="174"/>
+                        <rect key="frame" x="4" y="8" width="112" height="174"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvA-WT-Xgj">
-                                <rect key="frame" x="0.0" y="0.0" width="104" height="140"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvA-WT-Xgj">
+                                <rect key="frame" x="0.0" y="0.0" width="112" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="z8G-qC-aMK"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-I3-DUV">
-                                <rect key="frame" x="8" y="150.66666666666666" width="88" height="20.333333333333343"/>
+                                <rect key="frame" x="8" y="150" width="96" height="19"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,8 +35,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="d3Y-I3-DUV" secondAttribute="bottom" constant="3" id="Myd-kl-FpS"/>
+                            <constraint firstAttribute="bottom" secondItem="d3Y-I3-DUV" secondAttribute="bottom" constant="5" id="Myd-kl-FpS"/>
                             <constraint firstItem="NvA-WT-Xgj" firstAttribute="leading" secondItem="Gvm-W4-bML" secondAttribute="leading" id="WXc-9I-RjU"/>
+                            <constraint firstItem="d3Y-I3-DUV" firstAttribute="top" secondItem="NvA-WT-Xgj" secondAttribute="bottom" constant="10" id="nrl-vL-8CV"/>
                             <constraint firstAttribute="trailing" secondItem="NvA-WT-Xgj" secondAttribute="trailing" id="sJY-3v-jQf"/>
                             <constraint firstAttribute="trailing" secondItem="d3Y-I3-DUV" secondAttribute="trailing" constant="8" id="ut3-Ud-G6g"/>
                             <constraint firstItem="NvA-WT-Xgj" firstAttribute="top" secondItem="Gvm-W4-bML" secondAttribute="top" id="wjH-sN-UNs"/>
@@ -50,8 +51,8 @@
             <constraints>
                 <constraint firstItem="Gvm-W4-bML" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="8vd-2c-csZ"/>
                 <constraint firstAttribute="bottom" secondItem="Gvm-W4-bML" secondAttribute="bottom" constant="8" id="9oY-7r-5h9"/>
-                <constraint firstAttribute="trailing" secondItem="Gvm-W4-bML" secondAttribute="trailing" constant="8" id="AZs-0a-CdC"/>
-                <constraint firstItem="Gvm-W4-bML" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="vDE-ci-Nd2"/>
+                <constraint firstAttribute="trailing" secondItem="Gvm-W4-bML" secondAttribute="trailing" constant="4" id="AZs-0a-CdC"/>
+                <constraint firstItem="Gvm-W4-bML" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="vDE-ci-Nd2"/>
             </constraints>
             <connections>
                 <outlet property="categoryImageView" destination="NvA-WT-Xgj" id="0pE-TP-JWa"/>

@@ -38,6 +38,15 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         
+        containerView.setShadow(
+            shadowRadius: CGFloat(5),
+            xOffset: 0,
+            yOffset: 0,
+            color: .black,
+            opacity: 0.15,
+            cornerRadius: 8,
+            masksToBounds: false)
+        
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
@@ -54,7 +63,7 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)
             } else {
-                productImageView.image = Asset.icPlaceholderProduct.image
+                productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
         }
     }

@@ -25,7 +25,16 @@ class CategoriesVerticalGrid3CollectionViewCell: UICollectionViewCell {
     }
 
     private func setupCell() {
-        ThemeManager.setCornerRadious(element: containerView, radius: 8)
+        containerView.setShadow(
+            shadowRadius: CGFloat(5),
+            xOffset: 0,
+            yOffset: 0,
+            color: .black,
+            opacity: 0.15,
+            cornerRadius: 8,
+            masksToBounds: false)
+        
+        ThemeManager.setCornerRadious(element: categoryImageView, radius: 8)
     }
     
     func bindData() {
@@ -33,7 +42,7 @@ class CategoriesVerticalGrid3CollectionViewCell: UICollectionViewCell {
             if let imageUrl = model.image?.path {
                 categoryImageView.setImage(with: imageUrl)
             } else {
-                categoryImageView.image = Asset.icPlaceholderProduct.image
+                categoryImageView.image = UIImage() //Asset.icPlaceholderProduct.image
             }
         }
     }

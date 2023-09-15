@@ -38,21 +38,19 @@
                                     <constraint firstItem="vXh-mO-lcx" firstAttribute="leading" secondItem="Jgg-Hp-5az" secondAttribute="leading" constant="5" id="hQA-Ee-P69"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="EvC-NL-kis">
-                                <rect key="frame" x="35" y="47" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="bM3-AC-1q6"/>
-                                    <constraint firstAttribute="height" constant="36" id="vko-ld-OMw"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="EvC-NL-kis">
+                                <rect key="frame" x="0.0" y="0.0" width="106" height="133"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.83921568629999999" green="0.86274509799999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Jgg-Hp-5az" firstAttribute="top" secondItem="EvC-NL-kis" secondAttribute="bottom" id="EHe-ew-145"/>
+                            <constraint firstItem="EvC-NL-kis" firstAttribute="top" secondItem="aZ1-uk-qNT" secondAttribute="top" id="KLt-lN-RmL"/>
                             <constraint firstItem="Jgg-Hp-5az" firstAttribute="leading" secondItem="aZ1-uk-qNT" secondAttribute="leading" id="LeZ-Rb-xLw"/>
                             <constraint firstAttribute="bottom" secondItem="Jgg-Hp-5az" secondAttribute="bottom" id="YT8-pl-3I1"/>
                             <constraint firstAttribute="trailing" secondItem="Jgg-Hp-5az" secondAttribute="trailing" id="YrK-WS-1Ud"/>
-                            <constraint firstItem="EvC-NL-kis" firstAttribute="top" secondItem="aZ1-uk-qNT" secondAttribute="top" constant="47" id="b5w-SW-0Zi"/>
-                            <constraint firstItem="EvC-NL-kis" firstAttribute="centerX" secondItem="aZ1-uk-qNT" secondAttribute="centerX" id="kT0-5Q-QtZ"/>
+                            <constraint firstItem="EvC-NL-kis" firstAttribute="leading" secondItem="aZ1-uk-qNT" secondAttribute="leading" id="fYz-LG-Y5u"/>
+                            <constraint firstAttribute="trailing" secondItem="EvC-NL-kis" secondAttribute="trailing" id="mn7-sX-g59"/>
                         </constraints>
                     </view>
                 </subviews>

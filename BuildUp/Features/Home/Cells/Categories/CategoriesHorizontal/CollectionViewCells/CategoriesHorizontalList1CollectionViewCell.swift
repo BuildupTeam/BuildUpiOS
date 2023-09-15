@@ -29,6 +29,8 @@ class CategoriesHorizontalList1CollectionViewCell: UICollectionViewCell {
         categoryNameLabel.textColor = ThemeManager.colorPalette?.tabsTextInactive?.toUIColor(hexa: ThemeManager.colorPalette?.tabsTextInactive ?? "")
         
         containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
+        containerView.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBg?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBg ?? "")
         
         ThemeManager.setCornerRadious(element: containerView, radius: 8)
     }
@@ -48,5 +50,4 @@ class CategoriesHorizontalList1CollectionViewCell: UICollectionViewCell {
             }
         }
     }
-
 }

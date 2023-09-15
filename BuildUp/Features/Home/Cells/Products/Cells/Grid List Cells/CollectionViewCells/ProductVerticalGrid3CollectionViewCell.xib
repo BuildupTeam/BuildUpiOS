@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBM-b6-2fy">
-                        <rect key="frame" x="8" y="8" width="166" height="234"/>
+                        <rect key="frame" x="4" y="8" width="174" height="234"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJ1-hg-Ufc">
-                                <rect key="frame" x="0.0" y="0.0" width="166" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="174" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="mxP-wW-W73"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blazer with golden bottoms with leather jacket" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7h-1c-MpO">
-                                <rect key="frame" x="8" y="160" width="150" height="31.333333333333343"/>
+                                <rect key="frame" x="8" y="160" width="158" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YVo-u1-iRo">
-                                <rect key="frame" x="124" y="195.33333333333334" width="30" height="30"/>
+                                <rect key="frame" x="132" y="195.33333333333334" width="30" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_addtoCart_white" translatesAutoresizingMaskIntoConstraints="NO" id="ps4-aJ-ha6">
                                         <rect key="frame" x="7.6666666666666563" y="8.6666666666666572" width="14.666666666666661" height="12.666666666666664"/>
@@ -87,9 +87,9 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="cBM-b6-2fy" secondAttribute="bottom" constant="8" id="8x5-NK-lz4"/>
-                <constraint firstItem="cBM-b6-2fy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Z0U-8C-N3w"/>
+                <constraint firstItem="cBM-b6-2fy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="Z0U-8C-N3w"/>
                 <constraint firstItem="cBM-b6-2fy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="eKf-h4-bjz"/>
-                <constraint firstAttribute="trailing" secondItem="cBM-b6-2fy" secondAttribute="trailing" constant="8" id="ydJ-Xl-aiL"/>
+                <constraint firstAttribute="trailing" secondItem="cBM-b6-2fy" secondAttribute="trailing" constant="4" id="ydJ-Xl-aiL"/>
             </constraints>
             <connections>
                 <outlet property="addToCartButton" destination="zPN-2w-hPx" id="8B0-Gi-fpG"/>

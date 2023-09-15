@@ -32,5 +32,22 @@ class ThemeManager {
             element.layer.cornerRadius = 0
         }
     }
+    
+    static func roundCorners(element: UIView, corners: UIRectCorner, radius: CGFloat) {
+        var isCurved = false
+        if let themeData = CachingService.getThemeData() {
+            if themeData.systemStyle == "curved" {
+                isCurved = true
+            }
+        }
+        if !isCurved {
+            return
+        }
+        
+        let path = UIBezierPath(roundedRect: element.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        element.layer.mask = mask
+    }
 }
 

@@ -24,7 +24,16 @@ class ProductVerticalGrid4CollectionViewCell: UICollectionViewCell {
         setupCell()
     }
     
-    private func setupCell() {        
+    private func setupCell() {
+        containerView.setShadow(
+            shadowRadius: CGFloat(5),
+            xOffset: 0,
+            yOffset: 0,
+            color: .black,
+            opacity: 0.15,
+            cornerRadius: 8,
+            masksToBounds: false)
+        
         ThemeManager.setCornerRadious(element: containerView, radius: 8)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
     }
@@ -34,7 +43,7 @@ class ProductVerticalGrid4CollectionViewCell: UICollectionViewCell {
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)
             } else {
-                productImageView.image = Asset.icPlaceholderProduct.image
+                productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
         }
     }

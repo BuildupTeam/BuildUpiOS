@@ -31,7 +31,17 @@ class CategoriesVerticalGrid2CollectionViewCell: UICollectionViewCell {
         categoryNameLabel.textColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
         categoryNameContainerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         
-        ThemeManager.setCornerRadious(element: containerView, radius: 8)
+        containerView.setShadow(
+            shadowRadius: CGFloat(5),
+            xOffset: 0,
+            yOffset: 0,
+            color: .black,
+            opacity: 0.15,
+            cornerRadius: 8,
+            masksToBounds: false)
+        
+        ThemeManager.roundCorners(element: categoryImageView, corners: [.topLeft, .topRight], radius: 8)
+        ThemeManager.roundCorners(element: categoryNameContainerView, corners: [.bottomLeft, .bottomRight], radius: 8)
     }
     
     func bindData() {
@@ -39,8 +49,10 @@ class CategoriesVerticalGrid2CollectionViewCell: UICollectionViewCell {
             categoryNameLabel.text = model.name
             if let imageUrl = model.image?.path {
                 categoryImageView.setImage(with: imageUrl)
+                categoryImageView.contentMode = .scaleAspectFill
             } else {
-                categoryImageView.image = Asset.icPlaceholderProduct.image
+                categoryImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
+                categoryImageView.contentMode = .scaleAspectFit
             }
         }
     }

@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol HomeHeaderCellDelegate: AnyObject {
+    func seeAllButtonClicked(_ homeSectionModel: HomeSectionModel)
+}
+
 class HomeHeaderTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var seeAllButton: UIButton!
     
+    
+    weak var delegate: HomeHeaderCellDelegate?
     var homeSectionModel: HomeSectionModel? {
         didSet {
             bindData()
@@ -47,6 +53,12 @@ class HomeHeaderTableViewCell: UITableViewCell {
             } else {
                 seeAllButton.isHidden = true
             }
+        }
+    }
+    
+    @IBAction func seeAllButtonAction(_ sender: UIButton) {
+        if let model = homeSectionModel {
+            delegate?.seeAllButtonClicked(model)
         }
     }
 }

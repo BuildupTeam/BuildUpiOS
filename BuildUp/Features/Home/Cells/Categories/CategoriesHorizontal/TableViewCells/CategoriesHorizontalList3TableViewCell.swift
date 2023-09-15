@@ -81,10 +81,8 @@ extension CategoriesHorizontalList3TableViewCell: UICollectionViewDelegate, UICo
             return cell
         }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let textWidth = "mohamed".width(withConstrainedHeight: 40, font: .appFont(ofSize: 15, weight: .regular)) ?? 0
-        
-        return CGSize(width: (textWidth + 32), height: 40)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {        
+        return CGSize(width: 120, height: 190)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -27,7 +27,7 @@ class ProductDetailsSliderType2CollectionViewCell: UICollectionViewCell {
             if let imageUrl = model.path {
                 productImageView.setImage(with: imageUrl)
             } else {
-                productImageView.image = Asset.icPlaceholderProduct.image
+                productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
         }
     }

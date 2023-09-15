@@ -83,9 +83,13 @@ extension CategoriesHorizontalList2TableViewCell: UICollectionViewDelegate, UICo
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let textWidth = "mohamed".width(withConstrainedHeight: 40, font: .appFont(ofSize: 15, weight: .regular))
+//        if let sectionModel = homeSectionModel, !(sectionModel.categories?.isEmpty ?? false) {
+//            let model = sectionModel.categories?[indexPath.row]
+//            let textWidth = model?.name?.width(withConstrainedHeight: 40, font: .appFont(ofSize: 15, weight: .regular)) ?? 0
+//            return CGSize(width: (textWidth + 16), height: 40)
+//        }
         
-        return CGSize(width: (textWidth + 32), height: 40)
+        return CGSize(width: 88, height: 110)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

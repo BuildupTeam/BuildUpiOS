@@ -53,7 +53,7 @@ class ProductVerticalGrid1CollectionViewCell: UICollectionViewCell {
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)
             } else {
-                productImageView.image = Asset.icPlaceholderProduct.image
+                productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
         }
         

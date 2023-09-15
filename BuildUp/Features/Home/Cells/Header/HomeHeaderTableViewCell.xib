@@ -37,6 +37,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isWindlessable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="seeAllButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pTz-nt-mBx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

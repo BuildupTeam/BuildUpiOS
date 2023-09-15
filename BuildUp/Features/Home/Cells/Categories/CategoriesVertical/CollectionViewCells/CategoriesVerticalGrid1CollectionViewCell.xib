@@ -38,19 +38,17 @@
                                     <constraint firstItem="HYk-ga-hDk" firstAttribute="leading" secondItem="IHg-ws-uCm" secondAttribute="leading" constant="5" id="zNJ-fR-lKA"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Oor-ve-2Pp">
-                                <rect key="frame" x="64" y="27" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="gEd-rG-9d8"/>
-                                    <constraint firstAttribute="width" constant="36" id="yiK-Y8-MuM"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Oor-ve-2Pp">
+                                <rect key="frame" x="0.0" y="0.0" width="164" height="81"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.83921568627450982" green="0.86274509803921573" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Oor-ve-2Pp" firstAttribute="top" secondItem="iS5-KG-Dqn" secondAttribute="top" constant="27" id="5G5-qY-Caa"/>
-                            <constraint firstItem="Oor-ve-2Pp" firstAttribute="centerX" secondItem="iS5-KG-Dqn" secondAttribute="centerX" id="DJT-p1-4fA"/>
+                            <constraint firstItem="Oor-ve-2Pp" firstAttribute="leading" secondItem="iS5-KG-Dqn" secondAttribute="leading" id="7Vh-ce-4Fb"/>
                             <constraint firstItem="IHg-ws-uCm" firstAttribute="leading" secondItem="iS5-KG-Dqn" secondAttribute="leading" id="Gyr-eK-eSd"/>
+                            <constraint firstItem="Oor-ve-2Pp" firstAttribute="top" secondItem="iS5-KG-Dqn" secondAttribute="top" id="Idd-gt-wqz"/>
+                            <constraint firstAttribute="trailing" secondItem="Oor-ve-2Pp" secondAttribute="trailing" id="QYI-vX-KoH"/>
+                            <constraint firstItem="IHg-ws-uCm" firstAttribute="top" secondItem="Oor-ve-2Pp" secondAttribute="bottom" id="VYO-Kt-Vb4"/>
                             <constraint firstAttribute="bottom" secondItem="IHg-ws-uCm" secondAttribute="bottom" id="gvg-bL-MSE"/>
                             <constraint firstAttribute="trailing" secondItem="IHg-ws-uCm" secondAttribute="trailing" id="sPr-vj-BHt"/>
                         </constraints>
@@ -71,7 +69,7 @@
                 <outlet property="categoryNameLabel" destination="HYk-ga-hDk" id="6rc-kh-GKt"/>
                 <outlet property="containerView" destination="iS5-KG-Dqn" id="Vde-ai-4VH"/>
             </connections>
-            <point key="canvasLocation" x="102" y="20"/>
+            <point key="canvasLocation" x="100.76335877862596" y="19.718309859154932"/>
         </collectionViewCell>
     </objects>
     <resources>

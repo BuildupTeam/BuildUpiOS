@@ -10,6 +10,7 @@ import UIKit
 class CategoriesVerticalGrid1TableViewCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionViewHeightConstrains: NSLayoutConstraint!
 
     var isLoadingShimmer: Bool?
 
@@ -87,7 +88,7 @@ extension CategoriesVerticalGrid1TableViewCell: UICollectionViewDelegate, UIColl
         let screenWidth = UIScreen.main.bounds.width
         let cellWidth = (screenWidth - 32) / 2
         
-        return CGSize(width: cellWidth, height: 376)
+        return CGSize(width: cellWidth, height: 128)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

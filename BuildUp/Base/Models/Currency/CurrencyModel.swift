@@ -1,8 +1,8 @@
 //
 //  CurrencyModel.swift
-//  flyers
+//  BuildUp
 //
-//  Created by Mahmoud Nasser on 09/12/2022.
+//  Created by Mohamed Khaled on 14/09/2023.
 //
 
 import Foundation

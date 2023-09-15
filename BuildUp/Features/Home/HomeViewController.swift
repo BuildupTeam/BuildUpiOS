@@ -31,7 +31,6 @@ class HomeViewController: BaseViewController {
         setupResponse()
         getHomeData()
     }
-//    quantityActionButton.menu = menu
     
 }
 
@@ -104,11 +103,32 @@ extension HomeViewController {
     }
 }
 
-// MARK: - Delegates
+// MARK: - HomeProductsCellDelegate
 extension HomeViewController: HomeProductsCellDelegate {
     func homeProductTapped(productModel: ProductModel?) {
         let detailsVC = Coordinator.Controllers.createProductDetailsViewController()
         detailsVC.productModel = productModel
         self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+}
+
+// MARK: - HomeHeaderCellDelegate
+extension HomeViewController: HomeHeaderCellDelegate {
+    func seeAllButtonClicked(_ homeSectionModel: HomeSectionModel) {
+        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productList.rawValue})?.settings {
+            switch settings.list {
+            case ProductListDesign.list1.rawValue,
+                ProductListDesign.list2.rawValue:
+                let detailsVC = Coordinator.Controllers.createProductListViewController(homeSectionModel: homeSectionModel)
+                detailsVC.componentModel = homeSectionModel.component
+                self.navigationController?.pushViewController(detailsVC, animated: true)
+            case ProductListDesign.grid.rawValue:
+                let detailsVC = Coordinator.Controllers.createProductsGridViewController(homeSectionModel: homeSectionModel)
+                detailsVC.componentModel = homeSectionModel.component
+                self.navigationController?.pushViewController(detailsVC, animated: true)
+            default:
+                return
+            }
+        }
     }
 }

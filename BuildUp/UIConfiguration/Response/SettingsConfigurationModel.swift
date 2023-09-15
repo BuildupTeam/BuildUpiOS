@@ -14,6 +14,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
     var variants: String?
     var quantityPosition: String?
     var quantityStyle: String?
+    var list: String?
     var recommendedProducts: RecommendedProductsModel?
                    
     
@@ -28,6 +29,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         variants <- map["variants"]
         quantityPosition <- map["quantity_position"]
         quantityStyle <- map["quantity_style"]
+        list <- map["list"]
         recommendedProducts <- map["recommended_products"]
     }
     
@@ -41,6 +43,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         variants = aDecoder.decodeObject(forKey: "variants") as? String
         quantityPosition = aDecoder.decodeObject(forKey: "quantityPosition") as? String
         quantityStyle = aDecoder.decodeObject(forKey: "quantityStyle") as? String
+        list = aDecoder.decodeObject(forKey: "list") as? String
         recommendedProducts = aDecoder.decodeObject(forKey: "recommendedProducts") as? RecommendedProductsModel
     }
     
@@ -60,6 +63,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         }
         if quantityStyle != nil {
             aCoder.encode(quantityStyle, forKey: "quantityStyle")
+        }
+        if list != nil {
+            aCoder.encode(list, forKey: "list")
         }
         if recommendedProducts != nil {
             aCoder.encode(recommendedProducts, forKey: "recommendedProducts")

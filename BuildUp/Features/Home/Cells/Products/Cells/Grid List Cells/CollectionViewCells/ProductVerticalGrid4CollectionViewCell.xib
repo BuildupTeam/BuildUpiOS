@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wz1-CV-64I">
-                        <rect key="frame" x="8" y="8" width="104" height="139"/>
+                        <rect key="frame" x="4" y="8" width="112" height="139"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V2k-1N-oQP">
-                                <rect key="frame" x="0.0" y="0.0" width="104" height="139"/>
+                                <rect key="frame" x="0.0" y="0.0" width="112" height="139"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,8 +37,8 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="Wz1-CV-64I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="1aD-LV-RQU"/>
-                <constraint firstAttribute="trailing" secondItem="Wz1-CV-64I" secondAttribute="trailing" constant="8" id="4eZ-4N-1fO"/>
+                <constraint firstItem="Wz1-CV-64I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="1aD-LV-RQU"/>
+                <constraint firstAttribute="trailing" secondItem="Wz1-CV-64I" secondAttribute="trailing" constant="4" id="4eZ-4N-1fO"/>
                 <constraint firstAttribute="bottom" secondItem="Wz1-CV-64I" secondAttribute="bottom" constant="8" id="82U-8n-SKO"/>
                 <constraint firstItem="Wz1-CV-64I" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="aWR-Pg-zq3"/>
             </constraints>

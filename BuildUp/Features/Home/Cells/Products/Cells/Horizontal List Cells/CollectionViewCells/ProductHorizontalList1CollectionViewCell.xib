@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrE-hp-omd">
-                        <rect key="frame" x="8" y="8" width="128" height="234"/>
+                        <rect key="frame" x="4" y="8" width="136" height="234"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YGa-4Z-qeL">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="136" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="V1P-Qh-rqk"/>
                                 </constraints>
@@ -55,7 +55,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blazer with golden bottoms with leather jacket" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3e-AV-5fp">
-                                <rect key="frame" x="8" y="160" width="112" height="31.333333333333343"/>
+                                <rect key="frame" x="8" y="160" width="120" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,8 +110,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="NrE-hp-omd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="N9g-Uo-mvh"/>
-                <constraint firstAttribute="trailing" secondItem="NrE-hp-omd" secondAttribute="trailing" constant="8" id="Qcl-Nr-gAe"/>
-                <constraint firstItem="NrE-hp-omd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="gl6-VQ-UES"/>
+                <constraint firstAttribute="trailing" secondItem="NrE-hp-omd" secondAttribute="trailing" constant="4" id="Qcl-Nr-gAe"/>
+                <constraint firstItem="NrE-hp-omd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="gl6-VQ-UES"/>
                 <constraint firstAttribute="bottom" secondItem="NrE-hp-omd" secondAttribute="bottom" constant="8" id="xKr-y1-UQA"/>
             </constraints>
             <connections>
