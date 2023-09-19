@@ -15,8 +15,10 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
     var quantityPosition: String?
     var quantityStyle: String?
     var list: String?
+    var coverPhoto: CoverPhotoModel?
+    var subcategoryTabs: SubcategoryTabsModel?
+    var productsList: ProductsListModel?
     var recommendedProducts: RecommendedProductsModel?
-                   
     
     required init?(map: Map) {
         
@@ -30,6 +32,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         quantityPosition <- map["quantity_position"]
         quantityStyle <- map["quantity_style"]
         list <- map["list"]
+        coverPhoto <- map["cover_photo"]
+        subcategoryTabs <- map["subcategory_tabs"]
+        productsList <- map["products_list"]
         recommendedProducts <- map["recommended_products"]
     }
     
@@ -44,6 +49,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         quantityPosition = aDecoder.decodeObject(forKey: "quantityPosition") as? String
         quantityStyle = aDecoder.decodeObject(forKey: "quantityStyle") as? String
         list = aDecoder.decodeObject(forKey: "list") as? String
+        coverPhoto = aDecoder.decodeObject(forKey: "coverPhoto") as? CoverPhotoModel
+        subcategoryTabs = aDecoder.decodeObject(forKey: "subcategoryTabs") as? SubcategoryTabsModel
+        productsList = aDecoder.decodeObject(forKey: "productsList") as? ProductsListModel
         recommendedProducts = aDecoder.decodeObject(forKey: "recommendedProducts") as? RecommendedProductsModel
     }
     
@@ -66,6 +74,15 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         }
         if list != nil {
             aCoder.encode(list, forKey: "list")
+        }
+        if coverPhoto != nil {
+            aCoder.encode(coverPhoto, forKey: "coverPhoto")
+        }
+        if subcategoryTabs != nil {
+            aCoder.encode(subcategoryTabs, forKey: "subcategoryTabs")
+        }
+        if productsList != nil {
+            aCoder.encode(productsList, forKey: "productsList")
         }
         if recommendedProducts != nil {
             aCoder.encode(recommendedProducts, forKey: "recommendedProducts")

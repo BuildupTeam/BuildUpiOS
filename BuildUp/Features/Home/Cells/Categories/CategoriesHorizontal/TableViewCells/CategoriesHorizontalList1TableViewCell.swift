@@ -11,6 +11,7 @@ class CategoriesHorizontalList1TableViewCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     var isLoadingShimmer: Bool?
+    weak var delegate: HomeCategoriesCellDelegate?
 
     var homeSectionModel: HomeSectionModel? {
         didSet {
@@ -32,7 +33,6 @@ class CategoriesHorizontalList1TableViewCell: UITableViewCell {
         registerCollectionViewCells()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
     }
     
     private func bindData() {
@@ -92,7 +92,8 @@ extension CategoriesHorizontalList1TableViewCell: UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        delegate?.homeCityTapped(cityModel: cities[indexPath.row])
+        if let sectionModel = homeSectionModel, !(sectionModel.categories?.isEmpty ?? false) {
+            delegate?.homeCategoryTapped(categoryModel: sectionModel.categories?[indexPath.row], componentModel: sectionModel.component)
+        }
     }
 }

@@ -1,27 +1,19 @@
 //
-//  ProductListViewController+TableView.swift
+//  CategoryDetailsListViewController+TableView.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 15/09/2023.
+//  Created by Mohammed Khaled on 16/09/2023.
 //
 
 import Foundation
 import UIKit
 
-enum ProductListDesign: String {
-    case list1 = "product-vertical-list-1"
-    case list2 = "product-vertical-list-2"
-    case list3 = "product-vertical-list-3"
-    case grid1 = "product-vertical-grid-1"
-    case grid2 = "product-vertical-grid-2"
-    case grid3 = "product-vertical-grid-3"
-    case grid4 = "product-vertical-grid-4"
-    case grid5 = "product-vertical-grid-5"
-}
-
 // MARK: Register TableView Cells
-extension ProductsListViewController {
+extension CategoryDetailsListViewController {
     func registerTableViewCells() {
+        self.tableView.register(
+            UINib(nibName: ProductVerticalList1InnerTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ProductVerticalList1InnerTableViewCell.identifier)
         self.tableView.register(
             UINib(nibName: ProductVerticalList2InnerTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ProductVerticalList2InnerTableViewCell.identifier)
@@ -35,7 +27,7 @@ extension ProductsListViewController {
 }
 
 // MARK: - Get Cells
-extension ProductsListViewController {
+extension CategoryDetailsListViewController {
     private func getShimmerCell(indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(
@@ -83,15 +75,15 @@ extension ProductsListViewController {
 }
 
 // MARK: Dynamic Components
-extension ProductsListViewController {
+extension CategoryDetailsListViewController {
     func getCellForRow(indexPath: IndexPath) -> UITableViewCell {
         if isLoadingShimmer {
             return self.getShimmerCell(indexPath: indexPath)
         } else {
             let productModel = viewModel.products[indexPath.row]
             
-            if let settings = viewModel.productListSettings {
-                switch settings.list {
+            if let settings = viewModel.categoryDetailsSettings {
+                switch settings.productsList?.design {
                 case ProductListDesign.list1.rawValue:
                     return self.getProductVerticalList1TableViewCell(indexPath: indexPath, productModel: productModel)
                 case ProductListDesign.list2.rawValue:
@@ -107,9 +99,8 @@ extension ProductsListViewController {
     }
 }
 
-
 // MARK: TableView Delegate
-extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource {
+extension CategoryDetailsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.viewModel.products.isEmpty {
             return 10
@@ -118,6 +109,7 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         return getCellForRow(indexPath: indexPath)
     }
     

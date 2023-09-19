@@ -11,6 +11,7 @@ enum PageName: String {
     case home = "home"
     case productDetails = "product-details"
     case productList = "product-list"
+    case categoryDetails = "category-details"
     
 }
 

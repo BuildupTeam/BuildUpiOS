@@ -364,7 +364,7 @@ extension HomeViewController {
             for: indexPath) as? ProductHorizontalList1TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -377,7 +377,7 @@ extension HomeViewController {
             for: indexPath) as? CategoriesHorizontalList1TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -390,7 +390,7 @@ extension HomeViewController {
             for: indexPath) as? CategoriesHorizontalList2TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -403,7 +403,7 @@ extension HomeViewController {
             for: indexPath) as? CategoriesHorizontalList3TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -416,7 +416,7 @@ extension HomeViewController {
             for: indexPath) as? CategoriesVerticalGrid1TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -429,7 +429,7 @@ extension HomeViewController {
             for: indexPath) as? CategoriesVerticalGrid2TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -442,7 +442,7 @@ extension HomeViewController {
             for: indexPath) as? CategoriesVerticalGrid3TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none

@@ -112,18 +112,55 @@ extension HomeViewController: HomeProductsCellDelegate {
     }
 }
 
+// MARK: - HomeCategoriesCellDelegate
+extension HomeViewController: HomeCategoriesCellDelegate {
+    func homeCategoryTapped(categoryModel: CategoryModel?, componentModel: ComponentConfigurationModel?) {
+        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.categoryDetails.rawValue})?.settings {
+            switch settings.productsList?.design {
+            case ProductListDesign.list1.rawValue,
+                ProductListDesign.list2.rawValue,
+                ProductListDesign.list3.rawValue:
+                let detailsVC = Coordinator.Controllers.createCategoryDetailsListViewController(categoryModel: categoryModel)
+                detailsVC.categoryModel = categoryModel
+                detailsVC.componentModel = componentModel
+                self.navigationController?.pushViewController(detailsVC, animated: true)
+            default:
+                let detailsVC = Coordinator.Controllers.createCategoryDetailsGridViewController(categoryModel: categoryModel)
+                detailsVC.categoryModel = categoryModel
+                detailsVC.componentModel = componentModel
+                self.navigationController?.pushViewController(detailsVC, animated: true)
+            }
+        }
+    }
+}
+
 // MARK: - HomeHeaderCellDelegate
 extension HomeViewController: HomeHeaderCellDelegate {
     func seeAllButtonClicked(_ homeSectionModel: HomeSectionModel) {
-        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productList.rawValue})?.settings {
-            switch settings.list {
-            case ProductListDesign.list1.rawValue,
-                ProductListDesign.list2.rawValue:
-                let detailsVC = Coordinator.Controllers.createProductListViewController(homeSectionModel: homeSectionModel)
-                detailsVC.componentModel = homeSectionModel.component
-                self.navigationController?.pushViewController(detailsVC, animated: true)
-            case ProductListDesign.grid.rawValue:
-                let detailsVC = Coordinator.Controllers.createProductsGridViewController(homeSectionModel: homeSectionModel)
+        if let contentType = homeSectionModel.component?.contentType {
+            switch contentType {
+            case HomeContentType.products.rawValue:
+                if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productList.rawValue})?.settings {
+                    switch settings.list {
+                    case ProductListDesign.list1.rawValue,
+                        ProductListDesign.list2.rawValue:
+                        let detailsVC = Coordinator.Controllers.createProductListViewController(homeSectionModel: homeSectionModel)
+                        detailsVC.componentModel = homeSectionModel.component
+                        self.navigationController?.pushViewController(detailsVC, animated: true)
+                    case ProductListDesign.grid1.rawValue,
+                        ProductListDesign.grid2.rawValue,
+                        ProductListDesign.grid3.rawValue,
+                        ProductListDesign.grid4.rawValue,
+                        ProductListDesign.grid5.rawValue:
+                        let detailsVC = Coordinator.Controllers.createProductsGridViewController(homeSectionModel: homeSectionModel)
+                        detailsVC.componentModel = homeSectionModel.component
+                        self.navigationController?.pushViewController(detailsVC, animated: true)
+                    default:
+                        return
+                    }
+                }
+            case HomeContentType.categories.rawValue:
+                let detailsVC = Coordinator.Controllers.createCategoryListViewController(homeSectionModel: homeSectionModel)
                 detailsVC.componentModel = homeSectionModel.component
                 self.navigationController?.pushViewController(detailsVC, animated: true)
             default:

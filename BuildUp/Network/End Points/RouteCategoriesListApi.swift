@@ -1,24 +1,23 @@
 //
-//  RouteHomeCategoriesApi.swift
+//  RouteCategoriesListApi.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 21/08/2023.
+//  Created by Mohammed Khaled on 18/09/2023.
 //
 
 import Foundation
 import Moya
 
-enum RouteHomeCategoriesApi {
-    case getHomeCategories(limit: Int,
-                         componentModel: ComponentConfigurationModel)
+enum RouteCategoriesListApi {
+    case getCategories(limit: Int,
+                       componentModel: ComponentConfigurationModel)
 }
 
-extension RouteHomeCategoriesApi: TargetType {
+extension RouteCategoriesListApi: TargetType {
     var baseURL: URL {
         var configuration = Configuration()
         print("base url = \(configuration.environment.baseURL)")
         return URL(string: configuration.environment.baseURL)!
-        
     }
     
     var path: String {
@@ -35,8 +34,10 @@ extension RouteHomeCategoriesApi: TargetType {
     
     var task: Task {
         switch self {
-        case .getHomeCategories(limit: let limit, componentModel: let model):
+        case .getCategories(limit: let limit, componentModel: let model):
             var parameters: [String: Any] = ["limit": limit]
+            
+            parameters["is_main"] = 1
             
             if let sortBy = model.orderBy {
                 parameters["sort[by]"] = sortBy

@@ -1,13 +1,13 @@
 //
-//  ProductstGridViewController.swift
+//  CategoriesListViewController.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 15/09/2023.
+//  Created by Mohammed Khaled on 18/09/2023.
 //
 
 import UIKit
 
-class ProductsGridViewController: BaseViewController {
+class CategoriesListViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -15,13 +15,11 @@ class ProductsGridViewController: BaseViewController {
     var refreshControl = UIRefreshControl()
     var componentModel: ComponentConfigurationModel?
     var refresher:UIRefreshControl!
-    
-    // MARK: - Private Variables
-    
-    var viewModel: ProductListViewModel!
+
+    var viewModel: CategoriesViewModel!
 //    var homeSectionModel: HomeSectionModel?
     
-    init(viewModel: ProductListViewModel) {
+    init(viewModel: CategoriesViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
     }
@@ -33,21 +31,58 @@ class ProductsGridViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupResponse()
-        getProducts()
-        setupView()
+        getCategories()
+        setupCell()
         startShimmerOn(collectionView: collectionView)
+    }
+
+}
+
+// MARK: - Private Functions
+extension CategoriesListViewController {
+    private func setupCell() {
+        registerCollectionViewCells()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    private func bindData() {
+        
+    }
+}
+
+extension CategoriesListViewController {
+    
+}
+// MARK: - Requests
+extension CategoriesListViewController  {
+    private func getCategories() {
+        let currentPageCompletion: (() -> String) = { () in return "\(self.viewModel.page)" }
+        
+        if let model = componentModel {
+            viewModel.getCategories(componentModel: model, currentPageCompletion: currentPageCompletion)
+        }
+    }
+    
+    func loadMoreProducts() {
+        viewModel.page += 1
+        getCategories()
+    }
+    
+    private func setupResponse() {
+        categoriesResponse()
+        loadMoreCategoriesResponse()
     }
 }
 
 // MARK: - Private Functions
-extension ProductsGridViewController {
+extension CategoriesListViewController {
     private func setupView() {
         isLoadingShimmer = true
         registerCollectionViewCells()
         containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
         let footerView = UIView()
         footerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
-//        collectionView.foo = footerView
         
         addRefreshControl()
     }
@@ -65,22 +100,13 @@ extension ProductsGridViewController {
         self.collectionView.reloadData()
     }
     
-//    func addSpinnerToTableView() {
-//        let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-//        spinner.frame = CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: 44)
-//        spinner.hidesWhenStopped = false
-//        spinner.color = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
-//        spinner.startAnimating()
-//        tableView.tableFooterView = spinner
-//    }
-    
     private func removeBackgroundViews() {
         collectionView.backgroundView = nil
     }
 }
 
 // MARK: - Actions
-extension ProductsGridViewController {
+extension CategoriesListViewController {
     
     @objc
     private func refreshData() {
@@ -88,35 +114,14 @@ extension ProductsGridViewController {
         viewModel.page = 1
         viewModel.perPage = 20
         viewModel.totalCount = 0
-        getProducts()
-    }
-}
-
-// MARK: - Requests
-extension ProductsGridViewController  {
-    private func getProducts() {
-        let currentPageCompletion: (() -> String) = { () in return "\(self.viewModel.page)" }
-        
-        if let model = componentModel {
-            viewModel.getProducts(componentModel: model, currentPageCompletion: currentPageCompletion)
-        }
-    }
-    
-    func loadMoreProducts() {
-        viewModel.page += 1
-        getProducts()
-    }
-    
-    private func setupResponse() {
-        productsResponse()
-        loadMoreProductsResponse()
+        getCategories()
     }
 }
 
 // MARK: - Responses
-extension ProductsGridViewController {
-    private func productsResponse() {
-        viewModel.onProducts = { [weak self] () in
+extension CategoriesListViewController {
+    private func categoriesResponse() {
+        viewModel.onCategories = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
             self.collectionView.refreshControl?.endRefreshing()
@@ -125,14 +130,14 @@ extension ProductsGridViewController {
             self.reloadTableViewData()
             self.isReloadingTableView = false
 
-            if self.viewModel.products.isEmpty {
+            if self.viewModel.categories.isEmpty {
 //                self.setupEmptyView(type: .emptyScreen)
             }
         }
     }
     
-    private func loadMoreProductsResponse() {
-        viewModel.onLoadMoreProducts = { [weak self] () in
+    private func loadMoreCategoriesResponse() {
+        viewModel.onLoadMoreCategories = { [weak self] () in
             guard let `self` = self else { return }
             self.reloadTableViewData()
             self.isReloadingTableView = false

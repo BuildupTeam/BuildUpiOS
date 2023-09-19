@@ -9,9 +9,6 @@ import Foundation
 import UIKit
 import ObjectMapper
 
-import UIKit
-import ObjectMapper
-
 protocol ProductListWebServiceProtocol: AnyObject {
     func getProductList(perPage: Int,
                         page: Int?,

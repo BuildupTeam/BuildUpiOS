@@ -90,13 +90,27 @@ class Coordinator {
                 let viewController = ProductsGridViewController(viewModel: viewModel)
                 return viewController
             }
+        class func createCategoryDetailsListViewController(categoryModel: CategoryModel? = nil,
+                                                           viewModel: CategoryDetailsViewModel = CategoryDetailsViewModel()) -> CategoryDetailsListViewController {
+            viewModel.categoryModel = categoryModel
+            let viewController = CategoryDetailsListViewController(viewModel: viewModel)
+            viewController.categoryModel = categoryModel
+            return viewController
+        }
         
-        //        class func createLoginViewController(viewModel: LoginViewModel = LoginViewModel()) -> UIViewController {
-        //            let loginVC = LoginViewController(viewModel: viewModel)
-        //
-        //            let navigation = Coordinator.AppBase.baseNavigationController()
-        //            navigation.setViewControllers([loginVC], animated: true)
-        //            return navigation
-        //        }
+        class func createCategoryDetailsGridViewController(categoryModel: CategoryModel? = nil,
+                                                           viewModel: CategoryDetailsViewModel = CategoryDetailsViewModel()) -> CategoryDetailsGridViewController {
+            viewModel.categoryModel = categoryModel
+            let viewController = CategoryDetailsGridViewController(viewModel: viewModel)
+            viewController.categoryModel = categoryModel
+            return viewController
+        }
+        
+        class func createCategoryListViewController(homeSectionModel: HomeSectionModel? = nil,
+                                                    viewModel: CategoriesViewModel = CategoriesViewModel()) -> CategoriesListViewController {
+            viewModel.homeSectionModel = homeSectionModel
+            let viewController = CategoriesListViewController(viewModel: viewModel)
+            return viewController
+        }
     }
 }

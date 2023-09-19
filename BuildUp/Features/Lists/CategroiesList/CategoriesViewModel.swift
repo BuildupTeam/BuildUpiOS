@@ -1,50 +1,51 @@
 //
-//  ProductListViewModel.swift
+//  CategoriesViewModel.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 15/09/2023.
+//  Created by Mohammed Khaled on 18/09/2023.
 //
 
 import Foundation
 
-class ProductListViewModel: BaseViewModel {
+class CategoriesViewModel: BaseViewModel {
     
-    weak var service: ProductListWebServiceProtocol?
+    weak var service: CategoriesWebServiceProtocol?
     
     // MARK: - Model
-    var productListSettings: SettingsConfigurationModel?
-    var products: [ProductModel] = []
+    var categoryListSettings: SettingsConfigurationModel?
+    var categories: [CategoryModel] = []
     var page = 1
     var totalCount: Int = 0
     var perPage: Int = 20
     var homeSectionModel: HomeSectionModel?
 
-    public var onProducts: (() -> Void)?
-    public var onLoadMoreProducts: (() -> Void)?
+    public var onCategories: (() -> Void)?
+    public var onLoadMoreCategories: (() -> Void)?
     
-    init(service: ProductListWebServiceProtocol = ProductListWebService.shared) {
+    init(service: CategoriesWebServiceProtocol = CategoriesWebService.shared) {
         super.init(observationType: .all)
         self.service = service
         self.getCachedData()
     }
     
-    func getProducts(componentModel: ComponentConfigurationModel,
-                     currentPageCompletion: @escaping (() -> String)) {
+    func getCategories(componentModel: ComponentConfigurationModel,
+                       currentPageCompletion: @escaping (() -> String)) {
         
         guard let service = service else {
             return
         }
-        service.getProductList(perPage: perPage, page: page, componentModel: componentModel) { (result) in
+        
+        service.getCategoriesList(perPage: perPage, page: page, componentModel: componentModel) { (result) in
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     guard let currentPage = Int(currentPageCompletion()) else { return }
                     if (response.meta?.currentPage ?? 0) == 1 {
-                        self.products = response.data ?? []
-                        self.onProducts?()
+                        self.categories = response.data ?? []
+                        self.onCategories?()
                     } else if (response.meta?.currentPage ?? 0) > 1 {
-                        self.products.append(contentsOf: response.data ?? [])
-                        self.onLoadMoreProducts?()
+                        self.categories.append(contentsOf: response.data ?? [])
+                        self.onLoadMoreCategories?()
                     }
                 } else {
                     self.handleError(response: response)
@@ -60,7 +61,7 @@ class ProductListViewModel: BaseViewModel {
     
     func getCachedData() {
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productList.rawValue})?.settings {
-            self.productListSettings = settings
+            self.categoryListSettings = settings
         }
     }
 }

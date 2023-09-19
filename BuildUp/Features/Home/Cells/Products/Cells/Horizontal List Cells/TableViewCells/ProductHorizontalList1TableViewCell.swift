@@ -13,6 +13,7 @@ class ProductHorizontalList1TableViewCell: UITableViewCell {
     @IBOutlet private weak var collectionViewHeightConstrains: NSLayoutConstraint!
 
     var isLoadingShimmer: Bool?
+    weak var delegate: HomeProductsCellDelegate?
 
     var homeSectionModel: HomeSectionModel? {
         didSet {
@@ -90,7 +91,8 @@ extension ProductHorizontalList1TableViewCell: UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        delegate?.homeCityTapped(cityModel: cities[indexPath.row])
+        if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
+            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
+        }
     }
 }

@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldy-V6-uRD">
-                        <rect key="frame" x="4" y="8" width="172" height="199"/>
+                        <rect key="frame" x="8" y="8" width="164" height="199"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PdX-35-HyV">
-                                <rect key="frame" x="0.0" y="0.0" width="172" height="134"/>
+                                <rect key="frame" x="0.0" y="0.0" width="164" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="134" id="CfM-pv-mGz"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTi-Hs-qCP">
-                                <rect key="frame" x="8" y="140" width="156" height="51"/>
+                                <rect key="frame" x="8" y="140" width="148" height="51"/>
                                 <string key="text">Yellow blazer
 Mahmoud Eissa</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -85,10 +85,10 @@ Mahmoud Eissa</string>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ldy-V6-uRD" secondAttribute="trailing" constant="4" id="6x1-cc-Gld"/>
+                <constraint firstAttribute="trailing" secondItem="ldy-V6-uRD" secondAttribute="trailing" constant="8" id="6x1-cc-Gld"/>
                 <constraint firstItem="ldy-V6-uRD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="MLm-rp-Alq"/>
                 <constraint firstAttribute="bottom" secondItem="ldy-V6-uRD" secondAttribute="bottom" constant="8" id="YEU-9k-6wv"/>
-                <constraint firstItem="ldy-V6-uRD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="zAA-VO-Wlk"/>
+                <constraint firstItem="ldy-V6-uRD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="zAA-VO-Wlk"/>
             </constraints>
             <connections>
                 <outlet property="addToFavoriteButton" destination="Qsl-yx-elL" id="Q1c-wY-Kod"/>

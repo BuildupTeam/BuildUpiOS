@@ -13,6 +13,7 @@ class CategoriesVerticalGrid3TableViewCell: UITableViewCell {
     @IBOutlet private weak var collectionViewHeightConstrains: NSLayoutConstraint!
 
     var isLoadingShimmer: Bool?
+    weak var delegate: HomeCategoriesCellDelegate?
 
     var homeSectionModel: HomeSectionModel? {
         didSet {
@@ -92,7 +93,8 @@ extension CategoriesVerticalGrid3TableViewCell: UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        delegate?.homeCityTapped(cityModel: cities[indexPath.row])
+        if let sectionModel = homeSectionModel, !(sectionModel.categories?.isEmpty ?? false) {
+            delegate?.homeCategoryTapped(categoryModel: sectionModel.categories?[indexPath.row], componentModel: sectionModel.component)
+        }
     }
 }

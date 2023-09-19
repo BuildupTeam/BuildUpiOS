@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuC-wL-VSa">
-                        <rect key="frame" x="4" y="8" width="80" height="94"/>
+                        <rect key="frame" x="8" y="8" width="72" height="94"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSW-hz-hEH">
-                                <rect key="frame" x="23" y="12" width="34" height="34"/>
+                                <rect key="frame" x="19" y="12" width="34" height="34"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lZF-f1-u8I">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
@@ -38,7 +38,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znd-Eh-Qxd">
-                                <rect key="frame" x="8" y="58" width="64" height="22"/>
+                                <rect key="frame" x="8" y="58" width="56" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,8 +59,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="zuC-wL-VSa" secondAttribute="bottom" constant="8" id="CPw-e1-T4M"/>
-                <constraint firstItem="zuC-wL-VSa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="Dct-lX-Tcn"/>
-                <constraint firstAttribute="trailing" secondItem="zuC-wL-VSa" secondAttribute="trailing" constant="4" id="cew-lM-QIf"/>
+                <constraint firstItem="zuC-wL-VSa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Dct-lX-Tcn"/>
+                <constraint firstAttribute="trailing" secondItem="zuC-wL-VSa" secondAttribute="trailing" constant="8" id="cew-lM-QIf"/>
                 <constraint firstItem="zuC-wL-VSa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="yJB-cF-JPB"/>
             </constraints>
             <connections>
