@@ -16,6 +16,8 @@ class ProductsGridViewController: BaseViewController {
     var componentModel: ComponentConfigurationModel?
     var refresher:UIRefreshControl!
     
+    override  var prefersBottomBarHidden: Bool? { return true }
+
     // MARK: - Private Variables
     
     var viewModel: ProductListViewModel!
@@ -119,7 +121,7 @@ extension ProductsGridViewController {
         viewModel.onProducts = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
-            self.collectionView.refreshControl?.endRefreshing()
+            self.refresher.endRefreshing()
             self.removeBackgroundViews()
             self.stopShimmerOn(collectionView: self.collectionView)
             self.reloadTableViewData()

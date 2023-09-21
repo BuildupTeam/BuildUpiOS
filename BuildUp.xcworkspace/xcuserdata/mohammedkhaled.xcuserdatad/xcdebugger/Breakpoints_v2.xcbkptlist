@@ -70,32 +70,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4D5A59E4-1268-400B-8B07-6A3C536C0ECB"
-            shouldBeEnabled = "No"
+            uuid = "E0FF38E3-258B-443D-B960-276484C6A8C7"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/Home/Cells/Products/Model/ProductModel.swift"
+            filePath = "BuildUp/Features/ProductDetails/Cells/RecommentedProducts/RecommentedProductsType2TableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "getSelectedCombination()"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "bindData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E0FF38E3-258B-443D-B960-276484C6A8C7 - d0bf550d8aaf38d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.RecommentedProductsType2TableViewCell.setupCell() -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/ProductDetails/Cells/RecommentedProducts/RecommentedProductsType2TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "6112">
+               </Location>
+               <Location
+                  uuid = "E0FF38E3-258B-443D-B960-276484C6A8C7 - 5b5649cd4d7bff6f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.RecommentedProductsType2TableViewCell.bindData() -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/ProductDetails/Cells/RecommentedProducts/RecommentedProductsType2TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "548">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "375F1074-399E-4056-87CE-E9C208774BCF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/ProductDetails/Cells/Slider/ProductDetailsSliderType3TableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "setupCell()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E24914F7-AF8C-4CB4-A06C-064DCDC6ED7F"
-            shouldBeEnabled = "Yes"
+            uuid = "CA7933C4-1482-4C0B-B8FC-B0594F775B9D"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildUp/Extensions/UIFont+Extensions.swift"
+            filePath = "BuildUp/Features/ProductDetails/ProductDetailsViewController+TableView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "setupEnglishFont(ofSize:weight:)"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "getCellForSection(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -40,11 +40,6 @@ class BaseViewController: UIViewController {
         get {
             
             let tabbarVC = self.tabBarController as? AppTabBarViewController
-            if prefersBottomBarHidden ?? false {
-                tabbarVC?.middleButton?.hideView()
-            } else {
-                tabbarVC?.middleButton?.showView()
-            }
             
             if navigationController?.viewControllers.last == self {
                 return prefersBottomBarHidden ?? super.hidesBottomBarWhenPushed
@@ -69,11 +64,11 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let tabbarVC = self.tabBarController as? AppTabBarViewController
-        if prefersBottomBarHidden ?? false {
-            tabbarVC?.middleButton?.hideView()
-        } else {
-            tabbarVC?.middleButton?.showView()
-        }
+//        if prefersBottomBarHidden ?? false {
+//            tabbarVC?.middleButton?.hideView()
+//        } else {
+//            tabbarVC?.middleButton?.showView()
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,11 +84,11 @@ class BaseViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let tabbarVC = self.tabBarController as? AppTabBarViewController
-        if prefersBottomBarHidden ?? false {
-            tabbarVC?.middleButton?.hideView()
-        } else {
-            tabbarVC?.middleButton?.showView()
-        }
+//        if prefersBottomBarHidden ?? false {
+//            tabbarVC?.middleButton?.hideView()
+//        } else {
+//            tabbarVC?.middleButton?.showView()
+//        }
     }
     
     deinit {

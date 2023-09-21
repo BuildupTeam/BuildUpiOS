@@ -10,7 +10,8 @@ import UIKit
 class RecommentedProductsType1CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var productImageView: UIImageView!
-    
+    @IBOutlet private weak var productOldPriceMarkedView: UIView!
+
     @IBOutlet private weak var productNameLabel: UILabel!
     @IBOutlet private weak var productOldPriceLabel: UILabel!
     @IBOutlet private weak var productNewPriceLabel: UILabel!
@@ -51,6 +52,14 @@ class RecommentedProductsType1CollectionViewCell: UICollectionViewCell {
                 productImageView.setImage(with: imageUrl)
             } else {
                 productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
+            }
+            
+            if (model.discount ?? 0) > 0 {
+                productOldPriceLabel.isHidden = false
+                productOldPriceMarkedView.isHidden = false
+            } else {
+                productOldPriceLabel.isHidden = true
+                productOldPriceMarkedView.isHidden = true
             }
         }
         

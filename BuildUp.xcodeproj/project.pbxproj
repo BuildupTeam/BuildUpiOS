@@ -249,6 +249,16 @@
 		39C91A242AB8E16900C10C16 /* CategoriesWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A232AB8E16900C10C16 /* CategoriesWebServiceProtocol.swift */; };
 		39C91A262AB8E34600C10C16 /* RouteCategoriesListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A252AB8E34600C10C16 /* RouteCategoriesListApi.swift */; };
 		39C91A282AB8F4D800C10C16 /* CategoriesListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A272AB8F4D800C10C16 /* CategoriesListViewController+CollectionView.swift */; };
+		39C91A2C2ABA39DD00C10C16 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A2A2ABA39DD00C10C16 /* ProfileViewController.swift */; };
+		39C91A2D2ABA39DD00C10C16 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C91A2B2ABA39DD00C10C16 /* ProfileViewController.xib */; };
+		39C91A2F2ABA39F500C10C16 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A2E2ABA39F500C10C16 /* ProfileViewModel.swift */; };
+		39C91A332ABA3A6100C10C16 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A312ABA3A6100C10C16 /* CartViewController.swift */; };
+		39C91A342ABA3A6100C10C16 /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C91A322ABA3A6100C10C16 /* CartViewController.xib */; };
+		39C91A362ABA3A6B00C10C16 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A352ABA3A6B00C10C16 /* CartViewModel.swift */; };
+		39C91A382ABA3ACE00C10C16 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A372ABA3ACE00C10C16 /* SettingsViewModel.swift */; };
+		39C91A3B2ABA3B0900C10C16 /* CategoriesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A392ABA3B0900C10C16 /* CategoriesTabViewController.swift */; };
+		39C91A3C2ABA3B0900C10C16 /* CategoriesTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C91A3A2ABA3B0900C10C16 /* CategoriesTabViewController.xib */; };
+		39C91A3F2ABA3B2F00C10C16 /* CategoriesTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A3E2ABA3B2F00C10C16 /* CategoriesTabViewModel.swift */; };
 		39CE765F2A2F603B0019A485 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE765C2A2F603A0019A485 /* BaseViewModel.swift */; };
 		39CE76602A2F603B0019A485 /* BaseWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE765D2A2F603B0019A485 /* BaseWebServiceProtocol.swift */; };
 		39CE76612A2F603B0019A485 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE765E2A2F603B0019A485 /* BaseViewController.swift */; };
@@ -602,6 +612,16 @@
 		39C91A232AB8E16900C10C16 /* CategoriesWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesWebServiceProtocol.swift; sourceTree = "<group>"; };
 		39C91A252AB8E34600C10C16 /* RouteCategoriesListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCategoriesListApi.swift; sourceTree = "<group>"; };
 		39C91A272AB8F4D800C10C16 /* CategoriesListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoriesListViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		39C91A2A2ABA39DD00C10C16 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		39C91A2B2ABA39DD00C10C16 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		39C91A2E2ABA39F500C10C16 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		39C91A312ABA3A6100C10C16 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		39C91A322ABA3A6100C10C16 /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
+		39C91A352ABA3A6B00C10C16 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		39C91A372ABA3ACE00C10C16 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		39C91A392ABA3B0900C10C16 /* CategoriesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTabViewController.swift; sourceTree = "<group>"; };
+		39C91A3A2ABA3B0900C10C16 /* CategoriesTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesTabViewController.xib; sourceTree = "<group>"; };
+		39C91A3E2ABA3B2F00C10C16 /* CategoriesTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTabViewModel.swift; sourceTree = "<group>"; };
 		39CE765C2A2F603A0019A485 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		39CE765D2A2F603B0019A485 /* BaseWebServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebServiceProtocol.swift; sourceTree = "<group>"; };
 		39CE765E2A2F603B0019A485 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -1109,6 +1129,9 @@
 		393174522A19197500AF64BC /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				39C91A3D2ABA3B1000C10C16 /* CategoriesTab */,
+				39C91A302ABA3A5600C10C16 /* Cart */,
+				39C91A292ABA39CD00C10C16 /* Profile */,
 				393613B12AB51C27007289DE /* CategoryDetails */,
 				393613912AB474CA007289DE /* Lists */,
 				395D3BB22A9A1B2300DA9859 /* ProductDetails */,
@@ -1581,6 +1604,36 @@
 			path = CategroiesList;
 			sourceTree = "<group>";
 		};
+		39C91A292ABA39CD00C10C16 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				39C91A2A2ABA39DD00C10C16 /* ProfileViewController.swift */,
+				39C91A2B2ABA39DD00C10C16 /* ProfileViewController.xib */,
+				39C91A2E2ABA39F500C10C16 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		39C91A302ABA3A5600C10C16 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				39C91A312ABA3A6100C10C16 /* CartViewController.swift */,
+				39C91A322ABA3A6100C10C16 /* CartViewController.xib */,
+				39C91A352ABA3A6B00C10C16 /* CartViewModel.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		39C91A3D2ABA3B1000C10C16 /* CategoriesTab */ = {
+			isa = PBXGroup;
+			children = (
+				39C91A392ABA3B0900C10C16 /* CategoriesTabViewController.swift */,
+				39C91A3A2ABA3B0900C10C16 /* CategoriesTabViewController.xib */,
+				39C91A3E2ABA3B2F00C10C16 /* CategoriesTabViewModel.swift */,
+			);
+			path = CategoriesTab;
+			sourceTree = "<group>";
+		};
 		39CE76A02A2F61BC0019A485 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -1654,6 +1707,7 @@
 			children = (
 				39CE76D22A2F95460019A485 /* SettingsViewController.swift */,
 				39CE76D32A2F95460019A485 /* SettingsViewController.xib */,
+				39C91A372ABA3ACE00C10C16 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2018,9 +2072,12 @@
 				393613DC2AB79F6D007289DE /* CategoryDetailsCoverPhoto3.xib in Resources */,
 				39C6C4C22A3CDFE300F11A6F /* CategoriesVerticalGrid1CollectionViewCell.xib in Resources */,
 				39730D352AA128B70088C9ED /* ProductDetailsVariants3TableViewCell.xib in Resources */,
+				39C91A342ABA3A6100C10C16 /* CartViewController.xib in Resources */,
 				391529E32A347328007F7E09 /* NunitoSans-ExtraBold.ttf in Resources */,
 				3921FCED2AAC04460019CCC2 /* ProductDetailsVariants3InnerTableViewCell.xib in Resources */,
 				39C6C4DC2A3DD9A500F11A6F /* BannerType2TableViewCell.xib in Resources */,
+				39C91A2D2ABA39DD00C10C16 /* ProfileViewController.xib in Resources */,
+				39C91A3C2ABA3B0900C10C16 /* CategoriesTabViewController.xib in Resources */,
 				39730D3A2AA213370088C9ED /* ProductDetailsVariants1CollectionViewCell.xib in Resources */,
 				391529C32A2F9B4C007F7E09 /* WebViewController.xib in Resources */,
 				39C6C4B12A3CC9EB00F11A6F /* CategoriesHorizontalList1CollectionViewCell.xib in Resources */,
@@ -2222,6 +2279,7 @@
 				39CE76742A2F60880019A485 /* DeepCopyService.swift in Sources */,
 				39CE76E32A2F95C20019A485 /* AdModel.swift in Sources */,
 				39C6C4D72A3DD99500F11A6F /* BannerType1TableViewCell.swift in Sources */,
+				39C91A2C2ABA39DD00C10C16 /* ProfileViewController.swift in Sources */,
 				39CE76942A2F61170019A485 /* UIlabel+Extensions.swift in Sources */,
 				39BA0B422AA3BCFB008001F7 /* ShimmerProductDetailsSilderTableViewCell.swift in Sources */,
 				395D3BC12A9A29ED00DA9859 /* ProductDetailsSliderType1TableViewCell.swift in Sources */,
@@ -2254,6 +2312,7 @@
 				395D3BE72A9A2DC800DA9859 /* ProductDetailsResponseModel.swift in Sources */,
 				39BA0B452AA3C714008001F7 /* ProductDetailsOptionModel.swift in Sources */,
 				39CE76702A2F60880019A485 /* Formatters.swift in Sources */,
+				39C91A362ABA3A6B00C10C16 /* CartViewModel.swift in Sources */,
 				39CE768C2A2F61170019A485 /* UIColor+Extensions.swift in Sources */,
 				393613992AB47575007289DE /* ProductListViewModel.swift in Sources */,
 				39CE76E62A2F95C20019A485 /* GoalModel.swift in Sources */,
@@ -2320,6 +2379,7 @@
 				3950B0B02A6AE7BA00E27111 /* ComponentCategoryModel.swift in Sources */,
 				39CE76F12A2F97500019A485 /* CategoryModel.swift in Sources */,
 				39CE766F2A2F60880019A485 /* Coordinator.swift in Sources */,
+				39C91A3B2ABA3B0900C10C16 /* CategoriesTabViewController.swift in Sources */,
 				39152A092A34946A007F7E09 /* ProductVerticalGrid2CollectionViewCell.swift in Sources */,
 				39CE768D2A2F61170019A485 /* Int+Extensions.swift in Sources */,
 				395D3BCD2A9A2A2600DA9859 /* ProductDetailsAddToCartType1TableViewCell.swift in Sources */,
@@ -2367,6 +2427,7 @@
 				39EF7F422A39BC8D003E7641 /* ProductVerticalGrid4CollectionViewCell.swift in Sources */,
 				39C6C4B02A3CC9EB00F11A6F /* CategoriesHorizontalList1CollectionViewCell.swift in Sources */,
 				39C6C4D12A3CE0A800F11A6F /* CategoriesVerticalGrid3TableViewCell.swift in Sources */,
+				39C91A3F2ABA3B2F00C10C16 /* CategoriesTabViewModel.swift in Sources */,
 				393613B02AB4EA7C007289DE /* ProductsGridViewController+CollectionView.swift in Sources */,
 				393613D62AB79EF3007289DE /* CategoryDetailsCoverPhoto2.swift in Sources */,
 				393613972AB47561007289DE /* ProductListWebServiceProtocol.swift in Sources */,
@@ -2382,6 +2443,7 @@
 				39F5836A2A7FD1E80060C4E1 /* BannerModel.swift in Sources */,
 				39C6C4AB2A3CC9CA00F11A6F /* CategoriesHorizontalList1TableViewCell.swift in Sources */,
 				39F5836C2A819BBE0060C4E1 /* RouteConfigurationApi.swift in Sources */,
+				39C91A2F2ABA39F500C10C16 /* ProfileViewModel.swift in Sources */,
 				39AE9CB12AA245FD0075E99F /* ProductDetailsViewModel.swift in Sources */,
 				393613C42AB52310007289DE /* CategoryDetailsListViewController+TableView.swift in Sources */,
 				39A2DD882A6AF7E3005B52FD /* HomeWebServiceProtocol.swift in Sources */,
@@ -2408,6 +2470,8 @@
 				39AE9CAF2AA245280075E99F /* ProductDetailsWebServiceProtocol.swift in Sources */,
 				39730D302AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift in Sources */,
 				39CE76F32A2F97560019A485 /* CurrencyModel.swift in Sources */,
+				39C91A382ABA3ACE00C10C16 /* SettingsViewModel.swift in Sources */,
+				39C91A332ABA3A6100C10C16 /* CartViewController.swift in Sources */,
 				393613CA2AB5C18B007289DE /* SubcategoryTabsModel.swift in Sources */,
 				395D3BA42A995C1400DA9859 /* ShimmerCategoriesHorizontal3CollectionViewCell.swift in Sources */,
 				39C6C4CD2A3CE09600F11A6F /* CategoriesVerticalGrid2TableViewCell.swift in Sources */,
@@ -2619,26 +2683,35 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BuildUp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Buildup wants to access your camera to change profile picture";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Buildup would like to use your current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Do you allow Buildup to know your current location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.BuildUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2648,26 +2721,35 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BuildUp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Buildup wants to access your camera to change profile picture";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Buildup would like to use your current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Do you allow Buildup to know your current location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.BuildUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -2683,7 +2765,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.BuildUpTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.BuildUpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2704,7 +2786,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.BuildUpTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.BuildUpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2723,7 +2805,7 @@
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.BuildUpUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.BuildUpUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -2742,7 +2824,7 @@
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ibtikar.BuildUpUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.BuildUpUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

@@ -21,11 +21,9 @@ class LauncherViewController: NSObject {
         
         switch PersistanceManager.geLatestViewController() {
         case Constant.ControllerName.home:
-            showHomeScreen(fromViewController: nil)
-//            setRootView()
-//            showTabBar()
+            showTabBar(fromViewController: nil)
         default :
-            showHomeScreen(fromViewController: nil)
+            showTabBar(fromViewController: nil)
         }
     }
     
@@ -41,9 +39,9 @@ class LauncherViewController: NSObject {
         }
     }
     
-    static func showCountryView(fromViewController: UIViewController?) {
-//        let countryVC = Coordinator.Controllers.createSelectCountryViewController()
-//        showViewController(viewController: countryVC, fromViewController: nil)
+    static func showTabBar(fromViewController: UIViewController?) {
+        let tabBarVC = AppTabBarViewController()
+        showViewController(viewController: tabBarVC, fromViewController: nil)
     }
     
     static func showHomeScreen(fromViewController: UIViewController?) {

@@ -19,7 +19,7 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var productDiscountView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
     @IBOutlet private weak var containerView: UIView!
-    
+
     var productModel: ProductModel? {
         didSet {
             bindData()

@@ -6,6 +6,10 @@
   
 */
 
+// MARK: - Product Details
+
+"productDetails.seeMore" = "المزيد.." ;
+
 // MARK: - Messages
 "message.error.title" = "خطأ" ;
 "message.success.title" = "تم بنجاح" ;

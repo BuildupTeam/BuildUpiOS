@@ -7,8 +7,19 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: BaseViewController {
 
+    var viewModel: SettingsViewModel!
+    
+    init(viewModel: SettingsViewModel) {
+        super.init(viewModel: viewModel)
+        self.viewModel = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

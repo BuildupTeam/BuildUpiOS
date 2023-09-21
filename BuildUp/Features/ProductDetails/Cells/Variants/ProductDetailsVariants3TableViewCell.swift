@@ -14,6 +14,8 @@ class ProductDetailsVariants3TableViewCell: UITableViewCell {
     @IBOutlet private weak var variantActionButton: UIButton!
     @IBOutlet private weak var seperatorView: UIView!
 
+    weak var delegate: ProductDetailsVarientSelectedDelegate?
+
     var optionModel: ProductDetailsOptionsModel? {
         didSet {
             self.bindData()
@@ -46,9 +48,24 @@ class ProductDetailsVariants3TableViewCell: UITableViewCell {
         var elements: [UIAction] = []
         if let options = optionModel?.optionValues {
             for option in options {
+                option.isSelected = false
                 let element = UIAction(title: option.name ?? "", image: UIImage(), attributes: [], state: .off) { action in
                     print(option.name ?? "")
                     self.variantValueLabel.text = option.name
+                    option.isSelected = true
+                    if let model = self.optionModel {
+                        self.delegate?.optionValueSelected(model)
+                    }
+                    /*
+                     let option = options[indexPath.row]
+                     option.isSelected = true
+                     options[indexPath.row] = option
+                     self.optionModel?.optionValues = options
+                     self.collectionView.reloadData()
+                     if let model = self.optionModel {
+                         delegate?.optionValueSelected(model)
+                     }
+                     */
                 }
                 elements.append(element)
             }

@@ -27,6 +27,8 @@ class CategoryDetailsListViewController: BaseViewController {
     var coverPhotoType2View: CategoryDetailsCoverPhoto2?
     var coverPhotoType3View: CategoryDetailsCoverPhoto3?
 
+    override  var prefersBottomBarHidden: Bool? { return true }
+    
     init(viewModel: CategoryDetailsViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel

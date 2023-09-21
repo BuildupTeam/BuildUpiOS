@@ -16,6 +16,8 @@ class ProductsListViewController: BaseViewController {
     var refreshControl = UIRefreshControl()
     var componentModel: ComponentConfigurationModel?
     
+    override  var prefersBottomBarHidden: Bool? { return true }
+
     // MARK: - Private Variables
     
     var viewModel: ProductListViewModel!

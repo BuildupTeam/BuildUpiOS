@@ -74,9 +74,9 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
         collectionView.dataSource = self
         setupPageControl()
 
-        containerViewHeightConstraint.constant = 540
+//        containerViewHeightConstraint.constant = 540
         
-        productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
+        productNameLabel.font = UIFont.boldSystemFont(ofSize: 18)//.appFont(ofSize: 20, weight: .semiBold)
         productDescriptionLabel.font = .appFont(ofSize: 14, weight: .black)
         productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .semiBold)
 
@@ -125,20 +125,23 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
-            productDescriptionLabel.text = model.productDescription ?? "".maxLength(length: 70)
             
-            let readmoreFont = UIFont.appFont(ofSize: 14, weight: .bold)
-            let readmoreFontColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") ?? UIColor.titlesBlack
-            DispatchQueue.main.async {
-//                self.productDescriptionLabel.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
+            if let desc = model.productDescription, desc.count > 20 {
+                productDescriptionLabel.text = desc//.maxLength(length: 70)
+                
+                let readmoreFont = UIFont.appFont(ofSize: 14, weight: .bold)
+                let readmoreFontColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") ?? UIColor.titlesBlack
+                DispatchQueue.main.async {
+                    self.productDescriptionLabel.addTrailing(with: "... ", moreText: L10n.ProductDetails.readMore, moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
+                }
+            } else {
+                productDescriptionLabel.text = model.productDescription ?? ""
             }
-            
+                        
             if let quantity = model.quantity, quantity > 0 {
                 productOutOfStockView.isHidden = true
-                containerViewHeightConstraint.constant = 524
             } else {
                 productOutOfStockView.isHidden = false
-                containerViewHeightConstraint.constant = 570
             }
         }
         

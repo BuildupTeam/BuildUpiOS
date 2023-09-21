@@ -27,6 +27,8 @@ class ProductDetailsViewController: BaseViewController {
     var productModel: ProductModel?
     var viewModel: ProductDetailsViewModel!
     
+    override  var prefersBottomBarHidden: Bool? { return true }
+    
     init(viewModel: ProductDetailsViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
@@ -196,6 +198,7 @@ extension ProductDetailsViewController {
                 self.addToCartContainerView.isHidden = false
             })
             self.quantityCircleView.productModel = self.viewModel.productModel
+            self.quantityDropDownView.productModel = self.viewModel.productModel
         }
     }
     

@@ -123,6 +123,7 @@
                 <outlet property="productNameLabel" destination="h3e-AV-5fp" id="nOp-sJ-B7G"/>
                 <outlet property="productNewPriceLabel" destination="BSb-1e-NQZ" id="uu5-26-cHo"/>
                 <outlet property="productOldPriceLabel" destination="Rmw-Uv-jdN" id="i6U-zY-bBj"/>
+                <outlet property="productOldPriceMarkedView" destination="1hk-pK-zQn" id="VSL-Uj-uKH"/>
             </connections>
             <point key="canvasLocation" x="102" y="20"/>
         </collectionViewCell>

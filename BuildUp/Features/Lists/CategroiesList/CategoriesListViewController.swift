@@ -124,7 +124,8 @@ extension CategoriesListViewController {
         viewModel.onCategories = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
-            self.collectionView.refreshControl?.endRefreshing()
+//            self.collectionView.refreshControl?.endRefreshing()
+            self.refresher.endRefreshing()
             self.removeBackgroundViews()
             self.stopShimmerOn(collectionView: self.collectionView)
             self.reloadTableViewData()

@@ -13,7 +13,7 @@ class Coordinator {
         class func baseNavigationController() -> UINavigationController {
             
             //            let backButton = Asset.icArrowLeft.image
-            let backButton = UIImage(named: "") //Asset.icBackNew.image
+            let backButton = Asset.navBackButton.image
             
             UINavigationBar.appearance().backIndicatorImage = backButton
             UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButton
@@ -37,7 +37,7 @@ class Coordinator {
             navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigation.navigationBar.shadowImage = UIImage()
             navigation.navigationBar.backgroundColor = .white
-            navigation.navigationBar.tintColor = .titlesBlack
+            navigation.navigationBar.tintColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") //.titlesBlack
             
             let extraHeight: CGFloat = 10
             let bounds = navigation.navigationBar.bounds
@@ -56,13 +56,37 @@ class Coordinator {
             return navigation
         }
         
-        //        class func createSettingsViewController(viewModel: BaseViewModel = BaseViewModel()) -> UIViewController {
-        //            let viewController = SettingsViewController(viewModel: viewModel)
-        //
-        //            let navigation = Coordinator.AppBase.baseNavigationController()
-        //            navigation.setViewControllers([viewController], animated: true)
-        //            return navigation
-        //        }
+        class func createCategoriesViewController(viewModel: CategoriesTabViewModel = CategoriesTabViewModel()) -> UIViewController {
+            let viewController = CategoriesTabViewController(viewModel: viewModel)
+            
+            let navigation = Coordinator.AppBase.baseNavigationController()
+            navigation.setViewControllers([viewController], animated: true)
+            return navigation
+        }
+        
+        class func createCartViewController(viewModel: CartViewModel = CartViewModel()) -> UIViewController {
+            let viewController = CartViewController(viewModel: viewModel)
+            
+            let navigation = Coordinator.AppBase.baseNavigationController()
+            navigation.setViewControllers([viewController], animated: true)
+            return navigation
+        }
+        
+        class func createProfileViewController(viewModel: ProfileViewModel = ProfileViewModel()) -> UIViewController {
+            let viewController = ProfileViewController(viewModel: viewModel)
+            
+            let navigation = Coordinator.AppBase.baseNavigationController()
+            navigation.setViewControllers([viewController], animated: true)
+            return navigation
+        }
+        
+        class func createSettingsViewController(viewModel: SettingsViewModel = SettingsViewModel()) -> UIViewController {
+            let viewController = SettingsViewController(viewModel: viewModel)
+
+            let navigation = Coordinator.AppBase.baseNavigationController()
+            navigation.setViewControllers([viewController], animated: true)
+            return navigation
+        }
         
     }
     

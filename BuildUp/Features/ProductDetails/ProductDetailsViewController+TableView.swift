@@ -63,9 +63,6 @@ extension ProductDetailsViewController {
             UINib(nibName: ProductDetailsAddToCartType1TableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ProductDetailsAddToCartType1TableViewCell.identifier)
         self.tableView.register(
-            UINib(nibName: ProductDetailsAddToCartType2TableViewCell.identifier, bundle: nil),
-            forCellReuseIdentifier: ProductDetailsAddToCartType2TableViewCell.identifier)
-        self.tableView.register(
             UINib(nibName: ProductDetailsAddToCartType3TableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ProductDetailsAddToCartType3TableViewCell.identifier)
         self.tableView.register(
@@ -198,7 +195,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? ProductDetailsVariants3TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.optionModel = productModel.options?[indexPath.row]
         cell.selectionStyle = .none
         return cell
@@ -384,6 +381,7 @@ extension ProductDetailsViewController: UITableViewDelegate, UITableViewDataSour
             return UITableView.automaticDimension
         }
         switch indexPath.section {
+//        case ProductDetailsSection.slider.rawValue:
         case ProductDetailsSection.quantity.rawValue:
             if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
                 if settings.quantityPosition == ProductDetailsQuantityPosition.bottom.rawValue {

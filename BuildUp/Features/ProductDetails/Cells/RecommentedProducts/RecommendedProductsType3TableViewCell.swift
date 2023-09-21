@@ -31,7 +31,7 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
         setupCell()
     }
 
-    private func setupCell() {
+    private func setupCell() {        
         registerCollectionViewCells()
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -59,6 +59,7 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
                 headerView.isHidden = false
                 containerViewHeightContraints.constant = 320
                 headerViewHeightContraints.constant = 40
+                
             } else {
                 headerView.isHidden = true
                 containerViewHeightContraints.constant = 280
@@ -70,13 +71,21 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
     private func bindData() {
         if let productModel = productModel {
             if !(productModel.relatedProducts?.isEmpty ?? false) {
-                if productModel.relatedProducts?.count ?? 0 > 2 {
-                    collectionViewHeightConstrains.constant = 530
-                    containerViewHeightContraints.constant += 265
-                } else {
-                    collectionViewHeightConstrains.constant = 265
-                }
+                setupCellHeight(productModel)
             }
+        }
+    }
+    
+    private func setupCellHeight (_ productModel: ProductModel) {
+        if productModel.relatedProducts?.count ?? 0 > 2 {
+            collectionViewHeightConstrains.constant = 530
+            if containerViewHeightContraints.constant == 320 {
+                containerViewHeightContraints.constant = 585
+            } else if containerViewHeightContraints.constant == 280 {
+                collectionViewHeightConstrains.constant = 545
+            }
+        } else {
+            collectionViewHeightConstrains.constant = 265
         }
     }
     

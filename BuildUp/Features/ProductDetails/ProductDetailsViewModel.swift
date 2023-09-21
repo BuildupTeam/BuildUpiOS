@@ -50,6 +50,7 @@ class ProductDetailsViewModel: BaseViewModel {
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     self.productModel = response.data
                     if let files = self.productModel?.files, !files.isEmpty {
+//                        let fileModel = ProductFileModel(
                         for (index, file) in files.enumerated() {
                             if index == 0 {
                                 file.isSelected = true
@@ -58,7 +59,6 @@ class ProductDetailsViewModel: BaseViewModel {
                     }
                     
                     self.getRelatedProducts(limit: 10)
-                    
                 }
             case .failure(let error):
                 print(error)
@@ -78,7 +78,6 @@ class ProductDetailsViewModel: BaseViewModel {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     self.productModel?.relatedProducts = response.data
-//                    self.onRelatedProducts?()
                     self.onData?()
                 }
             case .failure(let error):

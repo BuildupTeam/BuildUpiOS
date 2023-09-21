@@ -73,7 +73,11 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
             if !(productModel.relatedProducts?.isEmpty ?? false) {
                 if productModel.relatedProducts?.count ?? 0 > 2 {
                     collectionViewHeightConstrains.constant = 400
-                    containerViewHeightContraints.constant += 200
+                    if containerViewHeightContraints.constant == 272 {
+                        containerViewHeightContraints.constant = 472
+                    } else if containerViewHeightContraints.constant == 232 {
+                        collectionViewHeightConstrains.constant = 432
+                    }
                 } else {
                     collectionViewHeightConstrains.constant = 200
                 }

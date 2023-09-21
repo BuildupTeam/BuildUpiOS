@@ -20,7 +20,8 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var addToFavoriteView: UIView!
     @IBOutlet private weak var containerView: UIView!
-        
+    @IBOutlet private weak var productOldPriceMarkedView: UIView!
+
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -64,6 +65,14 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
                 productImageView.setImage(with: imageUrl)
             } else {
                 productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
+            }
+            
+            if (model.discount ?? 0) > 0 {
+                productOldPriceLabel.isHidden = false
+                productOldPriceMarkedView.isHidden = false
+            } else {
+                productOldPriceLabel.isHidden = true
+                productOldPriceMarkedView.isHidden = true
             }
         }
         

@@ -191,6 +191,7 @@
                 <outlet property="productNameLabel" destination="THn-cC-koC" id="DB3-uz-plH"/>
                 <outlet property="productNewPriceLabel" destination="hAh-2f-TYa" id="IZr-aP-UC5"/>
                 <outlet property="productOldPriceLabel" destination="9ul-w2-XRf" id="DNE-eg-vgf"/>
+                <outlet property="productOldPriceMarkedView" destination="QHx-UX-glh" id="x0z-cI-A53"/>
             </connections>
             <point key="canvasLocation" x="43" y="20"/>
         </tableViewCell>

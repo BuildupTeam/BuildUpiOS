@@ -32,6 +32,23 @@ class HomeViewController: BaseViewController {
         getHomeData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        scrollToFirstRow()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = " "
+    }
+    
+    func scrollToFirstRow() {
+//        if viewModel.homeData.isAllDataValid {
+            tableView.scrollToTopRow()
+//            getHomeData()
+//        }
+    }
+    
 }
 
 // MARK: - SetupUI
