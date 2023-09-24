@@ -45,8 +45,8 @@ extension RouteHomeProductsApi: TargetType {
                 parameters["sort[dir]"] = sortDir
             }
             if let categories = model.categories {
-                if let category = categories.first {
-                    parameters["categories_ids[0]"] = category.id
+                if let categoryId = categories.first {
+                    parameters["categories_ids[0]"] = categoryId
                 }
             }
             if let discount = model.filters?.discount {

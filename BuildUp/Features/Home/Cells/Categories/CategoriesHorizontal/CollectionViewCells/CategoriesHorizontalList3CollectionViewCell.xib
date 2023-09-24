@@ -20,12 +20,22 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvm-W4-bML">
                         <rect key="frame" x="8" y="8" width="104" height="174"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvA-WT-Xgj">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddP-OM-YIe">
                                 <rect key="frame" x="0.0" y="0.0" width="104" height="140"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvA-WT-Xgj">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="140"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.86274509803921573" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="z8G-qC-aMK"/>
+                                    <constraint firstAttribute="bottom" secondItem="NvA-WT-Xgj" secondAttribute="bottom" id="9J4-t2-gx1"/>
+                                    <constraint firstItem="NvA-WT-Xgj" firstAttribute="top" secondItem="ddP-OM-YIe" secondAttribute="top" id="Gox-ae-LQi"/>
+                                    <constraint firstAttribute="trailing" secondItem="NvA-WT-Xgj" secondAttribute="trailing" id="XbR-3T-MfL"/>
+                                    <constraint firstItem="NvA-WT-Xgj" firstAttribute="leading" secondItem="ddP-OM-YIe" secondAttribute="leading" id="g4O-QR-cx5"/>
+                                    <constraint firstAttribute="height" constant="140" id="hFm-9Z-WJI"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-I3-DUV">
                                 <rect key="frame" x="8" y="150" width="88" height="19"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -35,12 +45,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ddP-OM-YIe" firstAttribute="leading" secondItem="Gvm-W4-bML" secondAttribute="leading" id="Eee-ed-wHF"/>
+                            <constraint firstAttribute="trailing" secondItem="ddP-OM-YIe" secondAttribute="trailing" id="KiM-5D-81t"/>
                             <constraint firstAttribute="bottom" secondItem="d3Y-I3-DUV" secondAttribute="bottom" constant="5" id="Myd-kl-FpS"/>
-                            <constraint firstItem="NvA-WT-Xgj" firstAttribute="leading" secondItem="Gvm-W4-bML" secondAttribute="leading" id="WXc-9I-RjU"/>
-                            <constraint firstItem="d3Y-I3-DUV" firstAttribute="top" secondItem="NvA-WT-Xgj" secondAttribute="bottom" constant="10" id="nrl-vL-8CV"/>
-                            <constraint firstAttribute="trailing" secondItem="NvA-WT-Xgj" secondAttribute="trailing" id="sJY-3v-jQf"/>
+                            <constraint firstItem="ddP-OM-YIe" firstAttribute="top" secondItem="Gvm-W4-bML" secondAttribute="top" id="PED-WX-dd4"/>
+                            <constraint firstItem="d3Y-I3-DUV" firstAttribute="top" secondItem="ddP-OM-YIe" secondAttribute="bottom" constant="10" id="j9D-YC-t7B"/>
                             <constraint firstAttribute="trailing" secondItem="d3Y-I3-DUV" secondAttribute="trailing" constant="8" id="ut3-Ud-G6g"/>
-                            <constraint firstItem="NvA-WT-Xgj" firstAttribute="top" secondItem="Gvm-W4-bML" secondAttribute="top" id="wjH-sN-UNs"/>
                             <constraint firstItem="d3Y-I3-DUV" firstAttribute="leading" secondItem="Gvm-W4-bML" secondAttribute="leading" constant="8" id="x1y-fz-mYy"/>
                         </constraints>
                     </view>
@@ -55,6 +65,7 @@
                 <constraint firstItem="Gvm-W4-bML" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="vDE-ci-Nd2"/>
             </constraints>
             <connections>
+                <outlet property="categoryImageContainerView" destination="ddP-OM-YIe" id="Mhq-oH-y3g"/>
                 <outlet property="categoryImageView" destination="NvA-WT-Xgj" id="0pE-TP-JWa"/>
                 <outlet property="categoryNameLabel" destination="d3Y-I3-DUV" id="0z6-6R-eHd"/>
                 <outlet property="containerView" destination="Gvm-W4-bML" id="Kz7-IX-ZG6"/>

@@ -105,7 +105,7 @@ extension ProductVerticalGrid5TableViewCell: UICollectionViewDelegate, UICollect
         + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
         
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        return CGSize(width: size, height: 200)
+        return CGSize(width: size, height: 210)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

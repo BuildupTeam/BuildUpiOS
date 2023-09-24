@@ -13,6 +13,7 @@ enum FontWeight {
     case bold
     case black
     case semiBold
+    case medium
     case light
 }
 
@@ -31,10 +32,12 @@ extension UIFont {
         case .regular:
             return UIFont(name: "NotoSansMyanmar-Regular", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .black:
-            return UIFont.systemFont(ofSize: ofSize)
+            return UIFont.boldSystemFont(ofSize: ofSize)
         case .semiBold:
             return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .bold:
+            return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+        case .medium:
             return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .light:
             return UIFont(name: "NotoSansMyanmar-Light", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
@@ -46,10 +49,12 @@ extension UIFont {
         case .regular:
             return UIFont(name: "NotoSansMyanmar-Regular", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .black:
-            return UIFont.systemFont(ofSize: ofSize)
+            return UIFont.boldSystemFont(ofSize: ofSize)
         case .semiBold:
             return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .bold:
+            return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
+        case .medium:
             return UIFont(name: "NotoSansMyanmar-Bold", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)
         case .light:
             return UIFont(name: "NotoSansMyanmar-Light", size: ofSize) ?? UIFont.systemFont(ofSize: ofSize)

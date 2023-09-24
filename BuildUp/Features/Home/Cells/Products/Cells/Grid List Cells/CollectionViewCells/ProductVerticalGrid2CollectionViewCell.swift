@@ -19,6 +19,7 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var addToFavoriteButton: UIButton!
     
     @IBOutlet private weak var addToFavoriteView: UIView!
+    @IBOutlet private weak var productImageContainerView: UIView!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
 
@@ -35,11 +36,11 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
     }
 
     private func setupCell() {
-        productNameLabel.font = .appFont(ofSize: 13, weight: .regular)
+        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         
-        containerView.setShadow(
+        productImageContainerView.setShadow(
             shadowRadius: CGFloat(5),
             xOffset: 0,
             yOffset: 0,
@@ -53,11 +54,13 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
+//        ThemeManager.roundCorners(element: productImageView, corners: [.topLeft, .topRight], radius: 8)
     }
     
     func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
+            addCurrencyToText(model)
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
             
@@ -79,5 +82,20 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
         
+    }
+    
+    private func addCurrencyToText(_ model: ProductModel) {
+        let amountText = NSMutableAttributedString.init(string: " SAR")
+        let priceText = model.originalPrice
+
+        // set the custom font and color for the 0,1 range in string
+        amountText.setAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
+                                      NSAttributedString.Key.foregroundColor: UIColor.gray],
+                                     range: NSMakeRange(0, 1))
+        // if you want, you can add more attributes for different ranges calling .setAttributes many times
+        // set the attributed string to the UILabel object
+
+        // set the attributed string to the UILabel object
+//        myUILabel.attributedText = amountText
     }
 }

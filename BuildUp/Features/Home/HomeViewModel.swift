@@ -132,20 +132,38 @@ class HomeViewModel: BaseViewModel {
 // MARK: - Prepared Requests
 extension HomeViewModel {
     func getHomeProducts(order: String, componentModel: ComponentConfigurationModel) {
+        var limit = 4
+        
         let contentTypeCompletion: (() -> String) = { () in return "\(HomeContentType.products.rawValue)" }
         let orderCompletion: (() -> String) = { () in return "\(order)" }
         
-        getProducts(limit: 4,
+        switch componentModel.design {
+        case HomeDesign.productVerticalGrid4.rawValue,
+            HomeDesign.productVerticalGrid5.rawValue:
+            limit = 6
+        default:
+            limit = 4
+        }
+        getProducts(limit: limit,
                     componentModel: componentModel,
                     contentTypeCompletion: contentTypeCompletion,
                     orderCompletion: orderCompletion)
     }
     
     func getHomeCategories(order: String, componentModel: ComponentConfigurationModel) {
+        var limit = 4
         let contentTypeCompletion: (() -> String) = { () in return "\(HomeContentType.categories.rawValue)" }
         let orderCompletion: (() -> String) = { () in return "\(order)" }
         
-        getCategories(limit: 4,
+        switch componentModel.design {
+        case HomeDesign.categoriesVerticalGrid2.rawValue:
+            limit = 6
+        case HomeDesign.categoriesVerticalGrid3.rawValue:
+            limit = 9
+        default:
+            limit = 4
+        }
+        getCategories(limit: limit,
                       componentModel: componentModel,
                       contentTypeCompletion: contentTypeCompletion,
                       orderCompletion: orderCompletion)

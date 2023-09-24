@@ -21,7 +21,7 @@ class ComponentConfigurationModel: NSObject, NSCoding, Mappable {
     var image: MainImageModel?
     var filters: ComponentsFilterModel?
     var title: String?
-    var categories: [ComponentCategoryModel]?
+    var categories: [Int]? // [ComponentCategoryModel]?
     var images: [String]?
 
     required init?(map: Map) {
@@ -63,7 +63,7 @@ class ComponentConfigurationModel: NSObject, NSCoding, Mappable {
         image = aDecoder.decodeObject(forKey: "image") as? MainImageModel
         filters = aDecoder.decodeObject(forKey: "filters") as? ComponentsFilterModel
         title = aDecoder.decodeObject(forKey: "title") as? String
-        categories = aDecoder.decodeObject(forKey: "categories") as? [ComponentCategoryModel]
+        categories = aDecoder.decodeObject(forKey: "categories") as? [Int]
         images = aDecoder.decodeObject(forKey: "images") as? [String]
     }
     

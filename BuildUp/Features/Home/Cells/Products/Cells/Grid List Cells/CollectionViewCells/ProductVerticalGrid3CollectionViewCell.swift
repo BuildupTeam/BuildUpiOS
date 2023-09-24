@@ -43,7 +43,7 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
             cornerRadius: 8,
             masksToBounds: false)
         
-        productNameLabel.font = .appFont(ofSize: 13, weight: .regular)
+        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")

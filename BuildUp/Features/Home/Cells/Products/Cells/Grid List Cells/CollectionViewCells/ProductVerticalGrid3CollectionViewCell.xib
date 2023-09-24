@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBM-b6-2fy">
                         <rect key="frame" x="8" y="8" width="166" height="234"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJ1-hg-Ufc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJ1-hg-Ufc">
                                 <rect key="frame" x="0.0" y="0.0" width="166" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="mxP-wW-W73"/>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="239 SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0N-5d-vxM">
-                                <rect key="frame" x="8" y="202.66666666666666" width="53" height="15.666666666666657"/>
+                                <rect key="frame" x="8" y="202.33333333333334" width="53" height="15.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.94117647059999998" green="0.47058823529999999" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YVo-u1-iRo">
                                 <rect key="frame" x="124" y="195.33333333333334" width="30" height="30"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_addtoCart_white" translatesAutoresizingMaskIntoConstraints="NO" id="ps4-aJ-ha6">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cart_white" translatesAutoresizingMaskIntoConstraints="NO" id="ps4-aJ-ha6">
                                         <rect key="frame" x="7.6666666666666563" y="8.6666666666666572" width="14.666666666666661" height="12.666666666666664"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12.9" id="Egz-h1-845"/>
@@ -69,6 +69,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="YVo-u1-iRo" secondAttribute="bottom" constant="8.6699999999999999" id="0RN-ea-Jc6"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="234" id="8R9-KA-SF3"/>
                             <constraint firstItem="YVo-u1-iRo" firstAttribute="top" secondItem="A7h-1c-MpO" secondAttribute="bottom" constant="4" id="AaV-6H-7Cy"/>
                             <constraint firstItem="M0N-5d-vxM" firstAttribute="leading" secondItem="cBM-b6-2fy" secondAttribute="leading" constant="8" id="CGc-g0-kkJ"/>
@@ -104,7 +105,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="product_addtoCart_white" width="14.666666984558105" height="11.333333015441895"/>
+        <image name="ic_cart_white" width="18" height="17"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

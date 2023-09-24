@@ -38,7 +38,7 @@
                                     <constraint firstItem="HYk-ga-hDk" firstAttribute="leading" secondItem="IHg-ws-uCm" secondAttribute="leading" constant="5" id="zNJ-fR-lKA"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Oor-ve-2Pp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Oor-ve-2Pp">
                                 <rect key="frame" x="0.0" y="0.0" width="164" height="81"/>
                             </imageView>
                         </subviews>

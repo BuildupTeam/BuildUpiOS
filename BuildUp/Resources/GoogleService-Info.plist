@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDkM5qE-PI6Gu06GpSU6SfY-0usODmzYwY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>738116931986</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.squadio.buildUp</string>
+	<key>PROJECT_ID</key>
+	<string>buildup-dev-4c1cd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>buildup-dev-4c1cd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:738116931986:ios:9bbd49842b4a82e366f14b</string>
+	<key>DATABASE_URL</key>
+	<string>https://buildup-dev-4c1cd-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

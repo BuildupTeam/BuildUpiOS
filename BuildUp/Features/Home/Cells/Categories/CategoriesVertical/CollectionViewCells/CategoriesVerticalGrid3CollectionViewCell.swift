@@ -25,14 +25,14 @@ class CategoriesVerticalGrid3CollectionViewCell: UICollectionViewCell {
     }
 
     private func setupCell() {
-        containerView.setShadow(
-            shadowRadius: CGFloat(5),
-            xOffset: 0,
-            yOffset: 0,
-            color: .black,
-            opacity: 0.15,
-            cornerRadius: 8,
-            masksToBounds: false)
+        ThemeManager.setShadow(element: containerView,
+                               shadowRadius: CGFloat(5),
+                               xOffset: 0,
+                               yOffset: 0,
+                               color: .black,
+                               opacity: 0.15,
+                               cornerRadius: 8,
+                               masksToBounds: false)
         
         ThemeManager.setCornerRadious(element: categoryImageView, radius: 8)
     }

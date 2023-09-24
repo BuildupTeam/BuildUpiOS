@@ -33,7 +33,7 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
-        productNameLabel.font = .appFont(ofSize: 14, weight: .semiBold)
+        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productDiscountLabel.font = .appFont(ofSize: 12, weight: .bold)
@@ -43,18 +43,27 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productDiscountLabel.textColor = ThemeManager.colorPalette?.badgeTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.badgeTextColor ?? "")
         
-        containerView.setShadow(
-            shadowRadius: CGFloat(5),
-            xOffset: 0,
-            yOffset: 0,
-            color: .black,
-            opacity: 0.15,
-            cornerRadius: 8,
-            masksToBounds: false)
+//        containerView.setShadow(
+//            shadowRadius: CGFloat(5),
+//            xOffset: 0,
+//            yOffset: 0,
+//            color: .black,
+//            opacity: 0.15,
+//            cornerRadius: 8,
+//            masksToBounds: false)
         
-        ThemeManager.setCornerRadious(element: containerView, radius: 8)
-        ThemeManager.setCornerRadious(element: productImageView, radius: 8)
+        ThemeManager.setShadow(element: containerView,
+                               shadowRadius: CGFloat(5),
+                               xOffset: 0,
+                               yOffset: 0,
+                               color: .black,
+                               opacity: 0.15,
+                               cornerRadius: 8,
+                               masksToBounds: false)
+        
+//        ThemeManager.setCornerRadious(element: containerView, radius: 8)
         ThemeManager.setCornerRadious(element: productDiscountView, radius: 8)
+        ThemeManager.roundCorners(element: productImageView, corners: [.topLeft, .bottomLeft], radius: 8)
     }
     
     private func bindData() {
@@ -62,7 +71,7 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
             productNameLabel.text = model.name ?? ""
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
-            productDiscountLabel.text = String(model.discount ?? 0) + " %"
+            productDiscountLabel.text = "-" + String(model.discount ?? 0) + " %"
             
             if (model.discount ?? 0) > 0 {
                 productDiscountView.isHidden = false

@@ -33,21 +33,21 @@ class BannerType2TableViewCell: UITableViewCell {
 
         bannerTitleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         
-        containerView.setShadow(
-            shadowRadius: CGFloat(5),
-            xOffset: 0,
-            yOffset: 0,
-            color: .black,
-            opacity: 0.15,
-            cornerRadius: 8,
-            masksToBounds: false)
+        ThemeManager.setShadow(element: containerView,
+                               shadowRadius: CGFloat(5),
+                               xOffset: 0,
+                               yOffset: 0,
+                               color: .black,
+                               opacity: 0.15,
+                               cornerRadius: 8,
+                               masksToBounds: false)
         
         ThemeManager.setCornerRadious(element: bannerImageView, radius: 8)
     }
 
     private func bindData() {
         if let component = homeSectionModel?.component {
-//            bannerTitleLabel.text = component.title
+            bannerTitleLabel.text = component.title
             
             if let imageUrl = component.image?.path {
                 bannerImageView.setImage(with: imageUrl, placeholderImage: Asset.bannerType1Placeholder.image)

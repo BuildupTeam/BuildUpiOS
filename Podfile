@@ -22,6 +22,7 @@ def ui_pods
   pod 'DPOTPView'
   pod "SCPageControl", :git => 'https://github.com/MahmoudNasserIbtikar/SCPageControl.git'
   pod 'Firebase'
+  pod 'FirebaseFirestore'
   pod 'FirebaseMessaging'
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'

@@ -49,5 +49,51 @@ class ThemeManager {
         mask.path = path.cgPath
         element.layer.mask = mask
     }
+    
+    static func setShadow(
+        element: UIView,
+        shadowRadius: CGFloat,
+        xOffset: Int,
+        yOffset: Int,
+        color: UIColor,
+        opacity: Float,
+        cornerRadius: CGFloat,
+        masksToBounds: Bool) {
+            var isCurved = false
+
+            if let themeData = CachingService.getThemeData() {
+                if themeData.systemStyle == "curved" {
+                    isCurved = true
+                }
+            }
+            if !isCurved {
+                return
+            }
+            
+            element.layer.cornerRadius = cornerRadius
+            element.layer.shadowColor = color.cgColor
+            element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
+            element.layer.shadowRadius = shadowRadius
+            element.layer.shadowOpacity = opacity
+            element.layer.masksToBounds = masksToBounds
+        }
+    
+    static func setShadowWithoutMaskBounds(
+        element: UIView,
+        shadowRadius: CGFloat,
+        xOffset: Int,
+        yOffset: Int,
+        color: UIColor,
+        opacity: Float,
+        cornerRadius: CGFloat,
+        masksToBounds: Bool) {
+            
+            element.layer.cornerRadius = 0
+            element.layer.shadowColor = color.cgColor
+            element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
+            element.layer.shadowRadius = shadowRadius
+            element.layer.shadowOpacity = opacity
+            element.layer.masksToBounds = masksToBounds
+        }
 }
 

@@ -26,14 +26,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ofj-V0-nvq">
                                         <rect key="frame" x="0.0" y="0.0" width="144" height="138"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nike Shoes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8K-b9-gIN">
-                                                <rect key="frame" x="14" y="26" width="116" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sale up to 80% off" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAF-b1-k8S">
-                                                <rect key="frame" x="14" y="56.333333333333329" width="116" height="40.666666666666671"/>
+                                                <rect key="frame" x="14" y="48.666666666666671" width="116" height="40.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -41,13 +35,9 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="hAF-b1-k8S" firstAttribute="top" secondItem="E8K-b9-gIN" secondAttribute="bottom" constant="10" id="CEk-si-tG0"/>
                                             <constraint firstAttribute="trailing" secondItem="hAF-b1-k8S" secondAttribute="trailing" constant="14" id="ERo-mO-kXO"/>
-                                            <constraint firstItem="E8K-b9-gIN" firstAttribute="leading" secondItem="Ofj-V0-nvq" secondAttribute="leading" constant="14" id="MM3-Mm-KbB"/>
                                             <constraint firstItem="hAF-b1-k8S" firstAttribute="leading" secondItem="Ofj-V0-nvq" secondAttribute="leading" constant="14" id="Nx6-h6-Dg3"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hAF-b1-k8S" secondAttribute="bottom" constant="20" id="R50-vW-rE1"/>
-                                            <constraint firstAttribute="trailing" secondItem="E8K-b9-gIN" secondAttribute="trailing" constant="14" id="VjQ-N0-kav"/>
-                                            <constraint firstItem="E8K-b9-gIN" firstAttribute="top" secondItem="Ofj-V0-nvq" secondAttribute="top" constant="26" id="ax2-DG-s4x"/>
+                                            <constraint firstItem="hAF-b1-k8S" firstAttribute="centerY" secondItem="Ofj-V0-nvq" secondAttribute="centerY" id="VLu-3r-s4U"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS7-Na-kzV">
@@ -88,10 +78,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="bannerContentLabel" destination="hAF-b1-k8S" id="Kv4-VG-IzN"/>
                 <outlet property="bannerImageContainerView" destination="AS7-Na-kzV" id="5lt-hZ-pRO"/>
                 <outlet property="bannerImageView" destination="e7j-z7-uSf" id="AKc-q9-kEB"/>
-                <outlet property="bannerTitleLabel" destination="E8K-b9-gIN" id="XmS-JY-fCF"/>
+                <outlet property="bannerTitleLabel" destination="hAF-b1-k8S" id="znz-32-Lk6"/>
                 <outlet property="containerView" destination="UoK-hO-yhM" id="tiu-Ot-HGu"/>
             </connections>
             <point key="canvasLocation" x="100.76335877862596" y="19.718309859154932"/>

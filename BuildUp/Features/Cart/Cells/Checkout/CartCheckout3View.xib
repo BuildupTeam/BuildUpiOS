@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CartCheckout3View" customModule="BuildUp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAs-b5-ABo">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTC-Vr-FSh">
+                            <rect key="frame" x="16" y="14" width="361" height="48"/>
+                            <color key="backgroundColor" red="0.10980392160000001" green="0.16862745100000001" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Wne-yN-DZS"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="nTC-Vr-FSh" firstAttribute="leading" secondItem="TAs-b5-ABo" secondAttribute="leading" constant="16" id="Mkj-ae-Ybf"/>
+                        <constraint firstAttribute="bottom" secondItem="nTC-Vr-FSh" secondAttribute="bottom" constant="32" id="pAG-zO-skE"/>
+                        <constraint firstAttribute="trailing" secondItem="nTC-Vr-FSh" secondAttribute="trailing" constant="16" id="uti-BR-f5H"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="TAs-b5-ABo" secondAttribute="trailing" id="0Y6-1F-QMg"/>
+                <constraint firstAttribute="bottom" secondItem="TAs-b5-ABo" secondAttribute="bottom" id="1wP-W8-1P5"/>
+                <constraint firstItem="TAs-b5-ABo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wua-FH-GWm"/>
+                <constraint firstItem="TAs-b5-ABo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hfB-lE-yyG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="checkoutButton" destination="nTC-Vr-FSh" id="DA2-NM-NWd"/>
+            </connections>
+            <point key="canvasLocation" x="37" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

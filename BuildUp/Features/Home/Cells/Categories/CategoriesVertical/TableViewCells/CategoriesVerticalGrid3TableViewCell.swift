@@ -39,7 +39,15 @@ class CategoriesVerticalGrid3TableViewCell: UITableViewCell {
     }
     
     private func bindData() {
-        
+        if let homeSection = homeSectionModel {
+            if !(homeSection.categories?.isEmpty ?? false) {
+                if homeSection.categories?.count ?? 0 <= 6 {
+                    collectionViewHeightConstrains.constant = 268
+                } else {
+                    collectionViewHeightConstrains.constant = 402
+                }
+            }
+        }
     }
 
     private func registerCollectionViewCells() {

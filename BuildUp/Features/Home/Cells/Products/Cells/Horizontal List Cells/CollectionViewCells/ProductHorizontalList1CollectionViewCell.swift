@@ -20,6 +20,7 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var addToFavoriteView: UIView!
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var productImageContainerView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
 
     var productModel: ProductModel? {
@@ -43,14 +44,14 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         
-        containerView.setShadow(
-            shadowRadius: CGFloat(5),
-            xOffset: 0,
-            yOffset: 0,
-            color: .black,
-            opacity: 0.15,
-            cornerRadius: 8,
-            masksToBounds: false)
+        ThemeManager.setShadow(element: productImageContainerView,
+                               shadowRadius: CGFloat(5),
+                               xOffset: 0,
+                               yOffset: 0,
+                               color: .black,
+                               opacity: 0.15,
+                               cornerRadius: 8,
+                               masksToBounds: false)
         
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
     }

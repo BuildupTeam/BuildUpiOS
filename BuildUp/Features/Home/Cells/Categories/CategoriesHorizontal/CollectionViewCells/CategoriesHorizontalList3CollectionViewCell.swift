@@ -12,7 +12,8 @@ class CategoriesHorizontalList3CollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var categoryImageView: UIImageView!
     @IBOutlet private weak var categoryNameLabel: UILabel!
     @IBOutlet private weak var containerView: UIView!
-    
+    @IBOutlet private weak var categoryImageContainerView: UIView!
+
     var isCurved: Bool?
     
     var categoryModel: CategoryModel? {
@@ -31,17 +32,18 @@ class CategoriesHorizontalList3CollectionViewCell: UICollectionViewCell {
         categoryNameLabel.font = .appFont(ofSize: 13, weight: .semiBold)
         categoryNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
-        containerView.setShadow(
-            shadowRadius: CGFloat(5),
-            xOffset: 0,
-            yOffset: 0,
-            color: .black,
-            opacity: 0.15,
-            cornerRadius: 8,
-            masksToBounds: false)
+//        containerView.setShadow(
+//            shadowRadius: CGFloat(5),
+//            xOffset: 0,
+//            yOffset: 0,
+//            color: .black,
+//            opacity: 0.15,
+//            cornerRadius: 8,
+//            masksToBounds: false)
         
-        ThemeManager.setCornerRadious(element: containerView, radius: 8)
-        ThemeManager.roundCorners(element: categoryImageView, corners: [.topLeft, .topRight], radius: 8)
+        ThemeManager.setCornerRadious(element: categoryImageView, radius: 8)
+        ThemeManager.setCornerRadious(element: categoryImageContainerView, radius: 8)
+//        ThemeManager.roundCorners(element: categoryImageView, corners: [.topLeft, .topRight], radius: 8)
     }
     
     func bindData() {
