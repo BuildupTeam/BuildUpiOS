@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwG-cO-pcO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRD-fs-RU7">
-                                <rect key="frame" x="16" y="11.999999999999998" width="183" height="20.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRD-fs-RU7">
+                                <rect key="frame" x="16" y="8" width="205" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,10 +45,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HRD-fs-RU7" firstAttribute="leading" secondItem="IwG-cO-pcO" secondAttribute="leading" constant="16" id="9gS-uT-A3C"/>
-                            <constraint firstAttribute="height" constant="44" id="SII-Xp-zdu"/>
-                            <constraint firstItem="lli-eR-Ocy" firstAttribute="leading" secondItem="HRD-fs-RU7" secondAttribute="trailing" constant="30" id="Z0P-IQ-Wsb"/>
+                            <constraint firstItem="lli-eR-Ocy" firstAttribute="leading" secondItem="HRD-fs-RU7" secondAttribute="trailing" constant="8" id="Z0P-IQ-Wsb"/>
+                            <constraint firstAttribute="bottom" secondItem="HRD-fs-RU7" secondAttribute="bottom" constant="8" id="bEc-DU-vbm"/>
                             <constraint firstAttribute="trailing" secondItem="lli-eR-Ocy" secondAttribute="trailing" constant="16" id="dP3-aY-TIZ"/>
-                            <constraint firstItem="HRD-fs-RU7" firstAttribute="centerY" secondItem="IwG-cO-pcO" secondAttribute="centerY" id="j8F-9S-n73"/>
+                            <constraint firstItem="HRD-fs-RU7" firstAttribute="top" secondItem="IwG-cO-pcO" secondAttribute="top" constant="8" id="gPp-dd-ic1"/>
                             <constraint firstItem="lli-eR-Ocy" firstAttribute="centerY" secondItem="HRD-fs-RU7" secondAttribute="centerY" id="x13-uB-IjR"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

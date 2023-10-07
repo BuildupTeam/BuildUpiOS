@@ -41,7 +41,7 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
         }
         return self.viewModel.products.count
     }
-    
+
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -110,14 +110,14 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let noOfCellsInRow = 2   //number of column you want
+        let noOfCellsInRow = 2 //number of column you want
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left
         + flowLayout.sectionInset.right
         + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
-        
+
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-        
+
         if let settings = viewModel.categoryDetailsSettings {
             switch settings.productsList?.design {
             case ProductListDesign.grid1.rawValue,
@@ -133,9 +133,10 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
                 return CGSize.zero
             }
         }
-        
+
         return CGSize(width: size, height: 260)
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

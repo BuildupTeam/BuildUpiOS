@@ -10,6 +10,7 @@ import ObjectMapper
 
 class ComponentsFilterModel: NSObject, NSCoding, Mappable {
     var discount: String?
+    var isMain: String?
 
     required init?(map: Map) {
         
@@ -17,6 +18,7 @@ class ComponentsFilterModel: NSObject, NSCoding, Mappable {
     
     func mapping(map: Map) {
         discount <- map["discount"]
+        isMain <- map["is_main"]
     }
     
     override init() {
@@ -25,12 +27,13 @@ class ComponentsFilterModel: NSObject, NSCoding, Mappable {
     convenience required init?(coder aDecoder: NSCoder) {
         self.init()
         discount = aDecoder.decodeObject(forKey: "discount") as? String
+        isMain = aDecoder.decodeObject(forKey: "isMain") as? String
     }
     
     @objc
     func encode(with aCoder: NSCoder) {
-        if discount != nil {
-            aCoder.encode(discount, forKey: "discount")
+        if isMain != nil {
+            aCoder.encode(isMain, forKey: "isMain")
         }
     }
 }

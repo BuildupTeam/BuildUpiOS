@@ -47,17 +47,25 @@ extension RouteProductListApi: TargetType {
             
             if let sortBy = model.orderBy {
                 parameters["sort[by]"] = sortBy
+            } else {
+                parameters["sort[by]"] = "id"
             }
+            
             if let sortDir = model.orderDir {
                 parameters["sort[dir]"] = sortDir
+            } else {
+                parameters["sort[dir]"] = "desc"
             }
+            
             if let categories = model.categories {
                 if let categoryId = categories.first {
                     parameters["categories_ids[0]"] = categoryId
                 }
             }
+            
             if let discount = model.filters?.discount {
-                parameters["discount"] = discount
+                parameters["discount_range[from]"] = "0"
+                parameters["discount_range[to]"] = discount
             }
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)

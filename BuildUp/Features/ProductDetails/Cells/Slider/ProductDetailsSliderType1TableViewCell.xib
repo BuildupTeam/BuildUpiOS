@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -81,14 +82,19 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJu-Tb-utF">
                                 <rect key="frame" x="16" y="406.66666666666669" width="382" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="iFO-il-Yah"/>
-                                </constraints>
                                 <string key="text">Zara winter collection 023 waisted midi with buttons and brown belt ..more details Zara winter collection 023 waisted midi with buttons and brown belt ..more details</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-vp-mg2">
+                                <rect key="frame" x="16" y="406.66666666666669" width="382" height="50"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="seeMoreButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uc9-1U-SjT"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMb-p9-Tkf">
                                 <rect key="frame" x="360" y="366" width="30" height="30"/>
                                 <subviews>
@@ -226,16 +232,20 @@
                             <constraint firstItem="cNu-dv-cJs" firstAttribute="top" secondItem="SJu-Tb-utF" secondAttribute="bottom" constant="12" id="9DK-Bg-vhX"/>
                             <constraint firstItem="xMb-p9-Tkf" firstAttribute="top" secondItem="tOE-3h-cb4" secondAttribute="bottom" constant="16" id="DVk-L1-tB2"/>
                             <constraint firstItem="xMb-p9-Tkf" firstAttribute="leading" secondItem="RSV-4j-HxG" secondAttribute="trailing" constant="59" id="JzL-hm-43X"/>
+                            <constraint firstItem="MCr-vp-mg2" firstAttribute="bottom" secondItem="SJu-Tb-utF" secondAttribute="bottom" id="KdC-yv-FYJ"/>
                             <constraint firstItem="S8i-Xd-rVY" firstAttribute="top" secondItem="deJ-xp-Nxu" secondAttribute="bottom" constant="8" id="M7i-ZN-mTK"/>
                             <constraint firstAttribute="trailing" secondItem="ozL-PZ-bRh" secondAttribute="trailing" constant="18" id="MnV-ve-guD"/>
                             <constraint firstItem="RSV-4j-HxG" firstAttribute="leading" secondItem="fAh-tQ-ofF" secondAttribute="leading" constant="16" id="NVa-3L-GYI"/>
                             <constraint firstItem="deJ-xp-Nxu" firstAttribute="top" secondItem="SJu-Tb-utF" secondAttribute="bottom" constant="16" id="PmI-Vh-8EZ"/>
+                            <constraint firstItem="MCr-vp-mg2" firstAttribute="leading" secondItem="SJu-Tb-utF" secondAttribute="leading" id="Rsw-Y5-hyl"/>
                             <constraint firstItem="tOE-3h-cb4" firstAttribute="top" secondItem="fAh-tQ-ofF" secondAttribute="top" id="SHL-S6-Ylx"/>
                             <constraint firstAttribute="trailing" secondItem="deJ-xp-Nxu" secondAttribute="trailing" constant="16" id="SqL-Nk-yH3"/>
                             <constraint firstItem="RSV-4j-HxG" firstAttribute="top" secondItem="tOE-3h-cb4" secondAttribute="bottom" constant="12" id="Ucn-oU-gQk"/>
+                            <constraint firstItem="MCr-vp-mg2" firstAttribute="top" secondItem="SJu-Tb-utF" secondAttribute="top" id="Uvy-cu-pNi"/>
                             <constraint firstAttribute="trailing" secondItem="xMb-p9-Tkf" secondAttribute="trailing" constant="24" id="WDk-Oh-Tsz"/>
                             <constraint firstAttribute="trailing" secondItem="S8i-Xd-rVY" secondAttribute="trailing" id="YGm-zp-o0l"/>
                             <constraint firstAttribute="trailing" secondItem="SJu-Tb-utF" secondAttribute="trailing" constant="16" id="YwD-8D-t8g"/>
+                            <constraint firstItem="MCr-vp-mg2" firstAttribute="trailing" secondItem="SJu-Tb-utF" secondAttribute="trailing" id="eIP-gf-O7u"/>
                             <constraint firstAttribute="bottom" secondItem="S8i-Xd-rVY" secondAttribute="bottom" id="ebu-BO-725"/>
                             <constraint firstItem="dFF-dQ-DYf" firstAttribute="trailing" secondItem="VpM-Ry-vSF" secondAttribute="trailing" id="ej2-cD-Qdn"/>
                             <constraint firstItem="deJ-xp-Nxu" firstAttribute="leading" secondItem="fAh-tQ-ofF" secondAttribute="leading" constant="16" id="fIL-kQ-Lln"/>
@@ -285,11 +295,6 @@
             <point key="canvasLocation" x="16.793893129770993" y="19.366197183098592"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="cNu-dv-cJs">
-            <size key="intrinsicContentSize" width="20" height="0.0"/>
-        </designable>
-    </designables>
     <resources>
         <image name="productImage" width="375" height="350"/>
         <image name="product_details_cart" width="21" height="21"/>

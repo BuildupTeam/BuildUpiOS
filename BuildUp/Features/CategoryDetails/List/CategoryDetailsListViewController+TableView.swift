@@ -77,11 +77,9 @@ extension CategoryDetailsListViewController {
 // MARK: Dynamic Components
 extension CategoryDetailsListViewController {
     func getCellForRow(indexPath: IndexPath) -> UITableViewCell {
-        if isLoadingShimmer {
-            return self.getShimmerCell(indexPath: indexPath)
-        } else {
+        if viewModel.products.indices.contains(indexPath.row) {
             let productModel = viewModel.products[indexPath.row]
-            
+
             if let settings = viewModel.categoryDetailsSettings {
                 switch settings.productsList?.design {
                 case ProductListDesign.list1.rawValue:
@@ -95,6 +93,7 @@ extension CategoryDetailsListViewController {
                 }
             }
         }
+        
         return UITableViewCell()
     }
 }
@@ -102,14 +101,23 @@ extension CategoryDetailsListViewController {
 // MARK: TableView Delegate
 extension CategoryDetailsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.viewModel.products.isEmpty {
+        if isLoadingShimmer {
             return 10
         }
         return self.viewModel.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        if isLoadingShimmer {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ShimmerProductVerticalListTableViewCell.identifier,
+                for: indexPath) as? ShimmerProductVerticalListTableViewCell
+            else { return UITableViewCell() }
+            
+            cell.isExclusiveTouch = true
+            cell.selectionStyle = .none
+            return cell
+        }
         return getCellForRow(indexPath: indexPath)
     }
     

@@ -350,9 +350,9 @@ extension String {
     func toUIColor (hexa: String) -> UIColor {
         var cString:String = hexa.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
-//        if (cString.hasPrefix("#")) {
-//            cString.remove(at: cString.startIndex)
-//        }
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
 
 //        if ((cString.count) != 8) {
 //            return UIColor.gray

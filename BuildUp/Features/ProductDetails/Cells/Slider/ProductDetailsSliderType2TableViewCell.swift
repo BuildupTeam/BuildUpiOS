@@ -32,6 +32,8 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var cartButton: UIButton!
     
+    weak var delegate: ProductDetailsSliderDelegate?
+    
     let scPageControl = SCPageControlView()
 
     var productModel: ProductModel? {
@@ -154,6 +156,11 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
                 addToFavoriteGroupedView.isHidden = true
             }
         }
+    }
+    
+    @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
+        self.productDescriptionLabel.numberOfLines = 0
+        self.delegate?.seeMoreButtonClicked()
     }
     
     private func registerCollectionViewCells() {

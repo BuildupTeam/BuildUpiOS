@@ -1,58 +1,58 @@
 PODS:
-  - Alamofire (5.7.1)
-  - AppsFlyerFramework (6.11.0):
-    - AppsFlyerFramework/Main (= 6.11.0)
-  - AppsFlyerFramework/Main (6.11.0)
+  - Alamofire (5.8.0)
+  - AppsFlyerFramework (6.12.2):
+    - AppsFlyerFramework/Main (= 6.12.2)
+  - AppsFlyerFramework/Main (6.12.2)
   - Cosmos (23.0.0)
   - CountryPickerView (3.3.0)
   - DateToolsSwift (5.0.0)
   - DPOTPView (1.5.12)
   - DynamicBlurView (4.1.0)
-  - Firebase (10.14.0):
-    - Firebase/Core (= 10.14.0)
-  - Firebase/Core (10.14.0):
+  - Firebase (10.5.0):
+    - Firebase/Core (= 10.5.0)
+  - Firebase/Core (10.5.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (~> 10.14.0)
-  - Firebase/CoreOnly (10.14.0):
-    - FirebaseCore (= 10.14.0)
-  - FirebaseAnalytics (10.14.0):
-    - FirebaseAnalytics/AdIdSupport (= 10.14.0)
+    - FirebaseAnalytics (~> 10.5.0)
+  - Firebase/CoreOnly (10.5.0):
+    - FirebaseCore (= 10.5.0)
+  - FirebaseAnalytics (10.5.0):
+    - FirebaseAnalytics/AdIdSupport (= 10.5.0)
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseAnalytics/AdIdSupport (10.14.0):
+  - FirebaseAnalytics/AdIdSupport (10.5.0):
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
-    - GoogleAppMeasurement (= 10.14.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
+    - GoogleAppMeasurement (= 10.5.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseAppCheckInterop (10.14.0)
-  - FirebaseAuth (10.14.0):
-    - FirebaseAppCheckInterop (~> 10.0)
+  - FirebaseAuth (10.5.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
     - GoogleUtilities/Environment (~> 7.8)
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
-    - RecaptchaInterop (~> 100.0)
-  - FirebaseCore (10.14.0):
+  - FirebaseCore (10.5.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Logger (~> 7.8)
   - FirebaseCoreInternal (10.14.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseDatabase (10.5.0):
+    - FirebaseCore (~> 10.0)
+    - leveldb-library (~> 1.22)
   - FirebaseInstallations (10.14.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
-  - FirebaseMessaging (10.14.0):
+  - FirebaseMessaging (10.5.0):
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
     - GoogleDataTransport (~> 9.2)
@@ -61,36 +61,36 @@ PODS:
     - GoogleUtilities/Reachability (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleAppMeasurement (10.14.0):
-    - GoogleAppMeasurement/AdIdSupport (= 10.14.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
+  - GoogleAppMeasurement (10.5.0):
+    - GoogleAppMeasurement/AdIdSupport (= 10.5.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleAppMeasurement/AdIdSupport (10.14.0):
-    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.14.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
+  - GoogleAppMeasurement/AdIdSupport (10.5.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.5.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleAppMeasurement/WithoutAdIdSupport (10.14.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
-    - GoogleUtilities/MethodSwizzler (~> 7.11)
-    - GoogleUtilities/Network (~> 7.11)
-    - "GoogleUtilities/NSData+zlib (~> 7.11)"
+  - GoogleAppMeasurement/WithoutAdIdSupport (10.5.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/MethodSwizzler (~> 7.8)
+    - GoogleUtilities/Network (~> 7.8)
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - GoogleDataTransport (9.2.5):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMaps (8.0.0):
-    - GoogleMaps/Maps (= 8.0.0)
-  - GoogleMaps/Base (8.0.0)
-  - GoogleMaps/Maps (8.0.0):
+  - GoogleMaps (8.2.0):
+    - GoogleMaps/Maps (= 8.2.0)
+  - GoogleMaps/Base (8.2.0)
+  - GoogleMaps/Maps (8.2.0):
     - GoogleMaps/Base
-  - GooglePlaces (8.0.0)
+  - GooglePlaces (8.2.0)
   - GooglePlacesSearchController (0.2.3)
   - GoogleUtilities/AppDelegateSwizzler (7.11.5):
     - GoogleUtilities/Environment
@@ -112,6 +112,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.11.5):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (3.1.1)
+  - leveldb-library (1.22.2)
   - MessageViewController (0.2.1)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
@@ -127,21 +128,20 @@ PODS:
     - NVActivityIndicatorView/Base
   - ObjectMapper (4.2.0)
   - PanModal (1.2.7)
-  - PhoneNumberKit (3.3.4):
-    - PhoneNumberKit/PhoneNumberKitCore (= 3.3.4)
-    - PhoneNumberKit/UIKit (= 3.3.4)
-  - PhoneNumberKit/PhoneNumberKitCore (3.3.4)
-  - PhoneNumberKit/UIKit (3.3.4):
+  - PhoneNumberKit (3.6.7):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.6.7)
+    - PhoneNumberKit/UIKit (= 3.6.7)
+  - PhoneNumberKit/PhoneNumberKitCore (3.6.7)
+  - PhoneNumberKit/UIKit (3.6.7):
     - PhoneNumberKit/PhoneNumberKitCore
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - PromisesObjC (2.3.1)
   - RangeSeekSlider (1.8.0)
-  - RecaptchaInterop (100.0.0)
   - SCPageControl (0.4.0)
-  - SDWebImage (5.15.8):
-    - SDWebImage/Core (= 5.15.8)
-  - SDWebImage/Core (5.15.8)
+  - SDWebImage (5.18.0):
+    - SDWebImage/Core (= 5.18.0)
+  - SDWebImage/Core (5.18.0)
   - SDWebImageSVGCoder (1.7.0):
     - SDWebImage/Core (~> 5.6)
   - SwiftKeychainWrapper (4.0.1)
@@ -150,7 +150,6 @@ PODS:
     - SwiftMessages/App (= 9.0.6)
   - SwiftMessages/App (9.0.6)
   - SwiftValidator (4.0.0)
-  - UICircleProgressView (0.6.1)
   - ViewAnimator (3.1.0)
   - Windless (0.1.5)
   - youtube-ios-player-helper (1.0.4)
@@ -161,10 +160,11 @@ DEPENDENCIES:
   - CountryPickerView
   - DateToolsSwift
   - DPOTPView
-  - Firebase
-  - FirebaseAnalytics
-  - FirebaseAuth
-  - FirebaseMessaging
+  - Firebase (from `https://github.com/firebase/firebase-ios-sdk.git`, tag `10.5.0`)
+  - FirebaseAnalytics (from `https://github.com/firebase/firebase-ios-sdk.git`, tag `10.5.0`)
+  - FirebaseAuth (from `https://github.com/firebase/firebase-ios-sdk.git`, tag `10.5.0`)
+  - FirebaseDatabase (from `https://github.com/firebase/firebase-ios-sdk.git`, tag `10.5.0`)
+  - FirebaseMessaging (from `https://github.com/firebase/firebase-ios-sdk.git`, tag `10.5.0`)
   - GoogleMaps
   - GooglePlaces
   - GooglePlacesSearchController
@@ -183,7 +183,6 @@ DEPENDENCIES:
   - SwiftLint (~> 0.44.0)
   - SwiftMessages
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
-  - UICircleProgressView
   - ViewAnimator
   - Windless (from `https://github.com/Sob7y/Windless`)
   - youtube-ios-player-helper
@@ -197,14 +196,9 @@ SPEC REPOS:
     - DateToolsSwift
     - DPOTPView
     - DynamicBlurView
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseAppCheckInterop
-    - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreInternal
     - FirebaseInstallations
-    - FirebaseMessaging
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMaps
@@ -212,6 +206,7 @@ SPEC REPOS:
     - GooglePlacesSearchController
     - GoogleUtilities
     - GTMSessionFetcher
+    - leveldb-library
     - MessageViewController
     - Moya
     - nanopb
@@ -222,17 +217,30 @@ SPEC REPOS:
     - PopupDialog
     - PromisesObjC
     - RangeSeekSlider
-    - RecaptchaInterop
     - SDWebImage
     - SDWebImageSVGCoder
     - SwiftKeychainWrapper
     - SwiftLint
     - SwiftMessages
-    - UICircleProgressView
     - ViewAnimator
     - youtube-ios-player-helper
 
 EXTERNAL SOURCES:
+  Firebase:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
+  FirebaseAnalytics:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
+  FirebaseAuth:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
+  FirebaseDatabase:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
+  FirebaseMessaging:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
   SCPageControl:
     :git: https://github.com/MahmoudNasserIbtikar/SCPageControl.git
   SwiftValidator:
@@ -242,6 +250,21 @@ EXTERNAL SOURCES:
     :git: https://github.com/Sob7y/Windless
 
 CHECKOUT OPTIONS:
+  Firebase:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
+  FirebaseAnalytics:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
+  FirebaseAuth:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
+  FirebaseDatabase:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
+  FirebaseMessaging:
+    :git: https://github.com/firebase/firebase-ios-sdk.git
+    :tag: 10.5.0
   SCPageControl:
     :commit: 453cfb3ab25ad5966254297a84fb35a6c32811df
     :git: https://github.com/MahmoudNasserIbtikar/SCPageControl.git
@@ -253,51 +276,50 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Sob7y/Windless
 
 SPEC CHECKSUMS:
-  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
-  AppsFlyerFramework: c7b32b66c75f6e4313295c19944ee0ee59380ecf
+  Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
+  AppsFlyerFramework: 6eb4d89d2eb9a6632317f1055b359d9fd85fd5ff
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   CountryPickerView: 6322ada32a80b0cd721b0267282a5c24f406f263
   DateToolsSwift: 4207ada6ad615d8dc076323d27037c94916dbfa6
   DPOTPView: 28d8a0a84a2ff4b1e4a7712065aba1cbb14e2704
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
-  Firebase: 6c1bf3f534bc422d52af2e41fe0d50bf08b6b773
-  FirebaseAnalytics: 5c6d58814afa4db82cf7fdbc02b0b0e2fa3d43ff
-  FirebaseAppCheckInterop: c87f1d5421c852413dd936b2b2340b21e62501a0
-  FirebaseAuth: bd1ae3d28beb83bfe9247e50eb82688b683dd770
-  FirebaseCore: 6fc17ac9f03509d51c131298aacb3ee5698b4f02
+  Firebase: 3d6637234ab163e31852834617b4fe1df3b7af6d
+  FirebaseAnalytics: 6f7430030cb6b22fe1db2e3bed782e999b76dc00
+  FirebaseAuth: 1028326bcaa7a61391386e74b9078cc558ae14f1
+  FirebaseCore: 324b8d182d9ff7e3f6d1fa2f04b082d1c7a3e366
   FirebaseCoreInternal: d558159ee6cc4b823c2296ecc193de9f6d9a5bb3
+  FirebaseDatabase: 149317118d3387b560d1b79c82d918288178f72e
   FirebaseInstallations: f672b1eda64e6381c21d424a2f680a943fd83f3b
-  FirebaseMessaging: 1077a4499f0c0a140b9a2e34fe08a1acc806b36d
-  GoogleAppMeasurement: 7fee012a868315d418f365fbc8d394d8e020e749
+  FirebaseMessaging: 35ecbbc68ff547fca80f9326c9622e79288c7149
+  GoogleAppMeasurement: 40c70a7d89013f0eca72006c4b9732163ea4cdae
   GoogleDataTransport: 54dee9d48d14580407f8f5fbf2f496e92437a2f2
-  GoogleMaps: 0dce473ab18742d0f327887853630927cbee9127
-  GooglePlaces: 46231f49e2dc52aa9a604f99e2e6b29996f30cc7
+  GoogleMaps: 081f2547b60a1c0870a8f49166a653900e5055d5
+  GooglePlaces: b3003ef492e6b60d6cb8aa24026935dac2a3b658
   GooglePlacesSearchController: f8c7da8c3bf0bcf901c5873c22fda7db5fbfc15e
   GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
   GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
+  leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   MessageViewController: 63ef2719d82c91d949ad52e101f049028a5a0611
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
-  PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
+  PhoneNumberKit: 43b5169526cc417398c8f13f77c97552c1c6ed76
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
-  RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
-  SDWebImage: cb032eba469c54e0000e78bcb0a13cdde0a52798
+  SDWebImage: 182830bcddc30cde95fbc60dfe4badc3553d94ba
   SDWebImageSVGCoder: 15a300a97ec1c8ac958f009c02220ac0402e936c
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
   SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
-  UICircleProgressView: 9312181d3e4ba5d2a5bdb06e9852118bc2e2f057
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   Windless: 9dea19b4d239d948e4cec3891fac1fe863e13136
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 446d284134f643ca66f1c2f75b88d89ba722a68d
+PODFILE CHECKSUM: dd8ad96f484401a1d47ea1bd57c5f9f19d21312b
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.13.0

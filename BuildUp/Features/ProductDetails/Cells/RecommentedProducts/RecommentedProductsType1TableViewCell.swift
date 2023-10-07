@@ -46,14 +46,15 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
         headerTitleLabel.font = .appFont(ofSize: 17, weight: .semiBold)
         headerSeeMoreButton.titleLabel?.font = .appFont(ofSize: 13, weight: .semiBold)
         headerSeeMoreButton.setTitleColor(ThemeManager.colorPalette?.lightTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.lightTextColor ?? ""), for: .normal)
-        
+        headerSeeMoreButton.tintColor = ThemeManager.colorPalette?.lightTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.lightTextColor ?? "")
+                
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
             if ((settings.recommendedProducts?.title) != nil) {
                 headerTitleLabel.text = settings.recommendedProducts?.title
                 if settings.recommendedProducts?.displayTitle ?? false {
-                    headerView.isHidden = false
+                    headerTitleLabel.isHidden = false
                 } else {
-                    headerView.isHidden = false
+                    headerTitleLabel.isHidden = true
                 }
                 
                 if settings.recommendedProducts?.displaySeeMore ?? false {
@@ -63,11 +64,11 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
                 }
                 
                 headerView.isHidden = false
-                containerViewHeightContraints.constant = 315
-                headerViewHeightContraints.constant = 40
+//                containerViewHeightContraints.constant = 315
+//                headerViewHeightContraints.constant = 40
             } else {
                 headerView.isHidden = true
-                containerViewHeightContraints.constant = 275
+//                containerViewHeightContraints.constant = 275
                 headerViewHeightContraints.constant = 0
             }
         }

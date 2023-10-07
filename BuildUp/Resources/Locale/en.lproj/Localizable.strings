@@ -9,6 +9,9 @@
 // MARK: - Product Details
 "productDetails.readMore" = "Readmore";
 
+// MARK: - Category Details
+"emptyScreen.noData" = "No Data Found";
+
 
 // MARK: - Messages
 "message.error.title" = "Error" ;

@@ -1,6 +1,0 @@
-framework module UICircleProgressView {
-  umbrella header "UICircleProgressView-umbrella.h"
-
-  export *
-  module * { export * }
-}

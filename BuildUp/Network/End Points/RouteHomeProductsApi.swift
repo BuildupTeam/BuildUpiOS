@@ -36,21 +36,36 @@ extension RouteHomeProductsApi: TargetType {
     var task: Task {
         switch self {
         case .getHomeProducts(limit: let limit, componentModel: let model):
+            var categroiesSubcategoriesIDS: [Int] = []
             var parameters: [String: Any] = ["limit": limit]
             
             if let sortBy = model.orderBy {
                 parameters["sort[by]"] = sortBy
+            } else {
+                parameters["sort[by]"] = "id"
             }
+            
             if let sortDir = model.orderDir {
                 parameters["sort[dir]"] = sortDir
+            } else {
+                parameters["sort[dir]"] = "desc"
             }
-            if let categories = model.categories {
-                if let categoryId = categories.first {
-                    parameters["categories_ids[0]"] = categoryId
-                }
+            
+            if let categories = model.categories, !categories.isEmpty {
+                categroiesSubcategoriesIDS.append(contentsOf: categories)
             }
+            
             if let discount = model.filters?.discount {
-                parameters["discount"] = discount
+                parameters["discount_range[from]"] = "0"
+                parameters["discount_range[to]"] = discount
+            }
+            
+            if let subcategories = model.subcategories, !subcategories.isEmpty {
+                categroiesSubcategoriesIDS.append(contentsOf: subcategories)
+            }
+            
+            if !categroiesSubcategoriesIDS.isEmpty {
+                parameters["categories_ids"] = categroiesSubcategoriesIDS
             }
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)

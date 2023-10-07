@@ -30,11 +30,12 @@ class HomeViewController: BaseViewController {
         startShimmer()
         setupResponse()
         getHomeData()
+        scrollToFirstRow()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        scrollToFirstRow()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

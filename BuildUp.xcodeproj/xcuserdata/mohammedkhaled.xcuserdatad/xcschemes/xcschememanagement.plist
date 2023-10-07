@@ -7,7 +7,25 @@
 		<key>BuildUp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>50</integer>
+			<integer>58</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>393174172A19134A00AF64BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3931742D2A19134D00AF64BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>393174372A19134D00AF64BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

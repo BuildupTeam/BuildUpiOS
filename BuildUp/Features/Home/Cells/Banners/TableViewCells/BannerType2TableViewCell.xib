@@ -20,6 +20,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoK-hO-yhM">
                         <rect key="frame" x="16" y="8" width="288" height="138"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W0w-Ni-UUw">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="138"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gk3-j3-QzO">
                                 <rect key="frame" x="0.0" y="0.0" width="288" height="138"/>
                                 <subviews>
@@ -27,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="144" height="138"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sale up to 80% off" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAF-b1-k8S">
-                                                <rect key="frame" x="14" y="48.666666666666671" width="116" height="40.666666666666671"/>
+                                                <rect key="frame" x="14" y="8" width="116" height="122"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -37,13 +40,14 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="hAF-b1-k8S" secondAttribute="trailing" constant="14" id="ERo-mO-kXO"/>
                                             <constraint firstItem="hAF-b1-k8S" firstAttribute="leading" secondItem="Ofj-V0-nvq" secondAttribute="leading" constant="14" id="Nx6-h6-Dg3"/>
-                                            <constraint firstItem="hAF-b1-k8S" firstAttribute="centerY" secondItem="Ofj-V0-nvq" secondAttribute="centerY" id="VLu-3r-s4U"/>
+                                            <constraint firstItem="hAF-b1-k8S" firstAttribute="top" secondItem="Ofj-V0-nvq" secondAttribute="top" constant="8" id="YaA-zx-V5P"/>
+                                            <constraint firstAttribute="bottom" secondItem="hAF-b1-k8S" secondAttribute="bottom" constant="8" id="y2t-gk-3Nq"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AS7-Na-kzV">
                                         <rect key="frame" x="144" y="0.0" width="144" height="138"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="e7j-z7-uSf">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="e7j-z7-uSf">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="138"/>
                                             </imageView>
                                         </subviews>
@@ -56,14 +60,19 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="W0w-Ni-UUw" firstAttribute="top" secondItem="UoK-hO-yhM" secondAttribute="top" id="4FK-a7-u1z"/>
                             <constraint firstItem="gk3-j3-QzO" firstAttribute="top" secondItem="UoK-hO-yhM" secondAttribute="top" id="9Xz-E9-wsa"/>
+                            <constraint firstAttribute="bottom" secondItem="W0w-Ni-UUw" secondAttribute="bottom" id="EEV-0k-xfZ"/>
                             <constraint firstAttribute="height" constant="138" id="T34-Fa-Msw"/>
                             <constraint firstAttribute="trailing" secondItem="gk3-j3-QzO" secondAttribute="trailing" id="UVI-ur-9YI"/>
                             <constraint firstAttribute="bottom" secondItem="gk3-j3-QzO" secondAttribute="bottom" id="XFx-bZ-oHC"/>
+                            <constraint firstAttribute="trailing" secondItem="W0w-Ni-UUw" secondAttribute="trailing" id="g4Y-YW-OiM"/>
+                            <constraint firstItem="W0w-Ni-UUw" firstAttribute="leading" secondItem="UoK-hO-yhM" secondAttribute="leading" id="iIh-as-BsY"/>
                             <constraint firstItem="gk3-j3-QzO" firstAttribute="leading" secondItem="UoK-hO-yhM" secondAttribute="leading" id="m5c-r3-6GW"/>
                         </constraints>
                     </view>
@@ -78,9 +87,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="backgroundImageView" destination="W0w-Ni-UUw" id="m0x-TW-oQG"/>
                 <outlet property="bannerImageContainerView" destination="AS7-Na-kzV" id="5lt-hZ-pRO"/>
                 <outlet property="bannerImageView" destination="e7j-z7-uSf" id="AKc-q9-kEB"/>
                 <outlet property="bannerTitleLabel" destination="hAF-b1-k8S" id="znz-32-Lk6"/>
+                <outlet property="bannerTitleView" destination="Ofj-V0-nvq" id="9u6-yW-yW8"/>
                 <outlet property="containerView" destination="UoK-hO-yhM" id="tiu-Ot-HGu"/>
             </connections>
             <point key="canvasLocation" x="100.76335877862596" y="19.718309859154932"/>

@@ -57,12 +57,12 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
                 }
                 
                 headerView.isHidden = false
-                containerViewHeightContraints.constant = 320
-                headerViewHeightContraints.constant = 40
+//                containerViewHeightContraints.constant = 320
+//                headerViewHeightContraints.constant = 40
                 
             } else {
                 headerView.isHidden = true
-                containerViewHeightContraints.constant = 280
+//                containerViewHeightContraints.constant = 280
                 headerViewHeightContraints.constant = 0
             }
         }

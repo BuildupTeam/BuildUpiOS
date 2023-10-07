@@ -169,6 +169,12 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
     }
 }
 
+extension ProductDetailsViewController: ProductDetailsSliderDelegate {
+    func seeMoreButtonClicked() {
+        self.tableView.reloadData()
+    }
+}
+
 // MARK: - Requests
 extension ProductDetailsViewController {
     

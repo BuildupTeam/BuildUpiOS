@@ -17,11 +17,9 @@
 #else
 #import <GoogleMapsBase/GoogleMapsBase.h>
 #endif
-#if __has_feature(modules)
-@import GoogleMapsBase;
-#else
-#import <GoogleMapsBase/GoogleMapsBase.h>
-#endif
+#import "GMSFeature.h"
+#import "GMSFeatureLayer.h"
+#import "GMSPlaceFeature.h"
 #import "GMSMapLayer.h"
 
 @class GMSCameraPosition;
@@ -52,6 +50,8 @@ typedef NS_OPTIONS(NSUInteger, GMSMapCapabilityFlags) {
   GMSMapCapabilityFlagsNone = 0,
   /** Advanced markers are enabled on the GMSMapView. */
   GMSMapCapabilityFlagsAdvancedMarkers = 1 << 0,
+  /** Data driven styling is enabled on the GMSMapView. */
+  GMSMapCapabilityFlagsDataDrivenStyling = 1 << 1,
   /** GMSPolyline with a stampStyle of GMSSpriteStyle is enabled on the GMSMapView. */
   GMSMapCapabilityFlagsSpritePolylines = 1 << 2,
 };
@@ -224,6 +224,26 @@ typedef NS_OPTIONS(NSUInteger, GMSMapCapabilityFlags) {
 - (void)mapView:(GMSMapView *)mapView
     didChangeMapCapabilities:(GMSMapCapabilityFlags)mapCapabilities;
 
+/**
+ * Called after features in a data-driven styling feature layer have been tapped.
+ *
+ * All features overlapping with the point being tapped will be included. If the features belong to
+ * different feature layers, this method will be called multiple times (once for each individual
+ * feature layer).
+ *
+ * There is no guaranteed order between events on different feature layers, or between events on
+ * feature layers and other entities on the base map.
+ *
+ * @param mapView The map view that was tapped.
+ * @param features Array of all features being clicked in the layer.
+ * @param featureLayer The feature layer containing the feautre.
+ * @param location The location of the actual tapping point.
+ */
+- (void)mapView:(GMSMapView *)mapView
+    didTapFeatures:(NSArray<id<GMSFeature>> *)features
+    inFeatureLayer:(GMSFeatureLayer *)featureLayer
+        atLocation:(CLLocationCoordinate2D)location;
+
 @end
 
 /**
@@ -299,6 +319,7 @@ typedef NS_ENUM(NSUInteger, GMSMapViewPaddingAdjustmentBehavior) {
 };
 
 /**@}*/
+
 
 /**
  * This is the main class of the Google Maps SDK for iOS and is the entry point for all methods
@@ -452,22 +473,28 @@ typedef NS_ENUM(NSUInteger, GMSMapViewPaddingAdjustmentBehavior) {
 @property(nonatomic, readonly) GMSMapCapabilityFlags mapCapabilities;
 
 /** Builds and returns a map view with a frame and camera target. */
-+ (instancetype)mapWithFrame:(CGRect)frame camera:(GMSCameraPosition *)camera;
++ (instancetype)mapWithFrame:(CGRect)frame
+                      camera:(GMSCameraPosition *)camera
+        ;
 
 /** Convenience initializer to build and return a map view with a frame, map ID, and camera target.
  */
 + (instancetype)mapWithFrame:(CGRect)frame
                        mapID:(GMSMapID *)mapID
                       camera:(GMSCameraPosition *)camera
-    NS_SWIFT_UNAVAILABLE("Use initializer instead");
+    NS_SWIFT_UNAVAILABLE("Use initializer instead")
+            ;
 
 /** Builds and returns a map view, with a frame and camera target. */
-- (instancetype)initWithFrame:(CGRect)frame camera:(GMSCameraPosition *)camera;
+- (instancetype)initWithFrame:(CGRect)frame
+                       camera:(GMSCameraPosition *)camera
+        ;
 
 /** Builds and returns a map view with a frame, map ID, and camera target. */
 - (instancetype)initWithFrame:(CGRect)frame
                         mapID:(GMSMapID *)mapID
-                       camera:(GMSCameraPosition *)camera;
+                       camera:(GMSCameraPosition *)camera
+        ;
 
 /** Tells this map to power up its renderer. This is optional and idempotent. */
 - (void)startRendering __GMS_AVAILABLE_BUT_DEPRECATED_MSG(
@@ -511,6 +538,20 @@ typedef NS_ENUM(NSUInteger, GMSMapViewPaddingAdjustmentBehavior) {
  */
 - (BOOL)areEqualForRenderingPosition:(GMSCameraPosition *)position
                             position:(GMSCameraPosition *)otherPosition;
+
+/**
+ * Returns a feature layer of the specified type. Feature layers must be configured in the Cloud
+ * Console.
+ *
+ * If a layer of the specified type does not exist on this map, or if data-driven styling is not
+ * enabled, or if the Metal rendering framework is not used, the resulting layer's isAvailable will
+ * be @c NO, and will not respond to any calls.
+ *
+ * Requires the Metal renderer. Learn how to enable Metal at
+ * https://developers.google.com/maps/documentation/ios-sdk/config#use-metal
+ */
+- (GMSFeatureLayer<GMSPlaceFeature *> *)featureLayerOfFeatureType:(GMSFeatureType)featureType
+    NS_SWIFT_NAME(featureLayer(of:));
 
 @end
 

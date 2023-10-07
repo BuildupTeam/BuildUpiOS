@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,15 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+//        FirebaseApp.configure()
         AppManager.launchApp(application)
-        
-//        for family in UIFont.familyNames {
-//            print("\(family)")
-//
-//            for name in UIFont.fontNames(forFamilyName: family) {
-//                print("   \(name)")
-//            }
-//        }
         
         return true
     }

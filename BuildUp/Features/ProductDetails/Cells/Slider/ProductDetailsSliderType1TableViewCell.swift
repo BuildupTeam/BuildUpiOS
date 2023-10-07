@@ -8,6 +8,10 @@
 import UIKit
 import Cosmos
 
+protocol ProductDetailsSliderDelegate: AnyObject {
+    func seeMoreButtonClicked()
+}
+
 class ProductDetailsSliderType1TableViewCell: UITableViewCell {
 
     @IBOutlet weak var cosmosView: CosmosView!
@@ -34,6 +38,8 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
     @IBOutlet private weak var cartButton: UIButton!
     @IBOutlet private weak var addToFavoriteButton: UIButton!    
 
+    weak var delegate: ProductDetailsSliderDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -107,20 +113,22 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
-//            productDescriptionLabel.text = (model.productDescription ?? "").maxLength(length: 69)
+            productDescriptionLabel.text = (model.productDescription ?? "")//.maxLength(length: 69)
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
             
-            if let desc = model.productDescription, desc.count > 20 {
-                productDescriptionLabel.text = desc//.maxLength(length: 70)
-                
-                let readmoreFont = UIFont.appFont(ofSize: 14, weight: .bold)
-                let readmoreFontColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") ?? UIColor.titlesBlack
-                DispatchQueue.main.async {
-                    self.productDescriptionLabel.addTrailing(with: "... ", moreText: L10n.ProductDetails.readMore, moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
+            if !model.descriptionIsExpaned {
+                if let desc = model.productDescription, desc.count > 40 {
+                    productDescriptionLabel.text = desc//.maxLength(length: 70)
+                    
+                    let readmoreFont = UIFont.appFont(ofSize: 14, weight: .bold)
+                    let readmoreFontColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") ?? UIColor.titlesBlack
+                    DispatchQueue.main.async {
+                        self.productDescriptionLabel.addTrailing(with: "... ", moreText: L10n.ProductDetails.readMore, moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
+                    }
+                } else {
+                    productDescriptionLabel.text = model.productDescription ?? ""
                 }
-            } else {
-                productDescriptionLabel.text = model.productDescription ?? ""
             }
             
             if let quantity = model.quantity, quantity > 0 {
@@ -155,6 +163,16 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
                 productOldPriceMarkedView.isHidden = true
             }
         }
+    }
+    
+    @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
+        self.productDescriptionLabel.numberOfLines = 0
+        if var model = productModel {
+            model.descriptionIsExpaned = true
+            self.productDescriptionLabel.text = model.productDescription
+        }
+        self.delegate?.seeMoreButtonClicked()
+        self.sizeToFit()
     }
     
     private func registerCollectionViewCells() {

@@ -15,6 +15,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
     var quantityPosition: String?
     var quantityStyle: String?
     var list: String?
+    var productCartDesign: String?
+    var cartSummaryDesign: CartSummeryModel?
+    var cartButtonDesign: String?
     var coverPhoto: CoverPhotoModel?
     var subcategoryTabs: SubcategoryTabsModel?
     var productsList: ProductsListModel?
@@ -24,7 +27,6 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         
     }
     
-    
     func mapping(map: Map) {
         slider <- map["slider"]
         actions <- map["actions"]
@@ -32,6 +34,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         quantityPosition <- map["quantity_position"]
         quantityStyle <- map["quantity_style"]
         list <- map["list"]
+        productCartDesign <- map["product_card_design"]
+        cartSummaryDesign <- map["summary"]
+        cartButtonDesign <- map["button"]
         coverPhoto <- map["cover_photo"]
         subcategoryTabs <- map["subcategory_tabs"]
         productsList <- map["products_list"]
@@ -49,6 +54,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         quantityPosition = aDecoder.decodeObject(forKey: "quantityPosition") as? String
         quantityStyle = aDecoder.decodeObject(forKey: "quantityStyle") as? String
         list = aDecoder.decodeObject(forKey: "list") as? String
+        productCartDesign = aDecoder.decodeObject(forKey: "productCartDesign") as? String
+        cartSummaryDesign = aDecoder.decodeObject(forKey: "cartSummaryDesign") as? CartSummeryModel
+        cartButtonDesign = aDecoder.decodeObject(forKey: "cartButtonDesign") as? String
         coverPhoto = aDecoder.decodeObject(forKey: "coverPhoto") as? CoverPhotoModel
         subcategoryTabs = aDecoder.decodeObject(forKey: "subcategoryTabs") as? SubcategoryTabsModel
         productsList = aDecoder.decodeObject(forKey: "productsList") as? ProductsListModel
@@ -74,6 +82,15 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         }
         if list != nil {
             aCoder.encode(list, forKey: "list")
+        }
+        if productCartDesign != nil {
+            aCoder.encode(productCartDesign, forKey: "productCartDesign")
+        }
+        if cartSummaryDesign != nil {
+            aCoder.encode(cartSummaryDesign, forKey: "cartSummaryDesign")
+        }
+        if cartButtonDesign != nil {
+            aCoder.encode(cartButtonDesign, forKey: "cartButtonDesign")
         }
         if coverPhoto != nil {
             aCoder.encode(coverPhoto, forKey: "coverPhoto")

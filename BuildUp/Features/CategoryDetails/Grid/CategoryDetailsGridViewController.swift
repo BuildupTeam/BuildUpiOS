@@ -59,6 +59,7 @@ extension CategoryDetailsGridViewController {
     private func setupView() {
         isLoadingShimmer = true
         subcategoryTabsView.initialize()
+        subcategoryTabsView.delegate = self
         fillData()
         registerCollectionViewCells()
         
@@ -76,19 +77,18 @@ extension CategoryDetailsGridViewController {
             }
             
             if (settings.subcategoryTabs?.isActive == "1") { // TODO check for has subcategories
-                switch settings.subcategoryTabs?.design {
-                case SubcategoryTabsDesign.horizontal.rawValue:
-                    subcategoriesContainerViewHeightContriant.constant = 40
-                case SubcategoryTabsDesign.horizonta2.rawValue:
-                    subcategoriesContainerViewHeightContriant.constant = 110
-                default:
-                    return
-                }
+                subcategoriesContainerViewHeightContriant.constant = 40
                 subcategoryTabsView.isHidden = false
             } else {
                 subcategoriesContainerViewHeightContriant.constant = 0
                 subcategoryTabsView.isHidden = true
             }
+            
+//            if (settings.productsList?.isActive == "1") {
+//                collectionView.isHidden = false
+//            } else {
+//                collectionView.isHidden = true
+//            }
         }
     }
     
@@ -161,6 +161,20 @@ extension CategoryDetailsGridViewController {
             coverPhotoContainerView.addSubview(coverPhotoType3View!)
         }
     }
+    
+    private func setupEmptyView() {
+        removeBackgroundViews()
+        let emptyNib = EmptyScreenView.instantiateFromNib()
+        emptyNib.frame = collectionView.backgroundView?.frame ?? CGRect()
+        emptyNib.title = L10n.EmptyScreen.noData
+//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
+        emptyNib.showButton = false
+        collectionView.backgroundView = emptyNib
+    }
+    
+    private func removeBackgroundViews() {
+        collectionView.backgroundView = nil
+    }
 }
 
 // MARK: - Requests
@@ -170,10 +184,10 @@ extension CategoryDetailsGridViewController {
         self.viewModel.getSubCategories()
      }
     
-    private func getProducts() {
+    private func getProducts(_ categoryId: Int) {
         let currentPageCompletion: (() -> String) = { () in return "\(self.viewModel.page)" }
         if let categoryModel = categoryModel, let componentModel = componentModel {
-            viewModel.getProducts(categoryId: categoryModel.id ?? 0,
+            viewModel.getProducts(categoryId: categoryId,
                                   componentModel: componentModel,
                                   currentPageCompletion: currentPageCompletion)
         }
@@ -181,13 +195,21 @@ extension CategoryDetailsGridViewController {
     
     func loadMoreProducts() {
         viewModel.page += 1
-        getProducts()
+        getProducts(self.categoryModel?.id ?? 0)
     }
     
     private func setupResponses() {
         categoryDetailsResponse()
         productsResponse()
         loadMoreProductsResponse()
+    }
+}
+
+extension CategoryDetailsGridViewController: subcategoryTabsViewDelegate {
+    func subcategoryClicked(_ model: CategoryModel) {
+        isLoadingShimmer = true
+        startShimmerOn(collectionView: collectionView)
+        getProducts(model.id ?? 0)
     }
 }
 
@@ -198,7 +220,7 @@ extension CategoryDetailsGridViewController {
             guard let `self` = self else { return }
             print("Normal Reload")
             self.hideLoading()
-            self.getProducts()
+            self.getProducts(self.categoryModel?.id ?? 0)
             self.subcategoryTabsView.subCategories = self.viewModel.subCategories
         }
     }
@@ -208,6 +230,11 @@ extension CategoryDetailsGridViewController {
             guard let `self` = self else { return }
             self.reloadCollectionViewData()
             self.isReloadingCollectionView = false
+            if viewModel.products.isEmpty {
+                self.setupEmptyView()
+            } else {
+                self.removeBackgroundViews()
+            }
             self.stopShimmerOn(collectionView: collectionView)
         }
     }

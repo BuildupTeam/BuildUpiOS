@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,37 +37,42 @@
                             <view contentMode="scaleToFill" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="fVS-Zt-3SX">
                                 <rect key="frame" x="0.0" y="8" width="304" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tva-Iv-rhS">
-                                        <rect key="frame" x="8" y="9.6666666666666679" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tva-Iv-rhS">
+                                        <rect key="frame" x="8" y="8" width="195.66666666666666" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDQ-hc-PGx">
-                                        <rect key="frame" x="199.33333333333334" y="2.6666666666666679" width="96.666666666666657" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDQ-hc-PGx">
+                                        <rect key="frame" x="219.66666666666666" y="8" width="76.333333333333343" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76.329999999999998" id="Xvh-xm-iAf"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="See More"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="See All"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="tva-Iv-rhS" firstAttribute="centerY" secondItem="fVS-Zt-3SX" secondAttribute="centerY" id="0N1-ri-xl0"/>
+                                    <constraint firstAttribute="bottom" secondItem="FDQ-hc-PGx" secondAttribute="bottom" constant="8" id="Ba7-Rt-iu4"/>
+                                    <constraint firstItem="FDQ-hc-PGx" firstAttribute="leading" secondItem="tva-Iv-rhS" secondAttribute="trailing" constant="16" id="CRD-Ez-Xcb"/>
+                                    <constraint firstAttribute="bottom" secondItem="tva-Iv-rhS" secondAttribute="bottom" constant="8" id="Emp-J3-LWd"/>
+                                    <constraint firstItem="FDQ-hc-PGx" firstAttribute="top" secondItem="fVS-Zt-3SX" secondAttribute="top" constant="8" id="Puz-m8-Hrr"/>
                                     <constraint firstItem="tva-Iv-rhS" firstAttribute="leading" secondItem="fVS-Zt-3SX" secondAttribute="leading" constant="8" id="QWL-Uj-dqK"/>
-                                    <constraint firstAttribute="height" constant="40" id="fbl-IX-lmQ"/>
-                                    <constraint firstItem="FDQ-hc-PGx" firstAttribute="centerY" secondItem="fVS-Zt-3SX" secondAttribute="centerY" id="hwO-FN-duH"/>
+                                    <constraint firstItem="tva-Iv-rhS" firstAttribute="top" secondItem="fVS-Zt-3SX" secondAttribute="top" constant="8" id="atl-Jw-2W7"/>
                                     <constraint firstAttribute="trailing" secondItem="FDQ-hc-PGx" secondAttribute="trailing" constant="8" id="iTl-s0-A7s"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="256" id="4Q4-gv-4F0"/>
                             <constraint firstItem="T2J-hO-Avz" firstAttribute="leading" secondItem="FXu-xc-1yY" secondAttribute="leading" id="SCE-tc-lUb"/>
                             <constraint firstAttribute="bottom" secondItem="T2J-hO-Avz" secondAttribute="bottom" id="Uju-UP-BAc"/>
                             <constraint firstAttribute="trailing" secondItem="fVS-Zt-3SX" secondAttribute="trailing" id="f4J-pA-pMB"/>
                             <constraint firstItem="fVS-Zt-3SX" firstAttribute="leading" secondItem="FXu-xc-1yY" secondAttribute="leading" id="h3m-pa-TUD"/>
                             <constraint firstAttribute="trailing" secondItem="T2J-hO-Avz" secondAttribute="trailing" id="kz3-Jd-ghQ"/>
                             <constraint firstItem="fVS-Zt-3SX" firstAttribute="top" secondItem="FXu-xc-1yY" secondAttribute="top" constant="8" id="mt0-o8-vJu"/>
+                            <constraint firstItem="T2J-hO-Avz" firstAttribute="top" secondItem="fVS-Zt-3SX" secondAttribute="bottom" constant="8" id="s0g-Te-uKu"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -81,11 +87,9 @@
             <connections>
                 <outlet property="collectionView" destination="T2J-hO-Avz" id="EB1-Ma-0Cj"/>
                 <outlet property="collectionViewHeightConstrains" destination="icV-c1-0PP" id="eGM-Vs-Nx7"/>
-                <outlet property="containerViewHeightContraints" destination="4Q4-gv-4F0" id="7wN-PR-pES"/>
                 <outlet property="headerSeeMoreButton" destination="FDQ-hc-PGx" id="ebG-sx-IAO"/>
                 <outlet property="headerTitleLabel" destination="tva-Iv-rhS" id="qd0-Fo-Rz1"/>
                 <outlet property="headerView" destination="fVS-Zt-3SX" id="jcn-Qq-hf0"/>
-                <outlet property="headerViewHeightContraints" destination="fbl-IX-lmQ" id="ZT2-dv-m5J"/>
             </connections>
             <point key="canvasLocation" x="1.5267175572519083" y="20.422535211267608"/>
         </tableViewCell>

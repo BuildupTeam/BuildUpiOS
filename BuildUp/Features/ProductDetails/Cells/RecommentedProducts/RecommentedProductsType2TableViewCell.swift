@@ -40,6 +40,7 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
         headerTitleLabel.font = .appFont(ofSize: 17, weight: .semiBold)
         headerSeeMoreButton.titleLabel?.font = .appFont(ofSize: 13, weight: .semiBold)
         headerSeeMoreButton.setTitleColor(ThemeManager.colorPalette?.lightTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.lightTextColor ?? ""), for: .normal)
+        headerSeeMoreButton.tintColor = ThemeManager.colorPalette?.lightTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.lightTextColor ?? "")
         
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
             if ((settings.recommendedProducts?.title) != nil) {
@@ -57,11 +58,11 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
                 }
                 
                 headerView.isHidden = false
-                containerViewHeightContraints.constant = 272
-                headerViewHeightContraints.constant = 40
+//                containerViewHeightContraints.constant = 272
+//                headerViewHeightContraints.constant = 40
             } else {
                 headerView.isHidden = true
-                containerViewHeightContraints.constant = 232
+//                containerViewHeightContraints.constant = 232
                 headerViewHeightContraints.constant = 0
             }
         }
@@ -73,11 +74,11 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
             if !(productModel.relatedProducts?.isEmpty ?? false) {
                 if productModel.relatedProducts?.count ?? 0 > 2 {
                     collectionViewHeightConstrains.constant = 400
-                    if containerViewHeightContraints.constant == 272 {
-                        containerViewHeightContraints.constant = 472
-                    } else if containerViewHeightContraints.constant == 232 {
-                        collectionViewHeightConstrains.constant = 432
-                    }
+//                    if containerViewHeightContraints.constant == 272 {
+//                        containerViewHeightContraints.constant = 472
+//                    } else if containerViewHeightContraints.constant == 232 {
+//                        collectionViewHeightConstrains.constant = 432
+//                    }
                 } else {
                     collectionViewHeightConstrains.constant = 200
                 }

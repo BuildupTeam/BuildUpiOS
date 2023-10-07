@@ -1,198 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "A4D20A3B-1CBE-44A9-8EC2-CC54ED1DEE41"
+   uuid = "932C4EB2-A7BA-4DA1-86D5-C8B7A4A11CE0"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "877E1973-8F32-4C3D-A16C-D8D4860DD160"
+            uuid = "5EA39003-81A6-49EC-A6A3-01767498DD86"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/ProductDetails/Cells/Slider/ProductDetailsSliderType2TableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "seeMoreButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22C7F5AB-7613-4BCF-B7A9-31D5950D0B14"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/Products/Cells/Grid List Cells/TableViewCells/ProductVerticalGrid1TableViewCell.swift"
+            filePath = "BuildUp/Features/Home/Cells/Products/Cells/Grid List Cells/CollectionViewCells/ProductVerticalGrid1CollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "877E1973-8F32-4C3D-A16C-D8D4860DD160 - b19160150b6abb09"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.ProductVerticalGrid1TableViewCell.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Products/Cells/Grid%20List%20Cells/TableViewCells/ProductVerticalGrid1TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "45">
-               </Location>
-               <Location
-                  uuid = "877E1973-8F32-4C3D-A16C-D8D4860DD160 - b19160150b6abb09"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.ProductVerticalGrid1TableViewCell.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Products/Cells/Grid%20List%20Cells/TableViewCells/ProductVerticalGrid1TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "111">
-               </Location>
-               <Location
-                  uuid = "877E1973-8F32-4C3D-A16C-D8D4860DD160 - b19160150b6abb09"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.ProductVerticalGrid1TableViewCell.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Products/Cells/Grid%20List%20Cells/TableViewCells/ProductVerticalGrid1TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "154">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E0FF38E3-258B-443D-B960-276484C6A8C7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/ProductDetails/Cells/RecommentedProducts/RecommentedProductsType2TableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "bindData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E0FF38E3-258B-443D-B960-276484C6A8C7 - d0bf550d8aaf38d2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.RecommentedProductsType2TableViewCell.setupCell() -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/ProductDetails/Cells/RecommentedProducts/RecommentedProductsType2TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "6112">
-               </Location>
-               <Location
-                  uuid = "E0FF38E3-258B-443D-B960-276484C6A8C7 - 5b5649cd4d7bff6f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.RecommentedProductsType2TableViewCell.bindData() -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/ProductDetails/Cells/RecommentedProducts/RecommentedProductsType2TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "548">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "375F1074-399E-4056-87CE-E9C208774BCF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/ProductDetails/Cells/Slider/ProductDetailsSliderType3TableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "setupCell()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CA7933C4-1482-4C0B-B8FC-B0594F775B9D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/ProductDetails/ProductDetailsViewController+TableView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "getCellForSection(indexPath:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "817F7C6A-2317-4493-A546-EF0D92E3A410"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/Home/CustomViews/AddToCartTextView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "plusButtonAction(_:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "817F7C6A-2317-4493-A546-EF0D92E3A410 - 69c45eb518d519f9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.AddToCartTextView.plusButtonAction(__C.UIButton) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Home/CustomViews/AddToCartTextView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "280">
-               </Location>
-               <Location
-                  uuid = "817F7C6A-2317-4493-A546-EF0D92E3A410 - 69c45eb518d519d8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.AddToCartTextView.plusButtonAction(__C.UIButton) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Home/CustomViews/AddToCartTextView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "59"
-                  endingLineNumber = "59"
-                  offsetFromSymbolStart = "280">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

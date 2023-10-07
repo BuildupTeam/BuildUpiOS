@@ -12,24 +12,21 @@ import UIKit
 enum Environment: String {
     case stage
     case live
-    case adminStage
-    case adminLive
+    case preLive
     
     var baseURL: String {
         switch self {
-        case .stage: return "https://my-app-3.backend.buildupp.co"
-        case .live: return "https://my-app-3.backend.buildupp.co"
-        case .adminStage: return "https://my-app-3.backend.buildupp.co"
-        case .adminLive: return "https://my-app-3.backend.buildupp.co"
+        case .stage: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
+        case .live: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
+        case .preLive: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
         }
     }
     
     var hostURL: String {
         switch self {
-        case .stage: return "https://my-app-3.backend.buildupp.co"
-        case .live: return "https://my-app-3.backend.buildupp.co"
-        case .adminStage: return "https://my-app-3.backend.buildupp.co"
-        case .adminLive: return "https://my-app-3.backend.buildupp.co"
+        case .stage: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
+        case .live: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
+        case .preLive: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
         }
     }
     
@@ -37,8 +34,7 @@ enum Environment: String {
         switch self {
         case .stage: return "GoogleService-Info"
         case .live: return "GoogleService-Info"
-        case .adminStage: return ""
-        case .adminLive: return "GoogleService-Info"
+        case .preLive: return "GoogleService-Info"
         }
     }
     
@@ -46,8 +42,7 @@ enum Environment: String {
         switch self {
         case .stage: return ""
         case .live: return ""
-        case .adminStage: return ""
-        case .adminLive: return ""
+        case .preLive: return ""
         }
     }
 }
@@ -61,10 +56,8 @@ struct Configuration {
                 return Environment.stage
             case Environment.live.rawValue:
                 return Environment.live
-            case Environment.adminStage.rawValue:
-                return Environment.adminStage
-            case Environment.adminLive.rawValue:
-                return Environment.adminLive
+            case Environment.preLive.rawValue:
+                return Environment.preLive
             default:
                 return Environment.live
             }

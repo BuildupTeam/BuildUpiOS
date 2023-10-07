@@ -52,6 +52,7 @@ extension CategoryDetailsListViewController {
     private func setupView() {
         isLoadingShimmer = true
         subcategoryTabsView.initialize()
+        subcategoryTabsView.delegate = self
         fillData()
         registerTableViewCells()
         
@@ -73,14 +74,7 @@ extension CategoryDetailsListViewController {
             }
             
             if (settings.subcategoryTabs?.isActive == "1") { // TODO check for has subcategories
-                switch settings.subcategoryTabs?.design {
-                case SubcategoryTabsDesign.horizontal.rawValue:
-                    subcategoriesContainerViewHeightContriant.constant = 40
-                case SubcategoryTabsDesign.horizonta2.rawValue:
-                    subcategoriesContainerViewHeightContriant.constant = 110
-                default:
-                    return
-                }
+                subcategoriesContainerViewHeightContriant.constant = 40
                 subcategoryTabsView.isHidden = false
             } else {
                 subcategoriesContainerViewHeightContriant.constant = 0
@@ -119,6 +113,16 @@ extension CategoryDetailsListViewController {
         spinner.color = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         spinner.startAnimating()
         tableView.tableFooterView = spinner
+    }
+    
+    private func setupEmptyView() {
+        removeBackgroundViews()
+        let emptyNib = EmptyScreenView.instantiateFromNib()
+        emptyNib.frame = tableView.backgroundView?.frame ?? CGRect()
+        emptyNib.title = L10n.EmptyScreen.noData
+//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
+        emptyNib.showButton = false
+        tableView.backgroundView = emptyNib
     }
     
     private func removeBackgroundViews() {
@@ -181,10 +185,10 @@ extension CategoryDetailsListViewController {
         self.viewModel.getSubCategories()
      }
     
-    private func getProducts() {
+    private func getProducts(_ categoryId: Int) {
         let currentPageCompletion: (() -> String) = { () in return "\(self.viewModel.page)" }
         if let categoryModel = categoryModel, let componentModel = componentModel {
-            viewModel.getProducts(categoryId: categoryModel.id ?? 0,
+            viewModel.getProducts(categoryId: categoryId,
                                   componentModel: componentModel,
                                   currentPageCompletion: currentPageCompletion)
         }
@@ -192,13 +196,21 @@ extension CategoryDetailsListViewController {
     
     func loadMoreProducts() {
         viewModel.page += 1
-        getProducts()
+        getProducts(self.categoryModel?.id ?? 0)
     }
     
     private func setupResponses() {
         categoryDetailsResponse()
         productsResponse()
         loadMoreProductsResponse()
+    }
+}
+
+extension CategoryDetailsListViewController: subcategoryTabsViewDelegate {
+    func subcategoryClicked(_ model: CategoryModel) {
+        isLoadingShimmer = true
+        startShimmerOn(tableView: tableView)
+        getProducts(model.id ?? 0)
     }
 }
 
@@ -209,14 +221,24 @@ extension CategoryDetailsListViewController {
             guard let `self` = self else { return }
             print("Normal Reload")
             self.hideLoading()
-            self.getProducts()
+            self.getProducts(self.categoryModel?.id ?? 0)
             self.subcategoryTabsView.subCategories = self.viewModel.subCategories
+            
+            if self.viewModel.subCategories.isEmpty {
+                subcategoriesContainerViewHeightContriant.constant = 0
+                subcategoryTabsView.isHidden = true
+            }
         }
     }
     
     private func productsResponse() {
         viewModel.onProducts = { [weak self] () in
             guard let `self` = self else { return }
+            if viewModel.products.isEmpty {
+                self.setupEmptyView()
+            } else {
+                self.removeBackgroundViews()
+            }
             self.reloadTableViewData()
             self.isReloadingTableView = false
             self.stopShimmerOn(tableView: self.tableView)

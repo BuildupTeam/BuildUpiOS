@@ -24,6 +24,8 @@ class ProductDetailsSliderType3TableViewCell: UITableViewCell {
     @IBOutlet private weak var productOutOfStockLabel: UILabel!
     @IBOutlet private weak var productRatingLabel: UILabel!
 
+    weak var delegate: ProductDetailsSliderDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -88,6 +90,10 @@ class ProductDetailsSliderType3TableViewCell: UITableViewCell {
         cosmosView.settings.emptyBorderColor = .black
         cosmosView.settings.emptyBorderWidth = 1.5
         cosmosView.didFinishTouchingCosmos = didFinishTouchingCosmos(_:)
+    }
+    
+    @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
+        self.productDescriptionLabel.numberOfLines = 0
     }
     
     private func registerCollectionViewCells() {

@@ -28,6 +28,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var combinations: [ProductDetailsCombinationsModel]?
     var maxAddedQuantity: Int?
     var quantitySelected = 1
+    var descriptionIsExpaned = false
     
     var selectedCombinationPrice: Int? {
         return getSelectedCombinationPrice()

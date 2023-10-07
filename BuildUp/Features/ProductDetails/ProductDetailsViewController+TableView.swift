@@ -110,6 +110,7 @@ extension ProductDetailsViewController {
     }
 }
 
+// MARK: Get Product Details Cells
 extension ProductDetailsViewController {
     private func getShimmerProductDetailsSilderTableViewCell(indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
@@ -147,7 +148,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? ProductDetailsSliderType1TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.productModel = productModel
         cell.selectionStyle = .none
         return cell
@@ -159,7 +160,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? ProductDetailsSliderType2TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.productModel = productModel
         cell.selectionStyle = .none
         return cell
@@ -381,7 +382,6 @@ extension ProductDetailsViewController: UITableViewDelegate, UITableViewDataSour
             return UITableView.automaticDimension
         }
         switch indexPath.section {
-//        case ProductDetailsSection.slider.rawValue:
         case ProductDetailsSection.quantity.rawValue:
             if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
                 if settings.quantityPosition == ProductDetailsQuantityPosition.bottom.rawValue {

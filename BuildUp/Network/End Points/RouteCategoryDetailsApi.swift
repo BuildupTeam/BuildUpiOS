@@ -44,7 +44,7 @@ extension RouteCategoryDetailsApi: TargetType {
     var task: Task {
         switch self {
         case .getSubcategories(parentId: let parentId):
-            var parameters: [String: Any] = ["parents_ids[0]": parentId]
+            let parameters: [String: Any] = ["parents_ids[0]": parentId]
 //            if let sortBy = model.orderBy {
 //                parameters["sort[by]"] = sortBy
 //            }

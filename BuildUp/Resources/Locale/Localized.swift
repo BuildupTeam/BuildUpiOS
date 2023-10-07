@@ -12,6 +12,13 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
 
+    internal enum EmptyScreen {
+        /// No Data Found
+        internal static var noData: String {
+          return L10n.tr("Localizable", "emptyScreen.noData")
+        }
+    }
+
     internal enum ForceUpdate {
         /// You have to update Your version!
         internal static var message: String {

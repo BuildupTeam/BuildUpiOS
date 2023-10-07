@@ -22,6 +22,7 @@ class ComponentConfigurationModel: NSObject, NSCoding, Mappable {
     var filters: ComponentsFilterModel?
     var title: String?
     var categories: [Int]? // [ComponentCategoryModel]?
+    var subcategories: [Int]?
     var images: [String]?
 
     required init?(map: Map) {
@@ -43,6 +44,7 @@ class ComponentConfigurationModel: NSObject, NSCoding, Mappable {
         filters <- map["filters"]
         title <- map["title"]
         categories <- map["categories"]
+        subcategories <- map["subcategories"]
         images <- map["images"]
     }
     
@@ -64,6 +66,7 @@ class ComponentConfigurationModel: NSObject, NSCoding, Mappable {
         filters = aDecoder.decodeObject(forKey: "filters") as? ComponentsFilterModel
         title = aDecoder.decodeObject(forKey: "title") as? String
         categories = aDecoder.decodeObject(forKey: "categories") as? [Int]
+        subcategories = aDecoder.decodeObject(forKey: "subcategories") as? [Int]
         images = aDecoder.decodeObject(forKey: "images") as? [String]
     }
     
@@ -107,6 +110,9 @@ class ComponentConfigurationModel: NSObject, NSCoding, Mappable {
         }
         if categories != nil {
             aCoder.encode(categories, forKey: "categories")
+        }
+        if subcategories != nil {
+            aCoder.encode(subcategories, forKey: "subcategories")
         }
         if images != nil {
             aCoder.encode(images, forKey: "images")

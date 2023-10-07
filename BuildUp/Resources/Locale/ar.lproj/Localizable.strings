@@ -7,8 +7,11 @@
 */
 
 // MARK: - Product Details
-
 "productDetails.seeMore" = "المزيد.." ;
+
+// MARK: - Category Details
+"emptyScreen.noData" = "لا يوجد بيانات";
+
 
 // MARK: - Messages
 "message.error.title" = "خطأ" ;

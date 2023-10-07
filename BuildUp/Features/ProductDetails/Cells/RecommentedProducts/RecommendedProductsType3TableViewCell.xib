@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,22 +37,21 @@
                             <view contentMode="scaleToFill" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="Oas-IJ-Syu">
                                 <rect key="frame" x="0.0" y="8" width="304" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-bG-udP">
-                                        <rect key="frame" x="8" y="9.6666666666666679" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-bG-udP">
+                                        <rect key="frame" x="8" y="9.9999999999999982" width="41.333333333333336" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAY-0m-dno">
-                                        <rect key="frame" x="199.33333333333334" y="2.6666666666666679" width="96.666666666666657" height="35"/>
+                                        <rect key="frame" x="219.66666666666666" y="2.6666666666666679" width="76.333333333333343" height="35"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="See More"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="See All"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="pj5-bG-udP" firstAttribute="leading" secondItem="Oas-IJ-Syu" secondAttribute="leading" constant="8" id="9xL-re-sko"/>
-                                    <constraint firstAttribute="height" constant="40" id="XCJ-Zu-0tF"/>
                                     <constraint firstItem="FAY-0m-dno" firstAttribute="centerY" secondItem="Oas-IJ-Syu" secondAttribute="centerY" id="ZQc-Cd-kE4"/>
                                     <constraint firstAttribute="trailing" secondItem="FAY-0m-dno" secondAttribute="trailing" constant="8" id="qjc-EE-Uoi"/>
                                     <constraint firstItem="pj5-bG-udP" firstAttribute="centerY" secondItem="Oas-IJ-Syu" secondAttribute="centerY" id="uGO-6G-tZQ"/>
@@ -65,7 +65,7 @@
                             <constraint firstItem="w0r-RY-03s" firstAttribute="leading" secondItem="rSr-qZ-fQc" secondAttribute="leading" id="RBi-ox-g3i"/>
                             <constraint firstItem="Oas-IJ-Syu" firstAttribute="top" secondItem="rSr-qZ-fQc" secondAttribute="top" constant="8" id="VMa-V2-Dhq"/>
                             <constraint firstAttribute="trailing" secondItem="w0r-RY-03s" secondAttribute="trailing" id="d5W-ys-RxW"/>
-                            <constraint firstAttribute="height" constant="321" id="r4S-HM-N4Y"/>
+                            <constraint firstItem="w0r-RY-03s" firstAttribute="top" secondItem="Oas-IJ-Syu" secondAttribute="bottom" constant="8" id="pZQ-0L-sUm"/>
                             <constraint firstAttribute="bottom" secondItem="w0r-RY-03s" secondAttribute="bottom" id="tVs-ye-aGb"/>
                         </constraints>
                     </view>
@@ -81,11 +81,9 @@
             <connections>
                 <outlet property="collectionView" destination="w0r-RY-03s" id="qWL-W6-VfZ"/>
                 <outlet property="collectionViewHeightConstrains" destination="vXK-fv-9mS" id="RNC-xu-FxF"/>
-                <outlet property="containerViewHeightContraints" destination="r4S-HM-N4Y" id="VzC-K8-DEc"/>
                 <outlet property="headerSeeMoreButton" destination="FAY-0m-dno" id="hvI-dI-tjE"/>
                 <outlet property="headerTitleLabel" destination="pj5-bG-udP" id="MGL-mU-654"/>
                 <outlet property="headerView" destination="Oas-IJ-Syu" id="JPy-IO-a7j"/>
-                <outlet property="headerViewHeightContraints" destination="XCJ-Zu-0tF" id="Lum-8s-Xsu"/>
             </connections>
             <point key="canvasLocation" x="88" y="21"/>
         </tableViewCell>

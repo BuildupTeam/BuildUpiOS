@@ -9,11 +9,12 @@ import UIKit
 
 class BannerType2TableViewCell: UITableViewCell {
 
+    @IBOutlet private weak var backgroundImageView: UIImageView!
     @IBOutlet private weak var bannerImageView: UIImageView!
     @IBOutlet private weak var bannerTitleLabel: UILabel!
-    @IBOutlet private weak var bannerContentLabel: UILabel!
     
     @IBOutlet private weak var bannerImageContainerView: UIView!
+    @IBOutlet private weak var bannerTitleView: UIView!
     @IBOutlet private weak var containerView: UIView!
     
     var homeSectionModel: HomeSectionModel? {
@@ -43,6 +44,7 @@ class BannerType2TableViewCell: UITableViewCell {
                                masksToBounds: false)
         
         ThemeManager.setCornerRadious(element: bannerImageView, radius: 8)
+        ThemeManager.setCornerRadious(element: backgroundImageView, radius: 8)
     }
 
     private func bindData() {
@@ -51,6 +53,15 @@ class BannerType2TableViewCell: UITableViewCell {
             
             if let imageUrl = component.image?.path {
                 bannerImageView.setImage(with: imageUrl, placeholderImage: Asset.bannerType1Placeholder.image)
+            }
+            if let imageUrl = component.backgroundImage?.path {
+                backgroundImageView.setImage(with: imageUrl, placeholderImage: Asset.bannerType1Placeholder.image)
+                bannerTitleView.backgroundColor = .clear
+            } else {
+                if let color = component.backgroundColor {
+                    let backgroundColor = color.toUIColor(hexa: color)
+                    bannerTitleView.backgroundColor = backgroundColor
+                }
             }
         }
     }

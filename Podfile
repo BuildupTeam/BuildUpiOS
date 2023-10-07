@@ -17,15 +17,10 @@ def ui_pods
   pod 'CountryPickerView'
   pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
   pod 'SwiftKeychainWrapper'
-  pod 'UICircleProgressView'
+  #pod 'UICircleProgressView'
   pod 'RangeSeekSlider'
   pod 'DPOTPView'
   pod "SCPageControl", :git => 'https://github.com/MahmoudNasserIbtikar/SCPageControl.git'
-  pod 'Firebase'
-  pod 'FirebaseFirestore'
-  pod 'FirebaseMessaging'
-  pod 'FirebaseAnalytics'
-  pod 'FirebaseAuth'
 end
 
 def date_tools
@@ -36,6 +31,14 @@ def googleMaps_pods
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'GooglePlacesSearchController'
+end
+
+def firebase_pods
+  pod 'Firebase', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :tag => '10.5.0'
+  pod 'FirebaseDatabase', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :tag => '10.5.0'
+  pod 'FirebaseMessaging', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :tag => '10.5.0'
+  pod 'FirebaseAnalytics', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :tag => '10.5.0'
+  pod 'FirebaseAuth', :git => 'https://github.com/firebase/firebase-ios-sdk.git', :tag => '10.5.0'
 end
 
 def network_pods
@@ -64,6 +67,7 @@ target 'BuildUp' do
   # Pods for BuildUp
   
   ui_pods
+  firebase_pods
   date_tools
   network_pods
   googleMaps_pods

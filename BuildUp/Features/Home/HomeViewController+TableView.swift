@@ -232,9 +232,9 @@ extension HomeViewController {
             case HomeDesign.categoriesVerticalGrid3.rawValue:
                 return getCategoriesVerticalGrid3TableViewCell(indexPath: indexPath, homeSectionModel: homeSectionModel)
             case HomeDesign.banner1.rawValue:
-                return getBanner1TableViewCell(indexPath: indexPath, homeSectionModel: homeSectionModel)
-            case HomeDesign.banner2.rawValue:
                 return getBanner2TableViewCell(indexPath: indexPath, homeSectionModel: homeSectionModel)
+            case HomeDesign.banner2.rawValue:
+                return getBanner1TableViewCell(indexPath: indexPath, homeSectionModel: homeSectionModel)
             case HomeDesign.banner3.rawValue:
                 return getBanner3TableViewCell(indexPath: indexPath, homeSectionModel: homeSectionModel)
             default:
@@ -542,21 +542,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let homeSectionModel = viewModel.homeData.homeSections[indexPath.section]
         
+        if isLoadingShimmer {
+            return 125
+        }
         switch design {
         case HomeDesign.productVerticalList1.rawValue:
-            if isLoadingShimmer {
-                return 125
-            }
             return CGFloat((homeSectionModel.products?.count ?? 0) * 106)
         case HomeDesign.productVerticalList2.rawValue:
-            if isLoadingShimmer {
-                return 125
-            }
             return CGFloat((homeSectionModel.products?.count ?? 0) * 122)
         case HomeDesign.productVerticalList3.rawValue:
-            if isLoadingShimmer {
-                return 125
-            }
             return CGFloat((homeSectionModel.products?.count ?? 0) * 136)
         default:
             return UITableView.automaticDimension
@@ -593,11 +587,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let component = viewModel.homeData.homeSections[section].component else {
             return 0
         }
+        
+        let homeSectionModel = viewModel.homeData.homeSections[section]
+        if (homeSectionModel.products?.isEmpty ?? false) || homeSectionModel.categories?.isEmpty ?? false {
+            return 0
+        }
+        
         if isLoadingShimmer {
             return 0
         } else {
-            if component.displayTitle ?? false && !(component.title?.isEmptyString ?? false )  {
-                return 44
+            if component.displayTitle ?? false && !(component.title?.isEmptyString ?? false ) && component.design != HomeDesign.banner1.rawValue  {
+                let title = component.title
+                let textHeight = title?.height(withConstrainedWidth: (self.view.frame.size.width - 120), font: UIFont.appFont(ofSize: 16, weight: .bold)) ?? 0
+                
+                return textHeight + 20
             }
         }
         return 0

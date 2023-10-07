@@ -40,12 +40,27 @@ extension RouteHomeCategoriesApi: TargetType {
             
             if let sortBy = model.orderBy {
                 parameters["sort[by]"] = sortBy
+            } else {
+                parameters["sort[by]"] = "id"
+            }
+            if let isMain = model.filters?.isMain, isMain == "1" {
+                parameters["is_main"] = isMain
             }
             if let sortDir = model.orderDir {
                 parameters["sort[dir]"] = sortDir
+            } else {
+                parameters["sort[dir]"] = "desc"
             }
+            
             if let discount = model.filters?.discount {
-                parameters["discount"] = discount
+                parameters["discount_range[from]"] = "0"
+                parameters["discount_range[to]"] = discount
+            }
+            
+            if let subcategories = model.subcategories, !subcategories.isEmpty {
+                parameters["ids"] = subcategories
+            } else {
+                parameters["subcategory"] = 0
             }
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
