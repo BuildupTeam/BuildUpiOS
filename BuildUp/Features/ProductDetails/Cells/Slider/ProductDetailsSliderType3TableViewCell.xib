@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9g-Lm-ADc">
-                                <rect key="frame" x="16" y="449" width="382" height="34"/>
+                                <rect key="frame" x="16" y="449.33333333333331" width="382" height="33.666666666666686"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
@@ -193,11 +193,6 @@
             <point key="canvasLocation" x="16.793893129770993" y="19.718309859154932"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="LP4-s0-1P9">
-            <size key="intrinsicContentSize" width="20" height="0.0"/>
-        </designable>
-    </designables>
     <resources>
         <image name="product_favorite" width="10.666666984558105" height="9.6666669845581055"/>
         <systemColor name="systemBackgroundColor">

@@ -36,7 +36,7 @@ class Coordinator {
             
             navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigation.navigationBar.shadowImage = UIImage()
-            navigation.navigationBar.backgroundColor = .white
+            navigation.navigationBar.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "") //.white
             navigation.navigationBar.tintColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") //.titlesBlack
             
             let extraHeight: CGFloat = 10
@@ -93,24 +93,30 @@ class Coordinator {
     class Controllers {
         class func createProductDetailsViewController(
             productModel: ProductModel? = nil,
+            componentModel: ComponentConfigurationModel? = nil,
             isShareAction: Bool = false,
             viewModel: ProductDetailsViewModel = ProductDetailsViewModel()) -> ProductDetailsViewController {
                 viewModel.productModel = productModel
+                viewModel.componentModel = componentModel
                 let viewController = ProductDetailsViewController(viewModel: viewModel)
                 return viewController
             }
         
         class func createProductListViewController(
             homeSectionModel: HomeSectionModel? = nil,
+            componentModel: ComponentConfigurationModel? = nil,
             viewModel: ProductListViewModel = ProductListViewModel()) -> ProductsListViewController {
                 viewModel.homeSectionModel = homeSectionModel
+                viewModel.componentModel = componentModel
                 let viewController = ProductsListViewController(viewModel: viewModel)
                 return viewController
             }
         class func createProductsGridViewController(
             homeSectionModel: HomeSectionModel? = nil,
+            componentModel: ComponentConfigurationModel? = nil,
             viewModel: ProductListViewModel = ProductListViewModel()) -> ProductsGridViewController {
                 viewModel.homeSectionModel = homeSectionModel
+                viewModel.componentModel = componentModel
                 let viewController = ProductsGridViewController(viewModel: viewModel)
                 return viewController
             }
@@ -134,6 +140,11 @@ class Coordinator {
                                                     viewModel: CategoriesViewModel = CategoriesViewModel()) -> CategoriesListViewController {
             viewModel.homeSectionModel = homeSectionModel
             let viewController = CategoriesListViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createSubdomainViewController(viewModel: SubdomainViewModel = SubdomainViewModel()) -> SubdomainViewController {
+            let viewController = SubdomainViewController(viewModel: viewModel)
             return viewController
         }
     }

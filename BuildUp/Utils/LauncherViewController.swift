@@ -20,15 +20,17 @@ class LauncherViewController: NSObject {
     static public func showNextViewController() {
         
         switch PersistanceManager.geLatestViewController() {
+        case Constant.ControllerName.subdomin:
+            showSubdomainScreen(fromViewController: nil)
         case Constant.ControllerName.home:
             showTabBar(fromViewController: nil)
         default :
-            showTabBar(fromViewController: nil)
+//            showTabBar(fromViewController: nil)
+            showSubdomainScreen(fromViewController: nil)
         }
     }
     
     static public func showViewController(viewController: UIViewController, fromViewController: UIViewController?) {
-
         if let fromViewController = fromViewController {
             fromViewController.navigationController?.pushViewController(viewController, animated: true)
         } else {
@@ -46,6 +48,11 @@ class LauncherViewController: NSObject {
     
     static func showHomeScreen(fromViewController: UIViewController?) {
         let viewController = Coordinator.MainTaps.createHomeViewController()
+        showViewController(viewController: viewController, fromViewController: nil)
+    }
+    
+    static func showSubdomainScreen(fromViewController: UIViewController?) {
+        let viewController = Coordinator.Controllers.createSubdomainViewController()
         showViewController(viewController: viewController, fromViewController: nil)
     }
     

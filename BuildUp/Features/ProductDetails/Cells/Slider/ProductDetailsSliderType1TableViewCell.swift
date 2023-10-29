@@ -59,20 +59,20 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        productNameLabel.font = UIFont.boldSystemFont(ofSize: 18)//.appFont(ofSize: 20, weight: .semiBold)
-        productDescriptionLabel.font = .appFont(ofSize: 14, weight: .black)
-        productOldPriceLabel.font = .appFont(ofSize: 14, weight: .semiBold)
-        productNewPriceLabel.font = .appFont(ofSize: 17, weight: .semiBold)
-        productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .semiBold)
+        productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
+        productDescriptionLabel.font = .appFont(ofSize: 14, weight: .regular)
+        productOldPriceLabel.font = .appFont(ofSize: 14, weight: .medium)
+        productNewPriceLabel.font = .appFont(ofSize: 17, weight: .medium)
+        productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .medium)
 
         productNameLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         productDescriptionLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productOutOfStockLabel.textColor = ThemeManager.colorPalette?.tabsTextInactive?.toUIColor(hexa: ThemeManager.colorPalette?.tabsTextInactive ?? "")
-        
+        productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         seperatorView.backgroundColor = ThemeManager.colorPalette?.separator?.toUIColor(hexa: ThemeManager.colorPalette?.separator ?? "")
-        
+                
         addToFavoriteSeparatedView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
         addToFavoriteSeparatedView.layer.masksToBounds = true
         addToFavoriteSeparatedView.layer.cornerRadius = addToFavoriteSeparatedView.frame.size.width / 2
@@ -82,10 +82,10 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         addToFavoriteGroupedView.layer.cornerRadius = 16
         
         productOutOfStockView.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBg?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBg ?? "")
-        productOutOfStockView.layer.masksToBounds = true
-        productOutOfStockView.layer.cornerRadius = 4
+//        productOutOfStockView.layer.masksToBounds = true
+//        productOutOfStockView.layer.cornerRadius = 4
         
-//        ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
+        ThemeManager.setCornerRadious(element: productOutOfStockView, radius: 4)
     }
     
     private func setupCosmosView() {
@@ -114,8 +114,8 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             productDescriptionLabel.text = (model.productDescription ?? "")//.maxLength(length: 69)
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
+            productOldPriceLabel.text = "SAR " + String(model.originalPrice ?? 0)
+            productNewPriceLabel.text = "SAR " + String(model.currentPrice ?? 0)
             
             if !model.descriptionIsExpaned {
                 if let desc = model.productDescription, desc.count > 40 {
@@ -132,9 +132,9 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
             }
             
             if let quantity = model.quantity, quantity > 0 {
-                productOutOfStockView.isHidden = false
-            } else {
                 productOutOfStockView.isHidden = true
+            } else {
+                productOutOfStockView.isHidden = false
             }
             
             if let fileModel = model.files?.first {
@@ -153,6 +153,10 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
                     addToFavoriteSeparatedView.isHidden = false
                     addToFavoriteGroupedView.isHidden = true
                 }
+                
+                if settings.variants != ProductDetailsVarianrs.variants1.rawValue {
+                    seperatorView.backgroundColor = .clear
+                }
             }
             
             if (model.discount ?? 0) > 0 {
@@ -166,11 +170,18 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
     }
     
     @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
-        self.productDescriptionLabel.numberOfLines = 0
         if var model = productModel {
-            model.descriptionIsExpaned = true
-            self.productDescriptionLabel.text = model.productDescription
+            if !model.descriptionIsExpaned {
+                self.productDescriptionLabel.numberOfLines = 0
+                model.descriptionIsExpaned = true
+                self.productDescriptionLabel.text = model.productDescription
+            } else {
+                self.productDescriptionLabel.numberOfLines = 2
+                model.descriptionIsExpaned = false
+            }
+            
         }
+        
         self.delegate?.seeMoreButtonClicked()
         self.sizeToFit()
     }

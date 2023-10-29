@@ -43,13 +43,15 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
             cornerRadius: 8,
             masksToBounds: false)
         
-        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
+        productNameLabel.font = .appFont(ofSize: 12, weight: .regular)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         
-        ThemeManager.setCornerRadious(element: productImageView, radius: 11)
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+//        ThemeManager.setCornerRadious(element: productImageView, radius: 11)
+        ThemeManager.roundCorners(element: productImageView, corners: [.topRight, .topLeft], radius: 8)
         ThemeManager.setCornerRadious(element: addToCartView, radius: addToCartView.frame.width / 2)
         ThemeManager.setCornerRadious(element: containerView, radius: 11)
     }
@@ -57,7 +59,7 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
     func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
+            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
             
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)

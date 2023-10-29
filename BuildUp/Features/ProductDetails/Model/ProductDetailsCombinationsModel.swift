@@ -11,6 +11,7 @@ import ObjectMapper
 class ProductDetailsCombinationsModel: Mappable {
     var options: [CompinationsOptionModel]?
     var price: Int?
+    var currentPrice: Int?
     var quantity: Int?
     
     required init?(map: Map) {
@@ -20,6 +21,7 @@ class ProductDetailsCombinationsModel: Mappable {
     func mapping(map: Map) {
         options <- map["options"]
         price <- map["price"]
+        currentPrice <- map["current_price"]
         quantity <- map["quantity"]
     }
 }

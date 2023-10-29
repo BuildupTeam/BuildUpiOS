@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,10 +22,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2p6-Nu-JJK">
                     <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AEG-9M-2kX">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="656"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </tableView>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELq-pR-1ao">
                             <rect key="frame" x="0.0" y="656" width="393" height="137"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -35,12 +32,8 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="AEG-9M-2kX" firstAttribute="leading" secondItem="2p6-Nu-JJK" secondAttribute="leading" id="FEa-bf-aLm"/>
-                        <constraint firstAttribute="trailing" secondItem="AEG-9M-2kX" secondAttribute="trailing" id="Kbc-3h-XMg"/>
-                        <constraint firstItem="AEG-9M-2kX" firstAttribute="top" secondItem="2p6-Nu-JJK" secondAttribute="top" id="Xe0-j9-rKv"/>
                         <constraint firstAttribute="trailing" secondItem="ELq-pR-1ao" secondAttribute="trailing" id="Yv9-ed-7Up"/>
                         <constraint firstAttribute="bottom" secondItem="ELq-pR-1ao" secondAttribute="bottom" id="bdg-kd-7SP"/>
-                        <constraint firstItem="ELq-pR-1ao" firstAttribute="top" secondItem="AEG-9M-2kX" secondAttribute="bottom" id="nec-r9-eoh"/>
                         <constraint firstItem="ELq-pR-1ao" firstAttribute="leading" secondItem="2p6-Nu-JJK" secondAttribute="leading" id="xH3-JZ-Lum"/>
                     </constraints>
                 </view>

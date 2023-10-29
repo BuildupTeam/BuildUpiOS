@@ -39,14 +39,16 @@ class RecommentedProductsType1CollectionViewCell: UICollectionViewCell {
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         
+        productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
+
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
     }
     
     func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
+            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
             
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)

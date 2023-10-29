@@ -103,6 +103,28 @@ class CachingService: NSObject {
         return nil
     }
     
+    static func setSubdomain(subdomain: String) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(subdomain, forKey: Constant.Keys.subdomain)
+        userDefaults.synchronize()
+//        do {
+//            let encodedData: Data = try NSKeyedArchiver.archivedData(
+//                withRootObject: settingsConfigurationModel,
+//                requiringSecureCoding: false)
+//            userDefaults.set(encodedData, forKey: Constant.Keys.subdomain)
+            
+            
+            
+//        } catch {
+//            
+//        }
+    }
+    
+    static func getSubdomain() -> String {
+        let userDefaults = UserDefaults.standard
+        return userDefaults.string(forKey: Constant.Keys.subdomain) ?? ""
+    }
+    
     static func setThemeData(theme: ThemeConfigurationDataModel) {
         let userDefaults = UserDefaults.standard
         do {

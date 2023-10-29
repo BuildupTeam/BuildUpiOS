@@ -34,7 +34,7 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     private func setupCell() {
 //        addToCartView.initialize()
         
-        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
+        productNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
 
@@ -42,6 +42,8 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
 //        containerView.setShadow(
 //            shadowRadius: CGFloat(5),
 //            xOffset: 0,
@@ -59,8 +61,8 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
         if let model = productModel {
             addToCartView.productModel = model
             productNameLabel.text = model.name ?? ""
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
+            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
             
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)

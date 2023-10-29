@@ -12,6 +12,11 @@ import ObjectMapper
 protocol ProductListWebServiceProtocol: AnyObject {
     func getProductList(perPage: Int,
                         page: Int?,
+                        productModel: ProductModel,
+                        compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void))
+    
+    func getComponentProductList(perPage: Int,
+                        page: Int?,
                         componentModel: ComponentConfigurationModel,
                         compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void))
 }
@@ -22,10 +27,30 @@ class ProductListWebService: BaseWebService, ProductListWebServiceProtocol {
     
     func getProductList(perPage: Int,
                         page: Int?,
+                        productModel: ProductModel,
+                        compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void)) {
+        MainWebService.fetch(
+            endPoint: RouteProductListApi.getProductList(perPage: perPage, page: page, productModel: productModel)) { (result, statusCode) in
+                switch result {
+                case .success(let response):
+                    guard let productsResponse = Mapper<ProductsResponseModel>().map(JSONObject: response) else {
+                        return
+                    }
+                    productsResponse.statusCode = statusCode
+                    compeltion(Result.success(productsResponse))
+                case .failure(var error):
+                    error.statusCode = statusCode
+                    compeltion(Result.failure(error))
+                }
+            }
+    }
+    
+    func getComponentProductList(perPage: Int,
+                        page: Int?,
                         componentModel: ComponentConfigurationModel,
                         compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void)) {
         MainWebService.fetch(
-            endPoint: RouteProductListApi.getProductList(perPage: perPage, page: page, componentModel: componentModel)) { (result, statusCode) in
+            endPoint: RouteProductListApi.getComponentProductList(perPage: perPage, page: page, componentModel: componentModel)) { (result, statusCode) in
                 switch result {
                 case .success(let response):
                     guard let productsResponse = Mapper<ProductsResponseModel>().map(JSONObject: response) else {

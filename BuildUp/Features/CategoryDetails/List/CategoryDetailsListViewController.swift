@@ -45,6 +45,11 @@ class CategoryDetailsListViewController: BaseViewController {
         setupView()
         startShimmerOn(tableView: tableView)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = " "
+    }
 }
 
 // MARK: - Private Func
@@ -60,12 +65,14 @@ extension CategoryDetailsListViewController {
           tableView.sectionHeaderTopPadding = 0.0
         }
         
-        containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        
         categoryNameLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         categoryNameLabel.font = .appFont(ofSize: 17, weight: .bold)
         
         if let settings = viewModel.categoryDetailsSettings {
-            if (settings.coverPhoto?.isActive == "1") {
+            if (settings.coverPhoto?.isActive ?? false) {
                 coverPhotoContainerViewHeightContriant.constant = 180
                 coverPhotoContainerView.isHidden = false
             } else {
@@ -73,7 +80,7 @@ extension CategoryDetailsListViewController {
                 coverPhotoContainerView.isHidden = true
             }
             
-            if (settings.subcategoryTabs?.isActive == "1") { // TODO check for has subcategories
+            if (settings.subcategoryTabs?.isActive ?? false) { // TODO check for has subcategories
                 subcategoriesContainerViewHeightContriant.constant = 40
                 subcategoryTabsView.isHidden = false
             } else {
@@ -94,6 +101,7 @@ extension CategoryDetailsListViewController {
                     setupCoverPhotoType2View()
                 case CategoryDetailsCoverPhotoDesign.coverPhoto3.rawValue:
                     setupCoverPhotoType3View()
+                    categoryNameLabel.isHidden = true
                 default:
                     return
                 }

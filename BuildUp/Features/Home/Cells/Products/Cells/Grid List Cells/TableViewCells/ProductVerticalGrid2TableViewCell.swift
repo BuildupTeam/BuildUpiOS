@@ -96,14 +96,14 @@ extension ProductVerticalGrid2TableViewCell: UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
-        let cellWidth = (screenWidth - 32) / 2
+        let cellWidth = (screenWidth - 16) / 2
         
         return CGSize(width: cellWidth, height: 260)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
-            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
+            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row], componentModel: sectionModel.component)
         }
     }
 }

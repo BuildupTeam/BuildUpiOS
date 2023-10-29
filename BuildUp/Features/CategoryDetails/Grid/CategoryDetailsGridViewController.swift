@@ -52,6 +52,11 @@ class CategoryDetailsGridViewController: BaseViewController {
         setupView()
         startShimmerOn(collectionView: collectionView)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = " "
+    }
 }
 
 // MARK: - Private Func
@@ -63,12 +68,14 @@ extension CategoryDetailsGridViewController {
         fillData()
         registerCollectionViewCells()
         
-        containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        
         categoryNameLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         categoryNameLabel.font = .appFont(ofSize: 17, weight: .bold)
         
         if let settings = viewModel.categoryDetailsSettings {
-            if (settings.coverPhoto?.isActive == "1") {
+            if (settings.coverPhoto?.isActive ?? false) {
                 coverPhotoContainerViewHeightContriant.constant = 180
                 coverPhotoContainerView.isHidden = false
             } else {
@@ -76,19 +83,13 @@ extension CategoryDetailsGridViewController {
                 coverPhotoContainerView.isHidden = true
             }
             
-            if (settings.subcategoryTabs?.isActive == "1") { // TODO check for has subcategories
+            if (settings.subcategoryTabs?.isActive ?? false) {
                 subcategoriesContainerViewHeightContriant.constant = 40
                 subcategoryTabsView.isHidden = false
             } else {
                 subcategoriesContainerViewHeightContriant.constant = 0
                 subcategoryTabsView.isHidden = true
             }
-            
-//            if (settings.productsList?.isActive == "1") {
-//                collectionView.isHidden = false
-//            } else {
-//                collectionView.isHidden = true
-//            }
         }
     }
     
@@ -103,6 +104,7 @@ extension CategoryDetailsGridViewController {
                     setupCoverPhotoType2View()
                 case CategoryDetailsCoverPhotoDesign.coverPhoto3.rawValue:
                     setupCoverPhotoType3View()
+                    categoryNameLabel.isHidden = true
                 default:
                     return
                 }

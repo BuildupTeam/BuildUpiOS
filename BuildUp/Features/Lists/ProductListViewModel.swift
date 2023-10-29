@@ -18,6 +18,7 @@ class ProductListViewModel: BaseViewModel {
     var totalCount: Int = 0
     var perPage: Int = 20
     var homeSectionModel: HomeSectionModel?
+    var componentModel: ComponentConfigurationModel?
 
     public var onProducts: (() -> Void)?
     public var onLoadMoreProducts: (() -> Void)?
@@ -28,13 +29,43 @@ class ProductListViewModel: BaseViewModel {
         self.getCachedData()
     }
     
-    func getProducts(componentModel: ComponentConfigurationModel,
+    func getProducts(productModel: ProductModel,
                      currentPageCompletion: @escaping (() -> String)) {
         
         guard let service = service else {
             return
         }
-        service.getProductList(perPage: perPage, page: page, componentModel: componentModel) { (result) in
+        service.getProductList(perPage: perPage, page: page, productModel: productModel) { (result) in
+            switch result {
+            case .success(let response):
+                if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
+                    guard let currentPage = Int(currentPageCompletion()) else { return }
+                    if (response.meta?.currentPage ?? 0) == 1 {
+                        self.products = response.data ?? []
+                        self.onProducts?()
+                    } else if (response.meta?.currentPage ?? 0) > 1 {
+                        self.products.append(contentsOf: response.data ?? [])
+                        self.onLoadMoreProducts?()
+                    }
+                } else {
+                    self.handleError(response: response)
+                }
+            case .failure(let error):
+                print(error)
+                if error.message != "Request explicitly cancelled." {
+                    self.onNetworkError?(error)
+                }
+            }
+        }
+    }
+    
+    func getComponentProductList(componentModel: ComponentConfigurationModel,
+                     currentPageCompletion: @escaping (() -> String)) {
+        
+        guard let service = service else {
+            return
+        }
+        service.getComponentProductList(perPage: perPage, page: page, componentModel: componentModel) { (result) in
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {

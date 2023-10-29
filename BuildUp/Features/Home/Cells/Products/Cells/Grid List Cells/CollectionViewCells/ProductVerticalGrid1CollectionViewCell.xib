@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldy-V6-uRD">
                         <rect key="frame" x="8" y="8" width="164" height="199"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PdX-35-HyV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PdX-35-HyV">
                                 <rect key="frame" x="0.0" y="0.0" width="164" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="134" id="CfM-pv-mGz"/>
@@ -36,10 +36,10 @@ Mahmoud Eissa</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUz-Yv-M5C">
-                                <rect key="frame" x="122" y="12" width="30" height="30"/>
+                                <rect key="frame" x="12" y="12" width="30" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_favorite" translatesAutoresizingMaskIntoConstraints="NO" id="r0R-rQ-3bn">
-                                        <rect key="frame" x="7.6666666666666563" y="8.6666666666666679" width="14.666666666666661" height="12.666666666666668"/>
+                                        <rect key="frame" x="7.666666666666667" y="8.6666666666666679" width="14.666666666666661" height="12.666666666666668"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="14.800000000000001" id="7Bp-G4-FvB"/>
                                             <constraint firstAttribute="height" constant="12.9" id="K4A-aE-fdK"/>
@@ -70,12 +70,12 @@ Mahmoud Eissa</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="jTi-Hs-qCP" secondAttribute="bottom" constant="8" id="2T3-x2-OoN"/>
-                            <constraint firstAttribute="trailing" secondItem="hUz-Yv-M5C" secondAttribute="trailing" constant="12" id="43L-V2-Ng8"/>
+                            <constraint firstItem="hUz-Yv-M5C" firstAttribute="leading" secondItem="ldy-V6-uRD" secondAttribute="leading" constant="12" id="BwK-9h-krc"/>
                             <constraint firstAttribute="trailing" secondItem="jTi-Hs-qCP" secondAttribute="trailing" constant="8" id="GgD-6g-jYC"/>
                             <constraint firstItem="jTi-Hs-qCP" firstAttribute="leading" secondItem="ldy-V6-uRD" secondAttribute="leading" constant="8" id="RRk-gL-wf7"/>
                             <constraint firstItem="PdX-35-HyV" firstAttribute="leading" secondItem="ldy-V6-uRD" secondAttribute="leading" id="T2b-hZ-ZEb"/>
-                            <constraint firstAttribute="height" constant="199" id="aqQ-TL-OKf"/>
                             <constraint firstItem="hUz-Yv-M5C" firstAttribute="top" secondItem="ldy-V6-uRD" secondAttribute="top" constant="12" id="pJP-pu-X44"/>
+                            <constraint firstAttribute="height" constant="199" id="qra-n1-r7z"/>
                             <constraint firstItem="PdX-35-HyV" firstAttribute="top" secondItem="ldy-V6-uRD" secondAttribute="top" id="x1Z-yb-1AS"/>
                             <constraint firstItem="jTi-Hs-qCP" firstAttribute="top" secondItem="PdX-35-HyV" secondAttribute="bottom" constant="6" id="xcw-Zn-Y7g"/>
                             <constraint firstAttribute="trailing" secondItem="PdX-35-HyV" secondAttribute="trailing" id="xuv-CI-7ag"/>
@@ -84,7 +84,7 @@ Mahmoud Eissa</string>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="ldy-V6-uRD" secondAttribute="trailing" constant="8" id="6x1-cc-Gld"/>
                 <constraint firstItem="ldy-V6-uRD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="MLm-rp-Alq"/>

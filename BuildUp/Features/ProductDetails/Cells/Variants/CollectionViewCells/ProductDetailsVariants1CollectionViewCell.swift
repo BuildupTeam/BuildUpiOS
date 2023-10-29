@@ -30,7 +30,7 @@ class ProductDetailsVariants1CollectionViewCell: UICollectionViewCell {
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
         
-        titleLabel.font = .appFont(ofSize: 12, weight: .regular)
+        titleLabel.font = .appFont(ofSize: 12, weight: .semiBold)
         
         titleLabel.textColor = ThemeManager.colorPalette?.tabsTextInactive?.toUIColor(hexa: ThemeManager.colorPalette?.tabsTextInactive ?? "")
     }

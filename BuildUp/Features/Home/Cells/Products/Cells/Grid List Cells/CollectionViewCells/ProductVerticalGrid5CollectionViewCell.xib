@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAu-4l-FNC">
                         <rect key="frame" x="8" y="8" width="120" height="194"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oco-oE-c9Z">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oco-oE-c9Z">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="139" id="eHR-qk-ase"/>
@@ -49,6 +49,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="DAu-4l-FNC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="CeT-rM-60f"/>
                 <constraint firstAttribute="trailing" secondItem="DAu-4l-FNC" secondAttribute="trailing" constant="8" id="a8h-vd-VzM"/>

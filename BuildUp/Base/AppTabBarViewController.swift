@@ -23,9 +23,10 @@ class AppTabBarViewController: UITabBarController {
         self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.buttonIconColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonIconColor4 ?? "")
         
         self.tabBar.clipsToBounds = true
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "") //.white
         self.tabBar.selectionIndicatorImage = UIImage()
-        
+//        self.tabBar.items?.forEach({ $0.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: -2.0) })
+
         setupTabbarShadow()
         initialize()
     }
@@ -47,7 +48,7 @@ class AppTabBarViewController: UITabBarController {
     }
     
     func initialize() {
-        self.tabBar.barTintColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        self.tabBar.barTintColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
         let homeVC = Coordinator.MainTaps.createHomeViewController()
         homeVC.tabBarItem = UITabBarItem(

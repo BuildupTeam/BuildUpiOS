@@ -12,9 +12,7 @@ class CartViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     var isReloadingTableView = false
     var viewModel: CartViewModel!
-    
-    override  var prefersBottomBarHidden: Bool? { return true }
-    
+        
     init(viewModel: CartViewModel) {
         super.init(viewModel: viewModel)
         self.viewModel = viewModel
@@ -28,8 +26,8 @@ class CartViewController: BaseViewController {
         super.viewDidLoad()
         setupView()
         setupResponses()
-        getCart()
-        startShimmerOn(tableView: tableView)
+//        getCart()
+//        startShimmerOn(tableView: tableView)
     }
 
 }
@@ -39,11 +37,11 @@ extension CartViewController {
     private func setupView() {
         isLoadingShimmer = true
         fillData()
-        registerTableViewCells()
+//        registerTableViewCells()
         
-        if #available(iOS 15.0, *) {
-            tableView.sectionHeaderTopPadding = 0.0
-        }
+//        if #available(iOS 15.0, *) {
+//            tableView.sectionHeaderTopPadding = 0.0
+//        }
     }
     
     private func fillData() {

@@ -12,6 +12,9 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var containerView: UIView!
 
+    var isReloadingTableView = false
+    var refreshControl = UIRefreshControl()
+
     var viewModel: HomeViewModel!
     
     init(viewModel: HomeViewModel) {
@@ -31,6 +34,8 @@ class HomeViewController: BaseViewController {
         setupResponse()
         getHomeData()
         scrollToFirstRow()
+        
+        updateInfoPlist()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,32 +55,57 @@ class HomeViewController: BaseViewController {
 //        }
     }
     
+    private func updateInfoPlist() {
+        let playersDictionaryPath = Bundle.main.path(forResource: "GoogleService-test", ofType: "plist")
+        let playersDictionary = NSMutableDictionary(contentsOfFile: playersDictionaryPath!)
+        if let projectId = playersDictionary?.object(forKey: "PROJECT_ID") as? String {
+            playersDictionary?["PROJECT_ID"] = "my-app-3.ecommerce.buildupp.co"
+//            print("playersDictionary = \(playersDictionary)")
+            playersDictionary?.write(toFile: playersDictionaryPath!, atomically: true)
+        }
+        
+        if let bundleId = playersDictionary?.object(forKey: "BUNDLE_ID") as? String {
+            playersDictionary?["BUNDLE_ID"] = "com.sobhy.ibtikar"
+//            print("playersDictionary = \(playersDictionary)")
+            playersDictionary?.write(toFile: playersDictionaryPath!, atomically: true)
+        }
+        
+    }
+    
 }
 
 // MARK: - SetupUI
 extension HomeViewController {
     private func setupView() {
         isLoadingShimmer = true
-        registerTableViewCells()
+        registerTableViewCells()       
         setupNavigationBar()
-        
         if #available(iOS 15.0, *) {
-          tableView.sectionHeaderTopPadding = 0.0
+            UITableView.appearance().sectionHeaderTopPadding = 0
         }
-        containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
-        self.view.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
     }
     
     private func setupNavigationBar() {
+        let logoImageView = UIImageView(image: Asset.icSquadio.image)
         
-        let refreshItem = UIBarButtonItem(
-            image: Asset.productDetailsCart.image,
+        logoImageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = logoImageView
+        
+        let searchItem = UIBarButtonItem(
+            image: Asset.icSearch.image,
             style: .plain,
             target: self,
-            action: #selector(refreshAction(sender:))
+            action: #selector(searchAction(sender:))
         )
         
-        self.navigationItem.rightBarButtonItem = refreshItem
+        let notificationsItem = UIBarButtonItem(
+            image: Asset.icNotifications.image,
+            style: .plain,
+            target: self,
+            action: #selector(notificationAction(sender:))
+        )
+        
+        self.navigationItem.rightBarButtonItems = [searchItem, notificationsItem]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,13 +115,34 @@ extension HomeViewController {
     private func startShimmer() {
         startShimmerOn(tableView: tableView)
     }
+    
+    private func addRefreshControl() {
+        self.refreshControl.removeFromSuperview()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
+        tableView.refreshControl = refreshControl
+    }
 }
 
 // MARK: - Actions
 extension HomeViewController {
     
     @objc
-    func refreshAction(sender: UIBarButtonItem) {
+    func notificationAction(sender: UIBarButtonItem) {
+        PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
+        LauncherViewController.showSubdomainScreen(fromViewController: nil)
+    }
+    
+    @objc
+    func searchAction(sender: UIBarButtonItem) {
+        PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
+        LauncherViewController.showSubdomainScreen(fromViewController: nil)
+    }
+    
+    @objc
+    private func refreshData() {
         self.getHomeData()
     }
 }
@@ -114,7 +165,11 @@ extension HomeViewController {
         viewModel.onData = { [weak self] () in
             guard let `self` = self else { return }
             print("Normal Reload")
+            containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+            self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
             self.hideLoading()
+            self.tableView.refreshControl?.endRefreshing()
+            self.addRefreshControl()
             self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()
         }
@@ -123,8 +178,8 @@ extension HomeViewController {
 
 // MARK: - HomeProductsCellDelegate
 extension HomeViewController: HomeProductsCellDelegate {
-    func homeProductTapped(productModel: ProductModel?) {
-        let detailsVC = Coordinator.Controllers.createProductDetailsViewController()
+    func homeProductTapped(productModel: ProductModel?, componentModel: ComponentConfigurationModel?) {
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController(componentModel: componentModel)
         detailsVC.productModel = productModel
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
@@ -161,7 +216,8 @@ extension HomeViewController: HomeHeaderCellDelegate {
                 if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productList.rawValue})?.settings {
                     switch settings.list {
                     case ProductListDesign.list1.rawValue,
-                        ProductListDesign.list2.rawValue:
+                        ProductListDesign.list2.rawValue,
+                        ProductListDesign.list3.rawValue:
                         let detailsVC = Coordinator.Controllers.createProductListViewController(homeSectionModel: homeSectionModel)
                         detailsVC.componentModel = homeSectionModel.component
                         self.navigationController?.pushViewController(detailsVC, animated: true)

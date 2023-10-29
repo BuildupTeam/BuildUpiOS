@@ -11,7 +11,7 @@ import ObjectMapper
 
 protocol ProductDetailsWebServiceProtocol: AnyObject {
     func getProductDetails(uuid: String, compeltion: @escaping ((Result<ProductDetailsResponseModel, NetworkError>) -> Void))
-    func getRelatedProducts(limit: Int, compeltion: @escaping ((Result<RelatedProductsResponseModel, NetworkError>) -> Void))
+    func getRelatedProducts(limit: Int, productModel: ProductModel, compeltion: @escaping ((Result<RelatedProductsResponseModel, NetworkError>) -> Void))
 }
 
 class ProductDetailsWebService: BaseWebService, ProductDetailsWebServiceProtocol {
@@ -36,9 +36,9 @@ class ProductDetailsWebService: BaseWebService, ProductDetailsWebServiceProtocol
             }
     }
     
-    func getRelatedProducts(limit: Int, compeltion: @escaping ((Result<RelatedProductsResponseModel, NetworkError>) -> Void)) {
+    func getRelatedProducts(limit: Int, productModel: ProductModel, compeltion: @escaping ((Result<RelatedProductsResponseModel, NetworkError>) -> Void)) {
         MainWebService.fetch(
-            endPoint: RouteProductDetailsApi.getRelatedProducts(limit: limit)) { (result, statusCode) in
+            endPoint: RouteProductDetailsApi.getRelatedProducts(limit: limit, productModel: productModel)) { (result, statusCode) in
                 switch result {
                 case .success(let response):
                     guard let relatedProductsResponse = Mapper<RelatedProductsResponseModel>().map(JSONObject: response) else {

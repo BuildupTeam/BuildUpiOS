@@ -546,9 +546,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return 125
         }
         switch design {
-        case HomeDesign.productVerticalList1.rawValue:
-            return CGFloat((homeSectionModel.products?.count ?? 0) * 106)
-        case HomeDesign.productVerticalList2.rawValue:
+        case HomeDesign.productVerticalList1.rawValue,
+            HomeDesign.productVerticalList2.rawValue:
             return CGFloat((homeSectionModel.products?.count ?? 0) * 122)
         case HomeDesign.productVerticalList3.rawValue:
             return CGFloat((homeSectionModel.products?.count ?? 0) * 136)
@@ -567,7 +566,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case HomeDesign.productVerticalList1.rawValue,
             HomeDesign.productVerticalList2.rawValue,
             HomeDesign.productVerticalList3.rawValue:
-            let detailsVC = Coordinator.Controllers.createProductDetailsViewController()
+            let detailsVC = Coordinator.Controllers.createProductDetailsViewController(componentModel: homeSectionModel.component)
             detailsVC.productModel = homeSectionModel.products?[indexPath.row]
             self.navigationController?.pushViewController(detailsVC, animated: true)
         default:
@@ -600,7 +599,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 let title = component.title
                 let textHeight = title?.height(withConstrainedWidth: (self.view.frame.size.width - 120), font: UIFont.appFont(ofSize: 16, weight: .bold)) ?? 0
                 
-                return textHeight + 20
+                return textHeight + 40
             }
         }
         return 0

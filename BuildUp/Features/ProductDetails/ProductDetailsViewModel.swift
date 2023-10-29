@@ -16,6 +16,7 @@ class ProductDetailsViewModel: BaseViewModel {
     var productDetailsSettings: SettingsConfigurationModel?
     var selectedOptionsValues: [String: String] = [:]
     
+    var componentModel: ComponentConfigurationModel?
     var viewTitle: String?
     
     // MARK: - Data Observables
@@ -49,12 +50,18 @@ class ProductDetailsViewModel: BaseViewModel {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     self.productModel = response.data
-                    if let files = self.productModel?.files, !files.isEmpty {
-//                        let fileModel = ProductFileModel(
-                        for (index, file) in files.enumerated() {
-                            if index == 0 {
-                                file.isSelected = true
+                    if let files = self.productModel?.files {
+                        if !files.isEmpty {
+                            let fileModel = ProductFileModel(path: self.productModel?.mainImage?.path ?? "")
+                            self.productModel?.files?.insert(fileModel, at: 0)
+                            for (index, file) in files.enumerated() {
+                                if index == 0 {
+                                    file.isSelected = true
+                                }
                             }
+                        } else {
+                            let fileModel = ProductFileModel(path: self.productModel?.mainImage?.path ?? "")
+                            self.productModel?.files?.insert(fileModel, at: 0)
                         }
                     }
                     
@@ -73,20 +80,23 @@ class ProductDetailsViewModel: BaseViewModel {
         guard let service = service else {
             return
         }
-        service.getRelatedProducts(limit: limit) { (result) in
-            switch result {
-            case .success(let response):
-                if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                    self.productModel?.relatedProducts = response.data
-                    self.onData?()
-                }
-            case .failure(let error):
-                print(error)
-                if error.message != "Request explicitly cancelled." {
-                    self.onNetworkError?(error)
+        if let model = productModel {
+            service.getRelatedProducts(limit: limit, productModel: model) { (result) in
+                switch result {
+                case .success(let response):
+                    if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
+                        self.productModel?.relatedProducts = response.data
+                        self.onData?()
+                    }
+                case .failure(let error):
+                    print(error)
+                    if error.message != "Request explicitly cancelled." {
+                        self.onNetworkError?(error)
+                    }
                 }
             }
         }
+        
     }
     
     func getCachedData() {

@@ -139,6 +139,11 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let productModel = viewModel.products[indexPath.row]
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController(componentModel: self.componentModel)
+        detailsVC.productModel = productModel
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
+
+

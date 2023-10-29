@@ -47,6 +47,9 @@ class HomeViewModel: BaseViewModel {
         service.getHomeTemplate() { (result) in
             switch result {
             case .success(let response):
+                self.cacheThemeData(response.data)
+                self.cacheProductDetailsSettings(response.data)
+                
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     if let model = response.data?.pages?.first(where: {$0.page == PageName.home.rawValue}) {
                         if let sections = model.sections {
@@ -55,8 +58,6 @@ class HomeViewModel: BaseViewModel {
                     }
                     
                     self.prepareAndRequestHomeApis()
-                    self.cacheThemeData(response.data)
-                    self.cacheProductDetailsSettings(response.data)
                 } else {
                     self.handleError(response: response)
                 }
@@ -157,12 +158,14 @@ extension HomeViewModel {
         let orderCompletion: (() -> String) = { () in return "\(order)" }
         
         switch componentModel.design {
+        case HomeDesign.categoriesVerticalGrid1.rawValue:
+            limit = 4
         case HomeDesign.categoriesVerticalGrid2.rawValue:
             limit = 6
         case HomeDesign.categoriesVerticalGrid3.rawValue:
             limit = 9
         default:
-            limit = 4
+            limit = 10
         }
         getCategories(limit: limit,
                       componentModel: componentModel,

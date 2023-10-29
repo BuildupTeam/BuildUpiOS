@@ -15,21 +15,13 @@ class ProductDetailsQuantityDropDownTableViewCell: UITableViewCell {
     @IBOutlet private weak var seperatorView: UIView!
 
     var actionMappings: [UIAction.Identifier: UIActionHandler] = [:]
-    
-//    private lazy var elements: [UIAction] = [first, second, third, fourth]
-//    private lazy var menu = UIMenu(title: "new", children: elements)
-    /*
-     private lazy var first = UIAction(title: "first", image: UIImage(systemName: "pencil.circle"), attributes: [], state: .off) { action in
-         print("first")
-     }
-     */
-    
+    weak var delegate: ProductDetailsQuantityDelegate?
+
     var productModel: ProductModel? {
         didSet {
             bindData()
         }
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +30,7 @@ class ProductDetailsQuantityDropDownTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
-        quantityTitleLabel.font = .appFont(ofSize: 13, weight: .semiBold)
+        quantityTitleLabel.font = .appFont(ofSize: 13, weight: .regular)
         quantityLabel.font = .appFont(ofSize: 13, weight: .regular)
         
         quantityTitleLabel.textColor =  ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
@@ -47,22 +39,26 @@ class ProductDetailsQuantityDropDownTableViewCell: UITableViewCell {
     }
     
     private func bindData() {
-        
+        quantityLabel.text = String(productModel?.quantity ?? 0)
     }
     
     @IBAction func quantityButtonAction(_ sender: UIButton) {
         var elements: [UIAction] = []
         let quantityCount = productModel?.quantity ?? 0
                 
-        for i in (1 ..< 5) {
+        if quantityCount <= 1 {
+            return
+        }
+        for i in (0 ..< quantityCount) {
             let first = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
                 print(String(i))
                 self.productModel?.quantitySelected = i
                 self.quantityLabel.text = String(i)
+                self.delegate?.qunatitySelected(quantity: i)
             }
             elements.append(first)
         }
-        let menu = UIMenu(title: "Quantity",identifier: .alignment, options: .displayInline, children: elements)
+        let menu = UIMenu(title: L10n.ProductDetails.quantity, identifier: .alignment, options: .displayInline, children: elements)
         quantityActionButton.showsMenuAsPrimaryAction = true
         quantityActionButton.menu = menu
     }

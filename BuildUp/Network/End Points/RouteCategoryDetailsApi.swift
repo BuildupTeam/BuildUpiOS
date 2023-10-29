@@ -66,23 +66,25 @@ extension RouteCategoryDetailsApi: TargetType {
             var parameters: [String: Any] = ["per_page": perPage]
             
             parameters["categories_ids[0]"] = categoryId
+            parameters["sort[by]"] = "id"
+            parameters["sort[dir]"] = "desc"
 
             if let page = page {
                 parameters["page"] = page
             }
-            
-            if let sortBy = model.orderBy {
-                parameters["sort[by]"] = sortBy
-            }
-            
-            if let sortDir = model.orderDir {
-                parameters["sort[dir]"] = sortDir
-            }
-            
-            
-            if let discount = model.filters?.discount {
-                parameters["discount"] = discount
-            }
+//            
+//            if let sortBy = model.orderBy {
+//                parameters["sort[by]"] = sortBy
+//            }
+//            
+//            if let sortDir = model.orderDir {
+//                parameters["sort[dir]"] = sortDir
+//            }
+//            
+//            
+//            if let discount = model.filters?.discount {
+//                parameters["discount"] = discount
+//            }
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             

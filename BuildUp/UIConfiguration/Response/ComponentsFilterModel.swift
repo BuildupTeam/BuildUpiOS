@@ -10,7 +10,7 @@ import ObjectMapper
 
 class ComponentsFilterModel: NSObject, NSCoding, Mappable {
     var discount: String?
-    var isMain: String?
+    var isMain: Int?
 
     required init?(map: Map) {
         
@@ -27,7 +27,7 @@ class ComponentsFilterModel: NSObject, NSCoding, Mappable {
     convenience required init?(coder aDecoder: NSCoder) {
         self.init()
         discount = aDecoder.decodeObject(forKey: "discount") as? String
-        isMain = aDecoder.decodeObject(forKey: "isMain") as? String
+        isMain = aDecoder.decodeObject(forKey: "isMain") as? Int
     }
     
     @objc

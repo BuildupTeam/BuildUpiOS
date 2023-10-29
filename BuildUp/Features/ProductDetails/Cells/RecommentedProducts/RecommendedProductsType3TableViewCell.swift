@@ -17,6 +17,7 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
     @IBOutlet private weak var headerTitleLabel: UILabel!
     @IBOutlet private weak var headerSeeMoreButton: UIButton!
     
+    weak var delegate: RecommentedProductsDelegate?
 
     var productModel: ProductModel? {
         didSet {
@@ -44,10 +45,11 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
             if ((settings.recommendedProducts?.title) != nil) {
                 headerTitleLabel.text = settings.recommendedProducts?.title
+                
                 if settings.recommendedProducts?.displayTitle ?? false {
-                    headerView.isHidden = false
+                    headerTitleLabel.isHidden = false
                 } else {
-                    headerView.isHidden = false
+                    headerTitleLabel.isHidden = true
                 }
                 
                 if settings.recommendedProducts?.displaySeeMore ?? false {
@@ -56,14 +58,9 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
                     headerSeeMoreButton.isHidden = true
                 }
                 
-                headerView.isHidden = false
-//                containerViewHeightContraints.constant = 320
-//                headerViewHeightContraints.constant = 40
-                
             } else {
                 headerView.isHidden = true
-//                containerViewHeightContraints.constant = 280
-                headerViewHeightContraints.constant = 0
+//                headerViewHeightContraints.constant = 0
             }
         }
     }
@@ -79,11 +76,6 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
     private func setupCellHeight (_ productModel: ProductModel) {
         if productModel.relatedProducts?.count ?? 0 > 2 {
             collectionViewHeightConstrains.constant = 530
-            if containerViewHeightContraints.constant == 320 {
-                containerViewHeightContraints.constant = 585
-            } else if containerViewHeightContraints.constant == 280 {
-                collectionViewHeightConstrains.constant = 545
-            }
         } else {
             collectionViewHeightConstrains.constant = 265
         }
@@ -93,6 +85,10 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
         self.collectionView.register(
             UINib(nibName: ProductVerticalGrid2CollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: ProductVerticalGrid2CollectionViewCell.identifier)
+    }
+    
+    @IBAction func seeAlButtonClicked(_ sender: UIButton) {
+        delegate?.seeAllButtonClicked()
     }
     
 }
@@ -128,7 +124,10 @@ extension RecommendedProductsType3TableViewCell: UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        delegate?.homeCityTapped(cityModel: cities[indexPath.row])
+        if let model = productModel, !(model.relatedProducts?.isEmpty ?? false) {
+            if let products = model.relatedProducts {
+                delegate?.productClicked(products[indexPath.row])
+            }
+        }
     }
 }

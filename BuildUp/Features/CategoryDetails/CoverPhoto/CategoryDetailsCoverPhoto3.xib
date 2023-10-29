@@ -16,16 +16,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Yl-Yu-c1D">
-                    <rect key="frame" x="8" y="8" width="377" height="144"/>
+                    <rect key="frame" x="16" y="8" width="361" height="144"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QpT-df-vRS">
-                            <rect key="frame" x="0.0" y="0.0" width="377" height="144"/>
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="144"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STw-Ni-WEu">
-                                    <rect key="frame" x="0.0" y="0.0" width="188.66666666666666" height="144"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="144"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sale up to 80% off" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bE5-NA-e7U">
-                                            <rect key="frame" x="14" y="8" width="160.66666666666666" height="128"/>
+                                            <rect key="frame" x="14" y="8" width="152.66666666666666" height="128"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -40,10 +40,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjL-FG-Ee4">
-                                    <rect key="frame" x="188.66666666666663" y="0.0" width="188.33333333333337" height="144"/>
+                                    <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="144"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="04t-gd-JUB">
-                                            <rect key="frame" x="0.0" y="0.0" width="188.33333333333334" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180.33333333333334" height="144"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.83921568629999999" green="0.86274509799999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,7 +57,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="144" id="6ef-ro-YlL"/>
                         <constraint firstItem="QpT-df-vRS" firstAttribute="leading" secondItem="5Yl-Yu-c1D" secondAttribute="leading" id="JrF-x8-cbi"/>
@@ -68,12 +68,12 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5Yl-Yu-c1D" secondAttribute="trailing" constant="8" id="6aW-D6-gO7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5Yl-Yu-c1D" secondAttribute="trailing" constant="16" id="6aW-D6-gO7"/>
                 <constraint firstAttribute="bottom" secondItem="5Yl-Yu-c1D" secondAttribute="bottom" constant="8" id="JhP-UU-c56"/>
                 <constraint firstItem="5Yl-Yu-c1D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="aae-yd-auQ"/>
-                <constraint firstItem="5Yl-Yu-c1D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="iFT-ex-wgY"/>
+                <constraint firstItem="5Yl-Yu-c1D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="iFT-ex-wgY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

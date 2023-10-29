@@ -9,13 +9,16 @@ import UIKit
 
 class ProductsGridViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var isReloadingTableView = false
     var refreshControl = UIRefreshControl()
     var componentModel: ComponentConfigurationModel?
     var refresher:UIRefreshControl!
-    
+    var viewTitle: String?
+    var productModel: ProductModel?
+
     override  var prefersBottomBarHidden: Bool? { return true }
 
     // MARK: - Private Variables
@@ -39,25 +42,46 @@ class ProductsGridViewController: BaseViewController {
         setupView()
         startShimmerOn(collectionView: collectionView)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = " "
+    }
 }
 
 // MARK: - Private Functions
 extension ProductsGridViewController {
     private func setupView() {
+        if let title = viewTitle {
+            titleLabel.text = title
+        } else {
+            titleLabel.text = componentModel?.title
+        }
+        
+        titleLabel.font = .appFont(ofSize: 17, weight: .bold)
+        titleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
+        
         isLoadingShimmer = true
         registerCollectionViewCells()
-        containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
-        let footerView = UIView()
-        footerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
-//        collectionView.foo = footerView
         
-        addRefreshControl()
+        containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        
+        setupNavigationBar()
     }
     
     private func addRefreshControl() {
+        if let refresher = self.refresher {
+            self.refresher.removeFromSuperview()
+        }
+        
         self.refresher = UIRefreshControl()
         self.collectionView!.alwaysBounceVertical = true
-        self.refresher.tintColor = UIColor.red
+        self.refresher.tintColor = ThemeManager.colorPalette?.lightTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.lightTextColor ?? "")
         self.refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         self.collectionView!.addSubview(refresher)
     }
@@ -79,6 +103,25 @@ extension ProductsGridViewController {
     private func removeBackgroundViews() {
         collectionView.backgroundView = nil
     }
+    
+    private func setupNavigationBar() {
+        
+        let cartItem = UIBarButtonItem(
+            image: Asset.productDetailsCart.image,
+            style: .plain,
+            target: self,
+            action: #selector(cartAction(sender:))
+        )
+        
+        let shareItem = UIBarButtonItem(
+            image: Asset.productDetailsShare.image,
+            style: .plain,
+            target: self,
+            action: #selector(shareAction(sender:))
+        )
+        
+        self.navigationItem.rightBarButtonItems = [cartItem, shareItem]
+    }
 }
 
 // MARK: - Actions
@@ -92,6 +135,16 @@ extension ProductsGridViewController {
         viewModel.totalCount = 0
         getProducts()
     }
+    
+    @objc
+    func cartAction(sender: UIBarButtonItem) {
+        
+    }
+    
+    @objc
+    func shareAction(sender: UIBarButtonItem) {
+        
+    }
 }
 
 // MARK: - Requests
@@ -99,8 +152,12 @@ extension ProductsGridViewController  {
     private func getProducts() {
         let currentPageCompletion: (() -> String) = { () in return "\(self.viewModel.page)" }
         
-        if let model = componentModel {
-            viewModel.getProducts(componentModel: model, currentPageCompletion: currentPageCompletion)
+        if let model = productModel {
+            viewModel.getProducts(productModel: model, currentPageCompletion: currentPageCompletion)
+        } else {
+            if let model = self.componentModel {
+                viewModel.getComponentProductList(componentModel: model, currentPageCompletion: currentPageCompletion)
+            }
         }
     }
     
@@ -121,9 +178,13 @@ extension ProductsGridViewController {
         viewModel.onProducts = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
-            self.refresher.endRefreshing()
+            if let refresher = self.refresher {
+                self.refresher.endRefreshing()
+            }
+            self.addRefreshControl()
             self.removeBackgroundViews()
             self.stopShimmerOn(collectionView: self.collectionView)
+            
             self.reloadTableViewData()
             self.isReloadingTableView = false
 

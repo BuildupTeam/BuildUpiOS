@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +13,7 @@
             <connections>
                 <outlet property="collectionView" destination="hbW-LU-lJE" id="BcT-NR-vfh"/>
                 <outlet property="containerView" destination="3ez-6L-8gy" id="brd-sA-Kbr"/>
+                <outlet property="titleLabel" destination="440-JA-Gqg" id="hzU-Pn-7Dm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,8 +26,8 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hbW-LU-lJE">
-                            <rect key="frame" x="8" y="0.0" width="377" height="793"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <rect key="frame" x="8" y="56.666666666666686" width="377" height="736.33333333333326"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="dAk-Nk-Gvy">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -37,12 +39,21 @@
                                 <outlet property="delegate" destination="-1" id="jIe-HK-Pak"/>
                             </connections>
                         </collectionView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="440-JA-Gqg">
+                            <rect key="frame" x="8" y="8" width="377" height="40.666666666666664"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="hbW-LU-lJE" secondAttribute="bottom" id="7aT-II-3GC"/>
+                        <constraint firstAttribute="trailing" secondItem="440-JA-Gqg" secondAttribute="trailing" constant="8" id="9zZ-Of-1ny"/>
                         <constraint firstItem="hbW-LU-lJE" firstAttribute="leading" secondItem="3ez-6L-8gy" secondAttribute="leading" constant="8" id="DkZ-PZ-DNn"/>
-                        <constraint firstItem="hbW-LU-lJE" firstAttribute="top" secondItem="3ez-6L-8gy" secondAttribute="top" id="IB8-ni-xXH"/>
+                        <constraint firstItem="440-JA-Gqg" firstAttribute="top" secondItem="3ez-6L-8gy" secondAttribute="top" constant="8" id="T52-Js-aLo"/>
+                        <constraint firstItem="440-JA-Gqg" firstAttribute="leading" secondItem="3ez-6L-8gy" secondAttribute="leading" constant="8" id="YTF-xz-g2M"/>
+                        <constraint firstItem="hbW-LU-lJE" firstAttribute="top" secondItem="440-JA-Gqg" secondAttribute="bottom" constant="8" id="fe2-Zq-J7Q"/>
                         <constraint firstAttribute="trailing" secondItem="hbW-LU-lJE" secondAttribute="trailing" constant="8" id="lXo-pL-TXe"/>
                     </constraints>
                 </view>
@@ -55,7 +66,7 @@
                 <constraint firstAttribute="bottom" secondItem="3ez-6L-8gy" secondAttribute="bottom" id="cXU-4D-Dkv"/>
                 <constraint firstAttribute="trailing" secondItem="3ez-6L-8gy" secondAttribute="trailing" id="qh3-5K-Zcv"/>
             </constraints>
-            <point key="canvasLocation" x="30" y="20"/>
+            <point key="canvasLocation" x="29.770992366412212" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>

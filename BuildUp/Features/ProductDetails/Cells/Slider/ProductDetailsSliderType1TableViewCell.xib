@@ -75,20 +75,20 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="White knitted pullover with blue stripes White knitted pullover with blue stripes White knitted pullover with blue stripes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSV-4j-HxG">
-                                <rect key="frame" x="16" y="362" width="285" height="29.666666666666686"/>
+                                <rect key="frame" x="16" y="362" width="285" height="65.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJu-Tb-utF">
-                                <rect key="frame" x="16" y="406.66666666666669" width="382" height="50"/>
+                                <rect key="frame" x="16" y="442.66666666666669" width="382" height="14"/>
                                 <string key="text">Zara winter collection 023 waisted midi with buttons and brown belt ..more details Zara winter collection 023 waisted midi with buttons and brown belt ..more details</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-vp-mg2">
-                                <rect key="frame" x="16" y="406.66666666666669" width="382" height="50"/>
+                                <rect key="frame" x="16" y="442.66666666666669" width="382" height="14"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
@@ -199,7 +199,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="taT-1t-a4C" firstAttribute="top" secondItem="deJ-xp-Nxu" secondAttribute="top" constant="8" id="I7c-wn-boh"/>
                                     <constraint firstAttribute="trailing" secondItem="bgj-Zb-mMb" secondAttribute="trailing" constant="8" id="LTB-mt-cNC"/>
@@ -223,7 +223,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tOE-3h-cb4" firstAttribute="leading" secondItem="fAh-tQ-ofF" secondAttribute="leading" id="4Wr-3b-RHA"/>
                             <constraint firstItem="SJu-Tb-utF" firstAttribute="leading" secondItem="fAh-tQ-ofF" secondAttribute="leading" constant="16" id="6SU-J8-fo6"/>
@@ -270,6 +270,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="addToFavoriteButton" destination="lq0-uj-WvB" id="YLT-JU-eRp"/>
                 <outlet property="addToFavoriteGroupedView" destination="ozL-PZ-bRh" id="0fb-FA-d7O"/>
@@ -295,6 +296,11 @@
             <point key="canvasLocation" x="16.793893129770993" y="19.366197183098592"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="cNu-dv-cJs">
+            <size key="intrinsicContentSize" width="20" height="0.0"/>
+        </designable>
+    </designables>
     <resources>
         <image name="productImage" width="375" height="350"/>
         <image name="product_details_cart" width="21" height="21"/>

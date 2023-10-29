@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol RecommentedProductsDelegate: AnyObject {
+    func productClicked(_ model: ProductModel)
+    func seeAllButtonClicked()
+}
+
 class RecommentedProductsType1TableViewCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -18,6 +23,8 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
     @IBOutlet private weak var headerSeeMoreButton: UIButton!
     
     var recomendedProducts: [ProductModel]?
+    
+    weak var delegate: RecommentedProductsDelegate?
     
     var productModel: ProductModel? {
         didSet {
@@ -43,7 +50,7 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
         collectionView.dataSource = self
         
         headerTitleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
-        headerTitleLabel.font = .appFont(ofSize: 17, weight: .semiBold)
+        headerTitleLabel.font = .appFont(ofSize: 17, weight: .medium)
         headerSeeMoreButton.titleLabel?.font = .appFont(ofSize: 13, weight: .semiBold)
         headerSeeMoreButton.setTitleColor(ThemeManager.colorPalette?.lightTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.lightTextColor ?? ""), for: .normal)
         headerSeeMoreButton.tintColor = ThemeManager.colorPalette?.lightTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.lightTextColor ?? "")
@@ -51,6 +58,7 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
             if ((settings.recommendedProducts?.title) != nil) {
                 headerTitleLabel.text = settings.recommendedProducts?.title
+                
                 if settings.recommendedProducts?.displayTitle ?? false {
                     headerTitleLabel.isHidden = false
                 } else {
@@ -63,13 +71,14 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
                     headerSeeMoreButton.isHidden = true
                 }
                 
-                headerView.isHidden = false
-//                containerViewHeightContraints.constant = 315
-//                headerViewHeightContraints.constant = 40
+//                if (settings.recommendedProducts?.displayTitle ?? false) && ( settings.recommendedProducts?.displaySeeMore ?? false) {
+//                    headerView.isHidden = false
+//                } else {
+//                    headerView.isHidden = true
+//                }
             } else {
                 headerView.isHidden = true
-//                containerViewHeightContraints.constant = 275
-                headerViewHeightContraints.constant = 0
+//                headerViewHeightContraints.constant = 0
             }
         }
     }
@@ -78,6 +87,10 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
         self.collectionView.register(
             UINib(nibName: RecommentedProductsType1CollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: RecommentedProductsType1CollectionViewCell.identifier)
+    }
+    
+    @IBAction func seeAlButtonClicked(_ sender: UIButton) {
+        delegate?.seeAllButtonClicked()
     }
     
 }
@@ -111,7 +124,10 @@ extension RecommentedProductsType1TableViewCell: UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        delegate?.homeCityTapped(cityModel: cities[indexPath.row])
+        if let model = productModel, !(model.relatedProducts?.isEmpty ?? false) {
+            if let products = model.relatedProducts {
+                delegate?.productClicked(products[indexPath.row])
+            }
+        }
     }
 }

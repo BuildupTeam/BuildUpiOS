@@ -23,6 +23,9 @@ enum ProductListDesign: String {
 extension ProductsListViewController {
     func registerTableViewCells() {
         self.tableView.register(
+            UINib(nibName: ProductVerticalList1InnerTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: ProductVerticalList1InnerTableViewCell.identifier)
+        self.tableView.register(
             UINib(nibName: ProductVerticalList2InnerTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: ProductVerticalList2InnerTableViewCell.identifier)
         self.tableView.register(
@@ -137,5 +140,12 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
                 isReloadingTableView = false
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productModel = viewModel.products[indexPath.row]
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController(componentModel: self.componentModel)
+        detailsVC.productModel = productModel
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

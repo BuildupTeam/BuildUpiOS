@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,23 +20,23 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOB-3f-lml">
                         <rect key="frame" x="8" y="8" width="304" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeW-nQ-fZp">
-                                <rect key="frame" x="8" y="11.999999999999998" width="32" height="20.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeW-nQ-fZp">
+                                <rect key="frame" x="8" y="11.999999999999998" width="70.666666666666671" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="XXL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbm-6H-WWL">
-                                <rect key="frame" x="54.999999999999993" y="11.666666666666668" width="31.666666666666664" height="21.000000000000004"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbm-6H-WWL">
+                                <rect key="frame" x="94.666666666666671" y="11.666666666666668" width="32" height="21.000000000000004"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down_black" translatesAutoresizingMaskIntoConstraints="NO" id="VTg-jV-j2a">
-                                <rect key="frame" x="146.66666666666666" y="19" width="11" height="6"/>
+                                <rect key="frame" x="166.66666666666666" y="19" width="11" height="6"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="da7-Vq-7ru">
-                                <rect key="frame" x="102" y="0.0" width="100" height="44"/>
+                                <rect key="frame" x="122" y="0.0" width="100" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="UrB-aa-Iba"/>
                                     <constraint firstAttribute="height" constant="44" id="xzS-Eo-ADo"/>
@@ -49,18 +48,19 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wbm-6H-WWL" firstAttribute="leading" secondItem="CeW-nQ-fZp" secondAttribute="trailing" constant="16" id="5P3-pv-X6C"/>
                             <constraint firstItem="da7-Vq-7ru" firstAttribute="centerY" secondItem="VTg-jV-j2a" secondAttribute="centerY" id="684-5u-jqk"/>
-                            <constraint firstItem="wbm-6H-WWL" firstAttribute="leading" secondItem="CeW-nQ-fZp" secondAttribute="trailing" constant="15" id="7h0-PX-a6K"/>
-                            <constraint firstItem="VTg-jV-j2a" firstAttribute="centerX" secondItem="QOB-3f-lml" secondAttribute="centerX" id="Gk6-ct-Slj"/>
+                            <constraint firstAttribute="bottom" secondItem="da7-Vq-7ru" secondAttribute="bottom" id="8Y3-XF-DbA"/>
+                            <constraint firstItem="VTg-jV-j2a" firstAttribute="centerX" secondItem="QOB-3f-lml" secondAttribute="centerX" constant="20" id="DY0-Iq-Vcx"/>
                             <constraint firstItem="wbm-6H-WWL" firstAttribute="centerY" secondItem="CeW-nQ-fZp" secondAttribute="centerY" id="QcS-VQ-3x1"/>
+                            <constraint firstItem="da7-Vq-7ru" firstAttribute="top" secondItem="QOB-3f-lml" secondAttribute="top" id="aj3-M0-sNW"/>
                             <constraint firstItem="VTg-jV-j2a" firstAttribute="centerY" secondItem="QOB-3f-lml" secondAttribute="centerY" id="ayb-zl-YCX"/>
-                            <constraint firstItem="VTg-jV-j2a" firstAttribute="leading" secondItem="wbm-6H-WWL" secondAttribute="trailing" constant="60" id="eoG-cq-8IG"/>
+                            <constraint firstItem="VTg-jV-j2a" firstAttribute="leading" secondItem="wbm-6H-WWL" secondAttribute="trailing" constant="40" id="eoG-cq-8IG"/>
                             <constraint firstItem="CeW-nQ-fZp" firstAttribute="centerY" secondItem="QOB-3f-lml" secondAttribute="centerY" id="gPq-o5-lHw"/>
                             <constraint firstItem="da7-Vq-7ru" firstAttribute="centerX" secondItem="VTg-jV-j2a" secondAttribute="centerX" id="ljy-AE-Uyh"/>
                             <constraint firstItem="CeW-nQ-fZp" firstAttribute="leading" secondItem="QOB-3f-lml" secondAttribute="leading" constant="8" id="s6a-Fc-u7Z"/>
-                            <constraint firstAttribute="height" constant="44" id="vgb-3I-Dgj"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5v-iT-QtM">
@@ -82,6 +82,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="seperatorView" destination="u5v-iT-QtM" id="sD7-T2-SE0"/>
                 <outlet property="variantActionButton" destination="da7-Vq-7ru" id="RSg-xo-jxb"/>
@@ -93,8 +94,5 @@
     </objects>
     <resources>
         <image name="arrow_down_black" width="11" height="6"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

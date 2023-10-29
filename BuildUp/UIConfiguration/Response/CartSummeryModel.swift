@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 class CartSummeryModel: NSObject, NSCoding, Mappable {
-    var isActive: String?
+    var isActive: Bool?
     var position: String?
     
     required init?(map: Map) {
@@ -27,7 +27,7 @@ class CartSummeryModel: NSObject, NSCoding, Mappable {
     
     convenience required init?(coder aDecoder: NSCoder) {
         self.init()
-        isActive = aDecoder.decodeObject(forKey: "isActive") as? String
+        isActive = aDecoder.decodeObject(forKey: "isActive") as? Bool
         position = aDecoder.decodeObject(forKey: "position") as? String
     }
     

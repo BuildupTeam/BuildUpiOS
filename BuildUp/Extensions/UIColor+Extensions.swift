@@ -14,8 +14,16 @@ extension UIColor {
         return UIColor(red: 0.078, green: 0.157, blue: 0.424, alpha: 1)
     }
 
-    class var oldPrimaryColor: UIColor {
-        return UIColor(red: 0.165, green: 0.314, blue: 0.843, alpha: 1)
+    class var scanMeButtonColor: UIColor {
+        return UIColor(red: 0.29, green: 0.455, blue: 0.918, alpha: 1)
+    }
+    
+    class var qrCodeTitleColor: UIColor {
+        return UIColor(red: 0.115, green: 0.146, blue: 0.233, alpha: 1)
+    }
+    
+    class var qrCodeContentColor: UIColor {
+        return UIColor(red: 0.029, green: 0.029, blue: 0.029, alpha: 1)
     }
     
     class var dimmedButtonGray: UIColor {

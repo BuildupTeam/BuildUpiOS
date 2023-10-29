@@ -12,6 +12,21 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
 
+    internal enum QRCode {
+        /// Scan the QR Code that appears in the mobile mockup in your dashboard to be able to view your app demo
+        internal static var content: String {
+          return L10n.tr("Localizable", "QRCode.content")
+        }
+        /// Scan Me
+        internal static var scanMe: String {
+          return L10n.tr("Localizable", "QRCode.scanMe")
+        }
+        /// Scan QR Code
+        internal static var title: String {
+          return L10n.tr("Localizable", "QRCode.title")
+        }
+    }
+
     internal enum EmptyScreen {
         /// No Data Found
         internal static var noData: String {
@@ -67,7 +82,19 @@ internal enum L10n {
     }
 
     internal enum ProductDetails {
-        /// Readmore
+        ///  SAR
+        internal static var currency: String {
+          return L10n.tr("Localizable", "productDetails.currency")
+        }
+        /// Quantity
+        internal static var quantity: String {
+          return L10n.tr("Localizable", "productDetails.quantity")
+        }
+        /// Qty
+        internal static var quantityShort: String {
+          return L10n.tr("Localizable", "productDetails.quantityShort")
+        }
+        /// More Details
         internal static var readMore: String {
           return L10n.tr("Localizable", "productDetails.readMore")
         }

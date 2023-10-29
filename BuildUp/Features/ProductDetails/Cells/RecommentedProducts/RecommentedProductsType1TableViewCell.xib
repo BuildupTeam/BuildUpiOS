@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,11 +22,11 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vYO-nf-I1r">
                                 <rect key="frame" x="0.0" y="64" width="304" height="250"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="Dvl-kT-eHu"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KF8-u6-LBA">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KF8-u6-LBA">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -44,27 +43,29 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-hf-GQx">
-                                        <rect key="frame" x="219.66666666666666" y="8" width="76.333333333333343" height="32"/>
+                                        <rect key="frame" x="219.66666666666666" y="7" width="76.333333333333343" height="34.333333333333336"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="76.329999999999998" id="Njs-Nm-PZE"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="See All"/>
+                                        <connections>
+                                            <action selector="seeAlButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oRX-n3-Axy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="u0Z-hf-GQx" firstAttribute="top" secondItem="QhY-n3-qrt" secondAttribute="top" constant="8" id="EPh-TG-hS6"/>
+                                    <constraint firstItem="u0Z-hf-GQx" firstAttribute="centerY" secondItem="aIo-7y-N9R" secondAttribute="centerY" id="8ku-Q5-t6b"/>
                                     <constraint firstItem="aIo-7y-N9R" firstAttribute="leading" secondItem="QhY-n3-qrt" secondAttribute="leading" constant="8" id="FJj-hK-fq2"/>
                                     <constraint firstAttribute="trailing" secondItem="u0Z-hf-GQx" secondAttribute="trailing" constant="8" id="G9i-Vk-fIN"/>
                                     <constraint firstItem="u0Z-hf-GQx" firstAttribute="leading" secondItem="aIo-7y-N9R" secondAttribute="trailing" constant="8" id="RJl-U1-s57"/>
                                     <constraint firstItem="aIo-7y-N9R" firstAttribute="top" secondItem="QhY-n3-qrt" secondAttribute="top" constant="8" id="XqX-XQ-Fae"/>
                                     <constraint firstAttribute="bottom" secondItem="aIo-7y-N9R" secondAttribute="bottom" constant="8" id="XyO-E5-mVh"/>
-                                    <constraint firstAttribute="bottom" secondItem="u0Z-hf-GQx" secondAttribute="bottom" constant="8" id="f87-oz-QbW"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QhY-n3-qrt" firstAttribute="top" secondItem="F3F-98-bWB" secondAttribute="top" constant="8" id="6hd-DB-ZiL"/>
                             <constraint firstAttribute="bottom" secondItem="vYO-nf-I1r" secondAttribute="bottom" id="Dr3-iN-dOy"/>
@@ -84,6 +85,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectionView" destination="vYO-nf-I1r" id="1Eq-nK-v5t"/>
                 <outlet property="collectionViewHeightConstrains" destination="Dvl-kT-eHu" id="zwQ-lu-2df"/>
@@ -94,9 +96,4 @@
             <point key="canvasLocation" x="33.587786259541986" y="19.718309859154932"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

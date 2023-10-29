@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,17 +26,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baL-hQ-IwT">
-                                <rect key="frame" x="126.00000000000001" y="11.666666666666668" width="7.6666666666666714" height="21.000000000000004"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baL-hQ-IwT">
+                                <rect key="frame" x="153.66666666666666" y="22" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down_black" translatesAutoresizingMaskIntoConstraints="NO" id="knE-4j-Ms0">
-                                <rect key="frame" x="193.66666666666666" y="19" width="11" height="6"/>
+                                <rect key="frame" x="213.66666666666666" y="19" width="11" height="6"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xtf-le-LuN">
-                                <rect key="frame" x="149" y="0.0" width="100" height="44"/>
+                                <rect key="frame" x="169" y="0.0" width="100" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="9AU-gi-7lP"/>
                                     <constraint firstAttribute="height" constant="44" id="MBT-EJ-6D0"/>
@@ -48,13 +48,13 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="acZ-DO-dHP" firstAttribute="centerY" secondItem="O4h-Pw-Ar5" secondAttribute="centerY" id="10y-DZ-DaM"/>
                             <constraint firstItem="knE-4j-Ms0" firstAttribute="centerY" secondItem="O4h-Pw-Ar5" secondAttribute="centerY" id="2Mn-gm-PCE"/>
                             <constraint firstItem="acZ-DO-dHP" firstAttribute="leading" secondItem="O4h-Pw-Ar5" secondAttribute="leading" constant="8" id="5xl-vf-DYG"/>
                             <constraint firstItem="knE-4j-Ms0" firstAttribute="leading" secondItem="baL-hQ-IwT" secondAttribute="trailing" constant="60" id="DVu-Cc-WqL"/>
-                            <constraint firstItem="knE-4j-Ms0" firstAttribute="centerX" secondItem="O4h-Pw-Ar5" secondAttribute="centerX" id="FCX-tf-0oi"/>
+                            <constraint firstItem="knE-4j-Ms0" firstAttribute="centerX" secondItem="O4h-Pw-Ar5" secondAttribute="centerX" constant="20" id="FCX-tf-0oi"/>
                             <constraint firstItem="Xtf-le-LuN" firstAttribute="centerX" secondItem="knE-4j-Ms0" secondAttribute="centerX" id="Z78-XF-q4z"/>
                             <constraint firstAttribute="height" constant="44" id="aNc-hq-PPE"/>
                             <constraint firstItem="Xtf-le-LuN" firstAttribute="centerY" secondItem="knE-4j-Ms0" secondAttribute="centerY" id="bOn-TL-wZM"/>
@@ -80,6 +80,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="quantityActionButton" destination="Xtf-le-LuN" id="Nfb-W6-4A4"/>
                 <outlet property="quantityLabel" destination="baL-hQ-IwT" id="ZET-TC-FZY"/>
@@ -91,8 +92,5 @@
     </objects>
     <resources>
         <image name="arrow_down_black" width="11" height="6"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

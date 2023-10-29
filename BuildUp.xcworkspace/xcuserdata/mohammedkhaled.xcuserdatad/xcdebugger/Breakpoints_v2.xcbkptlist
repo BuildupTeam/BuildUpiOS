@@ -1,39 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "932C4EB2-A7BA-4DA1-86D5-C8B7A4A11CE0"
+   uuid = "F76F0427-01B2-4FF9-AFED-E57D63680747"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5EA39003-81A6-49EC-A6A3-01767498DD86"
+            uuid = "FD7E4E86-1EE0-4CF1-B561-C67EA58A4ED5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/ProductDetails/Cells/Slider/ProductDetailsSliderType2TableViewCell.swift"
+            filePath = "BuildUp/Services/Configuration.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "seeMoreButtonClicked(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "22C7F5AB-7613-4BCF-B7A9-31D5950D0B14"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/Home/Cells/Products/Cells/Grid List Cells/CollectionViewCells/ProductVerticalGrid1CollectionViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "setupCell()"
-            landmarkType = "7">
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "hostURL"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

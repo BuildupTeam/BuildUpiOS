@@ -16,6 +16,7 @@ class ProductDetailsVariants3TableViewCell: UITableViewCell {
 
     weak var delegate: ProductDetailsVarientSelectedDelegate?
 
+    var combinationModel:  ProductDetailsCombinationsModel?
     var optionModel: ProductDetailsOptionsModel? {
         didSet {
             self.bindData()
@@ -29,8 +30,8 @@ class ProductDetailsVariants3TableViewCell: UITableViewCell {
     }
 
     private func setupCell() {
-        variantValueLabel.font = .appFont(ofSize: 12, weight: .regular)
-        variantNameLabel.font = .appFont(ofSize: 13, weight: .bold)
+        variantValueLabel.font = .appFont(ofSize: 12, weight: .semiBold)
+        variantNameLabel.font = .appFont(ofSize: 13, weight: .regular)
         
         seperatorView.backgroundColor = ThemeManager.colorPalette?.separator?.toUIColor(hexa: ThemeManager.colorPalette?.separator ?? "")
         variantValueLabel.textColor = ThemeManager.colorPalette?.quantityCounterColor?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? "")
@@ -41,6 +42,9 @@ class ProductDetailsVariants3TableViewCell: UITableViewCell {
         if let model = optionModel {
             variantNameLabel.text = model.option?.name
             variantValueLabel.text = model.optionValues?.first?.name
+            
+            self.delegate?.optionValueSelected(model)
+//            self.sizeToFit()
         }
     }
     
@@ -56,16 +60,6 @@ class ProductDetailsVariants3TableViewCell: UITableViewCell {
                     if let model = self.optionModel {
                         self.delegate?.optionValueSelected(model)
                     }
-                    /*
-                     let option = options[indexPath.row]
-                     option.isSelected = true
-                     options[indexPath.row] = option
-                     self.optionModel?.optionValues = options
-                     self.collectionView.reloadData()
-                     if let model = self.optionModel {
-                         delegate?.optionValueSelected(model)
-                     }
-                     */
                 }
                 elements.append(element)
             }

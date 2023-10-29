@@ -26,14 +26,16 @@ class ProductVerticalGrid4CollectionViewCell: UICollectionViewCell {
     
     private func setupCell() {
         containerView.setShadow(
-            shadowRadius: CGFloat(5),
+            shadowRadius: CGFloat(4),
             xOffset: 0,
             yOffset: 0,
             color: .black,
-            opacity: 0.15,
+            opacity: 0.10,
             cornerRadius: 8,
             masksToBounds: false)
         
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
         ThemeManager.setCornerRadious(element: containerView, radius: 8)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
     }

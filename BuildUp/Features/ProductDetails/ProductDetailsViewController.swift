@@ -26,6 +26,7 @@ class ProductDetailsViewController: BaseViewController {
 
     var productModel: ProductModel?
     var viewModel: ProductDetailsViewModel!
+    var combinationModel: ProductDetailsCombinationsModel?
     
     override  var prefersBottomBarHidden: Bool? { return true }
     
@@ -44,6 +45,11 @@ class ProductDetailsViewController: BaseViewController {
         startShimmer()
         setupResponse()
         getProductDetailsData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = " "
     }
     
     private func setupNavigationBar() {
@@ -88,6 +94,8 @@ extension ProductDetailsViewController {
         registerTableViewCells()
         subtotalViewHeightConstraint.constant = 94
         quantityCircleView.initialize()
+        quantityCircleView.delegate = self
+        quantityDropDownView.delegate = self
         
         subTotalPriceTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         subTotalPriceLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
@@ -115,13 +123,17 @@ extension ProductDetailsViewController {
           tableView.sectionHeaderTopPadding = 0.0
         }
         
-        self.view.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
         if self.viewModel.productDetailsSettings?.actions == ProductDetailsActions.seperated.rawValue {
             self.setupNavigationBar()
         }
         
         if let settings = self.viewModel.productDetailsSettings {
+            if settings.variants != ProductDetailsVarianrs.variants3.rawValue {
+                deactivateQuantityView()
+            }
             if settings.quantityPosition == ProductDetailsQuantityPosition.upper.rawValue {
                 addToCartButton.setCornerRadius(2)
                 quantityCircleView.isHidden = true
@@ -152,10 +164,45 @@ extension ProductDetailsViewController {
                           animations: {
             self.subtotalViewHeightConstraint.constant = 137
         })
-        subTotalPriceLabel.text = String(combinationModel.price ?? 0) + " SAR"
+        let subtotalPrice = (combinationModel.price ?? 0) * (self.viewModel.productModel?.quantitySelected ?? 0)
+        subTotalPriceLabel.text = String(subtotalPrice) + L10n.ProductDetails.currency
+    }
+    
+    private func activateQuantityView() {
+        quantityDropDownView.alpha = 1
+        quantityDropDownView.isUserInteractionEnabled = true
+        
+        quantityCircleView.alpha = 1
+        quantityCircleView.isUserInteractionEnabled = true
+    }
+    
+    private func deactivateQuantityView() {
+        quantityDropDownView.alpha = 0.6
+        quantityDropDownView.isUserInteractionEnabled = false
+        
+        quantityCircleView.alpha = 0.6
+        quantityCircleView.isUserInteractionEnabled = false
+    }
+    
+    private func checktoActivateQuantityAction() {
+        if let model = self.combinationModel {
+            
+        }
+    }
+    
+}
+
+// MARK: - ProductDetailsQuantityDropDown
+extension ProductDetailsViewController: ProductDetailsQuantityDelegate {
+    func qunatitySelected(quantity: Int) {
+        self.viewModel.productModel?.quantitySelected = quantity
+        self.viewModel.productModel?.subtotalPrice = (self.viewModel.productModel?.currentPrice ?? 0) * quantity
+        subTotalPriceLabel.text = String((self.viewModel.productModel?.currentPrice ?? 0) * quantity) + L10n.ProductDetails.currency
+        self.tableView.reloadData()
     }
 }
 
+// MARK: - ProductDetailsVarientSelectedDelegate
 extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
     func optionValueSelected(_ optionModel: ProductDetailsOptionsModel) {
         self.viewModel.selectedOptionsValues[String(optionModel.option?.id ?? 0)] = String(optionModel.optionValues?.filter({ $0.isSelected == true }).first?.id ?? 0)
@@ -164,14 +211,53 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
         
         let combinationModel = self.viewModel.productModel?.selectedCombination
         if let model = combinationModel {
+            self.combinationModel = model
+            self.viewModel.productModel?.currentPrice = model.currentPrice
+            self.viewModel.productModel?.originalPrice = model.price
+            self.tableView.reloadSections([ProductDetailsSection.slider.rawValue], with: .none)
+            activateQuantityView()
             setupAddToCartView(model)
         }
     }
 }
 
+// MARK: - ProductDetailsSliderDelegate
 extension ProductDetailsViewController: ProductDetailsSliderDelegate {
     func seeMoreButtonClicked() {
         self.tableView.reloadData()
+    }
+}
+
+extension ProductDetailsViewController: RecommentedProductsDelegate {
+    func seeAllButtonClicked() {
+        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productList.rawValue})?.settings {
+            switch settings.list {
+            case ProductListDesign.list1.rawValue,
+                ProductListDesign.list2.rawValue,
+                ProductListDesign.list3.rawValue:
+                let detailsVC = Coordinator.Controllers.createProductListViewController(componentModel: self.viewModel.componentModel)
+                detailsVC.viewTitle = self.viewModel.productDetailsSettings?.recommendedProducts?.title
+                detailsVC.productModel = self.viewModel.productModel
+                self.navigationController?.pushViewController(detailsVC, animated: true)
+            case ProductListDesign.grid1.rawValue,
+                ProductListDesign.grid2.rawValue,
+                ProductListDesign.grid3.rawValue,
+                ProductListDesign.grid4.rawValue,
+                ProductListDesign.grid5.rawValue:
+                let detailsVC = Coordinator.Controllers.createProductsGridViewController(componentModel: self.viewModel.componentModel)
+                detailsVC.viewTitle = self.viewModel.productDetailsSettings?.recommendedProducts?.title
+                detailsVC.productModel = self.viewModel.productModel
+                self.navigationController?.pushViewController(detailsVC, animated: true)
+            default:
+                return
+            }
+        }
+    }
+    
+    func productClicked(_ model: ProductModel) {
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController(componentModel: self.viewModel.componentModel)
+        detailsVC.productModel = model
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
 

@@ -51,17 +51,18 @@ extension RouteHomeProductsApi: TargetType {
                 parameters["sort[dir]"] = "desc"
             }
             
-            if let categories = model.categories, !categories.isEmpty {
-                categroiesSubcategoriesIDS.append(contentsOf: categories)
-            }
-            
             if let discount = model.filters?.discount {
                 parameters["discount_range[from]"] = "0"
                 parameters["discount_range[to]"] = discount
             }
             
+            
             if let subcategories = model.subcategories, !subcategories.isEmpty {
                 categroiesSubcategoriesIDS.append(contentsOf: subcategories)
+            } else {
+                if let categories = model.categories, !categories.isEmpty {
+                    categroiesSubcategoriesIDS.append(contentsOf: categories)
+                }
             }
             
             if !categroiesSubcategoriesIDS.isEmpty {

@@ -10,7 +10,7 @@ import Moya
 
 enum RouteProductDetailsApi {
     case getProductDetails(uuid: String)
-    case getRelatedProducts(limit: Int)
+    case getRelatedProducts(limit: Int, productModel: ProductModel)
 }
 
 extension RouteProductDetailsApi: TargetType {
@@ -41,8 +41,21 @@ extension RouteProductDetailsApi: TargetType {
         switch self {
         case .getProductDetails:
             return .requestPlain
-        case .getRelatedProducts(let limit):
-            let parameters: [String: Any] = ["limit": limit]
+        case .getRelatedProducts(let limit, productModel: let model):
+            var parameters: [String: Any] = ["limit": limit]
+            parameters["sort[by]"] = "id"
+            parameters["sort[dir]"] = "desc"
+
+            if let subcategories = model.subcategories, !subcategories.isEmpty {
+                let subcategoriesIDs = model.subcategories?.map({$0.id})
+                parameters["categories_ids"] = subcategoriesIDs
+            } else {
+                if let categories = model.categories, !categories.isEmpty {
+                    let categoriesIDs = model.categories?.map({$0.id})
+                    parameters["categories_ids"] = categoriesIDs
+                }
+            }
+            
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)

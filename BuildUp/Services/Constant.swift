@@ -20,10 +20,12 @@ class Constant {
         static let homeModel = "homeModel"
         static let productDetails = "product_details"
         static let theme = "theme"
+        static let subdomain = "subdomain_String"
     }
     
     struct ControllerName {
         static let home = "home"
+        static let subdomin = "subdomain"
         static let productDetials = "product-details"
     }
 }

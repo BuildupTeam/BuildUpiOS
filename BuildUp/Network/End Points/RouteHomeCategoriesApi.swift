@@ -37,13 +37,14 @@ extension RouteHomeCategoriesApi: TargetType {
         switch self {
         case .getHomeCategories(limit: let limit, componentModel: let model):
             var parameters: [String: Any] = ["limit": limit]
-            
+            var categroiesSubcategoriesIDS: [Int] = []
+
             if let sortBy = model.orderBy {
                 parameters["sort[by]"] = sortBy
             } else {
                 parameters["sort[by]"] = "id"
             }
-            if let isMain = model.filters?.isMain, isMain == "1" {
+            if let isMain = model.filters?.isMain, isMain == 1 {
                 parameters["is_main"] = isMain
             }
             if let sortDir = model.orderDir {
@@ -62,6 +63,18 @@ extension RouteHomeCategoriesApi: TargetType {
             } else {
                 parameters["subcategory"] = 0
             }
+            
+//            if let subcategories = model.subcategories, !subcategories.isEmpty {
+//                categroiesSubcategoriesIDS.append(contentsOf: subcategories)
+//            } else {
+//                if let categories = model.categories, !categories.isEmpty {
+//                    categroiesSubcategoriesIDS.append(contentsOf: categories)
+//                }
+//            }
+//            
+//            if !categroiesSubcategoriesIDS.isEmpty {
+//                parameters["ids"] = categroiesSubcategoriesIDS
+//            }
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             

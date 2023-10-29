@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 class CoverPhotoModel: NSObject, NSCoding, Mappable {
-    var isActive: String?
+    var isActive: Bool?
     var design: String?
     
     required init?(map: Map) {
@@ -27,7 +27,7 @@ class CoverPhotoModel: NSObject, NSCoding, Mappable {
     
     convenience required init?(coder aDecoder: NSCoder) {
         self.init()
-        isActive = aDecoder.decodeObject(forKey: "isActive") as? String
+        isActive = aDecoder.decodeObject(forKey: "isActive") as? Bool
         design = aDecoder.decodeObject(forKey: "design") as? String
     }
     

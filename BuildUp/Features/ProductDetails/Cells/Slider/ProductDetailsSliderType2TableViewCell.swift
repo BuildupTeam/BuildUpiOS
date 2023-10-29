@@ -19,12 +19,15 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var seperatorView: UIView!
     @IBOutlet private weak var pageControlView: UIView!
+    @IBOutlet private weak var productOldPriceMarkedView: UIView!
 
     @IBOutlet private weak var containerViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var addToFavoriteImage: UIImageView!
 
     @IBOutlet private weak var productNameLabel: UILabel!
+    @IBOutlet private weak var productNewPriceLabel: UILabel!
+    @IBOutlet private weak var productOldPriceLabel: UILabel!
     @IBOutlet private weak var productDescriptionLabel: UILabel!
     @IBOutlet private weak var productOutOfStockLabel: UILabel!
     
@@ -78,14 +81,19 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
 
 //        containerViewHeightConstraint.constant = 540
         
-        productNameLabel.font = UIFont.boldSystemFont(ofSize: 18)//.appFont(ofSize: 20, weight: .semiBold)
-        productDescriptionLabel.font = .appFont(ofSize: 14, weight: .black)
-        productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .semiBold)
+        productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
+        productDescriptionLabel.font = .appFont(ofSize: 14, weight: .semiBold)
+        productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .medium)
+        productOldPriceLabel.font = .appFont(ofSize: 14, weight: .medium)
+        productNewPriceLabel.font = .appFont(ofSize: 17, weight: .medium)
 
         productNameLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
+        productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
+        productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productDescriptionLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
         productOutOfStockLabel.textColor = ThemeManager.colorPalette?.tabsTextInactive?.toUIColor(hexa: ThemeManager.colorPalette?.tabsTextInactive ?? "")
         
+        productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         seperatorView.backgroundColor = ThemeManager.colorPalette?.separator?.toUIColor(hexa: ThemeManager.colorPalette?.separator ?? "")
         addToFavoriteSeparatedView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
         addToFavoriteSeparatedView.layer.masksToBounds = true
@@ -127,40 +135,68 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
+            productOldPriceLabel.text = "SAR " + String(model.originalPrice ?? 0)
+            productNewPriceLabel.text = "SAR " + String(model.currentPrice ?? 0)
             
-            if let desc = model.productDescription, desc.count > 20 {
-                productDescriptionLabel.text = desc//.maxLength(length: 70)
-                
-                let readmoreFont = UIFont.appFont(ofSize: 14, weight: .bold)
-                let readmoreFontColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") ?? UIColor.titlesBlack
-                DispatchQueue.main.async {
-                    self.productDescriptionLabel.addTrailing(with: "... ", moreText: L10n.ProductDetails.readMore, moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
+            if !model.descriptionIsExpaned {
+                if let desc = model.productDescription, desc.count > 40 {
+                    productDescriptionLabel.text = desc//.maxLength(length: 70)
+                    
+                    let readmoreFont = UIFont.appFont(ofSize: 14, weight: .bold)
+                    let readmoreFontColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") ?? UIColor.titlesBlack
+                    DispatchQueue.main.async {
+                        self.productDescriptionLabel.addTrailing(with: "... ", moreText: L10n.ProductDetails.readMore, moreTextFont: readmoreFont, moreTextColor: readmoreFontColor)
+                    }
+                } else {
+                    productDescriptionLabel.text = model.productDescription ?? ""
                 }
-            } else {
-                productDescriptionLabel.text = model.productDescription ?? ""
             }
-                        
+            
+            if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
+                if settings.actions == ProductDetailsActions.grouped.rawValue {
+                    addToFavoriteSeparatedView.isHidden = true
+                    addToFavoriteGroupedView.isHidden = false
+                } else {
+                    addToFavoriteSeparatedView.isHidden = false
+                    addToFavoriteGroupedView.isHidden = true
+                }
+                
+                if settings.variants == ProductDetailsVarianrs.variants3.rawValue {
+                    seperatorView.backgroundColor = .clear
+                }
+            }
+            
             if let quantity = model.quantity, quantity > 0 {
                 productOutOfStockView.isHidden = true
             } else {
                 productOutOfStockView.isHidden = false
             }
-        }
-        
-        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
-            if settings.actions == ProductDetailsActions.grouped.rawValue {
-                addToFavoriteSeparatedView.isHidden = true
-                addToFavoriteGroupedView.isHidden = false
+            
+            if (model.discount ?? 0) > 0 {
+                productOldPriceLabel.isHidden = false
+                productOldPriceMarkedView.isHidden = false
             } else {
-                addToFavoriteSeparatedView.isHidden = false
-                addToFavoriteGroupedView.isHidden = true
+                productOldPriceLabel.isHidden = true
+                productOldPriceMarkedView.isHidden = true
             }
         }
     }
     
     @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
-        self.productDescriptionLabel.numberOfLines = 0
+        if var model = productModel {
+            if !model.descriptionIsExpaned {
+                self.productDescriptionLabel.numberOfLines = 0
+                model.descriptionIsExpaned = true
+                self.productDescriptionLabel.text = model.productDescription
+            } else {
+                self.productDescriptionLabel.numberOfLines = 2
+                model.descriptionIsExpaned = false
+            }
+            
+        }
+        
         self.delegate?.seeMoreButtonClicked()
+        self.sizeToFit()
     }
     
     private func registerCollectionViewCells() {
@@ -196,7 +232,7 @@ extension ProductDetailsSliderType2TableViewCell: UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         
-        return CGSize(width: screenWidth, height: 425)
+        return CGSize(width: screenWidth, height: 350)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

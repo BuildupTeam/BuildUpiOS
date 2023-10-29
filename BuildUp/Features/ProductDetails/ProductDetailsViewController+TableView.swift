@@ -196,6 +196,10 @@ extension ProductDetailsViewController {
             for: indexPath) as? ProductDetailsVariants3TableViewCell
         else { return UITableViewCell() }
         
+        let combinationModel = self.viewModel.productModel?.selectedCombination
+        if let model = combinationModel {
+            
+        }
         cell.delegate = self
         cell.optionModel = productModel.options?[indexPath.row]
         cell.selectionStyle = .none
@@ -220,7 +224,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? ProductDetailsQuantityDropDownTableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.productModel = productModel
         cell.selectionStyle = .none
         return cell
@@ -232,7 +236,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? RecommentedProductsType1TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.productModel = productModel
         cell.selectionStyle = .none
         return cell
@@ -244,7 +248,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? RecommentedProductsType2TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.productModel = productModel
         cell.selectionStyle = .none
         return cell
@@ -256,7 +260,7 @@ extension ProductDetailsViewController {
             for: indexPath) as? RecommendedProductsType3TableViewCell
         else { return UITableViewCell() }
         
-//        cell.delegate = self
+        cell.delegate = self
         cell.productModel = productModel
         cell.selectionStyle = .none
         return cell

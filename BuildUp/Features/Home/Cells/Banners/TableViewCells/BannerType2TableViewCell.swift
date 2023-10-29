@@ -30,7 +30,7 @@ class BannerType2TableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
-        bannerTitleLabel.font = .appFont(ofSize: 13, weight: .semiBold)
+        bannerTitleLabel.font = .appFont(ofSize: 20, weight: .extraBold)
 
         bannerTitleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         
@@ -43,8 +43,11 @@ class BannerType2TableViewCell: UITableViewCell {
                                cornerRadius: 8,
                                masksToBounds: false)
         
-        ThemeManager.setCornerRadious(element: bannerImageView, radius: 8)
         ThemeManager.setCornerRadious(element: backgroundImageView, radius: 8)
+        
+//        ThemeManager.roundCorners(element: bannerImageView, corners: [.topRight, .bottomRight], radius: 8)
+        ThemeManager.roundCorners(element: bannerImageContainerView, corners: [.topRight, .bottomRight], radius: 8)
+        ThemeManager.roundCorners(element: bannerTitleView, corners: [.topLeft, .bottomLeft], radius: 8)
     }
 
     private func bindData() {

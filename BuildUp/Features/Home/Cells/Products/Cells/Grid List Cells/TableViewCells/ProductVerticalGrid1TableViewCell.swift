@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeProductsCellDelegate: AnyObject {
-    func homeProductTapped(productModel: ProductModel?)
+    func homeProductTapped(productModel: ProductModel?, componentModel: ComponentConfigurationModel?)
 }
 
 class ProductVerticalGrid1TableViewCell: UITableViewCell {
@@ -97,14 +97,14 @@ extension ProductVerticalGrid1TableViewCell: UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
-        let cellWidth = (screenWidth - 32) / 2
+        let cellWidth = (screenWidth - 16) / 2
         
-        return CGSize(width: cellWidth, height: 200)
+        return CGSize(width: cellWidth, height: 210)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
-            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
+            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row], componentModel: sectionModel.component)
         }
     }
 }

@@ -28,7 +28,7 @@ extension UIImageView {
         if let imageUrl = URL(string: imageModel) {
             let SVGCoder = SDImageSVGCoder.shared
             SDImageCodersManager.shared.addCoder(SVGCoder)
-            
+            self.backgroundColor = UIColor.systemGray4
             self.sd_setImage(
                 with: imageUrl,
                 placeholderImage: placeholderImage, options: SDWebImageOptions(rawValue: 0)) { (image, error, test, test2) in

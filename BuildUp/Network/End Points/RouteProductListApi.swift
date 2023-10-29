@@ -9,9 +9,13 @@ import Foundation
 import Moya
 
 enum RouteProductListApi {
-    case getProductList(perPage: Int,
+    case getComponentProductList(perPage: Int,
                         page: Int? = nil,
                         componentModel: ComponentConfigurationModel)
+    
+    case getProductList(perPage: Int,
+                        page: Int? = nil,
+                        productModel: ProductModel)
 }
 
 extension RouteProductListApi: TargetType {
@@ -38,36 +42,50 @@ extension RouteProductListApi: TargetType {
         switch self {
         case .getProductList(perPage: let perPage,
                              page: let page,
-                             componentModel: let model):
+                             productModel: let model):
             var parameters: [String: Any] = ["per_page": perPage]
+            parameters["sort[by]"] = "id"
+            parameters["sort[dir]"] = "desc"
             
             if let page = page {
                 parameters["page"] = page
             }
             
-            if let sortBy = model.orderBy {
-                parameters["sort[by]"] = sortBy
+            if let subcategories = model.subcategories, !subcategories.isEmpty {
+                let subcategoriesIDs = model.subcategories?.map({$0.id})
+                parameters["categories_ids"] = subcategoriesIDs
             } else {
-                parameters["sort[by]"] = "id"
-            }
-            
-            if let sortDir = model.orderDir {
-                parameters["sort[dir]"] = sortDir
-            } else {
-                parameters["sort[dir]"] = "desc"
-            }
-            
-            if let categories = model.categories {
-                if let categoryId = categories.first {
-                    parameters["categories_ids[0]"] = categoryId
+                if let categories = model.categories, !categories.isEmpty {
+                    let categoriesIDs = model.categories?.map({$0.id})
+                    parameters["categories_ids"] = categoriesIDs
                 }
             }
+                        
+            JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             
-            if let discount = model.filters?.discount {
-                parameters["discount_range[from]"] = "0"
-                parameters["discount_range[to]"] = discount
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+            
+        case .getComponentProductList(perPage: let perPage,
+                             page: let page,
+                             componentModel: let model):
+            var parameters: [String: Any] = ["per_page": perPage]
+            parameters["sort[by]"] = "id"
+            parameters["sort[dir]"] = "desc"
+            
+            if let page = page {
+                parameters["page"] = page
             }
             
+            if let subcategories = model.subcategories, !subcategories.isEmpty {
+//                let subcategoriesIDs = model.subcategories?.map({$0.id})
+                parameters["categories_ids"] = subcategories
+            } else {
+                if let categories = model.categories, !categories.isEmpty {
+//                    let categoriesIDs = model.categories?.map({$0.id})
+                    parameters["categories_ids"] = categories
+                }
+            }
+                        
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)

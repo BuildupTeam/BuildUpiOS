@@ -86,10 +86,20 @@ extension CategoriesVerticalGrid2TableViewCell: UICollectionViewDelegate, UIColl
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
-        let cellWidth = (screenWidth - 16) / 3
+//        let screenWidth = UIScreen.main.bounds.width
+//        let cellWidth = (screenWidth - 16) / 3
+//        
+//        return CGSize(width: cellWidth, height: 180)
         
-        return CGSize(width: cellWidth, height: 180)
+        let noOfCellsInRow = 3 // number of Cells in row you want
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let totalSpace = flowLayout.sectionInset.left
+        + flowLayout.sectionInset.right
+        + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+        
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
+        
+        return CGSize(width: (size ), height: 180)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

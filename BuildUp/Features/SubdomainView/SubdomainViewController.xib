@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubdomainViewController" customModule="BuildUp" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="Jri-fd-fAy" id="DYI-Ce-CVj"/>
+                <outlet property="scanCodeButton" destination="Ig6-5S-i24" id="bES-rx-0lv"/>
+                <outlet property="scanContentLabel" destination="Dp6-PZ-BcK" id="lOT-zu-Grd"/>
+                <outlet property="scanTitleLabel" destination="vVD-Q7-q2B" id="xAU-HL-6vE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jri-fd-fAy">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig6-5S-i24">
+                            <rect key="frame" x="45" y="625" width="303" height="42"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="9rY-5q-zU2"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Scan Me">
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="scanAction:" destination="-1" eventType="touchUpInside" id="izl-vg-y6k"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QR_code" translatesAutoresizingMaskIntoConstraints="NO" id="XTK-5f-I71">
+                            <rect key="frame" x="67.666666666666686" y="158" width="258" height="258"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan QR Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVD-Q7-q2B">
+                            <rect key="frame" x="141" y="468" width="111" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan the QR Code that appears in the mobile mockup in your dashboard to be able to view your app demo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dp6-PZ-BcK">
+                            <rect key="frame" x="50" y="507" width="293" height="61"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Ig6-5S-i24" firstAttribute="centerX" secondItem="Jri-fd-fAy" secondAttribute="centerX" id="0xg-wG-pV1"/>
+                        <constraint firstItem="Dp6-PZ-BcK" firstAttribute="top" secondItem="vVD-Q7-q2B" secondAttribute="bottom" constant="18" id="Axx-3x-TpM"/>
+                        <constraint firstItem="XTK-5f-I71" firstAttribute="centerX" secondItem="Jri-fd-fAy" secondAttribute="centerX" id="BrU-AK-fdN"/>
+                        <constraint firstItem="vVD-Q7-q2B" firstAttribute="centerX" secondItem="Jri-fd-fAy" secondAttribute="centerX" id="CWL-pp-GyW"/>
+                        <constraint firstItem="XTK-5f-I71" firstAttribute="top" secondItem="Jri-fd-fAy" secondAttribute="top" constant="158" id="Nk2-sT-IkV"/>
+                        <constraint firstAttribute="trailing" secondItem="Ig6-5S-i24" secondAttribute="trailing" constant="45" id="Ql4-CB-KPU"/>
+                        <constraint firstItem="Dp6-PZ-BcK" firstAttribute="leading" secondItem="Jri-fd-fAy" secondAttribute="leading" constant="50" id="V9z-Gl-cOP"/>
+                        <constraint firstItem="vVD-Q7-q2B" firstAttribute="top" secondItem="XTK-5f-I71" secondAttribute="bottom" constant="52" id="XAM-Gw-g0t"/>
+                        <constraint firstItem="Ig6-5S-i24" firstAttribute="top" secondItem="Dp6-PZ-BcK" secondAttribute="bottom" constant="57" id="cEK-5f-yKb"/>
+                        <constraint firstAttribute="trailing" secondItem="Dp6-PZ-BcK" secondAttribute="trailing" constant="50" id="nP6-rD-hiy"/>
+                        <constraint firstItem="Ig6-5S-i24" firstAttribute="leading" secondItem="Jri-fd-fAy" secondAttribute="leading" constant="45" id="y4s-g8-hAs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Jri-fd-fAy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0Xn-eO-tMg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jri-fd-fAy" secondAttribute="trailing" id="87E-AY-UqN"/>
+                <constraint firstItem="Jri-fd-fAy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9AM-Ml-EgS"/>
+                <constraint firstAttribute="bottom" secondItem="Jri-fd-fAy" secondAttribute="bottom" id="ZZL-DH-TDu"/>
+            </constraints>
+            <point key="canvasLocation" x="12.977099236641221" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="QR_code" width="258" height="258"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

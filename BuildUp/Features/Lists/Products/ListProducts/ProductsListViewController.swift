@@ -11,10 +11,14 @@ class ProductsListViewController: BaseViewController {
 
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet private weak var titleLabel: UILabel!
+
     var isReloadingTableView = false
     var refreshControl = UIRefreshControl()
     var componentModel: ComponentConfigurationModel?
+    var productModel: ProductModel?
+    
+    var viewTitle: String?
     
     override  var prefersBottomBarHidden: Bool? { return true }
 
@@ -39,11 +43,29 @@ class ProductsListViewController: BaseViewController {
         setupView()
         startShimmerOn(tableView: tableView)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = " "
+    }
 }
 
 // MARK: - Private Functions
 extension ProductsListViewController {
     private func setupView() {
+        if let title = viewTitle {
+            titleLabel.text = title
+        } else {
+            titleLabel.text = componentModel?.title
+        }
+        
+        titleLabel.font = .appFont(ofSize: 17, weight: .bold)
+        titleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
+        
         isLoadingShimmer = true
         registerTableViewCells()
         containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
@@ -51,11 +73,16 @@ extension ProductsListViewController {
         footerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         tableView.tableFooterView = footerView
         
+        containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        
         tableView.separatorStyle = .none
-        addRefreshControl()
+        setupNavigationBar()
     }
     
     private func addRefreshControl() {
+        self.refreshControl.removeFromSuperview()
+        
         refreshControl = UIRefreshControl()
         refreshControl.tintColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
@@ -79,6 +106,25 @@ extension ProductsListViewController {
     private func removeBackgroundViews() {
         tableView.backgroundView = nil
     }
+    
+    private func setupNavigationBar() {
+        
+        let cartItem = UIBarButtonItem(
+            image: Asset.productDetailsCart.image,
+            style: .plain,
+            target: self,
+            action: #selector(cartAction(sender:))
+        )
+        
+        let shareItem = UIBarButtonItem(
+            image: Asset.productDetailsShare.image,
+            style: .plain,
+            target: self,
+            action: #selector(shareAction(sender:))
+        )
+        
+        self.navigationItem.rightBarButtonItems = [cartItem, shareItem]
+    }
 }
 
 // MARK: - Actions
@@ -92,6 +138,16 @@ extension ProductsListViewController {
         viewModel.totalCount = 0
         getProducts()
     }
+    
+    @objc
+    func cartAction(sender: UIBarButtonItem) {
+        
+    }
+    
+    @objc
+    func shareAction(sender: UIBarButtonItem) {
+        
+    }
 }
 
 // MARK: - Requests
@@ -99,8 +155,12 @@ extension ProductsListViewController  {
     private func getProducts() {
         let currentPageCompletion: (() -> String) = { () in return "\(self.viewModel.page)" }
         
-        if let model = componentModel {
-            viewModel.getProducts(componentModel: model, currentPageCompletion: currentPageCompletion)
+        if let model = productModel {
+            viewModel.getProducts(productModel: model, currentPageCompletion: currentPageCompletion)
+        } else {
+            if let model = self.componentModel {
+                viewModel.getComponentProductList(componentModel: model, currentPageCompletion: currentPageCompletion)
+            }
         }
     }
     
@@ -122,6 +182,7 @@ extension ProductsListViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             self.tableView.refreshControl?.endRefreshing()
+            self.addRefreshControl()
             self.removeBackgroundViews()
             self.stopShimmerOn(tableView: self.tableView)
             self.reloadTableViewData()

@@ -34,6 +34,8 @@ class CategoriesVerticalGrid3CollectionViewCell: UICollectionViewCell {
                                cornerRadius: 8,
                                masksToBounds: false)
         
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
         ThemeManager.setCornerRadious(element: categoryImageView, radius: 8)
     }
     

@@ -73,26 +73,11 @@ class BaseViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        let tabbarVC = self.tabBarController as? AppTabBarViewController
-//        if prefersBottomBarHidden ?? false {
-//            tabbarVC?.holderView.hideView()
-//        } else {
-//            tabbarVC?.holderView.showView()
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let tabbarVC = self.tabBarController as? AppTabBarViewController
-//        if prefersBottomBarHidden ?? false {
-//            tabbarVC?.middleButton?.hideView()
-//        } else {
-//            tabbarVC?.middleButton?.showView()
-//        }
-    }
-    
-    deinit {
-//        removeAllObservations()
     }
     
     func addFeedbackGenerator() {

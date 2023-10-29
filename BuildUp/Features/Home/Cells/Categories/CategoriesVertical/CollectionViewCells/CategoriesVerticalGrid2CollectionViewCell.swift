@@ -31,6 +31,11 @@ class CategoriesVerticalGrid2CollectionViewCell: UICollectionViewCell {
         categoryNameLabel.textColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
         categoryNameContainerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         
+//        self.categoryImageView.layer.masksToBounds = true
+//        self.categoryImageView.layer.cornerRadius = 8
+        
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
         ThemeManager.setShadow(element: containerView,
                                shadowRadius: CGFloat(5),
                                xOffset: 0,

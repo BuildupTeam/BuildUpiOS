@@ -31,18 +31,15 @@ class ProductVerticalGrid1CollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
+        productNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
-//        containerView.setShadow(
-//            shadowRadius: CGFloat(5),
-//            xOffset: 0,
-//            yOffset: 0,
-//            color: .black,
-//            opacity: 0.15,
-//            cornerRadius: 8,
-//            masksToBounds: false)
+        addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
+        addToFavoriteView.layer.masksToBounds = true
+        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.width / 2
         
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
         ThemeManager.setCornerRadious(element: addToFavoriteView, radius: 8)
     }

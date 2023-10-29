@@ -41,8 +41,12 @@ class CategoriesHorizontalList2CollectionViewCell: UICollectionViewCell {
             cornerRadius: 8,
             masksToBounds: false)
         
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
+        categoryImageContainerView.layer.masksToBounds = true
+        categoryImageContainerView.layer.cornerRadius = 8
         ThemeManager.setCornerRadious(element: containerView, radius: 8)
-        ThemeManager.setCornerRadious(element: categoryImageContainerView, radius: 4)
+//        ThemeManager.setCornerRadious(element: categoryImageContainerView, radius: 4)
         ThemeManager.setCornerRadious(element: categoryImageView, radius: 4)
     }
     

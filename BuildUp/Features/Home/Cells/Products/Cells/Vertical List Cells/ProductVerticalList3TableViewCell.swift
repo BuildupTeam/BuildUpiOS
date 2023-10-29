@@ -91,7 +91,7 @@ extension ProductVerticalList3TableViewCell: UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
-            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
+            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row], componentModel: sectionModel.component)
         }
     }
     

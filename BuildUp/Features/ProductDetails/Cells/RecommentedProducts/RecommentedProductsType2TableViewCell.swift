@@ -17,6 +17,7 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
     @IBOutlet private weak var headerTitleLabel: UILabel!
     @IBOutlet private weak var headerSeeMoreButton: UIButton!
     
+    weak var delegate: RecommentedProductsDelegate?
 
     var productModel: ProductModel? {
         didSet {
@@ -45,10 +46,11 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
             if ((settings.recommendedProducts?.title) != nil) {
                 headerTitleLabel.text = settings.recommendedProducts?.title
+                
                 if settings.recommendedProducts?.displayTitle ?? false {
-                    headerView.isHidden = false
+                    headerTitleLabel.isHidden = false
                 } else {
-                    headerView.isHidden = false
+                    headerTitleLabel.isHidden = true
                 }
                 
                 if settings.recommendedProducts?.displaySeeMore ?? false {
@@ -57,13 +59,15 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
                     headerSeeMoreButton.isHidden = true
                 }
                 
-                headerView.isHidden = false
-//                containerViewHeightContraints.constant = 272
-//                headerViewHeightContraints.constant = 40
+//                if (settings.recommendedProducts?.displayTitle ?? false) && ( settings.recommendedProducts?.displaySeeMore ?? false) {
+//                    headerView.isHidden = false
+//                } else {
+//                    headerView.isHidden = true
+//                }
             } else {
                 headerView.isHidden = true
 //                containerViewHeightContraints.constant = 232
-                headerViewHeightContraints.constant = 0
+//                headerViewHeightContraints.constant = 0
             }
         }
     }
@@ -92,6 +96,9 @@ class RecommentedProductsType2TableViewCell: UITableViewCell {
             forCellWithReuseIdentifier: ProductVerticalGrid1CollectionViewCell.identifier)
     }
     
+    @IBAction func seeAlButtonClicked(_ sender: UIButton) {
+        delegate?.seeAllButtonClicked()
+    }
 }
 
 // MARK: - CollectionView Delegate && DataSource
@@ -121,11 +128,14 @@ extension RecommentedProductsType2TableViewCell: UICollectionViewDelegate, UICol
         let screenWidth = UIScreen.main.bounds.width
         let cellWidth = (screenWidth - 32) / 2
         
-        return CGSize(width: cellWidth, height: 200)
+        return CGSize(width: cellWidth, height: 210)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        delegate?.homeCityTapped(cityModel: cities[indexPath.row])
+        if let model = productModel, !(model.relatedProducts?.isEmpty ?? false) {
+            if let products = model.relatedProducts {
+                delegate?.productClicked(products[indexPath.row])
+            }
+        }
     }
 }

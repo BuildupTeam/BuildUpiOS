@@ -121,11 +121,11 @@ extension ProductsGridViewController: UICollectionViewDelegate, UICollectionView
             switch settings.list {
             case ProductListDesign.grid1.rawValue,
                 ProductListDesign.grid5.rawValue:
-                return CGSize(width: size, height: 200)
+                return CGSize(width: size, height: 210)
             case ProductListDesign.grid2.rawValue:
                 return CGSize(width: size, height: 260)
             case ProductListDesign.grid3.rawValue:
-                return CGSize(width: size, height: 250)
+                return CGSize(width: size, height: 255)
             case ProductListDesign.grid4.rawValue:
                 return CGSize(width: size, height: 155)
             default:
@@ -136,6 +136,9 @@ extension ProductsGridViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let productModel = viewModel.products[indexPath.row]
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController(componentModel: self.componentModel)
+        detailsVC.productModel = productModel
+        self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

@@ -19,6 +19,8 @@ class ProductDetailsQuantityCircleView: UIView {
     @IBOutlet private weak var minusButton: UIButton!
     @IBOutlet private weak var countLabel: UILabel!
 
+    weak var delegate: ProductDetailsQuantityDelegate?
+
     var productModel: ProductModel? {
         didSet {
             initialize()
@@ -39,6 +41,7 @@ class ProductDetailsQuantityCircleView: UIView {
         countLabel.textColor = ThemeManager.colorPalette?.quantityCounterColor?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? "")
         
         countLabel.font = .appFont(ofSize: 17, weight: .semiBold)
+        
         if let model = productModel {
             countLabel.text = String(model.quantitySelected)
         }
@@ -61,6 +64,7 @@ class ProductDetailsQuantityCircleView: UIView {
         }
         
         countLabel.text = String(productModel?.quantitySelected ?? 0)
+        self.delegate?.qunatitySelected(quantity: productModel?.quantitySelected ?? 0)
     }
     
     @IBAction func minusButtonAction(_ sender: UIButton) {
@@ -69,5 +73,6 @@ class ProductDetailsQuantityCircleView: UIView {
         }
         
         countLabel.text = String(productModel?.quantitySelected ?? 0)
+        self.delegate?.qunatitySelected(quantity: productModel?.quantitySelected ?? 0)
     }
 }

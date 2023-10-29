@@ -36,7 +36,7 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
     }
 
     private func setupCell() {
-        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
+        productNameLabel.font = .appFont(ofSize: 13, weight: .regular)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         
@@ -52,7 +52,14 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
+        productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         
+        addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
+        addToFavoriteView.layer.masksToBounds = true
+        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.width / 2
+
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
 //        ThemeManager.roundCorners(element: productImageView, corners: [.topLeft, .topRight], radius: 8)
     }
@@ -61,8 +68,8 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             addCurrencyToText(model)
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
+            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
             
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)
@@ -85,7 +92,7 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
     }
     
     private func addCurrencyToText(_ model: ProductModel) {
-        let amountText = NSMutableAttributedString.init(string: " SAR")
+        let amountText = NSMutableAttributedString.init(string: L10n.ProductDetails.currency)
         let priceText = model.originalPrice
 
         // set the custom font and color for the 0,1 range in string

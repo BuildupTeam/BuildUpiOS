@@ -43,7 +43,14 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
+        productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         
+        addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
+        addToFavoriteView.layer.masksToBounds = true
+        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.width / 2
+
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
         ThemeManager.setShadow(element: productImageContainerView,
                                shadowRadius: CGFloat(5),
                                xOffset: 0,
@@ -59,8 +66,8 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
     func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
+            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
             
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)

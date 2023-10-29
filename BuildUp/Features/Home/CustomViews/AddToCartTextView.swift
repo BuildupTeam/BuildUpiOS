@@ -44,7 +44,7 @@ class AddToCartTextView: UIView {
         minusButton.layer.borderWidth = 1
         minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
         
-        ThemeManager.setCornerRadious(element: addToCartButton, radius: 13)
+        ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
     }
     
     @IBAction func addToCartButtonAction(_ sender: UIButton) {

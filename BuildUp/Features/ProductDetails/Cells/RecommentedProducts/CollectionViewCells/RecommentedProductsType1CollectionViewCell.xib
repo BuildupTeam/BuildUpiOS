@@ -12,41 +12,41 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RecommentedProductsType1CollectionViewCell" customModule="BuildUp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="144" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="144" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="liq-RL-uiB">
-                        <rect key="frame" x="8" y="8" width="128" height="234"/>
+                        <rect key="frame" x="8" y="8" width="134" height="234"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RZr-vi-JPV">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="134" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="gfp-aw-Ina"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blazer with golden bottoms with leather jacket" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM3-0D-2bd">
-                                <rect key="frame" x="0.0" y="162" width="128" height="31.333333333333343"/>
+                                <rect key="frame" x="8" y="162" width="118" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="239 SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKe-Yj-bxP">
-                                <rect key="frame" x="0.0" y="193.33333333333334" width="53" height="15.666666666666657"/>
+                                <rect key="frame" x="8" y="193.33333333333334" width="53" height="15.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.94117647059999998" green="0.47058823529999999" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="239 SAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOh-gG-Buu">
-                                <rect key="frame" x="0.0" y="209" width="53" height="15.666666666666657"/>
+                                <rect key="frame" x="8" y="209" width="53" height="15.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.4823529412" green="0.56078431370000004" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="box-nd-G16">
-                                <rect key="frame" x="0.0" y="216.33333333333334" width="53" height="1"/>
+                                <rect key="frame" x="8" y="216.33333333333334" width="53" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="0.6424987995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="0o4-cq-T7f"/>
@@ -57,13 +57,13 @@
                         <constraints>
                             <constraint firstItem="NM3-0D-2bd" firstAttribute="top" secondItem="RZr-vi-JPV" secondAttribute="bottom" constant="12" id="2P8-kU-lED"/>
                             <constraint firstItem="RZr-vi-JPV" firstAttribute="leading" secondItem="liq-RL-uiB" secondAttribute="leading" id="4S0-bh-L9H"/>
-                            <constraint firstItem="jOh-gG-Buu" firstAttribute="leading" secondItem="liq-RL-uiB" secondAttribute="leading" id="78o-YJ-sDP"/>
+                            <constraint firstItem="jOh-gG-Buu" firstAttribute="leading" secondItem="liq-RL-uiB" secondAttribute="leading" constant="8" id="78o-YJ-sDP"/>
                             <constraint firstItem="box-nd-G16" firstAttribute="trailing" secondItem="jOh-gG-Buu" secondAttribute="trailing" id="Cug-l0-zae"/>
-                            <constraint firstItem="GKe-Yj-bxP" firstAttribute="leading" secondItem="liq-RL-uiB" secondAttribute="leading" id="ICn-wb-gLg"/>
+                            <constraint firstItem="GKe-Yj-bxP" firstAttribute="leading" secondItem="liq-RL-uiB" secondAttribute="leading" constant="8" id="ICn-wb-gLg"/>
                             <constraint firstItem="box-nd-G16" firstAttribute="centerX" secondItem="jOh-gG-Buu" secondAttribute="centerX" id="JOz-iq-FIy"/>
-                            <constraint firstAttribute="trailing" secondItem="NM3-0D-2bd" secondAttribute="trailing" id="WMY-mB-DOz"/>
+                            <constraint firstAttribute="trailing" secondItem="NM3-0D-2bd" secondAttribute="trailing" constant="8" id="WMY-mB-DOz"/>
                             <constraint firstItem="box-nd-G16" firstAttribute="centerY" secondItem="jOh-gG-Buu" secondAttribute="centerY" id="XuU-gI-SGN"/>
-                            <constraint firstItem="NM3-0D-2bd" firstAttribute="leading" secondItem="liq-RL-uiB" secondAttribute="leading" id="eju-93-BwU"/>
+                            <constraint firstItem="NM3-0D-2bd" firstAttribute="leading" secondItem="liq-RL-uiB" secondAttribute="leading" constant="8" id="eju-93-BwU"/>
                             <constraint firstItem="jOh-gG-Buu" firstAttribute="top" secondItem="GKe-Yj-bxP" secondAttribute="bottom" id="llo-Gh-PT8"/>
                             <constraint firstItem="GKe-Yj-bxP" firstAttribute="top" secondItem="NM3-0D-2bd" secondAttribute="bottom" id="oNa-SF-a8X"/>
                             <constraint firstAttribute="trailing" secondItem="RZr-vi-JPV" secondAttribute="trailing" id="pVw-Ik-b7w"/>
@@ -74,7 +74,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="liq-RL-uiB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="NH5-Sd-cns"/>
                 <constraint firstItem="liq-RL-uiB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="UwD-nz-BzU"/>

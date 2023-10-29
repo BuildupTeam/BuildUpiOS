@@ -13,20 +13,29 @@ enum Environment: String {
     case stage
     case live
     case preLive
+    case demo
     
     var baseURL: String {
+        let subDomain = CachingService.getSubdomain() 
+        
         switch self {
-        case .stage: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
-        case .live: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
-        case .preLive: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
+        case .stage: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+        case .live: return "https://\(subDomain).ecommerce-demo.buildupp.co/ec/api/v1/f"
+        case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/api/v1/f"
+        case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+            
         }
     }
     
     var hostURL: String {
+        let subDomain = CachingService.getSubdomain()
+
         switch self {
-        case .stage: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
-        case .live: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
-        case .preLive: return "https://my-app-3.ecommerce.buildupp.co/ec/api/v1/f"
+        case .stage: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+        case .live: return "https://\(subDomain).ecommerce-demo.buildupp.co/ec/api/v1/f"
+        case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/ec/api/v1/f"
+        case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+            
         }
     }
     
@@ -34,6 +43,7 @@ enum Environment: String {
         switch self {
         case .stage: return "GoogleService-Info"
         case .live: return "GoogleService-Info"
+        case .demo: return "GoogleService-Info"
         case .preLive: return "GoogleService-Info"
         }
     }
@@ -42,6 +52,7 @@ enum Environment: String {
         switch self {
         case .stage: return ""
         case .live: return ""
+        case .demo: return ""
         case .preLive: return ""
         }
     }
@@ -56,6 +67,8 @@ struct Configuration {
                 return Environment.stage
             case Environment.live.rawValue:
                 return Environment.live
+            case Environment.demo.rawValue:
+                return Environment.demo
             case Environment.preLive.rawValue:
                 return Environment.preLive
             default:

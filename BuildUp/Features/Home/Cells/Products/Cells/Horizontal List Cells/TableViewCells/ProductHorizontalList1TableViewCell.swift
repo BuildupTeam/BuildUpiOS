@@ -92,7 +92,7 @@ extension ProductHorizontalList1TableViewCell: UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
-            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row])
+            delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row], componentModel: sectionModel.component)
         }
     }
 }

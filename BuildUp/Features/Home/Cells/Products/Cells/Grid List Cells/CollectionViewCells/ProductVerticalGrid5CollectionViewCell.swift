@@ -35,9 +35,20 @@ class ProductVerticalGrid5CollectionViewCell: UICollectionViewCell {
 //            cornerRadius: 8,
 //            masksToBounds: false)
         
-        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
+        productImageView.setShadow(
+            shadowRadius: CGFloat(4),
+            xOffset: 0,
+            yOffset: 0,
+            color: .black,
+            opacity: 0.10,
+            cornerRadius: 8,
+            masksToBounds: false)
+        
+        productNameLabel.font = .appFont(ofSize: 13, weight: .regular)
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
         ThemeManager.setCornerRadious(element: containerView, radius: 8)
 //        ThemeManager.roundCorners(element: productImageView, corners: [.topLeft, .topRight], radius: 8)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)

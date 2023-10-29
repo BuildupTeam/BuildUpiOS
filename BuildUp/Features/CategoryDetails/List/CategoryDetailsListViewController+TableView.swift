@@ -138,4 +138,11 @@ extension CategoryDetailsListViewController: UITableViewDelegate, UITableViewDat
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productModel = viewModel.products[indexPath.row]
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController(componentModel: self.componentModel)
+        detailsVC.productModel = productModel
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
 }

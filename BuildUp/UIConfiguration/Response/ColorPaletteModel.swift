@@ -59,6 +59,28 @@ class ColorPaletteModel: NSObject, NSCoding, Mappable {
     var indicatorActiveColor: String?
     var indicatorInactiveColor: String?
     
+    func getMainBG() -> String {
+        if let themeData = CachingService.getThemeData() {
+            if themeData.systemStyle == "curved" {
+                return mainBg1 ?? "FFFFFFFF"
+            } else {
+                return mainBg2 ?? "FFF6F6F6"
+            }
+        }
+        return mainBg1 ?? "FFFFFFFF"
+    }
+    
+    func getCardBG() -> String {
+        if let themeData = CachingService.getThemeData() {
+            if themeData.systemStyle == "curved" {
+                return cardBg1 ?? "FFFFFFFF"
+            } else {
+                return cardBg2 ?? "FFFFFFFF"
+            }
+        }
+        return cardBg1 ?? "FFFFFFFF"
+    }
+    
     required init?(map: Map) {
         
     }

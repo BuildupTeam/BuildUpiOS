@@ -59,18 +59,43 @@ class ThemeManager {
         opacity: Float,
         cornerRadius: CGFloat,
         masksToBounds: Bool) {
+            
+            if let themeData = CachingService.getThemeData() {
+                if themeData.systemStyle == "curved" {
+                    element.layer.cornerRadius = cornerRadius
+                } else {
+                    element.layer.cornerRadius = 0
+                }
+            }
+            
+            element.layer.shadowColor = color.cgColor
+            element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
+            element.layer.shadowRadius = shadowRadius
+            element.layer.shadowOpacity = opacity
+            element.layer.masksToBounds = masksToBounds
+        }
+    
+    static func setImageViewShadow(
+        element: UIView,
+        shadowRadius: CGFloat,
+        xOffset: Int,
+        yOffset: Int,
+        color: UIColor,
+        opacity: Float,
+        cornerRadius: CGFloat,
+        masksToBounds: Bool) {
             var isCurved = false
 
             if let themeData = CachingService.getThemeData() {
                 if themeData.systemStyle == "curved" {
                     isCurved = true
+                    element.layer.cornerRadius = cornerRadius
+                } else {
+                    element.layer.cornerRadius = 0
+
                 }
             }
-            if !isCurved {
-                return
-            }
             
-            element.layer.cornerRadius = cornerRadius
             element.layer.shadowColor = color.cgColor
             element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
             element.layer.shadowRadius = shadowRadius

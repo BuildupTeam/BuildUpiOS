@@ -21,6 +21,7 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var addToCartView: AddToCartIconView!
     @IBOutlet private weak var addToFavoriteView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
+    @IBOutlet private weak var productImageContainerView: UIView!
 
     var productModel: ProductModel? {
         didSet {
@@ -35,16 +36,30 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
-        productNameLabel.font = .appFont(ofSize: 13, weight: .black)
+        productNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
+        productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         
+        addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
+
         addToFavoriteView.layer.masksToBounds = true
         addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
+        
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+
+        ThemeManager.setImageViewShadow(element: productImageView,
+                               shadowRadius: CGFloat(3),
+                               xOffset: 0,
+                               yOffset: 0,
+                               color: .black,
+                               opacity: 0.10,
+                               cornerRadius: 8,
+                               masksToBounds: false)
         
         ThemeManager.setShadow(element: containerView,
                                shadowRadius: CGFloat(5),
@@ -55,7 +70,6 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
                                cornerRadius: 8,
                                masksToBounds: false)
         
-//        ThemeManager.setCornerRadious(element: containerView, radius: 8)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
         ThemeManager.setCornerRadious(element: addToFavoriteButton, radius: addToFavoriteButton.frame.width / 2)
     }
@@ -64,8 +78,8 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
         if let model = productModel {
             addToCartView.productModel = model
             productNameLabel.text = model.name ?? ""
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + " SAR"
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + " SAR"
+            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
             
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)
