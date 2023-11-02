@@ -14,6 +14,7 @@ import Windless
 //import AVKit
 import PopupDialog
 import AppsFlyerLib
+import Lottie
 
 // swiftlint:disable force_unwrapping
 class BaseViewController: UIViewController {
@@ -170,17 +171,6 @@ class BaseViewController: UIViewController {
         webViewVC.pageTitle = pageTitle
         webViewVC.webViewUrl = url
         self.navigationController?.present(webViewVC, animated: true)
-    }
-}
-
-// MARK: - Loading Handling
-extension BaseViewController: NVActivityIndicatorViewable {
-    func showLoading() {
-        startAnimating(type: .cubeTransition)
-    }
-    
-    func hideLoading() {
-        stopAnimating()
     }
 }
 
@@ -381,6 +371,15 @@ extension BaseViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+extension BaseViewController {
+    func showLoading(withDelay: Bool = false) {
+        CustomLoadingIndicator.manager.show(withDelay: withDelay)
+    }
+    
+    func hideLoading() {
+        CustomLoadingIndicator.manager.dismiss()
+    }
+}
 
 // MARK: - Side Menu
 extension BaseViewController {
@@ -397,22 +396,22 @@ extension BaseViewController {
 //    }
 }
 
-// MARK: - AppsFlyer One Link Generator
-extension BaseViewController {
-    func generateOneLink(completionHandler: @escaping ((URL?) -> Void)) {
-        
-        AppsFlyerShareInviteHelper.generateInviteUrl { generator in
-            generator.addParameterValue(CachingService.getUser()?.userIdentifier ?? "", forKey: "deep_link_sub2")
-            generator.addParameterValue("main", forKey: "deep_link_value")
-            
-            generator.setCampaign("referral_link")
-            return generator
-            
-        } completionHandler: { url in
-            if url != nil {
-                completionHandler(url)
-            }
-        }
-
-    }
-}
+//// MARK: - AppsFlyer One Link Generator
+//extension BaseViewController {
+//    func generateOneLink(completionHandler: @escaping ((URL?) -> Void)) {
+//        
+//        AppsFlyerShareInviteHelper.generateInviteUrl { generator in
+//            generator.addParameterValue(CachingService.getUser()?.userIdentifier ?? "", forKey: "deep_link_sub2")
+//            generator.addParameterValue("main", forKey: "deep_link_value")
+//            
+//            generator.setCampaign("referral_link")
+//            return generator
+//            
+//        } completionHandler: { url in
+//            if url != nil {
+//                completionHandler(url)
+//            }
+//        }
+//
+//    }
+//}

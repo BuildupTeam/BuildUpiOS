@@ -47,7 +47,7 @@ class SubdomainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
-        
+        homeResponse()
         setupView()
     }
     
@@ -106,7 +106,8 @@ class SubdomainViewController: BaseViewController {
 extension SubdomainViewController {
     @IBAction func setSubdomain(_ sender: UIButton) {
         PersistanceManager.setLatestViewController(Constant.ControllerName.home)
-        LauncherViewController.showHomeScreen(fromViewController: nil)
+        LauncherViewController.showLoginView(fromViewController: nil)
+//        LauncherViewController.showHomeScreen(fromViewController: nil)
     }
     
     @IBAction func scanAction(_ sender: AnyObject) {
@@ -125,6 +126,18 @@ extension SubdomainViewController {
     }
 }
 
+extension SubdomainViewController {
+    private func homeResponse() {
+        viewModel.onData = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            PersistanceManager.setLatestViewController(Constant.ControllerName.login)
+            LauncherViewController.showLoginView(fromViewController: nil)
+//            LauncherViewController.showTabBar()
+        }
+    }
+}
+
 // MARK: - QRCodeReaderViewController Delegate Methods
 
 extension SubdomainViewController: QRCodeReaderViewControllerDelegate {
@@ -132,8 +145,8 @@ extension SubdomainViewController: QRCodeReaderViewControllerDelegate {
         CachingService.setSubdomain(subdomain: result.value)
         reader.stopScanning()
         
-        PersistanceManager.setLatestViewController(Constant.ControllerName.home)
-        LauncherViewController.showTabBar()
+        self.showLoading()
+        self.viewModel.getHomeTemplate()
         
         dismiss(animated: true, completion: nil)
     }

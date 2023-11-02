@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "F76F0427-01B2-4FF9-AFED-E57D63680747"
+   uuid = "4A482D46-87DC-47C2-8322-3E4D839F96C5"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FD7E4E86-1EE0-4CF1-B561-C67EA58A4ED5"
+            uuid = "3C3742B6-A4E8-464A-9264-8D0E035360BF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildUp/Services/Configuration.swift"
+            filePath = "BuildUp/Features/Authentications/ForgetPassword/ForgetPasswordViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "hostURL"
-            landmarkType = "24">
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "forgetPassword(email:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

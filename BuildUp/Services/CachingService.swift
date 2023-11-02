@@ -107,17 +107,6 @@ class CachingService: NSObject {
         let userDefaults = UserDefaults.standard
         userDefaults.setValue(subdomain, forKey: Constant.Keys.subdomain)
         userDefaults.synchronize()
-//        do {
-//            let encodedData: Data = try NSKeyedArchiver.archivedData(
-//                withRootObject: settingsConfigurationModel,
-//                requiringSecureCoding: false)
-//            userDefaults.set(encodedData, forKey: Constant.Keys.subdomain)
-            
-            
-            
-//        } catch {
-//            
-//        }
     }
     
     static func getSubdomain() -> String {

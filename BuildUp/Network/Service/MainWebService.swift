@@ -163,7 +163,7 @@ extension MainWebService {
 extension MainWebService {
     static func recordNonFetalError(response: Response) {
         let info = [
-            "phone": CachingService.getUser()?.phone ?? "",
+            "phone": CachingService.getUser()?.customer?.phone ?? "",
           "url": response.request?.url?.absoluteString ?? ""
         ]
 
@@ -177,7 +177,7 @@ extension MainWebService {
     
     static func recordNonFetalError(error: MoyaError) {
         let info = [
-            "phone": CachingService.getUser()?.phone ?? "",
+            "phone": CachingService.getUser()?.customer?.phone ?? "",
             "url": error.response?.request?.url?.absoluteString ?? ""
         ]
 

@@ -13,7 +13,10 @@ struct ApiUrls {
 
         // MARK: - Apis
         static let configurationUrl = "/settings"
-        static let loginUrl = "/api/login"
+        static let registerUrl = "/register"
+        static let loginUrl = "/login"
+        static let forgetPasswordUrl = "/forget-password"
+        static let resetPasswordUrl = "/reset-password"
         static let homeProducts = "/products"
         static let homeCategories = "/categories"
         static let productDetails = "/products/{id}"

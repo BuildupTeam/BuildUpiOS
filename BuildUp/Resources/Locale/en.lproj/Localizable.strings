@@ -6,6 +6,55 @@
   
 */
 
+// MARK: - Login
+"login.title" = "Login";
+"login.phone" ="Mobile no";
+"login.phone_placeholder" ="Enter your mobile number";
+"login.password" ="Password";
+"login.password_placeholder" ="Enter your password";
+"login.create_account" = "Create an account";
+"login.forget_password" ="Forget Password";
+"login.phone_error" ="Incorrect phone.";
+"login.password_error" ="Incorrect password.";
+"login.privacyTitle" = "By continuing, you agree to our" ;
+"login.termsLabel" = "Terms of Service" ;
+"login.privacyAnd" = " and " ;
+"login.privacyLabel" = "Privacy Policy" ;
+
+// MARK: - Register
+"register.title" = "Register";
+"register.button.create_account" = "Create Account";
+"register.phone" ="Mobile no";
+"register.phone_placeholder" ="Enter your mobile number";
+"register.name" ="Name";
+"register.name_placeholder" ="Enter your name";
+"register.email" ="Email";
+"register.email_placeholder" ="Enter your email";
+"register.password" ="Password";
+"register.password_placeholder" ="Enter your password";
+"register.confirm_password" ="Confirm Password";
+"register.confirm_password_placeholder" ="Confirm your password";
+
+// MARK: - Forget Password
+"forget_password.title" = "Forget Password";
+"forget_password.content" = "No worries! Enter your email address  below and we will send you a code to reset password.";
+"forget_password.email" = "Email";
+"forget_password.button.sendReset" = "Send Reset Link";
+
+// MARK: - Reset Password
+"reset_password.title" = "Create New Password";
+"reset_password.content" = "Please enter and confirm your new password.\n You will need to login after you reset.";
+"reset_password.password" = "Password";
+"reset_password.confirm_password" = "Confirm Password";
+"reset_password.button.reset" = "Reset Password";
+
+// MARK: - Validations
+"validation.invalidMobileNumber" = "Invalid Mobile Format" ;
+"validation.passwordNotMatch" = "Password is not matched" ;
+"validation.requiredField" = "This field is required" ;
+"validation.invalidEmailFormate" = "Invalid email format" ;
+"validation.invalidPasswordFormate" = "Password must be more than 8 char, with one capital" ;
+
 // MARK: - Product Details
 "productDetails.readMore" = "More Details";
 "productDetails.quantity" = "Quantity";

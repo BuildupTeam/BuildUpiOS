@@ -37,9 +37,11 @@ class HomeViewModel: BaseViewModel {
     init(service: HomeWebServiceProtocol = HomeWebService.shared) {
         super.init(observationType: .all)
         self.service = service
+        self.getCachedThemeData()
         self.getCachedHomeData()
     }
     
+    /*
     func getHomeTemplate() {
         guard let service = service else {
             return
@@ -69,6 +71,7 @@ class HomeViewModel: BaseViewModel {
             }
         }
     }
+     */
     
     func getProducts(limit: Int,
                      componentModel: ComponentConfigurationModel,
@@ -248,6 +251,18 @@ extension HomeViewModel {
         if let theme = theme {
             CachingService.setThemeData(theme: theme)
             viewTitle = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.home.rawValue})?.page
+        }
+    }
+    
+    func getCachedThemeData() {
+        if let themeData = CachingService.getThemeData() {
+            if let model = themeData.pages?.first(where: {$0.page == PageName.home.rawValue}) {
+                if let sections = model.sections {
+                    self.createHomeSectionArray(responseSections: sections)
+                }
+            }
+            
+            self.prepareAndRequestHomeApis()
         }
     }
     

@@ -91,6 +91,30 @@ class Coordinator {
     }
     
     class Controllers {
+        
+        class func createLoginViewController(viewModel: LoginViewModel = LoginViewModel()) -> UIViewController {
+            let loginVC = LoginViewController(viewModel: viewModel)
+
+            let navigation = Coordinator.AppBase.baseNavigationController()
+            navigation.setViewControllers([loginVC], animated: true)
+            return navigation
+        }
+        
+        class func createRegisterViewController(viewModel: RegisterViewModel = RegisterViewModel()) -> RegisterViewController {
+            let registerVC = RegisterViewController(viewModel: viewModel)
+            return registerVC
+        }
+        
+        class func createForgetPasswordViewController(viewModel: ForgetPasswordViewModel = ForgetPasswordViewModel()) -> ForgetPasswordViewController {
+            let destinationVC = ForgetPasswordViewController(viewModel: viewModel)
+            return destinationVC
+        }
+        
+        class func createResetPasswordViewController(viewModel: ResetPasswordViewModel = ResetPasswordViewModel()) -> ResetPasswordViewController {
+            let destinationVC = ResetPasswordViewController(viewModel: viewModel)
+            return destinationVC
+        }
+        
         class func createProductDetailsViewController(
             productModel: ProductModel? = nil,
             componentModel: ComponentConfigurationModel? = nil,

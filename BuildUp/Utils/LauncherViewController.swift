@@ -24,8 +24,10 @@ class LauncherViewController: NSObject {
             showSubdomainScreen(fromViewController: nil)
         case Constant.ControllerName.home:
             showTabBar(fromViewController: nil)
+        case Constant.ControllerName.login:
+            showLoginView(fromViewController: nil)
         default :
-//            showTabBar(fromViewController: nil)
+//            showLoginView(fromViewController: nil)
             showSubdomainScreen(fromViewController: nil)
         }
     }
@@ -65,8 +67,8 @@ class LauncherViewController: NSObject {
     }
     
     static func showLoginView(fromViewController: UIViewController?) {
-//        let loginVC = Coordinator.Controllers.createLoginViewController()
-//        showViewController(viewController: loginVC, fromViewController: nil)
+        let loginVC = Coordinator.Controllers.createLoginViewController()
+        showViewController(viewController: loginVC, fromViewController: nil)
     }
     
     static func showWelcomeView(fromViewController: UIViewController?) {

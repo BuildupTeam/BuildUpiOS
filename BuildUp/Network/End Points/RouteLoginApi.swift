@@ -12,7 +12,7 @@ import AdSupport
 // swiftlint:disable force_unwrapping
 
 enum RouteLoginApi {
-    case loginUser(facebookId: String?, accessToken: String?)
+    case loginUser(loginModel: LoginModel)
 }
 
 extension RouteLoginApi: TargetType {
@@ -35,20 +35,12 @@ extension RouteLoginApi: TargetType {
     
     var task: Task {
         switch self {
-        case .loginUser(
-            facebookId: let facebookId,
-            accessToken: let accessToken):
+        case .loginUser(loginModel: let model):
             
             var parameters: [String: Any] = [:]
-            parameters["facebook_id"] = facebookId
-            parameters["access_token"] = accessToken
-            
-            parameters["appsflyer_id"] = AppsFlyerLib.shared().getAppsFlyerUID()
-            
-            let advertisingIdentifier = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-            if advertisingIdentifier != "00000000-0000-0000-0000-000000000000" {
-                parameters["advertising_id"] = advertisingIdentifier
-            }
+            parameters["phone"] = model.phone
+            parameters["country_code"] = model.countryCode
+            parameters["password"] = model.password
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
 

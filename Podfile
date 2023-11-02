@@ -21,7 +21,8 @@ def ui_pods
   pod 'RangeSeekSlider'
   pod 'DPOTPView'
   pod "SCPageControl", :git => 'https://github.com/MahmoudNasserIbtikar/SCPageControl.git'
-#  pod 'QRCodeReader.swift', '~> 10.1.0'
+  pod 'lottie-ios'
+#  pod 'QRCodeReader.swift', '~> 10.1.0',
 end
 
 def date_tools

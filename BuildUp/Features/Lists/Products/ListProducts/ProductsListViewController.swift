@@ -68,7 +68,6 @@ extension ProductsListViewController {
         
         isLoadingShimmer = true
         registerTableViewCells()
-        containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
         let footerView = UIView()
         footerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         tableView.tableFooterView = footerView

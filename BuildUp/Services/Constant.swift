@@ -26,6 +26,7 @@ class Constant {
     struct ControllerName {
         static let home = "home"
         static let subdomin = "subdomain"
+        static let login = "login"
         static let productDetials = "product-details"
     }
 }

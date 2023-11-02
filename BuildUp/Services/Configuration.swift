@@ -20,7 +20,7 @@ enum Environment: String {
         
         switch self {
         case .stage: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
-        case .live: return "https://\(subDomain).ecommerce-demo.buildupp.co/ec/api/v1/f"
+        case .live: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
         case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/api/v1/f"
         case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
             
@@ -32,7 +32,7 @@ enum Environment: String {
 
         switch self {
         case .stage: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
-        case .live: return "https://\(subDomain).ecommerce-demo.buildupp.co/ec/api/v1/f"
+        case .live: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
         case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/ec/api/v1/f"
         case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
             
