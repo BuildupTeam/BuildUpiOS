@@ -24,11 +24,11 @@ class LoginWebService: BaseWebService, LoginWebServiceProtocol {
             endPoint: RouteLoginApi.loginUser(loginModel: model)) { (result, statusCode) in
                 switch result {
                 case .success(let response):
-                    guard let productsResponse = Mapper<LoginResponseModel>().map(JSONObject: response) else {
+                    guard let loginResponse = Mapper<LoginResponseModel>().map(JSONObject: response) else {
                         return
                     }
-                    productsResponse.statusCode = statusCode
-                    compeltion(Result.success(productsResponse))
+                    loginResponse.statusCode = statusCode
+                    compeltion(Result.success(loginResponse))
                 case .failure(var error):
                     error.statusCode = statusCode
                     compeltion(Result.failure(error))

@@ -54,6 +54,8 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PersistanceManager.setLatestViewController(Constant.ControllerName.login)
+
         loginResponse()
         setupView()
     }

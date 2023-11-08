@@ -9,4 +9,33 @@ import Foundation
 
 class ProfileViewModel: BaseViewModel {
     
+    weak var service: ProfileWebServiceProtocol?
+
+    public var onLogout: (() -> Void)?
+    
+    init(service: ProfileWebServiceProtocol = ProfileWebService.shared) {
+        super.init(observationType: .all)
+        self.service = service
+    }
+    
+    func logoutUser() {
+        guard let service = service else {
+            return
+        }
+        if let token = CachingService.getUser()?.accessToken {
+            service.logoutUser(token: token) { (result) in
+                switch result {
+                case .success(_):
+                    self.onLogout?()
+                case .failure(let error):
+                    print(error)
+                    if error.message != "Request explicitly cancelled." {
+                        self.onNetworkError?(error)
+                    }
+                }
+            }
+        }
+        
+    }
+    
 }

@@ -83,14 +83,12 @@ class LauncherViewController: NSObject {
     
     static func logoutToLoginView() {
         CachingService.clearUserData()
-//        Intercom.logout()
         
         
 //        let loginManager = LoginManager()
 //        loginManager.logOut()
         
-//        let welcomeVC = Coordinator.MainTaps.createWelcomeViewController()
-//        showViewController(viewController: welcomeVC, fromViewController: nil)
+        showLoginView(fromViewController: nil)
     }
     
     static func logoutToFirstView() {

@@ -10,6 +10,7 @@ import ObjectMapper
 
 class CustomerModel: NSObject, NSCoding, Mappable {
     
+    var uuid: String?
     var fullName: String?
     var email: String?
     var phone: String?
@@ -25,6 +26,7 @@ class CustomerModel: NSObject, NSCoding, Mappable {
     }
     
     func mapping(map: Map) {
+        uuid <- map["uuid"]
         fullName <- map["full_name"]
         email <- map["email"]
         phone <- map["phone"]
@@ -36,6 +38,7 @@ class CustomerModel: NSObject, NSCoding, Mappable {
     
     convenience required init?(coder aDecoder: NSCoder) {
         self.init()
+        uuid = aDecoder.decodeObject(forKey: "uuid") as? String
         fullName = aDecoder.decodeObject(forKey: "fullName") as? String
         email = aDecoder.decodeObject(forKey: "email") as? String
         phone = aDecoder.decodeObject(forKey: "phone") as? String
@@ -46,6 +49,9 @@ class CustomerModel: NSObject, NSCoding, Mappable {
     
     @objc
     func encode(with aCoder: NSCoder) {
+        if uuid != nil {
+            aCoder.encode(uuid, forKey: "uuid")
+        }
         if fullName != nil {
             aCoder.encode(fullName, forKey: "fullName")
         }

@@ -18,8 +18,7 @@ protocol HomeWebServiceProtocol: AnyObject {
                            componentModel: ComponentConfigurationModel,
                            compeltion: @escaping ((Result<CategoriesResponseModel, NetworkError>) -> Void))
     
-    //api/v1/ec/f/categories?limit=10&sort[by]=id&sort[dir]=desc&ids[0]=1'
-    //curl --location -g 'https://my-app-3.backend.buildupapp.co/api/v1/ec/f/products?limit=10&sort[by]=id&sort[dir]=desc&categories_ids[0]=1&discount=&discount_range[from]=null&discount_range[to]=&has_discount='
+    func getFirebaseToken(token: String, compeltion: @escaping ((Result<FirebaseTokenResponseModel, NetworkError>) -> Void))
 }
 
 class HomeWebService: BaseWebService, HomeWebServiceProtocol {
@@ -75,6 +74,23 @@ class HomeWebService: BaseWebService, HomeWebServiceProtocol {
                     }
                     homeCategoriesResponse.statusCode = statusCode
                     compeltion(Result.success(homeCategoriesResponse))
+                case .failure(var error):
+                    error.statusCode = statusCode
+                    compeltion(Result.failure(error))
+                }
+            }
+    }
+    
+    func getFirebaseToken(token: String, compeltion: @escaping ((Result<FirebaseTokenResponseModel, NetworkError>) -> Void)) {
+        MainWebService.fetch(
+            endPoint: RouteFirebaseTokenApi.getFirebaseToken(token: token)) { (result, statusCode) in
+                switch result {
+                case .success(let response):
+                    guard let firebaseTokenResponse = Mapper<FirebaseTokenResponseModel>().map(JSONObject: response) else {
+                        return
+                    }
+                    firebaseTokenResponse.statusCode = statusCode
+                    compeltion(Result.success(firebaseTokenResponse))
                 case .failure(var error):
                     error.statusCode = statusCode
                     compeltion(Result.failure(error))

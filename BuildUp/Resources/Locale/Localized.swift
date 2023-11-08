@@ -21,6 +21,10 @@ internal enum L10n {
         internal static var scanMe: String {
           return L10n.tr("Localizable", "QRCode.scanMe")
         }
+        /// Skip
+        internal static var skip: String {
+          return L10n.tr("Localizable", "QRCode.skip")
+        }
         /// Scan QR Code
         internal static var title: String {
           return L10n.tr("Localizable", "QRCode.title")
@@ -173,6 +177,13 @@ internal enum L10n {
         /// More Details
         internal static var readMore: String {
           return L10n.tr("Localizable", "productDetails.readMore")
+        }
+    }
+
+    internal enum Profile {
+        /// logout
+        internal static var logout: String {
+          return L10n.tr("Localizable", "profile.logout")
         }
     }
 

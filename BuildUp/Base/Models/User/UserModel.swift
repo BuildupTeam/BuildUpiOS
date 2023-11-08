@@ -30,7 +30,7 @@ class UserModel: NSObject, NSCoding, Mappable {
     
     func mapping(map: Map) {
         tokenType <- map["token_type"]
-        accessToken <- map["accessToken"]
+        accessToken <- map["access_token"]
         refreshToken <- map["refresh_token"]
         customer <- map["customer"]
         

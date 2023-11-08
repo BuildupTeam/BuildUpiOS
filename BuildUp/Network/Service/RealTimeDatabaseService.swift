@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseDatabase
 import ObjectMapper
 
@@ -23,6 +24,45 @@ class RealTimeDatabaseService {
         } else {
             return Database.database().reference()
         }
+    }
+    
+    static func loginUser(token: String, compeltion: @escaping ((Any) -> Void)) {
+        Auth.auth().signIn(withCustomToken: token) { auth, error in
+            if error != nil {
+                let err = error?.localizedDescription
+                print(err!)
+            } else {
+                if let user = auth?.user {
+                    compeltion(user)
+                    print(auth?.user)
+                }
+                //with the uid, we now lookup their user type from the
+                //users node, which tells the app if they are a client
+                //or worker
+            }
+        }
+//        
+//        
+//        Auth.auth().signIn(withEmail: "paul@harddaysnight.com", password: "dog",
+//             completion: { (auth, error) in
+//
+//                if error != nil {
+//                    let err = error?.localizedDescription
+//                    print(err!)
+//                } else {
+//                    print(auth?.user)
+//                    //with the uid, we now lookup their user type from the
+//                    //users node, which tells the app if they are a client
+//                    //or worker
+//                }
+//            })
+    }
+    
+    static func setProductModel(model: FirebaseProductModel) {
+        let firebaseUserIdchild = Auth.auth().currentUser?.uid ?? ""
+        let customerIdchild = CachingService.getUser()?.customer?.uuid ?? ""
+        
+//        let refHandle = shared.ref?.child(firebaseUserIdchild).child(customerIdchild).set
     }
     
     static func observe(child: String, compeltion: @escaping (([Any]) -> Void)) -> DatabaseReference? {
@@ -43,7 +83,6 @@ class RealTimeDatabaseService {
     static func observeObject(child: String, compeltion: @escaping ((Any) -> Void)) -> DatabaseReference? {
         let refHandle = shared.ref?.child(child)
         refHandle?.observe(DataEventType.value, with: { (snapshot) in
-            
             let objectDict = snapshot.value as? [String : AnyObject] ?? [:]
             
             compeltion(objectDict)

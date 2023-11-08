@@ -73,6 +73,29 @@ class HomeViewModel: BaseViewModel {
     }
      */
     
+    func getFirebaseToken() {
+        if let token = CachingService.getUser()?.accessToken {
+            service?.getFirebaseToken(token: token, compeltion: { result in
+                switch result {
+                case .success(let response):
+                    if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
+                        if let token = response.data?.token?.token {
+                            RealTimeDatabaseService.loginUser(token: token) { firebaseToken in
+                                print("firebase token = \(firebaseToken)")
+                            }
+                        }
+                    } else {
+                        self.handleError(response: response)
+                    }
+                case .failure(let error):
+                    print(error)
+                    if error.message != "Request explicitly cancelled." {
+                        self.onNetworkError?(error)
+                    }
+                }
+            })
+        }
+    }
     func getProducts(limit: Int,
                      componentModel: ComponentConfigurationModel,
                      contentTypeCompletion: @escaping (() -> String),

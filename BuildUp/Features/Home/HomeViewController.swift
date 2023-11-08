@@ -36,6 +36,8 @@ class HomeViewController: BaseViewController {
         scrollToFirstRow()
         
         updateInfoPlist()
+        
+        getFirebaseToken()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +71,6 @@ class HomeViewController: BaseViewController {
 //            print("playersDictionary = \(playersDictionary)")
             playersDictionary?.write(toFile: playersDictionaryPath!, atomically: true)
         }
-        
     }
     
 }
@@ -124,6 +125,10 @@ extension HomeViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
         tableView.refreshControl = refreshControl
     }
+    
+    private func getFirebaseToken() {
+        viewModel.getFirebaseToken()
+    }
 }
 
 // MARK: - Actions
@@ -168,6 +173,7 @@ extension HomeViewController {
             print("Normal Reload")
             containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
             self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+            
             self.hideLoading()
             self.tableView.refreshControl?.endRefreshing()
             self.addRefreshControl()
