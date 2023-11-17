@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="categoryNameLabel" destination="VQG-Fp-mjb" id="r1l-aC-LVg"/>
                 <outlet property="collectionView" destination="deX-tr-1Xw" id="ILJ-bw-yRQ"/>
+                <outlet property="collectionViewContainerView" destination="uGB-lg-4ua" id="zx6-eI-0fg"/>
                 <outlet property="containerView" destination="sXI-NO-wBE" id="Q4M-PE-UVe"/>
                 <outlet property="coverPhotoContainerView" destination="zZ1-BD-UoN" id="H0D-eA-7qI"/>
                 <outlet property="coverPhotoContainerViewHeightContriant" destination="lRI-ub-t8k" id="NdU-0E-wd9"/>
@@ -89,41 +90,48 @@
                                 <outlet property="collectionView" destination="zfi-4T-zoM" id="fGm-h9-m1A"/>
                             </connections>
                         </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGB-lg-4ua">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGB-lg-4ua">
                             <rect key="frame" x="0.0" y="271" width="393" height="522"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="deX-tr-1Xw">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="522"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wPs-Mr-6Re">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="G2X-pn-wh3"/>
+                                        <outlet property="delegate" destination="-1" id="dup-Xr-uTU"/>
+                                    </connections>
+                                </collectionView>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="deX-tr-1Xw" firstAttribute="leading" secondItem="uGB-lg-4ua" secondAttribute="leading" id="4O4-43-8wl"/>
+                                <constraint firstItem="deX-tr-1Xw" firstAttribute="top" secondItem="uGB-lg-4ua" secondAttribute="top" id="MCu-5Y-zJN"/>
+                                <constraint firstAttribute="trailing" secondItem="deX-tr-1Xw" secondAttribute="trailing" id="OuD-xp-krI"/>
+                                <constraint firstAttribute="bottom" secondItem="deX-tr-1Xw" secondAttribute="bottom" id="a7E-PJ-62N"/>
+                            </constraints>
                         </view>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="deX-tr-1Xw">
-                            <rect key="frame" x="0.0" y="271" width="393" height="522"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wPs-Mr-6Re">
-                                <size key="itemSize" width="128" height="128"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="G2X-pn-wh3"/>
-                                <outlet property="delegate" destination="-1" id="dup-Xr-uTU"/>
-                            </connections>
-                        </collectionView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="uGB-lg-4ua" secondAttribute="bottom" id="3E0-yT-VWh"/>
                         <constraint firstAttribute="trailing" secondItem="bEw-dp-nqY" secondAttribute="trailing" constant="8" id="5R6-01-Pkd"/>
-                        <constraint firstItem="deX-tr-1Xw" firstAttribute="leading" secondItem="sXI-NO-wBE" secondAttribute="leading" id="6ih-xM-vwq"/>
                         <constraint firstItem="bEw-dp-nqY" firstAttribute="leading" secondItem="sXI-NO-wBE" secondAttribute="leading" constant="8" id="A00-xe-BiY"/>
                         <constraint firstItem="Nd0-nR-aRK" firstAttribute="leading" secondItem="sXI-NO-wBE" secondAttribute="leading" constant="8" id="EfY-aY-hdU"/>
                         <constraint firstItem="Nd0-nR-aRK" firstAttribute="top" secondItem="oTA-s0-w6X" secondAttribute="bottom" constant="8" id="Ehd-vm-Ehx"/>
                         <constraint firstItem="bEw-dp-nqY" firstAttribute="top" secondItem="sXI-NO-wBE" secondAttribute="top" id="Fgc-vN-uBZ"/>
                         <constraint firstItem="oTA-s0-w6X" firstAttribute="leading" secondItem="sXI-NO-wBE" secondAttribute="leading" id="GUT-6g-xfC"/>
-                        <constraint firstAttribute="trailing" secondItem="deX-tr-1Xw" secondAttribute="trailing" id="So6-Jx-zqa"/>
+                        <constraint firstItem="uGB-lg-4ua" firstAttribute="leading" secondItem="sXI-NO-wBE" secondAttribute="leading" id="Tho-nt-V8C"/>
                         <constraint firstAttribute="trailing" secondItem="Nd0-nR-aRK" secondAttribute="trailing" constant="8" id="W36-Ib-0eY"/>
+                        <constraint firstAttribute="trailing" secondItem="uGB-lg-4ua" secondAttribute="trailing" id="XgH-Yn-KwM"/>
                         <constraint firstAttribute="trailing" secondItem="oTA-s0-w6X" secondAttribute="trailing" id="Zdw-j5-OgR"/>
-                        <constraint firstItem="deX-tr-1Xw" firstAttribute="top" secondItem="Nd0-nR-aRK" secondAttribute="bottom" constant="8" id="g1s-ME-Qz5"/>
+                        <constraint firstItem="uGB-lg-4ua" firstAttribute="top" secondItem="Nd0-nR-aRK" secondAttribute="bottom" constant="8" symbolic="YES" id="m2W-eB-8QU"/>
                         <constraint firstItem="oTA-s0-w6X" firstAttribute="top" secondItem="bEw-dp-nqY" secondAttribute="bottom" id="vyF-lx-tQP"/>
-                        <constraint firstAttribute="bottom" secondItem="deX-tr-1Xw" secondAttribute="bottom" id="zFn-Mw-GhX"/>
                     </constraints>
                 </view>
             </subviews>

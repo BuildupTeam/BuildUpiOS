@@ -47,6 +47,8 @@
 "reset_password.password" = "Password";
 "reset_password.confirm_password" = "Confirm Password";
 "reset_password.button.reset" = "Reset Password";
+"reset_password.code" = "Code";
+"reset_password.codePlaceholder" = "Enter your code";
 
 // MARK: - Validations
 "validation.invalidMobileNumber" = "Invalid Mobile Format" ;

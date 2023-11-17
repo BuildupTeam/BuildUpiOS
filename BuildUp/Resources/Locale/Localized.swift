@@ -241,6 +241,14 @@ internal enum L10n {
     }
 
     internal enum ResetPassword {
+        /// Code
+        internal static var code: String {
+          return L10n.tr("Localizable", "reset_password.code")
+        }
+        /// Enter your code
+        internal static var codePlaceholder: String {
+          return L10n.tr("Localizable", "reset_password.codePlaceholder")
+        }
         /// Confirm Password
         internal static var confirmPassword: String {
           return L10n.tr("Localizable", "reset_password.confirm_password")

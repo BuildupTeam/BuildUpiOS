@@ -16,6 +16,7 @@ enum CategoryDetailsCoverPhotoDesign: String {
 class CategoryDetailsGridViewController: BaseViewController {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet weak var coverPhotoContainerView: UIView!
+    @IBOutlet weak var collectionViewContainerView: UIView!
     @IBOutlet private weak var subcategoryTabsView: SubcategoryTabsView!
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -164,17 +165,17 @@ extension CategoryDetailsGridViewController {
         }
     }
     
-    private func setupEmptyView() {
+    func setupEmptyView() {
         removeBackgroundViews()
         let emptyNib = EmptyScreenView.instantiateFromNib()
-        emptyNib.frame = collectionView.backgroundView?.frame ?? CGRect()
+        emptyNib.frame = collectionViewContainerView.frame //collectionView.backgroundView?.frame ?? CGRect()
         emptyNib.title = L10n.EmptyScreen.noData
 //        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
         emptyNib.showButton = false
         collectionView.backgroundView = emptyNib
     }
     
-    private func removeBackgroundViews() {
+    func removeBackgroundViews() {
         collectionView.backgroundView = nil
     }
 }

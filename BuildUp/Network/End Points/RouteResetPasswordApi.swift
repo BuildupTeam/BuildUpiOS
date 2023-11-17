@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum RouteResetPasswordApi {
-    case resetPassword(email: String, password: String)
+    case resetPassword(email: String, password: String, code: String)
 }
 
 extension RouteResetPasswordApi: TargetType {
@@ -32,13 +32,13 @@ extension RouteResetPasswordApi: TargetType {
     
     var task: Task {
         switch self {
-        case .resetPassword(email: let email, password: let password):
+        case .resetPassword(email: let email, password: let password, code: let code):
             
             var parameters: [String: Any] = [:]
             parameters["email"] = email
             parameters["password"] = password
             parameters["password_confirmation"] = password
-            parameters["token"] = "1000"//CachingService.getUser()?.accessToken
+            parameters["token"] = code // 1000 //CachingService.getUser()?.accessToken
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
 

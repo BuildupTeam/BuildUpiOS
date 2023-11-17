@@ -11,8 +11,9 @@ import ObjectMapper
 
 protocol ResetPasswordWebServiceProtocol: AnyObject {
     func resetPassword(email: String,
-                        password: String,
-                        compeltion: @escaping ((Result<ResetPasswordResponseModel, NetworkError>) -> Void))
+                       password: String,
+                       code: String,
+                       compeltion: @escaping ((Result<ResetPasswordResponseModel, NetworkError>) -> Void))
 }
 
 class ResetPasswordWebService: BaseWebService, ResetPasswordWebServiceProtocol {
@@ -20,10 +21,11 @@ class ResetPasswordWebService: BaseWebService, ResetPasswordWebServiceProtocol {
     static let shared = ResetPasswordWebService()
     
     func resetPassword(email: String,
-                        password: String,
-                        compeltion: @escaping ((Result<ResetPasswordResponseModel, NetworkError>) -> Void)) {
+                       password: String,
+                       code: String,
+                       compeltion: @escaping ((Result<ResetPasswordResponseModel, NetworkError>) -> Void)) {
         MainWebService.fetch(
-            endPoint: RouteResetPasswordApi.resetPassword(email: email, password: password)) { (result, statusCode) in
+            endPoint: RouteResetPasswordApi.resetPassword(email: email, password: password, code: code)) { (result, statusCode) in
                 switch result {
                 case .success(let response):
                     guard let productsResponse = Mapper<ResetPasswordResponseModel>().map(JSONObject: response) else {

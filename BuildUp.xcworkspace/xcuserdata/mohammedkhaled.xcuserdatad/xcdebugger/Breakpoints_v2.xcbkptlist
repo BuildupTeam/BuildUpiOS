@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9E57AED5-81B7-481C-935B-66F8286C6B18"
-            shouldBeEnabled = "Yes"
+            uuid = "66AED118-02D3-46EB-AA71-758E65285876"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BuildUp/Network/Service/MainWebService.swift"
+            filePath = "BuildUp/Features/Cart/CartViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "refreshAccessToken(endPoint:_:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getCart()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

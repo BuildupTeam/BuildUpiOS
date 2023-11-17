@@ -21,6 +21,12 @@ class ResetPasswordViewController: BaseViewController {
     @IBOutlet private weak var passwordErrorView: UIView!
     @IBOutlet private weak var showHidePasswordImageView: UIView!
     
+    @IBOutlet private weak var codeTitleLable: UILabel!
+    @IBOutlet private weak var codeErrorLable: UILabel!
+    @IBOutlet private weak var codeTextField: UITextField!
+    @IBOutlet private weak var codeContainerView: UIView!
+    @IBOutlet private weak var codeErrorView: UIView!
+    
     @IBOutlet private weak var confirmedPasswordTitleLable: UILabel!
     @IBOutlet private weak var confirmedPasswordErrorLable: UILabel!
     @IBOutlet private weak var confirmedPasswordTextField: UITextField!
@@ -31,6 +37,7 @@ class ResetPasswordViewController: BaseViewController {
     private var viewModel: ResetPasswordViewModel!
     var email: String?
     var password: String?
+    var code: String?
     var confirmPassword: String?
     
     // MARK: - init methods
@@ -65,7 +72,6 @@ class ResetPasswordViewController: BaseViewController {
         resetPasswordButton.layer.masksToBounds = true
         resetPasswordButton.layer.cornerRadius = 8
         resetPasswordButton.backgroundColor = .dimmedButtonGray
-        //ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         resetPasswordButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         resetPasswordButton.setTitle(L10n.ResetPassword.Button.reset, for: .normal)
         resetPasswordButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
@@ -115,11 +121,35 @@ class ResetPasswordViewController: BaseViewController {
         confirmedPasswordErrorLable.font = .appFont(ofSize: 12, weight: .regular)
         confirmedPasswordErrorLable.textColor = UIColor.statusRed
         confirmedPasswordErrorView.hideView()
+        
+        codeTitleLable.text = L10n.ResetPassword.code
+        codeTitleLable.font = .appFont(ofSize: 14, weight: .medium)
+        codeTitleLable.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
+        
+        codeContainerView.layer.cornerRadius = 8
+        codeContainerView.layer.masksToBounds = true
+        codeContainerView.layer.borderWidth = 1
+        codeContainerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
+        
+        codeTextField.delegate = self
+        codeTextField.showDoneButtonOnKeyboard()
+        codeTextField.returnKeyType = .done
+        codeTextField.backgroundColor = .clear
+        codeTextField.keyboardType = .numberPad
+        codeTextField.setPlaceholder(
+            placeholder: "\(L10n.ResetPassword.codePlaceholder)",
+            font: .appFont(ofSize: 12, weight: .regular))
+        
+        codeErrorLable.font = .appFont(ofSize: 12, weight: .regular)
+        codeErrorLable.textColor = UIColor.statusRed
+        codeErrorView.hideView()
     }
     
     private func updateResetPasswordButtonAppearence() {
         if self.password != nil &&
             !(self.password?.isEmpty ?? false) &&
+            self.code != nil &&
+            !(self.code?.isEmpty ?? false) &&
             self.confirmPassword != nil &&
             !(self.confirmPassword?.isEmpty ?? false) &&
             isValidPassword(password: password ?? "") &&
@@ -157,7 +187,7 @@ extension ResetPasswordViewController {
     @IBAction func resetPasswordAction(_ sender: Any) {
         updateResetPasswordButtonAppearence()
         self.showLoading()
-        self.viewModel.resetPassword(email: self.email ?? "", password: self.password ?? "")
+        self.viewModel.resetPassword(email: self.email ?? "", password: self.password ?? "", code: self.code ?? "")
     }
     
     @IBAction func showHidePasswordAction(_ sender: Any) {
@@ -221,6 +251,17 @@ extension ResetPasswordViewController: UITextFieldDelegate {
                 confirmedPasswordErrorView.showView()
                 confirmedPasswordErrorLable.text = L10n.Validation.requiredField
                 confirmedPasswordContainerView.layer.borderColor = UIColor.statusRed.cgColor
+            }
+        } else if textField == codeTextField {
+            self.code = textField.text
+            
+            if let code = textField.text, !code.isEmpty {
+                codeErrorView.hideView()
+                codeContainerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
+            } else {
+                codeErrorView.showView()
+                codeErrorLable.text = L10n.Validation.requiredField
+                codeContainerView.layer.borderColor = UIColor.statusRed.cgColor
             }
         }
         
