@@ -12,6 +12,7 @@ class ProfileViewModel: BaseViewModel {
     weak var service: ProfileWebServiceProtocol?
 
     public var onLogout: (() -> Void)?
+    public var onTokenNotExist: (() -> Void)?
     
     init(service: ProfileWebServiceProtocol = ProfileWebService.shared) {
         super.init(observationType: .all)
@@ -34,6 +35,8 @@ class ProfileViewModel: BaseViewModel {
                     }
                 }
             }
+        } else {
+            self.onTokenNotExist?()
         }
         
     }

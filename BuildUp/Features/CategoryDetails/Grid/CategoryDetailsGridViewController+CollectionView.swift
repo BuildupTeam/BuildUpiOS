@@ -36,9 +36,15 @@ extension CategoryDetailsGridViewController {
 // MARK: - CollectionView Delegate && DataSource
 extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.viewModel.products.isEmpty {
+        if isLoadingShimmer {
             return 10
         }
+        if self.viewModel.products.isEmpty {
+            self.setupEmptyView()
+        } else {
+            self.removeBackgroundViews()
+        }
+        
         return self.viewModel.products.count
     }
 
@@ -120,8 +126,7 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
 
         if let settings = viewModel.categoryDetailsSettings {
             switch settings.productsList?.design {
-            case ProductListDesign.grid1.rawValue,
-                ProductListDesign.grid5.rawValue:
+            case ProductListDesign.grid1.rawValue:
                 return CGSize(width: size, height: 200)
             case ProductListDesign.grid2.rawValue:
                 return CGSize(width: size, height: 260)
@@ -129,6 +134,8 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
                 return CGSize(width: size, height: 250)
             case ProductListDesign.grid4.rawValue:
                 return CGSize(width: size, height: 155)
+            case ProductListDesign.grid5.rawValue:
+                return CGSize(width: size, height: 210)
             default:
                 return CGSize.zero
             }

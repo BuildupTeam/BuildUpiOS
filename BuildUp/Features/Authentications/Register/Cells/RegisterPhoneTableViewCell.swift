@@ -79,7 +79,7 @@ class RegisterPhoneTableViewCell: UITableViewCell {
     }
     
     func isMobileNumberValid(phone: String) -> Bool {
-        let countryCode = registerModel?.countryCode ?? "SA"
+        let countryCode = registerModel?.countryCode ?? "+966"
 
         let phoneNumberKit = PhoneNumberKit()
         do {

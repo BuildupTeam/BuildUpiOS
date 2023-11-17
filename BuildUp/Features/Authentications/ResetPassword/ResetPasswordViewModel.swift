@@ -18,12 +18,12 @@ class ResetPasswordViewModel: BaseViewModel {
         self.service = service
     }
     
-    func resetPassword(email: String, password: String) {
+    func resetPassword(email: String, password: String, code: String) {
         guard let service = service else {
             return
         }
         
-        service.resetPassword(email: email, password: password) { (result) in
+        service.resetPassword(email: email, password: password, code: code) { (result) in
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {

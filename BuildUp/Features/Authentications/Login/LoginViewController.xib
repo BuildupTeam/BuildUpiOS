@@ -246,8 +246,8 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50n-1b-7KR">
                                             <rect key="frame" x="8" y="53" width="337" height="13.333333333333329"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdg-Rf-LEo">
-                                                    <rect key="frame" x="21" y="1" width="24" height="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gdg-Rf-LEo">
+                                                    <rect key="frame" x="21" y="1" width="308" height="11"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -263,6 +263,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Gdg-Rf-LEo" firstAttribute="leading" secondItem="TEa-xM-3uy" secondAttribute="trailing" constant="2" id="9TO-cz-Iz0"/>
+                                                <constraint firstAttribute="trailing" secondItem="Gdg-Rf-LEo" secondAttribute="trailing" constant="8" id="RwS-tA-JPj"/>
                                                 <constraint firstItem="TEa-xM-3uy" firstAttribute="leading" secondItem="50n-1b-7KR" secondAttribute="leading" id="XVt-t5-uIR"/>
                                                 <constraint firstAttribute="bottom" secondItem="Gdg-Rf-LEo" secondAttribute="bottom" constant="1.3333333333333286" id="mYV-Ov-OL3"/>
                                                 <constraint firstItem="TEa-xM-3uy" firstAttribute="centerY" secondItem="Gdg-Rf-LEo" secondAttribute="centerY" id="wGb-FY-vmK"/>

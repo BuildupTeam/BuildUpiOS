@@ -73,7 +73,7 @@ class RegisterViewController: BaseViewController {
         countryPickerView.setCountryByCode("SA")
         
         self.registerModel.countryFlag = countryPickerView.getCountryByCode("SA")?.flag
-        self.registerModel.countryCode = "SA"
+        self.registerModel.countryCode = countryPickerView.selectedCountry.phoneCode
     }
     
     private func setupPrivacySection() {

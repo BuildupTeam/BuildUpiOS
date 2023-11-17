@@ -25,6 +25,7 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         handleLogoutResponse()
+        handleTokenNotExistResponse()
         setupView()
     }
     
@@ -46,7 +47,14 @@ class ProfileViewController: BaseViewController {
             LauncherViewController.logoutToLoginView()
         }
     }
-
+    
+    private func handleTokenNotExistResponse() {
+        self.viewModel.onTokenNotExist = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            LauncherViewController.logoutToLoginView()
+        }
+    }
 }
 
 extension ProfileViewController {
