@@ -83,11 +83,6 @@ class LauncherViewController: NSObject {
     
     static func logoutToLoginView() {
         CachingService.clearUserData()
-        
-        
-//        let loginManager = LoginManager()
-//        loginManager.logOut()
-        
         showLoginView(fromViewController: nil)
     }
     

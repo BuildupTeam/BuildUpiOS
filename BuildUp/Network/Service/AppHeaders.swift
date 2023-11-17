@@ -19,9 +19,9 @@ class AppHeaders {
 //        headers["Accept-Language"] = LocalizationManager.currentLanguage().code
 //        headers["sec-key"] = Constant.Keys.clientSecret
 //
-//        if let userModel = CachingService.getUser() {
-//            headers["Authorization"] = ("Bearer") + " " + (userModel.apiToken ?? "")
-//        }
+        if let userModel = CachingService.getUser() {
+            headers["Authorization"] = ("Bearer") + " " + (userModel.accessToken ?? "")
+        }
 //
 //        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let versionInt = version.split(separator: ".").first {
 //            headers["platform"] = "ios"

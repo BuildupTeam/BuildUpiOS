@@ -20,7 +20,7 @@ extension RouteCartApis: TargetType {
     }
     
     var path: String {
-        return ApiUrls.Apis.homeCategories
+        return ApiUrls.Apis.cartUrl
     }
     
     var method: Moya.Method {

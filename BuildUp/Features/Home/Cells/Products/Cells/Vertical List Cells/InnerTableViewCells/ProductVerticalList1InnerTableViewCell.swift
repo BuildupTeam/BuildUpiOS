@@ -43,15 +43,6 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
-
-//        containerView.setShadow(
-//            shadowRadius: CGFloat(5),
-//            xOffset: 0,
-//            yOffset: 0,
-//            color: .black,
-//            opacity: 0.15,
-//            cornerRadius: 8,
-//            masksToBounds: false)
         
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
         ThemeManager.setCornerRadious(element: addToCartView, radius: 8)

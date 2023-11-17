@@ -18,9 +18,11 @@ class RealTimeDatabaseService {
         if configuration.environment == .stage {
             return Database.database().reference()
         } else if  configuration.environment == .live {
-            return Database.database(url: "https://buildup-dev-4c1cd-default-rtdb.firebaseio.com").reference()
+            return Database.database().reference()
+            // Database.database(url: "https://buildup-dev-4c1cd-default-rtdb.firebaseio.com").reference()
         } else if  configuration.environment == .preLive {
-            return Database.database(url: "https://buildup-dev-4c1cd-default-rtdb.firebaseio.com").reference()
+            return Database.database().reference()
+            //Database.database(url: "https://buildup-dev-4c1cd-default-rtdb.firebaseio.com").reference()
         } else {
             return Database.database().reference()
         }
@@ -34,39 +36,61 @@ class RealTimeDatabaseService {
             } else {
                 if let user = auth?.user {
                     compeltion(user)
-                    print(auth?.user)
                 }
-                //with the uid, we now lookup their user type from the
-                //users node, which tells the app if they are a client
-                //or worker
             }
         }
-//        
-//        
-//        Auth.auth().signIn(withEmail: "paul@harddaysnight.com", password: "dog",
-//             completion: { (auth, error) in
-//
-//                if error != nil {
-//                    let err = error?.localizedDescription
-//                    print(err!)
-//                } else {
-//                    print(auth?.user)
-//                    //with the uid, we now lookup their user type from the
-//                    //users node, which tells the app if they are a client
-//                    //or worker
-//                }
-//            })
     }
     
-    static func setProductModel(model: FirebaseProductModel) {
-        let firebaseUserIdchild = Auth.auth().currentUser?.uid ?? ""
-        let customerIdchild = CachingService.getUser()?.customer?.uuid ?? ""
+    static func getProductNode(productUUID: String) -> DatabaseReference? {
+        return getCartNode()?.child(productUUID)
+    }
+
+    static func getCartNode() -> DatabaseReference? {
+       return shared.ref?.child(Auth.auth().currentUser?.uid ?? "").child(CachingService.getUser()?.customer?.uuid ?? "").child("cart")
+    }
+    
+    static func addProductModel(model: FirebaseProductModel) {
+        getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+    }
+    
+    static func addProductModelFromCart(model: FirebaseProductModel) {
+        getCartNode()?.child(model.uuid ?? "").setValue(model.dict)
+    }
+    
+    static func removeProductModelFromCart(model: FirebaseProductModel) {
+        let combinationString = (model.dict.compactMap({ (key, value) -> String in
+            return "\(key)"
+        }) as Array).joined(separator: ",")
         
-//        let refHandle = shared.ref?.child(firebaseUserIdchild).child(customerIdchild).set
+        getCartNode()?.child(model.uuid ?? "").child(combinationString).removeValue()
+    }
+    
+    static func addUserToFirebase() {
+        let firebaseUserIdChild = Auth.auth().currentUser?.uid ?? ""
+        let customerIdChild = CachingService.getUser()?.customer?.uuid ?? ""
+
+        checkFirebaseUserAvailability(child: firebaseUserIdChild,completion: { isAvailable in
+            if isAvailable {
+                shared.ref?.child(firebaseUserIdChild).child(customerIdChild).child("cart").setValue("")
+            }
+        })
+    }
+    
+    static func checkFirebaseUserAvailability(child: String, completion: @escaping (_ available:Bool)->()) {
+        guard let currentUser = Auth.auth().currentUser else { completion(false); return }
+        let ref = RealTimeDatabaseService.shared.ref?.child(child)
+        
+        ref?.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                completion(false)
+                return
+            } else {
+                completion(true)
+            }
+        }
     }
     
     static func observe(child: String, compeltion: @escaping (([Any]) -> Void)) -> DatabaseReference? {
-                        
        let refHandle = shared.ref?.child(child).observe(DataEventType.value, with: { (snapshot) in
             
             let itemsDict = snapshot.value as? [String : AnyObject] ?? [:]

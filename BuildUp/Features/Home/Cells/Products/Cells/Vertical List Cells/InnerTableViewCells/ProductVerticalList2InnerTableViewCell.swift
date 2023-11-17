@@ -45,14 +45,6 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
         productDiscountLabel.textColor = ThemeManager.colorPalette?.badgeTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.badgeTextColor ?? "")
         productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
 
-//        containerView.setShadow(
-//            shadowRadius: CGFloat(5),
-//            xOffset: 0,
-//            yOffset: 0,
-//            color: .black,
-//            opacity: 0.15,
-//            cornerRadius: 8,
-//            masksToBounds: false)
         
         ThemeManager.setShadow(element: containerView,
                                shadowRadius: CGFloat(5),

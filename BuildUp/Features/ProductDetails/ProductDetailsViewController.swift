@@ -75,6 +75,9 @@ class ProductDetailsViewController: BaseViewController {
 
 // MARK: - Actions
 extension ProductDetailsViewController {
+    @IBAction func addToCartButtonAction(_ sender: UIButton) {
+        addToCartFirebase()
+    }
     
     @objc
     func cartBarAction(sender: UIBarButtonItem) {
@@ -87,7 +90,7 @@ extension ProductDetailsViewController {
     }
 }
 
-// MARK: - SetupUI
+// MARK: - Private Functions
 extension ProductDetailsViewController {
     private func setupView() {
         isLoadingShimmer = true
@@ -169,6 +172,9 @@ extension ProductDetailsViewController {
     }
     
     private func activateQuantityView() {
+        addToCartButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        addToCartButton.isUserInteractionEnabled = true
+
         quantityDropDownView.alpha = 1
         quantityDropDownView.isUserInteractionEnabled = true
         
@@ -177,6 +183,9 @@ extension ProductDetailsViewController {
     }
     
     private func deactivateQuantityView() {
+        addToCartButton.backgroundColor = UIColor.dimmedButtonGray
+        addToCartButton.isUserInteractionEnabled = false
+
         quantityDropDownView.alpha = 0.6
         quantityDropDownView.isUserInteractionEnabled = false
         
@@ -185,8 +194,25 @@ extension ProductDetailsViewController {
     }
     
     private func checktoActivateQuantityAction() {
-        if let model = self.combinationModel {
-            
+//        if let model = self.combinationModel {
+//            
+//        }
+    }
+    
+    private func addToCartFirebase() {
+        if let model = viewModel.productModel {
+            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected, combinationId: model.selectedCombination?.id)
+            RealTimeDatabaseService.addProductModel(model: firebaseProductModel)
+        }
+    }
+    
+    private func checkIfCombinationsExist() {
+        if let model = productModel {
+            if let combinations = model.combinations, !combinations.isEmpty {
+                deactivateQuantityView()
+            } else {
+                activateQuantityView()
+            }
         }
     }
     
@@ -217,6 +243,9 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
             self.tableView.reloadSections([ProductDetailsSection.slider.rawValue], with: .none)
             activateQuantityView()
             setupAddToCartView(model)
+        } else {
+            subtotalViewHeightConstraint.constant = 94
+            deactivateQuantityView()
         }
     }
 }
@@ -282,6 +311,7 @@ extension ProductDetailsViewController {
             guard let `self` = self else { return }
             print("Normal Reload")
             self.hideLoading()
+            self.checkIfCombinationsExist()
             self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()
             UIView.transition(with: self.addToCartContainerView, duration: 0.5,

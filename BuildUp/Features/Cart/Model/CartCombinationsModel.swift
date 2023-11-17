@@ -1,19 +1,20 @@
 //
-//  ProductDetailsCombinationsModel.swift
+//  CartCombinationsModel.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 08/09/2023.
+//  Created by Mohammed Khaled on 13/11/2023.
 //
 
 import Foundation
 import ObjectMapper
 
-class ProductDetailsCombinationsModel: Mappable {
+class CartCombinationsModel: Mappable {
     var id: Int?
-    var options: [CompinationsOptionModel]?
+    var options: [CartCombinationsOptionModel]?
     var price: Int?
     var currentPrice: Int?
     var quantity: Int?
+    var cartQuantity: Int?
     
     required init?(map: Map) {
         
@@ -25,5 +26,6 @@ class ProductDetailsCombinationsModel: Mappable {
         price <- map["price"]
         currentPrice <- map["current_price"]
         quantity <- map["quantity"]
+        cartQuantity <- map["cart_quantity"]
     }
 }

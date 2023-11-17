@@ -61,6 +61,16 @@
 "productDetails.quantityShort" = "العدد";
 "productDetails.currency" = " SAR";
 
+// MARK: - Cart
+"cart.title" = "Cart";
+"cart.addWishList" = "Add Wish List";
+"cart.remove" = "Remove";
+"cart.currency" = "SAR ";
+"cart.subtotal" = "Subtotal";
+"cart.saved" = "You saved";
+"cart.items" = "Items";
+"cart.checkout" = "Checkout";
+
 // MARK: - QRCode Screen
 "QRCode.title" = "Scan QR Code";
 "QRCode.content" = "Scan the QR Code that appears in the mobile mockup in your dashboard to be able to view your app demo";

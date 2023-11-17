@@ -17,14 +17,14 @@ struct ApiUrls {
         static let loginUrl = "/login"
         static let logoutUrl = "/logout"
         
-        static let getAccessToken = "/refresh-token"
+        static let refreshTokenUrl = "/refresh-token"
         static let forgetPasswordUrl = "/forget-password"
         static let resetPasswordUrl = "/reset-password"
         static let homeProducts = "/products"
         static let homeCategories = "/categories"
         static let productDetails = "/products/{id}"
         static let relatedProducts = "/products"
-        static let getCart = "/cart"
+        static let cartUrl = "/cart"
         
         static let fetchFirebaseToken = "/fcm-token"
     }

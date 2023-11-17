@@ -89,7 +89,7 @@ final class MainWebService {
     static func refreshAccessToken(endPoint: TargetType, _ compltion: @escaping (Result<Any, NetworkError>, Int) -> Void) {
         let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: [.requestBody, .verbose])
         guard let refreshToken = CachingService.getUser()?.refreshToken else { return }
-        let refreshTokenEndPoint = RouteAccessTokenApi.getAccessToken(refreshToken: refreshToken)
+        let refreshTokenEndPoint = RouteAccessTokenApi.refreshToken(refreshToken: refreshToken)
 
         if MainWebService.isRefreshingToken {
             self.fetch(endPoint: endPoint, compltion)

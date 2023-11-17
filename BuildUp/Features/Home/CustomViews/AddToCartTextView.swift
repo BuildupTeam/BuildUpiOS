@@ -50,17 +50,26 @@ class AddToCartTextView: UIView {
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
         addToCartButton.isHidden = true
         counterContainerView.isHidden = false
+        addToCartFirebase()
+    }
+    
+    private func addToCartFirebase() {
+        if let model = productModel {
+            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected)
+            RealTimeDatabaseService.addProductModel(model: firebaseProductModel)
+        }
     }
     
     @IBAction func plusButtonAction(_ sender: UIButton) {
         if (productModel?.quantitySelected ?? 0) >= 1 {
             
-//            if ((productModel?.quantitySelected ?? 0) + 1 ) <= (productModel?.maxAddedQuantity ?? 0) {
+            if ((productModel?.quantitySelected ?? 0) + 1 ) <= (productModel?.maxAddedQuantity ?? 0) {
                 productModel?.quantitySelected += 1
-//            }
+            }
         }
         
         countLabel.text = String(productModel?.quantitySelected ?? 0)
+        addToCartFirebase()
     }
     
     @IBAction func minusButtonAction(_ sender: UIButton) {
@@ -69,5 +78,6 @@ class AddToCartTextView: UIView {
         }
         
         countLabel.text = String(productModel?.quantitySelected ?? 0)
+        addToCartFirebase()
     }
 }

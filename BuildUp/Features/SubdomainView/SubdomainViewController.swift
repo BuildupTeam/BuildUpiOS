@@ -111,7 +111,25 @@ extension SubdomainViewController {
     }
     
     @IBAction func scanAction(_ sender: AnyObject) {
-        guard checkScanPermissions() else { return }
+        /*
+         #if targetEnvironment(simulator)
+           // your simulator code
+         #else
+           // your real device code
+         #endif
+         */
+        guard checkScanPermissions() else { 
+#if targetEnvironment(simulator)
+            
+            CachingService.setSubdomain(subdomain: "my-app-3")
+            
+            self.showLoading()
+            self.viewModel.getHomeTemplate()
+            return
+#else
+            return
+#endif
+        }
 
         readerVC.modalPresentationStyle = .formSheet
         readerVC.delegate               = self
@@ -133,7 +151,6 @@ extension SubdomainViewController {
             self.hideLoading()
             PersistanceManager.setLatestViewController(Constant.ControllerName.login)
             LauncherViewController.showLoginView(fromViewController: nil)
-//            LauncherViewController.showTabBar()
         }
     }
 }

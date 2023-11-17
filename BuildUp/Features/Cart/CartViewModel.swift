@@ -27,7 +27,6 @@ class CartViewModel: BaseViewModel {
         }
         
         service.getCart() { (result) in
-            
             switch result {
             case .success(let response):
                 self.cartModel = response.data

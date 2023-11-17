@@ -31,6 +31,41 @@ internal enum L10n {
         }
     }
 
+    internal enum Cart {
+        /// Add Wish List
+        internal static var addWishList: String {
+          return L10n.tr("Localizable", "cart.addWishList")
+        }
+        /// Checkout
+        internal static var checkout: String {
+          return L10n.tr("Localizable", "cart.checkout")
+        }
+        /// SAR 
+        internal static var currency: String {
+          return L10n.tr("Localizable", "cart.currency")
+        }
+        /// Items
+        internal static var items: String {
+          return L10n.tr("Localizable", "cart.items")
+        }
+        /// Remove
+        internal static var remove: String {
+          return L10n.tr("Localizable", "cart.remove")
+        }
+        /// You saved
+        internal static var saved: String {
+          return L10n.tr("Localizable", "cart.saved")
+        }
+        /// Subtotal
+        internal static var subtotal: String {
+          return L10n.tr("Localizable", "cart.subtotal")
+        }
+        /// Cart
+        internal static var title: String {
+          return L10n.tr("Localizable", "cart.title")
+        }
+    }
+
     internal enum EmptyScreen {
         /// No Data Found
         internal static var noData: String {

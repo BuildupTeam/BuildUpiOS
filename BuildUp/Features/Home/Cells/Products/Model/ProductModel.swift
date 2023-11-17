@@ -26,10 +26,32 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var options: [ProductDetailsOptionsModel]?
     var relatedProducts: [ProductModel]?
     var combinations: [ProductDetailsCombinationsModel]?
+    var cartCombinations: [CartCombinationsModel]?
     var maxAddedQuantity: Int?
     var quantitySelected = 1
+    var cartQuantity: Int?
     var subtotalPrice = 0
     var descriptionIsExpaned = false
+    
+    var totalPriceOriginal: Int? {
+        return (originalPrice ?? 0) * (cartQuantityValue ?? 0)
+    }
+    
+    var totalPriceCurrent: Int? {
+        return (currentPrice ?? 0) * (cartQuantityValue ?? 0)
+    }
+    
+    var totalPriceCombinationCurrent: Int? {
+        return (cartCombinations?.first?.currentPrice ?? 0) * (cartQuantityValue ?? 0)
+    }
+    
+    var totalPriceCombinationPrice: Int? {
+        return (cartCombinations?.first?.price ?? 0) * (cartQuantityValue ?? 0)
+    }
+    
+    var cartQuantityValue: Int? {
+        return (cartQuantity != nil) ? cartQuantity : cartCombinations?.first?.cartQuantity
+    }
     
     var selectedCombinationPrice: Int? {
         return getSelectedCombinationPrice()
@@ -64,7 +86,9 @@ class ProductModel: NSObject, NSCoding, Mappable {
         quantity <- map["order_in_out_of_stock"]
         options <- map["options"]
         combinations <- map["combinations"]
+        cartCombinations <- map["combinations"]
         maxAddedQuantity <- map["max_added_quantity"]
+        cartQuantity <- map["cart_quantity"]
     }
     
     override init() {

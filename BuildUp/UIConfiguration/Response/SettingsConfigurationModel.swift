@@ -23,6 +23,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
     var productsList: ProductsListModel?
     var recommendedProducts: RecommendedProductsModel?
     
+    
     required init?(map: Map) {
         
     }

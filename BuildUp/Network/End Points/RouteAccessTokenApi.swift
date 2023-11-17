@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum RouteAccessTokenApi {
-    case getAccessToken(refreshToken: String)
+    case refreshToken(refreshToken: String)
 }
 
 extension RouteAccessTokenApi: TargetType {
@@ -19,17 +19,11 @@ extension RouteAccessTokenApi: TargetType {
     }
     
     var path: String {
-        switch self {
-        case .getAccessToken:
-            return ApiUrls.Apis.getAccessToken
-        }
+        return ApiUrls.Apis.refreshTokenUrl
     }
     
     var method: Moya.Method {
-        switch self {
-        case .getAccessToken:
-            return .post
-        }
+        return .post
     }
     
     var sampleData: Data {
@@ -39,17 +33,18 @@ extension RouteAccessTokenApi: TargetType {
     var task: Task {
         
         switch self {
-        case .getAccessToken(refreshToken: let refreshToken):
-            
+        case .refreshToken(refreshToken: let refreshToken):
             var parameters: [String: Any] = [:]
             parameters["refresh_token"] = refreshToken
 
+            JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
+            
             return .requestParameters(parameters: parameters,
                                       encoding: JSONEncoding.default)
         }
     }
     
     var headers: [String: String]? {
-        return [:]
+        return AppHeaders.appHeaders
     }
 }

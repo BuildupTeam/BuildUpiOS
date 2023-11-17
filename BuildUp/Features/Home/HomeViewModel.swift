@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 enum PageName: String {
     case home = "home"
@@ -74,14 +75,15 @@ class HomeViewModel: BaseViewModel {
      */
     
     func getFirebaseToken() {
-        if let token = CachingService.getUser()?.accessToken {
+        if let token = CachingService.getUser()?.accessToken, Auth.auth().currentUser == nil {
             service?.getFirebaseToken(token: token, compeltion: { result in
                 switch result {
                 case .success(let response):
                     if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                         if let token = response.data?.token?.token {
                             RealTimeDatabaseService.loginUser(token: token) { firebaseToken in
-                                print("firebase token = \(firebaseToken)")
+//                            RealTimeDatabaseService.addUserToFirebase()
+                            print("firebase token = \(firebaseToken)")
                             }
                         }
                     } else {
@@ -96,6 +98,7 @@ class HomeViewModel: BaseViewModel {
             })
         }
     }
+    
     func getProducts(limit: Int,
                      componentModel: ComponentConfigurationModel,
                      contentTypeCompletion: @escaping (() -> String),
