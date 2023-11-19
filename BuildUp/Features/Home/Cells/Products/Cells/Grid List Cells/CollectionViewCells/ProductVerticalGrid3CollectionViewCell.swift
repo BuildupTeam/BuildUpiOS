@@ -10,15 +10,10 @@ import UIKit
 class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var productImageView: UIImageView!
-    @IBOutlet private weak var addToCartImageView: UIImageView!
-
     @IBOutlet private weak var productNameLabel: UILabel!
     @IBOutlet private weak var productNewPriceLabel: UILabel!
-    @IBOutlet private weak var productCountLabel: UILabel!
-    
-    @IBOutlet private weak var addToCartButton: UIButton!
-    
-    @IBOutlet private weak var addToCartView: UIView!
+        
+    @IBOutlet private weak var addToCartView: AddToCartIconView!
     @IBOutlet private weak var containerView: UIView!
     
     var productModel: ProductModel? {
@@ -52,12 +47,20 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
 //        ThemeManager.setCornerRadious(element: productImageView, radius: 11)
         ThemeManager.roundCorners(element: productImageView, corners: [.topRight, .topLeft], radius: 8)
-        ThemeManager.setCornerRadious(element: addToCartView, radius: addToCartView.frame.width / 2)
+//        ThemeManager.setCornerRadious(element: addToCartView, radius: addToCartView.frame.width / 2)
         ThemeManager.setCornerRadious(element: containerView, radius: 11)
+        ThemeManager.setCornerRadious(element: addToCartView, radius: 8)
     }
     
     func bindData() {
         if let model = productModel {
+            if let combinations = model.combinations, !combinations.isEmpty {
+                addToCartView.isHidden = true
+            } else {
+                addToCartView.isHidden = false
+                addToCartView.productModel = model
+            }
+            
             productNameLabel.text = model.name ?? ""
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
             
@@ -67,11 +70,6 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
                 productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
         }
-    }
-    
-    @IBAction func addToCartAction(_ sender: UIButton) {
-        addToCartButton.isHidden = true
-        addToCartView.isHidden = false
     }
 
 }

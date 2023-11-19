@@ -207,7 +207,7 @@ extension ProductDetailsViewController {
     }
     
     private func checkIfCombinationsExist() {
-        if let model = productModel {
+        if let model = viewModel.productModel {
             if let combinations = model.combinations, !combinations.isEmpty {
                 deactivateQuantityView()
             } else {

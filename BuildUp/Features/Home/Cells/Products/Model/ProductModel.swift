@@ -83,7 +83,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
         categories <- map["categories"]
         subcategories <- map["subcategories"]
         quantity <- map["quantity"]
-        quantity <- map["order_in_out_of_stock"]
+        orderInOutOfStock <- map["order_in_out_of_stock"]
         options <- map["options"]
         combinations <- map["combinations"]
         cartCombinations <- map["combinations"]

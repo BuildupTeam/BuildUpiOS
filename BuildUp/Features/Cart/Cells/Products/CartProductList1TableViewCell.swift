@@ -109,7 +109,7 @@ extension CartProductList1TableViewCell {
             productDescriptionLabel.text = (model.productDescription ?? "")
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
-            productQuantityLabel.text = String(model.quantitySelected)
+            productQuantityLabel.text = String(model.cartQuantityValue ?? 0)
 
             let tableViewHeight = CGFloat((model.cartCombinations?.first?.options?.count ?? 0) * 25)
             if tableViewHeight < 40 {
@@ -133,11 +133,16 @@ extension CartProductList1TableViewCell {
             }
         }
     }
-        
+    
     private func addToCartFirebase() {
         if let model = productModel {
-            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected)
-            RealTimeDatabaseService.addProductModelFromCart(model: firebaseProductModel)
+            if let combinationId = model.cartCombinations?.first?.id {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected, combinationId: combinationId)
+                RealTimeDatabaseService.addProductModelFromCart(model: firebaseProductModel)
+            } else {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected)
+                RealTimeDatabaseService.addProductModelFromCart(model: firebaseProductModel)
+            }
         }
     }
 }
@@ -148,18 +153,19 @@ extension CartProductList1TableViewCell {
         var elements: [UIAction] = []
         guard let model = productModel else { return }
         
-        let quantityCount = productModel?.quantity ?? 0
+        let quantityCount = model.quantity ?? 0
                 
         if quantityCount <= 1 {
             return
         }
         
-        for i in (0 ... quantityCount) {
+        for i in (1 ... quantityCount) {
             let first = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
                 print(String(i))
                 self.productModel?.quantitySelected = i
                 self.productQuantityLabel.text = String(i)
                 self.delegate?.quantityChanged(quantity: i, model: model)
+                self.addToCartFirebase()
             }
             elements.append(first)
         }

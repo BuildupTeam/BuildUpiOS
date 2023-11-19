@@ -148,7 +148,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
             if let settings = viewModel.cartSettings {
                 switch settings.productCartDesign {
                 case CartProductDesign.productCard1.rawValue:
-                    return getCartProductList2TableViewCell(productModel: products[indexPath.row], indexPath: indexPath)
+                    return getCartProductList1TableViewCell(productModel: products[indexPath.row], indexPath: indexPath)
                 case CartProductDesign.productCard2.rawValue:
                     return getCartProductList2TableViewCell(productModel: products[indexPath.row], indexPath: indexPath)
                 case CartProductDesign.productCard3.rawValue:

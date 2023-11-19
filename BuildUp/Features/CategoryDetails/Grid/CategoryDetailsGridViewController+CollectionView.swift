@@ -144,8 +144,10 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
         return CGSize(width: size, height: 260)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if viewModel.products.isEmpty {
+            return
+        }
         let productModel = viewModel.products[indexPath.row]
         let detailsVC = Coordinator.Controllers.createProductDetailsViewController(componentModel: self.componentModel)
         detailsVC.productModel = productModel

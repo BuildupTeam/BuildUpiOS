@@ -76,7 +76,7 @@ extension CartProductList3TableViewCell {
         
 //        plusButton.layer.masksToBounds = true
 //        plusButton.layer.cornerRadius = plusButton.frame.size.width / 2
-        plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+        plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
 
 //        minusButton.layer.masksToBounds = true
 //        minusButton.layer.cornerRadius = minusButton.frame.size.width / 2
@@ -102,8 +102,8 @@ extension CartProductList3TableViewCell {
             productDescriptionLabel.text = (model.productDescription ?? "")
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
-            productQuantityLabel.text = String(model.quantitySelected)
-
+            productQuantityLabel.text = String(model.cartQuantityValue ?? 0)
+            
             let tableViewHeight = CGFloat((model.cartCombinations?.first?.options?.count ?? 0) * 25)
             if tableViewHeight < 40 {
                 tableViewHeightConstrains.constant = 40

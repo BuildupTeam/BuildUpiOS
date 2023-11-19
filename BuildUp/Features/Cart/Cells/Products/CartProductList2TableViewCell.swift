@@ -83,7 +83,7 @@ extension CartProductList2TableViewCell {
         addToWishListView.layer.borderWidth = 1
         addToWishListView.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
         
-        plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+        plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
 
         minusButton.layer.borderWidth = 1
         minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
@@ -109,13 +109,14 @@ extension CartProductList2TableViewCell {
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
             
-            if let cartQuantity = model.cartQuantity {
-                productQuantityLabel.text = String(cartQuantity)
-            } else {
-                if let quantity = model.cartCombinations?.first?.cartQuantity {
-                    productQuantityLabel.text = String(quantity)
-                }
-            }
+//            if let cartQuantity = model.cartQuantity {
+//                productQuantityLabel.text = String(model.cartQuantity ?? 0)
+//            } else {
+//                if let quantity = model.cartCombinations?.first?.cartQuantity {
+//                    productQuantityLabel.text = String(quantity)
+//                }
+//            }
+            productQuantityLabel.text = String(model.cartQuantityValue ?? 0)
 
             let tableViewHeight = CGFloat((model.cartCombinations?.first?.options?.count ?? 0) * 25)
             if tableViewHeight < 40 {

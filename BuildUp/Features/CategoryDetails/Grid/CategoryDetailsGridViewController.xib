@@ -108,7 +108,7 @@
                                     </connections>
                                 </collectionView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="deX-tr-1Xw" firstAttribute="leading" secondItem="uGB-lg-4ua" secondAttribute="leading" id="4O4-43-8wl"/>
                                 <constraint firstItem="deX-tr-1Xw" firstAttribute="top" secondItem="uGB-lg-4ua" secondAttribute="top" id="MCu-5Y-zJN"/>

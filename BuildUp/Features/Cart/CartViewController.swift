@@ -73,6 +73,22 @@ extension CartViewController {
         }
     }
     
+    private func setupNavigationBar() {
+        let logoImageView = UIImageView(image: Asset.icSquadio.image)
+        
+        logoImageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = logoImageView
+        
+        let clerCartItem = UIBarButtonItem(
+            title: "",
+            style: .plain,
+            target: self,
+            action: #selector(clearCartAction(sender:))
+        )
+        
+        self.navigationItem.rightBarButtonItem = clerCartItem
+    }
+    
     private func reloadTableViewData() {
         self.isReloadingTableView = true
         self.tableView.reloadData()
@@ -137,11 +153,20 @@ extension CartViewController {
     }
 }
 
+// MARK: - @IBActions
+extension CartViewController {
+    @objc
+    func clearCartAction(sender: UIBarButtonItem) {
+         
+    }
+}
+
 // MARK: - Requests
 extension CartViewController {
     private func getCart() {
         viewModel.getCart()
     }
+    
     private func setupResponses() {
         cartResponse()
     }
@@ -191,7 +216,6 @@ extension CartViewController: CartProductListDelegate {
                         totalPriceOriginal += (model.totalPriceOriginal ?? 0)
                         totalPriceCurrent += (model.totalPriceCurrent ?? 0)
                     }
-                    
                 }
                 
                 viewModel.cartModel?.subtotalBeforeDiscount = totalPriceOriginal

@@ -50,7 +50,13 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = productModel {
-            addToCartView.productModel = model
+            if let combinations = model.combinations, !combinations.isEmpty {
+                addToCartView.isHidden = true
+            } else {
+                addToCartView.isHidden = false
+                addToCartView.productModel = model
+            }
+            
             productNameLabel.text = model.name ?? ""
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
