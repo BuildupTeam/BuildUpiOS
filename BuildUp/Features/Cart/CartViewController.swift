@@ -71,6 +71,7 @@ extension CartViewController {
     private func getCart() {
         viewModel.getCart()
     }
+    
     private func setupResponses() {
         cartResponse()
     }

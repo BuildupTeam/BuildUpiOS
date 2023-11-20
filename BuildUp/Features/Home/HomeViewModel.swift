@@ -41,7 +41,7 @@ class HomeViewModel: BaseViewModel {
         self.getCachedHomeData()
     }
     
-    /*
+    
     func getHomeTemplate() {
         guard let service = service else {
             return
@@ -71,7 +71,7 @@ class HomeViewModel: BaseViewModel {
             }
         }
     }
-     */
+     
     
     func getFirebaseToken() {
         if let token = CachingService.getUser()?.accessToken {

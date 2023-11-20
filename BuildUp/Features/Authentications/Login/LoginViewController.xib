@@ -32,6 +32,7 @@
                 <outlet property="privacyLabel2" destination="hmM-Gc-0rM" id="aG0-sf-LH3"/>
                 <outlet property="seperatorView" destination="UAt-pU-8re" id="9kQ-WK-GTh"/>
                 <outlet property="showHidePasswordImageView" destination="QYG-ms-8jG" id="pq4-ys-7pw"/>
+                <outlet property="skipButton" destination="yLK-fp-GzX" id="nWd-7e-rAN"/>
                 <outlet property="termsButton" destination="RuS-YI-hVy" id="rI7-df-ca3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -397,11 +398,23 @@
                                 <constraint firstAttribute="height" constant="100" id="xKc-EE-YLR"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLK-fp-GzX">
+                            <rect key="frame" x="327" y="20" width="50" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="5nw-oY-nhc"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Skip"/>
+                            <connections>
+                                <action selector="skipAction:" destination="-1" eventType="touchUpInside" id="XbE-C8-wVm"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="l2D-Pm-6Hu" firstAttribute="leading" secondItem="pWi-T1-EMS" secondAttribute="leading" constant="20" id="0is-mI-rbL"/>
                         <constraint firstItem="Z9e-fv-WW6" firstAttribute="leading" secondItem="pWi-T1-EMS" secondAttribute="leading" id="5kj-vg-sFv"/>
+                        <constraint firstAttribute="trailing" secondItem="yLK-fp-GzX" secondAttribute="trailing" constant="16" id="7e0-h5-zYy"/>
                         <constraint firstItem="dBq-t3-W2v" firstAttribute="leading" secondItem="pWi-T1-EMS" secondAttribute="leading" constant="20" id="96m-q1-IAW"/>
                         <constraint firstAttribute="trailing" secondItem="U0F-OD-qqJ" secondAttribute="trailing" constant="20" id="Dgd-GW-Xjf"/>
                         <constraint firstAttribute="bottom" secondItem="Z9e-fv-WW6" secondAttribute="bottom" id="E1p-VJ-ulF"/>
@@ -420,6 +433,7 @@
                         <constraint firstItem="6O7-Om-vmG" firstAttribute="centerX" secondItem="pWi-T1-EMS" secondAttribute="centerX" id="jfJ-gH-fsG"/>
                         <constraint firstItem="l2D-Pm-6Hu" firstAttribute="top" secondItem="qEg-Ua-kUF" secondAttribute="bottom" constant="6" id="l2U-VU-Id6"/>
                         <constraint firstItem="qEg-Ua-kUF" firstAttribute="leading" secondItem="pWi-T1-EMS" secondAttribute="leading" id="snH-gr-LFQ"/>
+                        <constraint firstItem="yLK-fp-GzX" firstAttribute="top" secondItem="pWi-T1-EMS" secondAttribute="top" constant="20" id="tvB-jt-NY4"/>
                     </constraints>
                 </view>
             </subviews>

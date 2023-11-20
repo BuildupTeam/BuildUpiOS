@@ -155,7 +155,7 @@ extension HomeViewController {
 extension HomeViewController {
     
     private func getHomeData() {
-//        self.viewModel.getHomeTemplate()
+        self.viewModel.getHomeTemplate()
         self.viewModel.getCachedThemeData()
      }
     

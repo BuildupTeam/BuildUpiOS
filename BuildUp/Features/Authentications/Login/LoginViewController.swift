@@ -36,6 +36,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet private weak var privacyLabel2: UILabel!
     @IBOutlet private weak var termsButton: UIButton!
     @IBOutlet private weak var privacyButton: UIButton!
+    @IBOutlet private weak var skipButton: UIButton!
     
     var loginModel = LoginModel()
     private var viewModel: LoginViewModel!
@@ -97,6 +98,10 @@ extension LoginViewController {
         loginButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         loginButton.setTitle(L10n.Login.title, for: .normal)
         loginButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        skipButton.titleLabel?.font = .appFont(ofSize: 13, weight: .semiBold)
+        skipButton.setTitle(L10n.Login.skip, for: .normal)
+        skipButton.setTitleColor(ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? ""), for: .normal)
         
         createAccountButton.titleLabel?.font = .appFont(ofSize: 14.5, weight: .semiBold)
         createAccountButton.setTitle(L10n.Login.createAccount, for: .normal)
@@ -297,6 +302,11 @@ extension LoginViewController {
     @IBAction func forgetPasswordAction(_ sender: Any) {
         let forgetPasswordVC = Coordinator.Controllers.createForgetPasswordViewController()
         self.navigationController?.pushViewController(forgetPasswordVC, animated: true)
+    }
+    
+    @IBAction func skipAction(_ sender: Any) {
+        PersistanceManager.setLatestViewController(Constant.ControllerName.home)
+        LauncherViewController.showTabBar()
     }
 }
 
