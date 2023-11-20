@@ -39,7 +39,7 @@ extension RouteLoginApi: TargetType {
             
             var parameters: [String: Any] = [:]
             parameters["phone"] = model.phone
-            parameters["country_code"] = model.countryCode
+            parameters["country_code"] = model.countryCodeWithoutPlus
             parameters["password"] = model.password
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)

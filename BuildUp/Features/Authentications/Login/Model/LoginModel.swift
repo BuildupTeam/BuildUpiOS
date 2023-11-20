@@ -15,6 +15,10 @@ class LoginModel {
     var isValidMobileNumber = false
     var isValidPasssword = false
     var countryFlag: UIImage?
+    
+    var countryCodeWithoutPlus: String {
+        return countryCode?.replacingOccurrences(of: "+", with: "") ?? ""
+    }
 
     init() {
         

@@ -156,6 +156,10 @@ internal enum L10n {
         internal static var privacyTitle: String {
           return L10n.tr("Localizable", "login.privacyTitle")
         }
+        /// Skip
+        internal static var skip: String {
+          return L10n.tr("Localizable", "login.skip")
+        }
         /// Terms of Service
         internal static var termsLabel: String {
           return L10n.tr("Localizable", "login.termsLabel")
