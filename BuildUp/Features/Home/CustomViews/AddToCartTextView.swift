@@ -32,8 +32,13 @@ class AddToCartTextView: UIView {
         
         countLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         
-        if let model = productModel {
-            countLabel.text = String(model.quantitySelected)
+        if let quantity = productModel?.quantitySelected, quantity > 0 {
+            addToCartButton.hideView()
+            counterContainerView.showView()
+            countLabel.text = String(quantity)
+        } else {
+            addToCartButton.showView()
+            counterContainerView.hideView()
         }
         
         plusButton.layer.masksToBounds = true
@@ -48,8 +53,8 @@ class AddToCartTextView: UIView {
     }
     
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
-        addToCartButton.isHidden = true
-        counterContainerView.isHidden = false
+        addToCartButton.hideView()
+        counterContainerView.showView()
         addToCartFirebase()
     }
     

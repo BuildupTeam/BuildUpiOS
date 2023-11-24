@@ -212,6 +212,24 @@ class BaseViewModel {
     */
 }
 
+// MARK: - Firebase RealTimeDatabase
+extension BaseViewModel {
+    func getProductsWithCartQuantity(products: [ProductModel]) -> [ProductModel] {
+        guard let defaultCartProducts = CachingService.getDefaultCartProducts() else { return products }
+        
+        for product in products {
+            guard let uuid = product.uuid else { return [] }
+            if defaultCartProducts[uuid] != nil {
+                if let values = defaultCartProducts[uuid] {
+                    product.cartQuantity = values["default"] ?? 0
+                }
+            }
+        }
+        
+        return products
+    }
+}
+
 // MARK: - Error Handling
 extension BaseViewModel {
     func handleError(response: BaseResponse) {

@@ -29,7 +29,7 @@ class HomeViewModel: BaseViewModel {
     
     // MARK: - Model
     var homeData = HomeModel()
-    
+    var favoriteUUIDS: [String]?
     var viewTitle: String?
     
     // MARK: - Data Observables
@@ -40,8 +40,25 @@ class HomeViewModel: BaseViewModel {
         self.service = service
         self.getCachedThemeData()
         self.getCachedHomeData()
+        self.getFavoriteProductsUUIDS()
+        self.getCartProducts()
     }
     
+    func getFavoriteProductsUUIDS() {
+        RealTimeDatabaseService.getFavoriteList { favoriteIDS in
+            self.favoriteUUIDS = favoriteIDS
+        }
+    }
+    
+    func getCartProducts() {
+        RealTimeDatabaseService.getCartProducts { dict in
+            print("cart \(dict)")
+            
+            let defaultCartProducts = CachingService.getDefaultCartProducts()
+            let combinationsCartProducts = CachingService.getDefaultCartProducts()
+            
+        }
+    }
     
     func getHomeTemplate() {
         guard let service = service else {
@@ -114,7 +131,7 @@ class HomeViewModel: BaseViewModel {
                     self.homeData.editHomeSectionsArrayWIthData(
                         contentType: contentTypeCompletion(),
                         order: orderCompletion(),
-                        products: response.data ?? [])
+                        products: self.getProductsWithCartQuantity(products: response.data ?? []))
                     
                     self.checkDataAvailability()
                 } else {

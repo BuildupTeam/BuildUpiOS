@@ -41,30 +41,6 @@ class RealTimeDatabaseService {
         }
     }
     
-    static func getProductNode(productUUID: String) -> DatabaseReference? {
-        return getCartNode()?.child(productUUID)
-    }
-
-    static func getCartNode() -> DatabaseReference? {
-       return shared.ref?.child(Auth.auth().currentUser?.uid ?? "").child(CachingService.getUser()?.customer?.uuid ?? "").child("cart")
-    }
-    
-    static func addProductModel(model: FirebaseProductModel) {
-        getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
-    }
-    
-    static func addProductModelFromCart(model: FirebaseProductModel) {
-        getCartNode()?.child(model.uuid ?? "").setValue(model.dict)
-    }
-    
-    static func removeProductModelFromCart(model: FirebaseProductModel) {
-        let combinationString = (model.dict.compactMap({ (key, value) -> String in
-            return "\(key)"
-        }) as Array).joined(separator: ",")
-        
-        getCartNode()?.child(model.uuid ?? "").child(combinationString).removeValue()
-    }
-    
     static func addUserToFirebase() {
         let firebaseUserIdChild = Auth.auth().currentUser?.uid ?? ""
         let customerIdChild = CachingService.getUser()?.customer?.uuid ?? ""
@@ -76,7 +52,7 @@ class RealTimeDatabaseService {
         })
     }
     
-    static func checkFirebaseUserAvailability(child: String, completion: @escaping (_ available:Bool)->()) {
+    static func checkFirebaseUserAvailability(child: String, completion: @escaping (_ available: Bool)->()) {
         guard let currentUser = Auth.auth().currentUser else { completion(false); return }
         let ref = RealTimeDatabaseService.shared.ref?.child(child)
         
@@ -121,5 +97,90 @@ class RealTimeDatabaseService {
     
     static func removeAllObservers() {
         shared.ref?.removeAllObservers()
+    }
+}
+
+//MARK: - Cart
+extension RealTimeDatabaseService {
+    static func getProductNode(productUUID: String) -> DatabaseReference? {
+        return getCartNode()?.child(productUUID)
+    }
+
+    static func getCartNode() -> DatabaseReference? {
+       return shared.ref?.child(Auth.auth().currentUser?.uid ?? "").child(CachingService.getUser()?.customer?.uuid ?? "").child("cart")
+    }
+    
+    static func addProductModel(model: FirebaseProductModel) {
+        getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+    }
+    
+    static func addProductModelFromCart(model: FirebaseProductModel) {
+        getCartNode()?.child(model.uuid ?? "").setValue(model.dict)
+    }
+    
+    static func removeProductModelFromCart(model: FirebaseProductModel) {
+        let combinationString = (model.dict.compactMap({ (key, value) -> String in
+            return "\(key)"
+        }) as Array).joined(separator: ",")
+        
+        getCartNode()?.child(model.uuid ?? "").child(combinationString).removeValue()
+    }
+    
+    static func clearCart() {
+        getCartNode()?.removeValue()
+    }
+    
+    static func getCartProducts(compeltion: @escaping (([String: [String: Int]]) -> Void)) {
+        let prntRef = getCartNode()
+        prntRef?.observe(DataEventType.value, with: { (snap) in
+            if let fullDic = snap.value as? [String: [String: Int]] {
+                CachingService.setCartProducts(products: fullDic)
+                compeltion(fullDic)
+            } else {
+                print("No favourites")
+            }
+        })
+    }
+}
+
+//MARK: - Favorites
+extension RealTimeDatabaseService {
+    static func getFavoriteNode() -> DatabaseReference? {
+       return shared.ref?.child(Auth.auth().currentUser?.uid ?? "").child(CachingService.getUser()?.customer?.uuid ?? "").child("favorites")
+    }
+    
+    static func favoriteProductModel(model: FirebaseFavoriteModel) {
+        getFavoriteNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+    }
+    
+    static func unfavoriteProductModel(model: FirebaseFavoriteModel) {
+        getFavoriteNode()?.child(model.uuid ?? "").removeValue()
+    }
+    
+    static func favoriteUnfavoriteProduct(model: FirebaseFavoriteModel) {
+        guard let currentUser = Auth.auth().currentUser else { return }
+        let ref = getFavoriteNode()?.child(model.uuid ?? "")
+        
+        ref?.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.exists() {
+                self.unfavoriteProductModel(model: model)
+            } else {
+                self.favoriteProductModel(model: model)
+            }
+        }
+    }
+    
+    // static func observeRunningOrders(child: String, compeltion: @escaping (([Int]) -> Void))
+    
+    static func getFavoriteList(compeltion: @escaping (([String]) -> Void)) {
+        let prntRef = getFavoriteNode()
+        prntRef?.observeSingleEvent(of: .value, with: {(snap) in
+            if let favDict = snap.value as? [String: AnyObject] {
+                let favoriteList = favDict.map { String($0.key) }
+                compeltion(favoriteList)
+            } else {
+                print("No favourites")
+            }
+       })
     }
 }

@@ -64,12 +64,7 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let tabbarVC = self.tabBarController as? AppTabBarViewController
-//        if prefersBottomBarHidden ?? false {
-//            tabbarVC?.middleButton?.hideView()
-//        } else {
-//            tabbarVC?.middleButton?.showView()
-//        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,7 +73,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let tabbarVC = self.tabBarController as? AppTabBarViewController
+        
     }
     
     func addFeedbackGenerator() {
@@ -287,11 +282,9 @@ extension BaseViewController {
     }
 }
 
-// MARK: - Base Requests
+// MARK: - Firebase
 extension BaseViewController {
-//    func updateReadLater(newsModel: NewsModel?) {
-//        baseViewModel.updateReadLater(newsModel: newsModel)
-//    }
+     
 }
 
 // MARK: - Base Responses

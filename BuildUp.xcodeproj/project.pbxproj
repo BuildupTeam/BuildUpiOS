@@ -70,6 +70,7 @@
 		3931743F2A19134D00AF64BC /* BuildUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3931743E2A19134D00AF64BC /* BuildUpUITestsLaunchTests.swift */; };
 		3932B20F2B02874200283B3D /* ProductCombinationsOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B20D2B02874100283B3D /* ProductCombinationsOptionTableViewCell.swift */; };
 		3932B2102B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B20E2B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib */; };
+		3932B2122B0BB45400283B3D /* FirebaseFavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2112B0BB45400283B3D /* FirebaseFavoriteModel.swift */; };
 		393613942AB47539007289DE /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393613922AB47539007289DE /* ProductsListViewController.swift */; };
 		393613952AB47539007289DE /* ProductsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393613932AB47539007289DE /* ProductsListViewController.xib */; };
 		393613972AB47561007289DE /* ProductListWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393613962AB47561007289DE /* ProductListWebServiceProtocol.swift */; };
@@ -531,6 +532,7 @@
 		3931743E2A19134D00AF64BC /* BuildUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3932B20D2B02874100283B3D /* ProductCombinationsOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCombinationsOptionTableViewCell.swift; sourceTree = "<group>"; };
 		3932B20E2B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCombinationsOptionTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2112B0BB45400283B3D /* FirebaseFavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFavoriteModel.swift; sourceTree = "<group>"; };
 		393613922AB47539007289DE /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
 		393613932AB47539007289DE /* ProductsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsListViewController.xib; sourceTree = "<group>"; };
 		393613962AB47561007289DE /* ProductListWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListWebServiceProtocol.swift; sourceTree = "<group>"; };
@@ -1347,7 +1349,6 @@
 		393613912AB474CA007289DE /* Lists */ = {
 			isa = PBXGroup;
 			children = (
-				39C91A1C2AB8D39B00C10C16 /* CategroiesList */,
 				393613AC2AB4EA2A007289DE /* Products */,
 				393613982AB47575007289DE /* ProductListViewModel.swift */,
 				393613962AB47561007289DE /* ProductListWebServiceProtocol.swift */,
@@ -1380,6 +1381,7 @@
 				393613922AB47539007289DE /* ProductsListViewController.swift */,
 				393613A42AB48671007289DE /* ProductsListViewController+TableView.swift */,
 				393613932AB47539007289DE /* ProductsListViewController.xib */,
+				39C91A1C2AB8D39B00C10C16 /* CategroiesList */,
 			);
 			path = ListProducts;
 			sourceTree = "<group>";
@@ -1667,6 +1669,7 @@
 				39821FB12AFA300D00388254 /* FirebaseTokenResponseModel.swift */,
 				39821FB32AFA302500388254 /* FirebaseTokenModel.swift */,
 				39821FBA2AFBA01700388254 /* FirebaseProductModel.swift */,
+				3932B2112B0BB45400283B3D /* FirebaseFavoriteModel.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -3042,6 +3045,7 @@
 				39821FC12AFE651700388254 /* ShimmerCartTableViewCell.swift in Sources */,
 				39730D302AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift in Sources */,
 				39DD4E052AF30DE8009D3CEF /* ResetPasswordResponseModel.swift in Sources */,
+				3932B2122B0BB45400283B3D /* FirebaseFavoriteModel.swift in Sources */,
 				399007302ABDB634002F6938 /* CartCheckout1View.swift in Sources */,
 				39CE76F32A2F97560019A485 /* CurrencyModel.swift in Sources */,
 				39821FB42AFA302500388254 /* FirebaseTokenModel.swift in Sources */,

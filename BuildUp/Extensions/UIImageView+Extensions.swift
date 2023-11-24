@@ -32,11 +32,7 @@ extension UIImageView {
             self.sd_setImage(
                 with: imageUrl,
                 placeholderImage: placeholderImage, options: SDWebImageOptions(rawValue: 0)) { (image, error, test, test2) in
-                    print(image)
-                    print(error.debugDescription)
-                    print(test)
                     self.image = image
-                    print(test2)
             }
         } else {
             self.image = placeholderImage

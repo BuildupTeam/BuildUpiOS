@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -131,6 +131,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="favoriteButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="U29-N0-qBq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.92941176469999998" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -247,7 +250,7 @@
                 <outlet property="cartButton" destination="sZx-Pc-ldd" id="EIi-7C-CRi"/>
                 <outlet property="collectionView" destination="qQT-sE-ToC" id="eVH-fu-pet"/>
                 <outlet property="containerView" destination="cU8-DZ-Clm" id="eUP-C7-SqY"/>
-                <outlet property="favoriteButton" destination="jQi-2c-bW5" id="2CS-Na-vo2"/>
+                <outlet property="favoriteButton" destination="d5A-qt-Wi6" id="8fb-bV-Kps"/>
                 <outlet property="pageControlView" destination="ENI-1A-M1I" id="341-9c-80i"/>
                 <outlet property="productDescriptionLabel" destination="2rT-m2-n8Q" id="uHt-hE-igI"/>
                 <outlet property="productNameLabel" destination="nod-dE-qvO" id="FpN-rB-b4W"/>

@@ -28,10 +28,11 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var combinations: [ProductDetailsCombinationsModel]?
     var cartCombinations: [CartCombinationsModel]?
     var maxAddedQuantity: Int?
-    var quantitySelected = 1
+    var quantitySelected = 0  // TODO: - change to cart quantity
     var cartQuantity: Int?
     var subtotalPrice = 0
     var descriptionIsExpaned = false
+    var isFavorite = false
     
     var totalPriceOriginal: Int? {
         return (originalPrice ?? 0) * (cartQuantityValue ?? 0)

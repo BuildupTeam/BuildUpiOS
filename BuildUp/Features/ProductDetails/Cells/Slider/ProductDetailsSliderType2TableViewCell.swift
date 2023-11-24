@@ -72,7 +72,9 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+}
+// MARK: - Private Func
+extension ProductDetailsSliderType2TableViewCell {
     private func setupCell() {
         registerCollectionViewCells()
         collectionView.delegate = self
@@ -182,6 +184,15 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
         }
     }
     
+    private func registerCollectionViewCells() {
+        self.collectionView.register(
+            UINib(nibName: ProductDetailsSliderType2CollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: ProductDetailsSliderType2CollectionViewCell.identifier)
+    }
+}
+
+// MARK: - Actions
+extension ProductDetailsSliderType2TableViewCell {
     @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
         if var model = productModel {
             if !model.descriptionIsExpaned {
@@ -199,11 +210,13 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
         self.sizeToFit()
     }
     
-    private func registerCollectionViewCells() {
-        self.collectionView.register(
-            UINib(nibName: ProductDetailsSliderType2CollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: ProductDetailsSliderType2CollectionViewCell.identifier)
+    @IBAction func favoriteButtonAction(_ sender: UIButton) {
+        if let model = productModel {
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
+        }
     }
+    
 }
 
 // MARK: - CollectionView Delegate && DataSource
