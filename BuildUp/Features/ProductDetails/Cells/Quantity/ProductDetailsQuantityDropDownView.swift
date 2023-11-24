@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProductDetailsQuantityDelegate: AnyObject {
-    func qunatitySelected(quantity: Int)
+    func qunatitySelected(quantity: Int, model: ProductModel)
 }
 
 class ProductDetailsQuantityDropDownView: UIView {
@@ -32,12 +32,24 @@ class ProductDetailsQuantityDropDownView: UIView {
         quantityTitleLabel.font = .appFont(ofSize: 15, weight: .regular)
         quantityLabel.font = .appFont(ofSize: 15, weight: .regular)
         
-        quantityLabel.text = String(productModel?.quantity ?? 0)
+        if let model = productModel {
+            if let combinationModel = model.cartCombinations?.first {
+                quantityLabel.text = String(combinationModel.cartQuantity ?? 0)
+            } else {
+                quantityLabel.text = String(model.cartQuantity ?? 0)
+            }
+        }
+//        quantityLabel.text = String(productModel?.quantity ?? 0)
     }
     
     @IBAction func quantityActionButton(_ sender: UIButton) {
         var elements: [UIAction] = []
-        let quantityCount = productModel?.quantity ?? 0
+        guard let model = productModel else { return }
+        var quantityCount = model.quantity ?? 0
+        
+        if let combinationModel = model.cartCombinations?.first {
+            quantityCount = combinationModel.quantity ?? 0
+        }
                 
         if quantityCount <= 1 {
             return
@@ -46,9 +58,14 @@ class ProductDetailsQuantityDropDownView: UIView {
         for i in (0 ... quantityCount) {
             let first = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
                 print(String(i))
-                self.productModel?.quantitySelected = i
+                if (model.cartCombinations?.first) != nil {
+                    model.cartCombinations?.first?.cartQuantity = i
+                } else {
+                    model.cartQuantity = i
+                }
+                
                 self.quantityLabel.text = String(i)
-                self.delegate?.qunatitySelected(quantity: i)
+                self.delegate?.qunatitySelected(quantity: i, model: model)
             }
             elements.append(first)
         }

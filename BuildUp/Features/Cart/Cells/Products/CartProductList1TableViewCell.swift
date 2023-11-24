@@ -136,11 +136,11 @@ extension CartProductList1TableViewCell {
     
     private func addToCartFirebase() {
         if let model = productModel {
-            if let combinationId = model.cartCombinations?.first?.id {
-                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected, combinationId: combinationId)
+            if let combinationModel = model.cartCombinations?.first {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: combinationModel.cartQuantity, combinationId: combinationModel.id)
                 RealTimeDatabaseService.addProductModelFromCart(model: firebaseProductModel)
             } else {
-                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected)
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
                 RealTimeDatabaseService.addProductModelFromCart(model: firebaseProductModel)
             }
         }
@@ -152,8 +152,11 @@ extension CartProductList1TableViewCell {
     @IBAction func quantityActionButton(_ sender: UIButton) {
         var elements: [UIAction] = []
         guard let model = productModel else { return }
+        var quantityCount = model.quantity ?? 0
         
-        let quantityCount = model.quantity ?? 0
+        if let combinationModel = model.cartCombinations?.first {
+            quantityCount = combinationModel.quantity ?? 0
+        }
                 
         if quantityCount <= 1 {
             return
@@ -162,7 +165,11 @@ extension CartProductList1TableViewCell {
         for i in (1 ... quantityCount) {
             let first = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
                 print(String(i))
-                self.productModel?.quantitySelected = i
+                if (model.cartCombinations?.first) != nil {
+                    self.productModel?.cartCombinations?.first?.cartQuantity = i
+                } else {
+                    self.productModel?.cartQuantity = i
+                }
                 self.productQuantityLabel.text = String(i)
                 self.delegate?.quantityChanged(quantity: i, model: model)
                 self.addToCartFirebase()
@@ -177,11 +184,11 @@ extension CartProductList1TableViewCell {
     
     @IBAction func removeProductAction(_ sender: UIButton) {
         if let model = self.productModel {
-            if let combinationId = model.cartCombinations?.first?.id {
-                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected, combinationId: combinationId)
+            if let combinationModel = model.cartCombinations?.first {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: combinationModel.cartQuantity, combinationId: combinationModel.id)
                 RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
             } else {
-                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected)
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
                 RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
             }
             

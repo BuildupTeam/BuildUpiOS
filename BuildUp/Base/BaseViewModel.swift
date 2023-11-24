@@ -216,7 +216,6 @@ class BaseViewModel {
 extension BaseViewModel {
     func getProductsWithCartQuantity(products: [ProductModel]) -> [ProductModel] {
         guard let defaultCartProducts = CachingService.getDefaultCartProducts() else { return products }
-        
         for product in products {
             guard let uuid = product.uuid else { return [] }
             if defaultCartProducts[uuid] != nil {

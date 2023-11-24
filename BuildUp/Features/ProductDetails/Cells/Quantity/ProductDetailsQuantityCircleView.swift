@@ -43,7 +43,23 @@ class ProductDetailsQuantityCircleView: UIView {
         countLabel.font = .appFont(ofSize: 17, weight: .semiBold)
         
         if let model = productModel {
-            countLabel.text = String(model.quantitySelected)
+            if !(model.cartCombinations?.isEmpty ?? false) {
+                if let combinationModel = model.selectedCombination {
+                    if let quantityCombination = combinationModel.cartQuantity, quantityCombination > 0 {
+                        countLabel.text = String(quantityCombination)
+                    } else {
+                        combinationModel.cartQuantity = 0
+                        countLabel.text = String(combinationModel.cartQuantity ?? 0)
+                    }
+                }
+            } else {
+                if let quantity = model.cartQuantity, quantity > 0 {
+                    countLabel.text = String(quantity)
+                } else {
+                    model.cartQuantity = 1
+                    countLabel.text = String(model.cartQuantity ?? 0)
+                }
+            }
         }
         
         plusContainerView.layer.masksToBounds = true
@@ -56,23 +72,47 @@ class ProductDetailsQuantityCircleView: UIView {
     }
     
     @IBAction func plusButtonAction(_ sender: UIButton) {
-        if (productModel?.quantitySelected ?? 0) >= 1 {
-            
-            if ((productModel?.quantitySelected ?? 0) + 1 ) <= (productModel?.maxAddedQuantity ?? 0) {
-                productModel?.quantitySelected += 1
+        if let model = productModel {
+            if let combinationModel = model.cartCombinations?.first {
+                if var cartQuantity = combinationModel.cartQuantity {
+                    if (cartQuantity + 1 ) <= (combinationModel.quantity ?? 0) {
+                        cartQuantity += 1
+                    }
+                } else {
+                    combinationModel.cartQuantity = 1
+                }
+                
+                countLabel.text = String(combinationModel.cartQuantity ?? 0)
+                self.delegate?.qunatitySelected(quantity: combinationModel.cartQuantity ?? 0, model: model)
+            } else {
+                if var cartQuantity = model.cartQuantity {
+                    if (cartQuantity + 1 ) <= (model.quantity ?? 0) {
+                        cartQuantity += 1
+                        model.cartQuantity = cartQuantity
+                    }
+                } else {
+                    model.cartQuantity = 1
+                }
+                
+                countLabel.text = String(model.cartQuantity ?? 0)
+                self.delegate?.qunatitySelected(quantity: model.cartQuantity ?? 0, model: model)
             }
         }
-        
-        countLabel.text = String(productModel?.quantitySelected ?? 0)
-        self.delegate?.qunatitySelected(quantity: productModel?.quantitySelected ?? 0)
     }
     
     @IBAction func minusButtonAction(_ sender: UIButton) {
-        if (productModel?.quantitySelected ?? 0) > 1 {
-            productModel?.quantitySelected -= 1
+        if let model = productModel {
+            if var cartQuantity = model.cartQuantity {
+                if (cartQuantity - 1 ) >= 1 {
+                    cartQuantity -= 1
+                    model.cartQuantity = cartQuantity
+                } else {
+                    // TODO: - show add to cart button
+                }
+            }
+            
+            countLabel.text = String(model.cartQuantity ?? 0)
+            self.delegate?.qunatitySelected(quantity: model.cartQuantity ?? 0, model: model)
         }
-        
-        countLabel.text = String(productModel?.quantitySelected ?? 0)
-        self.delegate?.qunatitySelected(quantity: productModel?.quantitySelected ?? 0)
     }
 }

@@ -45,9 +45,7 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
-//        ThemeManager.setCornerRadious(element: productImageView, radius: 11)
         ThemeManager.roundCorners(element: productImageView, corners: [.topRight, .topLeft], radius: 8)
-//        ThemeManager.setCornerRadious(element: addToCartView, radius: addToCartView.frame.width / 2)
         ThemeManager.setCornerRadious(element: containerView, radius: 11)
         ThemeManager.setCornerRadious(element: addToCartView, radius: 8)
     }
@@ -55,9 +53,9 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
     func bindData() {
         if let model = productModel {
             if let combinations = model.combinations, !combinations.isEmpty {
-                addToCartView.isHidden = true
+                addToCartView.hideView()
             } else {
-                addToCartView.isHidden = false
+                addToCartView.showView()
                 addToCartView.productModel = model
             }
             

@@ -42,16 +42,20 @@ class ProductModel: NSObject, NSCoding, Mappable {
         return (currentPrice ?? 0) * (cartQuantityValue ?? 0)
     }
     
+    var totalPriceCombinationOriginal: Int? {
+        return (cartCombinations?.first?.price ?? 0) * (cartQuantityValue ?? 0)
+    }
+    
     var totalPriceCombinationCurrent: Int? {
         return (cartCombinations?.first?.currentPrice ?? 0) * (cartQuantityValue ?? 0)
     }
     
-    var totalPriceCombinationPrice: Int? {
-        return (cartCombinations?.first?.price ?? 0) * (cartQuantityValue ?? 0)
-    }
-    
     var cartQuantityValue: Int? {
         return (cartQuantity != nil) ? cartQuantity : cartCombinations?.first?.cartQuantity
+    }
+    
+    var quantityValue: Int? {
+        return (quantity != nil) ? quantity : cartCombinations?.first?.quantity
     }
     
     var selectedCombinationPrice: Int? {

@@ -197,7 +197,7 @@ class CachingService: NSObject {
         return nil
     }
     
-    static func getCombiinationsCartProducts() -> [String: [String: Int]]? {
+    static func getCombinationsCartProducts() -> [String: [String: Int]]? {
         if UserDefaults.standard.object(forKey: Constant.Keys.combinationsCartProducts) != nil {
             guard let decoded = UserDefaults.standard.object(forKey: Constant.Keys.combinationsCartProducts) as? Data else { return nil }
             do {

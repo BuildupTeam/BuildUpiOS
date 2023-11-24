@@ -114,8 +114,65 @@ extension RealTimeDatabaseService {
         getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
     }
     
+    static func addProductFromDetails(model: FirebaseProductModel) {
+        let defaultCartProducts = CachingService.getDefaultCartProducts() ?? [:]
+        let combinationCartProducts = CachingService.getCombinationsCartProducts() ?? [:]
+        
+        var quantity = model.quantity ?? 0
+        
+        if let combinationId = model.combinationId {
+            for productKey in combinationCartProducts.keys {
+                if productKey == model.uuid {
+                    let dict = combinationCartProducts[productKey]
+                    var quant = dict?["\(combinationId)"] ?? 0
+                    quantity += quant
+                    model.quantity = quantity
+                    getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                }
+            }
+        } else {
+            for productKey in defaultCartProducts.keys {
+                if productKey == model.uuid {
+                    print("found product key")
+                    let dict = defaultCartProducts[productKey]
+                    var quant = dict?["default"] ?? 0
+                    quantity += quant
+                    model.quantity = quantity
+                    getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                }
+            }
+        }
+    }
+    
     static func addProductModelFromCart(model: FirebaseProductModel) {
-        getCartNode()?.child(model.uuid ?? "").setValue(model.dict)
+//        getCartNode()?.child(model.uuid ?? "").setValue(model.dict)
+        let defaultCartProducts = CachingService.getDefaultCartProducts() ?? [:]
+        let combinationCartProducts = CachingService.getCombinationsCartProducts() ?? [:]
+        
+        var quantity = model.quantity ?? 0
+        
+        if let combinationId = model.combinationId {
+            for productKey in combinationCartProducts.keys {
+                if productKey == model.uuid {
+//                    let dict = combinationCartProducts[productKey]
+//                    var quant = dict?["\(combinationId)"] ?? 0
+//                    quantity += quant
+                    model.quantity = quantity
+                    getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                }
+            }
+        } else {
+            for productKey in defaultCartProducts.keys {
+                if productKey == model.uuid {
+                    print("found product key")
+//                    let dict = defaultCartProducts[productKey]
+//                    var quant = dict?["default"] ?? 0
+//                    quantity += quant
+                    model.quantity = quantity
+                    getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                }
+            }
+        }
     }
     
     static func removeProductModelFromCart(model: FirebaseProductModel) {

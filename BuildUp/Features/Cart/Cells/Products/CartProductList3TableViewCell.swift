@@ -129,8 +129,13 @@ extension CartProductList3TableViewCell {
     
     private func addToCartFirebase() {
         if let model = productModel {
-            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantityValue)
-            RealTimeDatabaseService.addProductModelFromCart(model: firebaseProductModel)
+            if let combinationModel = model.cartCombinations?.first {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: combinationModel.cartQuantity, combinationId: combinationModel.id)
+                RealTimeDatabaseService.addProductModelFromCart(model: firebaseProductModel)
+            } else {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
+                RealTimeDatabaseService.addProductModelFromCart(model: firebaseProductModel)
+            }
         }
     }
 }
@@ -143,6 +148,12 @@ extension CartProductList3TableViewCell {
                 if (quantity + 1 ) <= (model.maxAddedQuantity ?? 0) {
                     quantity += 1
                 }
+            }
+            
+            if let combinationModel = model.cartCombinations?.first {
+                model.cartCombinations?.first?.cartQuantity = quantity
+            } else {
+                model.cartQuantity = quantity
             }
             
             productQuantityLabel.text = String(quantity)
@@ -158,6 +169,12 @@ extension CartProductList3TableViewCell {
                 quantity -= 1
             }
             
+            if let combinationModel = model.cartCombinations?.first {
+                model.cartCombinations?.first?.cartQuantity = quantity
+            } else {
+                model.cartQuantity = quantity
+            }
+            
             productQuantityLabel.text = String(quantity)
             delegate?.quantityChanged(quantity: quantity, model: model)
             addToCartFirebase()
@@ -170,7 +187,7 @@ extension CartProductList3TableViewCell {
                 let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected, combinationId: combinationId)
                 RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
             } else {
-                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected)
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
                 RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
             }
             

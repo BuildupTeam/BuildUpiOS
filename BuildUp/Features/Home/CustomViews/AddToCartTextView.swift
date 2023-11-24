@@ -32,7 +32,7 @@ class AddToCartTextView: UIView {
         
         countLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         
-        if let quantity = productModel?.quantitySelected, quantity > 0 {
+        if let quantity = productModel?.cartQuantity, quantity > 0 {
             addToCartButton.hideView()
             counterContainerView.showView()
             countLabel.text = String(quantity)
@@ -60,29 +60,49 @@ class AddToCartTextView: UIView {
     
     private func addToCartFirebase() {
         if let model = productModel {
-            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected)
+            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
             RealTimeDatabaseService.addProductModel(model: firebaseProductModel)
         }
     }
     
-    @IBAction func plusButtonAction(_ sender: UIButton) {
-        if (productModel?.quantitySelected ?? 0) >= 1 {
-            
-            if ((productModel?.quantitySelected ?? 0) + 1 ) <= (productModel?.maxAddedQuantity ?? 0) {
-                productModel?.quantitySelected += 1
-            }
+    private func removeFromCartFirebase() {
+        if let model = productModel {
+            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
+            RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
         }
-        
-        countLabel.text = String(productModel?.quantitySelected ?? 0)
-        addToCartFirebase()
+    }
+    
+    @IBAction func plusButtonAction(_ sender: UIButton) {
+        if let model = productModel {
+            if var cartQuantity = model.cartQuantity {
+                if (cartQuantity + 1 ) <= (model.maxAddedQuantity ?? 0) {
+                    cartQuantity += 1
+                }
+            } else {
+                model.cartQuantity = 1
+            }
+            
+            countLabel.text = String(model.cartQuantity ?? 0)
+            addToCartFirebase()
+        }
     }
     
     @IBAction func minusButtonAction(_ sender: UIButton) {
-        if (productModel?.quantitySelected ?? 0) > 1 {
-            productModel?.quantitySelected -= 1
+        if let model = productModel {
+            if var cartQuantity = model.cartQuantity {
+                if (cartQuantity - 1 ) >= 1 {
+                    cartQuantity -= 1
+                    addToCartFirebase()
+                    addToCartButton.hideView()
+                    counterContainerView.showView()
+                } else {
+                    removeFromCartFirebase()
+                    addToCartButton.showView()
+                    counterContainerView.hideView()
+                }
+            }
+            
+            countLabel.text = String(model.cartQuantity ?? 0)
         }
-        
-        countLabel.text = String(productModel?.quantitySelected ?? 0)
-        addToCartFirebase()
     }
 }

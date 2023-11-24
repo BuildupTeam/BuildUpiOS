@@ -14,6 +14,7 @@ class ProductDetailsCombinationsModel: Mappable {
     var price: Int?
     var currentPrice: Int?
     var quantity: Int?
+    var cartQuantity: Int?
     
     required init?(map: Map) {
         

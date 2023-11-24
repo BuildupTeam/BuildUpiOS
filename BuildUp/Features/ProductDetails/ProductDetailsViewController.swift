@@ -167,7 +167,7 @@ extension ProductDetailsViewController {
                           animations: {
             self.subtotalViewHeightConstraint.constant = 137
         })
-        let subtotalPrice = (combinationModel.price ?? 0) * (self.viewModel.productModel?.quantitySelected ?? 0)
+        let subtotalPrice = (combinationModel.currentPrice ?? 0) * (combinationModel.cartQuantity ?? 0)
         subTotalPriceLabel.text = String(subtotalPrice) + L10n.ProductDetails.currency
     }
     
@@ -201,8 +201,15 @@ extension ProductDetailsViewController {
     
     private func addToCartFirebase() {
         if let model = viewModel.productModel {
-            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.quantitySelected, combinationId: model.selectedCombination?.id)
-            RealTimeDatabaseService.addProductModel(model: firebaseProductModel)
+            if let combinationModel = model.selectedCombination {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: combinationModel.cartQuantity, combinationId: combinationModel.id)
+                RealTimeDatabaseService.addProductFromDetails(model: firebaseProductModel)
+            } else {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity, combinationId: model.selectedCombination?.id)
+                RealTimeDatabaseService.addProductFromDetails(model: firebaseProductModel)
+            }
+            
+            
         }
     }
     
@@ -220,10 +227,15 @@ extension ProductDetailsViewController {
 
 // MARK: - ProductDetailsQuantityDropDown
 extension ProductDetailsViewController: ProductDetailsQuantityDelegate {
-    func qunatitySelected(quantity: Int) {
-        self.viewModel.productModel?.quantitySelected = quantity
-        self.viewModel.productModel?.subtotalPrice = (self.viewModel.productModel?.currentPrice ?? 0) * quantity
-        subTotalPriceLabel.text = String((self.viewModel.productModel?.currentPrice ?? 0) * quantity) + L10n.ProductDetails.currency
+    func qunatitySelected(quantity: Int, model: ProductModel) {
+        self.viewModel.productModel = model
+
+        if let combination = model.selectedCombination {
+            subTotalPriceLabel.text = String((combination.currentPrice ?? 0) * quantity) + L10n.ProductDetails.currency
+        } else {
+            subTotalPriceLabel.text = String((model.currentPrice ?? 0) * quantity) + L10n.ProductDetails.currency
+        }
+        
         self.tableView.reloadData()
     }
 }
@@ -236,11 +248,16 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
         print("selectedOptionsValues = \(self.viewModel.selectedOptionsValues)")
         
         let combinationModel = self.viewModel.productModel?.selectedCombination
+        
         if let model = combinationModel {
             self.combinationModel = model
             self.viewModel.productModel?.currentPrice = model.currentPrice
             self.viewModel.productModel?.originalPrice = model.price
-            self.tableView.reloadSections([ProductDetailsSection.slider.rawValue], with: .none)
+            
+            self.viewModel.productModel?.selectedCombination?.cartQuantity = 1
+            self.viewModel.productModel?.cartCombinations?.first(where: { $0.id == combinationModel?.id })?.cartQuantity = 1
+            
+            self.tableView.reloadSections([ProductDetailsSection.slider.rawValue, ProductDetailsSection.quantity.rawValue], with: .none)
             activateQuantityView()
             setupAddToCartView(model)
         } else {

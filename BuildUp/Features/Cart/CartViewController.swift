@@ -210,8 +210,8 @@ extension CartViewController: CartProductListDelegate {
             if let products = cartModel.products {
                 for model in products {
                     if let combinations = model.combinations, !combinations.isEmpty {
-                        totalPriceOriginal += (model.totalPriceOriginal ?? 0)
-                        totalPriceCurrent += (model.totalPriceCurrent ?? 0)
+                        totalPriceOriginal += (model.totalPriceCombinationOriginal ?? 0)
+                        totalPriceCurrent += (model.totalPriceCombinationCurrent ?? 0)
                     } else {
                         totalPriceOriginal += (model.totalPriceOriginal ?? 0)
                         totalPriceCurrent += (model.totalPriceCurrent ?? 0)

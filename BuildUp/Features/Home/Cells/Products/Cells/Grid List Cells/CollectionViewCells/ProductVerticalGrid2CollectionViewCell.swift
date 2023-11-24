@@ -78,11 +78,11 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
             }
             
             if (model.discount ?? 0) > 0 {
-                productOldPriceLabel.isHidden = false
-                productOldPriceMarkedView.isHidden = false
+                productOldPriceLabel.showView()
+                productOldPriceMarkedView.showView()
             } else {
-                productOldPriceLabel.isHidden = true
-                productOldPriceMarkedView.isHidden = true
+                productOldPriceLabel.hideView()
+                productOldPriceMarkedView.hideView()
             }
         }
     }
