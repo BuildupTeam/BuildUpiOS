@@ -10,6 +10,8 @@ import UIKit
 class CartCheckout3View: UIView {
     @IBOutlet private weak var checkoutButton: UIButton!
     
+    weak var delegate: CartCheckoutDelegate?
+
     var cartModel: CartModel? {
         didSet {
             bindData()
@@ -31,5 +33,9 @@ class CartCheckout3View: UIView {
         if let model = cartModel {
             checkoutButton.setTitle("\(L10n.Cart.checkout) (\(L10n.Cart.currency + String(model.subtotal ?? 0)))", for: .normal)
         }
+    }
+    
+    @IBAction func checkoutAction(_ sender: UIButton) {
+        delegate?.checkoutButtonClicked()
     }
 }

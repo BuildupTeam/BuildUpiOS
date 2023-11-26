@@ -35,6 +35,12 @@ class RegisterNameTableViewCell: UITableViewCell {
         }
     }
     
+    var checkoutModel: CheckoutModel? {
+        didSet {
+            bindCheckoutData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -75,6 +81,14 @@ class RegisterNameTableViewCell: UITableViewCell {
     
     func bindData() {
         if let model = registerModel {
+            if let name = model.name {
+                self.textField.text = name
+            }
+        }
+    }
+    
+    func bindCheckoutData() {
+        if let model = checkoutModel {
             if let name = model.name {
                 self.textField.text = name
             }

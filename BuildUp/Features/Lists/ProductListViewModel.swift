@@ -39,9 +39,10 @@ class ProductListViewModel: BaseViewModel {
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                    guard let currentPage = Int(currentPageCompletion()) else { return }
+//                    guard let currentPage = Int(currentPageCompletion()) else { return }
                     if (response.meta?.currentPage ?? 0) == 1 {
-                        self.products = response.data ?? []
+                        //self.products = response.data ?? []
+                        self.products = self.getProductsWithCartQuantity(products: response.data ?? [])
                         self.onProducts?()
                     } else if (response.meta?.currentPage ?? 0) > 1 {
                         self.products.append(contentsOf: response.data ?? [])
@@ -69,9 +70,9 @@ class ProductListViewModel: BaseViewModel {
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                    guard let currentPage = Int(currentPageCompletion()) else { return }
                     if (response.meta?.currentPage ?? 0) == 1 {
-                        self.products = response.data ?? []
+                        //self.products = response.data ?? []
+                        self.products = self.getProductsWithCartQuantity(products: response.data ?? [])
                         self.onProducts?()
                     } else if (response.meta?.currentPage ?? 0) > 1 {
                         self.products.append(contentsOf: response.data ?? [])

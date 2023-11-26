@@ -171,5 +171,42 @@ class Coordinator {
             let viewController = SubdomainViewController(viewModel: viewModel)
             return viewController
         }
+        
+        class func createCheckoutShippingViewController(viewModel: CheckoutShippingViewModel = CheckoutShippingViewModel()) -> CheckoutShippingViewController {
+            let viewController = CheckoutShippingViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCheckoutPaymentViewController() -> CheckoutPaymentViewController {
+            let viewController = CheckoutPaymentViewController()
+            return viewController
+        }
+        
+        class func createCheckoutReviewViewController(viewModel: CheckoutReviewViewModel = CheckoutReviewViewModel()) -> CheckoutReviewViewController {
+            let viewController = CheckoutReviewViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCountiresViewController(viewModel: CountiresViewModel = CountiresViewModel()) -> CountriesViewController {
+            let viewController = CountriesViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCitiesViewController(countryModel: CountryModel? = nil
+                                              ,viewModel: CitiesViewModel = CitiesViewModel()) -> CitiesViewController {
+            viewModel.countryModel = countryModel
+            let viewController = CitiesViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createAddressesViewController(viewModel: AddressesViewModel = AddressesViewModel()) -> AddressesViewController {
+            let viewController = AddressesViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createAddNewAddressViewController(viewModel: AddNewAddressViewModel = AddNewAddressViewModel()) -> AddNewAddressViewController {
+            let viewController = AddNewAddressViewController(viewModel: viewModel)
+            return viewController
+        }
     }
 }

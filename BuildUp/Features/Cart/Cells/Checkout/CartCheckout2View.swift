@@ -12,6 +12,8 @@ class CartCheckout2View: UIView {
     @IBOutlet private weak var itemsCountLabel: UILabel!
     @IBOutlet private weak var subtotalLabel: UILabel!
     
+    weak var delegate: CartCheckoutDelegate?
+
     var cartModel: CartModel? {
         didSet {
             bindData()
@@ -38,5 +40,9 @@ class CartCheckout2View: UIView {
             subtotalLabel.text = L10n.Cart.currency + String(model.subtotal ?? 0)
             itemsCountLabel.text = L10n.Cart.items + " " + String(model.products?.count ?? 0)
         }
+    }
+    
+    @IBAction func checkoutAction(_ sender: UIButton) {
+        delegate?.checkoutButtonClicked()
     }
 }

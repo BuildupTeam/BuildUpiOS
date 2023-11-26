@@ -40,6 +40,11 @@ class CartViewController: BaseViewController {
         super.viewWillAppear(animated)
         getCart()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = " "
+    }
 
 }
 
@@ -110,6 +115,7 @@ extension CartViewController {
     private func setupCartCheckoutType1View() {
         cartCheckoutType1View = CartCheckout1View.instantiateFromNib()
         cartCheckoutType1View?.initialize()
+        cartCheckoutType1View?.delegate = self
         cartCheckoutType1View?.cartModel = self.viewModel.cartModel
         cartCheckoutType1View?.frame = CGRect(
             x: 0,
@@ -125,6 +131,7 @@ extension CartViewController {
     private func setupCartCheckoutType2View() {
         cartCheckoutType2View = CartCheckout2View.instantiateFromNib()
         cartCheckoutType2View?.initialize()
+        cartCheckoutType2View?.delegate = self
         cartCheckoutType2View?.cartModel = self.viewModel.cartModel
         cartCheckoutType2View?.frame = CGRect(
             x: 0,
@@ -140,6 +147,7 @@ extension CartViewController {
     private func setupCartCheckoutType3View() {
         cartCheckoutType3View = CartCheckout3View.instantiateFromNib()
         cartCheckoutType3View?.initialize()
+        cartCheckoutType3View?.delegate = self
         cartCheckoutType3View?.cartModel = self.viewModel.cartModel
         cartCheckoutType3View?.frame = CGRect(
             x: 0,
@@ -185,6 +193,7 @@ extension CartViewController {
     }
 }
 
+// MARK: - Products List Delegates
 extension CartViewController: CartProductListDelegate {
     func quantityChanged(quantity: Int, model: ProductModel) {
         if let index = self.viewModel.cartModel?.products?.firstIndex(where: { $0 == model }) {
@@ -222,5 +231,13 @@ extension CartViewController: CartProductListDelegate {
                 viewModel.cartModel?.subtotal = totalPriceCurrent
             }
         }
+    }
+}
+
+// MARK: - Checkout Button Delegates
+extension CartViewController: CartCheckoutDelegate {
+    func checkoutButtonClicked() {
+        let checkoutShippingVC = Coordinator.Controllers.createCheckoutShippingViewController()
+        self.navigationController?.pushViewController(checkoutShippingVC, animated: true)
     }
 }

@@ -33,6 +33,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var subtotalPrice = 0
     var descriptionIsExpaned = false
     var isFavorite = false
+    var hasCombinations: Bool?
     
     var totalPriceOriginal: Int? {
         return (originalPrice ?? 0) * (cartQuantityValue ?? 0)
@@ -94,6 +95,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
         cartCombinations <- map["combinations"]
         maxAddedQuantity <- map["max_added_quantity"]
         cartQuantity <- map["cart_quantity"]
+        hasCombinations <- map["has_combinations"]
     }
     
     override init() {

@@ -12,19 +12,20 @@ class MetaModel: Mappable {
     
     var currentPage: Int?
     var from: Int?
-    var totalPages: Int?
+    var lastPage: Int?
+    var to: Int?
     var perPage: Int?
-    var totalRecords: Int?
+    var total: Int?
     
     var totalCount: Int?
 
     func mapping(map: Map) {
         currentPage <- map["current_page"]
         from <- map["from"]
-        totalPages <- map["total_pages"]
-        perPage <- map["payload_size"]
-        totalRecords <- map["total"]
-        totalCount <- map["filter_count"]
+        to <- map["to"]
+        lastPage <- map["last_page"]
+        perPage <- map["per_page"]
+        total <- map["total"]
     }
     
     required init?(map: Map) {

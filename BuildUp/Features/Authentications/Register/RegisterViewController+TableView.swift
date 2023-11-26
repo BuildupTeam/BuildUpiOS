@@ -16,6 +16,7 @@ enum RegisterCells: Int {
     case confirmPassword
     
 }
+
 // MARK: Register TableView Cells
 extension RegisterViewController {
     func registerTableViewCells() {
