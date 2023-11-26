@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol CartCheckoutDelegate: AnyObject {
+    func checkoutButtonClicked()
+}
+
 class CartCheckout1View: UIView {
     @IBOutlet private weak var checkoutButton: UIButton!
     @IBOutlet private weak var subtotalTitleLabel: UILabel!
     @IBOutlet private weak var subtotalLabel: UILabel!
+    
+    weak var delegate: CartCheckoutDelegate?
     
     var cartModel: CartModel? {
         didSet {
@@ -40,5 +46,9 @@ class CartCheckout1View: UIView {
             subtotalLabel.text = L10n.Cart.currency + String(model.subtotal ?? 0)
             checkoutButton.setTitle("\(L10n.Cart.checkout) (\(model.products?.count ?? 0))", for: .normal)
         }
+    }
+    
+    @IBAction func checkoutAction(_ sender: UIButton) {
+        delegate?.checkoutButtonClicked()
     }
 }

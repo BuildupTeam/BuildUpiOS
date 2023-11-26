@@ -50,7 +50,7 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = productModel {
-            if let combinations = model.combinations, !combinations.isEmpty {
+            if model.hasCombinations ?? false {
                 addToCartView.isHidden = true
             } else {
                 addToCartView.isHidden = false

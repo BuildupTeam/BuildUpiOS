@@ -66,6 +66,157 @@ internal enum L10n {
         }
     }
 
+    internal enum Checkout {
+        /// Add New Address
+        internal static var addNewAddress: String {
+          return L10n.tr("Localizable", "checkout.addNewAddress")
+        }
+        /// Address
+        internal static var address: String {
+          return L10n.tr("Localizable", "checkout.address")
+        }
+        /// Addresses List
+        internal static var addresses: String {
+          return L10n.tr("Localizable", "checkout.addresses")
+        }
+        /// Cash on delivery
+        internal static var cashOnDelivery: String {
+          return L10n.tr("Localizable", "checkout.cashOnDelivery")
+        }
+        /// change
+        internal static var change: String {
+          return L10n.tr("Localizable", "checkout.change")
+        }
+        /// Choose payment method
+        internal static var choosePayment: String {
+          return L10n.tr("Localizable", "checkout.choosePayment")
+        }
+        /// Cities
+        internal static var cities: String {
+          return L10n.tr("Localizable", "checkout.cities")
+        }
+        /// City
+        internal static var city: String {
+          return L10n.tr("Localizable", "checkout.city")
+        }
+        /// Choose City
+        internal static var cityPlaceholder: String {
+          return L10n.tr("Localizable", "checkout.cityPlaceholder")
+        }
+        /// Contact Info
+        internal static var contactInfo: String {
+          return L10n.tr("Localizable", "checkout.contactInfo")
+        }
+        /// Continue
+        internal static var `continue`: String {
+          return L10n.tr("Localizable", "checkout.continue")
+        }
+        /// Countries
+        internal static var countries: String {
+          return L10n.tr("Localizable", "checkout.countries")
+        }
+        /// Country
+        internal static var country: String {
+          return L10n.tr("Localizable", "checkout.country")
+        }
+        /// Choose Country
+        internal static var countryPlaceholder: String {
+          return L10n.tr("Localizable", "checkout.countryPlaceholder")
+        }
+        /// Delivery
+        internal static var delivery: String {
+          return L10n.tr("Localizable", "checkout.delivery")
+        }
+        /// Delivery Info
+        internal static var deliveryInfo: String {
+          return L10n.tr("Localizable", "checkout.deliveryInfo")
+        }
+        /// Detailed Address
+        internal static var detailedAddress: String {
+          return L10n.tr("Localizable", "checkout.detailedAddress")
+        }
+        /// Write Your Detailed Address
+        internal static var detailedAddressPlaceholder: String {
+          return L10n.tr("Localizable", "checkout.detailedAddressPlaceholder")
+        }
+        /// Edit
+        internal static var edit: String {
+          return L10n.tr("Localizable", "checkout.edit")
+        }
+        /// Estimated VAT
+        internal static var estimatedVat: String {
+          return L10n.tr("Localizable", "checkout.estimatedVat")
+        }
+        /// Full Name
+        internal static var fullName: String {
+          return L10n.tr("Localizable", "checkout.fullName")
+        }
+        /// Mobile no.
+        internal static var mobile: String {
+          return L10n.tr("Localizable", "checkout.mobile")
+        }
+        /// Online Payement
+        internal static var onlinePayement: String {
+          return L10n.tr("Localizable", "checkout.onlinePayement")
+        }
+        /// Order Summery
+        internal static var orderSummery: String {
+          return L10n.tr("Localizable", "checkout.orderSummery")
+        }
+        /// Payment
+        internal static var payment: String {
+          return L10n.tr("Localizable", "checkout.payment")
+        }
+        /// Review
+        internal static var review: String {
+          return L10n.tr("Localizable", "checkout.review")
+        }
+        /// Shipping
+        internal static var shipping: String {
+          return L10n.tr("Localizable", "checkout.shipping")
+        }
+        /// Shipping Info
+        internal static var shippingInfo: String {
+          return L10n.tr("Localizable", "checkout.shippingInfo")
+        }
+        /// 1
+        internal static var step1: String {
+          return L10n.tr("Localizable", "checkout.step1")
+        }
+        /// 2
+        internal static var step2: String {
+          return L10n.tr("Localizable", "checkout.step2")
+        }
+        /// 3
+        internal static var step3: String {
+          return L10n.tr("Localizable", "checkout.step3")
+        }
+        /// Subtotal
+        internal static var subtotal: String {
+          return L10n.tr("Localizable", "checkout.subtotal")
+        }
+        /// Checkout
+        internal static var title: String {
+          return L10n.tr("Localizable", "checkout.title")
+        }
+        /// Update Address
+        internal static var updateAddress: String {
+          return L10n.tr("Localizable", "checkout.updateAddress")
+        }
+      internal enum Button {
+          /// Continue
+          internal static var `continue`: String {
+            return L10n.tr("Localizable", "checkout.button.continue")
+          }
+      }
+      internal enum Errors {
+          /// Please Choose Your Country First
+          internal static var selectCountryFirst: String {
+            return L10n.tr("Localizable", "checkout.errors.selectCountryFirst")
+          }
+      }
+    }
+
     internal enum EmptyScreen {
         /// No Data Found
         internal static var noData: String {

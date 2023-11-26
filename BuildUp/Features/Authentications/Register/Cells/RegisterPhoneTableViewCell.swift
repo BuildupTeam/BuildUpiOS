@@ -28,6 +28,12 @@ class RegisterPhoneTableViewCell: UITableViewCell {
         }
     }
     
+    var checkoutModel: CheckoutModel? {
+        didSet {
+            bindCheckoutData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -78,12 +84,26 @@ class RegisterPhoneTableViewCell: UITableViewCell {
         }
     }
     
+    func bindCheckoutData() {
+        if let model = checkoutModel {
+            if let flag = model.countryFlag {
+                self.countryFlagImageView.image = flag
+            }
+            if let phone = model.phone {
+                self.textField.text = phone
+            }
+        }
+    }
+    
     func isMobileNumberValid(phone: String) -> Bool {
-        let countryCode = registerModel?.countryCode ?? "+966"
+        var countryCode = registerModel?.countryCode
+        if countryCode == nil {
+            countryCode = checkoutModel?.countryCode
+        }
 
         let phoneNumberKit = PhoneNumberKit()
         do {
-            _ = try phoneNumberKit.parse(countryCode + phone)
+            _ = try phoneNumberKit.parse((countryCode ?? "") + phone)
             errorView.hideView()
             phoneContainerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
             return true

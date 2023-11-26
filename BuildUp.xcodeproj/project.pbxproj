@@ -71,6 +71,73 @@
 		3932B20F2B02874200283B3D /* ProductCombinationsOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B20D2B02874100283B3D /* ProductCombinationsOptionTableViewCell.swift */; };
 		3932B2102B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B20E2B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib */; };
 		3932B2122B0BB45400283B3D /* FirebaseFavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2112B0BB45400283B3D /* FirebaseFavoriteModel.swift */; };
+		3932B2162B11302500283B3D /* CheckoutShippingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2142B11302500283B3D /* CheckoutShippingViewController.swift */; };
+		3932B2172B11302500283B3D /* CheckoutShippingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2152B11302500283B3D /* CheckoutShippingViewController.xib */; };
+		3932B21A2B11303B00283B3D /* CheckoutPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2182B11303B00283B3D /* CheckoutPaymentViewController.swift */; };
+		3932B21B2B11303B00283B3D /* CheckoutPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2192B11303B00283B3D /* CheckoutPaymentViewController.xib */; };
+		3932B21E2B11305300283B3D /* CheckoutReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B21C2B11305300283B3D /* CheckoutReviewViewController.swift */; };
+		3932B21F2B11305300283B3D /* CheckoutReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B21D2B11305300283B3D /* CheckoutReviewViewController.xib */; };
+		3932B2242B11309800283B3D /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2222B11309800283B3D /* CitiesViewController.swift */; };
+		3932B2252B11309800283B3D /* CitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2232B11309800283B3D /* CitiesViewController.xib */; };
+		3932B2282B1130A400283B3D /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2262B1130A400283B3D /* CountriesViewController.swift */; };
+		3932B2292B1130A400283B3D /* CountriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2272B1130A400283B3D /* CountriesViewController.xib */; };
+		3932B22B2B1130B600283B3D /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B22A2B1130B600283B3D /* CitiesViewModel.swift */; };
+		3932B22D2B1130C500283B3D /* CountiresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B22C2B1130C500283B3D /* CountiresViewModel.swift */; };
+		3932B22F2B1130FD00283B3D /* CitiesWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B22E2B1130FD00283B3D /* CitiesWebServiceProtocol.swift */; };
+		3932B2312B11310C00283B3D /* CountriesWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2302B11310C00283B3D /* CountriesWebServiceProtocol.swift */; };
+		3932B2342B1134CF00283B3D /* CountriesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2332B1134CF00283B3D /* CountriesResponseModel.swift */; };
+		3932B2372B1134E600283B3D /* CitiesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2362B1134E600283B3D /* CitiesResponseModel.swift */; };
+		3932B2392B11350300283B3D /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2382B11350300283B3D /* CountryModel.swift */; };
+		3932B23B2B11350D00283B3D /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B23A2B11350D00283B3D /* CityModel.swift */; };
+		3932B2402B11359C00283B3D /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B23E2B11359B00283B3D /* CityTableViewCell.swift */; };
+		3932B2412B11359C00283B3D /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B23F2B11359B00283B3D /* CityTableViewCell.xib */; };
+		3932B2442B1135AC00283B3D /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2422B1135AC00283B3D /* CountryTableViewCell.swift */; };
+		3932B2452B1135AC00283B3D /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2432B1135AC00283B3D /* CountryTableViewCell.xib */; };
+		3932B2482B113ABC00283B3D /* CheckoutStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2472B113ABC00283B3D /* CheckoutStatusView.swift */; };
+		3932B24F2B11EF8A00283B3D /* CheckoutHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B24D2B11EF8A00283B3D /* CheckoutHeaderTableViewCell.swift */; };
+		3932B2502B11EF8A00283B3D /* CheckoutHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B24E2B11EF8A00283B3D /* CheckoutHeaderTableViewCell.xib */; };
+		3932B25B2B11F0E500283B3D /* CheckoutAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2592B11F0E500283B3D /* CheckoutAddressTableViewCell.swift */; };
+		3932B25C2B11F0E500283B3D /* CheckoutAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B25A2B11F0E500283B3D /* CheckoutAddressTableViewCell.xib */; };
+		3932B2612B126F1400283B3D /* AddNewAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B25F2B126F1400283B3D /* AddNewAddressViewController.swift */; };
+		3932B2622B126F1400283B3D /* AddNewAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2602B126F1400283B3D /* AddNewAddressViewController.xib */; };
+		3932B2662B126F2E00283B3D /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2642B126F2E00283B3D /* AddressesViewController.swift */; };
+		3932B2672B126F2E00283B3D /* AddressesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2652B126F2E00283B3D /* AddressesViewController.xib */; };
+		3932B2692B126F4700283B3D /* AddressesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2682B126F4700283B3D /* AddressesViewModel.swift */; };
+		3932B26B2B126F6500283B3D /* AddressesWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B26A2B126F6500283B3D /* AddressesWebServiceProtocol.swift */; };
+		3932B26D2B126FA500283B3D /* AddNewAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B26C2B126FA500283B3D /* AddNewAddressViewModel.swift */; };
+		3932B26F2B126FC200283B3D /* AddNewAddressWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B26E2B126FC200283B3D /* AddNewAddressWebServiceProtocol.swift */; };
+		3932B2742B12704300283B3D /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2722B12704300283B3D /* AddressTableViewCell.swift */; };
+		3932B2752B12704300283B3D /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2732B12704300283B3D /* AddressTableViewCell.xib */; };
+		3932B2782B12725700283B3D /* AddressesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2772B12725700283B3D /* AddressesResponseModel.swift */; };
+		3932B27A2B12726300283B3D /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2792B12726300283B3D /* AddressModel.swift */; };
+		3932B27C2B12776100283B3D /* RouteCountriesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B27B2B12776100283B3D /* RouteCountriesApi.swift */; };
+		3932B27E2B1277B100283B3D /* RouteCitiesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B27D2B1277B100283B3D /* RouteCitiesApi.swift */; };
+		3932B2812B127F1300283B3D /* AddNewAddressCountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B27F2B127F1300283B3D /* AddNewAddressCountryTableViewCell.swift */; };
+		3932B2822B127F1300283B3D /* AddNewAddressCountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2802B127F1300283B3D /* AddNewAddressCountryTableViewCell.xib */; };
+		3932B2852B127F2100283B3D /* AddNewAddressCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2832B127F2100283B3D /* AddNewAddressCityTableViewCell.swift */; };
+		3932B2862B127F2100283B3D /* AddNewAddressCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2842B127F2100283B3D /* AddNewAddressCityTableViewCell.xib */; };
+		3932B2892B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2872B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.swift */; };
+		3932B28A2B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2882B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.xib */; };
+		3932B28F2B12827400283B3D /* CheckoutShippingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B28E2B12827400283B3D /* CheckoutShippingViewModel.swift */; };
+		3932B2912B12829500283B3D /* CheckoutPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2902B12829500283B3D /* CheckoutPaymentViewModel.swift */; };
+		3932B2932B1282A100283B3D /* CheckoutReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2922B1282A100283B3D /* CheckoutReviewViewModel.swift */; };
+		3932B2952B12832B00283B3D /* CheckoutShippingWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2942B12832B00283B3D /* CheckoutShippingWebServiceProtocol.swift */; };
+		3932B2972B12833A00283B3D /* CheckoutPaymentWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2962B12833A00283B3D /* CheckoutPaymentWebServiceProtocol.swift */; };
+		3932B2992B12834500283B3D /* CheckoutReviewWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2982B12834500283B3D /* CheckoutReviewWebServiceProtocol.swift */; };
+		3932B29B2B12837A00283B3D /* RouteCheckoutShippingApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B29A2B12837A00283B3D /* RouteCheckoutShippingApi.swift */; };
+		3932B29F2B12839E00283B3D /* RouteCheckoutReviewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B29E2B12839E00283B3D /* RouteCheckoutReviewApi.swift */; };
+		3932B2A22B12897900283B3D /* CheckoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2A12B12897900283B3D /* CheckoutModel.swift */; };
+		3932B2A52B13479500283B3D /* CheckoutAddAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2A32B13479500283B3D /* CheckoutAddAddressTableViewCell.swift */; };
+		3932B2A62B13479500283B3D /* CheckoutAddAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2A42B13479500283B3D /* CheckoutAddAddressTableViewCell.xib */; };
+		3932B2A82B134F1C00283B3D /* RouteAddressesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2A72B134F1C00283B3D /* RouteAddressesApi.swift */; };
+		3932B2AA2B134F2D00283B3D /* RouteAddNewAddressApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2A92B134F2D00283B3D /* RouteAddNewAddressApi.swift */; };
+		3932B2AD2B13578600283B3D /* ShimmerCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2AB2B13578600283B3D /* ShimmerCityTableViewCell.swift */; };
+		3932B2AE2B13578600283B3D /* ShimmerCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2AC2B13578600283B3D /* ShimmerCityTableViewCell.xib */; };
+		3932B2B12B1358B200283B3D /* ShimmerCountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2AF2B1358B200283B3D /* ShimmerCountryTableViewCell.swift */; };
+		3932B2B22B1358B200283B3D /* ShimmerCountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2B02B1358B200283B3D /* ShimmerCountryTableViewCell.xib */; };
+		3932B2B52B135E1600283B3D /* ShimmerAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2B32B135E1600283B3D /* ShimmerAddressTableViewCell.swift */; };
+		3932B2B62B135E1600283B3D /* ShimmerAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932B2B42B135E1600283B3D /* ShimmerAddressTableViewCell.xib */; };
+		3932B2B82B13671200283B3D /* AddNewAddressViewController+Tableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932B2B72B13671200283B3D /* AddNewAddressViewController+Tableview.swift */; };
 		393613942AB47539007289DE /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393613922AB47539007289DE /* ProductsListViewController.swift */; };
 		393613952AB47539007289DE /* ProductsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393613932AB47539007289DE /* ProductsListViewController.xib */; };
 		393613972AB47561007289DE /* ProductListWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393613962AB47561007289DE /* ProductListWebServiceProtocol.swift */; };
@@ -533,6 +600,73 @@
 		3932B20D2B02874100283B3D /* ProductCombinationsOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCombinationsOptionTableViewCell.swift; sourceTree = "<group>"; };
 		3932B20E2B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCombinationsOptionTableViewCell.xib; sourceTree = "<group>"; };
 		3932B2112B0BB45400283B3D /* FirebaseFavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFavoriteModel.swift; sourceTree = "<group>"; };
+		3932B2142B11302500283B3D /* CheckoutShippingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingViewController.swift; sourceTree = "<group>"; };
+		3932B2152B11302500283B3D /* CheckoutShippingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutShippingViewController.xib; sourceTree = "<group>"; };
+		3932B2182B11303B00283B3D /* CheckoutPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPaymentViewController.swift; sourceTree = "<group>"; };
+		3932B2192B11303B00283B3D /* CheckoutPaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutPaymentViewController.xib; sourceTree = "<group>"; };
+		3932B21C2B11305300283B3D /* CheckoutReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutReviewViewController.swift; sourceTree = "<group>"; };
+		3932B21D2B11305300283B3D /* CheckoutReviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutReviewViewController.xib; sourceTree = "<group>"; };
+		3932B2222B11309800283B3D /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		3932B2232B11309800283B3D /* CitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitiesViewController.xib; sourceTree = "<group>"; };
+		3932B2262B1130A400283B3D /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
+		3932B2272B1130A400283B3D /* CountriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountriesViewController.xib; sourceTree = "<group>"; };
+		3932B22A2B1130B600283B3D /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
+		3932B22C2B1130C500283B3D /* CountiresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountiresViewModel.swift; sourceTree = "<group>"; };
+		3932B22E2B1130FD00283B3D /* CitiesWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesWebServiceProtocol.swift; sourceTree = "<group>"; };
+		3932B2302B11310C00283B3D /* CountriesWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesWebServiceProtocol.swift; sourceTree = "<group>"; };
+		3932B2332B1134CF00283B3D /* CountriesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesResponseModel.swift; sourceTree = "<group>"; };
+		3932B2362B1134E600283B3D /* CitiesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesResponseModel.swift; sourceTree = "<group>"; };
+		3932B2382B11350300283B3D /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		3932B23A2B11350D00283B3D /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		3932B23E2B11359B00283B3D /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		3932B23F2B11359B00283B3D /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2422B1135AC00283B3D /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2432B1135AC00283B3D /* CountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2472B113ABC00283B3D /* CheckoutStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutStatusView.swift; sourceTree = "<group>"; };
+		3932B24D2B11EF8A00283B3D /* CheckoutHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		3932B24E2B11EF8A00283B3D /* CheckoutHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2592B11F0E500283B3D /* CheckoutAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutAddressTableViewCell.swift; sourceTree = "<group>"; };
+		3932B25A2B11F0E500283B3D /* CheckoutAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutAddressTableViewCell.xib; sourceTree = "<group>"; };
+		3932B25F2B126F1400283B3D /* AddNewAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAddressViewController.swift; sourceTree = "<group>"; };
+		3932B2602B126F1400283B3D /* AddNewAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewAddressViewController.xib; sourceTree = "<group>"; };
+		3932B2642B126F2E00283B3D /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
+		3932B2652B126F2E00283B3D /* AddressesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressesViewController.xib; sourceTree = "<group>"; };
+		3932B2682B126F4700283B3D /* AddressesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewModel.swift; sourceTree = "<group>"; };
+		3932B26A2B126F6500283B3D /* AddressesWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesWebServiceProtocol.swift; sourceTree = "<group>"; };
+		3932B26C2B126FA500283B3D /* AddNewAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAddressViewModel.swift; sourceTree = "<group>"; };
+		3932B26E2B126FC200283B3D /* AddNewAddressWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAddressWebServiceProtocol.swift; sourceTree = "<group>"; };
+		3932B2722B12704300283B3D /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2732B12704300283B3D /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2772B12725700283B3D /* AddressesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesResponseModel.swift; sourceTree = "<group>"; };
+		3932B2792B12726300283B3D /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		3932B27B2B12776100283B3D /* RouteCountriesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCountriesApi.swift; sourceTree = "<group>"; };
+		3932B27D2B1277B100283B3D /* RouteCitiesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCitiesApi.swift; sourceTree = "<group>"; };
+		3932B27F2B127F1300283B3D /* AddNewAddressCountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAddressCountryTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2802B127F1300283B3D /* AddNewAddressCountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewAddressCountryTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2832B127F2100283B3D /* AddNewAddressCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAddressCityTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2842B127F2100283B3D /* AddNewAddressCityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewAddressCityTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2872B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAddressDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2882B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewAddressDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		3932B28E2B12827400283B3D /* CheckoutShippingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingViewModel.swift; sourceTree = "<group>"; };
+		3932B2902B12829500283B3D /* CheckoutPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPaymentViewModel.swift; sourceTree = "<group>"; };
+		3932B2922B1282A100283B3D /* CheckoutReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutReviewViewModel.swift; sourceTree = "<group>"; };
+		3932B2942B12832B00283B3D /* CheckoutShippingWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingWebServiceProtocol.swift; sourceTree = "<group>"; };
+		3932B2962B12833A00283B3D /* CheckoutPaymentWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPaymentWebServiceProtocol.swift; sourceTree = "<group>"; };
+		3932B2982B12834500283B3D /* CheckoutReviewWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutReviewWebServiceProtocol.swift; sourceTree = "<group>"; };
+		3932B29A2B12837A00283B3D /* RouteCheckoutShippingApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCheckoutShippingApi.swift; sourceTree = "<group>"; };
+		3932B29E2B12839E00283B3D /* RouteCheckoutReviewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCheckoutReviewApi.swift; sourceTree = "<group>"; };
+		3932B2A12B12897900283B3D /* CheckoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutModel.swift; sourceTree = "<group>"; };
+		3932B2A32B13479500283B3D /* CheckoutAddAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutAddAddressTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2A42B13479500283B3D /* CheckoutAddAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutAddAddressTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2A72B134F1C00283B3D /* RouteAddressesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAddressesApi.swift; sourceTree = "<group>"; };
+		3932B2A92B134F2D00283B3D /* RouteAddNewAddressApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAddNewAddressApi.swift; sourceTree = "<group>"; };
+		3932B2AB2B13578600283B3D /* ShimmerCityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCityTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2AC2B13578600283B3D /* ShimmerCityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerCityTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2AF2B1358B200283B3D /* ShimmerCountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCountryTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2B02B1358B200283B3D /* ShimmerCountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerCountryTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2B32B135E1600283B3D /* ShimmerAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerAddressTableViewCell.swift; sourceTree = "<group>"; };
+		3932B2B42B135E1600283B3D /* ShimmerAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerAddressTableViewCell.xib; sourceTree = "<group>"; };
+		3932B2B72B13671200283B3D /* AddNewAddressViewController+Tableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewAddressViewController+Tableview.swift"; sourceTree = "<group>"; };
 		393613922AB47539007289DE /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
 		393613932AB47539007289DE /* ProductsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsListViewController.xib; sourceTree = "<group>"; };
 		393613962AB47561007289DE /* ProductListWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListWebServiceProtocol.swift; sourceTree = "<group>"; };
@@ -1313,6 +1447,7 @@
 		393174522A19197500AF64BC /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				3932B2132B112F9500283B3D /* Checkout */,
 				39F9D0F82AD74488007BB6B9 /* SubdomainView */,
 				3999AA552ACD86D3007D0ACB /* EmptyScreens */,
 				39C91A3D2ABA3B1000C10C16 /* CategoriesTab */,
@@ -1346,9 +1481,214 @@
 			path = ProductOptions;
 			sourceTree = "<group>";
 		};
+		3932B2132B112F9500283B3D /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2A02B12896800283B3D /* Model */,
+				3932B25D2B126EC400283B3D /* Addresses */,
+				3932B2212B11308900283B3D /* Cities */,
+				3932B2202B11308100283B3D /* Countries */,
+				3932B2462B113A8E00283B3D /* StatusView */,
+				3932B28B2B12820E00283B3D /* ShippingStep */,
+				3932B28C2B12821500283B3D /* PaymentStep */,
+				3932B28D2B12821E00283B3D /* ReviewStep */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		3932B2202B11308100283B3D /* Countries */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2322B1134BD00283B3D /* Model */,
+				3932B23D2B11358800283B3D /* Cells */,
+				3932B2262B1130A400283B3D /* CountriesViewController.swift */,
+				3932B2272B1130A400283B3D /* CountriesViewController.xib */,
+				3932B22C2B1130C500283B3D /* CountiresViewModel.swift */,
+				3932B2302B11310C00283B3D /* CountriesWebServiceProtocol.swift */,
+			);
+			path = Countries;
+			sourceTree = "<group>";
+		};
+		3932B2212B11308900283B3D /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2352B1134D400283B3D /* Model */,
+				3932B23C2B11357E00283B3D /* Cells */,
+				3932B2222B11309800283B3D /* CitiesViewController.swift */,
+				3932B2232B11309800283B3D /* CitiesViewController.xib */,
+				3932B22A2B1130B600283B3D /* CitiesViewModel.swift */,
+				3932B22E2B1130FD00283B3D /* CitiesWebServiceProtocol.swift */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
+		3932B2322B1134BD00283B3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2332B1134CF00283B3D /* CountriesResponseModel.swift */,
+				3932B2382B11350300283B3D /* CountryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3932B2352B1134D400283B3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2362B1134E600283B3D /* CitiesResponseModel.swift */,
+				3932B23A2B11350D00283B3D /* CityModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3932B23C2B11357E00283B3D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3932B23E2B11359B00283B3D /* CityTableViewCell.swift */,
+				3932B23F2B11359B00283B3D /* CityTableViewCell.xib */,
+				3932B2AB2B13578600283B3D /* ShimmerCityTableViewCell.swift */,
+				3932B2AC2B13578600283B3D /* ShimmerCityTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3932B23D2B11358800283B3D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2422B1135AC00283B3D /* CountryTableViewCell.swift */,
+				3932B2432B1135AC00283B3D /* CountryTableViewCell.xib */,
+				3932B2AF2B1358B200283B3D /* ShimmerCountryTableViewCell.swift */,
+				3932B2B02B1358B200283B3D /* ShimmerCountryTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3932B2462B113A8E00283B3D /* StatusView */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2472B113ABC00283B3D /* CheckoutStatusView.swift */,
+			);
+			path = StatusView;
+			sourceTree = "<group>";
+		};
+		3932B24C2B11EF6600283B3D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3932B24D2B11EF8A00283B3D /* CheckoutHeaderTableViewCell.swift */,
+				3932B24E2B11EF8A00283B3D /* CheckoutHeaderTableViewCell.xib */,
+				3932B2592B11F0E500283B3D /* CheckoutAddressTableViewCell.swift */,
+				3932B25A2B11F0E500283B3D /* CheckoutAddressTableViewCell.xib */,
+				3932B2A32B13479500283B3D /* CheckoutAddAddressTableViewCell.swift */,
+				3932B2A42B13479500283B3D /* CheckoutAddAddressTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3932B25D2B126EC400283B3D /* Addresses */ = {
+			isa = PBXGroup;
+			children = (
+				3932B25E2B126ECD00283B3D /* AddNewAddress */,
+				3932B2712B12702A00283B3D /* Cell */,
+				3932B2702B12701E00283B3D /* Model */,
+				3932B2642B126F2E00283B3D /* AddressesViewController.swift */,
+				3932B2652B126F2E00283B3D /* AddressesViewController.xib */,
+				3932B2682B126F4700283B3D /* AddressesViewModel.swift */,
+				3932B26A2B126F6500283B3D /* AddressesWebServiceProtocol.swift */,
+			);
+			path = Addresses;
+			sourceTree = "<group>";
+		};
+		3932B25E2B126ECD00283B3D /* AddNewAddress */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2762B12704E00283B3D /* Cell */,
+				3932B25F2B126F1400283B3D /* AddNewAddressViewController.swift */,
+				3932B2B72B13671200283B3D /* AddNewAddressViewController+Tableview.swift */,
+				3932B2602B126F1400283B3D /* AddNewAddressViewController.xib */,
+				3932B26C2B126FA500283B3D /* AddNewAddressViewModel.swift */,
+				3932B26E2B126FC200283B3D /* AddNewAddressWebServiceProtocol.swift */,
+			);
+			path = AddNewAddress;
+			sourceTree = "<group>";
+		};
+		3932B2702B12701E00283B3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2772B12725700283B3D /* AddressesResponseModel.swift */,
+				3932B2792B12726300283B3D /* AddressModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3932B2712B12702A00283B3D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2722B12704300283B3D /* AddressTableViewCell.swift */,
+				3932B2732B12704300283B3D /* AddressTableViewCell.xib */,
+				3932B2B32B135E1600283B3D /* ShimmerAddressTableViewCell.swift */,
+				3932B2B42B135E1600283B3D /* ShimmerAddressTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3932B2762B12704E00283B3D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3932B27F2B127F1300283B3D /* AddNewAddressCountryTableViewCell.swift */,
+				3932B2802B127F1300283B3D /* AddNewAddressCountryTableViewCell.xib */,
+				3932B2832B127F2100283B3D /* AddNewAddressCityTableViewCell.swift */,
+				3932B2842B127F2100283B3D /* AddNewAddressCityTableViewCell.xib */,
+				3932B2872B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.swift */,
+				3932B2882B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3932B28B2B12820E00283B3D /* ShippingStep */ = {
+			isa = PBXGroup;
+			children = (
+				3932B24C2B11EF6600283B3D /* Cells */,
+				3932B2142B11302500283B3D /* CheckoutShippingViewController.swift */,
+				3932B2152B11302500283B3D /* CheckoutShippingViewController.xib */,
+				3932B28E2B12827400283B3D /* CheckoutShippingViewModel.swift */,
+				3932B2942B12832B00283B3D /* CheckoutShippingWebServiceProtocol.swift */,
+			);
+			path = ShippingStep;
+			sourceTree = "<group>";
+		};
+		3932B28C2B12821500283B3D /* PaymentStep */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2182B11303B00283B3D /* CheckoutPaymentViewController.swift */,
+				3932B2192B11303B00283B3D /* CheckoutPaymentViewController.xib */,
+				3932B2902B12829500283B3D /* CheckoutPaymentViewModel.swift */,
+				3932B2962B12833A00283B3D /* CheckoutPaymentWebServiceProtocol.swift */,
+			);
+			path = PaymentStep;
+			sourceTree = "<group>";
+		};
+		3932B28D2B12821E00283B3D /* ReviewStep */ = {
+			isa = PBXGroup;
+			children = (
+				3932B21C2B11305300283B3D /* CheckoutReviewViewController.swift */,
+				3932B21D2B11305300283B3D /* CheckoutReviewViewController.xib */,
+				3932B2922B1282A100283B3D /* CheckoutReviewViewModel.swift */,
+				3932B2982B12834500283B3D /* CheckoutReviewWebServiceProtocol.swift */,
+			);
+			path = ReviewStep;
+			sourceTree = "<group>";
+		};
+		3932B2A02B12896800283B3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3932B2A12B12897900283B3D /* CheckoutModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		393613912AB474CA007289DE /* Lists */ = {
 			isa = PBXGroup;
 			children = (
+				39C91A1C2AB8D39B00C10C16 /* CategroiesList */,
 				393613AC2AB4EA2A007289DE /* Products */,
 				393613982AB47575007289DE /* ProductListViewModel.swift */,
 				393613962AB47561007289DE /* ProductListWebServiceProtocol.swift */,
@@ -1381,7 +1721,6 @@
 				393613922AB47539007289DE /* ProductsListViewController.swift */,
 				393613A42AB48671007289DE /* ProductsListViewController+TableView.swift */,
 				393613932AB47539007289DE /* ProductsListViewController.xib */,
-				39C91A1C2AB8D39B00C10C16 /* CategroiesList */,
 			);
 			path = ListProducts;
 			sourceTree = "<group>";
@@ -2055,6 +2394,12 @@
 				39C91A252AB8E34600C10C16 /* RouteCategoriesListApi.swift */,
 				3999AA4E2AC4A4D8007D0ACB /* RouteCartApis.swift */,
 				39821FB82AFA983100388254 /* RouteLogoutApi.swift */,
+				3932B27B2B12776100283B3D /* RouteCountriesApi.swift */,
+				3932B27D2B1277B100283B3D /* RouteCitiesApi.swift */,
+				3932B29A2B12837A00283B3D /* RouteCheckoutShippingApi.swift */,
+				3932B29E2B12839E00283B3D /* RouteCheckoutReviewApi.swift */,
+				3932B2A72B134F1C00283B3D /* RouteAddressesApi.swift */,
+				3932B2A92B134F2D00283B3D /* RouteAddNewAddressApi.swift */,
 			);
 			path = "End Points";
 			sourceTree = "<group>";
@@ -2486,10 +2831,12 @@
 				39AE9CAA2AA23A250075E99F /* RecommentedProductsType2TableViewCell.xib in Resources */,
 				395D3BF42A9AAFA600DA9859 /* ProductDetailsSliderType3CollectionViewCell.xib in Resources */,
 				39D077D12AF196FC00867C87 /* loading.json in Resources */,
+				3932B21B2B11303B00283B3D /* CheckoutPaymentViewController.xib in Resources */,
 				3999AA772AD1BFF8007D0ACB /* Poppins-Black.ttf in Resources */,
 				395D3B952A977B4300DA9859 /* ProductVerticalList1InnerTableViewCell.xib in Resources */,
 				393B2FA32AEFDC3100827026 /* RegisterPasswordTableViewCell.xib in Resources */,
 				393174282A19134D00AF64BC /* LaunchScreen.storyboard in Resources */,
+				3932B2412B11359C00283B3D /* CityTableViewCell.xib in Resources */,
 				3921FCE42AAB9ED10019CCC2 /* ShimmerProductDetailsVariantsTableViewCell.xib in Resources */,
 				39730D312AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.xib in Resources */,
 				395D3BEC2A9AAF8600DA9859 /* ProductDetailsSliderType1CollectionViewCell.xib in Resources */,
@@ -2500,17 +2847,21 @@
 				39152A062A34945D007F7E09 /* ProductVerticalGrid1CollectionViewCell.xib in Resources */,
 				393613952AB47539007289DE /* ProductsListViewController.xib in Resources */,
 				395D3BCA2A9A2A0300DA9859 /* ProductDetailsSliderType3TableViewCell.xib in Resources */,
+				3932B2292B1130A400283B3D /* CountriesViewController.xib in Resources */,
 				39AE9CA62AA23A1A0075E99F /* RecommentedProductsType1TableViewCell.xib in Resources */,
 				3999AA742AD1BFE5007D0ACB /* Montserrat-Regular.ttf in Resources */,
 				39152A0E2A349474007F7E09 /* ProductVerticalGrid3CollectionViewCell.xib in Resources */,
 				39AC982B2AEF0EF600CDEB2A /* RegisterViewController.xib in Resources */,
+				3932B2172B11302500283B3D /* CheckoutShippingViewController.xib in Resources */,
 				3999AA582ACD8717007D0ACB /* EmptyScreenView.xib in Resources */,
+				3932B28A2B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.xib in Resources */,
 				393613D82AB79EFC007289DE /* CategoryDetailsCoverPhoto2.xib in Resources */,
 				395D3BD62A9A2A3B00DA9859 /* ProductDetailsAddToCartType3TableViewCell.xib in Resources */,
 				395D3BC22A9A29ED00DA9859 /* ProductDetailsSliderType1TableViewCell.xib in Resources */,
 				3990073F2AC0C72F002F6938 /* GoogleService-Info.plist in Resources */,
 				395D3B992A977B5D00DA9859 /* ProductVerticalList2InnerTableViewCell.xib in Resources */,
 				39730D3E2AA213410088C9ED /* ProductDetailsVariants2CollectionViewCell.xib in Resources */,
+				3932B2AE2B13578600283B3D /* ShimmerCityTableViewCell.xib in Resources */,
 				39C6C4AC2A3CC9CA00F11A6F /* CategoriesHorizontalList1TableViewCell.xib in Resources */,
 				39CE76D52A2F95460019A485 /* SettingsViewController.xib in Resources */,
 				39152A0A2A34946A007F7E09 /* ProductVerticalGrid2CollectionViewCell.xib in Resources */,
@@ -2526,6 +2877,7 @@
 				39C6C4BE2A3CDFCD00F11A6F /* CategoriesVerticalGrid1TableViewCell.xib in Resources */,
 				39EF7F3B2A39BC5F003E7641 /* ProductVerticalGrid4TableViewCell.xib in Resources */,
 				3990072E2ABDB618002F6938 /* CartProductList3TableViewCell.xib in Resources */,
+				3932B2252B11309800283B3D /* CitiesViewController.xib in Resources */,
 				390E6D6D2A903289009ECC00 /* ShimmerProductVerticalGrid5CollectionViewCell.xib in Resources */,
 				39AE9CA22AA239FD0075E99F /* RecommentedProductsType1CollectionViewCell.xib in Resources */,
 				3921FCE92AABA0800019CCC2 /* ShimmerProductDetailsQuantityTableViewCell.xib in Resources */,
@@ -2540,11 +2892,13 @@
 				393613AB2AB4EA1E007289DE /* ProductsGridViewController.xib in Resources */,
 				393613B52AB52217007289DE /* CategoryDetailsListViewController.xib in Resources */,
 				39730D4C2AA236BF0088C9ED /* ProductSpecificationsTableViewCell.xib in Resources */,
+				3932B2622B126F1400283B3D /* AddNewAddressViewController.xib in Resources */,
 				39152A002A348AAB007F7E09 /* ProductVerticalGrid3TableViewCell.xib in Resources */,
 				390E6D692A90327A009ECC00 /* ShimmerProductVerticalGrid4CollectionViewCell.xib in Resources */,
 				3999AA732AD1BFE5007D0ACB /* Montserrat-Light.ttf in Resources */,
 				393B2F972AEFDC0200827026 /* RegisterEmailTableViewCell.xib in Resources */,
 				3999AA722AD1BFE5007D0ACB /* Montserrat-Black.ttf in Resources */,
+				3932B2822B127F1300283B3D /* AddNewAddressCountryTableViewCell.xib in Resources */,
 				3999AA7E2AD1BFFB007D0ACB /* Poppins-Bold.ttf in Resources */,
 				39C6C4B62A3CDCC000F11A6F /* CategoriesHorizontalList2CollectionViewCell.xib in Resources */,
 				3999AA7D2AD1BFFB007D0ACB /* Poppins-ExtraBold.ttf in Resources */,
@@ -2554,10 +2908,12 @@
 				39C6C4E42A45C10A00F11A6F /* CategoriesHorizontalList3TableViewCell.xib in Resources */,
 				395D3BC62A9A29F800DA9859 /* ProductDetailsSliderType2TableViewCell.xib in Resources */,
 				395D3B9D2A977B6C00DA9859 /* ProductVerticalList3InnerTableViewCell.xib in Resources */,
+				3932B25C2B11F0E500283B3D /* CheckoutAddressTableViewCell.xib in Resources */,
 				39C6C4E02A3DD9B200F11A6F /* BannerType3TableViewCell.xib in Resources */,
 				39C6C4CA2A3CE08700F11A6F /* CategoriesVerticalGrid3CollectionViewCell.xib in Resources */,
 				393B2F9F2AEFDC2300827026 /* RegisterNameTableViewCell.xib in Resources */,
 				39821FC22AFE651700388254 /* ShimmerCartTableViewCell.xib in Resources */,
+				3932B2A62B13479500283B3D /* CheckoutAddAddressTableViewCell.xib in Resources */,
 				39DD4DF72AF2C375009D3CEF /* ResetPasswordViewController.xib in Resources */,
 				395D3BAD2A995CAB00DA9859 /* ShimmerCategoriesVerticalGrid2CollectionViewCell.xib in Resources */,
 				395D3BD22A9A2A3000DA9859 /* ProductDetailsAddToCartType2TableViewCell.xib in Resources */,
@@ -2573,14 +2929,19 @@
 				3932B2102B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib in Resources */,
 				3999AA6F2AD1BFE5007D0ACB /* Montserrat-Thin.ttf in Resources */,
 				39BA0B432AA3BCFB008001F7 /* ShimmerProductDetailsSilderTableViewCell.xib in Resources */,
+				3932B2862B127F2100283B3D /* AddNewAddressCityTableViewCell.xib in Resources */,
 				39BA0B562AA60A08008001F7 /* ProductDetailsQuantityDropDownTableViewCell.xib in Resources */,
+				3932B2752B12704300283B3D /* AddressTableViewCell.xib in Resources */,
 				39BA0B4E2AA53E19008001F7 /* ProductDetailsQuantityCircleTableViewCell.xib in Resources */,
+				3932B2502B11EF8A00283B3D /* CheckoutHeaderTableViewCell.xib in Resources */,
 				39C91A202AB8D80400C10C16 /* CategoriesListViewController.xib in Resources */,
 				395D3BA92A995CA000DA9859 /* ShimmerCategoriesVerticalGrid1CollectionViewCell.xib in Resources */,
 				393613D42AB79017007289DE /* CategoryDetailsCoverPhoto1.xib in Resources */,
 				39EF7F3F2A39BC76003E7641 /* ProductVerticalGrid5TableViewCell.xib in Resources */,
 				390E6D652A90318C009ECC00 /* ShimmerProductVerticalGrid2CollectionViewCell.xib in Resources */,
+				3932B21F2B11305300283B3D /* CheckoutReviewViewController.xib in Resources */,
 				399007222ABDB59C002F6938 /* CartSummeryTableViewCell.xib in Resources */,
+				3932B2B22B1358B200283B3D /* ShimmerCountryTableViewCell.xib in Resources */,
 				39DD4DF32AF2C35A009D3CEF /* ForgetPasswordViewController.xib in Resources */,
 				39C6C4C62A3CE04400F11A6F /* CategoriesVerticalGrid2CollectionViewCell.xib in Resources */,
 				3990073A2ABDB68A002F6938 /* CartCheckout3View.xib in Resources */,
@@ -2592,6 +2953,7 @@
 				39C91A342ABA3A6100C10C16 /* CartViewController.xib in Resources */,
 				3921FCED2AAC04460019CCC2 /* ProductDetailsVariants3InnerTableViewCell.xib in Resources */,
 				39C6C4DC2A3DD9A500F11A6F /* BannerType2TableViewCell.xib in Resources */,
+				3932B2B62B135E1600283B3D /* ShimmerAddressTableViewCell.xib in Resources */,
 				39C91A2D2ABA39DD00C10C16 /* ProfileViewController.xib in Resources */,
 				39C91A3C2ABA3B0900C10C16 /* CategoriesTabViewController.xib in Resources */,
 				39730D3A2AA213370088C9ED /* ProductDetailsVariants1CollectionViewCell.xib in Resources */,
@@ -2604,10 +2966,12 @@
 				39C6C4D82A3DD99500F11A6F /* BannerType1TableViewCell.xib in Resources */,
 				399007262ABDB5F9002F6938 /* CartProductList1TableViewCell.xib in Resources */,
 				3982F5E62A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib in Resources */,
+				3932B2452B1135AC00283B3D /* CountryTableViewCell.xib in Resources */,
 				3999AA7A2AD1BFFB007D0ACB /* Poppins-Thin.ttf in Resources */,
 				399007362ABDB664002F6938 /* CartCheckout2View.xib in Resources */,
 				39730D472AA2354E0088C9ED /* ProductDetailsSizeChartTableViewCell.xib in Resources */,
 				39C6C4D22A3CE0A800F11A6F /* CategoriesVerticalGrid3TableViewCell.xib in Resources */,
+				3932B2672B126F2E00283B3D /* AddressesViewController.xib in Resources */,
 				3999AA712AD1BFE5007D0ACB /* Montserrat-Bold.ttf in Resources */,
 				3990072A2ABDB60A002F6938 /* CartProductList2TableViewCell.xib in Resources */,
 				393174252A19134D00AF64BC /* Assets.xcassets in Resources */,
@@ -2801,6 +3165,8 @@
 				39CE76942A2F61170019A485 /* UIlabel+Extensions.swift in Sources */,
 				39BA0B422AA3BCFB008001F7 /* ShimmerProductDetailsSilderTableViewCell.swift in Sources */,
 				395D3BC12A9A29ED00DA9859 /* ProductDetailsSliderType1TableViewCell.swift in Sources */,
+				3932B2372B1134E600283B3D /* CitiesResponseModel.swift in Sources */,
+				3932B2612B126F1400283B3D /* AddNewAddressViewController.swift in Sources */,
 				39F9D1132AD74EC6007BB6B9 /* ToggleTorchButton.swift in Sources */,
 				39AE9CA52AA23A1A0075E99F /* RecommentedProductsType1TableViewCell.swift in Sources */,
 				3919386E2A9558EA004D3B67 /* HomeHeaderTableViewCell.swift in Sources */,
@@ -2809,14 +3175,19 @@
 				39CE76AD2A2F61CE0019A485 /* JsonStringService.swift in Sources */,
 				39CE76AC2A2F61CE0019A485 /* ErrorResult.swift in Sources */,
 				39CE76AB2A2F61CE0019A485 /* MainWebService.swift in Sources */,
+				3932B2952B12832B00283B3D /* CheckoutShippingWebServiceProtocol.swift in Sources */,
+				3932B2892B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.swift in Sources */,
 				39AE9CA12AA239FD0075E99F /* RecommentedProductsType1CollectionViewCell.swift in Sources */,
 				393613B42AB52217007289DE /* CategoryDetailsListViewController.swift in Sources */,
+				3932B2B82B13671200283B3D /* AddNewAddressViewController+Tableview.swift in Sources */,
 				39CE76E52A2F95C20019A485 /* AdsResponseModel.swift in Sources */,
 				39F583762A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.swift in Sources */,
+				3932B2782B12725700283B3D /* AddressesResponseModel.swift in Sources */,
 				390E6D6F2A903500009ECC00 /* ColorPaletteModel.swift in Sources */,
 				39F9D1122AD74EC6007BB6B9 /* SwitchCameraButton.swift in Sources */,
 				39152A0D2A349474007F7E09 /* ProductVerticalGrid3CollectionViewCell.swift in Sources */,
 				39CE769E2A2F61750019A485 /* PersistanceManager.swift in Sources */,
+				3932B2662B126F2E00283B3D /* AddressesViewController.swift in Sources */,
 				39DD4E022AF30DD3009D3CEF /* ForgetPasswordResponseModel.swift in Sources */,
 				395D3BB52A9A1B6D00DA9859 /* ProductDetailsViewController.swift in Sources */,
 				395D3BF32A9AAFA600DA9859 /* ProductDetailsSliderType3CollectionViewCell.swift in Sources */,
@@ -2832,6 +3203,7 @@
 				39C91A1F2AB8D80400C10C16 /* CategoriesListViewController.swift in Sources */,
 				3921FCDD2AAB98300019CCC2 /* ProductDetailsCombinationsModel.swift in Sources */,
 				39F9D10F2AD74EC6007BB6B9 /* QRCodeReaderViewControllerBuilder.swift in Sources */,
+				3932B28F2B12827400283B3D /* CheckoutShippingViewModel.swift in Sources */,
 				39CE768E2A2F61170019A485 /* UIDevice+JailBroken.swift in Sources */,
 				395D3BE72A9A2DC800DA9859 /* ProductDetailsResponseModel.swift in Sources */,
 				399007382ABDB67B002F6938 /* CartCheckout3View.swift in Sources */,
@@ -2852,6 +3224,7 @@
 				39A2DD902A6BFEB3005B52FD /* ProductModel.swift in Sources */,
 				39CE76932A2F61170019A485 /* UIFont+Extensions.swift in Sources */,
 				395D3BC92A9A2A0300DA9859 /* ProductDetailsSliderType3TableViewCell.swift in Sources */,
+				3932B2AA2B134F2D00283B3D /* RouteAddNewAddressApi.swift in Sources */,
 				399007252ABDB5F9002F6938 /* CartProductList1TableViewCell.swift in Sources */,
 				39DD4DFB2AF2C638009D3CEF /* ForgetPasswordViewModel.swift in Sources */,
 				3950B0AC2A6AE71600E27111 /* ComponentEnglishTranslationModel.swift in Sources */,
@@ -2864,6 +3237,7 @@
 				391529F72A348A8C007F7E09 /* ProductVerticalGrid1TableViewCell.swift in Sources */,
 				393613BA2AB52278007289DE /* CategoryDetailsGridViewController.swift in Sources */,
 				39730D4B2AA236BF0088C9ED /* ProductSpecificationsTableViewCell.swift in Sources */,
+				3932B2392B11350300283B3D /* CountryModel.swift in Sources */,
 				3990072D2ABDB618002F6938 /* CartProductList3TableViewCell.swift in Sources */,
 				39DD4DF22AF2C35A009D3CEF /* ForgetPasswordViewController.swift in Sources */,
 				39AE9C9D2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.swift in Sources */,
@@ -2880,6 +3254,7 @@
 				39CE76882A2F61170019A485 /* UIImageView+Extensions.swift in Sources */,
 				3950B0A22A6ABFF500E27111 /* PageConfigurationModel.swift in Sources */,
 				39EF7F512A39C165003E7641 /* ProductHorizontalList1TableViewCell.swift in Sources */,
+				3932B2482B113ABC00283B3D /* CheckoutStatusView.swift in Sources */,
 				39CE76962A2F61170019A485 /* Array+Extensions.swift in Sources */,
 				39F583672A7A6CE20060C4E1 /* HomeViewController+TableView.swift in Sources */,
 				39CE76EB2A2F965A0019A485 /* UserModel.swift in Sources */,
@@ -2888,14 +3263,19 @@
 				39CE769D2A2F61750019A485 /* LauncherViewController.swift in Sources */,
 				39C6C4C92A3CE08700F11A6F /* CategoriesVerticalGrid3CollectionViewCell.swift in Sources */,
 				390E6D7E2A92E052009ECC00 /* RouteHomeCategoriesApi.swift in Sources */,
+				3932B21A2B11303B00283B3D /* CheckoutPaymentViewController.swift in Sources */,
+				3932B2312B11310C00283B3D /* CountriesWebServiceProtocol.swift in Sources */,
 				39730D3D2AA213410088C9ED /* ProductDetailsVariants2CollectionViewCell.swift in Sources */,
 				3999AA4D2AC4A441007D0ACB /* CartItemModel.swift in Sources */,
 				39CE76992A2F61170019A485 /* UIButton+Extensions.swift in Sources */,
+				3932B2B12B1358B200283B3D /* ShimmerCountryTableViewCell.swift in Sources */,
 				39BA0B472AA3C725008001F7 /* ProductDetailsOptionValueModel.swift in Sources */,
 				39EF7F462A39BC9A003E7641 /* ProductVerticalGrid5CollectionViewCell.swift in Sources */,
 				39C6C4DB2A3DD9A500F11A6F /* BannerType2TableViewCell.swift in Sources */,
 				39F9D0FB2AD7452B007BB6B9 /* SubdomainViewController.swift in Sources */,
 				39730D392AA213370088C9ED /* ProductDetailsVariants1CollectionViewCell.swift in Sources */,
+				3932B27C2B12776100283B3D /* RouteCountriesApi.swift in Sources */,
+				3932B29B2B12837A00283B3D /* RouteCheckoutShippingApi.swift in Sources */,
 				39821FAE2AF95E9800388254 /* RouteAccessTokenApi.swift in Sources */,
 				391529C62A2F9B83007F7E09 /* SettingsHeaderView.swift in Sources */,
 				3999AA492AC49F0D007D0ACB /* CartResponseModel.swift in Sources */,
@@ -2904,13 +3284,17 @@
 				39CE769F2A2F61750019A485 /* KeyValuePersistence.swift in Sources */,
 				39D9BAA12B027520005CD5BA /* CartCombinationsModel.swift in Sources */,
 				393613CF2AB7536C007289DE /* SubcategoryTabsView.swift in Sources */,
+				3932B26F2B126FC200283B3D /* AddNewAddressWebServiceProtocol.swift in Sources */,
+				3932B2342B1134CF00283B3D /* CountriesResponseModel.swift in Sources */,
 				3950B09C2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift in Sources */,
 				39CE76E82A2F961E0019A485 /* MetaModel.swift in Sources */,
 				391529CA2A2FC25D007F7E09 /* ProductVerticalList1TableViewCell.swift in Sources */,
 				393B2FA52AEFFD0000827026 /* SubdomainWebServiceProtocol.swift in Sources */,
 				39730D2C2AA1289A0088C9ED /* ProductDetailsVariants1TableViewCell.swift in Sources */,
+				3932B2742B12704300283B3D /* AddressTableViewCell.swift in Sources */,
 				39CE76CF2A2F952F0019A485 /* HomeViewController.swift in Sources */,
 				393613C82AB5C171007289DE /* CoverPhotoModel.swift in Sources */,
+				3932B2A52B13479500283B3D /* CheckoutAddAddressTableViewCell.swift in Sources */,
 				395D3BD12A9A2A3000DA9859 /* ProductDetailsAddToCartType2TableViewCell.swift in Sources */,
 				39CE76912A2F61170019A485 /* Data+Extensions.swift in Sources */,
 				39CE76B52A2F62310019A485 /* Localized.swift in Sources */,
@@ -2920,12 +3304,15 @@
 				3936139F2AB478F7007289DE /* RouteProductListApi.swift in Sources */,
 				3950B0B02A6AE7BA00E27111 /* ComponentCategoryModel.swift in Sources */,
 				39CE76F12A2F97500019A485 /* CategoryModel.swift in Sources */,
+				3932B2912B12829500283B3D /* CheckoutPaymentViewModel.swift in Sources */,
 				393B2F9E2AEFDC2300827026 /* RegisterNameTableViewCell.swift in Sources */,
 				39CE766F2A2F60880019A485 /* Coordinator.swift in Sources */,
 				39C91A3B2ABA3B0900C10C16 /* CategoriesTabViewController.swift in Sources */,
 				39152A092A34946A007F7E09 /* ProductVerticalGrid2CollectionViewCell.swift in Sources */,
 				399007412AC0DAFF002F6938 /* RealTimeDatabaseService.swift in Sources */,
 				39CE768D2A2F61170019A485 /* Int+Extensions.swift in Sources */,
+				3932B24F2B11EF8A00283B3D /* CheckoutHeaderTableViewCell.swift in Sources */,
+				3932B21E2B11305300283B3D /* CheckoutReviewViewController.swift in Sources */,
 				395D3BCD2A9A2A2600DA9859 /* ProductDetailsAddToCartType1TableViewCell.swift in Sources */,
 				393B2F822AEFD0CB00827026 /* LoginModel.swift in Sources */,
 				39CE76952A2F61170019A485 /* UIView+Extensions.swift in Sources */,
@@ -2934,11 +3321,15 @@
 				39CE76C42A2F62E10019A485 /* AppTabBarViewController.swift in Sources */,
 				39CE76722A2F60880019A485 /* Singleton.swift in Sources */,
 				39EF7F4B2A39C131003E7641 /* ProductHorizontalList1CollectionViewCell.swift in Sources */,
+				3932B22F2B1130FD00283B3D /* CitiesWebServiceProtocol.swift in Sources */,
 				395D3BE52A9A2DB600DA9859 /* ProductFileModel.swift in Sources */,
 				39BA0B502AA53EA8008001F7 /* ProductDetailsQuantityCircleView.swift in Sources */,
+				3932B26D2B126FA500283B3D /* AddNewAddressViewModel.swift in Sources */,
 				39D9BA9D2B027463005CD5BA /* CartCombinationsOptionModel.swift in Sources */,
+				3932B2812B127F1300283B3D /* AddNewAddressCountryTableViewCell.swift in Sources */,
 				395D3BBB2A9A1DD600DA9859 /* RecommendedProductsModel.swift in Sources */,
 				390E6D602A902971009ECC00 /* ShimmerCategoriesHorizontal1CollectionViewCell.swift in Sources */,
+				3932B26B2B126F6500283B3D /* AddressesWebServiceProtocol.swift in Sources */,
 				39AE9CAD2AA241500075E99F /* RouteProductDetailsApi.swift in Sources */,
 				39EF7F3A2A39BC5F003E7641 /* ProductVerticalGrid4TableViewCell.swift in Sources */,
 				39CE766E2A2F60880019A485 /* Configuration.swift in Sources */,
@@ -2947,6 +3338,7 @@
 				39CE76982A2F61170019A485 /* UITableView+Extensions.swift in Sources */,
 				39C6C4C12A3CDFE300F11A6F /* CategoriesVerticalGrid1CollectionViewCell.swift in Sources */,
 				390E6D642A90318C009ECC00 /* ShimmerProductVerticalGrid2CollectionViewCell.swift in Sources */,
+				3932B2992B12834500283B3D /* CheckoutReviewWebServiceProtocol.swift in Sources */,
 				39BA0B522AA607EA008001F7 /* ProductDetailsQuantityDropDownView.swift in Sources */,
 				39CE76AE2A2F61CE0019A485 /* ApiUrls.swift in Sources */,
 				39D077CC2AF18D9000867C87 /* RouteResetPasswordApi.swift in Sources */,
@@ -2955,9 +3347,11 @@
 				39CE76E22A2F95C20019A485 /* AdStatusModel.swift in Sources */,
 				399007342ABDB65B002F6938 /* CartCheckout2View.swift in Sources */,
 				39D077CA2AF18D7A00867C87 /* RouteForgetPasswordApi.swift in Sources */,
+				3932B2A22B12897900283B3D /* CheckoutModel.swift in Sources */,
 				39F9D10C2AD74EC6007BB6B9 /* QRCodeReaderViewContainer.swift in Sources */,
 				39DD4DF62AF2C375009D3CEF /* ResetPasswordViewController.swift in Sources */,
 				39CE76E42A2F95C20019A485 /* AdTypeModel.swift in Sources */,
+				3932B27E2B1277B100283B3D /* RouteCitiesApi.swift in Sources */,
 				39CE76CB2A2F93CE0019A485 /* LanguageModel.swift in Sources */,
 				39A2DD8B2A6AFA06005B52FD /* HomeModel.swift in Sources */,
 				3982F5E52A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift in Sources */,
@@ -2978,6 +3372,7 @@
 				39CE76922A2F61170019A485 /* UIAlertController+Extensions.swift in Sources */,
 				39CE76732A2F60880019A485 /* Constant.swift in Sources */,
 				393B2F872AEFD1F400827026 /* CustomerModel.swift in Sources */,
+				3932B23B2B11350D00283B3D /* CityModel.swift in Sources */,
 				390E6D732A929E93009ECC00 /* FormatedPriceModel.swift in Sources */,
 				39CE76C22A2F62B20019A485 /* AppManager.swift in Sources */,
 				39F9D1102AD74EC6007BB6B9 /* QRCodeReaderViewControllerDelegate.swift in Sources */,
@@ -2992,6 +3387,7 @@
 				39C6C4B02A3CC9EB00F11A6F /* CategoriesHorizontalList1CollectionViewCell.swift in Sources */,
 				39C6C4D12A3CE0A800F11A6F /* CategoriesVerticalGrid3TableViewCell.swift in Sources */,
 				39C91A3F2ABA3B2F00C10C16 /* CategoriesTabViewModel.swift in Sources */,
+				3932B2AD2B13578600283B3D /* ShimmerCityTableViewCell.swift in Sources */,
 				393613B02AB4EA7C007289DE /* ProductsGridViewController+CollectionView.swift in Sources */,
 				39AC982A2AEF0EF600CDEB2A /* RegisterViewController.swift in Sources */,
 				393613D62AB79EF3007289DE /* CategoryDetailsCoverPhoto2.swift in Sources */,
@@ -3014,11 +3410,13 @@
 				393B2F762AEFBF1C00827026 /* RegisterViewModel.swift in Sources */,
 				39C91A2F2ABA39F500C10C16 /* ProfileViewModel.swift in Sources */,
 				39AE9CB12AA245FD0075E99F /* ProductDetailsViewModel.swift in Sources */,
+				3932B2852B127F2100283B3D /* AddNewAddressCityTableViewCell.swift in Sources */,
 				393613C42AB52310007289DE /* CategoryDetailsListViewController+TableView.swift in Sources */,
 				39A2DD882A6AF7E3005B52FD /* HomeWebServiceProtocol.swift in Sources */,
 				39CE76CA2A2F93CE0019A485 /* BaseResponse.swift in Sources */,
 				39821FB72AFA97D600388254 /* ProfileWebServiceProtocol.swift in Sources */,
 				3931741C2A19134A00AF64BC /* AppDelegate.swift in Sources */,
+				3932B2972B12833A00283B3D /* CheckoutPaymentWebServiceProtocol.swift in Sources */,
 				3921FCDF2AAB98810019CCC2 /* CompinationsOptionModel.swift in Sources */,
 				391529BC2A2F99A8007F7E09 /* Assets.swift in Sources */,
 				39821FB92AFA983100388254 /* RouteLogoutApi.swift in Sources */,
@@ -3035,35 +3433,47 @@
 				39CE76B42A2F62300019A485 /* Localized+Runtime.swift in Sources */,
 				393B2F802AEFCA5B00827026 /* RegisterModel.swift in Sources */,
 				39CE76712A2F60880019A485 /* Language.swift in Sources */,
+				3932B2B52B135E1600283B3D /* ShimmerAddressTableViewCell.swift in Sources */,
 				393613C22AB522CD007289DE /* CategoryDetailsGridViewController+CollectionView.swift in Sources */,
 				39C6C4E72A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.swift in Sources */,
 				39C91A282AB8F4D800C10C16 /* CategoriesListViewController+CollectionView.swift in Sources */,
 				39CE76B62A2F62310019A485 /* Localized+Static arabic.swift in Sources */,
 				393B2F962AEFDC0200827026 /* RegisterEmailTableViewCell.swift in Sources */,
 				39D077CF2AF196DD00867C87 /* CustomLoadingIndicator.swift in Sources */,
+				3932B27A2B12726300283B3D /* AddressModel.swift in Sources */,
 				39AE9CAF2AA245280075E99F /* ProductDetailsWebServiceProtocol.swift in Sources */,
 				39821FC12AFE651700388254 /* ShimmerCartTableViewCell.swift in Sources */,
 				39730D302AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift in Sources */,
+				3932B2242B11309800283B3D /* CitiesViewController.swift in Sources */,
 				39DD4E052AF30DE8009D3CEF /* ResetPasswordResponseModel.swift in Sources */,
 				3932B2122B0BB45400283B3D /* FirebaseFavoriteModel.swift in Sources */,
+				3932B25B2B11F0E500283B3D /* CheckoutAddressTableViewCell.swift in Sources */,
 				399007302ABDB634002F6938 /* CartCheckout1View.swift in Sources */,
 				39CE76F32A2F97560019A485 /* CurrencyModel.swift in Sources */,
+				3932B2162B11302500283B3D /* CheckoutShippingViewController.swift in Sources */,
+				3932B2442B1135AC00283B3D /* CountryTableViewCell.swift in Sources */,
 				39821FB42AFA302500388254 /* FirebaseTokenModel.swift in Sources */,
 				39C91A382ABA3ACE00C10C16 /* SettingsViewModel.swift in Sources */,
 				39C91A332ABA3A6100C10C16 /* CartViewController.swift in Sources */,
+				3932B2282B1130A400283B3D /* CountriesViewController.swift in Sources */,
 				393B2FA22AEFDC3100827026 /* RegisterPasswordTableViewCell.swift in Sources */,
 				393613CA2AB5C18B007289DE /* SubcategoryTabsModel.swift in Sources */,
+				3932B2A82B134F1C00283B3D /* RouteAddressesApi.swift in Sources */,
 				395D3BA42A995C1400DA9859 /* ShimmerCategoriesHorizontal3CollectionViewCell.swift in Sources */,
+				3932B2402B11359C00283B3D /* CityTableViewCell.swift in Sources */,
 				39C6C4CD2A3CE09600F11A6F /* CategoriesVerticalGrid2TableViewCell.swift in Sources */,
 				3921FCF02AAE08A10019CCC2 /* RecommendedProductsType3TableViewCell.swift in Sources */,
 				3999AA4F2AC4A4D8007D0ACB /* RouteCartApis.swift in Sources */,
+				3932B2932B1282A100283B3D /* CheckoutReviewViewModel.swift in Sources */,
 				391529C22A2F9B4C007F7E09 /* WebViewController.swift in Sources */,
 				39C6C4E32A45C10A00F11A6F /* CategoriesHorizontalList3TableViewCell.swift in Sources */,
 				395D3BA02A995C0200DA9859 /* ShimmerCategoriesHorizontal2CollectionViewCell.swift in Sources */,
 				393B2FA72AF0137E00827026 /* RegisterViewController+TableView.swift in Sources */,
+				3932B2692B126F4700283B3D /* AddressesViewModel.swift in Sources */,
 				39821FBB2AFBA01700388254 /* FirebaseProductModel.swift in Sources */,
 				3999AA512AC59D2D007D0ACB /* CartSummeryModel.swift in Sources */,
 				3999AA542ACD688C007D0ACB /* CategoryDetailsProductsView.swift in Sources */,
+				3932B29F2B12839E00283B3D /* RouteCheckoutReviewApi.swift in Sources */,
 				3950B0982A6ABCA300E27111 /* ThemeManager.swift in Sources */,
 				3931741E2A19134A00AF64BC /* SceneDelegate.swift in Sources */,
 				39C91A222AB8DED900C10C16 /* CategoriesViewModel.swift in Sources */,
@@ -3075,12 +3485,14 @@
 				393B2F9A2AEFDC1600827026 /* RegisterPhoneTableViewCell.swift in Sources */,
 				391529ED2A347BF4007F7E09 /* ProductVerticalList2TableViewCell.swift in Sources */,
 				3999AA462AC49CD1007D0ACB /* CartViewController+TableView.swift in Sources */,
+				3932B22B2B1130B600283B3D /* CitiesViewModel.swift in Sources */,
 				393613BE2AB5229A007289DE /* CategoryDetailsViewModel.swift in Sources */,
 				39C6C4B52A3CDCC000F11A6F /* CategoriesHorizontalList2CollectionViewCell.swift in Sources */,
 				399007212ABDB59C002F6938 /* CartSummeryTableViewCell.swift in Sources */,
 				3921FCE32AAB9ED10019CCC2 /* ShimmerProductDetailsVariantsTableViewCell.swift in Sources */,
 				395D3B942A977B4300DA9859 /* ProductVerticalList1InnerTableViewCell.swift in Sources */,
 				395D3BEB2A9AAF8600DA9859 /* ProductDetailsSliderType1CollectionViewCell.swift in Sources */,
+				3932B22D2B1130C500283B3D /* CountiresViewModel.swift in Sources */,
 				39BA0B492AA3C7A8008001F7 /* ProductDetailsOptionsModel.swift in Sources */,
 				39821FB02AFA2EC300388254 /* RouteFirebaseTokenApi.swift in Sources */,
 				39BA0B4D2AA53E19008001F7 /* ProductDetailsQuantityCircleTableViewCell.swift in Sources */,
