@@ -10,31 +10,31 @@ import Foundation
 class CheckoutReviewViewModel: BaseViewModel {
     
     weak var service: CheckoutReviewWebServiceProtocol?
-    var countries: [CountryModel]?
+    var summaryData: SummaryData?
 
-    public var onCountries: (() -> Void)?
+    public var onSummary: (() -> Void)?
 
     init(service: CheckoutReviewWebServiceProtocol = CheckoutReviewWebService.shared) {
         super.init(observationType: .all)
         self.service = service
     }
     
-//    func continueCheckout() {
-//        guard let service = service else {
-//            return
-//        }
-//        
-//        service.getCountries() { (result) in
-//            switch result {
-//            case .success(let response):
-//                self.countries = response.data
-//                self.onCountries?()
-//            case .failure(let error):
-//                print(error)
-//                if error.message != "Request explicitly cancelled." {
-//                    self.onNetworkError?(error)
-//                }
-//            }
-//        }
-//    }
+    func getSummary(_ addressId: Int) {
+        guard let service = service else {
+            return
+        }
+        
+        service.getSummary(addressId: addressId) { (result) in
+            switch result {
+            case .success(let response):
+                self.summaryData = response.data
+                self.onSummary?()
+            case .failure(let error):
+                print(error)
+                if error.message != "Request explicitly cancelled." {
+                    self.onNetworkError?(error)
+                }
+            }
+        }
+    }
 }

@@ -186,6 +186,7 @@ extension CheckoutShippingViewController {
     @IBAction func continueAction(_ sender: UIButton) {
 //        self.showLoading()
         let checkoutPaymentVC = Coordinator.Controllers.createCheckoutPaymentViewController()
+        checkoutPaymentVC.checkoutModel = self.checkoutModel
         self.navigationController?.pushViewController(checkoutPaymentVC, animated: true)
     }
 }

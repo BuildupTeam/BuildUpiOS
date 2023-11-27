@@ -10,22 +10,22 @@ import ObjectMapper
 import Moya
 
 protocol CheckoutReviewWebServiceProtocol: AnyObject {
-    func getCountries(compeltion: @escaping ((Result<CountriesResponseModel, NetworkError>) -> Void))
+    func getSummary(addressId: Int, compeltion: @escaping ((Result<SummaryResponseModel, NetworkError>) -> Void))
 }
 
 class CheckoutReviewWebService: CheckoutReviewWebServiceProtocol {
     
     static let shared = CheckoutReviewWebService()
     
-    func getCountries(compeltion: @escaping ((Result<CountriesResponseModel, NetworkError>) -> Void)) {
-        MainWebService.fetch(endPoint: RouteCountriesApi.getCountries) { (result, statusCode) in
+    func getSummary(addressId: Int, compeltion: @escaping ((Result<SummaryResponseModel, NetworkError>) -> Void)) {
+        MainWebService.fetch(endPoint: RouteCheckoutReviewApi.getSummary(addressId: addressId)) { (result, statusCode) in
             switch result {
             case .success(let response):
-                guard let searchResponse = Mapper<CountriesResponseModel>().map(JSONObject: response) else {
+                guard let summaryResponse = Mapper<SummaryResponseModel>().map(JSONObject: response) else {
                     return
                 }
-                searchResponse.statusCode = statusCode
-                compeltion(Result.success(searchResponse))
+                summaryResponse.statusCode = statusCode
+                compeltion(Result.success(summaryResponse))
             case .failure(var error):
                 error.statusCode = statusCode
                 compeltion(Result.failure(error))

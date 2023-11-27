@@ -30,6 +30,7 @@ struct ApiUrls {
         static let areasUrl = "/areas"
         static let addressesUrl = "/addresses"
         static let updateAdressUrl = "/addresses/{id}"
+        static let summartUrl = "/checkout/summary"
         
         static let fetchFirebaseToken = "/fcm-token"
     }

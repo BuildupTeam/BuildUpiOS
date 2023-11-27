@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum RouteCheckoutReviewApi {
-    case getCountries
+    case getSummary(addressId: Int)
 }
 
 extension RouteCheckoutReviewApi: TargetType {
@@ -20,11 +20,11 @@ extension RouteCheckoutReviewApi: TargetType {
     }
     
     var path: String {
-        return ApiUrls.Apis.countriesUrl
+        return ApiUrls.Apis.summartUrl
     }
     
     var method: Moya.Method {
-        return .get
+        return .post
     }
     
     var sampleData: Data {
@@ -33,8 +33,14 @@ extension RouteCheckoutReviewApi: TargetType {
     
     var task: Task {
         switch self {
-        case .getCountries:
-            return .requestPlain
+        case .getSummary(addressId: let addressId):
+            var parameters: [String: Any] = [:]
+            parameters["address_id"] = addressId
+
+            JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
+
+            return .requestParameters(parameters: parameters,
+                                      encoding: JSONEncoding.default)
         }
     }
     

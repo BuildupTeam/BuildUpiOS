@@ -80,7 +80,7 @@ class CheckoutStatusView: UIView {
     
     func setupReviewView() {
         shippingStep1Label.text = ""
-        paymentLabel.text = ""
+        paymentStep2Label.text = ""
         
         reviewStep3Label.textColor = ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? "")
         

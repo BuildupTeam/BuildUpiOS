@@ -19,6 +19,8 @@ class CheckoutPaymentViewController: BaseViewController {
 
     override  var prefersBottomBarHidden: Bool? { return true }
 
+    var checkoutModel: CheckoutModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -65,4 +67,14 @@ class CheckoutPaymentViewController: BaseViewController {
         checkView.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
     }
 
+}
+
+// MARK: Actions
+extension CheckoutPaymentViewController {
+    @IBAction func continueAction(_ sender: UIButton) {
+//        self.showLoading()
+        let checkoutReviewVC = Coordinator.Controllers.createCheckoutReviewViewController()
+        checkoutReviewVC.checkoutModel = self.checkoutModel
+        self.navigationController?.pushViewController(checkoutReviewVC, animated: true)
+    }
 }
