@@ -7,12 +7,6 @@
 
 import UIKit
 
-enum AddNewAddressCells: Int {
-    case country = 0
-    case city
-    case address
-}
-
 class AddNewAddressViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +15,7 @@ class AddNewAddressViewController: BaseViewController {
     
     var countryModel: CountryModel?
     var cityModel: CityModel?
+    var areaModel: AreaModel?
     var detailedAddress: String?
     var addressModel: AddressModel?
     
@@ -80,14 +75,14 @@ class AddNewAddressViewController: BaseViewController {
 extension AddNewAddressViewController {
     @IBAction func addNewAddressAction(_ sender: UIButton) {
         if let model = addressModel {
-            if let countryId = countryModel?.id, let cityId = cityModel?.id, let address = detailedAddress {
+            if let countryId = countryModel?.id, let cityId = cityModel?.id, let areaId = areaModel?.id, let address = detailedAddress {
                 self.showLoading()
-                self.viewModel.updateAddress(addressId: model.id ?? 0, countryId: countryId, cityId: cityId, address: address)
+                self.viewModel.updateAddress(addressId: model.id ?? 0, countryId: countryId, cityId: cityId, areaId: areaId, address: address)
             }
         } else {
-            if let countryId = countryModel?.id, let cityId = cityModel?.id, let address = detailedAddress {
+            if let countryId = countryModel?.id, let cityId = cityModel?.id, let areaId = areaModel?.id, let address = detailedAddress {
                 self.showLoading()
-                self.viewModel.addNewAddress(countryId: countryId, cityId: cityId, address: address)
+                self.viewModel.addNewAddress(countryId: countryId, cityId: cityId, areaId: areaId, address: address)
             }
         }
     }
@@ -120,6 +115,7 @@ extension AddNewAddressViewController {
     private func updateAddAddressButtonAppearence() {
         if countryModel?.id != nil &&
             cityModel?.id != nil &&
+            areaModel?.id != nil &&
             detailedAddress != nil &&
             !(detailedAddress?.isEmpty ?? false) {
             addAddressButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
@@ -146,10 +142,21 @@ extension AddNewAddressViewController {
         }
     }
     
+    func openAreaList() {
+        if let cityModel = cityModel {
+            let areasVC = Coordinator.Controllers.createAreasViewController(cityModel: cityModel)
+            areasVC.delegate = self
+            self.present(areasVC, animated: true, completion: nil)
+        } else {
+            self.showError(message: L10n.Checkout.Errors.selectCityFirst)
+        }
+    }
+    
     private func fillData() {
         if let model = addressModel {
             self.countryModel = model.country
             self.cityModel = model.city
+            self.areaModel = model.area
             self.detailedAddress = model.addressDescription
             self.tableView.reloadData()
         }
@@ -159,6 +166,7 @@ extension AddNewAddressViewController {
 // MARK: - Country Delegate
 extension AddNewAddressViewController: CitiesDelegate {
     func citySelected(cityModel: CityModel) {
+        self.areaModel = nil
         self.cityModel = cityModel
         updateAddAddressButtonAppearence()
         self.tableView.reloadData()
@@ -170,6 +178,15 @@ extension AddNewAddressViewController: CountriesDelegate {
     func countrySelected(countryModel: CountryModel) {
         self.cityModel = nil
         self.countryModel = countryModel
+        updateAddAddressButtonAppearence()
+        self.tableView.reloadData()
+    }
+}
+
+// MARK: - Area Delegate
+extension AddNewAddressViewController: AreasDelegate {
+    func areaSelected(areaModel: AreaModel) {
+        self.areaModel = areaModel
         updateAddAddressButtonAppearence()
         self.tableView.reloadData()
     }

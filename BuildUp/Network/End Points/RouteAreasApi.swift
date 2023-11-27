@@ -1,27 +1,26 @@
 //
-//  RouteConfigurationApi.swift
+//  RouteAreasApi.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 08/08/2023.
+//  Created by Mohammed Khaled on 27/11/2023.
 //
 
 import Foundation
 import Moya
 
-enum RouteConfigurationApi {
-    case getConfiguration
+enum RouteAreasApi {
+    case getAreas(cityId: Int)
 }
 
-extension RouteConfigurationApi: TargetType {
+extension RouteAreasApi: TargetType {
     var baseURL: URL {
         var configuration = Configuration()
         print("base url = \(configuration.environment.baseURL)")
         return URL(string: configuration.environment.baseURL)!
-        
     }
     
     var path: String {
-        return ApiUrls.Apis.configurationUrl
+        return ApiUrls.Apis.areasUrl
     }
     
     var method: Moya.Method {
@@ -34,8 +33,8 @@ extension RouteConfigurationApi: TargetType {
     
     var task: Task {
         switch self {
-        case .getConfiguration:
-            var parameters: [String: Any] = ["platform": 1]
+        case .getAreas(cityId: let id):
+            let parameters: [String: Any] = ["city_id": id]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
@@ -44,4 +43,3 @@ extension RouteConfigurationApi: TargetType {
         return AppHeaders.appHeaders
     }
 }
-

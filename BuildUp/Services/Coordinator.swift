@@ -199,6 +199,13 @@ class Coordinator {
             return viewController
         }
         
+        class func createAreasViewController(cityModel: CityModel? = nil
+                                              ,viewModel: AreasViewModel = AreasViewModel()) -> AreasViewController {
+            viewModel.cityModel = cityModel
+            let viewController = AreasViewController(viewModel: viewModel)
+            return viewController
+        }
+        
         class func createAddressesViewController(viewModel: AddressesViewModel = AddressesViewModel()) -> AddressesViewController {
             let viewController = AddressesViewController(viewModel: viewModel)
             return viewController

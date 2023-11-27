@@ -74,8 +74,6 @@ extension CartProductList3TableViewCell {
         removeProductView.layer.borderWidth = 1
         removeProductView.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
         
-//        plusButton.layer.masksToBounds = true
-//        plusButton.layer.cornerRadius = plusButton.frame.size.width / 2
         plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
 
 //        minusButton.layer.masksToBounds = true

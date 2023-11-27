@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390C3B532B14DC9100E40849 /* RouteAreasApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B522B14DC9100E40849 /* RouteAreasApi.swift */; };
+		390C3B572B14DCE700E40849 /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B552B14DCE700E40849 /* AreasViewController.swift */; };
+		390C3B582B14DCE700E40849 /* AreasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390C3B562B14DCE700E40849 /* AreasViewController.xib */; };
+		390C3B5B2B14DCFA00E40849 /* AreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B592B14DCFA00E40849 /* AreaTableViewCell.swift */; };
+		390C3B5C2B14DCFA00E40849 /* AreaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390C3B5A2B14DCFA00E40849 /* AreaTableViewCell.xib */; };
+		390C3B602B14DD1200E40849 /* AreasResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B5F2B14DD1200E40849 /* AreasResponseModel.swift */; };
+		390C3B622B14DD1C00E40849 /* AreaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B612B14DD1C00E40849 /* AreaModel.swift */; };
+		390C3B642B14DD5100E40849 /* AreasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B632B14DD5100E40849 /* AreasViewModel.swift */; };
+		390C3B662B14DD6000E40849 /* AreasWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B652B14DD6000E40849 /* AreasWebServiceProtocol.swift */; };
+		390C3B692B14E11F00E40849 /* AddNewAddressAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B672B14E11F00E40849 /* AddNewAddressAreaTableViewCell.swift */; };
+		390C3B6A2B14E11F00E40849 /* AddNewAddressAreaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390C3B682B14E11F00E40849 /* AddNewAddressAreaTableViewCell.xib */; };
 		390E6D582A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E6D562A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.swift */; };
 		390E6D592A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390E6D572A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.xib */; };
 		390E6D602A902971009ECC00 /* ShimmerCategoriesHorizontal1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E6D5E2A902971009ECC00 /* ShimmerCategoriesHorizontal1CollectionViewCell.swift */; };
@@ -532,6 +543,17 @@
 		063F3C21CE71AB4FA6CDC043 /* Pods-BuildUpTests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuildUpTests.demo.xcconfig"; path = "Target Support Files/Pods-BuildUpTests/Pods-BuildUpTests.demo.xcconfig"; sourceTree = "<group>"; };
 		1DC40D1A1A2A14C14BD47E27 /* Pods-BuildUpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuildUpTests.release.xcconfig"; path = "Target Support Files/Pods-BuildUpTests/Pods-BuildUpTests.release.xcconfig"; sourceTree = "<group>"; };
 		28F293934AF8FD124817F7CD /* Pods-BuildUpTests.live.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuildUpTests.live.xcconfig"; path = "Target Support Files/Pods-BuildUpTests/Pods-BuildUpTests.live.xcconfig"; sourceTree = "<group>"; };
+		390C3B522B14DC9100E40849 /* RouteAreasApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAreasApi.swift; sourceTree = "<group>"; };
+		390C3B552B14DCE700E40849 /* AreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
+		390C3B562B14DCE700E40849 /* AreasViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreasViewController.xib; sourceTree = "<group>"; };
+		390C3B592B14DCFA00E40849 /* AreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaTableViewCell.swift; sourceTree = "<group>"; };
+		390C3B5A2B14DCFA00E40849 /* AreaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreaTableViewCell.xib; sourceTree = "<group>"; };
+		390C3B5F2B14DD1200E40849 /* AreasResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasResponseModel.swift; sourceTree = "<group>"; };
+		390C3B612B14DD1C00E40849 /* AreaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaModel.swift; sourceTree = "<group>"; };
+		390C3B632B14DD5100E40849 /* AreasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasViewModel.swift; sourceTree = "<group>"; };
+		390C3B652B14DD6000E40849 /* AreasWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasWebServiceProtocol.swift; sourceTree = "<group>"; };
+		390C3B672B14E11F00E40849 /* AddNewAddressAreaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAddressAreaTableViewCell.swift; sourceTree = "<group>"; };
+		390C3B682B14E11F00E40849 /* AddNewAddressAreaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewAddressAreaTableViewCell.xib; sourceTree = "<group>"; };
 		390E6D562A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerProductVerticalGridCollectionViewCell.swift; sourceTree = "<group>"; };
 		390E6D572A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerProductVerticalGridCollectionViewCell.xib; sourceTree = "<group>"; };
 		390E6D5E2A902971009ECC00 /* ShimmerCategoriesHorizontal1CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCategoriesHorizontal1CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1081,6 +1103,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		390C3B542B14DCD000E40849 /* Areas */ = {
+			isa = PBXGroup;
+			children = (
+				390C3B5E2B14DD0300E40849 /* Model */,
+				390C3B5D2B14DCFD00E40849 /* Cell */,
+				390C3B552B14DCE700E40849 /* AreasViewController.swift */,
+				390C3B562B14DCE700E40849 /* AreasViewController.xib */,
+				390C3B632B14DD5100E40849 /* AreasViewModel.swift */,
+				390C3B652B14DD6000E40849 /* AreasWebServiceProtocol.swift */,
+			);
+			path = Areas;
+			sourceTree = "<group>";
+		};
+		390C3B5D2B14DCFD00E40849 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				390C3B592B14DCFA00E40849 /* AreaTableViewCell.swift */,
+				390C3B5A2B14DCFA00E40849 /* AreaTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		390C3B5E2B14DD0300E40849 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				390C3B5F2B14DD1200E40849 /* AreasResponseModel.swift */,
+				390C3B612B14DD1C00E40849 /* AreaModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		390E6D5A2A9028CA009ECC00 /* CategoriesHorizontal */ = {
 			isa = PBXGroup;
 			children = (
@@ -1484,6 +1537,7 @@
 		3932B2132B112F9500283B3D /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				390C3B542B14DCD000E40849 /* Areas */,
 				3932B2A02B12896800283B3D /* Model */,
 				3932B25D2B126EC400283B3D /* Addresses */,
 				3932B2212B11308900283B3D /* Cities */,
@@ -1639,6 +1693,8 @@
 				3932B2842B127F2100283B3D /* AddNewAddressCityTableViewCell.xib */,
 				3932B2872B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.swift */,
 				3932B2882B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.xib */,
+				390C3B672B14E11F00E40849 /* AddNewAddressAreaTableViewCell.swift */,
+				390C3B682B14E11F00E40849 /* AddNewAddressAreaTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2396,6 +2452,7 @@
 				39821FB82AFA983100388254 /* RouteLogoutApi.swift */,
 				3932B27B2B12776100283B3D /* RouteCountriesApi.swift */,
 				3932B27D2B1277B100283B3D /* RouteCitiesApi.swift */,
+				390C3B522B14DC9100E40849 /* RouteAreasApi.swift */,
 				3932B29A2B12837A00283B3D /* RouteCheckoutShippingApi.swift */,
 				3932B29E2B12839E00283B3D /* RouteCheckoutReviewApi.swift */,
 				3932B2A72B134F1C00283B3D /* RouteAddressesApi.swift */,
@@ -2925,6 +2982,7 @@
 				395D3BB62A9A1B6D00DA9859 /* ProductDetailsViewController.xib in Resources */,
 				39C6C4E82A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.xib in Resources */,
 				395D3BF02A9AAF9900DA9859 /* ProductDetailsSliderType2CollectionViewCell.xib in Resources */,
+				390C3B582B14DCE700E40849 /* AreasViewController.xib in Resources */,
 				391529CB2A2FC25D007F7E09 /* ProductVerticalList1TableViewCell.xib in Resources */,
 				3932B2102B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib in Resources */,
 				3999AA6F2AD1BFE5007D0ACB /* Montserrat-Thin.ttf in Resources */,
@@ -2960,6 +3018,7 @@
 				391529C32A2F9B4C007F7E09 /* WebViewController.xib in Resources */,
 				39C6C4B12A3CC9EB00F11A6F /* CategoriesHorizontalList1CollectionViewCell.xib in Resources */,
 				39C6C4A62A3C90BC00F11A6F /* ProductsHeaderTableViewCell.xib in Resources */,
+				390C3B5C2B14DCFA00E40849 /* AreaTableViewCell.xib in Resources */,
 				39F9D0F72AD3E921007BB6B9 /* GoogleService-test.plist in Resources */,
 				39CE76D02A2F952F0019A485 /* HomeViewController.xib in Resources */,
 				39AE9C9E2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.xib in Resources */,
@@ -2970,6 +3029,7 @@
 				3999AA7A2AD1BFFB007D0ACB /* Poppins-Thin.ttf in Resources */,
 				399007362ABDB664002F6938 /* CartCheckout2View.xib in Resources */,
 				39730D472AA2354E0088C9ED /* ProductDetailsSizeChartTableViewCell.xib in Resources */,
+				390C3B6A2B14E11F00E40849 /* AddNewAddressAreaTableViewCell.xib in Resources */,
 				39C6C4D22A3CE0A800F11A6F /* CategoriesVerticalGrid3TableViewCell.xib in Resources */,
 				3932B2672B126F2E00283B3D /* AddressesViewController.xib in Resources */,
 				3999AA712AD1BFE5007D0ACB /* Montserrat-Bold.ttf in Resources */,
@@ -3205,6 +3265,7 @@
 				39F9D10F2AD74EC6007BB6B9 /* QRCodeReaderViewControllerBuilder.swift in Sources */,
 				3932B28F2B12827400283B3D /* CheckoutShippingViewModel.swift in Sources */,
 				39CE768E2A2F61170019A485 /* UIDevice+JailBroken.swift in Sources */,
+				390C3B622B14DD1C00E40849 /* AreaModel.swift in Sources */,
 				395D3BE72A9A2DC800DA9859 /* ProductDetailsResponseModel.swift in Sources */,
 				399007382ABDB67B002F6938 /* CartCheckout3View.swift in Sources */,
 				39BA0B452AA3C714008001F7 /* ProductDetailsOptionModel.swift in Sources */,
@@ -3261,6 +3322,7 @@
 				3982F5E02A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.swift in Sources */,
 				39C6C4C52A3CE04400F11A6F /* CategoriesVerticalGrid2CollectionViewCell.swift in Sources */,
 				39CE769D2A2F61750019A485 /* LauncherViewController.swift in Sources */,
+				390C3B5B2B14DCFA00E40849 /* AreaTableViewCell.swift in Sources */,
 				39C6C4C92A3CE08700F11A6F /* CategoriesVerticalGrid3CollectionViewCell.swift in Sources */,
 				390E6D7E2A92E052009ECC00 /* RouteHomeCategoriesApi.swift in Sources */,
 				3932B21A2B11303B00283B3D /* CheckoutPaymentViewController.swift in Sources */,
@@ -3282,6 +3344,7 @@
 				393613A52AB48671007289DE /* ProductsListViewController+TableView.swift in Sources */,
 				393613AA2AB4EA1E007289DE /* ProductsGridViewController.swift in Sources */,
 				39CE769F2A2F61750019A485 /* KeyValuePersistence.swift in Sources */,
+				390C3B572B14DCE700E40849 /* AreasViewController.swift in Sources */,
 				39D9BAA12B027520005CD5BA /* CartCombinationsModel.swift in Sources */,
 				393613CF2AB7536C007289DE /* SubcategoryTabsView.swift in Sources */,
 				3932B26F2B126FC200283B3D /* AddNewAddressWebServiceProtocol.swift in Sources */,
@@ -3366,6 +3429,7 @@
 				3932B20F2B02874200283B3D /* ProductCombinationsOptionTableViewCell.swift in Sources */,
 				393613C62AB5BA2E007289DE /* RouteCategoryDetailsApi.swift in Sources */,
 				39CE76752A2F60880019A485 /* Localization+Extension.swift in Sources */,
+				390C3B602B14DD1200E40849 /* AreasResponseModel.swift in Sources */,
 				39C202502AAAB222001EA791 /* RelatedProductsResponseModel.swift in Sources */,
 				39F9D1112AD74EC6007BB6B9 /* ReaderOverlayView.swift in Sources */,
 				39C91A242AB8E16900C10C16 /* CategoriesWebServiceProtocol.swift in Sources */,
@@ -3379,6 +3443,7 @@
 				39CE765F2A2F603B0019A485 /* BaseViewModel.swift in Sources */,
 				39CE76C12A2F62B20019A485 /* AppDelegate+FirebaseNotifications.swift in Sources */,
 				391529BE2A2F9A3C007F7E09 /* RouteLoginApi.swift in Sources */,
+				390C3B692B14E11F00E40849 /* AddNewAddressAreaTableViewCell.swift in Sources */,
 				39CE76902A2F61170019A485 /* String.swift in Sources */,
 				39EF7F422A39BC8D003E7641 /* ProductVerticalGrid4CollectionViewCell.swift in Sources */,
 				399007182ABDAC51002F6938 /* AddToCartTextView.swift in Sources */,
@@ -3394,6 +3459,7 @@
 				39F9D10D2AD74EC6007BB6B9 /* QRCodeReader.swift in Sources */,
 				39DD4DFD2AF2C64F009D3CEF /* ResetPasswordWebServiceProtocol.swift in Sources */,
 				393613972AB47561007289DE /* ProductListWebServiceProtocol.swift in Sources */,
+				390C3B642B14DD5100E40849 /* AreasViewModel.swift in Sources */,
 				3950B0A82A6AE56000E27111 /* ComponentsFilterModel.swift in Sources */,
 				391529FF2A348AAB007F7E09 /* ProductVerticalGrid3TableViewCell.swift in Sources */,
 				39730D462AA2354E0088C9ED /* ProductDetailsSizeChartTableViewCell.swift in Sources */,
@@ -3444,6 +3510,7 @@
 				39AE9CAF2AA245280075E99F /* ProductDetailsWebServiceProtocol.swift in Sources */,
 				39821FC12AFE651700388254 /* ShimmerCartTableViewCell.swift in Sources */,
 				39730D302AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift in Sources */,
+				390C3B662B14DD6000E40849 /* AreasWebServiceProtocol.swift in Sources */,
 				3932B2242B11309800283B3D /* CitiesViewController.swift in Sources */,
 				39DD4E052AF30DE8009D3CEF /* ResetPasswordResponseModel.swift in Sources */,
 				3932B2122B0BB45400283B3D /* FirebaseFavoriteModel.swift in Sources */,
@@ -3463,6 +3530,7 @@
 				3932B2402B11359C00283B3D /* CityTableViewCell.swift in Sources */,
 				39C6C4CD2A3CE09600F11A6F /* CategoriesVerticalGrid2TableViewCell.swift in Sources */,
 				3921FCF02AAE08A10019CCC2 /* RecommendedProductsType3TableViewCell.swift in Sources */,
+				390C3B532B14DC9100E40849 /* RouteAreasApi.swift in Sources */,
 				3999AA4F2AC4A4D8007D0ACB /* RouteCartApis.swift in Sources */,
 				3932B2932B1282A100283B3D /* CheckoutReviewViewModel.swift in Sources */,
 				391529C22A2F9B4C007F7E09 /* WebViewController.swift in Sources */,

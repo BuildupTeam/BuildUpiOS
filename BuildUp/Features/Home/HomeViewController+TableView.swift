@@ -263,6 +263,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalList1TableViewCell
         else { return UITableViewCell() }
         
+        cell.addTocartDelegate = self
         cell.delegate = self
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none

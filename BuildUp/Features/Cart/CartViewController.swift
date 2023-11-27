@@ -39,6 +39,7 @@ class CartViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getCart()
+        self.title = L10n.Cart.title
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,6 +53,7 @@ class CartViewController: BaseViewController {
 extension CartViewController {
     private func setupView() {
         isLoadingShimmer = true
+        self.checkoutContainerView.hideView()
         
         registerTableViewCells()
         
@@ -108,10 +110,6 @@ extension CartViewController {
         tableView.tableFooterView = spinner
     }
     
-    private func removeBackgroundViews() {
-        tableView.backgroundView = nil
-    }
-    
     private func setupCartCheckoutType1View() {
         cartCheckoutType1View = CartCheckout1View.instantiateFromNib()
         cartCheckoutType1View?.initialize()
@@ -159,6 +157,20 @@ extension CartViewController {
             checkoutContainerView.addSubview(cartCheckoutType3View!)
         }
     }
+    
+    func setupEmptyView() {
+        removeBackgroundViews()
+        let emptyNib = EmptyScreenView.instantiateFromNib()
+        emptyNib.frame = tableView.frame
+        emptyNib.title = L10n.Cart.emptyMessage
+//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
+        emptyNib.showButton = false
+        tableView.backgroundView = emptyNib
+    }
+    
+    func removeBackgroundViews() {
+        tableView.backgroundView = nil
+    }
 }
 
 // MARK: - @IBActions
@@ -185,6 +197,13 @@ extension CartViewController {
     private func cartResponse() {
         viewModel.onCart = {[weak self] () in
             guard let `self` = self else { return }
+            if self.viewModel.cartModel != nil {
+                self.checkoutContainerView.showView()
+                self.removeBackgroundViews()
+            } else {
+                self.setupEmptyView()
+                self.checkoutContainerView.hideView()
+            }
             self.fillData()
             self.reloadTableViewData()
             self.isReloadingTableView = false
@@ -212,8 +231,8 @@ extension CartViewController: CartProductListDelegate {
     }
     
     private func calculateCartSubtotal() {
-        var totalPriceOriginal = 0
-        var totalPriceCurrent = 0
+        var totalPriceOriginal = 0.0
+        var totalPriceCurrent = 0.0
         
         if let cartModel = viewModel.cartModel {
             if let products = cartModel.products {
@@ -229,6 +248,7 @@ extension CartViewController: CartProductListDelegate {
                 
                 viewModel.cartModel?.subtotalBeforeDiscount = totalPriceOriginal
                 viewModel.cartModel?.subtotal = totalPriceCurrent
+                fillData()
             }
         }
     }

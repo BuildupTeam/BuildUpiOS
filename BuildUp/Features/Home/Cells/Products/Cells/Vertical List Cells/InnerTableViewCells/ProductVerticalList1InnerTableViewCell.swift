@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddToCartInnerDelegate: AnyObject {
+        
+}
+
 class ProductVerticalList1InnerTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var productImageView: UIImageView!
@@ -19,6 +23,8 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
 
+    weak var delegate: AddToCartDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -50,10 +56,11 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = productModel {
-            if model.hasCombinations ?? false {
-                addToCartView.isHidden = true
+            if model.hasCombinations ?? false || model.quantity == 0 {
+                addToCartView.hideView()
             } else {
-                addToCartView.isHidden = false
+                addToCartView.showView()
+                addToCartView.delegate = self
                 addToCartView.productModel = model
             }
             
@@ -76,5 +83,10 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
             }
         }
     }
-    
+}
+
+extension ProductVerticalList1InnerTableViewCell: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        delegate?.productModelUpdated(model, nil)
+    }
 }

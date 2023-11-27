@@ -9,8 +9,8 @@ import Foundation
 import Moya
 
 enum RouteAddNewAddressApi {
-    case addNewAddress(countryId: Int, cityId: Int, description: String)
-    case updateAddress(addressId: Int, countryId: Int, cityId: Int, description: String)
+    case addNewAddress(countryId: Int, cityId: Int, areaId: Int, description: String)
+    case updateAddress(addressId: Int, countryId: Int, cityId: Int, areaId: Int, description: String)
 }
 
 extension RouteAddNewAddressApi: TargetType {
@@ -24,7 +24,7 @@ extension RouteAddNewAddressApi: TargetType {
         switch self {
         case .addNewAddress:
             return ApiUrls.Apis.addressesUrl
-        case .updateAddress(addressId: let id, countryId: _, cityId: _, description: _):
+        case .updateAddress(addressId: let id, countryId: _, cityId: _, areaId: _, description: _):
             return ApiUrls.Apis.updateAdressUrl.replacingOccurrences(of: "{id}", with: String(id))
         }
     }
@@ -44,22 +44,24 @@ extension RouteAddNewAddressApi: TargetType {
     
     var task: Task {
         switch self {
-        case .addNewAddress(countryId: let countryId, cityId: let cityId, description: let desc):
+        case .addNewAddress(countryId: let countryId, cityId: let cityId, areaId: let areaId, description: let desc):
             var parameters: [String: Any] = [:]
             
             parameters["country_id"] = countryId
             parameters["city_id"] = cityId
+            parameters["area_id"] = areaId
             parameters["description"] = desc
 
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
 
             return .requestParameters(parameters: parameters,
                                       encoding: JSONEncoding.default)
-        case .updateAddress(addressId: _, countryId: let countryId, cityId: let cityId, description: let desc):
+        case .updateAddress(addressId: _, countryId: let countryId, cityId: let cityId, areaId: let areaId, description: let desc):
             var parameters: [String: Any] = [:]
             
             parameters["country_id"] = countryId
             parameters["city_id"] = cityId
+            parameters["area_id"] = areaId
             parameters["description"] = desc
 
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)

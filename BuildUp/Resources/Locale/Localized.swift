@@ -44,6 +44,10 @@ internal enum L10n {
         internal static var currency: String {
           return L10n.tr("Localizable", "cart.currency")
         }
+        /// Your Cart is Empty, start adding products
+        internal static var emptyMessage: String {
+          return L10n.tr("Localizable", "cart.emptyMessage")
+        }
         /// Items
         internal static var items: String {
           return L10n.tr("Localizable", "cart.items")
@@ -78,6 +82,18 @@ internal enum L10n {
         /// Addresses List
         internal static var addresses: String {
           return L10n.tr("Localizable", "checkout.addresses")
+        }
+        /// Area
+        internal static var area: String {
+          return L10n.tr("Localizable", "checkout.area")
+        }
+        /// Choose Area
+        internal static var areaPlaceholder: String {
+          return L10n.tr("Localizable", "checkout.areaPlaceholder")
+        }
+        /// Areas
+        internal static var areas: String {
+          return L10n.tr("Localizable", "checkout.areas")
         }
         /// Cash on delivery
         internal static var cashOnDelivery: String {
@@ -210,6 +226,10 @@ internal enum L10n {
           }
       }
       internal enum Errors {
+          /// Please Choose Your City First
+          internal static var selectCityFirst: String {
+            return L10n.tr("Localizable", "checkout.errors.selectCityFirst")
+          }
           /// Please Choose Your Country First
           internal static var selectCountryFirst: String {
             return L10n.tr("Localizable", "checkout.errors.selectCountryFirst")

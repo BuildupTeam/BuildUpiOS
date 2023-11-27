@@ -139,6 +139,8 @@ extension RealTimeDatabaseService {
                     quantity += quant
                     model.quantity = quantity
                     getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                } else {
+                    getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
                 }
             }
         }
@@ -194,7 +196,8 @@ extension RealTimeDatabaseService {
                 CachingService.setCartProducts(products: fullDic)
                 compeltion(fullDic)
             } else {
-                print("No favourites")
+                CachingService.setCartProducts(products: [:])
+                print("No Cart Items")
             }
         })
     }

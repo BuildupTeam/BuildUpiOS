@@ -167,7 +167,7 @@ extension ProductDetailsViewController {
                           animations: {
             self.subtotalViewHeightConstraint.constant = 137
         })
-        let subtotalPrice = (combinationModel.currentPrice ?? 0) * (combinationModel.cartQuantity ?? 0)
+        let subtotalPrice = (combinationModel.currentPrice ?? 0) * (Double(combinationModel.cartQuantity ?? 0))
         subTotalPriceLabel.text = String(subtotalPrice) + L10n.ProductDetails.currency
     }
     
@@ -223,6 +223,11 @@ extension ProductDetailsViewController {
         }
     }
     
+    private func checkIsOutOfStock() {
+        if let model = viewModel.productModel, model.quantity == 0 {
+            deactivateQuantityView()
+        }
+    }
 }
 
 // MARK: - ProductDetailsQuantityDropDown
@@ -231,9 +236,9 @@ extension ProductDetailsViewController: ProductDetailsQuantityDelegate {
         self.viewModel.productModel = model
 
         if let combination = model.selectedCombination {
-            subTotalPriceLabel.text = String((combination.currentPrice ?? 0) * quantity) + L10n.ProductDetails.currency
+            subTotalPriceLabel.text = String((combination.currentPrice ?? 0) * Double(quantity)) + L10n.ProductDetails.currency
         } else {
-            subTotalPriceLabel.text = String((model.currentPrice ?? 0) * quantity) + L10n.ProductDetails.currency
+            subTotalPriceLabel.text = String((model.currentPrice ?? 0) * Double(quantity)) + L10n.ProductDetails.currency
         }
         
         self.tableView.reloadData()
@@ -338,6 +343,8 @@ extension ProductDetailsViewController {
             })
             self.quantityCircleView.productModel = self.viewModel.productModel
             self.quantityDropDownView.productModel = self.viewModel.productModel
+            
+            self.checkIsOutOfStock()
         }
     }
     

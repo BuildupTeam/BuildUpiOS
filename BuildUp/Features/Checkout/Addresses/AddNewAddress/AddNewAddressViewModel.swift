@@ -19,12 +19,12 @@ class AddNewAddressViewModel: BaseViewModel {
         self.service = service
     }
     
-    func addNewAddress(countryId: Int, cityId: Int, address: String) {
+    func addNewAddress(countryId: Int, cityId: Int, areaId: Int, address: String) {
         guard let service = service else {
             return
         }
         
-        service.addNewAddress(countryId: countryId, cityId: cityId, address: address) { (result) in
+        service.addNewAddress(countryId: countryId, cityId: cityId, areaId: areaId, address: address) { (result) in
             switch result {
             case .success(_):
                 self.onAddNewAddress?()
@@ -37,12 +37,12 @@ class AddNewAddressViewModel: BaseViewModel {
         }
     }
     
-    func updateAddress(addressId: Int, countryId: Int, cityId: Int, address: String) {
+    func updateAddress(addressId: Int, countryId: Int, cityId: Int, areaId: Int, address: String) {
         guard let service = service else {
             return
         }
         
-        service.updateAddress(addressId: addressId, countryId: countryId, cityId: cityId, address: address) { (result) in
+        service.updateAddress(addressId: addressId, countryId: countryId, cityId: cityId, areaId: areaId, address: address) { (result) in
             switch result {
             case .success(_):
                 self.addressUpdated?()

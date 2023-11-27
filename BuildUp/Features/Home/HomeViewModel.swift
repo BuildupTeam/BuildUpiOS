@@ -38,10 +38,10 @@ class HomeViewModel: BaseViewModel {
     init(service: HomeWebServiceProtocol = HomeWebService.shared) {
         super.init(observationType: .all)
         self.service = service
+        self.getCartProducts()
         self.getCachedThemeData()
         self.getCachedHomeData()
         self.getFavoriteProductsUUIDS()
-        self.getCartProducts()
     }
     
     func getFavoriteProductsUUIDS() {

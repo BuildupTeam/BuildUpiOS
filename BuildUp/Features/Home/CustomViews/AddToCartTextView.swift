@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddToCartDelegate: AnyObject {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?)
+}
+
 class AddToCartTextView: UIView {
     
     @IBOutlet private weak var counterContainerView: UIView!
@@ -14,7 +18,9 @@ class AddToCartTextView: UIView {
     @IBOutlet private weak var minusButton: UIButton!
     @IBOutlet private weak var addToCartButton: UIButton!
     @IBOutlet private weak var countLabel: UILabel!
-
+    
+    weak var delegate: AddToCartDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             initialize()
@@ -55,21 +61,33 @@ class AddToCartTextView: UIView {
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
         addToCartButton.hideView()
         counterContainerView.showView()
-        addToCartFirebase()
-    }
-    
-    private func addToCartFirebase() {
-        if let model = productModel {
-            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
-            RealTimeDatabaseService.addProductModel(model: firebaseProductModel)
+        if let model = self.productModel {
+            addToCartFirebase(model)
         }
     }
     
-    private func removeFromCartFirebase() {
-        if let model = productModel {
-            let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
-            RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
+    private func activateAddTocartButton() {
+        DispatchQueue.main.async {
+            self.addToCartButton.showView()
+            self.counterContainerView.hideView()
         }
+    }
+    
+    private func activateCounterView() {
+        DispatchQueue.main.async {
+            self.addToCartButton.hideView()
+            self.counterContainerView.showView()
+        }
+    }
+    
+    private func addToCartFirebase(_ model: ProductModel) {
+        let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
+        RealTimeDatabaseService.addProductModel(model: firebaseProductModel)
+    }
+    
+    private func removeFromCartFirebase(_ model: ProductModel) {
+        let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
+        RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
     }
     
     @IBAction func plusButtonAction(_ sender: UIButton) {
@@ -77,13 +95,18 @@ class AddToCartTextView: UIView {
             if var cartQuantity = model.cartQuantity {
                 if (cartQuantity + 1 ) <= (model.maxAddedQuantity ?? 0) {
                     cartQuantity += 1
+                    model.cartQuantity = cartQuantity
                 }
             } else {
                 model.cartQuantity = 1
             }
             
+            self.productModel = model
+            
             countLabel.text = String(model.cartQuantity ?? 0)
-            addToCartFirebase()
+            addToCartFirebase(model)
+            
+            delegate?.productModelUpdated(model, nil)
         }
     }
     
@@ -92,17 +115,21 @@ class AddToCartTextView: UIView {
             if var cartQuantity = model.cartQuantity {
                 if (cartQuantity - 1 ) >= 1 {
                     cartQuantity -= 1
-                    addToCartFirebase()
-                    addToCartButton.hideView()
-                    counterContainerView.showView()
+                    model.cartQuantity = cartQuantity
+                    addToCartFirebase(model)
+                    activateCounterView()
                 } else {
-                    removeFromCartFirebase()
-                    addToCartButton.showView()
-                    counterContainerView.hideView()
+                    removeFromCartFirebase(model)
+                    activateAddTocartButton()
                 }
+            } else {
+                removeFromCartFirebase(model)
+                activateAddTocartButton()
             }
             
+            self.productModel = model
             countLabel.text = String(model.cartQuantity ?? 0)
+            delegate?.productModelUpdated(model, nil)
         }
     }
 }

@@ -13,8 +13,8 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var uuid: String?
     var name: String?
     var productDescription: String?
-    var originalPrice: Int?
-    var currentPrice: Int?
+    var originalPrice: Double?
+    var currentPrice: Double?
     var formattedPrice: FormatedPriceModel?
     var discount: Int?
     var mainImage: MainImageModel?
@@ -35,20 +35,20 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var isFavorite = false
     var hasCombinations: Bool?
     
-    var totalPriceOriginal: Int? {
-        return (originalPrice ?? 0) * (cartQuantityValue ?? 0)
+    var totalPriceOriginal: Double? {
+        return (originalPrice ?? 0) * Double((cartQuantityValue ?? 0))
     }
     
-    var totalPriceCurrent: Int? {
-        return (currentPrice ?? 0) * (cartQuantityValue ?? 0)
+    var totalPriceCurrent: Double? {
+        return (currentPrice ?? 0) * Double((cartQuantityValue ?? 0))
     }
     
-    var totalPriceCombinationOriginal: Int? {
-        return (cartCombinations?.first?.price ?? 0) * (cartQuantityValue ?? 0)
+    var totalPriceCombinationOriginal: Double? {
+        return (cartCombinations?.first?.price ?? 0) * Double((cartQuantityValue ?? 0))
     }
     
-    var totalPriceCombinationCurrent: Int? {
-        return (cartCombinations?.first?.currentPrice ?? 0) * (cartQuantityValue ?? 0)
+    var totalPriceCombinationCurrent: Double? {
+        return (cartCombinations?.first?.currentPrice ?? 0) * Double((cartQuantityValue ?? 0))
     }
     
     var cartQuantityValue: Int? {
@@ -59,7 +59,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
         return (quantity != nil) ? quantity : cartCombinations?.first?.quantity
     }
     
-    var selectedCombinationPrice: Int? {
+    var selectedCombinationPrice: Double? {
         return getSelectedCombinationPrice()
     }
     
@@ -107,8 +107,8 @@ class ProductModel: NSObject, NSCoding, Mappable {
         uuid = aDecoder.decodeObject(forKey: "uuid") as? String
         name = aDecoder.decodeObject(forKey: "name") as? String
         productDescription = aDecoder.decodeObject(forKey: "productDescription") as? String
-        originalPrice = aDecoder.decodeObject(forKey: "originalPrice") as? Int
-        currentPrice = aDecoder.decodeObject(forKey: "currentPrice") as? Int
+        originalPrice = aDecoder.decodeObject(forKey: "originalPrice") as? Double
+        currentPrice = aDecoder.decodeObject(forKey: "currentPrice") as? Double
         formattedPrice = aDecoder.decodeObject(forKey: "formattedPrice") as? FormatedPriceModel
         discount = aDecoder.decodeObject(forKey: "discount") as? Int
         mainImage = aDecoder.decodeObject(forKey: "mainImage") as? MainImageModel
@@ -157,7 +157,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
         return selectedValues.map { $0.id ?? 0 }
     }
     
-    private func getSelectedCombinationPrice() -> Int? {
+    private func getSelectedCombinationPrice() -> Double? {
         for combination in combinations ?? [] {
             let combinationIds = combination.options?.map({$0.optionValueId ?? 0}) ?? []
             if combinationIds.containsSameElements(as: selectedValues) {

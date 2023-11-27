@@ -27,6 +27,7 @@ struct ApiUrls {
         static let cartUrl = "/cart"
         static let countriesUrl = "/countries"
         static let citiesUrl = "/cities"
+        static let areasUrl = "/areas"
         static let addressesUrl = "/addresses"
         static let updateAdressUrl = "/addresses/{id}"
         

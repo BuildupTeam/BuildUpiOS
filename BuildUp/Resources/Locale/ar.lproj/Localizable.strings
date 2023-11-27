@@ -73,6 +73,7 @@
 "cart.saved" = "You saved";
 "cart.items" = "Items";
 "cart.checkout" = "Checkout";
+"cart.emptyMessage" = "Your Cart is Empty, start adding products";
 
 // MARK: - Checkout
 "checkout.title" = "Checkout";
@@ -90,10 +91,13 @@
 "checkout.country" = "Country";
 "checkout.countries" = "Countries";
 "checkout.city" = "City";
+"checkout.area" = "Area";
 "checkout.cities" = "Cities";
+"checkout.areas" = "Areas";
 "checkout.detailedAddress" = "Detailed Address";
 "checkout.countryPlaceholder" = "Choose Country";
 "checkout.cityPlaceholder" = "Choose City";
+"checkout.areaPlaceholder" = "Choose Area";
 "checkout.detailedAddressPlaceholder" = "Write Your Detailed Address";
 "checkout.choosePayment" = "Choose payment method";
 "checkout.onlinePayement" = "Online Payement";
@@ -111,6 +115,7 @@
 "checkout.addresses" = "Addresses List";
 "checkout.errors.selectCountryFirst" = "Please Choose Your Country First";
 "checkout.updateAddress" = "Update Address";
+"checkout.errors.selectCityFirst" = "Please Choose Your City First";
 
 // MARK: - QRCode Screen
 "QRCode.title" = "Scan QR Code";

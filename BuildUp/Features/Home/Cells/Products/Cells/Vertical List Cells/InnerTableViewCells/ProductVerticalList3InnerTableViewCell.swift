@@ -76,7 +76,7 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = productModel {
-            if model.hasCombinations ?? false {
+            if model.hasCombinations ?? false || model.quantity == 0 {
                 addToCartView.hideView()
             } else {
                 addToCartView.showView()

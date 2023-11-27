@@ -250,3 +250,18 @@ extension HomeViewController: HomeHeaderCellDelegate {
         }
     }
 }
+
+// MARK: - HomeHeaderCellDelegate
+extension HomeViewController: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        if var products = self.viewModel.homeData.homeSections.first(where: { $0.component == homeSectionModel?.component })?.products {
+            if let index = products.firstIndex(where: { $0.uuid == model.uuid }) {
+                products[index].cartQuantity = model.cartQuantity
+                self.viewModel.homeData.homeSections.first(where: { $0.component == homeSectionModel?.component })?.products = products
+                
+                self.tableView.reloadData()
+            }
+        }
+         
+    }
+}

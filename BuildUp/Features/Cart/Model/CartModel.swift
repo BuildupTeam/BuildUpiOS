@@ -11,8 +11,8 @@ import ObjectMapper
 class CartModel: Mappable {
     
     var total: Int?
-    var subtotal: Int?
-    var subtotalBeforeDiscount: Int?
+    var subtotal: Double?
+    var subtotalBeforeDiscount: Double?
     var products: [ProductModel]?
     
     func mapping(map: Map) {

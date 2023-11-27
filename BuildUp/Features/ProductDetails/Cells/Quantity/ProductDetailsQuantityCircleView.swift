@@ -77,6 +77,7 @@ class ProductDetailsQuantityCircleView: UIView {
                 if var cartQuantity = combinationModel.cartQuantity {
                     if (cartQuantity + 1 ) <= (combinationModel.quantity ?? 0) {
                         cartQuantity += 1
+                        combinationModel.cartQuantity = cartQuantity
                     }
                 } else {
                     combinationModel.cartQuantity = 1

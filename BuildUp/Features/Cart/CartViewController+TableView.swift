@@ -16,7 +16,7 @@ enum CartCells: Int {
 
 enum CartSummeryPosition: String {
     case upper = "upper"
-    case down = "down"
+    case down = "bottom"
 }
 
 enum CartProductDesign: String {
@@ -173,6 +173,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             if let settings = viewModel.cartSettings {
+                if !(settings.cartSummaryDesign?.isActive ?? false) {
+                    return 0
+                }
                 switch settings.cartSummaryDesign?.position {
                 case CartSummeryPosition.upper.rawValue:
                     return UITableView.automaticDimension
@@ -184,6 +187,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableView.automaticDimension
         case 2:
             if let settings = viewModel.cartSettings {
+                if !(settings.cartSummaryDesign?.isActive ?? false) {
+                    return 0
+                }
                 switch settings.cartSummaryDesign?.position {
                 case CartSummeryPosition.down.rawValue:
                     return UITableView.automaticDimension

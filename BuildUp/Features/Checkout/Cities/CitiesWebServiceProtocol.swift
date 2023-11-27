@@ -21,11 +21,11 @@ class CitiesWebService: CitiesWebServiceProtocol {
         MainWebService.fetch(endPoint: RouteCitiesApi.getCities(countryId: countryId)) { (result, statusCode) in
             switch result {
             case .success(let response):
-                guard let searchResponse = Mapper<CitiesResponseModel>().map(JSONObject: response) else {
+                guard let citiesResponse = Mapper<CitiesResponseModel>().map(JSONObject: response) else {
                     return
                 }
-                searchResponse.statusCode = statusCode
-                compeltion(Result.success(searchResponse))
+                citiesResponse.statusCode = statusCode
+                compeltion(Result.success(citiesResponse))
             case .failure(var error):
                 error.statusCode = statusCode
                 compeltion(Result.failure(error))

@@ -15,6 +15,7 @@ class AddressModel: Mappable {
     var isDefault: Bool?
     var country: CountryModel?
     var city: CityModel?
+    var area: AreaModel?
     
     func mapping(map: Map) {
         id <- map["id"]
@@ -22,6 +23,7 @@ class AddressModel: Mappable {
         isDefault <- map["is_default"]
         country <- map["country"]
         city <- map["city"]
+        area <- map["area"]
     }
     
     required init?(map: Map) {

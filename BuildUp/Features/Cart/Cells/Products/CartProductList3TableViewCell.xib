@@ -128,7 +128,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ver-MO-AG9">
-                                <rect key="frame" x="0.0" y="204" width="94" height="32"/>
+                                <rect key="frame" x="8" y="204" width="94" height="32"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h8-5X-0VA">
                                         <rect key="frame" x="35" y="9" width="51" height="14.333333333333336"/>
@@ -177,7 +177,7 @@
                             <constraint firstItem="OCi-T0-UBF" firstAttribute="top" secondItem="O0Y-WC-SYT" secondAttribute="bottom" constant="8" id="AcU-ku-JfJ"/>
                             <constraint firstItem="eF3-30-VPK" firstAttribute="top" secondItem="Ha6-qr-csK" secondAttribute="top" id="B4G-5b-QKA"/>
                             <constraint firstItem="OCi-T0-UBF" firstAttribute="leading" secondItem="eF3-30-VPK" secondAttribute="trailing" constant="16" id="EQi-4G-3AF"/>
-                            <constraint firstItem="Ver-MO-AG9" firstAttribute="leading" secondItem="Ha6-qr-csK" secondAttribute="leading" id="F0M-8p-wuG"/>
+                            <constraint firstItem="Ver-MO-AG9" firstAttribute="leading" secondItem="Ha6-qr-csK" secondAttribute="leading" constant="8" id="F0M-8p-wuG"/>
                             <constraint firstAttribute="trailing" secondItem="Xye-PW-bVI" secondAttribute="trailing" constant="6" id="J0O-LV-GQI"/>
                             <constraint firstItem="Xye-PW-bVI" firstAttribute="leading" secondItem="eF3-30-VPK" secondAttribute="trailing" constant="16" id="Lvh-hm-xR9"/>
                             <constraint firstAttribute="trailing" secondItem="ldK-ty-3ON" secondAttribute="trailing" constant="6" id="MZr-DU-RTl"/>

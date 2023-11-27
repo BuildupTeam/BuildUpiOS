@@ -57,7 +57,7 @@ class CartSummeryTableViewCell: UITableViewCell {
         if let model = cartModel {
             itemsCountLabel.text = String(model.products?.count ?? 0)
             
-            let savedPrice = (model.subtotalBeforeDiscount ?? 0) - (model.subtotal ?? 0)
+            let savedPrice = String(format: "%.2f", (model.subtotalBeforeDiscount ?? 0) - (model.subtotal ?? 0))
             savedLabel.text = "-" + L10n.Cart.currency + String(savedPrice)
             subtotalLabel.text = L10n.Cart.currency + String(model.subtotal ?? 0)
         }
