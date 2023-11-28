@@ -18,7 +18,11 @@ class CheckoutSummaryTableViewCell: UITableViewCell {
     @IBOutlet weak var subtotalTitleLabel: UILabel!
     @IBOutlet weak var subtotalLabel: UILabel!
     
-    var summaryModel: SummaryModel?
+    var summaryModel: SummaryModel? {
+        didSet {
+            bindData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

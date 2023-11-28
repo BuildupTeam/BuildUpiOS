@@ -70,7 +70,7 @@
                 <outlet property="itemsCountLabel" destination="ODO-O5-fSl" id="iwW-qQ-vl5"/>
                 <outlet property="subtotalLabel" destination="0lO-bR-kce" id="h5R-wr-fPB"/>
             </connections>
-            <point key="canvasLocation" x="37" y="20"/>
+            <point key="canvasLocation" x="35.877862595419849" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>

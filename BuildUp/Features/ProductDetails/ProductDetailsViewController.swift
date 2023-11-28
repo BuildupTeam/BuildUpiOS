@@ -100,6 +100,7 @@ extension ProductDetailsViewController {
         quantityCircleView.delegate = self
         quantityDropDownView.delegate = self
         
+        subTotalPriceTitleLabel.text = L10n.Cart.subtotal
         subTotalPriceTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         subTotalPriceLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         

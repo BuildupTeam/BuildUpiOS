@@ -117,6 +117,7 @@
 "checkout.updateAddress" = "Update Address";
 "checkout.errors.selectCityFirst" = "Please Choose Your City First";
 "checkout.items" = "items";
+"checkout.totalAmount" = "Total Amount";
 
 // MARK: - QRCode Screen
 "QRCode.title" = "Scan QR Code";

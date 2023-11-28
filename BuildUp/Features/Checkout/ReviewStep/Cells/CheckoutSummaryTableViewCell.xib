@@ -75,6 +75,7 @@
                             <constraint firstItem="Gkf-4j-1pv" firstAttribute="top" secondItem="aK6-76-T9t" secondAttribute="top" constant="12" id="Mne-sH-3cG"/>
                             <constraint firstItem="sQ5-Kc-0jI" firstAttribute="leading" secondItem="aK6-76-T9t" secondAttribute="leading" constant="8" id="QWq-1M-VKg"/>
                             <constraint firstItem="9UR-KJ-vNG" firstAttribute="top" secondItem="Gkf-4j-1pv" secondAttribute="bottom" constant="20" id="Qdb-dU-Sk7"/>
+                            <constraint firstAttribute="height" constant="150" id="Stt-MJ-iXv"/>
                             <constraint firstAttribute="trailing" secondItem="fPN-Gu-tSI" secondAttribute="trailing" constant="28" id="U2L-Dh-GGJ"/>
                             <constraint firstItem="sQ5-Kc-0jI" firstAttribute="top" secondItem="9UR-KJ-vNG" secondAttribute="bottom" constant="10" id="c58-SO-ee8"/>
                             <constraint firstAttribute="trailing" secondItem="lV5-x4-HYf" secondAttribute="trailing" constant="28" id="plf-qP-cCf"/>

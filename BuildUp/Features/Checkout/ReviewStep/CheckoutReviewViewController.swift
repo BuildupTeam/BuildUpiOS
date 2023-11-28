@@ -19,6 +19,11 @@ class CheckoutReviewViewController: BaseViewController {
     @IBOutlet private weak var headerView: CheckoutStatusView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet weak var checkoutContainerView: UIView!
+    @IBOutlet weak var subtotalLabel: UILabel!
+    @IBOutlet weak var subtotalTitleLabel: UILabel!
+    @IBOutlet weak var checkoutContainerHeightConstraint: NSLayoutConstraint!
+
     @IBOutlet private weak var checkoutButton: UIButton!
 
     var viewModel: CheckoutReviewViewModel!
@@ -61,8 +66,17 @@ extension CheckoutReviewViewController {
         headerView.setupView()
         headerView.setupReviewView()
         
+        checkoutContainerHeightConstraint.constant = 0
+        
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        
+        subtotalTitleLabel.text = L10n.Checkout.totalAmount
+        subtotalTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
+        subtotalLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
+        
+        subtotalTitleLabel.font = .appFont(ofSize: 17, weight: .medium)
+        subtotalLabel.font = .appFont(ofSize: 16, weight: .bold)
         
         checkoutButton.layer.masksToBounds = true
         checkoutButton.layer.cornerRadius = 8
@@ -94,10 +108,20 @@ extension CheckoutReviewViewController {
         }
     }
     
+    private func setupTotalPrice() {
+        checkoutContainerHeightConstraint.constant = 137
+        checkoutContainerView.showView()
+        if let summary = self.viewModel.summaryData?.summary {
+            subtotalLabel.text = (summary.formattedSubtotal?.formatted ?? "")
+            //String(summary.formattedSubtotal?.formatted) + L10n.ProductDetails.currency
+        }
+    }
+    
     private func setupResponse() {
         self.viewModel.onSummary = { [weak self]() in
             guard let `self` = self else { return }
             self.hideLoading()
+            setupTotalPrice()
             self.tableView.reloadData()
         }
     }
@@ -148,6 +172,7 @@ extension CheckoutReviewViewController {
             withIdentifier: CheckoutSummaryTableViewCell.identifier) as? CheckoutSummaryTableViewCell
         else { return UITableViewCell() }
         
+        cell.summaryModel = summary
         cell.selectionStyle = .none
         return cell
     }

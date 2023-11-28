@@ -219,6 +219,10 @@ internal enum L10n {
         internal static var title: String {
           return L10n.tr("Localizable", "checkout.title")
         }
+        /// Total Amount
+        internal static var totalAmount: String {
+          return L10n.tr("Localizable", "checkout.totalAmount")
+        }
         /// Update Address
         internal static var updateAddress: String {
           return L10n.tr("Localizable", "checkout.updateAddress")

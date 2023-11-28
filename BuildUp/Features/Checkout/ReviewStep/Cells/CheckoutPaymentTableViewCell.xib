@@ -49,6 +49,7 @@
                             <constraint firstAttribute="trailing" secondItem="3hQ-h8-M80" secondAttribute="trailing" constant="16" id="Jpr-ER-Vto"/>
                             <constraint firstItem="eoi-W2-ys2" firstAttribute="top" secondItem="xVk-F5-X6l" secondAttribute="top" constant="12" id="Yhs-ub-Rvq"/>
                             <constraint firstItem="3hQ-h8-M80" firstAttribute="centerY" secondItem="sAx-au-6Hb" secondAttribute="centerY" id="ZcL-gi-cbP"/>
+                            <constraint firstAttribute="height" constant="80" id="aTW-9m-cCT"/>
                             <constraint firstAttribute="trailing" secondItem="eoi-W2-ys2" secondAttribute="trailing" constant="16" id="c3a-ot-CZF"/>
                             <constraint firstItem="sAx-au-6Hb" firstAttribute="leading" secondItem="xVk-F5-X6l" secondAttribute="leading" constant="16" id="cLh-oj-M6k"/>
                         </constraints>
@@ -64,7 +65,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="containerview" destination="xVk-F5-X6l" id="thu-SB-vum"/>
+                <outlet property="containerView" destination="xVk-F5-X6l" id="eJq-o7-EM9"/>
                 <outlet property="onlinePaymentLabel" destination="3hQ-h8-M80" id="y8r-fz-dst"/>
                 <outlet property="paymentTitleLabel" destination="eoi-W2-ys2" id="8dd-GF-G9e"/>
             </connections>

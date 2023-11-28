@@ -19,32 +19,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHl-JS-K9X">
-                        <rect key="frame" x="24" y="10" width="366" height="180"/>
+                        <rect key="frame" x="24" y="10" width="366" height="169.33333333333334"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohamed Khaled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWy-WR-dyM">
-                                <rect key="frame" x="16" y="11.999999999999998" width="334" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="12" width="334" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="UIN-lE-gHh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mohamed Khaled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGs-fs-VJI">
-                                <rect key="frame" x="16" y="48.333333333333336" width="133.33333333333334" height="20.333333333333336"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOM-ge-t0V">
-                                <rect key="frame" x="14" y="76.333333333333329" width="70" height="41.333333333333329"/>
+                                <rect key="frame" x="16" y="50" width="334" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="9eC-ZO-fMl"/>
+                                    <constraint firstAttribute="height" constant="25" id="IE9-n9-wXH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fri-ho-L9U">
-                                <rect key="frame" x="14" y="137.66666666666666" width="70" height="20.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOM-ge-t0V">
+                                <rect key="frame" x="14" y="87" width="70" height="22"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="9eC-ZO-fMl"/>
+                                    <constraint firstAttribute="height" constant="22" id="AqU-lF-OTR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fri-ho-L9U">
+                                <rect key="frame" x="14" y="121" width="70" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="pPK-kj-PEb"/>
                                     <constraint firstAttribute="width" constant="70" id="uaz-6z-zuj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -52,13 +60,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Saudi arabia, Riyad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRT-PG-fga">
-                                <rect key="frame" x="104" y="86.333333333333329" width="248" height="21"/>
+                                <rect key="frame" x="104" y="87.666666666666671" width="248" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2873 Prince Nayef Rd, King Fahd-Riyadh ,  Saudi Arabia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSW-Rk-UmF">
-                                <rect key="frame" x="104" y="127.33333333333336" width="248" height="40.666666666666671"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="2873 Prince Nayef Rd, King Fahd-Riyadh ,  Saudi Arabia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSW-Rk-UmF">
+                                <rect key="frame" x="104" y="120.66666666666667" width="248" height="40.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,19 +77,21 @@
                             <constraint firstItem="ZWy-WR-dyM" firstAttribute="top" secondItem="SHl-JS-K9X" secondAttribute="top" constant="12" id="3m6-5f-Jv7"/>
                             <constraint firstItem="PSW-Rk-UmF" firstAttribute="leading" secondItem="Fri-ho-L9U" secondAttribute="trailing" constant="20" id="44u-ck-thT"/>
                             <constraint firstAttribute="trailing" secondItem="QRT-PG-fga" secondAttribute="trailing" constant="14" id="E8O-G7-Xvg"/>
-                            <constraint firstItem="Fri-ho-L9U" firstAttribute="top" secondItem="NOM-ge-t0V" secondAttribute="bottom" constant="20" id="Erf-cb-F8h"/>
-                            <constraint firstItem="PSW-Rk-UmF" firstAttribute="top" secondItem="QRT-PG-fga" secondAttribute="bottom" constant="20" id="IxO-Gz-MS3"/>
-                            <constraint firstItem="OGs-fs-VJI" firstAttribute="top" secondItem="ZWy-WR-dyM" secondAttribute="bottom" constant="16" id="J7R-DZ-Xe6"/>
+                            <constraint firstItem="NOM-ge-t0V" firstAttribute="top" secondItem="OGs-fs-VJI" secondAttribute="bottom" constant="12" id="FKo-oB-GG7"/>
+                            <constraint firstAttribute="trailing" secondItem="OGs-fs-VJI" secondAttribute="trailing" constant="16" id="IfN-pd-D8J"/>
+                            <constraint firstItem="OGs-fs-VJI" firstAttribute="top" secondItem="ZWy-WR-dyM" secondAttribute="bottom" constant="8" id="J7R-DZ-Xe6"/>
                             <constraint firstItem="Fri-ho-L9U" firstAttribute="leading" secondItem="SHl-JS-K9X" secondAttribute="leading" constant="14" id="NlW-SA-bp3"/>
-                            <constraint firstAttribute="bottom" secondItem="PSW-Rk-UmF" secondAttribute="bottom" constant="12" id="RcT-oP-9Br"/>
+                            <constraint firstAttribute="bottom" secondItem="PSW-Rk-UmF" secondAttribute="bottom" constant="8" id="XlQ-8o-w8j"/>
                             <constraint firstAttribute="trailing" secondItem="PSW-Rk-UmF" secondAttribute="trailing" constant="14" id="eXP-4E-r5D"/>
                             <constraint firstAttribute="trailing" secondItem="ZWy-WR-dyM" secondAttribute="trailing" constant="16" id="f3W-5s-gRc"/>
+                            <constraint firstItem="PSW-Rk-UmF" firstAttribute="top" secondItem="QRT-PG-fga" secondAttribute="bottom" constant="12" id="fs9-oF-ymx"/>
                             <constraint firstItem="NOM-ge-t0V" firstAttribute="leading" secondItem="SHl-JS-K9X" secondAttribute="leading" constant="14" id="hkj-AG-Cyd"/>
-                            <constraint firstItem="PSW-Rk-UmF" firstAttribute="centerY" secondItem="Fri-ho-L9U" secondAttribute="centerY" id="lNV-wD-Sni"/>
+                            <constraint firstAttribute="bottom" secondItem="Fri-ho-L9U" secondAttribute="bottom" constant="20" id="ohF-Fl-ob9"/>
                             <constraint firstItem="OGs-fs-VJI" firstAttribute="leading" secondItem="SHl-JS-K9X" secondAttribute="leading" constant="16" id="r5z-xR-nB7"/>
                             <constraint firstItem="QRT-PG-fga" firstAttribute="centerY" secondItem="NOM-ge-t0V" secondAttribute="centerY" id="w6h-Wz-zTg"/>
                             <constraint firstItem="ZWy-WR-dyM" firstAttribute="leading" secondItem="SHl-JS-K9X" secondAttribute="leading" constant="16" id="wQ2-VB-tsx"/>
                             <constraint firstItem="QRT-PG-fga" firstAttribute="leading" secondItem="NOM-ge-t0V" secondAttribute="trailing" constant="20" id="xoF-3i-U5H"/>
+                            <constraint firstItem="Fri-ho-L9U" firstAttribute="top" secondItem="NOM-ge-t0V" secondAttribute="bottom" constant="12" id="zRH-Ir-VSc"/>
                         </constraints>
                     </view>
                 </subviews>

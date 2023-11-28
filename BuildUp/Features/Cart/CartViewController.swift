@@ -12,6 +12,7 @@ class CartViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var checkoutContainerView: UIView!
+    @IBOutlet private weak var checkoutContainerViewHeightConstraint: NSLayoutConstraint!
 
     var cartCheckoutType1View: CartCheckout1View?
     var cartCheckoutType2View: CartCheckout2View?
@@ -54,6 +55,7 @@ extension CartViewController {
     private func setupView() {
         isLoadingShimmer = true
         self.checkoutContainerView.hideView()
+        self.checkoutContainerViewHeightConstraint.constant = 0
         
         registerTableViewCells()
         
@@ -199,9 +201,11 @@ extension CartViewController {
             guard let `self` = self else { return }
             if self.viewModel.cartModel != nil {
                 self.checkoutContainerView.showView()
+                self.checkoutContainerViewHeightConstraint.constant = 80
                 self.removeBackgroundViews()
             } else {
                 self.setupEmptyView()
+                self.checkoutContainerViewHeightConstraint.constant = 0
                 self.checkoutContainerView.hideView()
             }
             self.fillData()
