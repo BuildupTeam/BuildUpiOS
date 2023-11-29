@@ -379,6 +379,39 @@ internal enum L10n {
         }
     }
 
+    internal enum Orders {
+        /// Current
+        internal static var current: String {
+          return L10n.tr("Localizable", "orders.current")
+        }
+        /// Past
+        internal static var past: String {
+          return L10n.tr("Localizable", "orders.past")
+        }
+        /// Order History
+        internal static var title: String {
+          return L10n.tr("Localizable", "orders.title")
+        }
+        /// View Details
+        internal static var viewDetails: String {
+          return L10n.tr("Localizable", "orders.viewDetails")
+        }
+      internal enum Status {
+          /// Arriving
+          internal static var arriving: String {
+            return L10n.tr("Localizable", "orders.status.arriving")
+          }
+          /// Delivered
+          internal static var delivered: String {
+            return L10n.tr("Localizable", "orders.status.delivered")
+          }
+          /// Pending
+          internal static var pending: String {
+            return L10n.tr("Localizable", "orders.status.pending")
+          }
+      }
+    }
+
     internal enum ProductDetails {
         ///  SAR
         internal static var currency: String {

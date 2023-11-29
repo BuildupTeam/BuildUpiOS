@@ -59,8 +59,8 @@ class AppTabBarViewController: UITabBarController {
         let categoriesVC = Coordinator.MainTaps.createCategoriesViewController()
         categoriesVC.tabBarItem = UITabBarItem(
             title: "",
-            image: Asset.icCategoriesActive.image,
-            selectedImage: Asset.icCategoriesInactive.image)
+            image: Asset.icSettingsActive.image,
+            selectedImage: Asset.icSettingsInactive.image)
         
         let cartVC = Coordinator.MainTaps.createCartViewController()
         cartVC.tabBarItem = UITabBarItem(
@@ -74,15 +74,15 @@ class AppTabBarViewController: UITabBarController {
                    image: Asset.icProfileActive.image,
                    selectedImage: Asset.icProfileInactive.image)
         
-        let settingsVC = Coordinator.MainTaps.createSettingsViewController()
-        settingsVC.tabBarItem = UITabBarItem(
+        let ordersVC = Coordinator.MainTaps.createOrderHistoryViewController()
+        ordersVC.tabBarItem = UITabBarItem(
             title: "",
-            image: Asset.icSettingsActive.image,
-            selectedImage: Asset.icSettingsInactive.image)
+            image: Asset.icCategoriesActive.image,
+            selectedImage: Asset.icCategoriesInactive.image)
         
         var viewControllerList: [UIViewController] = []
         
-        viewControllerList = [homeVC, settingsVC, cartVC, categoriesVC, profilVC]
+        viewControllerList = [homeVC, categoriesVC, cartVC, ordersVC, profilVC]
                
         self.setViewControllers(viewControllerList, animated: false)
     }

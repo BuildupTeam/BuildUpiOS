@@ -71,6 +71,14 @@ class Coordinator {
             navigation.setViewControllers([viewController], animated: true)
             return navigation
         }
+        //OrderHistoryContainerViewController
+        class func createOrderHistoryViewController() -> UIViewController {
+            let viewController = OrderHistoryContainerViewController()
+            
+            let navigation = Coordinator.AppBase.baseNavigationController()
+            navigation.setViewControllers([viewController], animated: true)
+            return navigation
+        }
         
         class func createProfileViewController(viewModel: ProfileViewModel = ProfileViewModel()) -> UIViewController {
             let viewController = ProfileViewController(viewModel: viewModel)

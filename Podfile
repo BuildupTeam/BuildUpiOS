@@ -22,6 +22,8 @@ def ui_pods
   pod 'DPOTPView'
   pod "SCPageControl", :git => 'https://github.com/MahmoudNasserIbtikar/SCPageControl.git'
   pod 'lottie-ios'
+  pod 'CarbonKit', :git => 'https://github.com/Sob7y/CarbonKit'
+#  pod 'PagerTabStripView', '~> 3.2.0'
 #  pod 'QRCodeReader.swift', '~> 10.1.0',
 end
 

@@ -298,8 +298,8 @@
             filePath = "BuildUp/Base/BaseViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "getProductsWithCartQuantity(products:)"
             landmarkType = "7">
          </BreakpointContent>

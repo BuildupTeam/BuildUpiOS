@@ -119,6 +119,15 @@
 "checkout.items" = "items";
 "checkout.totalAmount" = "Total Amount";
 
+// MARK: - Order History Screen
+"orders.title" = "Order History";
+"orders.current" = "Current";
+"orders.past" = "Past";
+"orders.viewDetails" = "View Details";
+"orders.status.arriving" = "Arriving";
+"orders.status.pending" = "Pending";
+"orders.status.delivered" = "Delivered";
+
 // MARK: - QRCode Screen
 "QRCode.title" = "Scan QR Code";
 "QRCode.content" = "Scan the QR Code that appears in the mobile mockup in your dashboard to be able to view your app demo";
