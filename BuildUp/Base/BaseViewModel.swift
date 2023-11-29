@@ -9,6 +9,7 @@ import Foundation
 import Moya
 
 enum ObservationType {
+    case cartUpdated
     case all
 }
 
@@ -37,13 +38,13 @@ class BaseViewModel {
         self.baseService = service
         self.observationType = observationType
         
-        if observationType == .all {
-            observeOnAll()
+        if observationType == .cartUpdated {
+            observeOnCart()
         }
     }
     
     deinit {
-//        removeAllObservations()
+        removeAllObservations()
     }
     
     func getUserData() {
@@ -246,22 +247,20 @@ extension BaseViewModel {
 
 // MARK: - Observation Handler
 extension BaseViewModel {
-    func observeOnAll() {
-        //        NotificationCenter.default.addObserver(
-        //            self,
-        //            selector: #selector(newsBookmarkUpdatedAction(_:)),
-        //            name: .newsBookmarkupdated,
-        //            object: nil)
+    func observeOnCart() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(cartUpdatedAction(_:)),
+            name: .cartupdated,
+            object: nil)
     }
-}
-
-// MARK: - Intercome
-extension BaseViewModel {
-    private func intercomeLogin() {
-//        if let profileId = CachingService.getUser()?.profileId,
-//            let email = CachingService.getUser()?.email {
-//
-//            Intercom.registerUser(withUserId: "\(profileId)", email: email)
-//        }
+    
+    @objc
+    func cartUpdatedAction(_ notification: Notification) {
+        
+    }
+    
+    func removeAllObservations() {
+        NotificationCenter.default.removeObserver(self, name: .cartupdated, object: nil)
     }
 }

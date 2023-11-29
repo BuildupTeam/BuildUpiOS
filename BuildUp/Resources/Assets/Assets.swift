@@ -44,6 +44,7 @@ internal enum Asset {
   internal static let icSearch = ImageAsset(name: "ic_search")
   internal static let icSquadio = ImageAsset(name: "ic_squadio")
   internal static let navBackButton = ImageAsset(name: "nav_back_button")
+  internal static let icArrowLeft = ImageAsset(name: "ic_arrow_left")
   internal static let add = ImageAsset(name: "add")
   internal static let addProductSpecification = ImageAsset(name: "add_product_specification")
   internal static let arrowDown = ImageAsset(name: "arrow_down")
