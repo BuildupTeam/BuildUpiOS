@@ -520,6 +520,7 @@
 		39D077CC2AF18D9000867C87 /* RouteResetPasswordApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D077CB2AF18D9000867C87 /* RouteResetPasswordApi.swift */; };
 		39D077CF2AF196DD00867C87 /* CustomLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D077CE2AF196DD00867C87 /* CustomLoadingIndicator.swift */; };
 		39D077D12AF196FC00867C87 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 39D077D02AF196FC00867C87 /* loading.json */; };
+		39D714B92B178C8300B4497F /* ObservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D714B82B178C8300B4497F /* ObservationService.swift */; };
 		39D9BA9D2B027463005CD5BA /* CartCombinationsOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9BA9C2B027463005CD5BA /* CartCombinationsOptionModel.swift */; };
 		39D9BA9F2B0274CC005CD5BA /* CartOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9BA9E2B0274CC005CD5BA /* CartOptionModel.swift */; };
 		39D9BAA12B027520005CD5BA /* CartCombinationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9BAA02B027520005CD5BA /* CartCombinationsModel.swift */; };
@@ -1111,6 +1112,7 @@
 		39D077CB2AF18D9000867C87 /* RouteResetPasswordApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteResetPasswordApi.swift; sourceTree = "<group>"; };
 		39D077CE2AF196DD00867C87 /* CustomLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoadingIndicator.swift; sourceTree = "<group>"; };
 		39D077D02AF196FC00867C87 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		39D714B82B178C8300B4497F /* ObservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationService.swift; sourceTree = "<group>"; };
 		39D9BA9C2B027463005CD5BA /* CartCombinationsOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCombinationsOptionModel.swift; sourceTree = "<group>"; };
 		39D9BA9E2B0274CC005CD5BA /* CartOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartOptionModel.swift; sourceTree = "<group>"; };
 		39D9BAA02B027520005CD5BA /* CartCombinationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCombinationsModel.swift; sourceTree = "<group>"; };
@@ -1704,6 +1706,7 @@
 				39CE76622A2F60880019A485 /* LocalizationManager.swift */,
 				39CE76682A2F60880019A485 /* Singleton.swift */,
 				3950B0972A6ABCA300E27111 /* ThemeManager.swift */,
+				39D714B82B178C8300B4497F /* ObservationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -3752,6 +3755,7 @@
 				39C6C4BD2A3CDFCD00F11A6F /* CategoriesVerticalGrid1TableViewCell.swift in Sources */,
 				39F9D10B2AD74EC6007BB6B9 /* QRCodeReaderView.swift in Sources */,
 				39CE76DA2A2F95720019A485 /* LoginViewController.swift in Sources */,
+				39D714B92B178C8300B4497F /* ObservationService.swift in Sources */,
 				3936139C2AB4758C007289DE /* ProductListResponseModel.swift in Sources */,
 				39CE768A2A2F61170019A485 /* UIView+Blur.swift in Sources */,
 				3950B0A02A6ABFD300E27111 /* ThemeConfigurationDataModel.swift in Sources */,
@@ -4056,7 +4060,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
@@ -4096,7 +4100,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
@@ -4279,7 +4283,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
@@ -4422,7 +4426,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;

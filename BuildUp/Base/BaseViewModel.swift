@@ -25,12 +25,7 @@ class BaseViewModel {
     var observationType: ObservationType
     var onAdStatusChanged: (() -> Void)?
     var onAdStatusWarning: (() -> Void)?
-    var onRegisterTokenResponse: (() -> Void)?
-    var onDeleteTokenResponse: (() -> Void)?
-    var onDeleteAccount: (() -> Void)?
-    var onVerifyEmail: (() -> Void)?
-    var onIsVerifyEmail: (() -> Void)?
-    var onIsNotVerifyEmail: (() -> Void)?
+    var carItemUpdated: (() -> Void)?
 
     var adModelToUpdate: AdModel?
     
@@ -44,7 +39,7 @@ class BaseViewModel {
     }
     
     deinit {
-        removeAllObservations()
+        removeCartObservations()
     }
     
     func getUserData() {
@@ -245,7 +240,7 @@ extension BaseViewModel {
     }
 }
 
-// MARK: - Observation Handler
+// MARK: - Firebase & Observation Handler
 extension BaseViewModel {
     func observeOnCart() {
         NotificationCenter.default.addObserver(
@@ -257,10 +252,11 @@ extension BaseViewModel {
     
     @objc
     func cartUpdatedAction(_ notification: Notification) {
-        
+        self.carItemUpdated?()
+//        removeCartObservations()
     }
     
-    func removeAllObservations() {
+    func removeCartObservations() {
         NotificationCenter.default.removeObserver(self, name: .cartupdated, object: nil)
     }
 }

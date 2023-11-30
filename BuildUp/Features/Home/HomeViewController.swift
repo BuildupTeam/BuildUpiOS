@@ -161,6 +161,7 @@ extension HomeViewController {
     
     private func setupResponse() {
         homeResponse()
+        cartItemUpdatedResponse()
     }
 }
 
@@ -180,6 +181,16 @@ extension HomeViewController {
             self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()
         }
+    }
+    
+    private func cartItemUpdatedResponse() {
+        ObservationService.carItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            //getProductsWithCartQuantity
+            self.viewModel.updateAllHomeSectionsWithCartItems()
+            self.tableView.reloadData()
+            print("recieved")
+        })
     }
 }
 

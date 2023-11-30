@@ -44,19 +44,16 @@ class HomeViewModel: BaseViewModel {
         self.getFavoriteProductsUUIDS()
     }
     
-    func getFavoriteProductsUUIDS() {
-        RealTimeDatabaseService.getFavoriteList { favoriteIDS in
-            self.favoriteUUIDS = favoriteIDS
+    func getCartProducts() {
+        ObservationService.observeOnCart()
+        RealTimeDatabaseService.getCartProducts { dict in
+            NotificationCenter.default.post(name: .cartupdated, object: nil, userInfo: nil)
         }
     }
     
-    func getCartProducts() {
-        RealTimeDatabaseService.getCartProducts { dict in
-            print("cart \(dict)")
-            
-            let defaultCartProducts = CachingService.getDefaultCartProducts()
-            let combinationsCartProducts = CachingService.getDefaultCartProducts()
-            
+    func getFavoriteProductsUUIDS() {
+        RealTimeDatabaseService.getFavoriteList { favoriteIDS in
+            self.favoriteUUIDS = favoriteIDS
         }
     }
     
@@ -170,6 +167,16 @@ class HomeViewModel: BaseViewModel {
                 print(error)
                 if error.message != "Request explicitly cancelled." {
                     self.onNetworkError?(error)
+                }
+            }
+        }
+    }
+    
+    func updateAllHomeSectionsWithCartItems() {
+        for homeSection in self.homeData.homeSections {
+            if !(homeSection.products?.isEmpty ?? true) {
+                if let products = homeSection.products {
+                    homeSection.products = getProductsWithCartQuantity(products: products)
                 }
             }
         }

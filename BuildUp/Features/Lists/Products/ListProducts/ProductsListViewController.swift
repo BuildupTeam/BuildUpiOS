@@ -171,6 +171,7 @@ extension ProductsListViewController  {
     private func setupResponse() {
         productsResponse()
         loadMoreProductsResponse()
+        cartItemUpdatedResponse()
     }
 }
 
@@ -201,5 +202,14 @@ extension ProductsListViewController {
             self.isReloadingTableView = false
             print("recieved")
         }
+    }
+    
+    private func cartItemUpdatedResponse() {
+        ObservationService.carItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            self.viewModel.products = self.viewModel.getProductsWithCartQuantity(products: self.viewModel.products)
+            self.tableView.reloadData()
+            print("recieved")
+        })
     }
 }
