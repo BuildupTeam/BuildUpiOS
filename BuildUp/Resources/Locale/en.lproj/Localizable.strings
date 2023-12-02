@@ -130,6 +130,13 @@
 "orders.status.pending" = "Pending";
 "orders.status.delivered" = "Delivered";
 
+// MARK: - Profile Screen
+"profile.editProfile" = "Edit Profile";
+"profile.savedAddresses" = "Saved Addresses";
+"profile.settings" = "Settings";
+"profile.wishlist" = "Wishlist";
+"profile.logout" = "Log out";
+
 // MARK: - QRCode Screen
 "QRCode.title" = "Scan QR Code";
 "QRCode.content" = "Scan the QR Code that appears in the mobile mockup in your dashboard to be able to view your app demo";

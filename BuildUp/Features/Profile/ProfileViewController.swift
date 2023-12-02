@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileViewController: BaseViewController {
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
 
     var viewModel: ProfileViewModel!
     
@@ -24,20 +24,34 @@ class ProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        handleLogoutResponse()
-        handleTokenNotExistResponse()
+        handleResponses()
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = " "
+    }
+}
+
+extension ProfileViewController {
     private func setupView() {
+        registerTableViewCells()
+        self.viewModel.userModel = CachingService.getUser()?.customer
+        
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
-        
-        logoutButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
-        logoutButton.backgroundColor = UIColor.white
-        logoutButton.layer.masksToBounds = true
-        logoutButton.layer.cornerRadius = 8
-        logoutButton.titleLabel?.text = L10n.Profile.logout
+    }
+    
+    private func handleResponses() {
+        handleLogoutResponse()
+        handleTokenNotExistResponse()
+        profileResponse()
+        self.viewModel.getProfile()
     }
     
     private func handleLogoutResponse() {
@@ -55,12 +69,44 @@ class ProfileViewController: BaseViewController {
             LauncherViewController.logoutToLoginView()
         }
     }
+    
+    private func getProfileData() {
+        self.viewModel.getProfile()
+    }
+    
+    private func profileResponse() {
+        self.viewModel.onProfile = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
+                        self.tableView.reloadData()
+        }
+    }
 }
+    
 
 extension ProfileViewController {
-    @IBAction func logoutAction(_ sender: UIButton) {
+    func logoutAction() {
         self.showLoading()
         self.viewModel.logoutUser()
+    }
+    
+    func openEditProfile() {
+        
+    }
+    
+    func openAddresses() {
+        let addressesVC = Coordinator.Controllers.createAddressesViewController()
+        self.navigationController?.pushViewController(addressesVC, animated: true)
+    }
+    
+    func openWishList() {
+        let wishListVC = Coordinator.Controllers.createWishListViewController()
+        self.navigationController?.pushViewController(wishListVC, animated: true)
+        
+    }
+    
+    func openSettings() {
+        
     }
 }
 

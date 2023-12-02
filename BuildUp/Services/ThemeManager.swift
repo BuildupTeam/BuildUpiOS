@@ -69,7 +69,8 @@ class ThemeManager {
             }
             
             element.layer.shadowColor = color.cgColor
-            element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
+//            element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
+            element.layer.shadowPath = UIBezierPath(rect: element.bounds).cgPath
             element.layer.shadowRadius = shadowRadius
             element.layer.shadowOpacity = opacity
             element.layer.masksToBounds = masksToBounds
@@ -97,7 +98,11 @@ class ThemeManager {
             }
             
             element.layer.shadowColor = color.cgColor
-            element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
+            element.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+            element.layer.shadowPath = UIBezierPath(rect: element.bounds).cgPath
+            element.layer.shouldRasterize = true
+            element.layer.rasterizationScale = UIScreen.main.scale
+            
             element.layer.shadowRadius = shadowRadius
             element.layer.shadowOpacity = opacity
             element.layer.masksToBounds = masksToBounds
@@ -115,7 +120,11 @@ class ThemeManager {
             
             element.layer.cornerRadius = 0
             element.layer.shadowColor = color.cgColor
-            element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
+            element.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+            // CGSize(width: xOffset, height: yOffset)
+            element.layer.shadowPath = UIBezierPath(rect: element.bounds).cgPath
+            element.layer.shouldRasterize = true
+            element.layer.rasterizationScale = UIScreen.main.scale
             element.layer.shadowRadius = shadowRadius
             element.layer.shadowOpacity = opacity
             element.layer.masksToBounds = masksToBounds

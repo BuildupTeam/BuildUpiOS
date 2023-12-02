@@ -9,7 +9,7 @@ import UIKit
 
 class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var productImageView: UIImageView!
+    @IBOutlet weak var productImageView: UIImageView!
     
     @IBOutlet private weak var productNameLabel: UILabel!
     @IBOutlet private weak var productOldPriceLabel: UILabel!

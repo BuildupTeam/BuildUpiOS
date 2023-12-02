@@ -447,9 +447,25 @@ internal enum L10n {
     }
 
     internal enum Profile {
+        /// Edit Profile
+        internal static var editProfile: String {
+          return L10n.tr("Localizable", "profile.editProfile")
+        }
         /// logout
         internal static var logout: String {
           return L10n.tr("Localizable", "profile.logout")
+        }
+        /// Saved Addresses
+        internal static var savedAddresses: String {
+          return L10n.tr("Localizable", "profile.savedAddresses")
+        }
+        /// Settings
+        internal static var settings: String {
+          return L10n.tr("Localizable", "profile.settings")
+        }
+        /// Wishlist
+        internal static var wishlist: String {
+          return L10n.tr("Localizable", "profile.wishlist")
         }
     }
 

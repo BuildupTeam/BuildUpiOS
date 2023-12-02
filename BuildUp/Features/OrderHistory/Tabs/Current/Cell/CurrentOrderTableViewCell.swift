@@ -68,7 +68,6 @@ class CurrentOrderTableViewCell: UITableViewCell {
         
         bottomSeparatorView.backgroundColor = UIColor.orderSeparatorColor
         //ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
-        
     }
     
     private func bindData() {

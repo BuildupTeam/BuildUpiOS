@@ -65,6 +65,18 @@
 		390C3BD32B1757C900E40849 /* OrdersResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3BD22B1757C900E40849 /* OrdersResponseModel.swift */; };
 		390C3BD52B1757D500E40849 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3BD42B1757D500E40849 /* OrderModel.swift */; };
 		390C3BD82B175F8300E40849 /* OrderStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3BD72B175F8300E40849 /* OrderStatusView.swift */; };
+		390DC1EC2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC1EA2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.swift */; };
+		390DC1ED2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390DC1EB2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.xib */; };
+		390DC1F02B1B843B00E1CBA9 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC1EE2B1B843B00E1CBA9 /* ProfileTableViewCell.swift */; };
+		390DC1F12B1B843B00E1CBA9 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390DC1EF2B1B843B00E1CBA9 /* ProfileTableViewCell.xib */; };
+		390DC1F32B1B9B3200E1CBA9 /* RouteProfileApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC1F22B1B9B3200E1CBA9 /* RouteProfileApi.swift */; };
+		390DC1F62B1B9BA200E1CBA9 /* ProfileResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC1F52B1B9BA200E1CBA9 /* ProfileResponseModel.swift */; };
+		390DC1F82B1BBFC900E1CBA9 /* ProfileViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC1F72B1BBFC900E1CBA9 /* ProfileViewController+TableView.swift */; };
+		390DC1FC2B1BCE1E00E1CBA9 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC1FA2B1BCE1E00E1CBA9 /* WishlistViewController.swift */; };
+		390DC1FD2B1BCE1E00E1CBA9 /* WishlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390DC1FB2B1BCE1E00E1CBA9 /* WishlistViewController.xib */; };
+		390DC1FF2B1BCF1B00E1CBA9 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC1FE2B1BCF1B00E1CBA9 /* WishListViewModel.swift */; };
+		390DC2012B1BCF2E00E1CBA9 /* WishListWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC2002B1BCF2E00E1CBA9 /* WishListWebServiceProtocol.swift */; };
+		390DC2032B1BCF9900E1CBA9 /* RouteWishListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390DC2022B1BCF9900E1CBA9 /* RouteWishListApi.swift */; };
 		390E6D582A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E6D562A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.swift */; };
 		390E6D592A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390E6D572A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.xib */; };
 		390E6D602A902971009ECC00 /* ShimmerCategoriesHorizontal1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E6D5E2A902971009ECC00 /* ShimmerCategoriesHorizontal1CollectionViewCell.swift */; };
@@ -658,6 +670,18 @@
 		390C3BD22B1757C900E40849 /* OrdersResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersResponseModel.swift; sourceTree = "<group>"; };
 		390C3BD42B1757D500E40849 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		390C3BD72B175F8300E40849 /* OrderStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusView.swift; sourceTree = "<group>"; };
+		390DC1EA2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		390DC1EB2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		390DC1EE2B1B843B00E1CBA9 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		390DC1EF2B1B843B00E1CBA9 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		390DC1F22B1B9B3200E1CBA9 /* RouteProfileApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteProfileApi.swift; sourceTree = "<group>"; };
+		390DC1F52B1B9BA200E1CBA9 /* ProfileResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponseModel.swift; sourceTree = "<group>"; };
+		390DC1F72B1BBFC900E1CBA9 /* ProfileViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+TableView.swift"; sourceTree = "<group>"; };
+		390DC1FA2B1BCE1E00E1CBA9 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		390DC1FB2B1BCE1E00E1CBA9 /* WishlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistViewController.xib; sourceTree = "<group>"; };
+		390DC1FE2B1BCF1B00E1CBA9 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
+		390DC2002B1BCF2E00E1CBA9 /* WishListWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListWebServiceProtocol.swift; sourceTree = "<group>"; };
+		390DC2022B1BCF9900E1CBA9 /* RouteWishListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteWishListApi.swift; sourceTree = "<group>"; };
 		390E6D562A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerProductVerticalGridCollectionViewCell.swift; sourceTree = "<group>"; };
 		390E6D572A902662009ECC00 /* ShimmerProductVerticalGridCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerProductVerticalGridCollectionViewCell.xib; sourceTree = "<group>"; };
 		390E6D5E2A902971009ECC00 /* ShimmerCategoriesHorizontal1CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCategoriesHorizontal1CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1402,6 +1426,36 @@
 				390C3BD72B175F8300E40849 /* OrderStatusView.swift */,
 			);
 			path = OrderStatus;
+			sourceTree = "<group>";
+		};
+		390DC1E92B1B832C00E1CBA9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				390DC1EA2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.swift */,
+				390DC1EB2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.xib */,
+				390DC1EE2B1B843B00E1CBA9 /* ProfileTableViewCell.swift */,
+				390DC1EF2B1B843B00E1CBA9 /* ProfileTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		390DC1F42B1B9B9500E1CBA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				390DC1F52B1B9BA200E1CBA9 /* ProfileResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		390DC1F92B1BCADC00E1CBA9 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				390DC1FA2B1BCE1E00E1CBA9 /* WishlistViewController.swift */,
+				390DC1FB2B1BCE1E00E1CBA9 /* WishlistViewController.xib */,
+				390DC1FE2B1BCF1B00E1CBA9 /* WishListViewModel.swift */,
+				390DC2002B1BCF2E00E1CBA9 /* WishListWebServiceProtocol.swift */,
+			);
+			path = WishList;
 			sourceTree = "<group>";
 		};
 		390E6D5A2A9028CA009ECC00 /* CategoriesHorizontal */ = {
@@ -2660,7 +2714,11 @@
 		39C91A292ABA39CD00C10C16 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				390DC1F92B1BCADC00E1CBA9 /* WishList */,
+				390DC1F42B1B9B9500E1CBA9 /* Model */,
+				390DC1E92B1B832C00E1CBA9 /* Cells */,
 				39C91A2A2ABA39DD00C10C16 /* ProfileViewController.swift */,
+				390DC1F72B1BBFC900E1CBA9 /* ProfileViewController+TableView.swift */,
 				39C91A2B2ABA39DD00C10C16 /* ProfileViewController.xib */,
 				39C91A2E2ABA39F500C10C16 /* ProfileViewModel.swift */,
 				39821FB62AFA97D600388254 /* ProfileWebServiceProtocol.swift */,
@@ -2738,6 +2796,8 @@
 				3932B2A72B134F1C00283B3D /* RouteAddressesApi.swift */,
 				3932B2A92B134F2D00283B3D /* RouteAddNewAddressApi.swift */,
 				39D500372B19283C009C20E1 /* RouteOrdersApi.swift */,
+				390DC1F22B1B9B3200E1CBA9 /* RouteProfileApi.swift */,
+				390DC2022B1BCF9900E1CBA9 /* RouteWishListApi.swift */,
 			);
 			path = "End Points";
 			sourceTree = "<group>";
@@ -3255,6 +3315,7 @@
 				39730D4C2AA236BF0088C9ED /* ProductSpecificationsTableViewCell.xib in Resources */,
 				3932B2622B126F1400283B3D /* AddNewAddressViewController.xib in Resources */,
 				39152A002A348AAB007F7E09 /* ProductVerticalGrid3TableViewCell.xib in Resources */,
+				390DC1ED2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.xib in Resources */,
 				390E6D692A90327A009ECC00 /* ShimmerProductVerticalGrid4CollectionViewCell.xib in Resources */,
 				3999AA732AD1BFE5007D0ACB /* Montserrat-Light.ttf in Resources */,
 				393B2F972AEFDC0200827026 /* RegisterEmailTableViewCell.xib in Resources */,
@@ -3294,6 +3355,7 @@
 				395D3BF02A9AAF9900DA9859 /* ProductDetailsSliderType2CollectionViewCell.xib in Resources */,
 				390C3B582B14DCE700E40849 /* AreasViewController.xib in Resources */,
 				391529CB2A2FC25D007F7E09 /* ProductVerticalList1TableViewCell.xib in Resources */,
+				390DC1F12B1B843B00E1CBA9 /* ProfileTableViewCell.xib in Resources */,
 				3932B2102B02874200283B3D /* ProductCombinationsOptionTableViewCell.xib in Resources */,
 				3999AA6F2AD1BFE5007D0ACB /* Montserrat-Thin.ttf in Resources */,
 				390C3B882B14FA8100E40849 /* CheckoutSummaryTableViewCell.xib in Resources */,
@@ -3326,6 +3388,7 @@
 				3932B2B62B135E1600283B3D /* ShimmerAddressTableViewCell.xib in Resources */,
 				39C91A2D2ABA39DD00C10C16 /* ProfileViewController.xib in Resources */,
 				39C91A3C2ABA3B0900C10C16 /* CategoriesTabViewController.xib in Resources */,
+				390DC1FD2B1BCE1E00E1CBA9 /* WishlistViewController.xib in Resources */,
 				39730D3A2AA213370088C9ED /* ProductDetailsVariants1CollectionViewCell.xib in Resources */,
 				391529C32A2F9B4C007F7E09 /* WebViewController.xib in Resources */,
 				39C6C4B12A3CC9EB00F11A6F /* CategoriesHorizontalList1CollectionViewCell.xib in Resources */,
@@ -3550,6 +3613,7 @@
 				395D3BC52A9A29F800DA9859 /* ProductDetailsSliderType2TableViewCell.swift in Sources */,
 				39CE76AD2A2F61CE0019A485 /* JsonStringService.swift in Sources */,
 				39CE76AC2A2F61CE0019A485 /* ErrorResult.swift in Sources */,
+				390DC1F32B1B9B3200E1CBA9 /* RouteProfileApi.swift in Sources */,
 				39CE76AB2A2F61CE0019A485 /* MainWebService.swift in Sources */,
 				3932B2952B12832B00283B3D /* CheckoutShippingWebServiceProtocol.swift in Sources */,
 				3932B2892B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.swift in Sources */,
@@ -3653,6 +3717,7 @@
 				390E6D7E2A92E052009ECC00 /* RouteHomeCategoriesApi.swift in Sources */,
 				390C3B712B14EFF700E40849 /* TaxDetailsModel.swift in Sources */,
 				3932B21A2B11303B00283B3D /* CheckoutPaymentViewController.swift in Sources */,
+				390DC1F82B1BBFC900E1CBA9 /* ProfileViewController+TableView.swift in Sources */,
 				390C3BA82B16649700E40849 /* IndicatorInfo.swift in Sources */,
 				3932B2312B11310C00283B3D /* CountriesWebServiceProtocol.swift in Sources */,
 				39730D3D2AA213410088C9ED /* ProductDetailsVariants2CollectionViewCell.swift in Sources */,
@@ -3664,6 +3729,7 @@
 				39EF7F462A39BC9A003E7641 /* ProductVerticalGrid5CollectionViewCell.swift in Sources */,
 				39C6C4DB2A3DD9A500F11A6F /* BannerType2TableViewCell.swift in Sources */,
 				39F9D0FB2AD7452B007BB6B9 /* SubdomainViewController.swift in Sources */,
+				390DC1EC2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.swift in Sources */,
 				39730D392AA213370088C9ED /* ProductDetailsVariants1CollectionViewCell.swift in Sources */,
 				3932B27C2B12776100283B3D /* RouteCountriesApi.swift in Sources */,
 				3932B29B2B12837A00283B3D /* RouteCheckoutShippingApi.swift in Sources */,
@@ -3724,6 +3790,7 @@
 				395D3BBB2A9A1DD600DA9859 /* RecommendedProductsModel.swift in Sources */,
 				390E6D602A902971009ECC00 /* ShimmerCategoriesHorizontal1CollectionViewCell.swift in Sources */,
 				3932B26B2B126F6500283B3D /* AddressesWebServiceProtocol.swift in Sources */,
+				390DC1F62B1B9BA200E1CBA9 /* ProfileResponseModel.swift in Sources */,
 				39AE9CAD2AA241500075E99F /* RouteProductDetailsApi.swift in Sources */,
 				39EF7F3A2A39BC5F003E7641 /* ProductVerticalGrid4TableViewCell.swift in Sources */,
 				39CE766E2A2F60880019A485 /* Configuration.swift in Sources */,
@@ -3763,6 +3830,7 @@
 				393B2F7B2AEFC9C200827026 /* RegisterWebServiceProtocol.swift in Sources */,
 				3932B20F2B02874200283B3D /* ProductCombinationsOptionTableViewCell.swift in Sources */,
 				393613C62AB5BA2E007289DE /* RouteCategoryDetailsApi.swift in Sources */,
+				390DC2012B1BCF2E00E1CBA9 /* WishListWebServiceProtocol.swift in Sources */,
 				39CE76752A2F60880019A485 /* Localization+Extension.swift in Sources */,
 				390C3B602B14DD1200E40849 /* AreasResponseModel.swift in Sources */,
 				39C202502AAAB222001EA791 /* RelatedProductsResponseModel.swift in Sources */,
@@ -3770,6 +3838,7 @@
 				39C91A242AB8E16900C10C16 /* CategoriesWebServiceProtocol.swift in Sources */,
 				39CE76922A2F61170019A485 /* UIAlertController+Extensions.swift in Sources */,
 				39CE76732A2F60880019A485 /* Constant.swift in Sources */,
+				390DC2032B1BCF9900E1CBA9 /* RouteWishListApi.swift in Sources */,
 				393B2F872AEFD1F400827026 /* CustomerModel.swift in Sources */,
 				3932B23B2B11350D00283B3D /* CityModel.swift in Sources */,
 				390E6D732A929E93009ECC00 /* FormatedPriceModel.swift in Sources */,
@@ -3785,6 +3854,7 @@
 				39D9BA9F2B0274CC005CD5BA /* CartOptionModel.swift in Sources */,
 				3999AA592ACD8717007D0ACB /* EmptyScreenView.swift in Sources */,
 				39C6C4B02A3CC9EB00F11A6F /* CategoriesHorizontalList1CollectionViewCell.swift in Sources */,
+				390DC1F02B1B843B00E1CBA9 /* ProfileTableViewCell.swift in Sources */,
 				39C6C4D12A3CE0A800F11A6F /* CategoriesVerticalGrid3TableViewCell.swift in Sources */,
 				39C91A3F2ABA3B2F00C10C16 /* CategoriesTabViewModel.swift in Sources */,
 				3932B2AD2B13578600283B3D /* ShimmerCityTableViewCell.swift in Sources */,
@@ -3806,6 +3876,7 @@
 				39D714B92B178C8300B4497F /* ObservationService.swift in Sources */,
 				3936139C2AB4758C007289DE /* ProductListResponseModel.swift in Sources */,
 				39CE768A2A2F61170019A485 /* UIView+Blur.swift in Sources */,
+				390DC1FC2B1BCE1E00E1CBA9 /* WishlistViewController.swift in Sources */,
 				3950B0A02A6ABFD300E27111 /* ThemeConfigurationDataModel.swift in Sources */,
 				39F5836A2A7FD1E80060C4E1 /* BannerModel.swift in Sources */,
 				390C3BC62B17515A00E40849 /* PastOrderTableViewCell.swift in Sources */,
@@ -3847,6 +3918,7 @@
 				390C3BD32B1757C900E40849 /* OrdersResponseModel.swift in Sources */,
 				39CE76B62A2F62310019A485 /* Localized+Static arabic.swift in Sources */,
 				393B2F962AEFDC0200827026 /* RegisterEmailTableViewCell.swift in Sources */,
+				390DC1FF2B1BCF1B00E1CBA9 /* WishListViewModel.swift in Sources */,
 				39D077CF2AF196DD00867C87 /* CustomLoadingIndicator.swift in Sources */,
 				390C3B732B14F01300E40849 /* ShippingDetailsModel.swift in Sources */,
 				3932B27A2B12726300283B3D /* AddressModel.swift in Sources */,

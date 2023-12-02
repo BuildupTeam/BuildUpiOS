@@ -233,5 +233,10 @@ class Coordinator {
             let viewController = CurrentOrdersViewController(viewModel: viewModel)
             return viewController
         }
+        
+        class func createWishListViewController(viewModel: WishListViewModel = WishListViewModel()) -> WishlistViewController {
+            let viewController = WishlistViewController(viewModel: viewModel)
+            return viewController
+        }
     }
 }

@@ -11,9 +11,11 @@ class ProfileViewModel: BaseViewModel {
     
     weak var service: ProfileWebServiceProtocol?
 
+    public var onProfile: (() -> Void)?
     public var onLogout: (() -> Void)?
     public var onTokenNotExist: (() -> Void)?
-    
+    var userModel: CustomerModel?
+
     init(service: ProfileWebServiceProtocol = ProfileWebService.shared) {
         super.init(observationType: .all)
         self.service = service
@@ -38,7 +40,25 @@ class ProfileViewModel: BaseViewModel {
         } else {
             self.onTokenNotExist?()
         }
+    }
+    
+    func getProfile() {
+        guard let service = service else {
+            return
+        }
         
+        service.getProfile { result in
+            switch result {
+            case .success(let response):
+                self.userModel = response.data
+                self.onProfile?()
+            case .failure(let error):
+                print(error)
+                if error.message != "Request explicitly cancelled." {
+                    self.onNetworkError?(error)
+                }
+            }
+        }
     }
     
 }

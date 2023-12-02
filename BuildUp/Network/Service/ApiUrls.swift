@@ -33,6 +33,8 @@ struct ApiUrls {
         static let summartUrl = "/checkout/summary"
         static let checkoutUrl = "/checkout"
         static let ordersUrl = "/orders"
+        static let profileUrl = "/me"
+        static let wishListUrl = "favorites/products"
         
         static let fetchFirebaseToken = "/fcm-token"
     }
