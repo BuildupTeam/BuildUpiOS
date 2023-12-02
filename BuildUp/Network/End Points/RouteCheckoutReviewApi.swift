@@ -10,6 +10,7 @@ import Moya
 
 enum RouteCheckoutReviewApi {
     case getSummary(addressId: Int)
+    case checkout(checkoutModel: CheckoutModel)
 }
 
 extension RouteCheckoutReviewApi: TargetType {
@@ -20,7 +21,12 @@ extension RouteCheckoutReviewApi: TargetType {
     }
     
     var path: String {
-        return ApiUrls.Apis.summartUrl
+        switch self {
+        case .getSummary:
+            return ApiUrls.Apis.summartUrl
+        case .checkout:
+            return ApiUrls.Apis.checkoutUrl
+        }
     }
     
     var method: Moya.Method {
@@ -36,6 +42,18 @@ extension RouteCheckoutReviewApi: TargetType {
         case .getSummary(addressId: let addressId):
             var parameters: [String: Any] = [:]
             parameters["address_id"] = addressId
+
+            JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
+
+            return .requestParameters(parameters: parameters,
+                                      encoding: JSONEncoding.default)
+        case .checkout(checkoutModel: let model):
+            var parameters: [String: Any] = [:]
+            parameters["address_id"] = model.address?.id
+            parameters["payment_method"] = model.paymentMethod
+            parameters["customer_name"] = model.name
+            parameters["customer_country_code"] = model.countryCode
+            parameters["customer_phone"] = model.phone
 
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
 

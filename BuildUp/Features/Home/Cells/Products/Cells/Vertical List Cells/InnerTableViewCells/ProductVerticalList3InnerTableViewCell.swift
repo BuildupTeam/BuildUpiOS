@@ -18,6 +18,8 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var addToFavoriteButton: UIButton!
     
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var addToFavoriteImage: UIImageView!
+    
     @IBOutlet private weak var addToCartView: AddToCartIconView!
     @IBOutlet private weak var addToFavoriteView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
@@ -100,11 +102,20 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
                 productOldPriceLabel.isHidden = true
                 productOldPriceMarkedView.isHidden = true
             }
+            
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            }
         }
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
-        
+        if let model = productModel {
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
+        }
     }
     
 }

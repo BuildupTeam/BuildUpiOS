@@ -166,6 +166,12 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
                 productOldPriceLabel.isHidden = true
                 productOldPriceMarkedView.isHidden = true
             }
+            
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            }
         }
     }
     
@@ -184,6 +190,13 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         
         self.delegate?.seeMoreButtonClicked()
         self.sizeToFit()
+    }
+    
+    @IBAction func favoriteButtonAction(_ sender: UIButton) {
+        if let model = productModel {
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
+        }
     }
     
     private func registerCollectionViewCells() {

@@ -77,6 +77,7 @@ extension LoginViewController {
         setupPasswordField()
         setupPrivacySection()
         updateLoginButtonAppearence()
+        ObservationService.removeAllObservations()
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")

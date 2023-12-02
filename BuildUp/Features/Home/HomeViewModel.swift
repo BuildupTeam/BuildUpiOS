@@ -13,6 +13,7 @@ enum PageName: String {
     case productDetails = "product-details"
     case productList = "product-list"
     case categoryDetails = "category-details"
+    case categoriesList = "category-list"
     case cart = "cart"
     
 }
@@ -41,7 +42,6 @@ class HomeViewModel: BaseViewModel {
         self.getCartProducts()
         self.getCachedThemeData()
         self.getCachedHomeData()
-        self.getFavoriteProductsUUIDS()
     }
     
     func getCartProducts() {
@@ -52,8 +52,10 @@ class HomeViewModel: BaseViewModel {
     }
     
     func getFavoriteProductsUUIDS() {
-        RealTimeDatabaseService.getFavoriteList { favoriteIDS in
-            self.favoriteUUIDS = favoriteIDS
+        ObservationService.observeOnFavorite()
+        RealTimeDatabaseService.getFavoriteProducts { favoriteIDS in
+//            self.favoriteUUIDS = favoriteIDS
+            NotificationCenter.default.post(name: .favoriteUpdated, object: nil, userInfo: nil)
         }
     }
     
@@ -130,6 +132,7 @@ class HomeViewModel: BaseViewModel {
                         order: orderCompletion(),
                         products: self.getProductsWithCartQuantity(products: response.data ?? []))
                     
+                    self.getFavoriteProductsUUIDS()
                     self.checkDataAvailability()
                 } else {
                     self.handleError(response: response)
@@ -177,6 +180,16 @@ class HomeViewModel: BaseViewModel {
             if !(homeSection.products?.isEmpty ?? true) {
                 if let products = homeSection.products {
                     homeSection.products = getProductsWithCartQuantity(products: products)
+                }
+            }
+        }
+    }
+    
+    func updateAllHomeSectionsWitFavoriteProducts() {
+        for homeSection in self.homeData.homeSections {
+            if !(homeSection.products?.isEmpty ?? true) {
+                if let products = homeSection.products {
+                    homeSection.products = getProductsWithFavorites(products: products)
                 }
             }
         }

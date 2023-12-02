@@ -259,7 +259,6 @@ extension CategoryDetailsListViewController {
             self.tableView.tableFooterView = nil
             self.reloadTableViewData()
             self.isReloadingTableView = false
-            print("recieved")
         }
     }
 }

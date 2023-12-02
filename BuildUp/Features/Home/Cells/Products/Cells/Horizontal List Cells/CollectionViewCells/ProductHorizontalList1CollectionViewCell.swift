@@ -47,7 +47,7 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
         
         addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
         addToFavoriteView.layer.masksToBounds = true
-        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.width / 2
+        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
 
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
 
@@ -82,13 +82,27 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
                 productOldPriceLabel.isHidden = true
                 productOldPriceMarkedView.isHidden = true
             }
+            
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            }
         }
         
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
-         
+        if let model = productModel {
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            }
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
+        }
     }
 
 }

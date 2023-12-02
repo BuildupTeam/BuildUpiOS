@@ -61,7 +61,7 @@ class ProductDetailsSliderType3TableViewCell: UITableViewCell {
         
         addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
         addToFavoriteView.layer.masksToBounds = true
-        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.width / 2
+        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
         
         productOutOfStockView.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBg?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBg ?? "")
         productOutOfStockView.layer.masksToBounds = true
@@ -92,7 +92,27 @@ class ProductDetailsSliderType3TableViewCell: UITableViewCell {
     }
     
     @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
-        self.productDescriptionLabel.numberOfLines = 0
+        if var model = productModel {
+            if !model.descriptionIsExpaned {
+                self.productDescriptionLabel.numberOfLines = 0
+                model.descriptionIsExpaned = true
+                self.productDescriptionLabel.text = model.productDescription
+            } else {
+                self.productDescriptionLabel.numberOfLines = 2
+                model.descriptionIsExpaned = false
+            }
+            
+        }
+        
+        self.delegate?.seeMoreButtonClicked()
+        self.sizeToFit()
+    }
+    
+    @IBAction func favoriteButtonAction(_ sender: UIButton) {
+        if let model = productModel {
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
+        }
     }
     
     private func registerCollectionViewCells() {

@@ -34,12 +34,12 @@ class BaseViewModel {
         self.observationType = observationType
         
         if observationType == .cartUpdated {
-            observeOnCart()
+//            observeOnCart()
         }
     }
     
     deinit {
-        removeCartObservations()
+//        removeCartObservations()
     }
     
     func getUserData() {
@@ -223,6 +223,20 @@ extension BaseViewModel {
         
         return products
     }
+    
+    func getProductsWithFavorites(products: [ProductModel]) -> [ProductModel] {
+        let favoriteProducts = CachingService.getFavoriteProducts()
+        for product in products {
+            guard let uuid = product.uuid else { return [] }
+            if favoriteProducts.contains(uuid) {
+                product.isFavorite = true
+            } else {
+                product.isFavorite = false
+            }
+        }
+        
+        return products
+    }
 }
 
 // MARK: - Error Handling
@@ -240,6 +254,7 @@ extension BaseViewModel {
     }
 }
 
+/*
 // MARK: - Firebase & Observation Handler
 extension BaseViewModel {
     func observeOnCart() {
@@ -260,3 +275,4 @@ extension BaseViewModel {
         NotificationCenter.default.removeObserver(self, name: .cartupdated, object: nil)
     }
 }
+*/

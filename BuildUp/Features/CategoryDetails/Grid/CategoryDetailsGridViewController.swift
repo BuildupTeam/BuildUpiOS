@@ -246,7 +246,6 @@ extension CategoryDetailsGridViewController {
             guard let `self` = self else { return }
             self.reloadCollectionViewData()
             self.isReloadingCollectionView = false
-            print("recieved")
         }
     }
 }

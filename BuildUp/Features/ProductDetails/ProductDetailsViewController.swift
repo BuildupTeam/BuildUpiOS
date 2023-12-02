@@ -324,6 +324,7 @@ extension ProductDetailsViewController {
     
     private func setupResponse() {
         productDetailsResponse()
+        favoriteProductUpdatedResponse()
     }
 }
 
@@ -347,6 +348,15 @@ extension ProductDetailsViewController {
             
             self.checkIsOutOfStock()
         }
+    }
+    
+    private func favoriteProductUpdatedResponse() {
+        ObservationService.favItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            //getProductsWithCartQuantity
+            self.viewModel.productModel = self.viewModel.updateProductModelWithFavorite()
+            self.tableView.reloadData()
+        })
     }
     
     private func relatedProductsResponse() {

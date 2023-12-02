@@ -186,6 +186,10 @@ extension UIColor {
     class var checkoutItemsColor: UIColor {
         return UIColor(red: 74.0 / 255.0, green: 116.0 / 255.0, blue: 234.0 / 255.0, alpha: 1.0)
     }
+    
+    class var orderSeparatorColor: UIColor {
+        return UIColor(red: 137.0 / 255.0, green: 137.0 / 255.0, blue: 137.0 / 255.0, alpha: 0.1)
+    }
 }
 
 extension UIColor {

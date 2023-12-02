@@ -11,7 +11,7 @@ class ObservationService {
     static let shared = ObservationService()
     
     static var carItemUpdated: [(() -> Void)] = []
-    
+    static var favItemUpdated: [(() -> Void)] = []
     
 }
 
@@ -25,20 +25,39 @@ extension ObservationService {
             object: nil)
     }
     
-    @objc
-    static func cartUpdatedAction(_ notification: Notification) {
-        notifyObservers()
-//        removeCartObservations()
+    static func observeOnFavorite() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(favoriteUpdatedAction(_:)),
+            name: .favoriteUpdated,
+            object: nil)
     }
     
-    static func notifyObservers() {
+    @objc
+    static func cartUpdatedAction(_ notification: Notification) {
+        notifyCartObservers()
+    }
+    
+    @objc
+    static func favoriteUpdatedAction(_ notification: Notification) {
+        notifyFavObservers()
+    }
+    
+    static func notifyCartObservers() {
         for completion in carItemUpdated {
             completion()
         }
     }
     
-    static func removeCartObservations() {
+    static func notifyFavObservers() {
+        for completion in favItemUpdated {
+            completion()
+        }
+    }
+    
+    static func removeAllObservations() {
         NotificationCenter.default.removeObserver(self, name: .cartupdated, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .favoriteUpdated, object: nil)
     }
 }
 

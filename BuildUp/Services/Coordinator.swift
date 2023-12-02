@@ -223,5 +223,15 @@ class Coordinator {
             let viewController = AddNewAddressViewController(viewModel: viewModel)
             return viewController
         }
+        
+        class func createPastOrdersViewController(viewModel: OrderHistoryViewModel = OrderHistoryViewModel()) -> PastOrdersViewController {
+            let viewController = PastOrdersViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCurrentOrdersViewController(viewModel: OrderHistoryViewModel = OrderHistoryViewModel()) -> CurrentOrdersViewController {
+            let viewController = CurrentOrdersViewController(viewModel: viewModel)
+            return viewController
+        }
     }
 }

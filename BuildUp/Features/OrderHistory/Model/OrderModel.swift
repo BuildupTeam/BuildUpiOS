@@ -10,15 +10,21 @@ import ObjectMapper
 
 class OrderModel: Mappable {
     
-    var id: Int?
-    var name: String?
-    var cityId: Int?
+    var uuid: String?
+    var total: Double?
+    var status: String?
+    var paymentMethod: String?
+    var createdAt: String?
+    var formattedTotal: FormatedPriceModel?
     var products: [ProductModel]?
-
+    
     func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["name"]
-        cityId <- map["city_id"]
+        uuid <- map["uuid"]
+        total <- map["total"]
+        status <- map["status"]
+        paymentMethod <- map["payment_method"]
+        createdAt <- map["created_at"]
+        formattedTotal <- map["formatted_total"]
         products <- map["products"]
     }
     

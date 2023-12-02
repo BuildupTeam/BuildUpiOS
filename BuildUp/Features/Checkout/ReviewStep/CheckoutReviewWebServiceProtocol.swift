@@ -11,6 +11,7 @@ import Moya
 
 protocol CheckoutReviewWebServiceProtocol: AnyObject {
     func getSummary(addressId: Int, compeltion: @escaping ((Result<SummaryResponseModel, NetworkError>) -> Void))
+    func checkout(checkoutModel: CheckoutModel, compeltion: @escaping ((Result<BaseResponse, NetworkError>) -> Void))
 }
 
 class CheckoutReviewWebService: CheckoutReviewWebServiceProtocol {
@@ -26,6 +27,22 @@ class CheckoutReviewWebService: CheckoutReviewWebServiceProtocol {
                 }
                 summaryResponse.statusCode = statusCode
                 compeltion(Result.success(summaryResponse))
+            case .failure(var error):
+                error.statusCode = statusCode
+                compeltion(Result.failure(error))
+            }
+        }
+    }
+    
+    func checkout(checkoutModel: CheckoutModel, compeltion: @escaping ((Result<BaseResponse, NetworkError>) -> Void)) {
+        MainWebService.fetch(endPoint: RouteCheckoutReviewApi.checkout(checkoutModel: checkoutModel)) { (result, statusCode) in
+            switch result {
+            case .success(let response):
+                guard let checkoutResponse = Mapper<BaseResponse>().map(JSONObject: response) else {
+                    return
+                }
+                checkoutResponse.statusCode = statusCode
+                compeltion(Result.success(checkoutResponse))
             case .failure(var error):
                 error.statusCode = statusCode
                 compeltion(Result.failure(error))

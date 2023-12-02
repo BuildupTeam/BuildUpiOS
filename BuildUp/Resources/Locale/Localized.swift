@@ -70,6 +70,13 @@ internal enum L10n {
         }
     }
 
+    internal enum Categories {
+        /// Categories
+        internal static var title: String {
+          return L10n.tr("Localizable", "categories.title")
+        }
+    }
+
     internal enum Checkout {
         /// Add New Address
         internal static var addNewAddress: String {
@@ -384,9 +391,17 @@ internal enum L10n {
         internal static var current: String {
           return L10n.tr("Localizable", "orders.current")
         }
+        /// Order 
+        internal static var order: String {
+          return L10n.tr("Localizable", "orders.order")
+        }
         /// Past
         internal static var past: String {
           return L10n.tr("Localizable", "orders.past")
+        }
+        /// Placed On 
+        internal static var placedOn: String {
+          return L10n.tr("Localizable", "orders.placedOn")
         }
         /// Order History
         internal static var title: String {

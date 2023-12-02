@@ -45,7 +45,7 @@ class RecommentedProductsType2CollectionViewCell: UICollectionViewCell {
         
         addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
         addToFavoriteView.layer.masksToBounds = true
-        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.width / 2
+        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
 
         productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
 
@@ -71,11 +71,20 @@ class RecommentedProductsType2CollectionViewCell: UICollectionViewCell {
                 productOldPriceLabel.isHidden = true
                 productOldPriceMarkedView.isHidden = true
             }
+            
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            }
         }
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
-        
+        if let model = productModel {
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
+        }
     }
 
 }
