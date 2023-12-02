@@ -230,15 +230,15 @@ extension RealTimeDatabaseService {
         }
     }
     
-    // static func observeRunningOrders(child: String, compeltion: @escaping (([Int]) -> Void))
-    
-    static func getFavoriteList(compeltion: @escaping (([String]) -> Void)) {
+    static func getFavoriteProducts(compeltion: @escaping (([String]) -> Void)) {
         let prntRef = getFavoriteNode()
-        prntRef?.observeSingleEvent(of: .value, with: {(snap) in
+        prntRef?.observe(DataEventType.value, with: {(snap) in
             if let favDict = snap.value as? [String: AnyObject] {
                 let favoriteList = favDict.map { String($0.key) }
+                CachingService.setFavoriteProducts(products: favoriteList)
                 compeltion(favoriteList)
             } else {
+                CachingService.setFavoriteProducts(products: [])
                 print("No favourites")
             }
        })

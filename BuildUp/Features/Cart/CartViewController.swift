@@ -179,7 +179,7 @@ extension CartViewController {
 extension CartViewController {
     @objc
     func clearCartAction(sender: UIBarButtonItem) {
-         
+        RealTimeDatabaseService.clearCart()
     }
 }
 

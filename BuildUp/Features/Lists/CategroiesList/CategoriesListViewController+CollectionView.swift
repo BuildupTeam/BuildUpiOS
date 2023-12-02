@@ -113,11 +113,6 @@ extension CategoriesListViewController: UICollectionViewDelegate, UICollectionVi
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let screenWidth = UIScreen.main.bounds.width
-//        let cellWidth = (screenWidth - 32) / 2
-//
-//        return CGSize(width: cellWidth, height: 260)
-        
         let noOfCellsInRow = 2   //number of column you want
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left

@@ -42,6 +42,8 @@ class PastOrderTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        orderStatusView.setupDeliveredStatus()
+        
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
         viewDetailsLabel.text = L10n.Orders.viewDetails
@@ -49,26 +51,54 @@ class PastOrderTableViewCell: UITableViewCell {
         priceLabel.font = .appFont(ofSize: 12, weight: .medium)
         viewDetailsLabel.font = .appFont(ofSize: 12, weight: .semiBold)
         
+        orderNumberLabel.font = .appFont(ofSize: 13, weight: .semiBold)
+        orderDateLabel.font = .appFont(ofSize: 12, weight: .regular)
+        
+        orderNumberLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
+        orderDateLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
+        
         priceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         viewDetailsLabel.textColor = ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "")
 
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+        
+//        orderDataContainerView.backgroundColor = ThemeManager.colorPalette?.titleSubtitleBgColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleSubtitleBgColor ?? "")
+        
+        upperSeparatorView.backgroundColor = UIColor.orderSeparatorColor
+        //ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+        
+        bottomSeparatorView.backgroundColor = UIColor.orderSeparatorColor
+        //ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
     }
     
     private func bindData() {
         if let model = orderModel {
-//            self.priceLabel.text = "(\(String(count)) \(L10n.Checkout.items))"
+            self.priceLabel.text = model.formattedTotal?.formatted
+            orderNumberLabel.text = L10n.Orders.order + (model.uuid ?? "")
+            
+            if let createdDate = model.createdAt {
+                let orderDate = createdDate.components(separatedBy: ".").first ?? ""
+                let dateFormatter = DateFormatter()
+                dateFormatter.timeZone = TimeZone.current
+                dateFormatter.locale = Locale.current
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" // "2023-11-30T19:49:50.000000Z"
+                
+                if let date = dateFormatter.date(from: orderDate) {
+                    let dateStringFormatter = DateFormatter()
+                    dateStringFormatter.dateFormat = "MMM dd, yyyy"
+                    let dateString = dateStringFormatter.string(from: date)
+                    orderDateLabel.text = L10n.Orders.placedOn + dateString
+                }
+            }
         }
     }
-
+    
     private func registerCollectionViewCells() {
         self.collectionView.register(
             UINib(nibName: OrderCollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: OrderCollectionViewCell.identifier)
     }
-    
 }
 
 

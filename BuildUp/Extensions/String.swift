@@ -193,6 +193,7 @@ extension String {
 
 extension Notification.Name {
     static let cartupdated = Notification.Name("cart_updated")
+    static let favoriteUpdated = Notification.Name("favorite_updated")
 
     static let notificationFCMToken = Notification.Name("FCMToken")
     static let languageChanged = Notification.Name("languageChanged")

@@ -522,8 +522,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //        } else {
 //            return 0
 //        }
-        
-        print("viewModel.homeData.homeSections.count = \(viewModel.homeData.homeSections.count)")
         return viewModel.homeData.homeSections.count
     }
     

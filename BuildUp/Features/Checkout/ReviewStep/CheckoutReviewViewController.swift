@@ -45,7 +45,7 @@ class CheckoutReviewViewController: BaseViewController {
         super.viewDidLoad()
         registerTableViewCells()
         setupView()
-        setupResponse()
+        setupResponses()
         getSummary()
     }
     
@@ -117,7 +117,12 @@ extension CheckoutReviewViewController {
         }
     }
     
-    private func setupResponse() {
+    private func setupResponses() {
+        checkoutResponse()
+        summaryResponse()
+    }
+    
+    private func summaryResponse() {
         self.viewModel.onSummary = { [weak self]() in
             guard let `self` = self else { return }
             self.hideLoading()
@@ -130,8 +135,10 @@ extension CheckoutReviewViewController {
 // MARK: Actions
 extension CheckoutReviewViewController {
     @IBAction func checkoutAction(_ sender: UIButton) {
-//        self.showLoading()
-        
+        if let model = checkoutModel {
+            self.showLoading()
+            self.viewModel.checkout(model: model)
+        }
     }
 }
 
@@ -198,5 +205,16 @@ extension CheckoutReviewViewController: UITableViewDelegate, UITableViewDataSour
             return UITableViewCell()
         }
         
+    }
+}
+
+// MARK: - Responses
+extension CheckoutReviewViewController {
+    private func checkoutResponse() {
+        self.viewModel.onCheckout = { [weak self]() in
+            guard let `self` = self else { return }
+            RealTimeDatabaseService.clearCart()
+            LauncherViewController.showTabBar()
+        }
     }
 }

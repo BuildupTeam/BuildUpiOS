@@ -50,6 +50,13 @@ class ProductDetailsViewModel: BaseViewModel {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     self.productModel = response.data
+                    let favoriteUUIDs = CachingService.getFavoriteProducts()
+                    if favoriteUUIDs.contains(self.productModel?.uuid ?? "") {
+                        self.productModel?.isFavorite = true
+                    } else {
+                        self.productModel?.isFavorite = false
+                    }
+                    
                     if let files = self.productModel?.files {
                         if !files.isEmpty {
                             let fileModel = ProductFileModel(path: self.productModel?.mainImage?.path ?? "")
@@ -85,7 +92,8 @@ class ProductDetailsViewModel: BaseViewModel {
                 switch result {
                 case .success(let response):
                     if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                        self.productModel?.relatedProducts = response.data
+                        self.productModel?.relatedProducts = self.getProductsWithCartQuantity(products: response.data ?? [])
+                        self.productModel?.relatedProducts = self.getProductsWithFavorites(products: self.productModel?.relatedProducts ?? [])
                         self.onData?()
                     }
                 case .failure(let error):
@@ -97,6 +105,19 @@ class ProductDetailsViewModel: BaseViewModel {
             }
         }
         
+    }
+    
+    func updateProductModelWithFavorite() -> ProductModel? {
+        let favoriteProducts = CachingService.getFavoriteProducts()
+        guard let model = productModel else { return nil }
+        guard let uuid = model.uuid else { return model }
+        if favoriteProducts.contains(uuid) {
+            model.isFavorite = true
+        } else {
+            model.isFavorite = false
+        }
+        
+        return model
     }
     
     func getCachedData() {

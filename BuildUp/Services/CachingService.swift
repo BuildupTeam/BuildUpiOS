@@ -165,7 +165,6 @@ class CachingService: NSObject {
                 requiringSecureCoding: false)
             userDefaults.set(encodedData, forKey: Constant.Keys.defaultCartProducts)
             userDefaults.synchronize()
-            
         } catch {
             
         }
@@ -176,10 +175,37 @@ class CachingService: NSObject {
                 requiringSecureCoding: false)
             userDefaults.set(encodedData, forKey: Constant.Keys.combinationsCartProducts)
             userDefaults.synchronize()
-            
         } catch {
             
         }
+    }
+    
+    static func setFavoriteProducts(products: [String]) {
+        let userDefaults = UserDefaults.standard
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(
+                withRootObject: products,
+                requiringSecureCoding: false)
+            userDefaults.set(encodedData, forKey: Constant.Keys.favoriteProducts)
+            userDefaults.synchronize()
+        } catch {
+            
+        }
+    }
+    
+    static func getFavoriteProducts() -> [String] {
+        if UserDefaults.standard.object(forKey: Constant.Keys.favoriteProducts) != nil {
+            guard let decoded = UserDefaults.standard.object(forKey: Constant.Keys.favoriteProducts) as? Data else { return [] }
+            do {
+                if let cartProducts = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
+                    decoded as Data) as? [String] {
+                    return cartProducts
+                }
+            } catch {
+                
+            }
+        }
+        return []
     }
     
     static func getDefaultCartProducts() -> [String: [String: Int]]? {

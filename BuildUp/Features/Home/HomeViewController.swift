@@ -162,6 +162,7 @@ extension HomeViewController {
     private func setupResponse() {
         homeResponse()
         cartItemUpdatedResponse()
+        favoriteProductUpdatedResponse()
     }
 }
 
@@ -189,7 +190,15 @@ extension HomeViewController {
             //getProductsWithCartQuantity
             self.viewModel.updateAllHomeSectionsWithCartItems()
             self.tableView.reloadData()
-            print("recieved")
+        })
+    }
+    
+    private func favoriteProductUpdatedResponse() {
+        ObservationService.favItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            //getProductsWithCartQuantity
+            self.viewModel.updateAllHomeSectionsWitFavoriteProducts()
+            self.tableView.reloadData()
         })
     }
 }

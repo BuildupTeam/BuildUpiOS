@@ -123,6 +123,8 @@
 "orders.title" = "Order History";
 "orders.current" = "Current";
 "orders.past" = "Past";
+"orders.order" = "Order ";
+"orders.placedOn" = "Placed On ";
 "orders.viewDetails" = "View Details";
 "orders.status.arriving" = "Arriving";
 "orders.status.pending" = "Pending";
@@ -136,6 +138,9 @@
 
 // MARK: - Category Details
 "emptyScreen.noData" = "لا يوجد بيانات";
+
+// MARK: - Categories Tab
+"categories.title" = "Categories";
 
 // MARK: - Profile
 "profile.logout" = "logout";
