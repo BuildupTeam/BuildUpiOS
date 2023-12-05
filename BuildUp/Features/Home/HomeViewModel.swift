@@ -15,6 +15,7 @@ enum PageName: String {
     case categoryDetails = "category-details"
     case categoriesList = "category-list"
     case cart = "cart"
+    case categoriesTab = "category-tab"
     
 }
 

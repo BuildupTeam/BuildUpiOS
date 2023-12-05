@@ -177,6 +177,7 @@ extension CheckoutShippingViewController {
     
     private func openAddressesScreen() {
         let AddressesVC = Coordinator.Controllers.createAddressesViewController()
+        AddressesVC.delegate = self
         self.navigationController?.pushViewController(AddressesVC, animated: true)
     }
 }
@@ -231,6 +232,7 @@ extension CheckoutShippingViewController {
         else { return UITableViewCell() }
         
         cell.delegate = self
+        cell.addressModel = model
         cell.selectionStyle = .none
         return cell
     }
@@ -276,10 +278,8 @@ extension CheckoutShippingViewController: UITableViewDelegate, UITableViewDataSo
                 return UITableViewCell()
             }
         case 1:
-            if let addresses = self.viewModel.addresses, 
-                !addresses.isEmpty,
-                let addressModel = addresses.first {
-                return getAddressCell(model: addressModel)
+            if let model = self.checkoutModel.address {
+                return getAddressCell(model: model)
             } else {
                 return getAddNewAddressCell()
             }
@@ -379,6 +379,14 @@ extension CheckoutShippingViewController: RegisterCellDelegate {
     func phoneChanged(phone: String) {
         self.checkoutModel.phone = phone
         updateContinueButtonAppearence()
+    }
+}
+
+extension CheckoutShippingViewController: AddressesDelegate {
+    func addressTaped(addressModel: AddressModel) {
+        self.checkoutModel.address = addressModel
+        updateContinueButtonAppearence()
+        self.tableView.reloadData()
     }
 }
 

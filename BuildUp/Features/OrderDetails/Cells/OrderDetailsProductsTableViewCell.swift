@@ -1,13 +1,13 @@
 //
-//  CheckoutProductsTableViewCell.swift
+//  OrderDetailsProductsTableViewCell.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 27/11/2023.
+//  Created by Mohammed Khaled on 04/12/2023.
 //
 
 import UIKit
 
-class CheckoutProductsTableViewCell: UITableViewCell {
+class OrderDetailsProductsTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -43,7 +43,13 @@ class CheckoutProductsTableViewCell: UITableViewCell {
         
         itemsCountTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         itemsCountLabel.textColor = UIColor.checkoutItemsColor
-        //ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        
+        ThemeManager.setShadow(element: containerView,
+                               shadowRadius: CGFloat(11),
+                               xOffset: 0, yOffset: 0,
+                               color: .black, opacity: 1,
+                               cornerRadius: 8,
+                               masksToBounds: false)
     }
     
     private func bindData() {
@@ -57,10 +63,11 @@ class CheckoutProductsTableViewCell: UITableViewCell {
             UINib(nibName: CheckoutProductCollectionViewCell.identifier, bundle: nil),
             forCellWithReuseIdentifier: CheckoutProductCollectionViewCell.identifier)
     }
+    
 }
 
 // MARK: - CollectionView Delegate && DataSource
-extension CheckoutProductsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension OrderDetailsProductsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products?.count ?? 0
     }

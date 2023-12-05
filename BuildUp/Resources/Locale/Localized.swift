@@ -386,6 +386,13 @@ internal enum L10n {
         }
     }
 
+    internal enum OrderDetails {
+        /// Order #
+        internal static var orderNumber: String {
+          return L10n.tr("Localizable", "orderDetails.orderNumber")
+        }
+    }
+
     internal enum Orders {
         /// Current
         internal static var current: String {

@@ -32,7 +32,6 @@ class CategoriesTabViewModel: BaseViewModel {
     init(service: CategoriesTabWebServiceProtocol = CategoriesTabWebService.shared) {
         super.init(observationType: .all)
         self.service = service
-        self.getCachedData()
     }
     
     func getCategories() {
@@ -72,9 +71,11 @@ class CategoriesTabViewModel: BaseViewModel {
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     if (response.meta?.currentPage ?? 0) == 1 {
                         self.products = self.getProductsWithCartQuantity(products: response.data ?? [])
+                        self.products = self.getProductsWithFavorites(products: self.products)
                         self.onProducts?()
                     } else if (response.meta?.currentPage ?? 0) > 1 {
                         self.products.append(contentsOf: self.getProductsWithCartQuantity(products: response.data ?? []))
+                        self.products = self.getProductsWithFavorites(products: self.products)
                         self.onLoadMoreProducts?()
                     }
                 } else {
@@ -90,7 +91,7 @@ class CategoriesTabViewModel: BaseViewModel {
     }
     
     func getCachedData() {
-        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productList.rawValue})?.settings {
+        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.categoriesTab.rawValue})?.settings {
             self.categoryListSettings = settings
         }
     }

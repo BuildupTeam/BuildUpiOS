@@ -23,7 +23,7 @@ class OrderHistoryContainerViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = L10n.Orders.title
+        self.navigationItem.title = L10n.Orders.title
     }
     
     override func viewWillDisappear(_ animated: Bool) {

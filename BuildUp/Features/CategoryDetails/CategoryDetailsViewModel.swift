@@ -69,11 +69,12 @@ class CategoryDetailsViewModel: BaseViewModel {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     if (response.meta?.currentPage ?? 0) == 1 {
-//                        self.products = response.data ?? []
                         self.products = self.getProductsWithCartQuantity(products: response.data ?? [])
+                        self.products = self.getProductsWithFavorites(products: self.products)
                         self.onProducts?()
                     } else if (response.meta?.currentPage ?? 0) > 1 {
-                        self.products.append(contentsOf: response.data ?? [])
+                        self.products.append(contentsOf: self.getProductsWithCartQuantity(products: response.data ?? []))
+                        self.products = self.getProductsWithFavorites(products: self.products)
                         self.onLoadMoreProducts?()
                     }
                 } else {

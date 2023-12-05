@@ -1,13 +1,13 @@
 //
-//  CheckoutShippingTableViewCell.swift
+//  OrderDetailsShippingTableViewCell.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 27/11/2023.
+//  Created by Mohammed Khaled on 04/12/2023.
 //
 
 import UIKit
 
-class CheckoutShippingTableViewCell: UITableViewCell {
+class OrderDetailsShippingTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var shippingTitleLabel: UILabel!
@@ -17,7 +17,7 @@ class CheckoutShippingTableViewCell: UITableViewCell {
     @IBOutlet private weak var addressTitleLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
     
-    var checkoutModel: CheckoutModel? {
+    var orderModel: OrderModel? {
         didSet {
             bindData()
         }
@@ -52,15 +52,17 @@ class CheckoutShippingTableViewCell: UITableViewCell {
     }
     
     private func bindData() {
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
+        ThemeManager.setShadow(element: containerView,
+                               shadowRadius: CGFloat(11),
+                               xOffset: 0, yOffset: 0,
+                               color: .black, opacity: 1,
+                               cornerRadius: 8,
+                               masksToBounds: false)
         
-        if let model = checkoutModel {
-            if let model = model.address {
-                userNameLabel.text = CachingService.getUser()?.customer?.fullName
-                addressLabel.text = model.addressDescription ?? ""
-                countryLabel.text = (model.country?.name ?? "") + ", " + (model.city?.name ?? "")
-            }
+        if let model = orderModel {
+            userNameLabel.text = model.customerName
+            addressLabel.text = model.shippingAddressDescription
+            countryLabel.text = (model.shippingCountry?.name ?? "") + ", " + (model.shippingCity?.name ?? "")
         }
     }
 }

@@ -104,7 +104,6 @@ class ProductDetailsViewModel: BaseViewModel {
                 }
             }
         }
-        
     }
     
     func updateProductModelWithFavorite() -> ProductModel? {

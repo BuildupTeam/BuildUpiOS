@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddressesDelegate: AnyObject {
+    func addressTaped(addressModel: AddressModel)
+}
+
 class AddressesViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -14,7 +18,8 @@ class AddressesViewController: BaseViewController {
     @IBOutlet private weak var addAddressButton: UIButton!
 
     var isReloadingTableView = false
-
+    weak var delegate: AddressesDelegate?
+    
     var viewModel: AddressesViewModel!
         
     override  var prefersBottomBarHidden: Bool? { return true }
@@ -136,7 +141,9 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let model = self.viewModel.addresses?[indexPath.row] {
+            delegate?.addressTaped(addressModel: model)
+        }
     }
 }
 

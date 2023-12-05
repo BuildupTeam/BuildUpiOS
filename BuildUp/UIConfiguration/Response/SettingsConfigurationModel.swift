@@ -15,6 +15,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
     var quantityPosition: String?
     var quantityStyle: String?
     var list: String?
+    var categoriesTabDesign: String?
     var productCartDesign: String?
     var cartSummaryDesign: CartSummeryModel?
     var cartButtonDesign: String?
@@ -35,6 +36,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         quantityPosition <- map["quantity_position"]
         quantityStyle <- map["quantity_style"]
         list <- map["list"]
+        categoriesTabDesign <- map["design"]
         productCartDesign <- map["product_card_design"]
         cartSummaryDesign <- map["summary"]
         cartButtonDesign <- map["button"]
@@ -56,6 +58,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         quantityStyle = aDecoder.decodeObject(forKey: "quantityStyle") as? String
         list = aDecoder.decodeObject(forKey: "list") as? String
         productCartDesign = aDecoder.decodeObject(forKey: "productCartDesign") as? String
+        categoriesTabDesign = aDecoder.decodeObject(forKey: "categoriesTabDesign") as? String
         cartSummaryDesign = aDecoder.decodeObject(forKey: "cartSummaryDesign") as? CartSummeryModel
         cartButtonDesign = aDecoder.decodeObject(forKey: "cartButtonDesign") as? String
         coverPhoto = aDecoder.decodeObject(forKey: "coverPhoto") as? CoverPhotoModel
@@ -83,6 +86,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         }
         if list != nil {
             aCoder.encode(list, forKey: "list")
+        }
+        if categoriesTabDesign != nil {
+            aCoder.encode(categoriesTabDesign, forKey: "categoriesTabDesign")
         }
         if productCartDesign != nil {
             aCoder.encode(productCartDesign, forKey: "productCartDesign")

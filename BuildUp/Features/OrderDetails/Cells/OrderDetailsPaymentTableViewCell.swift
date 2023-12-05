@@ -1,30 +1,26 @@
 //
-//  CheckoutPaymentTableViewCell.swift
+//  OrderDetailsPaymentTableViewCell.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 27/11/2023.
+//  Created by Mohammed Khaled on 04/12/2023.
 //
 
 import UIKit
 
-class CheckoutPaymentTableViewCell: UITableViewCell {
+class OrderDetailsPaymentTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var paymentTitleLabel: UILabel!
     @IBOutlet private weak var onlinePaymentLabel: UILabel!
     
-    var checkoutModel: CheckoutModel? {
-        didSet {
-            bindData()
-        }
-    }
-
+    var orderModel: OrderModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupCell()
     }
-
+    
     private func setupCell() {
         paymentTitleLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         onlinePaymentLabel.font = .appFont(ofSize: 13, weight: .medium)
@@ -36,11 +32,13 @@ class CheckoutPaymentTableViewCell: UITableViewCell {
         
         paymentTitleLabel.text = L10n.Checkout.payment
         onlinePaymentLabel.text = L10n.Checkout.cashOnDelivery
-    }
-    
-    func bindData() {
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
+        
+        ThemeManager.setShadow(element: containerView,
+                               shadowRadius: CGFloat(11),
+                               xOffset: 0, yOffset: 0,
+                               color: .black, opacity: 1,
+                               cornerRadius: 8,
+                               masksToBounds: false)
     }
     
 }

@@ -33,10 +33,13 @@ extension CategoriesTabViewController {
     
     func setupCollectionViewLayout() {
         let cellWidth = (UIScreen.main.bounds.width - 86) / 2
-        //CGFloat((collectionView.bounds.width - 16) / 2)
         var cellheight = CGFloat(210)
+        
         if let settings = viewModel.categoryListSettings {
-            switch settings.list {
+            switch settings.categoriesTabDesign {
+            case ProductListDesign.grid1.rawValue,
+                ProductListDesign.grid5.rawValue:
+                cellheight = 210
             case ProductListDesign.grid2.rawValue:
                 cellheight = 260
             case ProductListDesign.grid3.rawValue:
@@ -44,7 +47,7 @@ extension CategoriesTabViewController {
             case ProductListDesign.grid4.rawValue:
                 cellheight = 155
             default:
-                cellheight = 210
+                cellheight = 0
             }
         }
         let cellSize = CGSize(width: cellWidth,
@@ -64,8 +67,8 @@ extension CategoriesTabViewController {
 // MARK: - CollectionView Delegate && DataSource
 extension CategoriesTabViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.viewModel.products.isEmpty {
-            return 10
+        if isLoadingShimmer {
+            return 20
         }
         return self.viewModel.products.count
     }
@@ -80,7 +83,7 @@ extension CategoriesTabViewController: UICollectionViewDelegate, UICollectionVie
         }
         
         if let settings = viewModel.categoryListSettings {
-            switch settings.list {
+            switch settings.categoriesTabDesign {
             case ProductListDesign.grid1.rawValue:
                 guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: ProductVerticalGrid1CollectionViewCell.identifier,

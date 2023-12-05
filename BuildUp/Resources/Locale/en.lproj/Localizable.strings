@@ -130,6 +130,9 @@
 "orders.status.pending" = "Pending";
 "orders.status.delivered" = "Delivered";
 
+// MARK: - Order Details
+"orderDetails.orderNumber" = "Order #";
+
 // MARK: - Profile Screen
 "profile.editProfile" = "Edit Profile";
 "profile.savedAddresses" = "Saved Addresses";

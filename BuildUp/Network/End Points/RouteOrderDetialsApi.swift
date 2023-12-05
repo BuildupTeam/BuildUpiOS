@@ -1,18 +1,18 @@
 //
-//  RouteOrdersApi.swift
+//  RouteOrderDetialsApi.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 30/11/2023.
+//  Created by Mohammed Khaled on 04/12/2023.
 //
 
 import Foundation
 import Moya
 
-enum RouteOrdersApi {
-    case getOrders(completed: Int)
+enum RouteOrderDetialsApi {
+    case getOrderDetails(orderId: String)
 }
 
-extension RouteOrdersApi: TargetType {
+extension RouteOrderDetialsApi: TargetType {
     var baseURL: URL {
         var configuration = Configuration()
         print("base url = \(configuration.environment.baseURL)")
@@ -20,7 +20,10 @@ extension RouteOrdersApi: TargetType {
     }
     
     var path: String {
-        return ApiUrls.Apis.ordersUrl
+        switch self {
+        case .getOrderDetails(orderId: let orderId):
+            return ApiUrls.Apis.orderDetailsUrl.replacingOccurrences(of: "{id}", with: orderId)
+        }
     }
     
     var method: Moya.Method {
@@ -33,9 +36,8 @@ extension RouteOrdersApi: TargetType {
     
     var task: Task {
         switch self {
-        case .getOrders(completed: let completed):
-            let parameters: [String: Any] = ["current": completed]
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .getOrderDetails:
+            return .requestPlain
         }
     }
     

@@ -91,12 +91,14 @@ extension PastOrdersViewController: UITableViewDelegate, UITableViewDataSource {
         cell.orderModel = self.viewModel.orders?[indexPath.row]
         
         cell.selectionStyle = .none
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let orderModel = self.viewModel.orders?[indexPath.row] {
+            let orderDetailsVC = Coordinator.Controllers.createOrderDetailsViewController(orderModel: orderModel)
+            self.navigationController?.pushViewController(orderDetailsVC, animated: true)
+        }
     }
 }
 

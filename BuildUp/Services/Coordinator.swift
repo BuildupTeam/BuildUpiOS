@@ -143,6 +143,7 @@ class Coordinator {
                 let viewController = ProductsListViewController(viewModel: viewModel)
                 return viewController
             }
+        
         class func createProductsGridViewController(
             homeSectionModel: HomeSectionModel? = nil,
             componentModel: ComponentConfigurationModel? = nil,
@@ -152,6 +153,7 @@ class Coordinator {
                 let viewController = ProductsGridViewController(viewModel: viewModel)
                 return viewController
             }
+        
         class func createCategoryDetailsListViewController(categoryModel: CategoryModel? = nil,
                                                            viewModel: CategoryDetailsViewModel = CategoryDetailsViewModel()) -> CategoryDetailsListViewController {
             viewModel.categoryModel = categoryModel
@@ -236,6 +238,13 @@ class Coordinator {
         
         class func createWishListViewController(viewModel: WishListViewModel = WishListViewModel()) -> WishlistViewController {
             let viewController = WishlistViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createOrderDetailsViewController(orderModel: OrderModel? = nil,
+                                                           viewModel: OrderDetailsViewModel = OrderDetailsViewModel()) -> OrderDetailsViewController {
+            viewModel.orderModel = orderModel
+            let viewController = OrderDetailsViewController(viewModel: viewModel)
             return viewController
         }
     }

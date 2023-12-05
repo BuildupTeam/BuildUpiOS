@@ -39,7 +39,7 @@ class CategoriesTabViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = L10n.Categories.title
+        self.navigationItem.title = L10n.Categories.title
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,6 +55,7 @@ extension CategoriesTabViewController {
         isLoadingShimmer = true
         registerTableViewCells()
         registerCollectionViewCells()
+        self.viewModel.getCachedData()
         
         let footerView = UIView()
         footerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
@@ -131,6 +132,7 @@ extension CategoriesTabViewController  {
         categoriesResponse()
         loadMoreProductsResponse()
         cartItemUpdatedResponse()
+        favoriteProductUpdatedResponse()
     }
 }
 
@@ -146,10 +148,10 @@ extension CategoriesTabViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             stopShimmerOn(collectionView: self.collectionView)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.collectionView.reloadData()
-            }
+            self.collectionView.reloadData()
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                self.collectionView.reloadData()
+//            }
         }
     }
     
@@ -180,6 +182,14 @@ extension CategoriesTabViewController {
         ObservationService.carItemUpdated.append({ [weak self] () in
             guard let `self` = self else { return }
             self.viewModel.products = self.viewModel.getProductsWithCartQuantity(products: self.viewModel.products)
+            self.tableView.reloadData()
+        })
+    }
+    
+    private func favoriteProductUpdatedResponse() {
+        ObservationService.favItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            self.viewModel.products = self.viewModel.getProductsWithFavorites(products: self.viewModel.products)
             self.tableView.reloadData()
         })
     }

@@ -68,9 +68,11 @@ class ThemeManager {
                 }
             }
             
-            element.layer.shadowColor = color.cgColor
-//            element.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
-            element.layer.shadowPath = UIBezierPath(rect: element.bounds).cgPath
+            let shadowPath0 = UIBezierPath(roundedRect: element.bounds, cornerRadius: 0)
+            element.layer.shadowPath = shadowPath0.cgPath
+            
+            element.layer.shadowColor = UIColor(red: 0.655, green: 0.655, blue: 0.655, alpha: 0.23).cgColor
+            element.layer.shadowOffset = CGSize(width: 0, height: 2)
             element.layer.shadowRadius = shadowRadius
             element.layer.shadowOpacity = opacity
             element.layer.masksToBounds = masksToBounds
@@ -97,12 +99,11 @@ class ThemeManager {
                 }
             }
             
-            element.layer.shadowColor = color.cgColor
-            element.layer.shadowOffset = CGSize(width: 0, height: 0.5)
-            element.layer.shadowPath = UIBezierPath(rect: element.bounds).cgPath
-            element.layer.shouldRasterize = true
-            element.layer.rasterizationScale = UIScreen.main.scale
+            let shadowPath0 = UIBezierPath(roundedRect: element.bounds, cornerRadius: 0)
+            element.layer.shadowPath = shadowPath0.cgPath
             
+            element.layer.shadowColor = UIColor(red: 0.655, green: 0.655, blue: 0.655, alpha: 0.23).cgColor
+            element.layer.shadowOffset = CGSize(width: 0, height: 2)
             element.layer.shadowRadius = shadowRadius
             element.layer.shadowOpacity = opacity
             element.layer.masksToBounds = masksToBounds
@@ -118,13 +119,12 @@ class ThemeManager {
         cornerRadius: CGFloat,
         masksToBounds: Bool) {
             
-            element.layer.cornerRadius = 0
-            element.layer.shadowColor = color.cgColor
-            element.layer.shadowOffset = CGSize(width: 0, height: 0.5)
-            // CGSize(width: xOffset, height: yOffset)
-            element.layer.shadowPath = UIBezierPath(rect: element.bounds).cgPath
-            element.layer.shouldRasterize = true
-            element.layer.rasterizationScale = UIScreen.main.scale
+            let shadowPath0 = UIBezierPath(roundedRect: element.bounds, cornerRadius: 0)
+            element.layer.shadowPath = shadowPath0.cgPath
+            
+            element.layer.cornerRadius = cornerRadius
+            element.layer.shadowColor = UIColor(red: 0.655, green: 0.655, blue: 0.655, alpha: 0.23).cgColor
+            element.layer.shadowOffset = CGSize(width: 0, height: 2)
             element.layer.shadowRadius = shadowRadius
             element.layer.shadowOpacity = opacity
             element.layer.masksToBounds = masksToBounds

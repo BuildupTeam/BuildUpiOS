@@ -40,7 +40,7 @@ class CartViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getCart()
-        self.title = L10n.Cart.title
+        self.navigationItem.title = L10n.Cart.title
     }
     
     override func viewWillDisappear(_ animated: Bool) {
