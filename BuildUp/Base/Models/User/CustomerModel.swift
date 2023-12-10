@@ -7,6 +7,7 @@
 
 import Foundation
 import ObjectMapper
+import CountryPickerView
 
 class CustomerModel: NSObject, NSCoding, Mappable {
     
@@ -17,6 +18,17 @@ class CustomerModel: NSObject, NSCoding, Mappable {
     var countryCode: String?
     var emailVerified: Bool?
     var phoneVerified: Bool?
+    var imageId: Int?
+    var userImage: MainImageModel?
+    
+    var countryFlag: UIImage? {
+        var countryPickerView = CountryPickerView()
+        return countryPickerView.getCountryByPhoneCode(countryCode ?? "")?.flag
+    }
+    
+    var countryCodeWithoutPlus: String {
+        return countryCode?.replacingOccurrences(of: "+", with: "") ?? ""
+    }
     
     override init() {
         
@@ -30,6 +42,7 @@ class CustomerModel: NSObject, NSCoding, Mappable {
         fullName <- map["full_name"]
         email <- map["email"]
         phone <- map["phone"]
+        userImage <- map["image"]
         countryCode <- map["country_code"]
         emailVerified <- map["email_verified"]
         phoneVerified <- map["phone_verified"]
@@ -42,6 +55,7 @@ class CustomerModel: NSObject, NSCoding, Mappable {
         fullName = aDecoder.decodeObject(forKey: "fullName") as? String
         email = aDecoder.decodeObject(forKey: "email") as? String
         phone = aDecoder.decodeObject(forKey: "phone") as? String
+        userImage = aDecoder.decodeObject(forKey: "userImage") as? MainImageModel
         countryCode = aDecoder.decodeObject(forKey: "countryCode") as? String
         emailVerified = aDecoder.decodeObject(forKey: "emailVerified") as? Bool
         phoneVerified = aDecoder.decodeObject(forKey: "phoneVerified") as? Bool
@@ -60,6 +74,9 @@ class CustomerModel: NSObject, NSCoding, Mappable {
         }
         if phone != nil {
             aCoder.encode(phone, forKey: "phone")
+        }
+        if userImage != nil {
+            aCoder.encode(userImage, forKey: "userImage")
         }
         if countryCode != nil {
             aCoder.encode(countryCode, forKey: "countryCode")

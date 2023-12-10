@@ -30,6 +30,7 @@ class ProfileViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.viewModel.getProfile()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,7 +52,6 @@ extension ProfileViewController {
         handleLogoutResponse()
         handleTokenNotExistResponse()
         profileResponse()
-        self.viewModel.getProfile()
     }
     
     private func handleLogoutResponse() {
@@ -78,7 +78,7 @@ extension ProfileViewController {
         self.viewModel.onProfile = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
-                        self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
 }
@@ -91,7 +91,8 @@ extension ProfileViewController {
     }
     
     func openEditProfile() {
-        
+        let editProfileVC = Coordinator.Controllers.createEditProfileViewController()
+        self.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     func openAddresses() {

@@ -46,7 +46,7 @@ class ProfileHeaderTableViewCell: UITableViewCell {
         cameraView.layer.cornerRadius = cameraView.frame.size.width / 2
         cameraView.backgroundColor = ThemeManager.colorPalette?.badgeColor?.toUIColor(hexa: ThemeManager.colorPalette?.badgeColor ?? "")
         
-        
+        ThemeManager.setCornerRadious(element: profileImageView, radius: profileImageView.frame.size.width / 2)
         ThemeManager.setCornerRadious(element: userUmageContainerView, radius: userUmageContainerView.frame.size.width / 2)
         
         userNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
@@ -70,6 +70,12 @@ class ProfileHeaderTableViewCell: UITableViewCell {
             phoneLabel.text = phoneCode + phone
             
             countryCodeFlag.image = countryFlag
+            
+            if let imageUrl = user.userImage?.path {
+                profileImageView.setImage(with: imageUrl)
+            } else {
+                profileImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
+            }
         }
     }
 }

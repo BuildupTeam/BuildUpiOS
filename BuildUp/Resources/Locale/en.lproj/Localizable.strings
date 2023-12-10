@@ -139,6 +139,11 @@
 "profile.settings" = "Settings";
 "profile.wishlist" = "Wishlist";
 "profile.logout" = "Log out";
+"profile.update.camera" = "Camera";
+"profile.update.gellary" = "Gallery";
+"profile.update.chooseImage" = "Choose Image";
+"profile.update.cancel" = "Cancel";
+"profile.update.updateProfile" = "Update Profile";
 
 // MARK: - QRCode Screen
 "QRCode.title" = "Scan QR Code";

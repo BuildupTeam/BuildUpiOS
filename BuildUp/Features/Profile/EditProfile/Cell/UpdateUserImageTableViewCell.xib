@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UpdateUserImageTableViewCell" customModule="BuildUp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWI-Qc-ATL">
+                        <rect key="frame" x="8" y="8" width="398" height="114"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50H-hS-7CV">
+                                <rect key="frame" x="149" y="7" width="100" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="tRO-sx-XjQ">
+                                        <rect key="frame" x="4" y="4" width="92" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="92" id="GWF-1R-eKP"/>
+                                            <constraint firstAttribute="width" constant="92" id="ZRF-yR-4Ol"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="27J-M7-t7y"/>
+                                    <constraint firstAttribute="bottom" secondItem="tRO-sx-XjQ" secondAttribute="bottom" constant="4" id="6tt-5n-zvJ"/>
+                                    <constraint firstItem="tRO-sx-XjQ" firstAttribute="top" secondItem="50H-hS-7CV" secondAttribute="top" constant="4" id="JUE-j3-5gx"/>
+                                    <constraint firstAttribute="trailing" secondItem="tRO-sx-XjQ" secondAttribute="trailing" constant="4" id="LWh-ST-zWe"/>
+                                    <constraint firstItem="tRO-sx-XjQ" firstAttribute="leading" secondItem="50H-hS-7CV" secondAttribute="leading" constant="4" id="fWd-Lp-Dqg"/>
+                                    <constraint firstAttribute="height" constant="100" id="jwz-et-dQH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2c-18-SIl">
+                                <rect key="frame" x="213" y="78" width="28" height="28"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_camera" translatesAutoresizingMaskIntoConstraints="NO" id="MUU-mc-X38">
+                                        <rect key="frame" x="5" y="6.6666666666666714" width="18" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="Hdu-w1-4D8"/>
+                                            <constraint firstAttribute="width" constant="18" id="zxT-0x-s4u"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstItem="MUU-mc-X38" firstAttribute="centerY" secondItem="c2c-18-SIl" secondAttribute="centerY" id="HnU-Sq-l7x"/>
+                                    <constraint firstAttribute="width" constant="28" id="O2p-tH-I54"/>
+                                    <constraint firstItem="MUU-mc-X38" firstAttribute="centerX" secondItem="c2c-18-SIl" secondAttribute="centerX" id="Rei-Yb-rdV"/>
+                                    <constraint firstAttribute="height" constant="28" id="Y3E-Ii-5rk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="114" id="8Yd-DL-wBZ"/>
+                            <constraint firstItem="50H-hS-7CV" firstAttribute="centerX" secondItem="oWI-Qc-ATL" secondAttribute="centerX" id="9Rh-RA-3IR"/>
+                            <constraint firstItem="50H-hS-7CV" firstAttribute="centerY" secondItem="oWI-Qc-ATL" secondAttribute="centerY" id="ajW-rm-5oV"/>
+                            <constraint firstItem="c2c-18-SIl" firstAttribute="trailing" secondItem="50H-hS-7CV" secondAttribute="trailing" constant="-8" id="gul-Vh-g1I"/>
+                            <constraint firstAttribute="bottom" secondItem="c2c-18-SIl" secondAttribute="bottom" constant="8" id="ybm-Ke-U9v"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oWI-Qc-ATL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="46a-5G-Hc9"/>
+                    <constraint firstAttribute="trailing" secondItem="oWI-Qc-ATL" secondAttribute="trailing" constant="8" id="5wL-g3-NVG"/>
+                    <constraint firstAttribute="bottom" secondItem="oWI-Qc-ATL" secondAttribute="bottom" constant="8" id="SCG-LU-eZO"/>
+                    <constraint firstItem="oWI-Qc-ATL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="xdz-Yx-pLY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="cameraView" destination="c2c-18-SIl" id="JXT-u9-xkE"/>
+                <outlet property="containerView" destination="oWI-Qc-ATL" id="HIy-HL-N4t"/>
+                <outlet property="profileImageView" destination="tRO-sx-XjQ" id="USA-Zr-Y6b"/>
+                <outlet property="userUmageContainerView" destination="50H-hS-7CV" id="V7w-a6-GBa"/>
+            </connections>
+            <point key="canvasLocation" x="66" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_avatar" width="39" height="39"/>
+        <image name="ic_camera" width="18" height="15"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

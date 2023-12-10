@@ -51,6 +51,12 @@ class ProfileViewModel: BaseViewModel {
             switch result {
             case .success(let response):
                 self.userModel = response.data
+                if let customer = response.data {
+                    if var usermodel = CachingService.getUser() {
+                        usermodel.customer = customer
+                        CachingService.setUser(usermodel)
+                    }
+                }
                 self.onProfile?()
             case .failure(let error):
                 print(error)

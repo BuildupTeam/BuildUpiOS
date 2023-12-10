@@ -68,7 +68,6 @@ class RegisterViewController: BaseViewController {
     private func setupCountryPickerView() {
         countryPickerView.delegate = self
         countryPickerView.dataSource = self
-//        phoneTextField.textAlignment = .left
         
         countryPickerView.setCountryByCode("SA")
         

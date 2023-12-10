@@ -34,6 +34,12 @@ class RegisterPhoneTableViewCell: UITableViewCell {
         }
     }
     
+    var editProfileModel: EditProfileModel? {
+        didSet {
+            bindUserData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -95,10 +101,24 @@ class RegisterPhoneTableViewCell: UITableViewCell {
         }
     }
     
+    func bindUserData() {
+        if let model = editProfileModel {
+            if let flag = model.countryFlag {
+                self.countryFlagImageView.image = flag
+            }
+            if let phone = model.phone {
+                self.textField.text = phone
+            }
+        }
+    }
+    
     func isMobileNumberValid(phone: String) -> Bool {
         var countryCode = registerModel?.countryCode
         if countryCode == nil {
             countryCode = checkoutModel?.countryCode
+            if countryCode == nil {
+                countryCode = editProfileModel?.countryCode
+            }
         }
 
         let phoneNumberKit = PhoneNumberKit()

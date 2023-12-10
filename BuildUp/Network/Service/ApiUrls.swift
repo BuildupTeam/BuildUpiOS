@@ -16,6 +16,8 @@ struct ApiUrls {
         static let registerUrl = "/register"
         static let loginUrl = "/login"
         static let logoutUrl = "/logout"
+        static let updateProfileUrl = "/profile"
+        static let uploadImageUrl = "/files"
         
         static let refreshTokenUrl = "/refresh-token"
         static let forgetPasswordUrl = "/forget-password"

@@ -35,6 +35,7 @@ extension ProfileViewController {
             withIdentifier: ProfileHeaderTableViewCell.identifier,
             for: indexPath) as? ProfileHeaderTableViewCell
         else { return UITableViewCell() }
+        
         cell.userModel = self.viewModel.userModel
         cell.selectionStyle = .none
         return cell

@@ -474,6 +474,28 @@ internal enum L10n {
         internal static var wishlist: String {
           return L10n.tr("Localizable", "profile.wishlist")
         }
+      internal enum Update {
+          /// Camera
+          internal static var camera: String {
+            return L10n.tr("Localizable", "profile.update.camera")
+          }
+          /// Cancel
+          internal static var cancel: String {
+            return L10n.tr("Localizable", "profile.update.cancel")
+          }
+          /// Choose Image
+          internal static var chooseImage: String {
+            return L10n.tr("Localizable", "profile.update.chooseImage")
+          }
+          /// Gallery
+          internal static var gellary: String {
+            return L10n.tr("Localizable", "profile.update.gellary")
+          }
+          /// Update Profile
+          internal static var updateProfile: String {
+            return L10n.tr("Localizable", "profile.update.updateProfile")
+          }
+      }
     }
 
     internal enum Register {

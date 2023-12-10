@@ -241,6 +241,11 @@ class Coordinator {
             return viewController
         }
         
+        class func createEditProfileViewController(viewModel: EditProfileViewModel = EditProfileViewModel()) -> EditProfileViewController {
+            let viewController = EditProfileViewController(viewModel: viewModel)
+            return viewController
+        }
+        
         class func createOrderDetailsViewController(orderModel: OrderModel? = nil,
                                                            viewModel: OrderDetailsViewModel = OrderDetailsViewModel()) -> OrderDetailsViewController {
             viewModel.orderModel = orderModel
