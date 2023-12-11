@@ -130,6 +130,7 @@ PODS:
     - NVActivityIndicatorView/Base
   - ObjectMapper (4.2.0)
   - PanModal (1.2.7)
+  - PayTabsSDK (6.4.13)
   - PhoneNumberKit (3.7.4):
     - PhoneNumberKit/PhoneNumberKitCore (= 3.7.4)
     - PhoneNumberKit/UIKit (= 3.7.4)
@@ -177,6 +178,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView/Extended
   - ObjectMapper
   - PanModal
+  - PayTabsSDK (~> 6.4.12)
   - PhoneNumberKit (~> 3.1)
   - PopupDialog
   - RangeSeekSlider
@@ -218,6 +220,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - ObjectMapper
     - PanModal
+    - PayTabsSDK
     - PhoneNumberKit
     - PopupDialog
     - PromisesObjC
@@ -317,6 +320,7 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
+  PayTabsSDK: fe1ecd597ced57d58a9ba642ee9b6a41d5b5a862
   PhoneNumberKit: e3c4dc9f65bc2036639898095c2ab1ef89348f64
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
@@ -332,6 +336,6 @@ SPEC CHECKSUMS:
   Windless: 9dea19b4d239d948e4cec3891fac1fe863e13136
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 54bca9b9168df78a0eacb2c7bf1a8a9cb61c9526
+PODFILE CHECKSUM: c019a6fee0615d9ec7bfa25cb16a1d4a633baf77
 
 COCOAPODS: 1.13.0
