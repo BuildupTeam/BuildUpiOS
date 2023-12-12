@@ -11,9 +11,10 @@ class CheckoutReviewViewModel: BaseViewModel {
     
     weak var service: CheckoutReviewWebServiceProtocol?
     var summaryData: SummaryData?
+    var checkoutData: CheckoutDataModel?
 
     public var onSummary: (() -> Void)?
-    public var onCheckout: (() -> Void)?
+    public var onCheckout: ((CheckoutResponseModel) -> Void)?
 
     init(service: CheckoutReviewWebServiceProtocol = CheckoutReviewWebService.shared) {
         super.init(observationType: .all)
@@ -47,7 +48,8 @@ class CheckoutReviewViewModel: BaseViewModel {
         service.checkout(checkoutModel: model) { (result) in
             switch result {
             case .success(let response):
-                self.onCheckout?()
+                self.checkoutData = response.data
+                self.onCheckout?(response)
             case .failure(let error):
                 print(error)
                 if error.message != "Request explicitly cancelled." {

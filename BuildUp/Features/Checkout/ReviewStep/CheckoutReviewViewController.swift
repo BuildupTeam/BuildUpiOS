@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import PaymentSDK
+import PassKit
 
 enum CheckoutReviewCells: Int {
     case payment = 0
@@ -29,6 +31,10 @@ class CheckoutReviewViewController: BaseViewController {
     var viewModel: CheckoutReviewViewModel!
     
     var checkoutModel: CheckoutModel?
+    
+    let profileID = "134477"
+    let serverKey = "S2J99KHW2M-JHJWBG99GD-GKG62BR2L9"
+    let clientKey = "CBK22V-V7TR6H-6V2TPP-TVQGBV"
     
     override  var prefersBottomBarHidden: Bool? { return true }
 
@@ -207,14 +213,80 @@ extension CheckoutReviewViewController: UITableViewDelegate, UITableViewDataSour
         
     }
 }
+// MARK: - Payment
+extension CheckoutReviewViewController: PaymentManagerDelegate {
+    
+    func payWithCard() {
+        PaymentManager.startCardPayment(on: self, configuration: getCardConfiguration(),
+                                 delegate: self)
+    }
+    
+    func getBillingAddress() -> PaymentSDKBillingDetails {
+        guard let model = checkoutModel else { return PaymentSDKBillingDetails() }
+        
+        let name = model.name
+        let email = model.email
+        let phone = model.phone
+        let city = model.address?.city?.name
+        let state = model.address?.area?.name
+        let countryCode = "EG"//model.countryCode
+        let addressLine = model.address?.addressDescription
+        
+        return PaymentSDKBillingDetails(name: name,
+                                        email: email,
+                                        phone: phone,
+                                        addressLine: addressLine,
+                                        city: "Cairo",
+                                        state: "Nasr City",
+                                        countryCode: countryCode,
+                                        zip: "12345")
+    }
+    
+    func getCardConfiguration() -> PaymentSDKConfiguration {
+        guard let model = self.viewModel.checkoutData?.order else { return PaymentSDKConfiguration() }
+        
+        let theme = PaymentSDKTheme.default
+        theme.logoImage = UIImage(named: "Logo")
+        return PaymentSDKConfiguration(profileID: profileID,
+                                       serverKey: serverKey,
+                                       clientKey: clientKey,
+                                       currency: "EGP",
+                                       amount: model.total ?? 0.0,
+                                       merchantCountryCode: "EG")
+        .cartDescription("Flowers")
+        .cartID(model.uuid ?? "")
+        .screenTitle("Pay with Card")
+        .theme(theme)
+        .billingDetails(getBillingAddress())
+    }
+    
+    func paymentManager(didFinishTransaction transactionDetails: PaymentSDK.PaymentSDKTransactionDetails?, error: Error?) {
+        if let transactionDetails = transactionDetails {
+            print("transactionDetails = \(transactionDetails)")
+            print("Response Code: " + (transactionDetails.paymentResult?.responseCode ?? ""))
+            print("Result: " + (transactionDetails.paymentResult?.responseMessage ?? ""))
+            print("Token: " + (transactionDetails.token ?? ""))
+            print("Transaction Reference: " + (transactionDetails.transactionReference ?? ""))
+            print("Transaction Time: " + (transactionDetails.paymentResult?.transactionTime ?? "" ))
+            
+            if transactionDetails.isSuccess() {
+                print("Successful transaction")
+            }
+        } else if let error = error {
+            showError(message: error.localizedDescription)
+        }
+    }
+}
 
 // MARK: - Responses
 extension CheckoutReviewViewController {
     private func checkoutResponse() {
-        self.viewModel.onCheckout = { [weak self]() in
+        self.viewModel.onCheckout = { [weak self] (response) in
             guard let `self` = self else { return }
+            self.hideLoading()
+            self.payWithCard()
             RealTimeDatabaseService.clearCart()
-            LauncherViewController.showTabBar()
+            // LauncherViewController.showTabBar()
         }
     }
 }

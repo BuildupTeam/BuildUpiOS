@@ -45,7 +45,7 @@ class CartViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.title = " "
+        self.navigationItem.title = " "
     }
 
 }
