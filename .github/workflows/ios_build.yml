@@ -1,0 +1,31 @@
+name: iOS Build
+
+on:
+  push:
+    branches: [ ci ]
+  pull_request:
+    branches: [ ci ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7' # or the version you need
+
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: Execute Fastlane
+    #   env:
+    #     MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+    #     FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+    #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+    #     FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+      run: |
+        fastlane beta
