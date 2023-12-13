@@ -19,7 +19,7 @@ jobs:
     - name: Install dependencies
       run: |
         gem install bundler
-        bundle install
+        bundle install --full-index
 
     - name: Execute Fastlane
     #   env:
