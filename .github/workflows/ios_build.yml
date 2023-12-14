@@ -19,6 +19,7 @@ jobs:
     - name: Install dependencies
       run: |
         gem install bundler
+        pod install
         bundle update --full-index
 
     - name: Execute Fastlane
