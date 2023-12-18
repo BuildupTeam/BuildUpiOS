@@ -122,20 +122,6 @@ extension CheckoutReviewViewController {
             //String(summary.formattedSubtotal?.formatted) + L10n.ProductDetails.currency
         }
     }
-    
-    private func setupResponses() {
-        checkoutResponse()
-        summaryResponse()
-    }
-    
-    private func summaryResponse() {
-        self.viewModel.onSummary = { [weak self]() in
-            guard let `self` = self else { return }
-            self.hideLoading()
-            setupTotalPrice()
-            self.tableView.reloadData()
-        }
-    }
 }
 
 // MARK: Actions
@@ -271,6 +257,9 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
             
             if transactionDetails.isSuccess() {
                 print("Successful transaction")
+                self.viewModel.completeOrder(transactionId: transactionDetails.transactionReference ?? "")
+            } else {
+                self.viewModel.paymentCancelled()
             }
         } else if let error = error {
             showError(message: error.localizedDescription)
@@ -280,13 +269,52 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
 
 // MARK: - Responses
 extension CheckoutReviewViewController {
+    private func setupResponses() {
+        checkoutResponse()
+        summaryResponse()
+        paymentCancelledResponse()
+        completeOrderResponse()
+    }
+    
+    private func summaryResponse() {
+        self.viewModel.onSummary = { [weak self]() in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            setupTotalPrice()
+            self.tableView.reloadData()
+        }
+    }
+    
     private func checkoutResponse() {
         self.viewModel.onCheckout = { [weak self] (response) in
             guard let `self` = self else { return }
             self.hideLoading()
-            self.payWithCard()
+            if let data = self.viewModel.checkoutData {
+                if data.confirmed ?? false {
+                    RealTimeDatabaseService.clearCart()
+                    LauncherViewController.showTabBar()
+                } else {
+                    self.payWithCard()
+                }
+            }
+        }
+    }
+    
+    private func paymentCancelledResponse() {
+        self.viewModel.onPaymentCancelled = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
+//            RealTimeDatabaseService.clearCart()
+//            LauncherViewController.showTabBar()
+        }
+    }
+    
+    private func completeOrderResponse() {
+        self.viewModel.onCompleteOrder = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
             RealTimeDatabaseService.clearCart()
-            // LauncherViewController.showTabBar()
+            LauncherViewController.showTabBar()
         }
     }
 }

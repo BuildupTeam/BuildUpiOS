@@ -16,6 +16,7 @@ class AddressModel: Mappable {
     var country: CountryModel?
     var city: CityModel?
     var area: AreaModel?
+    var isSelected = false
     
     func mapping(map: Map) {
         id <- map["id"]

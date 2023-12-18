@@ -69,8 +69,13 @@ class CheckoutAddressTableViewCell: UITableViewCell {
     private func bindData() {
         if let model = addressModel {
             nameLabel.text = CachingService.getUser()?.customer?.fullName
-            addressLabel.text = model.addressDescription ?? ""
-            countryLabel.text = (model.country?.name ?? "") + ", " + (model.city?.name ?? "")
+            if let desc = model.addressDescription {
+                addressLabel.text = desc
+            }
+            
+            if let country = model.country?.name, let city = model.city?.name {
+                countryLabel.text = country + ", " + city
+            }
         }
     }
     

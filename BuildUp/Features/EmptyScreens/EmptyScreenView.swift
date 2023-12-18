@@ -26,7 +26,7 @@ class EmptyScreenView: UIView {
             if screenType == .emptyScreen {
                 backToHomeButton.setTitle(L10n.EmptyScreen.noData, for: .normal)
             } else if screenType == .loginFirst {
-                backToHomeButton.setTitle(L10n.EmptyScreen.noData, for: .normal)
+                backToHomeButton.setTitle(L10n.EmptyScreen.Button.login, for: .normal)
             }
         }
     }
@@ -87,7 +87,7 @@ extension EmptyScreenView {
         if screenType == .emptyScreen {
             backToHomeButton.setTitle(L10n.EmptyScreen.noData, for: .normal)
         } else if screenType == .loginFirst {
-            backToHomeButton.setTitle(L10n.EmptyScreen.noData, for: .normal)
+            backToHomeButton.setTitle(L10n.EmptyScreen.Button.login, for: .normal)
         }
     }
 }

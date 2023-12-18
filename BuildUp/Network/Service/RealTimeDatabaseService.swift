@@ -107,7 +107,11 @@ extension RealTimeDatabaseService {
     }
 
     static func getCartNode() -> DatabaseReference? {
-       return shared.ref?.child(Auth.auth().currentUser?.uid ?? "").child(CachingService.getUser()?.customer?.uuid ?? "").child("cart")
+        if let currentUserUUid = Auth.auth().currentUser?.uid, let csutomerUUID = CachingService.getUser()?.customer?.uuid  {
+            return shared.ref?.child(currentUserUUid).child(csutomerUUID).child("cart")
+        }
+        
+       return nil
     }
     
     static func addProductModel(model: FirebaseProductModel) {
@@ -206,7 +210,11 @@ extension RealTimeDatabaseService {
 //MARK: - Favorites
 extension RealTimeDatabaseService {
     static func getFavoriteNode() -> DatabaseReference? {
-       return shared.ref?.child(Auth.auth().currentUser?.uid ?? "").child(CachingService.getUser()?.customer?.uuid ?? "").child("favorites")
+        if let currentUserUUid = Auth.auth().currentUser?.uid, let csutomerUUID = CachingService.getUser()?.customer?.uuid  {
+            return shared.ref?.child(currentUserUUid).child(csutomerUUID).child("favorites")
+        }
+        
+       return nil
     }
     
     static func favoriteProductModel(model: FirebaseFavoriteModel) {

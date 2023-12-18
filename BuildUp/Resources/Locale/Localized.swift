@@ -253,10 +253,20 @@ internal enum L10n {
     }
 
     internal enum EmptyScreen {
+        /// Please Login First
+        internal static var loginFirst: String {
+          return L10n.tr("Localizable", "emptyScreen.loginFirst")
+        }
         /// No Data Found
         internal static var noData: String {
           return L10n.tr("Localizable", "emptyScreen.noData")
         }
+      internal enum Button {
+          /// Login
+          internal static var login: String {
+            return L10n.tr("Localizable", "emptyScreen.button.login")
+          }
+      }
     }
 
     internal enum ForceUpdate {
