@@ -170,13 +170,13 @@
             filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "addProductFromDetails(model:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AF9D80DB-046C-40FE-9746-4CA1FBA26D10 - 1e8fdd05642eeff1"
+                  uuid = "AF9D80DB-046C-40FE-9746-4CA1FBA26D10 - 1e8fdd05642eef75"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -186,12 +186,27 @@
                   urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "1808">
+               </Location>
+               <Location
+                  uuid = "AF9D80DB-046C-40FE-9746-4CA1FBA26D10 - 1e8fdd05642eef75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.addProductFromDetails(model: BuildUp.FirebaseProductModel) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
                   offsetFromSymbolStart = "796">
                </Location>
                <Location
-                  uuid = "AF9D80DB-046C-40FE-9746-4CA1FBA26D10 - 1e8fdd05642eeff1"
+                  uuid = "AF9D80DB-046C-40FE-9746-4CA1FBA26D10 - 1e8fdd05642eef75"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -201,8 +216,8 @@
                   urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
                   offsetFromSymbolStart = "859">
                </Location>
             </Locations>
@@ -218,10 +233,42 @@
             filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "addProductFromDetails(model:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C5E6CA66-B477-4EC6-8170-91BEF4092D30 - 1e8fdd05642eed81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.addProductFromDetails(model: BuildUp.FirebaseProductModel) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "4458">
+               </Location>
+               <Location
+                  uuid = "C5E6CA66-B477-4EC6-8170-91BEF4092D30 - 1e8fdd05642eed81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.addProductFromDetails(model: BuildUp.FirebaseProductModel) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "3295">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -285,6 +332,21 @@
                   endingLineNumber = "128"
                   offsetFromSymbolStart = "8055">
                </Location>
+               <Location
+                  uuid = "FC8A1A13-5EF6-41DB-9E15-6C9EE8614378 - 1076e8ad31bca90f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CategoriesTabViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/CategoriesTab/CategoriesTabViewController+CollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "6388">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -302,6 +364,38 @@
             endingLineNumber = "131"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "733ABD94-9D0D-4D31-8ABE-119496D80F20 - 1076e8ad31bca962"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CategoriesTabViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/CategoriesTab/CategoriesTabViewController+CollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "8132">
+               </Location>
+               <Location
+                  uuid = "733ABD94-9D0D-4D31-8ABE-119496D80F20 - 1076e8ad31bca962"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CategoriesTabViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/CategoriesTab/CategoriesTabViewController+CollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "6448">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -323,22 +417,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "44C942AF-8FB6-4987-A808-E52E612D1AA3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "getBillingAddress()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -346,25 +424,485 @@
             filePath = "BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "paymentManager(didFinishTransaction:error:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2 - 643da0271dfbba94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "265"
+                  endingLineNumber = "265"
+                  offsetFromSymbolStart = "4327">
+               </Location>
+               <Location
+                  uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2 - 643da0271dfbba94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "265"
+                  endingLineNumber = "265"
+                  offsetFromSymbolStart = "3476">
+               </Location>
+               <Location
+                  uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2 - 643da0271dfbba94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "265"
+                  endingLineNumber = "265"
+                  offsetFromSymbolStart = "3640">
+               </Location>
+               <Location
+                  uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2 - 643da0271dfbba94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "265"
+                  endingLineNumber = "265"
+                  offsetFromSymbolStart = "4534">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "93A21FDA-F71D-4A7A-BC94-52E48AAAA07E"
+            uuid = "AB86A49C-26D3-44BC-8BDC-29B9C4F61974"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "paymentManager(didFinishTransaction:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AB86A49C-26D3-44BC-8BDC-29B9C4F61974 - 643da0271dfbbdbf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "3432">
+               </Location>
+               <Location
+                  uuid = "AB86A49C-26D3-44BC-8BDC-29B9C4F61974 - 643da0271dfbbdbf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "2688">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2C26D59-B584-4B67-98CE-DD6A1147E43C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "addUserToFirebase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4170915-CECC-4B83-A2DE-876028367623"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "getFirebaseToken()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4170915-CECC-4B83-A2DE-876028367623 - 7fa042bb315dd267"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;BuildUp.FirebaseTokenResponseModel, BuildUp.NetworkError&gt;) -&gt; () in BuildUp.HomeViewModel.getFirebaseToken() -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "1035">
+               </Location>
+               <Location
+                  uuid = "D4170915-CECC-4B83-A2DE-876028367623 - 34b59bc807e883a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Any) -&gt; () in closure #1 (Swift.Result&lt;BuildUp.FirebaseTokenResponseModel, BuildUp.NetworkError&gt;) -&gt; () in BuildUp.HomeViewModel.getFirebaseToken() -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5C2654E-9898-43AD-84B9-3FE71FB5FE3F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "observe(child:compeltion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A5C2654E-9898-43AD-84B9-3FE71FB5FE3F - 51894d2dec9e6233"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.observe(child: Swift.String, compeltion: (Swift.Array&lt;Any&gt;) -&gt; ()) -&gt; Swift.Optional&lt;__C.FIRDatabaseReference&gt;"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "171">
+               </Location>
+               <Location
+                  uuid = "A5C2654E-9898-43AD-84B9-3FE71FB5FE3F - 895841986734c342"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in static BuildUp.RealTimeDatabaseService.observe(child: Swift.String, compeltion: (Swift.Array&lt;Any&gt;) -&gt; ()) -&gt; Swift.Optional&lt;__C.FIRDatabaseReference&gt;"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "123">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCAAAF72-EF5C-479A-B198-0E295C141FB7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "observeObject(child:compeltion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6923A316-1352-44FE-A7B4-48F55858734F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "getFavoriteProducts(compeltion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6923A316-1352-44FE-A7B4-48F55858734F - 1c0b52fabb745b0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in static BuildUp.RealTimeDatabaseService.getFavoriteProducts(compeltion: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "723">
+               </Location>
+               <Location
+                  uuid = "6923A316-1352-44FE-A7B4-48F55858734F - 36a536d5dd48172e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.getFavoriteProducts(compeltion: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "121">
+               </Location>
+               <Location
+                  uuid = "6923A316-1352-44FE-A7B4-48F55858734F - 1c0b52fabb745b0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in static BuildUp.RealTimeDatabaseService.getFavoriteProducts(compeltion: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "243"
+                  endingLineNumber = "243"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5542DED2-2315-4F0F-ABAF-8C5C31D55028"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "checkFirebaseUserAvailability(child:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6147F5EA-4C56-47A6-B334-310DCC8953CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "loginUser(token:compeltion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6147F5EA-4C56-47A6-B334-310DCC8953CE - 18aff5b0c1325fc5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.loginUser(token: Swift.String, compeltion: (Any) -&gt; ()) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "6147F5EA-4C56-47A6-B334-310DCC8953CE - 9f24656d76629ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static BuildUp.RealTimeDatabaseService.loginUser(token: Swift.String, compeltion: (Any) -&gt; ()) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "165">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6FF2862C-D1E9-46D0-B34E-C34CED93B874"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "ref"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96580F3A-B629-407E-8541-DCEF47385851"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "removeAllObservers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01A8F43A-D4AA-4515-B3BC-6E899CFED8AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "addProductFromDetails(model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "01A8F43A-D4AA-4515-B3BC-6E899CFED8AF - 1e8fdd05642eeff1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.addProductFromDetails(model: BuildUp.FirebaseProductModel) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "796">
+               </Location>
+               <Location
+                  uuid = "01A8F43A-D4AA-4515-B3BC-6E899CFED8AF - 1e8fdd05642eeff1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.addProductFromDetails(model: BuildUp.FirebaseProductModel) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "859">
+               </Location>
+               <Location
+                  uuid = "01A8F43A-D4AA-4515-B3BC-6E899CFED8AF - 1e8fdd05642eefd0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static BuildUp.RealTimeDatabaseService.addProductFromDetails(model: BuildUp.FirebaseProductModel) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "317">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DF44473-3D48-45DE-8D8C-57F16CB60FAA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/Profile/ProfileViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getProfile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

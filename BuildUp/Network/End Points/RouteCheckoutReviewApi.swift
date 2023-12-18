@@ -11,6 +11,8 @@ import Moya
 enum RouteCheckoutReviewApi {
     case getSummary(addressId: Int)
     case checkout(checkoutModel: CheckoutModel)
+    case paymentCanceled(orderUUID: String)
+    case completeOrder(orderUUID: String, transactionId: String)
 }
 
 extension RouteCheckoutReviewApi: TargetType {
@@ -26,6 +28,10 @@ extension RouteCheckoutReviewApi: TargetType {
             return ApiUrls.Apis.summartUrl
         case .checkout:
             return ApiUrls.Apis.checkoutUrl
+        case .paymentCanceled(orderUUID: let uuid):
+            return ApiUrls.Apis.paymentCanceledUrl.replacingOccurrences(of: "{uuid}", with: uuid)
+        case .completeOrder(orderUUID: let uuid, transactionId: _):
+            return ApiUrls.Apis.completeOrderUrl.replacingOccurrences(of: "{uuid}", with: uuid)
         }
     }
     
@@ -57,6 +63,13 @@ extension RouteCheckoutReviewApi: TargetType {
 
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
 
+            return .requestParameters(parameters: parameters,
+                                      encoding: JSONEncoding.default)
+        case .paymentCanceled:
+            return .requestPlain
+        case .completeOrder(orderUUID: let uuid, transactionId: let transactionId):
+            var parameters: [String: Any] = [:]
+            parameters["transaction_id"] = transactionId
             return .requestParameters(parameters: parameters,
                                       encoding: JSONEncoding.default)
         }

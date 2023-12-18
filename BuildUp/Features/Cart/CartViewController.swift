@@ -34,12 +34,20 @@ class CartViewController: BaseViewController {
         super.viewDidLoad()
         setupView()
         setupResponses()
-        startShimmerOn(tableView: tableView)
+        if CachingService.getUser() != nil {
+            isLoadingShimmer = true
+            startShimmerOn(tableView: tableView)
+        } else {
+            setupEmptyView(screenType: .loginFirst)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getCart()
+        if CachingService.getUser() != nil {
+            getCart()
+        }
+        
         self.navigationItem.title = L10n.Cart.title
     }
     
@@ -53,7 +61,6 @@ class CartViewController: BaseViewController {
 // MARK: - Private Func
 extension CartViewController {
     private func setupView() {
-        isLoadingShimmer = true
         self.checkoutContainerView.hideView()
         self.checkoutContainerViewHeightConstraint.constant = 0
         
@@ -160,13 +167,20 @@ extension CartViewController {
         }
     }
     
-    func setupEmptyView() {
+    func setupEmptyView(screenType: EmptyScreenType) {
         removeBackgroundViews()
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = tableView.frame
-        emptyNib.title = L10n.Cart.emptyMessage
+        emptyNib.screenType = screenType
+//
 //        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
-        emptyNib.showButton = false
+        if screenType == .loginFirst {
+            emptyNib.showButton = true
+            emptyNib.title = L10n.Cart.emptyMessage
+        } else {
+            emptyNib.showButton = false
+            emptyNib.title = L10n.EmptyScreen.noData
+        }
         tableView.backgroundView = emptyNib
     }
     
@@ -204,7 +218,7 @@ extension CartViewController {
                 self.checkoutContainerViewHeightConstraint.constant = 80
                 self.removeBackgroundViews()
             } else {
-                self.setupEmptyView()
+                self.setupEmptyView(screenType: .emptyScreen)
                 self.checkoutContainerViewHeightConstraint.constant = 0
                 self.checkoutContainerView.hideView()
             }

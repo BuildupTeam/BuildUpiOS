@@ -37,6 +37,7 @@ class AddressesViewController: BaseViewController {
         super.viewDidLoad()
         setupView()
         addressesResponse()
+        defaultAddressResponse()
         startShimmerOn(tableView: tableView)
     }
     
@@ -141,8 +142,17 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let model = self.viewModel.addresses?[indexPath.row] {
-            delegate?.addressTaped(addressModel: model)
+        if let addresses = self.viewModel.addresses {
+            for address in addresses {
+                address.isSelected = false
+            }
+            
+            if let model = self.viewModel.addresses?[indexPath.row] {
+                model.isSelected = true
+                self.viewModel.addresses?[indexPath.row] = model
+                self.showLoading()
+                self.viewModel.setDefaultAddress(adddressId: model.id ?? 0)
+            }
         }
     }
 }
@@ -168,6 +178,17 @@ extension AddressesViewController {
             }
             self.tableView.reloadData()
             self.stopShimmerOn(tableView: self.tableView)
+        }
+    }
+    
+    private func defaultAddressResponse() {
+        self.viewModel.onDefaultAddress = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            if let address = self.viewModel.addresses?.filter({ $0.isSelected == true }).first {
+                delegate?.addressTaped(addressModel: address)
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }

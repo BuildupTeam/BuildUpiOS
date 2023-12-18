@@ -56,11 +56,19 @@ class CheckoutShippingTableViewCell: UITableViewCell {
         containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
         
         if let model = checkoutModel {
+            userNameLabel.text = CachingService.getUser()?.customer?.fullName
             if let model = model.address {
-                userNameLabel.text = CachingService.getUser()?.customer?.fullName
-                addressLabel.text = model.addressDescription ?? ""
-                countryLabel.text = (model.country?.name ?? "") + ", " + (model.city?.name ?? "")
+                if let desc = model.addressDescription {
+                    addressLabel.text = desc
+                }
+                
+                if let country = model.country?.name, let city = model.city?.name {
+                    countryLabel.text = country + ", " + city
+                }
+//                addressLabel.text = model.addressDescription ?? ""
+//                countryLabel.text = (model.country?.name ?? "") + ", " + (model.city?.name ?? "")
             }
+            
         }
     }
 }

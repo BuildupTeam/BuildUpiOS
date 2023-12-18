@@ -154,6 +154,8 @@
 
 // MARK: - Category Details
 "emptyScreen.noData" = "لا يوجد بيانات";
+"emptyScreen.loginFirst" = "Please Login First";
+"emptyScreen.button.login" = "Login";
 
 // MARK: - Categories Tab
 "categories.title" = "Categories";

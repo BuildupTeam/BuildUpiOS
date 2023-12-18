@@ -353,6 +353,7 @@
 		3982F5E12A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3982F5DF2A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib */; };
 		3982F5E52A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982F5E32A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift */; };
 		3982F5E62A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3982F5E42A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib */; };
+		398EC8942B2B16BC003D3762 /* RouteDefaultAddressApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398EC8932B2B16BC003D3762 /* RouteDefaultAddressApi.swift */; };
 		399007182ABDAC51002F6938 /* AddToCartTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007172ABDAC51002F6938 /* AddToCartTextView.swift */; };
 		3990071A2ABDAC66002F6938 /* AddToCartIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007192ABDAC66002F6938 /* AddToCartIconView.swift */; };
 		399007212ABDB59C002F6938 /* CartSummeryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990071F2ABDB59C002F6938 /* CartSummeryTableViewCell.swift */; };
@@ -992,6 +993,7 @@
 		3982F5DF2A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerProductHorizontalList1CollectionViewCell.xib; sourceTree = "<group>"; };
 		3982F5E32A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerBannerType1TableViewCell.swift; sourceTree = "<group>"; };
 		3982F5E42A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerBannerType1TableViewCell.xib; sourceTree = "<group>"; };
+		398EC8932B2B16BC003D3762 /* RouteDefaultAddressApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDefaultAddressApi.swift; sourceTree = "<group>"; };
 		399007172ABDAC51002F6938 /* AddToCartTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartTextView.swift; sourceTree = "<group>"; };
 		399007192ABDAC66002F6938 /* AddToCartIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartIconView.swift; sourceTree = "<group>"; };
 		3990071F2ABDB59C002F6938 /* CartSummeryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSummeryTableViewCell.swift; sourceTree = "<group>"; };
@@ -2897,6 +2899,7 @@
 				3932B29A2B12837A00283B3D /* RouteCheckoutShippingApi.swift */,
 				3932B29E2B12839E00283B3D /* RouteCheckoutReviewApi.swift */,
 				3932B2A72B134F1C00283B3D /* RouteAddressesApi.swift */,
+				398EC8932B2B16BC003D3762 /* RouteDefaultAddressApi.swift */,
 				3932B2A92B134F2D00283B3D /* RouteAddNewAddressApi.swift */,
 				39D500372B19283C009C20E1 /* RouteOrdersApi.swift */,
 				390DC1F22B1B9B3200E1CBA9 /* RouteProfileApi.swift */,
@@ -4111,6 +4114,7 @@
 				39D5002F2B18DF41009C20E1 /* CategoriesTabViewController+TableView.swift in Sources */,
 				393613CA2AB5C18B007289DE /* SubcategoryTabsModel.swift in Sources */,
 				390DC2212B1E311300E1CBA9 /* OrderDetailsProductsTableViewCell.swift in Sources */,
+				398EC8942B2B16BC003D3762 /* RouteDefaultAddressApi.swift in Sources */,
 				3932B2A82B134F1C00283B3D /* RouteAddressesApi.swift in Sources */,
 				395D3BA42A995C1400DA9859 /* ShimmerCategoriesHorizontal3CollectionViewCell.swift in Sources */,
 				3932B2402B11359C00283B3D /* CityTableViewCell.swift in Sources */,
@@ -4358,7 +4362,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
@@ -4400,7 +4404,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
@@ -4588,7 +4592,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
@@ -4736,7 +4740,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 33;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;

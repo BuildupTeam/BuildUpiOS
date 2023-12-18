@@ -153,6 +153,8 @@
 
 // MARK: - Category Details
 "emptyScreen.noData" = "No Data Found";
+"emptyScreen.loginFirst" = "Please Login First";
+"emptyScreen.button.login" = "Login";
 
 // MARK: - Categories Tab
 "categories.title" = "Categories";
