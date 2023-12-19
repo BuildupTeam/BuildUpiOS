@@ -72,6 +72,9 @@ class ProductDetailsQuantityCircleView: UIView {
     }
     
     @IBAction func plusButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            return
+        }
         if let model = productModel {
             if let combinationModel = model.cartCombinations?.first {
                 if var cartQuantity = combinationModel.cartQuantity {

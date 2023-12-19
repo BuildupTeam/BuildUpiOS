@@ -83,6 +83,9 @@ class LauncherViewController: NSObject {
     
     static func logoutToLoginView() {
         CachingService.clearUserData()
+        CachingService.removeAllCachedData()
+        CachingService.setCartProducts(products: [:])
+        RealTimeDatabaseService.clearCart()
         showLoginView(fromViewController: nil)
     }
     

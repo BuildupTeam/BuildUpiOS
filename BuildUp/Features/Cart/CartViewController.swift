@@ -172,8 +172,6 @@ extension CartViewController {
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = tableView.frame
         emptyNib.screenType = screenType
-//
-//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
         if screenType == .loginFirst {
             emptyNib.showButton = true
             emptyNib.title = L10n.Cart.emptyMessage
@@ -186,6 +184,17 @@ extension CartViewController {
     
     func removeBackgroundViews() {
         tableView.backgroundView = nil
+    }
+    
+    private func checkToClearPage() {
+        if self.viewModel.cartModel?.products?.isEmpty ?? false {
+            CachingService.setCartProducts(products: [:])
+            RealTimeDatabaseService.clearCart()
+            
+            self.checkoutContainerView.hideView()
+            self.checkoutContainerViewHeightConstraint.constant = 0
+            setupEmptyView(screenType: .emptyScreen)
+        }
     }
 }
 
@@ -244,6 +253,7 @@ extension CartViewController: CartProductListDelegate {
         if let index = viewModel.cartModel?.products?.firstIndex(where: { $0 == model }) {
             viewModel.cartModel?.products?.remove(at: index)
             calculateCartSubtotal()
+            checkToClearPage()
             tableView.reloadData()
         }
     }

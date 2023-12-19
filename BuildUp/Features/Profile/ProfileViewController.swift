@@ -86,8 +86,12 @@ extension ProfileViewController {
 
 extension ProfileViewController {
     func logoutAction() {
-        self.showLoading()
-        self.viewModel.logoutUser()
+        if CachingService.getUser() != nil {
+            self.showLoading()
+            self.viewModel.logoutUser()
+        } else {
+            LauncherViewController.logoutToLoginView()
+        }
     }
     
     func openEditProfile() {

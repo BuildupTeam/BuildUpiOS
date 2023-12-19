@@ -60,7 +60,8 @@ class ProfileHeaderTableViewCell: UITableViewCell {
     }
     
     private func bindData() {
-        if let user = self.userModel {
+        if let user = self.userModel, user.uuid != nil {
+            cameraView.showView()
             let phone = user.phone ?? ""
             let phoneCode = "+\(user.countryCode ?? "")"
             let countryFlag = countryPickerView.getCountryByPhoneCode(phoneCode)?.flag
@@ -74,8 +75,12 @@ class ProfileHeaderTableViewCell: UITableViewCell {
             if let imageUrl = user.userImage?.path {
                 profileImageView.setImage(with: imageUrl)
             } else {
-                profileImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
+                profileImageView.image = Asset.icAvatar.image
             }
+        } else {
+            userNameLabel.text = L10n.Profile.guest
+            profileImageView.image = Asset.icAvatar.image
+            cameraView.hideView()
         }
     }
 }

@@ -468,6 +468,10 @@ internal enum L10n {
         internal static var editProfile: String {
           return L10n.tr("Localizable", "profile.editProfile")
         }
+        /// Guest
+        internal static var guest: String {
+          return L10n.tr("Localizable", "profile.guest")
+        }
         /// logout
         internal static var logout: String {
           return L10n.tr("Localizable", "profile.logout")

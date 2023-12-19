@@ -218,6 +218,8 @@ extension BaseViewModel {
                 if let values = defaultCartProducts[uuid] {
                     product.cartQuantity = values["default"] ?? 0
                 }
+            } else {
+                product.cartQuantity = nil
             }
         }
         

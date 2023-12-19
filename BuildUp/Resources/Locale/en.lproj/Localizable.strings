@@ -144,6 +144,7 @@
 "profile.update.chooseImage" = "Choose Image";
 "profile.update.cancel" = "Cancel";
 "profile.update.updateProfile" = "Update Profile";
+"profile.guest" = "Guest";
 
 // MARK: - QRCode Screen
 "QRCode.title" = "Scan QR Code";
