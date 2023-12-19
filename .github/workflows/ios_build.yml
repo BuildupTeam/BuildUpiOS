@@ -16,7 +16,7 @@ jobs:
       with:
         ruby-version: '3.2.2' # or the version you need
     - name: Set up xcode
-      uses: maxim-lobanov/setup-xcode@v1
+      uses: maxim-lobanov/setup-xcode@v1.6.0
       with:
         xcode-version: '15.1'
 
