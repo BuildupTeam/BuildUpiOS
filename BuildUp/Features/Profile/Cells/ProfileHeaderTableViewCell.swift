@@ -32,15 +32,22 @@ class ProfileHeaderTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
-        containerView.setShadow(
-            shadowRadius: CGFloat(11),
-            xOffset: 0,
-            yOffset: 0,
-            color: .black,
-            opacity: 0.15,
-            cornerRadius: 8,
-            masksToBounds: false)
+//        containerView.setShadow(
+//            shadowRadius: CGFloat(11),
+//            xOffset: 0,
+//            yOffset: 0,
+//            color: .black,
+//            opacity: 0.15,
+//            cornerRadius: 8,
+//            masksToBounds: false)
                 
+        ThemeManager.setShadow(element: containerView,
+                               shadowRadius: CGFloat(11),
+                               xOffset: 0, yOffset: 0,
+                               color: .black, opacity: 1,
+                               cornerRadius: 8,
+                               masksToBounds: false)
+        
         parentView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         cameraView.layer.masksToBounds = true
         cameraView.layer.cornerRadius = cameraView.frame.size.width / 2
