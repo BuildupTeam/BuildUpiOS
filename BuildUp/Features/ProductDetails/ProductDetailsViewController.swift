@@ -76,6 +76,9 @@ class ProductDetailsViewController: BaseViewController {
 // MARK: - Actions
 extension ProductDetailsViewController {
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            return
+        }
         addToCartFirebase()
     }
     

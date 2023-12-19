@@ -32,15 +32,22 @@ class ProfileHeaderTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
-        containerView.setShadow(
-            shadowRadius: CGFloat(11),
-            xOffset: 0,
-            yOffset: 0,
-            color: .black,
-            opacity: 0.15,
-            cornerRadius: 8,
-            masksToBounds: false)
+//        containerView.setShadow(
+//            shadowRadius: CGFloat(11),
+//            xOffset: 0,
+//            yOffset: 0,
+//            color: .black,
+//            opacity: 0.15,
+//            cornerRadius: 8,
+//            masksToBounds: false)
                 
+        ThemeManager.setShadow(element: containerView,
+                               shadowRadius: CGFloat(11),
+                               xOffset: 0, yOffset: 0,
+                               color: .black, opacity: 1,
+                               cornerRadius: 8,
+                               masksToBounds: false)
+        
         parentView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         cameraView.layer.masksToBounds = true
         cameraView.layer.cornerRadius = cameraView.frame.size.width / 2
@@ -60,7 +67,8 @@ class ProfileHeaderTableViewCell: UITableViewCell {
     }
     
     private func bindData() {
-        if let user = self.userModel {
+        if let user = self.userModel, user.uuid != nil {
+            cameraView.showView()
             let phone = user.phone ?? ""
             let phoneCode = "+\(user.countryCode ?? "")"
             let countryFlag = countryPickerView.getCountryByPhoneCode(phoneCode)?.flag
@@ -74,8 +82,12 @@ class ProfileHeaderTableViewCell: UITableViewCell {
             if let imageUrl = user.userImage?.path {
                 profileImageView.setImage(with: imageUrl)
             } else {
-                profileImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
+                profileImageView.image = Asset.icAvatar.image
             }
+        } else {
+            userNameLabel.text = L10n.Profile.guest
+            profileImageView.image = Asset.icAvatar.image
+            cameraView.hideView()
         }
     }
 }

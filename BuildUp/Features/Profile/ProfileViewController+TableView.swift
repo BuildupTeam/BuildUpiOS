@@ -16,6 +16,7 @@ enum ProfileCells: Int {
     case setting
     case logout
 }
+
 // MARK: Register TableView Cells
 extension ProfileViewController {
     func registerTableViewCells() {
@@ -97,6 +98,41 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return getCellForRow(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case ProfileCells.header.rawValue:
+            if CachingService.getUser() != nil {
+                return UITableView.automaticDimension
+            } else {
+                return 200
+            }
+        case ProfileCells.editProfile.rawValue:
+            if CachingService.getUser() != nil {
+                return UITableView.automaticDimension
+            } else {
+                return 0
+            }
+        case ProfileCells.savedAddreses.rawValue:
+            if CachingService.getUser() != nil {
+                return UITableView.automaticDimension
+            } else {
+                return 0
+            }
+        case ProfileCells.wishlist.rawValue:
+            if CachingService.getUser() != nil {
+                return UITableView.automaticDimension
+            } else {
+                return 0
+            }
+        case ProfileCells.setting.rawValue:
+            return UITableView.automaticDimension
+        case ProfileCells.logout.rawValue:
+            return UITableView.automaticDimension
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

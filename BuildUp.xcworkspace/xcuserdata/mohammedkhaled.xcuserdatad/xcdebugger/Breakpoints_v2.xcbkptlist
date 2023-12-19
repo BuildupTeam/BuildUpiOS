@@ -401,22 +401,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F2E4EE2F-FD86-45DF-92AD-0C52A0678472"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/Profile/ProfileViewController+TableView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "getProfileHeaderTableViewCell(indexPath:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -750,70 +734,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6147F5EA-4C56-47A6-B334-310DCC8953CE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "loginUser(token:compeltion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6147F5EA-4C56-47A6-B334-310DCC8953CE - 18aff5b0c1325fc5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static BuildUp.RealTimeDatabaseService.loginUser(token: Swift.String, compeltion: (Any) -&gt; ()) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  uuid = "6147F5EA-4C56-47A6-B334-310DCC8953CE - 9f24656d76629ee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static BuildUp.RealTimeDatabaseService.loginUser(token: Swift.String, compeltion: (Any) -&gt; ()) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "165">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6FF2862C-D1E9-46D0-B34E-C34CED93B874"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "ref"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "96580F3A-B629-407E-8541-DCEF47385851"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -894,7 +814,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1DF44473-3D48-45DE-8D8C-57F16CB60FAA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuildUp/Features/Profile/ProfileViewModel.swift"
@@ -904,6 +824,310 @@
             endingLineNumber = "55"
             landmarkName = "getProfile()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5591C020-970A-4C7C-BAA7-0644F0D366E1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/Cart/Cells/Products/CartProductList1TableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "removeProductAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5591C020-970A-4C7C-BAA7-0644F0D366E1 - 7e289c613bb4e736"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CartProductList1TableViewCell.removeProductAction(__C.UIButton) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Cart/Cells/Products/CartProductList1TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "147">
+               </Location>
+               <Location
+                  uuid = "5591C020-970A-4C7C-BAA7-0644F0D366E1 - 7e289c613bb4e736"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CartProductList1TableViewCell.removeProductAction(__C.UIButton) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Cart/Cells/Products/CartProductList1TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
+                  offsetFromSymbolStart = "213">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5160C0F5-F6DA-4C5A-A9BF-3D0B9986FEF8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/Cart/Cells/Products/CartProductList2TableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "removeProductAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5160C0F5-F6DA-4C5A-A9BF-3D0B9986FEF8 - 305c84cbad0e5a3c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CartProductList2TableViewCell.removeProductAction(__C.UIButton) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Cart/Cells/Products/CartProductList2TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "231">
+               </Location>
+               <Location
+                  uuid = "5160C0F5-F6DA-4C5A-A9BF-3D0B9986FEF8 - 305c84cbad0e5a3c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.CartProductList2TableViewCell.removeProductAction(__C.UIButton) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Cart/Cells/Products/CartProductList2TableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "616">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F041967F-3C5B-41D4-8D5F-B7DAAA615925"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "removeProductModelFromCart(model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EAFE8B68-BE2D-4458-AF30-EAC49085BCBF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Services/CachingService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "getCombinationsCartProducts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C868B7C6-B923-41BC-AFC1-9C26243E4B6D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Services/CachingService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "getCombinationsCartProducts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AAD6D3D4-234F-4531-AA4F-E22463E663D4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Base/BaseViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "getProductsWithCartQuantity(products:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AAD6D3D4-234F-4531-AA4F-E22463E663D4 - 3d1bd2f38d54949a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.BaseViewModel.getProductsWithCartQuantity(products: Swift.Array&lt;BuildUp.ProductModel&gt;) -&gt; Swift.Array&lt;BuildUp.ProductModel&gt;"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Base/BaseViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "784">
+               </Location>
+               <Location
+                  uuid = "AAD6D3D4-234F-4531-AA4F-E22463E663D4 - 3d1bd2f38d54949a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.BaseViewModel.getProductsWithCartQuantity(products: Swift.Array&lt;BuildUp.ProductModel&gt;) -&gt; Swift.Array&lt;BuildUp.ProductModel&gt;"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Base/BaseViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "932">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2EF6F27-9E07-48A8-A584-569D25FB9B9D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Base/BaseViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "getProductsWithCartQuantity(products:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A2EF6F27-9E07-48A8-A584-569D25FB9B9D - 3d1bd2f38d549526"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.BaseViewModel.getProductsWithCartQuantity(products: Swift.Array&lt;BuildUp.ProductModel&gt;) -&gt; Swift.Array&lt;BuildUp.ProductModel&gt;"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Base/BaseViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "1186">
+               </Location>
+               <Location
+                  uuid = "A2EF6F27-9E07-48A8-A584-569D25FB9B9D - 3d1bd2f38d549526"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.BaseViewModel.getProductsWithCartQuantity(products: Swift.Array&lt;BuildUp.ProductModel&gt;) -&gt; Swift.Array&lt;BuildUp.ProductModel&gt;"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Base/BaseViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222"
+                  offsetFromSymbolStart = "1184">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9232E540-57D9-4138-929E-E7AFB97CD2C1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/Home/CustomViews/AddToCartIconView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "addToCartButtonAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81093B3B-F217-4943-9B16-7BCB20F7AF4D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/Home/CustomViews/AddToCartTextView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "addToCartButtonAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "81093B3B-F217-4943-9B16-7BCB20F7AF4D - 69c45eb518d514c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.AddToCartTextView.plusButtonAction(__C.UIButton) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Home/CustomViews/AddToCartTextView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "437">
+               </Location>
+               <Location
+                  uuid = "81093B3B-F217-4943-9B16-7BCB20F7AF4D - 9a592eace03e288f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.AddToCartTextView.addToCartButtonAction(__C.UIButton) -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Home/CustomViews/AddToCartTextView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "99">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

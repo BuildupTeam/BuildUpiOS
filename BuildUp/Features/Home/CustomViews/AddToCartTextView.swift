@@ -58,14 +58,6 @@ class AddToCartTextView: UIView {
         ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
     }
     
-    @IBAction func addToCartButtonAction(_ sender: UIButton) {
-        addToCartButton.hideView()
-        counterContainerView.showView()
-        if let model = self.productModel {
-            addToCartFirebase(model)
-        }
-    }
-    
     private func activateAddTocartButton() {
         DispatchQueue.main.async {
             self.addToCartButton.showView()
@@ -88,6 +80,28 @@ class AddToCartTextView: UIView {
     private func removeFromCartFirebase(_ model: ProductModel) {
         let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity)
         RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
+    }
+    
+    private func userLoggedIn() -> Bool {
+        if CachingService.getUser() != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+//MARK: - @IBAction
+extension AddToCartTextView {
+    @IBAction func addToCartButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            return
+        }
+        addToCartButton.hideView()
+        counterContainerView.showView()
+        if let model = self.productModel {
+            addToCartFirebase(model)
+        }
     }
     
     @IBAction func plusButtonAction(_ sender: UIButton) {

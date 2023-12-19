@@ -49,8 +49,12 @@ class ProfileTableViewCell: UITableViewCell {
     }
     
     func setupLogout() {
-        profileTitleLabel.text = L10n.Profile.logout
-        profileImageView.image = Asset.icProfileLogout.image
+        if CachingService.getUser() != nil {
+            profileTitleLabel.text = L10n.Profile.logout
+            profileImageView.image = Asset.icProfileLogout.image
+        } else {
+            profileTitleLabel.text = L10n.Login.title
+        }
     }
     
 }

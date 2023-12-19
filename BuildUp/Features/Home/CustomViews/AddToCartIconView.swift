@@ -50,6 +50,9 @@ class AddToCartIconView: UIView {
     }
     
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            return
+        }
         addToCartButton.hideView()
         counterContainerView.showView()
         if let model = self.productModel {
