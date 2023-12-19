@@ -34,8 +34,8 @@ build_app(
       }
     }
   )
-    get_certificates           # invokes cert
-    get_provisioning_profile
+    cert
+   sigh(force: true)
     upload_to_testflight
   end
 end
