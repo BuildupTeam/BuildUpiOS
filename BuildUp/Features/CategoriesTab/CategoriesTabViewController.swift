@@ -147,7 +147,7 @@ extension CategoriesTabViewController {
         viewModel.onProducts = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
-            stopShimmerOn(collectionView: self.collectionView)
+            self.stopShimmerOn(collectionView: self.collectionView)
             self.collectionView.reloadData()
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
 //                self.collectionView.reloadData()

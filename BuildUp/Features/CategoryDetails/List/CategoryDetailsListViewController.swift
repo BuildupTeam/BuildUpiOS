@@ -235,8 +235,8 @@ extension CategoryDetailsListViewController {
             self.subcategoryTabsView.subCategories = self.viewModel.subCategories
             
             if self.viewModel.subCategories.isEmpty {
-                subcategoriesContainerViewHeightContriant.constant = 0
-                subcategoryTabsView.isHidden = true
+                self.subcategoriesContainerViewHeightContriant.constant = 0
+                self.subcategoryTabsView.isHidden = true
             }
         }
     }
@@ -244,7 +244,7 @@ extension CategoryDetailsListViewController {
     private func productsResponse() {
         viewModel.onProducts = { [weak self] () in
             guard let `self` = self else { return }
-            if viewModel.products.isEmpty {
+            if self.viewModel.products.isEmpty {
                 self.setupEmptyView()
             } else {
                 self.removeBackgroundViews()

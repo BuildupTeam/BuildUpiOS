@@ -413,7 +413,7 @@ extension CheckoutShippingViewController {
             }
             
             self.tableView.reloadData()
-            updateContinueButtonAppearence()
+            self.updateContinueButtonAppearence()
         }
     }
 }
