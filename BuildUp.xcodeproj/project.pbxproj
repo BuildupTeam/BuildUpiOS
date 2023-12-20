@@ -4389,7 +4389,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Buildup_Dist_provisioning;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.squadio.buildUp AppStore";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Buildup_Dist_provisioning;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4435,7 +4435,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Buildup_Dist_provisioning;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.squadio.buildUp AppStore";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Buildup_Dist_provisioning;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4627,7 +4627,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Buildup_Dist_provisioning;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.squadio.buildUp AppStore";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Buildup_Dist_provisioning;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4779,7 +4779,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Buildup_Dist_provisioning;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.squadio.buildUp AppStore";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Buildup_Dist_provisioning;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
