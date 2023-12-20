@@ -19,7 +19,6 @@ platform :ios do
 before_all do
     ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "tvng-tntn-ijci-zfxk"
     ENV["FASTLANE_PASSWORD"] = "Sobhy288"
-    xcversion(version: "14.2") # Selects Xcode 14.2
   end
 
   desc "Push a new beta build to TestFlight"
@@ -35,8 +34,8 @@ build_app(
       }
     }
   )
-    cert
+   cert
    sigh(force: true)
-    upload_to_testflight
+   upload_to_testflight
   end
 end
