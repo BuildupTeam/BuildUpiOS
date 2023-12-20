@@ -280,7 +280,7 @@ extension CheckoutReviewViewController {
         self.viewModel.onSummary = { [weak self]() in
             guard let `self` = self else { return }
             self.hideLoading()
-            setupTotalPrice()
+            self.setupTotalPrice()
             self.tableView.reloadData()
         }
     }

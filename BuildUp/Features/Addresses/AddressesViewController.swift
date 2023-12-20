@@ -171,7 +171,7 @@ extension AddressesViewController {
     private func addressesResponse() {
         self.viewModel.onAddresses = { [weak self]() in
             guard let `self` = self else { return }
-            if viewModel.addresses?.isEmpty ?? false {
+            if self.viewModel.addresses?.isEmpty ?? false {
                 self.setupEmptyView()
             } else {
                 self.removeBackgroundViews()
@@ -186,7 +186,7 @@ extension AddressesViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             if let address = self.viewModel.addresses?.filter({ $0.isSelected == true }).first {
-                delegate?.addressTaped(addressModel: address)
+                self.delegate?.addressTaped(addressModel: address)
                 self.navigationController?.popViewController(animated: true)
             }
         }

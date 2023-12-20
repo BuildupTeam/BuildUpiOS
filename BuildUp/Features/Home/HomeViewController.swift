@@ -173,7 +173,7 @@ extension HomeViewController {
         viewModel.onData = { [weak self] () in
             guard let `self` = self else { return }
             print("Normal Reload")
-            containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+            self.containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
             self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
             
             self.hideLoading()

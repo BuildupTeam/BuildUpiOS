@@ -81,7 +81,7 @@ extension WishlistViewController {
     private func wishlistResponses() {
         self.viewModel.onWishList = { [weak self]() in
             guard let `self` = self else { return }
-            if viewModel.products?.isEmpty ?? false {
+            if self.viewModel.products?.isEmpty ?? false {
                 self.setupEmptyView()
             } else {
                 self.removeBackgroundViews()
