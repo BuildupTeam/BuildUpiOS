@@ -4326,7 +4326,7 @@
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4372,7 +4372,7 @@
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4609,7 +4609,7 @@
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4761,7 +4761,7 @@
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
