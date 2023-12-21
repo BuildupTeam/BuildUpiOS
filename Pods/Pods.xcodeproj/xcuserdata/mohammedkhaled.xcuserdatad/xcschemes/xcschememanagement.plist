@@ -144,11 +144,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PhoneNumberKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-BuildUp-BuildUpUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>

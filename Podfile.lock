@@ -130,12 +130,6 @@ PODS:
   - ObjectMapper (4.2.0)
   - PanModal (1.2.7)
   - PayTabsSDK (6.4.13)
-  - PhoneNumberKit (3.7.4):
-    - PhoneNumberKit/PhoneNumberKitCore (= 3.7.4)
-    - PhoneNumberKit/UIKit (= 3.7.4)
-  - PhoneNumberKit/PhoneNumberKitCore (3.7.4)
-  - PhoneNumberKit/UIKit (3.7.4):
-    - PhoneNumberKit/PhoneNumberKitCore
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - PromisesObjC (2.3.1)
@@ -171,7 +165,6 @@ DEPENDENCIES:
   - ObjectMapper
   - PanModal
   - PayTabsSDK (~> 6.4.12)
-  - PhoneNumberKit (~> 3.1)
   - PopupDialog
   - RangeSeekSlider
   - SCPageControl (from `https://github.com/MahmoudNasserIbtikar/SCPageControl.git`)
@@ -209,7 +202,6 @@ SPEC REPOS:
     - ObjectMapper
     - PanModal
     - PayTabsSDK
-    - PhoneNumberKit
     - PopupDialog
     - PromisesObjC
     - RangeSeekSlider
@@ -300,7 +292,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   PayTabsSDK: fe1ecd597ced57d58a9ba642ee9b6a41d5b5a862
-  PhoneNumberKit: e3c4dc9f65bc2036639898095c2ab1ef89348f64
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
@@ -312,6 +303,6 @@ SPEC CHECKSUMS:
   Windless: 9dea19b4d239d948e4cec3891fac1fe863e13136
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: dd0fc99c0436dc2b74ed5bfb37a34f7ec2991a4c
+PODFILE CHECKSUM: 87488357d4a5b11f930fd5a5c28400838034ac7e
 
 COCOAPODS: 1.13.0
