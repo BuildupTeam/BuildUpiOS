@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: 'macos-latest'
+    runs-on: 'macos-14.2'
     steps:
     - uses: actions/checkout@v4
     - name: Set up Ruby
@@ -18,7 +18,7 @@ jobs:
     - name: Set up xcode
       uses: maxim-lobanov/setup-xcode@v1.6.0
       with:
-        xcode-version: '15.0-beta'
+        xcode-version: '15.1'
 
     - name: Install dependencies
       run: |
