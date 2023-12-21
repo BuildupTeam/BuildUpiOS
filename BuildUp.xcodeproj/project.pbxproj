@@ -3286,7 +3286,6 @@
 				393174162A19134A00AF64BC /* Resources */,
 				39CE76C52A2F93470019A485 /* ShellScript */,
 				403D52F3CF323179C38EAF17 /* [CP] Embed Pods Frameworks */,
-				6E210AD3BBD34CDC1047D101 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3330,7 +3329,6 @@
 				393174352A19134D00AF64BC /* Frameworks */,
 				393174362A19134D00AF64BC /* Resources */,
 				603BCE3E1694135322B013F9 /* [CP] Embed Pods Frameworks */,
-				6900C8A78CA2DDE9B35CDCEA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3671,40 +3669,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuildUp-BuildUpUITests/Pods-BuildUp-BuildUpUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6900C8A78CA2DDE9B35CDCEA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BuildUp-BuildUpUITests/Pods-BuildUp-BuildUpUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BuildUp-BuildUpUITests/Pods-BuildUp-BuildUpUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuildUp-BuildUpUITests/Pods-BuildUp-BuildUpUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E210AD3BBD34CDC1047D101 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BuildUp/Pods-BuildUp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BuildUp/Pods-BuildUp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuildUp/Pods-BuildUp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7C6CB51D0547D1D8573D870D /* [CP] Check Pods Manifest.lock */ = {
