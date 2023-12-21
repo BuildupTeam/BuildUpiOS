@@ -142,11 +142,6 @@ PODS:
   - PromisesObjC (2.3.1)
   - RangeSeekSlider (1.8.0)
   - SCPageControl (0.4.0)
-  - SDWebImage (5.18.3):
-    - SDWebImage/Core (= 5.18.3)
-  - SDWebImage/Core (5.18.3)
-  - SDWebImageSVGCoder (1.7.0):
-    - SDWebImage/Core (~> 5.6)
   - SwiftKeychainWrapper (4.0.1)
   - SwiftLint (0.44.0)
   - SwiftMessages (9.0.8):
@@ -182,8 +177,6 @@ DEPENDENCIES:
   - PopupDialog
   - RangeSeekSlider
   - SCPageControl (from `https://github.com/MahmoudNasserIbtikar/SCPageControl.git`)
-  - SDWebImage
-  - SDWebImageSVGCoder
   - SwiftKeychainWrapper
   - SwiftLint (~> 0.44.0)
   - SwiftMessages
@@ -223,8 +216,6 @@ SPEC REPOS:
     - PopupDialog
     - PromisesObjC
     - RangeSeekSlider
-    - SDWebImage
-    - SDWebImageSVGCoder
     - SwiftKeychainWrapper
     - SwiftLint
     - SwiftMessages
@@ -318,8 +309,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
   SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
-  SDWebImage: 96e0c18ef14010b7485210e92fac888587ebb958
-  SDWebImageSVGCoder: 15a300a97ec1c8ac958f009c02220ac0402e936c
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
   SwiftMessages: 3601317b44ed2e1a54e2c6901b4362a364bf4862
@@ -327,6 +316,6 @@ SPEC CHECKSUMS:
   Windless: 9dea19b4d239d948e4cec3891fac1fe863e13136
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: efd4710a0ad7572372da80fdef7378fd2e6472e1
+PODFILE CHECKSUM: 82f776b2571ed9f8f3ccb7fc4e60c0fe8f77b8f6
 
 COCOAPODS: 1.13.0
