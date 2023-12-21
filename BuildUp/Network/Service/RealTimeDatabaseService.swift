@@ -125,6 +125,10 @@ extension RealTimeDatabaseService {
         var quantity = model.quantity ?? 0
         
         if let combinationId = model.combinationId {
+            if combinationCartProducts.keys.isEmpty {
+                getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                return
+            }
             for productKey in combinationCartProducts.keys {
                 if productKey == model.uuid {
                     let dict = combinationCartProducts[productKey]
@@ -151,7 +155,6 @@ extension RealTimeDatabaseService {
     }
     
     static func addProductModelFromCart(model: FirebaseProductModel) {
-//        getCartNode()?.child(model.uuid ?? "").setValue(model.dict)
         let defaultCartProducts = CachingService.getDefaultCartProducts() ?? [:]
         let combinationCartProducts = CachingService.getCombinationsCartProducts() ?? [:]
         
@@ -160,9 +163,6 @@ extension RealTimeDatabaseService {
         if let combinationId = model.combinationId {
             for productKey in combinationCartProducts.keys {
                 if productKey == model.uuid {
-//                    let dict = combinationCartProducts[productKey]
-//                    var quant = dict?["\(combinationId)"] ?? 0
-//                    quantity += quant
                     model.quantity = quantity
                     getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
                 }

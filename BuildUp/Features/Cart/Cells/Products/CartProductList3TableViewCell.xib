@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,7 +66,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCx-yQ-QRp">
-                                <rect key="frame" x="258" y="204" width="110" height="32"/>
+                                <rect key="frame" x="264" y="204" width="110" height="32"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIe-6d-gNR">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="32"/>
@@ -128,7 +128,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ver-MO-AG9">
-                                <rect key="frame" x="8" y="204" width="94" height="32"/>
+                                <rect key="frame" x="0.0" y="204" width="94" height="32"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1h8-5X-0VA">
                                         <rect key="frame" x="35" y="9" width="51" height="14.333333333333336"/>
@@ -170,14 +170,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="GCx-yQ-QRp" secondAttribute="trailing" constant="14" id="0fW-9g-BeH"/>
+                            <constraint firstAttribute="trailing" secondItem="GCx-yQ-QRp" secondAttribute="trailing" constant="8" id="0fW-9g-BeH"/>
                             <constraint firstItem="Esp-QO-Ttx" firstAttribute="centerX" secondItem="pDb-Ab-KLS" secondAttribute="centerX" id="0qG-rH-kdl"/>
                             <constraint firstItem="pDb-Ab-KLS" firstAttribute="centerY" secondItem="OCi-T0-UBF" secondAttribute="centerY" id="1pO-dR-u1K"/>
                             <constraint firstItem="O0Y-WC-SYT" firstAttribute="top" secondItem="Xye-PW-bVI" secondAttribute="bottom" constant="8" id="64w-CO-1Zb"/>
                             <constraint firstItem="OCi-T0-UBF" firstAttribute="top" secondItem="O0Y-WC-SYT" secondAttribute="bottom" constant="8" id="AcU-ku-JfJ"/>
                             <constraint firstItem="eF3-30-VPK" firstAttribute="top" secondItem="Ha6-qr-csK" secondAttribute="top" id="B4G-5b-QKA"/>
                             <constraint firstItem="OCi-T0-UBF" firstAttribute="leading" secondItem="eF3-30-VPK" secondAttribute="trailing" constant="16" id="EQi-4G-3AF"/>
-                            <constraint firstItem="Ver-MO-AG9" firstAttribute="leading" secondItem="Ha6-qr-csK" secondAttribute="leading" constant="8" id="F0M-8p-wuG"/>
+                            <constraint firstItem="Ver-MO-AG9" firstAttribute="leading" secondItem="Ha6-qr-csK" secondAttribute="leading" id="F0M-8p-wuG"/>
                             <constraint firstAttribute="trailing" secondItem="Xye-PW-bVI" secondAttribute="trailing" constant="6" id="J0O-LV-GQI"/>
                             <constraint firstItem="Xye-PW-bVI" firstAttribute="leading" secondItem="eF3-30-VPK" secondAttribute="trailing" constant="16" id="Lvh-hm-xR9"/>
                             <constraint firstAttribute="trailing" secondItem="ldK-ty-3ON" secondAttribute="trailing" constant="6" id="MZr-DU-RTl"/>
