@@ -21,21 +21,50 @@ before_all do
     ENV["FASTLANE_PASSWORD"] = "Sobhy288"
   end
 
-  desc "Push a new beta build to TestFlight"
+   desc "Get certificates"
+  lane :certificates do
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: ['com.squadio.buildUp'],
+      force_for_new_devices: true,
+      readonly: true
+    )
 
+    # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: 'com.squadio.buildUp',
+      readonly: true
+    )
+  end
+
+ desc "Generate new certificates"
+  lane :generate_new_certificates do
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: ['com.squadio.buildUp'],
+      force_for_new_devices: true,
+      readonly: false
+    )
+    
+    # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
+
+  end
+
+  desc "Push a new beta build to TestFlight"
   lane :beta do
    # increment_build_number(xcodeproj: "BuildUp.xcodeproj")
    # build_app(workspace: "BuildUp.xcworkspace", scheme: "BuildUp")
-build_app(
+   build_app(
     export_method: "app-store",
     export_options: {
-      provisioningProfiles: { 
+      provisioningProfiles: {
         "com.squadio.buildUp" => "Buildup_Dist_provisioning",
       }
     }
   )
-   cert
-   sigh(force: true)
+   # cert
+   # sigh(force: true)
    upload_to_testflight
   end
 end
