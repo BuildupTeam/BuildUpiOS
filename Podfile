@@ -47,8 +47,8 @@ end
 def network_pods
   pod 'Moya'
   pod 'ObjectMapper'
-  pod 'SDWebImage'
-  pod 'SDWebImageSVGCoder'
+#  pod 'SDWebImage'
+#  pod 'SDWebImageSVGCoder'
 end
 
 def quality_pods

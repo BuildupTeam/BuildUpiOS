@@ -275,6 +275,7 @@
 		393B2FA52AEFFD0000827026 /* SubdomainWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2FA42AEFFD0000827026 /* SubdomainWebServiceProtocol.swift */; };
 		393B2FA72AF0137E00827026 /* RegisterViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2FA62AF0137E00827026 /* RegisterViewController+TableView.swift */; };
 		393CD7D62A6ABB5E0053A55E /* ResponseJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 393CD7D52A6ABB5E0053A55E /* ResponseJson.json */; };
+		394D8CA22B3481DA009386AD /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */; };
 		3950B0982A6ABCA300E27111 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B0972A6ABCA300E27111 /* ThemeManager.swift */; };
 		3950B09C2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B09B2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift */; };
 		3950B0A02A6ABFD300E27111 /* ThemeConfigurationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B09F2A6ABFD300E27111 /* ThemeConfigurationDataModel.swift */; };
@@ -1281,6 +1282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DD25E6BE6439F847CF666F8 /* Pods_BuildUp.framework in Frameworks */,
+				394D8CA22B3481DA009386AD /* SDWebImageSVGCoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3287,6 +3289,9 @@
 			dependencies = (
 			);
 			name = BuildUp;
+			packageProductDependencies = (
+				394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */,
+			);
 			productName = BuildUp;
 			productReference = 393174182A19134A00AF64BC /* BuildUp.app */;
 			productType = "com.apple.product-type.application";
@@ -3364,6 +3369,10 @@
 				ar,
 			);
 			mainGroup = 3931740F2A19134A00AF64BC;
+			packageReferences = (
+				394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 393174192A19134A00AF64BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -4923,6 +4932,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
+		394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 393174102A19134A00AF64BC /* Project object */;
 }
