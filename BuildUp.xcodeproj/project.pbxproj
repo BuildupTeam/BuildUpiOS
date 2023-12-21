@@ -374,6 +374,7 @@
 		3990073C2ABDB741002F6938 /* CartWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990073B2ABDB741002F6938 /* CartWebServiceProtocol.swift */; };
 		3990073F2AC0C72F002F6938 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3990073E2AC0C72F002F6938 /* GoogleService-Info.plist */; };
 		399007412AC0DAFF002F6938 /* RealTimeDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007402AC0DAFE002F6938 /* RealTimeDatabaseService.swift */; };
+		399318472B348E8B00B15A43 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 399318462B348E8B00B15A43 /* PhoneNumberKit */; };
 		3999AA462AC49CD1007D0ACB /* CartViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999AA452AC49CD1007D0ACB /* CartViewController+TableView.swift */; };
 		3999AA492AC49F0D007D0ACB /* CartResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999AA482AC49F0D007D0ACB /* CartResponseModel.swift */; };
 		3999AA4B2AC4A10F007D0ACB /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999AA4A2AC4A10F007D0ACB /* CartModel.swift */; };
@@ -1283,6 +1284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DD25E6BE6439F847CF666F8 /* Pods_BuildUp.framework in Frameworks */,
+				399318472B348E8B00B15A43 /* PhoneNumberKit in Frameworks */,
 				394D8CA22B3481DA009386AD /* SDWebImageSVGCoder in Frameworks */,
 				39B8C8182B3487B000C0B8B4 /* CountryPickerView in Frameworks */,
 			);
@@ -3294,6 +3296,7 @@
 			packageProductDependencies = (
 				394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */,
 				39B8C8172B3487B000C0B8B4 /* CountryPickerView */,
+				399318462B348E8B00B15A43 /* PhoneNumberKit */,
 			);
 			productName = BuildUp;
 			productReference = 393174182A19134A00AF64BC /* BuildUp.app */;
@@ -3376,6 +3379,7 @@
 				394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
 				394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
+				399318452B348E8B00B15A43 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 			);
 			productRefGroup = 393174192A19134A00AF64BC /* Products */;
 			projectDirPath = "";
@@ -4954,6 +4958,14 @@
 				minimumVersion = 5.18.7;
 			};
 		};
+		399318452B348E8B00B15A43 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.7.6;
+			};
+		};
 		39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
@@ -4969,6 +4981,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
 			productName = SDWebImageSVGCoder;
+		};
+		399318462B348E8B00B15A43 /* PhoneNumberKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 399318452B348E8B00B15A43 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
 		};
 		39B8C8172B3487B000C0B8B4 /* CountryPickerView */ = {
 			isa = XCSwiftPackageProductDependency;

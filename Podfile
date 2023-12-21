@@ -12,7 +12,7 @@ def ui_pods
   pod 'PopupDialog'
   pod 'PanModal'
   pod 'Cosmos'
-  pod 'PhoneNumberKit', '~> 3.1'
+#  pod 'PhoneNumberKit', '~> 3.1'
   pod 'SwiftKeychainWrapper'
   pod 'RangeSeekSlider'
   pod 'DPOTPView'
