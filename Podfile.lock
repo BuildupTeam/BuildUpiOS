@@ -152,7 +152,6 @@ PODS:
   - SwiftMessages (9.0.8):
     - SwiftMessages/App (= 9.0.8)
   - SwiftMessages/App (9.0.8)
-  - SwiftValidator (4.0.0)
   - ViewAnimator (3.1.0)
   - Windless (0.1.5)
   - youtube-ios-player-helper (1.0.4)
@@ -188,7 +187,6 @@ DEPENDENCIES:
   - SwiftKeychainWrapper
   - SwiftLint (~> 0.44.0)
   - SwiftMessages
-  - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
   - ViewAnimator
   - Windless (from `https://github.com/Sob7y/Windless`)
   - youtube-ios-player-helper
@@ -253,9 +251,6 @@ EXTERNAL SOURCES:
     :tag: 10.5.0
   SCPageControl:
     :git: https://github.com/MahmoudNasserIbtikar/SCPageControl.git
-  SwiftValidator:
-    :git: https://github.com/jpotts18/SwiftValidator.git
-    :tag: 4.2.0
   Windless:
     :git: https://github.com/Sob7y/Windless
 
@@ -281,9 +276,6 @@ CHECKOUT OPTIONS:
   SCPageControl:
     :commit: 453cfb3ab25ad5966254297a84fb35a6c32811df
     :git: https://github.com/MahmoudNasserIbtikar/SCPageControl.git
-  SwiftValidator:
-    :git: https://github.com/jpotts18/SwiftValidator.git
-    :tag: 4.2.0
   Windless:
     :commit: 949223d7679d982550b0bd02a074a776554783bd
     :git: https://github.com/Sob7y/Windless
@@ -331,11 +323,10 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
   SwiftMessages: 3601317b44ed2e1a54e2c6901b4362a364bf4862
-  SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   Windless: 9dea19b4d239d948e4cec3891fac1fe863e13136
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: c019a6fee0615d9ec7bfa25cb16a1d4a633baf77
+PODFILE CHECKSUM: efd4710a0ad7572372da80fdef7378fd2e6472e1
 
 COCOAPODS: 1.13.0
