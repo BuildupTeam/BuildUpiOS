@@ -51,8 +51,6 @@ before_all do
 
   end
 
-
-
   desc "Push a new beta build to TestFlight"
   lane :beta do
    # increment_build_number(xcodeproj: "BuildUp.xcodeproj")
@@ -65,8 +63,8 @@ before_all do
       }
     }
   )
-   cert
-   sigh(force: true)
+   # cert
+   # sigh(force: true)
    upload_to_testflight
   end
 end
