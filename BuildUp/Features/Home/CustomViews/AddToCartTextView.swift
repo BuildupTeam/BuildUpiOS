@@ -47,14 +47,11 @@ class AddToCartTextView: UIView {
             counterContainerView.hideView()
         }
         
-        plusButton.layer.masksToBounds = true
-        plusButton.layer.cornerRadius = plusButton.frame.size.width / 2
-        
-        minusButton.layer.masksToBounds = true
-        minusButton.layer.cornerRadius = minusButton.frame.size.width / 2
         minusButton.layer.borderWidth = 1
         minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
         
+        ThemeManager.setCornerRadious(element: minusButton, radius: minusButton.frame.size.width / 2)
+        ThemeManager.setCornerRadious(element: plusButton, radius: plusButton.frame.size.width / 2)
         ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
     }
     

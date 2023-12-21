@@ -51,6 +51,8 @@ class ProductDetailsQuantityCircleView: UIView {
                         combinationModel.cartQuantity = 0
                         countLabel.text = String(combinationModel.cartQuantity ?? 0)
                     }
+                } else {
+                    
                 }
             } else {
                 if let quantity = model.cartQuantity, quantity > 0 {

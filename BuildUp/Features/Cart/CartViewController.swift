@@ -61,8 +61,8 @@ class CartViewController: BaseViewController {
 // MARK: - Private Func
 extension CartViewController {
     private func setupView() {
-        self.checkoutContainerView.hideView()
-        self.checkoutContainerViewHeightConstraint.constant = 0
+//        self.checkoutContainerView.hideView()
+//        self.checkoutContainerViewHeightConstraint.constant = 0
         
         registerTableViewCells()
         
@@ -82,7 +82,7 @@ extension CartViewController {
             case CartCheckoutButtonDesign.checkoutButton2.rawValue:
                 setupCartCheckoutType2View()
             case CartCheckoutButtonDesign.checkoutButton3.rawValue:
-                setupCartCheckoutType3View()
+                setupCartCheckoutType2View()
             default:
                 return
             }

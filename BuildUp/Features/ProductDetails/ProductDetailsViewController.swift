@@ -213,7 +213,7 @@ extension ProductDetailsViewController {
                 RealTimeDatabaseService.addProductFromDetails(model: firebaseProductModel)
             }
             
-            
+            self.showSuccessMessage(message: "Added To Cart")
         }
     }
     
