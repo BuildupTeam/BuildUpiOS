@@ -423,6 +423,7 @@
 		39AE9CAF2AA245280075E99F /* ProductDetailsWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE9CAE2AA245280075E99F /* ProductDetailsWebServiceProtocol.swift */; };
 		39AE9CB12AA245FD0075E99F /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE9CB02AA245FD0075E99F /* ProductDetailsViewModel.swift */; };
 		39AE9CB32AA352720075E99F /* ProductDetailsViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE9CB22AA352720075E99F /* ProductDetailsViewController+TableView.swift */; };
+		39B8C8182B3487B000C0B8B4 /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 39B8C8172B3487B000C0B8B4 /* CountryPickerView */; };
 		39BA0B422AA3BCFB008001F7 /* ShimmerProductDetailsSilderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BA0B402AA3BCFB008001F7 /* ShimmerProductDetailsSilderTableViewCell.swift */; };
 		39BA0B432AA3BCFB008001F7 /* ShimmerProductDetailsSilderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39BA0B412AA3BCFB008001F7 /* ShimmerProductDetailsSilderTableViewCell.xib */; };
 		39BA0B452AA3C714008001F7 /* ProductDetailsOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BA0B442AA3C714008001F7 /* ProductDetailsOptionModel.swift */; };
@@ -1283,6 +1284,7 @@
 			files = (
 				5DD25E6BE6439F847CF666F8 /* Pods_BuildUp.framework in Frameworks */,
 				394D8CA22B3481DA009386AD /* SDWebImageSVGCoder in Frameworks */,
+				39B8C8182B3487B000C0B8B4 /* CountryPickerView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3291,6 +3293,7 @@
 			name = BuildUp;
 			packageProductDependencies = (
 				394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */,
+				39B8C8172B3487B000C0B8B4 /* CountryPickerView */,
 			);
 			productName = BuildUp;
 			productReference = 393174182A19134A00AF64BC /* BuildUp.app */;
@@ -3372,6 +3375,7 @@
 			packageReferences = (
 				394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
 				394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
 			);
 			productRefGroup = 393174192A19134A00AF64BC /* Products */;
 			projectDirPath = "";
@@ -4950,6 +4954,14 @@
 				minimumVersion = 5.18.7;
 			};
 		};
+		39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -4957,6 +4969,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
 			productName = SDWebImageSVGCoder;
+		};
+		39B8C8172B3487B000C0B8B4 /* CountryPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			productName = CountryPickerView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,6 +7,7 @@
 
 import Foundation
 import CountryPickerView
+import UIKit
 
 class EditProfileModel: NSObject {
     var fullName: String?

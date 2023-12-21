@@ -13,16 +13,12 @@ def ui_pods
   pod 'PanModal'
   pod 'Cosmos'
   pod 'PhoneNumberKit', '~> 3.1'
-  pod 'CountryPickerView'
   pod 'SwiftKeychainWrapper'
-  #pod 'UICircleProgressView'
   pod 'RangeSeekSlider'
   pod 'DPOTPView'
   pod "SCPageControl", :git => 'https://github.com/MahmoudNasserIbtikar/SCPageControl.git'
   pod 'lottie-ios'
   pod 'CarbonKit', :git => 'https://github.com/Sob7y/CarbonKit'
-#  pod 'PagerTabStripView', '~> 3.2.0'
-#  pod 'QRCodeReader.swift', '~> 10.1.0',
   pod 'PayTabsSDK', '~> 6.4.12'
 end
 
