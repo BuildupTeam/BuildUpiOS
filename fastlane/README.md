@@ -31,13 +31,13 @@ Get certificates
 
 Generate new certificates
 
-### ios beta
+### ios deploy
 
 ```sh
-[bundle exec] fastlane ios beta
+[bundle exec] fastlane ios deploy
 ```
 
-Push a new beta build to TestFlight
+deploy
 
 ----
 
