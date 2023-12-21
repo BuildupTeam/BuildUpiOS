@@ -69,7 +69,7 @@ target 'BuildUp' do
   firebase_pods
   date_tools
   network_pods
-  googleMaps_pods
+#  googleMaps_pods
   quality_pods
   media_players
   analytics_pods

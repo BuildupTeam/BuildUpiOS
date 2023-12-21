@@ -8,7 +8,6 @@
 import UIKit
 import SwiftMessages
 import NVActivityIndicatorView
-import GoogleMaps
 import ObjectMapper
 import Windless
 //import AVKit
@@ -170,6 +169,7 @@ class BaseViewController: UIViewController {
 }
 
 extension BaseViewController {
+    /*
     func getAddress(lat: Double, lng: Double) {
         var center: CLLocationCoordinate2D = CLLocationCoordinate2D()
         let ceo: CLGeocoder = CLGeocoder()
@@ -209,6 +209,7 @@ extension BaseViewController {
             }
         })
     }
+     */
 }
 
 extension BaseViewController {
