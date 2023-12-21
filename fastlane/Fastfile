@@ -30,7 +30,7 @@ build_app(
     export_method: "app-store",
     export_options: {
       provisioningProfiles: { 
-        "com.squadio.buildUp" => "AppStore_com.squadio.buildUp",
+        "com.squadio.buildUp" => "Buildup_Dist_provisioning",
       }
     }
   )
