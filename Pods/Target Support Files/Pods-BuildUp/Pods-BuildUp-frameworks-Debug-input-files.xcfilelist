@@ -2,7 +2,6 @@ ${PODS_ROOT}/Target Support Files/Pods-BuildUp/Pods-BuildUp-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CarbonKit/CarbonKit.framework
 ${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework
-${BUILT_PRODUCTS_DIR}/CountryPickerView/CountryPickerView.framework
 ${BUILT_PRODUCTS_DIR}/DPOTPView/DPOTPView.framework
 ${BUILT_PRODUCTS_DIR}/DateToolsSwift/DateToolsSwift.framework
 ${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework
