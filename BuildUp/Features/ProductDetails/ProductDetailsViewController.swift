@@ -217,19 +217,64 @@ extension ProductDetailsViewController {
         }
     }
     
+    /*
     private func checkIfCombinationsExist() {
         if let model = viewModel.productModel {
-            if let combinations = model.combinations, !combinations.isEmpty {
-                deactivateQuantityView()
-            } else {
+            if model.selectedCombination != nil {
                 activateQuantityView()
+            } else {
+                deactivateQuantityView()
             }
+//            if let combinations = model.combinations, !combinations.isEmpty {
+//                deactivateQuantityView()
+//            } else {
+//                activateQuantityView()
+//            }
         }
     }
     
     private func checkIsOutOfStock() {
-        if let model = viewModel.productModel, model.quantity == 0 {
-            deactivateQuantityView()
+        if let model = viewModel.productModel {
+            if model.orderInOutOfStock ?? false {
+                activateQuantityView()
+            } else {
+                if (model.quantity ?? 0) > 0 {
+                    activateQuantityView()
+                } else {
+                    deactivateQuantityView()
+                }
+            }
+        }
+    }
+    */
+    
+    private func checkToActivateAddToCartButton() {
+        if let model = viewModel.productModel {
+            if let combinations = model.combinations, !combinations.isEmpty {
+                if model.selectedCombination != nil {
+                    if model.orderInOutOfStock ?? false {
+                        activateQuantityView()
+                    } else {
+                        if (model.quantity ?? 0) > 0 {
+                            activateQuantityView()
+                        } else {
+                            deactivateQuantityView()
+                        }
+                    }
+                } else {
+                    deactivateQuantityView()
+                }
+            } else {
+                if model.orderInOutOfStock ?? false {
+                    activateQuantityView()
+                } else {
+                    if (model.quantity ?? 0) > 0 {
+                        activateQuantityView()
+                    } else {
+                        deactivateQuantityView()
+                    }
+                }
+            }
         }
     }
 }
@@ -267,12 +312,14 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
             self.viewModel.productModel?.cartCombinations?.first(where: { $0.id == combinationModel?.id })?.cartQuantity = 1
             
             self.tableView.reloadSections([ProductDetailsSection.slider.rawValue, ProductDetailsSection.quantity.rawValue], with: .none)
-            activateQuantityView()
+//            activateQuantityView()
             setupAddToCartView(model)
         } else {
             subtotalViewHeightConstraint.constant = 94
-            deactivateQuantityView()
+//            deactivateQuantityView()
         }
+        
+        checkToActivateAddToCartButton()
     }
 }
 
@@ -338,7 +385,7 @@ extension ProductDetailsViewController {
             guard let `self` = self else { return }
             print("Normal Reload")
             self.hideLoading()
-            self.checkIfCombinationsExist()
+//            self.checkIfCombinationsExist()
             self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()
             UIView.transition(with: self.addToCartContainerView, duration: 0.5,
@@ -349,7 +396,8 @@ extension ProductDetailsViewController {
             self.quantityCircleView.productModel = self.viewModel.productModel
             self.quantityDropDownView.productModel = self.viewModel.productModel
             
-            self.checkIsOutOfStock()
+//            self.checkIsOutOfStock()
+            self.checkToActivateAddToCartButton()
         }
     }
     
