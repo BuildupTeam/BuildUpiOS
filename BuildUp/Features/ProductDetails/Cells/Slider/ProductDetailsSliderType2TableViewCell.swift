@@ -137,6 +137,7 @@ extension ProductDetailsSliderType2TableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
+            productDescriptionLabel.text = (model.productDescription ?? "")//.maxLength(length: 69)
             productOldPriceLabel.text = "SAR " + String(model.originalPrice ?? 0)
             productNewPriceLabel.text = "SAR " + String(model.currentPrice ?? 0)
             

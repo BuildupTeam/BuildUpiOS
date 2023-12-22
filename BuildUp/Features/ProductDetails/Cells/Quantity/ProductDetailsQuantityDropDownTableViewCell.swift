@@ -41,7 +41,7 @@ class ProductDetailsQuantityDropDownTableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             if let combinationModel = model.cartCombinations?.first {
-                quantityLabel.text = String(combinationModel.cartQuantity ?? 0)
+                quantityLabel.text = String(combinationModel.cartQuantity ?? 1)
             } else {
                 quantityLabel.text = String(model.cartQuantity ?? 0)
             }
@@ -62,7 +62,7 @@ class ProductDetailsQuantityDropDownTableViewCell: UITableViewCell {
             return
         }
         
-        for i in (0 ..< quantityCount) {
+        for i in (1 ... quantityCount) {
             let first = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
                 print(String(i))
                 if (model.cartCombinations?.first) != nil {
