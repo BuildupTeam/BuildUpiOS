@@ -118,6 +118,7 @@
 "checkout.errors.selectCityFirst" = "Please Choose Your City First";
 "checkout.items" = "items";
 "checkout.totalAmount" = "Total Amount";
+"checkout.Number" = "Number";
 
 // MARK: - Order History Screen
 "orders.title" = "Order History";

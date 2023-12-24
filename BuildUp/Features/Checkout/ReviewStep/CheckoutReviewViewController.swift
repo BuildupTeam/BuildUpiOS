@@ -72,6 +72,8 @@ extension CheckoutReviewViewController {
         headerView.setupView()
         headerView.setupReviewView()
         
+        headerView.backgroundColor = ThemeManager.colorPalette?.mainBg2?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg2 ?? "")
+        
         checkoutContainerHeightConstraint.constant = 0
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
@@ -118,7 +120,11 @@ extension CheckoutReviewViewController {
         checkoutContainerHeightConstraint.constant = 137
         checkoutContainerView.showView()
         if let summary = self.viewModel.summaryData?.summary {
-            subtotalLabel.text = (summary.formattedSubtotal?.formatted ?? "")
+            
+            let subtotal = (summary.subtotal ?? 0) + (summary.shippingDetails?.amount ?? 0)
+            subtotalLabel.text = L10n.Cart.currency + String(subtotal)
+            
+//            subtotalLabel.text = (summary.formattedSubtotal?.formatted ?? "")
             //String(summary.formattedSubtotal?.formatted) + L10n.ProductDetails.currency
         }
     }

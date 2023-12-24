@@ -62,7 +62,6 @@ class CheckoutSummaryTableViewCell: UITableViewCell {
     private func bindData() {
         if let model = summaryModel {
             deliveryLabel.text = L10n.Cart.currency + String(model.shippingDetails?.amount ?? 0)
-            
             estimatedVatLabel.text = L10n.Cart.currency + String(model.taxes ?? 0.0)
             subtotalLabel.text = L10n.Cart.currency + String(model.subtotal ?? 0)
         }

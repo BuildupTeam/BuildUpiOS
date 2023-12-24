@@ -72,9 +72,28 @@ class CountriesViewController: BaseViewController {
     private func countriesResponse() {
         self.viewModel.onCountries = { [weak self]() in
             guard let `self` = self else { return }
+            if self.viewModel.countries?.isEmpty ?? false {
+                self.setupEmptyView()
+            } else {
+                self.removeBackgroundViews()
+            }
             self.tableView.reloadData()
             self.stopShimmerOn(tableView: self.tableView)
         }
+    }
+    
+    private func setupEmptyView() {
+        removeBackgroundViews()
+        let emptyNib = EmptyScreenView.instantiateFromNib()
+        emptyNib.frame = tableView.backgroundView?.frame ?? CGRect()
+        emptyNib.title = L10n.EmptyScreen.noData
+//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
+        emptyNib.showButton = false
+        tableView.backgroundView = emptyNib
+    }
+    
+    private func removeBackgroundViews() {
+        tableView.backgroundView = nil
     }
 }
 

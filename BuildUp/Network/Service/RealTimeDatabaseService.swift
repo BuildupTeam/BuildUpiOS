@@ -139,6 +139,10 @@ extension RealTimeDatabaseService {
                 }
             }
         } else {
+            if defaultCartProducts.keys.isEmpty {
+                getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                return
+            }
             for productKey in defaultCartProducts.keys {
                 if productKey == model.uuid {
                     print("found product key")

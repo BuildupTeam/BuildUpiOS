@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -64,19 +64,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dtk-Fo-Fm6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                            <rect key="frame" x="5" y="5" width="14" height="14"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="Dtk-Fo-Fm6" firstAttribute="leading" secondItem="O96-u2-Pln" secondAttribute="leading" id="0gT-mr-Eb8"/>
                                                         <constraint firstItem="VH7-1i-Bso" firstAttribute="leading" secondItem="O96-u2-Pln" secondAttribute="leading" constant="4" id="4BQ-hN-l7y"/>
-                                                        <constraint firstItem="Dtk-Fo-Fm6" firstAttribute="top" secondItem="O96-u2-Pln" secondAttribute="top" id="DoG-6f-Kgd"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Dtk-Fo-Fm6" secondAttribute="bottom" constant="5" id="Ei6-7f-rJw"/>
                                                         <constraint firstAttribute="trailing" secondItem="VH7-1i-Bso" secondAttribute="trailing" constant="4" id="FyY-Hv-rCe"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Dtk-Fo-Fm6" secondAttribute="bottom" id="Idw-jL-0nT"/>
+                                                        <constraint firstItem="Dtk-Fo-Fm6" firstAttribute="leading" secondItem="O96-u2-Pln" secondAttribute="leading" constant="5" id="M1e-aR-Ecj"/>
                                                         <constraint firstAttribute="bottom" secondItem="VH7-1i-Bso" secondAttribute="bottom" constant="4" id="MPS-U1-pmH"/>
+                                                        <constraint firstItem="Dtk-Fo-Fm6" firstAttribute="top" secondItem="O96-u2-Pln" secondAttribute="top" constant="5" id="Sy4-DA-B7r"/>
                                                         <constraint firstAttribute="width" constant="24" id="Wkp-WK-kgv"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Dtk-Fo-Fm6" secondAttribute="trailing" id="gCy-v2-yPy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Dtk-Fo-Fm6" secondAttribute="trailing" constant="5" id="gzc-mS-dnS"/>
                                                         <constraint firstAttribute="height" constant="24" id="kNs-PD-QbY"/>
                                                         <constraint firstItem="VH7-1i-Bso" firstAttribute="top" secondItem="O96-u2-Pln" secondAttribute="top" constant="4" id="kPM-WC-fIm"/>
                                                     </constraints>
@@ -110,21 +110,21 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2X9-QV-9i7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                            <rect key="frame" x="5" y="5" width="14" height="14"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="aVe-e2-nfb" firstAttribute="leading" secondItem="OJA-qe-1Tc" secondAttribute="leading" constant="4" id="2ck-iz-ffZ"/>
                                                         <constraint firstAttribute="bottom" secondItem="aVe-e2-nfb" secondAttribute="bottom" constant="4" id="CNd-MK-wxE"/>
-                                                        <constraint firstItem="2X9-QV-9i7" firstAttribute="top" secondItem="OJA-qe-1Tc" secondAttribute="top" id="Doo-mZ-Jpe"/>
+                                                        <constraint firstItem="2X9-QV-9i7" firstAttribute="top" secondItem="OJA-qe-1Tc" secondAttribute="top" constant="5" id="Doo-mZ-Jpe"/>
                                                         <constraint firstItem="aVe-e2-nfb" firstAttribute="top" secondItem="OJA-qe-1Tc" secondAttribute="top" constant="4" id="IGP-04-Zbw"/>
                                                         <constraint firstAttribute="width" constant="24" id="Zqy-sI-IKk"/>
-                                                        <constraint firstAttribute="bottom" secondItem="2X9-QV-9i7" secondAttribute="bottom" id="crb-Uv-TAW"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2X9-QV-9i7" secondAttribute="bottom" constant="5" id="crb-Uv-TAW"/>
                                                         <constraint firstAttribute="trailing" secondItem="aVe-e2-nfb" secondAttribute="trailing" constant="4" id="iQg-nk-u2R"/>
                                                         <constraint firstAttribute="height" constant="24" id="jhE-ZX-eQV"/>
-                                                        <constraint firstItem="2X9-QV-9i7" firstAttribute="leading" secondItem="OJA-qe-1Tc" secondAttribute="leading" id="tde-5k-uZn"/>
-                                                        <constraint firstAttribute="trailing" secondItem="2X9-QV-9i7" secondAttribute="trailing" id="yWa-BT-nFF"/>
+                                                        <constraint firstItem="2X9-QV-9i7" firstAttribute="leading" secondItem="OJA-qe-1Tc" secondAttribute="leading" constant="5" id="tde-5k-uZn"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2X9-QV-9i7" secondAttribute="trailing" constant="5" id="yWa-BT-nFF"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMS-WK-TmT">
