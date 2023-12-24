@@ -38,6 +38,20 @@ class AreasViewController: BaseViewController {
         getAreas()
         startShimmerOn(tableView: tableView)
     }
+    
+    private func setupEmptyView() {
+        removeBackgroundViews()
+        let emptyNib = EmptyScreenView.instantiateFromNib()
+        emptyNib.frame = tableView.backgroundView?.frame ?? CGRect()
+        emptyNib.title = L10n.EmptyScreen.noData
+//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
+        emptyNib.showButton = false
+        tableView.backgroundView = emptyNib
+    }
+    
+    private func removeBackgroundViews() {
+        tableView.backgroundView = nil
+    }
 
 }
 
@@ -76,6 +90,11 @@ extension AreasViewController {
     private func areasResponse() {
         self.viewModel.onAreas = { [weak self]() in
             guard let `self` = self else { return }
+            if self.viewModel.areas?.isEmpty ?? false {
+                self.setupEmptyView()
+            } else {
+                self.removeBackgroundViews()
+            }
             self.tableView.reloadData()
             self.stopShimmerOn(tableView: self.tableView)
         }

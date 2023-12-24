@@ -24,18 +24,22 @@ class AddToCartIconView: UIView {
     
     func initialize() {
         plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
-        minusButton.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
         countLabel.textColor = ThemeManager.colorPalette?.quantityCounterColor?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? "")
         
         countLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         
-        if let quantity = productModel?.cartQuantity, quantity > 0 {
-            addToCartButton.hideView()
-            counterContainerView.showView()
-            countLabel.text = String(quantity)
-        } else {
-            addToCartButton.showView()
-            counterContainerView.hideView()
+        if let model = productModel {
+            if let quantity = model.cartQuantity, quantity > 0 {
+                addToCartButton.hideView()
+                counterContainerView.showView()
+                countLabel.text = String(quantity)
+            } else {
+                addToCartButton.showView()
+                counterContainerView.hideView()
+            }
+            
+            checkIfCanMinusPlus(model: model)
         }
         
         minusButton.layer.borderWidth = 1
@@ -81,6 +85,24 @@ class AddToCartIconView: UIView {
             RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
     }
     
+    private func checkIfCanMinusPlus(model: ProductModel) {
+        if (model.cartQuantity ?? 0) >= (model.maxAddedQuantity ?? 0) {
+            plusButton.isEnabled = false
+            plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor3?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor3 ?? "")
+        } else {
+            plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+            plusButton.isEnabled = true
+        }
+        
+        if (model.cartQuantity ?? 0) <= 1 {
+            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor3?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor3 ?? "")
+            minusButton.isEnabled = false
+        } else {
+            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+            minusButton.isEnabled = true
+        }
+    }
+    
     @IBAction func plusButtonAction(_ sender: UIButton) {
         if let model = productModel {
             if var cartQuantity = model.cartQuantity {
@@ -95,6 +117,8 @@ class AddToCartIconView: UIView {
             self.productModel = model
             addToCartFirebase(model)
             countLabel.text = String(model.cartQuantity ?? 0)
+            
+            checkIfCanMinusPlus(model: model)
             delegate?.productModelUpdated(model, nil)
         }
     }
@@ -118,6 +142,8 @@ class AddToCartIconView: UIView {
             
             self.productModel = model
             countLabel.text = String(model.cartQuantity ?? 0)
+            
+            checkIfCanMinusPlus(model: model)
             delegate?.productModelUpdated(model, nil)
         }
     }

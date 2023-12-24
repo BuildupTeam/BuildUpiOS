@@ -182,6 +182,10 @@ internal enum L10n {
         internal static var mobile: String {
           return L10n.tr("Localizable", "checkout.mobile")
         }
+        /// Number
+        internal static var number: String {
+          return L10n.tr("Localizable", "checkout.Number")
+        }
         /// Online Payement
         internal static var onlinePayement: String {
           return L10n.tr("Localizable", "checkout.onlinePayement")

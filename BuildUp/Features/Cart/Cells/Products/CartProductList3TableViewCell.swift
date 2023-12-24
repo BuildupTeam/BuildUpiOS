@@ -75,15 +75,14 @@ extension CartProductList3TableViewCell {
         removeProductView.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
         
         plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
 
-//        minusButton.layer.masksToBounds = true
-//        minusButton.layer.cornerRadius = minusButton.frame.size.width / 2
-        minusButton.layer.borderWidth = 1
-        minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
-        minusButton.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        if let model = productModel {
+            checkIfCanMinusPlus(model: model)
+        }
 
-        ThemeManager.setCornerRadious(element: minusButton, radius: 8)
-        ThemeManager.setCornerRadious(element: plusButton, radius: 8)
+        ThemeManager.setCornerRadious(element: minusButton, radius: minusButton.frame.size.width / 2)
+        ThemeManager.setCornerRadious(element: plusButton, radius: plusButton.frame.size.width / 2)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
         ThemeManager.setCornerRadious(element: removeProductView, radius: 8)
     }
@@ -136,6 +135,44 @@ extension CartProductList3TableViewCell {
             }
         }
     }
+    
+    private func checkIfCanMinusPlus(model: ProductModel) {
+        if (model.cartQuantity ?? 0) >= (model.maxAddedQuantity ?? 0) {
+            plusButton.isEnabled = false
+            plusButton.backgroundColor = .white
+            
+            let grayPlusImage = Asset.plusWhite.image.withRenderingMode(.alwaysTemplate).sd_tintedImage(with: ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "") ?? .red)
+            plusButton.setImage(grayPlusImage, for: .normal)
+            
+            plusButton.layer.borderWidth = 1
+            plusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
+        } else {
+            let grayPluImage = Asset.plusWhite.image
+            plusButton.setImage(grayPluImage, for: .normal)
+            
+            plusButton.layer.borderWidth = 0
+            plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+            plusButton.isEnabled = true
+        }
+        
+        if (model.cartQuantity ?? 0) <= 1 {
+            minusButton.backgroundColor = .white
+            minusButton.isEnabled = false
+            
+            let grayMinusImage = Asset.icMinusWhite.image.withRenderingMode(.alwaysTemplate).sd_tintedImage(with: ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "") ?? .red)
+            minusButton.setImage(grayMinusImage, for: .normal)
+            
+            minusButton.layer.borderWidth = 1
+            minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
+        } else {
+            let grayMinusImage = Asset.icMinusWhite.image
+            minusButton.setImage(grayMinusImage, for: .normal)
+            
+            minusButton.layer.borderWidth = 0
+            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+            minusButton.isEnabled = true
+        }
+    }
 }
 
 // MARK: - @IBActions
@@ -156,6 +193,8 @@ extension CartProductList3TableViewCell {
             
             productQuantityLabel.text = String(quantity)
             delegate?.quantityChanged(quantity: quantity, model: model)
+            
+            checkIfCanMinusPlus(model: model)
             addToCartFirebase()
         }
         
@@ -175,6 +214,8 @@ extension CartProductList3TableViewCell {
             
             productQuantityLabel.text = String(quantity)
             delegate?.quantityChanged(quantity: quantity, model: model)
+            
+            checkIfCanMinusPlus(model: model)
             addToCartFirebase()
         }
     }
