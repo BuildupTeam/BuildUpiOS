@@ -44,12 +44,12 @@ jobs:
 
     - name: Set .env.default
       run: |
-        echo "MATCH_GIT_BASIC_AUTHORIZATION=${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}" >> $GITHUB_ENV
-        echo "MATCH_PASSWORD=${{ secrets.MATCH_PASSWORD }}" >> $GITHUB_ENV
-        echo "MATCH_USERNAME=${{ secrets.MATCH_USERNAME }}" >> $GITHUB_ENV
-        echo "APP_STORE_CONNECT_API_KEY_KEY_ID=${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}" >> $GITHUB_ENV
-        echo "APP_STORE_CONNECT_API_KEY_ISSUER_ID=${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}" >> $GITHUB_ENV
-        echo "APP_STORE_CONNECT_API_KEY_KEY=${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}" >> $GITHUB_ENV
+        echo "MATCH_GIT_BASIC_AUTHORIZATION=${{ github.event.inputs.match_git_basic_authorization  }}" > /fastlane/.env.default
+        echo "MATCH_PASSWORD=${{ github.event.inputs.match_password  }}" >> /fastlane/.env.default
+        echo "MATCH_USERNAME=${{ github.event.inputs.match_username  }}" >> /fastlane/.env.default
+        echo "APP_STORE_CONNECT_API_KEY_KEY_ID=${{ github.event.inputs.app_store_connect_api_key_key_id  }}" >> /fastlane/.env.default
+        echo "APP_STORE_CONNECT_API_KEY_ISSUER_ID=${{ github.event.inputs.app_store_connect_api_key_issuer_id  }}" >> /fastlane/.env.default
+        echo "APP_STORE_CONNECT_API_KEY_KEY=${{ github.event.inputs.app_store_connect_api_key_key  }}" >> /fastlane/.env.default
   
     - name: Install dependencies
       run: |
