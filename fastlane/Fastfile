@@ -54,7 +54,7 @@ platform :ios do
       app_identifier: 'com.squadio.buildUp',
       readonly: true
     )
-    increment_build_number(xcodeproj: "BuildUp.xcodeproj")
+    # increment_build_number(xcodeproj: "BuildUp.xcodeproj")
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
       is_key_content_base64: true,
