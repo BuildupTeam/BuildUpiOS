@@ -1,10 +1,32 @@
 name: iOS Build
 
+# on:
+#   push:
+#     branches: [ ci ]
+#   pull_request:
+#     branches: [ ci ]
+
 on:
-  push:
-    branches: [ ci ]
-  pull_request:
-    branches: [ ci ]
+  workflow_dispatch:
+    inputs:
+      match_git_basic_authorization:
+        description: 'MATCH_GIT_BASIC_AUTHORIZATION value'
+        required: true
+      match_password:
+        description: 'MATCH_PASSWORD value'
+        required: true
+      match_username:
+        description: 'MATCH_USERNAME value'
+        required: true
+      app_store_connect_api_key_key_id:
+        description: 'APP_STORE_CONNECT_API_KEY_KEY_ID value'
+        required: true
+      app_store_connect_api_key_issuer_id:
+        description: 'APP_STORE_CONNECT_API_KEY_ISSUER_ID value'
+        required: true
+      app_store_connect_api_key_key:
+        description: 'APP_STORE_CONNECT_API_KEY_KEY value'
+        required: true
 
 jobs:
   build:
@@ -20,6 +42,15 @@ jobs:
       with:
         xcode-version: 'latest-stable'
 
+    - name: Set .env.default
+      run: |
+        echo "MATCH_GIT_BASIC_AUTHORIZATION=${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}" >> $GITHUB_ENV
+        echo "MATCH_PASSWORD=${{ secrets.MATCH_PASSWORD }}" >> $GITHUB_ENV
+        echo "MATCH_USERNAME=${{ secrets.MATCH_USERNAME }}" >> $GITHUB_ENV
+        echo "APP_STORE_CONNECT_API_KEY_KEY_ID=${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}" >> $GITHUB_ENV
+        echo "APP_STORE_CONNECT_API_KEY_ISSUER_ID=${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}" >> $GITHUB_ENV
+        echo "APP_STORE_CONNECT_API_KEY_KEY=${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}" >> $GITHUB_ENV
+  
     - name: Install dependencies
       run: |
         gem install bundler
