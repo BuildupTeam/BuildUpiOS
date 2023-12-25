@@ -27,6 +27,12 @@ on:
       app_store_connect_api_key_key:
         description: 'APP_STORE_CONNECT_API_KEY_KEY value'
         required: true
+      app_file: 
+        description: 'Appfile'
+        required: true
+      match_file:
+        description: 'Matchfile value'
+        required: true
 
 jobs:
   build:
@@ -51,6 +57,14 @@ jobs:
         echo "APP_STORE_CONNECT_API_KEY_ISSUER_ID=${{ github.event.inputs.app_store_connect_api_key_issuer_id  }}" >> fastlane/.env.default
         echo "APP_STORE_CONNECT_API_KEY_KEY=${{ github.event.inputs.app_store_connect_api_key_key  }}" >> fastlane/.env.default
   
+    - name: Set Appfile
+      run: |
+        echo "${{ github.event.inputs.app_file}}" > fastlane/AppFile
+
+    - name: Set Matchfile
+      run: |
+        echo "${{ github.event.inputs.match_file}}" > fastlane/Matchfile
+        
     - name: Install dependencies
       run: |
         gem install bundler
