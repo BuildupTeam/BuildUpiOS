@@ -54,6 +54,10 @@ platform :ios do
       app_identifier: 'com.squadio.buildUp',
       readonly: true
     )
+
+ current_build_number = app_store_build_number(live: false, username: 'mohammed.khaled.sobhy@gmail.com', app_identifier: 'com.squadio.buildUp')
+increment_build_number(xcodeproj: 'BuildUp.xcodeproj', build_number: current_build_number + 1)
+
     # increment_build_number(xcodeproj: "BuildUp.xcodeproj")
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
