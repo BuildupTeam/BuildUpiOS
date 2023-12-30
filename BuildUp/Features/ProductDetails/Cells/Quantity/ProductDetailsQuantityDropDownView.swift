@@ -18,6 +18,8 @@ class ProductDetailsQuantityDropDownView: UIView {
 
     weak var delegate: ProductDetailsQuantityDelegate?
     
+    var menu: UIMenu?
+    
     var productModel: ProductModel? {
         didSet {
             initialize()
@@ -32,6 +34,10 @@ class ProductDetailsQuantityDropDownView: UIView {
         quantityTitleLabel.font = .appFont(ofSize: 15, weight: .regular)
         quantityLabel.font = .appFont(ofSize: 15, weight: .regular)
         
+        menu = UIMenu(title: L10n.ProductDetails.quantity, identifier: .alignment, options: .displayInline, children: [])
+        quantityActionButton.menu = menu
+        checkToShowMenu()
+        
         if let model = productModel {
             if let combinationModel = model.cartCombinations?.first {
                 quantityLabel.text = String(combinationModel.cartQuantity ?? 0)
@@ -39,17 +45,17 @@ class ProductDetailsQuantityDropDownView: UIView {
                 quantityLabel.text = String(model.cartQuantity ?? 0)
             }
         }
-//        quantityLabel.text = String(productModel?.quantity ?? 0)
     }
     
     @IBAction func quantityActionButton(_ sender: UIButton) {
+        quantityActionButton.showsMenuAsPrimaryAction = true
+        quantityActionButton.menu = menu
+    }
+    
+    func checkToShowMenu() {
         var elements: [UIAction] = []
         guard let model = productModel else { return }
-        var quantityCount = model.quantity ?? 0
-        
-        if let combinationModel = model.cartCombinations?.first {
-            quantityCount = combinationModel.quantity ?? 0
-        }
+        let quantityCount = model.getMaxQuantity()
                 
         if quantityCount <= 1 {
             return
@@ -69,8 +75,8 @@ class ProductDetailsQuantityDropDownView: UIView {
             }
             elements.append(first)
         }
-        let menu = UIMenu(title: L10n.ProductDetails.quantity, identifier: .alignment, options: .displayInline, children: elements)
-        quantityActionButton.showsMenuAsPrimaryAction = true
-        quantityActionButton.menu = menu
+        
+        menu = menu?.replacingChildren(elements)
+        quantityActionButton.showsMenuAsPrimaryAction = false
     }
 }

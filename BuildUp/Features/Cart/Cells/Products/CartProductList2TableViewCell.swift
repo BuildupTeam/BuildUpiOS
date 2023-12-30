@@ -17,7 +17,8 @@ class CartProductList2TableViewCell: UITableViewCell {
     @IBOutlet private weak var tableViewHeightConstrains: NSLayoutConstraint!
 
     @IBOutlet private weak var productImageView: UIImageView!
-    
+    @IBOutlet private weak var addToWishListImage: UIImageView!
+
     @IBOutlet private weak var productNameLabel: UILabel!
     @IBOutlet private weak var productDescriptionLabel: UILabel!
     @IBOutlet private weak var productOldPriceLabel: UILabel!
@@ -103,8 +104,14 @@ extension CartProductList2TableViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             productDescriptionLabel.text = (model.productDescription ?? "")
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            
+            if let combinationModel = model.cartCombinations?.first {
+                productOldPriceLabel.text = String(combinationModel.price ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(combinationModel.currentPrice ?? 0) + L10n.ProductDetails.currency
+            } else {
+                productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            }
             
             productQuantityLabel.text = String(model.cartQuantityValue ?? 0)
 
@@ -129,12 +136,18 @@ extension CartProductList2TableViewCell {
                 productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
             
+//            if model.isFavorite {
+//                self.addToWishListImage.image = Asset.productFavorite.image
+//            } else {
+//                self.addToWishListImage.image = Asset.productUnFavorite.image
+//            }
+            
             checkIfCanMinusPlus(model: model)
         }
     }
     
     private func checkIfCanMinusPlus(model: ProductModel) {
-        if (model.cartQuantity ?? 0) >= (model.maxAddedQuantity ?? 0) {
+        if (model.cartQuantity ?? 0) >= (model.getMaxQuantity()) {
             plusButton.isEnabled = false
             plusButton.backgroundColor = .white
             
@@ -189,7 +202,7 @@ extension CartProductList2TableViewCell {
     @IBAction func plusButtonAction(_ sender: UIButton) {
         if let model = productModel, var quantity = model.cartQuantityValue {
             if quantity >= 1 {
-                if (quantity + 1 ) <= (model.maxAddedQuantity ?? 0) {
+                if (quantity + 1 ) <= (model.getMaxQuantity()) {
                     quantity += 1
                 }
             }
@@ -239,6 +252,13 @@ extension CartProductList2TableViewCell {
             }
             
             delegate?.removeButtonClicked(model: model)
+        }
+    }
+    
+    @IBAction func addToWishlistAction(_ sender: UIButton) {
+        if let model = productModel {
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }
     }
 }

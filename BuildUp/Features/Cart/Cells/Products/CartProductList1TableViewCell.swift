@@ -23,7 +23,8 @@ class CartProductList1TableViewCell: UITableViewCell {
     @IBOutlet private weak var tableViewHeightConstrains: NSLayoutConstraint!
     
     @IBOutlet private weak var productImageView: UIImageView!
-    
+    @IBOutlet private weak var addToWishListImage: UIImageView!
+
     @IBOutlet private weak var productNameLabel: UILabel!
     @IBOutlet private weak var productDescriptionLabel: UILabel!
     @IBOutlet private weak var productOldPriceLabel: UILabel!
@@ -37,6 +38,7 @@ class CartProductList1TableViewCell: UITableViewCell {
     @IBOutlet private weak var removeProductButton: UIButton!
 
     weak var delegate: CartProductListDelegate?
+    var menu: UIMenu?
     
     var productModel: ProductModel? {
         didSet {
@@ -107,8 +109,15 @@ extension CartProductList1TableViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             productDescriptionLabel.text = (model.productDescription ?? "")
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            
+            if let combinationModel = model.cartCombinations?.first {
+                productOldPriceLabel.text = String(combinationModel.price ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(combinationModel.currentPrice ?? 0) + L10n.ProductDetails.currency
+            } else {
+                productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            }
+            
             productQuantityLabel.text = String(model.cartQuantityValue ?? 0)
 
             let tableViewHeight = CGFloat((model.cartCombinations?.first?.options?.count ?? 0) * 25)
@@ -131,6 +140,16 @@ extension CartProductList1TableViewCell {
             } else {
                 productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
+            
+            if model.isFavorite {
+                self.addToWishListImage.image = Asset.productFavorite.image
+            } else {
+                self.addToWishListImage.image = Asset.productUnFavorite.image
+            }
+            
+            menu = UIMenu(title: L10n.ProductDetails.quantity, identifier: .alignment, options: .displayInline, children: [])
+            productQuantityButton.menu = menu
+            checkToShowMenu()
         }
     }
     
@@ -145,18 +164,11 @@ extension CartProductList1TableViewCell {
             }
         }
     }
-}
-
-// MARK: - @IBActions
-extension CartProductList1TableViewCell {
-    @IBAction func quantityActionButton(_ sender: UIButton) {
+    
+    func checkToShowMenu() {
         var elements: [UIAction] = []
         guard let model = productModel else { return }
-        var quantityCount = model.quantity ?? 0
-        
-        if let combinationModel = model.cartCombinations?.first {
-            quantityCount = combinationModel.quantity ?? 0
-        }
+        let quantityCount = model.getMaxQuantity()
                 
         if quantityCount <= 1 {
             return
@@ -177,7 +189,14 @@ extension CartProductList1TableViewCell {
             elements.append(first)
         }
         
-        let menu = UIMenu(title: L10n.ProductDetails.quantity, identifier: .alignment, options: .displayInline, children: elements)
+        menu = menu?.replacingChildren(elements)
+        productQuantityButton.showsMenuAsPrimaryAction = false
+    }
+}
+
+// MARK: - @IBActions
+extension CartProductList1TableViewCell {
+    @IBAction func quantityActionButton(_ sender: UIButton) {
         productQuantityButton.showsMenuAsPrimaryAction = true
         productQuantityButton.menu = menu
     }
@@ -193,6 +212,13 @@ extension CartProductList1TableViewCell {
             }
             
             delegate?.removeButtonClicked(model: model)
+        }
+    }
+    
+    @IBAction func addToWishlistAction(_ sender: UIButton) {
+        if let model = productModel {
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }
     }
 }

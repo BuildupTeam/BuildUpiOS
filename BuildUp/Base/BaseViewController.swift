@@ -323,10 +323,25 @@ extension BaseViewController {
     }
     
     private func authenticationErrorResponse() {
-        baseViewModel.onAuthenticationError = { [weak self] () in
+        baseViewModel.onAuthenticationError = { [weak self] (response) in
             guard let `self` = self else { return }
             self.hideLoading()
-            LauncherViewController.logoutToLoginView()
+            if !(self.navigationController?.viewControllers.isEmpty ?? true) &&
+                self.navigationController?.topViewController is LoginViewController {
+                self.showError(message: response.message ?? "")
+            } else {
+                LauncherViewController.logoutToLoginView()
+            }
+            
+//            if let viewControllers = navigationController?.viewControllers {
+//                for viewController in viewControllers {
+//                    if viewController.isKind(of: LoginViewController.self) {
+//                        self.showError(message: response.message ?? "")
+//                    } else {
+//                        LauncherViewController.logoutToLoginView()
+//                    }
+//                }
+//            }
         }
     }
     

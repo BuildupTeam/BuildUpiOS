@@ -602,6 +602,29 @@ internal enum L10n {
       }
     }
 
+    internal enum Tabbar {
+        /// Cart
+        internal static var cart: String {
+          return L10n.tr("Localizable", "tabbar.cart")
+        }
+        /// Categories
+        internal static var categories: String {
+          return L10n.tr("Localizable", "tabbar.categories")
+        }
+        /// Home
+        internal static var home: String {
+          return L10n.tr("Localizable", "tabbar.home")
+        }
+        /// Orders
+        internal static var orders: String {
+          return L10n.tr("Localizable", "tabbar.orders")
+        }
+        /// Profile
+        internal static var profile: String {
+          return L10n.tr("Localizable", "tabbar.profile")
+        }
+    }
+
     internal enum Validation {
         /// Invalid email format
         internal static var invalidEmailFormate: String {

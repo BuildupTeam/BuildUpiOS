@@ -120,7 +120,6 @@ extension CheckoutReviewViewController {
         checkoutContainerHeightConstraint.constant = 137
         checkoutContainerView.showView()
         if let summary = self.viewModel.summaryData?.summary {
-            
             let subtotal = (summary.subtotal ?? 0) + (summary.shippingDetails?.amount ?? 0)
             subtotalLabel.text = L10n.Cart.currency + String(subtotal)
             

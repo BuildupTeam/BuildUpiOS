@@ -23,7 +23,6 @@ class CartProductList3TableViewCell: UITableViewCell {
     @IBOutlet private weak var productQuantityLabel: UILabel!
     @IBOutlet private weak var removeProductLabel: UILabel!
     
-    
     @IBOutlet private weak var removeProductButton: UIButton!
     @IBOutlet private weak var plusButton: UIButton!
     @IBOutlet private weak var minusButton: UIButton!
@@ -97,8 +96,15 @@ extension CartProductList3TableViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             productDescriptionLabel.text = (model.productDescription ?? "")
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            
+            if let combinationModel = model.cartCombinations?.first {
+                productOldPriceLabel.text = String(combinationModel.price ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(combinationModel.currentPrice ?? 0) + L10n.ProductDetails.currency
+            } else {
+                productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            }
+            
             productQuantityLabel.text = String(model.cartQuantityValue ?? 0)
             
             let tableViewHeight = CGFloat((model.cartCombinations?.first?.options?.count ?? 0) * 25)
@@ -137,7 +143,7 @@ extension CartProductList3TableViewCell {
     }
     
     private func checkIfCanMinusPlus(model: ProductModel) {
-        if (model.cartQuantity ?? 0) >= (model.maxAddedQuantity ?? 0) {
+        if (model.cartQuantity ?? 0) >= (model.getMaxQuantity()) {
             plusButton.isEnabled = false
             plusButton.backgroundColor = .white
             
@@ -180,7 +186,7 @@ extension CartProductList3TableViewCell {
     @IBAction func plusButtonAction(_ sender: UIButton) {
         if let model = productModel, var quantity = model.cartQuantityValue {
             if quantity >= 1 {
-                if (quantity + 1 ) <= (model.maxAddedQuantity ?? 0) {
+                if (quantity + 1 ) <= (model.getMaxQuantity()) {
                     quantity += 1
                 }
             }

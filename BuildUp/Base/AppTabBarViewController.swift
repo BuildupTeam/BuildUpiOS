@@ -9,9 +9,17 @@ import Foundation
 import UIKit
 // swiftlint:disable all
 
+enum TabbarDesign: String {
+    case tabbar1 = "tab-bar-1"
+    case tabbar2 = "tab-bar-2"
+    case tabbar3 = "tab-bar-3"
+}
+
 class AppTabBarViewController: UITabBarController {
     
     var previousViewController: UIViewController?
+    
+    var tabbarSettings: SettingsConfigurationModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +27,8 @@ class AppTabBarViewController: UITabBarController {
         self.delegate = self
         self.tabBar.isTranslucent = false
         self.tabBar.layer.borderWidth = 0
-        self.tabBar.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
-        self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.buttonIconColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonIconColor4 ?? "")
+//        self.tabBar.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
+//        self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.buttonIconColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonIconColor4 ?? "")
         
         self.tabBar.clipsToBounds = true
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "") //.white
@@ -28,6 +36,7 @@ class AppTabBarViewController: UITabBarController {
 //        self.tabBar.items?.forEach({ $0.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: -2.0) })
 
         setupTabbarShadow()
+        getCachedData()
         initialize()
     }
     
@@ -50,17 +59,66 @@ class AppTabBarViewController: UITabBarController {
     func initialize() {
         self.tabBar.barTintColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
+        switch tabbarSettings?.tabbarDesign {
+        case TabbarDesign.tabbar1.rawValue:
+            self.setupTabbar3()
+        case TabbarDesign.tabbar1.rawValue:
+            self.setupTabbar2()
+        case TabbarDesign.tabbar1.rawValue:
+            self.setupTabbar3()
+        default:
+            return
+        }
+    }
+    
+    private func setupTabbar1() {
+        let homeVC = Coordinator.MainTaps.createHomeViewController()
+        homeVC.tabBarItem = UITabBarItem(
+            title: L10n.Tabbar.home,
+            image: Asset.icTabbar1HomeActive.image,
+            selectedImage: Asset.icTabbar1HomeInactive.image)
+                
+        let categoriesVC = Coordinator.MainTaps.createCategoriesViewController()
+        categoriesVC.tabBarItem = UITabBarItem(
+            title: L10n.Tabbar.categories,
+            image: Asset.icTabbar1CategoriesActive.image,
+            selectedImage: Asset.icTabbar1CategoriesInactive.image)
+        
+        let cartVC = Coordinator.MainTaps.createCartViewController()
+        cartVC.tabBarItem = UITabBarItem(
+            title: L10n.Tabbar.cart,
+            image: Asset.icTabbar1CartActive.image,
+            selectedImage: Asset.icTabbar1CartInactive.image)
+        
+        let profilVC = Coordinator.MainTaps.createProfileViewController()
+        profilVC.tabBarItem = UITabBarItem(
+            title: L10n.Tabbar.profile,
+                   image: Asset.icTabbar1ProfileActive.image,
+                   selectedImage: Asset.icTabbar1ProfileInactive.image)
+        
+        let ordersVC = Coordinator.MainTaps.createOrderHistoryViewController()
+        ordersVC.tabBarItem = UITabBarItem(
+            title: L10n.Tabbar.orders,
+            image: Asset.icTabbar1OrdersActive.image,
+            selectedImage: Asset.icTabbar1OrdersInactive.image)
+        
+        var viewControllerList: [UIViewController] = []
+        viewControllerList = [homeVC, categoriesVC, cartVC, ordersVC, profilVC]
+        self.setViewControllers(viewControllerList, animated: false)
+    }
+    
+    private func setupTabbar2() {
         let homeVC = Coordinator.MainTaps.createHomeViewController()
         homeVC.tabBarItem = UITabBarItem(
             title: "",
-            image: Asset.icHomeInactive.image,
-            selectedImage: Asset.icHomeActive.image)
+            image: Asset.icHomeActive.image,
+            selectedImage: Asset.icHomeInactive.image)
                 
         let categoriesVC = Coordinator.MainTaps.createCategoriesViewController()
         categoriesVC.tabBarItem = UITabBarItem(
             title: "",
-            image: Asset.icSettingsActive.image,
-            selectedImage: Asset.icSettingsInactive.image)
+            image: Asset.icCategoriesActive.image,
+            selectedImage: Asset.icCategoriesInactive.image)
         
         let cartVC = Coordinator.MainTaps.createCartViewController()
         cartVC.tabBarItem = UITabBarItem(
@@ -77,14 +135,55 @@ class AppTabBarViewController: UITabBarController {
         let ordersVC = Coordinator.MainTaps.createOrderHistoryViewController()
         ordersVC.tabBarItem = UITabBarItem(
             title: "",
-            image: Asset.icCategoriesActive.image,
-            selectedImage: Asset.icCategoriesInactive.image)
+            image: Asset.icOrderHistoryActive.image,
+            selectedImage: Asset.icOrderHistoryInactive.image)
         
         var viewControllerList: [UIViewController] = []
-        
         viewControllerList = [homeVC, categoriesVC, cartVC, ordersVC, profilVC]
-               
         self.setViewControllers(viewControllerList, animated: false)
+    }
+    
+    private func setupTabbar3() {
+        let homeVC = Coordinator.MainTaps.createHomeViewController()
+        homeVC.tabBarItem = UITabBarItem(
+            title: L10n.Tabbar.home,
+            image: Asset.icTabbar3HomeActive.image,
+            selectedImage: Asset.icTabbar3HomeInactive
+                .image)
+                
+        let categoriesVC = Coordinator.MainTaps.createCategoriesViewController()
+        categoriesVC.tabBarItem = UITabBarItem(
+            title: L10n.Tabbar.categories,
+            image: Asset.icTabbar3CategoriesActive.image,
+            selectedImage: Asset.icTabbar3CategoriesInactive.image)
+        
+        let cartVC = Coordinator.MainTaps.createCartViewController()
+        cartVC.tabBarItem = UITabBarItem(
+            title: "",
+            image: Asset.icTabbar3Cart.image,
+            selectedImage: Asset.icTabbar3Cart.image)
+        
+        let profilVC = Coordinator.MainTaps.createProfileViewController()
+        profilVC.tabBarItem = UITabBarItem(
+                   title: L10n.Tabbar.profile,
+                   image: Asset.icTabbar3ProfileActive.image,
+                   selectedImage: Asset.icTabbar3ProfileInactive.image)
+        
+        let ordersVC = Coordinator.MainTaps.createOrderHistoryViewController()
+        ordersVC.tabBarItem = UITabBarItem(
+            title: L10n.Tabbar.orders,
+            image: Asset.icTabbar3OrdersActive.image,
+            selectedImage: Asset.icTabbar3OrdersInactive.image)
+        
+        var viewControllerList: [UIViewController] = []
+        viewControllerList = [homeVC, categoriesVC, cartVC, ordersVC, profilVC]
+        self.setViewControllers(viewControllerList, animated: false)
+    }
+    
+    func getCachedData() {
+        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.tabBar.rawValue})?.settings {
+            self.tabbarSettings = settings
+        }
     }
 }
 

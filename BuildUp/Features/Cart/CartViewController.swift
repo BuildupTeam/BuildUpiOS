@@ -33,6 +33,7 @@ class CartViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        self.viewModel.getCachedData()
         setupResponses()
         if CachingService.getUser() != nil {
             isLoadingShimmer = true
@@ -61,8 +62,7 @@ class CartViewController: BaseViewController {
 // MARK: - Private Func
 extension CartViewController {
     private func setupView() {
-//        self.checkoutContainerView.hideView()
-//        self.checkoutContainerViewHeightConstraint.constant = 0
+        self.checkoutContainerView.showView()
         
         registerTableViewCells()
         
@@ -82,7 +82,7 @@ extension CartViewController {
             case CartCheckoutButtonDesign.checkoutButton2.rawValue:
                 setupCartCheckoutType2View()
             case CartCheckoutButtonDesign.checkoutButton3.rawValue:
-                setupCartCheckoutType2View()
+                setupCartCheckoutType3View()
             default:
                 return
             }
@@ -120,6 +120,9 @@ extension CartViewController {
     }
     
     private func setupCartCheckoutType1View() {
+        if cartCheckoutType1View != nil {
+            cartCheckoutType1View?.removeFromSuperview()
+        }
         cartCheckoutType1View = CartCheckout1View.instantiateFromNib()
         cartCheckoutType1View?.initialize()
         cartCheckoutType1View?.delegate = self
@@ -136,6 +139,9 @@ extension CartViewController {
     }
     
     private func setupCartCheckoutType2View() {
+        if cartCheckoutType2View != nil {
+            cartCheckoutType2View?.removeFromSuperview()
+        }
         cartCheckoutType2View = CartCheckout2View.instantiateFromNib()
         cartCheckoutType2View?.initialize()
         cartCheckoutType2View?.delegate = self
@@ -152,6 +158,9 @@ extension CartViewController {
     }
     
     private func setupCartCheckoutType3View() {
+        if cartCheckoutType3View != nil {
+            cartCheckoutType3View?.removeFromSuperview()
+        }
         cartCheckoutType3View = CartCheckout3View.instantiateFromNib()
         cartCheckoutType3View?.initialize()
         cartCheckoutType3View?.delegate = self
@@ -192,7 +201,7 @@ extension CartViewController {
             RealTimeDatabaseService.clearCart()
             
             self.checkoutContainerView.hideView()
-            self.checkoutContainerViewHeightConstraint.constant = 0
+//            self.checkoutContainerViewHeightConstraint.constant = 0
             setupEmptyView(screenType: .emptyScreen)
         }
     }
@@ -222,19 +231,24 @@ extension CartViewController {
     private func cartResponse() {
         viewModel.onCart = {[weak self] () in
             guard let `self` = self else { return }
-            if self.viewModel.cartModel != nil {
-                self.checkoutContainerView.showView()
-                self.checkoutContainerViewHeightConstraint.constant = 80
-                self.removeBackgroundViews()
-            } else {
-                self.setupEmptyView(screenType: .emptyScreen)
-                self.checkoutContainerViewHeightConstraint.constant = 0
-                self.checkoutContainerView.hideView()
-            }
-            self.fillData()
             self.reloadTableViewData()
             self.isReloadingTableView = false
             self.stopShimmerOn(tableView: self.tableView)
+            
+            if self.viewModel.cartModel != nil {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.fillData()
+                    self.checkoutContainerView.showView()
+//                    self.checkoutContainerViewHeightConstraint.constant = 80
+                }
+                self.removeBackgroundViews()
+            } else {
+                DispatchQueue.main.async {
+                    self.checkoutContainerView.hideView()
+//                    self.checkoutContainerViewHeightConstraint.constant = 0
+                }
+                self.setupEmptyView(screenType: .emptyScreen)
+            }
         }
     }
 }

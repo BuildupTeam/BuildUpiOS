@@ -40,11 +40,12 @@ class CartCheckout2View: UIView {
             let subtotal = String(format: "%.2f", (model.subtotal ?? 0))
             
             subtotalLabel.text = L10n.Cart.currency + String(subtotal)
-            itemsCountLabel.text = L10n.Cart.items + " " + String(model.products?.count ?? 0)
+            itemsCountLabel.text = String(model.products?.count ?? 0) + " " + L10n.Cart.items
         }
     }
     
     @IBAction func checkoutAction(_ sender: UIButton) {
         delegate?.checkoutButtonClicked()
     }
+    
 }

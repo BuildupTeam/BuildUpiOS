@@ -33,6 +33,19 @@ class EditProfileModel: NSObject {
         return countryCode?.replacingOccurrences(of: "+", with: "") ?? ""
     }
     
+    var phoneWithoutZero: String {
+        return deleteLeadingZeroIfExist(str: phone ?? "")
+    }
+    
+    func deleteLeadingZeroIfExist(str: String) -> String {
+        if let firstIndex = str.first {
+            if firstIndex == "0" {
+                return String(str.dropFirst())
+            }
+        }
+        return str
+    }
+    
     func isFieldsEmpty() -> Bool {
         if !(fullName?.isEmpty ?? false) && !(email?.isEmpty ?? false) && !(phone?.isEmpty ?? false) {
             return false

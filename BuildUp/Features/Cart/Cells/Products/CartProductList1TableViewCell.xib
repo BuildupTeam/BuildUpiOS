@@ -163,6 +163,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="117" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="addToWishlistAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3a5-8j-LFn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -221,6 +224,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="addToWishListButton" destination="AAQ-So-lae" id="p17-eY-0cv"/>
+                <outlet property="addToWishListImage" destination="Itb-oy-VNG" id="HPj-2b-fIp"/>
                 <outlet property="addToWishListLabel" destination="0Ey-ez-aoo" id="VkA-MZ-PWg"/>
                 <outlet property="addToWishListView" destination="KdX-fK-7Ct" id="bHv-s6-aX1"/>
                 <outlet property="containerView" destination="PyI-7g-3P6" id="Nt2-P6-xjt"/>

@@ -64,6 +64,13 @@
 "productDetails.quantityShort" = "Qty";
 "productDetails.currency" = " SAR";
 
+// MARK: - TabBar
+"tabbar.home" = "Home";
+"tabbar.categories" = "Categories";
+"tabbar.cart" = "Cart";
+"tabbar.orders" = "Orders";
+"tabbar.profile" = "Profile";
+
 // MARK: - Cart
 "cart.title" = "Cart";
 "cart.addWishList" = "Add Wish List";

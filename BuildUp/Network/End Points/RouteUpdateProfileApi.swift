@@ -51,7 +51,7 @@ extension RouteUpdateProfileApi: TargetType {
             var parameters: [String: Any] = [:]
             
             parameters["full_name"] = model.fullName
-            parameters["phone"] = model.phone
+            parameters["phone"] = model.phoneWithoutZero
             parameters["country_code"] = model.countryCodeWithoutPlus
             parameters["email"] = model.email
             parameters["image"] = model.avatarId

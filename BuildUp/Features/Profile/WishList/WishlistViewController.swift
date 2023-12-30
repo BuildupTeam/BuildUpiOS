@@ -24,6 +24,7 @@ class WishlistViewController: BaseViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupResponses()
@@ -52,6 +53,14 @@ extension WishlistViewController {
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+    }
+    
+    private func checkIfProductsEmpty() {
+        if self.viewModel.products?.isEmpty ?? false {
+            self.setupEmptyView()
+        } else {
+            self.removeBackgroundViews()
+        }
     }
     
     private func setupEmptyView() {
@@ -143,7 +152,27 @@ extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
         else { return UITableViewCell() }
         
         cell.productModel = self.viewModel.products?[indexPath.row]
+        cell.delegate = self
+        
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productModel = viewModel.products?[indexPath.row]
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController(productModel: productModel)
+        detailsVC.productModel = productModel
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+}
+
+// MARK: - TableViewDelegate & DataSource
+extension WishlistViewController: ProductFavoriteDelegate {
+    func productFavorite(model: ProductModel) {
+        if let index = self.viewModel.products?.firstIndex(where: { $0.uuid == model.uuid }) {
+            self.viewModel.products?.remove(at: index)
+            self.tableView.reloadData()
+            self.checkIfProductsEmpty()
+        }
     }
 }

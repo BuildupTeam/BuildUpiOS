@@ -18,7 +18,7 @@ class CartViewModel: BaseViewModel {
     init(service: CartWebServiceProtocol = CartWebService.shared) {
         super.init(observationType: .all)
         self.service = service
-        self.getCachedData()
+//        self.getCachedData()
     }
     
     func getCart() {

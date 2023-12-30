@@ -19,7 +19,7 @@ class BaseViewModel {
         
     var onNetworkError: ((NetworkError?) -> Void)?
     var onBusinessError: ((String?) -> Void)?
-    var onAuthenticationError: (() -> Void)?
+    var onAuthenticationError: ((BaseResponse) -> Void)?
     var onForceUpdate: ((BaseResponse) -> Void)?
     var onUserData: (() -> Void)?
     var observationType: ObservationType
@@ -245,7 +245,7 @@ extension BaseViewModel {
 extension BaseViewModel {
     func handleError(response: BaseResponse) {
         if response.statusCode == 401 {
-            self.onAuthenticationError?()
+            self.onAuthenticationError?(response)
         } else {
             if response.code == 12 {
                 self.onForceUpdate?(response)

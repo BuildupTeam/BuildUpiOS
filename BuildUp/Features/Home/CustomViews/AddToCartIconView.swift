@@ -86,7 +86,7 @@ class AddToCartIconView: UIView {
     }
     
     private func checkIfCanMinusPlus(model: ProductModel) {
-        if (model.cartQuantity ?? 0) >= (model.maxAddedQuantity ?? 0) {
+        if (model.cartQuantity ?? 0) >= (model.getMaxQuantity()) {
             plusButton.isEnabled = false
             plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor3?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor3 ?? "")
         } else {
@@ -94,13 +94,13 @@ class AddToCartIconView: UIView {
             plusButton.isEnabled = true
         }
         
-        if (model.cartQuantity ?? 0) <= 1 {
-            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor3?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor3 ?? "")
-            minusButton.isEnabled = false
-        } else {
-            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
-            minusButton.isEnabled = true
-        }
+//        if (model.cartQuantity ?? 0) <= 1 {
+//            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor3?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor3 ?? "")
+//            minusButton.isEnabled = false
+//        } else {
+//            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+//            minusButton.isEnabled = true
+//        }
     }
     
     @IBAction func plusButtonAction(_ sender: UIButton) {

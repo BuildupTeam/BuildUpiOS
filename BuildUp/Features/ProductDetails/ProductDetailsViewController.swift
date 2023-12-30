@@ -312,11 +312,9 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
             self.viewModel.productModel?.cartCombinations?.first(where: { $0.id == combinationModel?.id })?.cartQuantity = 1
             
             self.tableView.reloadSections([ProductDetailsSection.slider.rawValue, ProductDetailsSection.quantity.rawValue], with: .none)
-//            activateQuantityView()
             setupAddToCartView(model)
         } else {
             subtotalViewHeightConstraint.constant = 94
-//            deactivateQuantityView()
         }
         
         checkToActivateAddToCartButton()
@@ -385,7 +383,6 @@ extension ProductDetailsViewController {
             guard let `self` = self else { return }
             print("Normal Reload")
             self.hideLoading()
-//            self.checkIfCombinationsExist()
             self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()
             UIView.transition(with: self.addToCartContainerView, duration: 0.5,
@@ -396,7 +393,6 @@ extension ProductDetailsViewController {
             self.quantityCircleView.productModel = self.viewModel.productModel
             self.quantityDropDownView.productModel = self.viewModel.productModel
             
-//            self.checkIsOutOfStock()
             self.checkToActivateAddToCartButton()
         }
     }
@@ -404,7 +400,6 @@ extension ProductDetailsViewController {
     private func favoriteProductUpdatedResponse() {
         ObservationService.favItemUpdated.append({ [weak self] () in
             guard let `self` = self else { return }
-            //getProductsWithCartQuantity
             self.viewModel.productModel = self.viewModel.updateProductModelWithFavorite()
             self.tableView.reloadData()
         })

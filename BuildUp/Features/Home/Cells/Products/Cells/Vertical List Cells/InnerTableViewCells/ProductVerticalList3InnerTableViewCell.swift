@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ProductFavoriteDelegate: AnyObject {
+    func productFavorite(model: ProductModel)
+}
+
 class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var productImageView: UIImageView!
@@ -25,6 +29,8 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
     @IBOutlet private weak var productImageContainerView: UIView!
 
+    weak var delegate: ProductFavoriteDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -78,11 +84,15 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = productModel {
-            if model.hasCombinations ?? false || model.quantity == 0 {
+            if model.hasCombinations ?? false {
                 addToCartView.hideView()
             } else {
-                addToCartView.showView()
-                addToCartView.productModel = model
+                if model.getMaxQuantity() > 0 {
+                    addToCartView.showView()
+                    addToCartView.productModel = model
+                } else {
+                    addToCartView.hideView()
+                }
             }
             
             productNameLabel.text = model.name ?? ""
@@ -113,6 +123,7 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
         if let model = productModel {
+            delegate?.productFavorite(model: model)
             let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
             RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }
