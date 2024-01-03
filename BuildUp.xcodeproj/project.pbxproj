@@ -254,6 +254,16 @@
 		393613DA2AB79F5F007289DE /* CategoryDetailsCoverPhoto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393613D92AB79F5F007289DE /* CategoryDetailsCoverPhoto3.swift */; };
 		393613DC2AB79F6D007289DE /* CategoryDetailsCoverPhoto3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393613DB2AB79F6D007289DE /* CategoryDetailsCoverPhoto3.xib */; };
 		393613DE2AB8C92B007289DE /* CategoryDetailsGridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393613DD2AB8C92B007289DE /* CategoryDetailsGridViewController.xib */; };
+		393974C02B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974BE2B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.swift */; };
+		393974C12B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393974BF2B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.xib */; };
+		393974C42B403CFB00B65F77 /* PaymentMethodsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974C32B403CFB00B65F77 /* PaymentMethodsResponseModel.swift */; };
+		393974C62B403D0500B65F77 /* PaymentMethodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974C52B403D0500B65F77 /* PaymentMethodModel.swift */; };
+		393974C82B40469E00B65F77 /* PaymentCodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974C72B40469E00B65F77 /* PaymentCodModel.swift */; };
+		393974CC2B40476900B65F77 /* PaymentMethodsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974CB2B40476900B65F77 /* PaymentMethodsData.swift */; };
+		393974CE2B42D1F600B65F77 /* PaymentGatewayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974CD2B42D1F600B65F77 /* PaymentGatewayModel.swift */; };
+		393974D02B42D34D00B65F77 /* RouteCheckoutPaymentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974CF2B42D34D00B65F77 /* RouteCheckoutPaymentApi.swift */; };
+		393974D22B434A4300B65F77 /* PaymentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974D12B434A4300B65F77 /* PaymentConfig.swift */; };
+		393974D52B4352B300B65F77 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 393974D42B4352B300B65F77 /* CryptoSwift */; };
 		393B2F762AEFBF1C00827026 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2F752AEFBF1C00827026 /* RegisterViewModel.swift */; };
 		393B2F782AEFBF2F00827026 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2F772AEFBF2F00827026 /* LoginViewModel.swift */; };
 		393B2F7B2AEFC9C200827026 /* RegisterWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2F7A2AEFC9C200827026 /* RegisterWebServiceProtocol.swift */; };
@@ -897,6 +907,15 @@
 		393613D92AB79F5F007289DE /* CategoryDetailsCoverPhoto3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsCoverPhoto3.swift; sourceTree = "<group>"; };
 		393613DB2AB79F6D007289DE /* CategoryDetailsCoverPhoto3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryDetailsCoverPhoto3.xib; sourceTree = "<group>"; };
 		393613DD2AB8C92B007289DE /* CategoryDetailsGridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryDetailsGridViewController.xib; sourceTree = "<group>"; };
+		393974BE2B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPaymentMethodTableViewCell.swift; sourceTree = "<group>"; };
+		393974BF2B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutPaymentMethodTableViewCell.xib; sourceTree = "<group>"; };
+		393974C32B403CFB00B65F77 /* PaymentMethodsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsResponseModel.swift; sourceTree = "<group>"; };
+		393974C52B403D0500B65F77 /* PaymentMethodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodModel.swift; sourceTree = "<group>"; };
+		393974C72B40469E00B65F77 /* PaymentCodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCodModel.swift; sourceTree = "<group>"; };
+		393974CB2B40476900B65F77 /* PaymentMethodsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsData.swift; sourceTree = "<group>"; };
+		393974CD2B42D1F600B65F77 /* PaymentGatewayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentGatewayModel.swift; sourceTree = "<group>"; };
+		393974CF2B42D34D00B65F77 /* RouteCheckoutPaymentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCheckoutPaymentApi.swift; sourceTree = "<group>"; };
+		393974D12B434A4300B65F77 /* PaymentConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfig.swift; sourceTree = "<group>"; };
 		393B2F752AEFBF1C00827026 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		393B2F772AEFBF2F00827026 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		393B2F7A2AEFC9C200827026 /* RegisterWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWebServiceProtocol.swift; sourceTree = "<group>"; };
@@ -1286,6 +1305,7 @@
 				5DD25E6BE6439F847CF666F8 /* Pods_BuildUp.framework in Frameworks */,
 				399318472B348E8B00B15A43 /* PhoneNumberKit in Frameworks */,
 				394D8CA22B3481DA009386AD /* SDWebImageSVGCoder in Frameworks */,
+				393974D52B4352B300B65F77 /* CryptoSwift in Frameworks */,
 				39B8C8182B3487B000C0B8B4 /* CountryPickerView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2151,6 +2171,8 @@
 		3932B28C2B12821500283B3D /* PaymentStep */ = {
 			isa = PBXGroup;
 			children = (
+				393974C22B3FADF400B65F77 /* Model */,
+				393974BD2B3FABFF00B65F77 /* Cells */,
 				3932B2182B11303B00283B3D /* CheckoutPaymentViewController.swift */,
 				3932B2192B11303B00283B3D /* CheckoutPaymentViewController.xib */,
 				3932B2902B12829500283B3D /* CheckoutPaymentViewModel.swift */,
@@ -2291,6 +2313,28 @@
 				393613DB2AB79F6D007289DE /* CategoryDetailsCoverPhoto3.xib */,
 			);
 			path = CoverPhoto;
+			sourceTree = "<group>";
+		};
+		393974BD2B3FABFF00B65F77 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				393974BE2B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.swift */,
+				393974BF2B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		393974C22B3FADF400B65F77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				393974C32B403CFB00B65F77 /* PaymentMethodsResponseModel.swift */,
+				393974C52B403D0500B65F77 /* PaymentMethodModel.swift */,
+				393974CD2B42D1F600B65F77 /* PaymentGatewayModel.swift */,
+				393974CB2B40476900B65F77 /* PaymentMethodsData.swift */,
+				393974C72B40469E00B65F77 /* PaymentCodModel.swift */,
+				393974D12B434A4300B65F77 /* PaymentConfig.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		393B2F792AEFBF4500827026 /* Cells */ = {
@@ -2903,6 +2947,7 @@
 				3932B27D2B1277B100283B3D /* RouteCitiesApi.swift */,
 				390C3B522B14DC9100E40849 /* RouteAreasApi.swift */,
 				3932B29A2B12837A00283B3D /* RouteCheckoutShippingApi.swift */,
+				393974CF2B42D34D00B65F77 /* RouteCheckoutPaymentApi.swift */,
 				3932B29E2B12839E00283B3D /* RouteCheckoutReviewApi.swift */,
 				3932B2A72B134F1C00283B3D /* RouteAddressesApi.swift */,
 				398EC8932B2B16BC003D3762 /* RouteDefaultAddressApi.swift */,
@@ -3295,6 +3340,7 @@
 				394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */,
 				39B8C8172B3487B000C0B8B4 /* CountryPickerView */,
 				399318462B348E8B00B15A43 /* PhoneNumberKit */,
+				393974D42B4352B300B65F77 /* CryptoSwift */,
 			);
 			productName = BuildUp;
 			productReference = 393174182A19134A00AF64BC /* BuildUp.app */;
@@ -3377,6 +3423,7 @@
 				394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
 				399318452B348E8B00B15A43 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+				393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = 393174192A19134A00AF64BC /* Products */;
 			projectDirPath = "";
@@ -3477,6 +3524,7 @@
 				390E6D692A90327A009ECC00 /* ShimmerProductVerticalGrid4CollectionViewCell.xib in Resources */,
 				3999AA732AD1BFE5007D0ACB /* Montserrat-Light.ttf in Resources */,
 				393B2F972AEFDC0200827026 /* RegisterEmailTableViewCell.xib in Resources */,
+				393974C12B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.xib in Resources */,
 				3999AA722AD1BFE5007D0ACB /* Montserrat-Black.ttf in Resources */,
 				3932B2822B127F1300283B3D /* AddNewAddressCountryTableViewCell.xib in Resources */,
 				3999AA7E2AD1BFFB007D0ACB /* Poppins-Bold.ttf in Resources */,
@@ -3705,8 +3753,10 @@
 			files = (
 				395D3B982A977B5D00DA9859 /* ProductVerticalList2InnerTableViewCell.swift in Sources */,
 				393174202A19134A00AF64BC /* ViewController.swift in Sources */,
+				393974C82B40469E00B65F77 /* PaymentCodModel.swift in Sources */,
 				393613D22AB78E9B007289DE /* CategoryDetailsCoverPhoto1.swift in Sources */,
 				39CE76742A2F60880019A485 /* DeepCopyService.swift in Sources */,
+				393974C42B403CFB00B65F77 /* PaymentMethodsResponseModel.swift in Sources */,
 				390DC2252B1E313200E1CBA9 /* OrderDetailsSummaryTableViewCell.swift in Sources */,
 				390C3BAB2B16649700E40849 /* UIWindow+Pager.swift in Sources */,
 				39CE76E32A2F95C20019A485 /* AdModel.swift in Sources */,
@@ -3733,6 +3783,7 @@
 				3932B2892B127F3D00283B3D /* AddNewAddressDetailsTableViewCell.swift in Sources */,
 				39AE9CA12AA239FD0075E99F /* RecommentedProductsType1CollectionViewCell.swift in Sources */,
 				393613B42AB52217007289DE /* CategoryDetailsListViewController.swift in Sources */,
+				393974C62B403D0500B65F77 /* PaymentMethodModel.swift in Sources */,
 				3932B2B82B13671200283B3D /* AddNewAddressViewController+Tableview.swift in Sources */,
 				39CE76E52A2F95C20019A485 /* AdsResponseModel.swift in Sources */,
 				39F583762A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.swift in Sources */,
@@ -3869,6 +3920,7 @@
 				391529CA2A2FC25D007F7E09 /* ProductVerticalList1TableViewCell.swift in Sources */,
 				393B2FA52AEFFD0000827026 /* SubdomainWebServiceProtocol.swift in Sources */,
 				39730D2C2AA1289A0088C9ED /* ProductDetailsVariants1TableViewCell.swift in Sources */,
+				393974D22B434A4300B65F77 /* PaymentConfig.swift in Sources */,
 				3932B2742B12704300283B3D /* AddressTableViewCell.swift in Sources */,
 				39CE76CF2A2F952F0019A485 /* HomeViewController.swift in Sources */,
 				393613C82AB5C171007289DE /* CoverPhotoModel.swift in Sources */,
@@ -3876,6 +3928,7 @@
 				395D3BD12A9A2A3000DA9859 /* ProductDetailsAddToCartType2TableViewCell.swift in Sources */,
 				39CE76912A2F61170019A485 /* Data+Extensions.swift in Sources */,
 				390C3BD82B175F8300E40849 /* OrderStatusView.swift in Sources */,
+				393974C02B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.swift in Sources */,
 				39CE76B52A2F62310019A485 /* Localized.swift in Sources */,
 				391529F12A347F37007F7E09 /* ProductVerticalList3TableViewCell.swift in Sources */,
 				39C91A262AB8E34600C10C16 /* RouteCategoriesListApi.swift in Sources */,
@@ -3991,6 +4044,7 @@
 				39F9D10D2AD74EC6007BB6B9 /* QRCodeReader.swift in Sources */,
 				39DD4DFD2AF2C64F009D3CEF /* ResetPasswordWebServiceProtocol.swift in Sources */,
 				393613972AB47561007289DE /* ProductListWebServiceProtocol.swift in Sources */,
+				393974CE2B42D1F600B65F77 /* PaymentGatewayModel.swift in Sources */,
 				390C3B642B14DD5100E40849 /* AreasViewModel.swift in Sources */,
 				390C3BAE2B16649700E40849 /* ButtonBarView.swift in Sources */,
 				3950B0A82A6AE56000E27111 /* ComponentsFilterModel.swift in Sources */,
@@ -4007,6 +4061,7 @@
 				3950B0A02A6ABFD300E27111 /* ThemeConfigurationDataModel.swift in Sources */,
 				390DC2102B1DF10400E1CBA9 /* OrderDetailsResponseModel.swift in Sources */,
 				39F5836A2A7FD1E80060C4E1 /* BannerModel.swift in Sources */,
+				393974D02B42D34D00B65F77 /* RouteCheckoutPaymentApi.swift in Sources */,
 				390C3BC62B17515A00E40849 /* PastOrderTableViewCell.swift in Sources */,
 				39C6C4AB2A3CC9CA00F11A6F /* CategoriesHorizontalList1TableViewCell.swift in Sources */,
 				39F5836C2A819BBE0060C4E1 /* RouteConfigurationApi.swift in Sources */,
@@ -4093,6 +4148,7 @@
 				395D3BA02A995C0200DA9859 /* ShimmerCategoriesHorizontal2CollectionViewCell.swift in Sources */,
 				393B2FA72AF0137E00827026 /* RegisterViewController+TableView.swift in Sources */,
 				3932B2692B126F4700283B3D /* AddressesViewModel.swift in Sources */,
+				393974CC2B40476900B65F77 /* PaymentMethodsData.swift in Sources */,
 				39821FBB2AFBA01700388254 /* FirebaseProductModel.swift in Sources */,
 				3999AA512AC59D2D007D0ACB /* CartSummeryModel.swift in Sources */,
 				3999AA542ACD688C007D0ACB /* CategoryDetailsProductsView.swift in Sources */,
@@ -4887,6 +4943,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
 		394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
@@ -4922,6 +4986,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		393974D42B4352B300B65F77 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
 		394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;

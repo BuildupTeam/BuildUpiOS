@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import CryptoSwift
+import Foundation
+import ObjectMapper
+import CryptoKit
 
 class CheckoutPaymentViewController: BaseViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var cashCheckView: UIView!
-    @IBOutlet private weak var onlineCheckView: UIView!
     @IBOutlet private weak var headerView: CheckoutStatusView!
-    @IBOutlet private weak var onlinePaymentLabel: UILabel!
-    @IBOutlet private weak var cashLabel: UILabel!
     @IBOutlet private weak var choosePaymentLabel: UILabel!
     @IBOutlet private weak var continueButton: UIButton!
     
@@ -22,9 +23,22 @@ class CheckoutPaymentViewController: BaseViewController {
 
     var checkoutModel: CheckoutModel?
 
+    var viewModel: CheckoutPaymentViewModel!
+    
+    init(viewModel: CheckoutPaymentViewModel) {
+        super.init(viewModel: viewModel)
+        self.viewModel = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        getPaymentMethods()
+        handleResponse()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +52,8 @@ class CheckoutPaymentViewController: BaseViewController {
     }
     
     private func setupView() {
+        registerTableViewCells()
+        
         headerView.setupView()
         headerView.setupPaymentView()
         headerView.backgroundColor = ThemeManager.colorPalette?.mainBg2?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg2 ?? "")
@@ -46,19 +62,8 @@ class CheckoutPaymentViewController: BaseViewController {
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
         choosePaymentLabel.text = L10n.Checkout.choosePayment
-        cashLabel.text = L10n.Checkout.cashOnDelivery
-        onlinePaymentLabel.text = L10n.Checkout.onlinePayement
-        
         choosePaymentLabel.font = .appFont(ofSize: 15, weight: .semiBold)
-        cashLabel.font = .appFont(ofSize: 13, weight: .medium)
-        onlinePaymentLabel.font = .appFont(ofSize: 13, weight: .medium)
-        
         choosePaymentLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
-        cashLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
-        onlinePaymentLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
-        
-        cashCheckView.showView()
-        onlineCheckView.hideView()
         
         continueButton.layer.masksToBounds = true
         continueButton.layer.cornerRadius = 8
@@ -66,36 +71,71 @@ class CheckoutPaymentViewController: BaseViewController {
         continueButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         continueButton.setTitle(L10n.Checkout.continue, for: .normal)
         continueButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+    }
+    
+    private func getPaymentMethods() {
+        if let countryCode = checkoutModel?.countryCodeText {
+            self.viewModel.getPaymentMethods(countryCode: countryCode)
+        }
+    }
+    
+    private func registerTableViewCells() {
+        self.tableView.register(
+            UINib(nibName: CheckoutPaymentMethodTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: CheckoutPaymentMethodTableViewCell.identifier)
+    }
+}
+
+// MARK: - TableView Delegate && DataSource
+extension CheckoutPaymentViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.paymentMethods?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CheckoutPaymentMethodTableViewCell.identifier,
+            for: indexPath) as? CheckoutPaymentMethodTableViewCell
+        else { return UITableViewCell() }
         
-        cashCheckView.layer.masksToBounds = true
-        cashCheckView.layer.cornerRadius = cashCheckView.frame.size.width / 2
-        cashCheckView.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+        cell.paymentMethodModel = self.viewModel.paymentMethods?[indexPath.row]
         
-        onlineCheckView.layer.masksToBounds = true
-        onlineCheckView.layer.cornerRadius = onlineCheckView.frame.size.width / 2
-        onlineCheckView.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let paymentMethods = self.viewModel.paymentMethods {
+            for address in paymentMethods {
+                address.isSelected = false
+            }
+            if let model = self.viewModel.paymentMethods?[indexPath.row] {
+                model.isSelected = true
+                self.viewModel.paymentMethods?[indexPath.row] = model
+                self.checkoutModel?.paymentMethod = model
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
 // MARK: Actions
 extension CheckoutPaymentViewController {
-    @IBAction func cashPaymentAction(_ sender: UIButton) {
-        cashCheckView.showView()
-        onlineCheckView.hideView()
-        
-        checkoutModel?.paymentMethod = "cod"
-    }
-    
-    @IBAction func onlinePaymentAction(_ sender: UIButton) {
-        cashCheckView.hideView()
-        onlineCheckView.showView()
-        checkoutModel?.paymentMethod = "paytabs"
-    }
-    
     @IBAction func continueAction(_ sender: UIButton) {
 //        self.showLoading()
         let checkoutReviewVC = Coordinator.Controllers.createCheckoutReviewViewController()
         checkoutReviewVC.checkoutModel = self.checkoutModel
         self.navigationController?.pushViewController(checkoutReviewVC, animated: true)
+    }
+}
+
+// MARK: Responses
+extension CheckoutPaymentViewController {
+    func handleResponse() {
+        self.viewModel.onPaymentMethods = { [weak self]() in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            self.tableView.reloadData()
+        }
     }
 }

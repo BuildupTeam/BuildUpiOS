@@ -187,8 +187,8 @@ class Coordinator {
             return viewController
         }
         
-        class func createCheckoutPaymentViewController() -> CheckoutPaymentViewController {
-            let viewController = CheckoutPaymentViewController()
+        class func createCheckoutPaymentViewController(viewModel: CheckoutPaymentViewModel = CheckoutPaymentViewModel()) -> CheckoutPaymentViewController {
+            let viewController = CheckoutPaymentViewController(viewModel: viewModel)
             return viewController
         }
         

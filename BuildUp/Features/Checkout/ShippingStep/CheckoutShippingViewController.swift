@@ -107,11 +107,14 @@ extension CheckoutShippingViewController {
         let phone = CachingService.getUser()?.customer?.phone
         let phoneCode = "+\(CachingService.getUser()?.customer?.countryCode ?? "")"
         let countryFlag = countryPickerView.getCountryByPhoneCode(phoneCode)?.flag
+        let countryCodeText = countryPickerView.getCountryByPhoneCode(phoneCode)?.code
+        
         
         checkoutModel.name = userName
         checkoutModel.email = email
         checkoutModel.phone = phone
         checkoutModel.countryCode = phoneCode
+        checkoutModel.countryCodeText = countryCodeText
         checkoutModel.countryFlag = countryFlag
         
         self.tableView.reloadData()
