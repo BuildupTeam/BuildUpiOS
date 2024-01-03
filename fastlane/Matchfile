@@ -1,5 +1,4 @@
-# git_url("https://github.com/BuildupTeam/FastlaneSigning.git")
-git_url("https://github.com/BuildupTeam/DevopsTesting.git")
+git_url("https://github.com/BuildupTeam/FastlaneSigning.git")
 
 storage_mode("git")
 
