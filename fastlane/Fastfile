@@ -53,6 +53,14 @@ platform :ios do
 
  desc "deploy"
   lane :deploy do
+ios_version = "14.0" # Replace with your desired version
+update_xcodeproj(
+      # xcodeproj: "path/to/YourProject.xcodeproj", # Replace with your project path
+      target: "BuildUp", # Replace with your target name
+      build_settings: {
+        'IPHONEOS_DEPLOYMENT_TARGET' => ios_version
+      }
+    )
     setup_ci
     sync_code_signing(
       type: "appstore",
