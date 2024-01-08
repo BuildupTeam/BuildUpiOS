@@ -70,6 +70,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         subcategoryTabs = aDecoder.decodeObject(forKey: "subcategoryTabs") as? SubcategoryTabsModel
         productsList = aDecoder.decodeObject(forKey: "productsList") as? ProductsListModel
         recommendedProducts = aDecoder.decodeObject(forKey: "recommendedProducts") as? RecommendedProductsModel
+        colorsCombination = aDecoder.decodeObject(forKey: "colorsCombination") as? [String]
     }
     
     @objc
@@ -118,6 +119,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         }
         if tabbarDesign != nil {
             aCoder.encode(tabbarDesign, forKey: "tabbarDesign")
+        }
+        if colorsCombination != nil {
+            aCoder.encode(colorsCombination, forKey: "colorsCombination")
         }
     }
 }

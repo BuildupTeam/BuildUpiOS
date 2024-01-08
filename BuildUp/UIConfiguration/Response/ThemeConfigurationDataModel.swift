@@ -19,7 +19,6 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
         
     }
     
-    
     func mapping(map: Map) {
         id <- map["id"]
         font <- map["font"]

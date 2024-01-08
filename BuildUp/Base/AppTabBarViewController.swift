@@ -35,6 +35,12 @@ class AppTabBarViewController: UITabBarController {
         self.tabBar.selectionIndicatorImage = UIImage()
 //        self.tabBar.items?.forEach({ $0.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: -2.0) })
 
+        if let activeColorCombination = tabbarSettings?.colorsCombination?.first {
+            self.tabBar.tintColor = ThemeManager.colorPalette?.getTabbarActiveColor(activeColorCombination).toUIColor(hexa: ThemeManager.colorPalette?.getTabbarActiveColor(activeColorCombination) ?? "")
+//                .buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
+            self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.buttonIconColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonIconColor4 ?? "")
+        }
+        
         setupTabbarShadow()
         getCachedData()
         initialize()
@@ -61,13 +67,30 @@ class AppTabBarViewController: UITabBarController {
         
         switch tabbarSettings?.tabbarDesign {
         case TabbarDesign.tabbar1.rawValue:
-            self.setupTabbar3()
+            self.setupTabbar1()
         case TabbarDesign.tabbar1.rawValue:
             self.setupTabbar2()
         case TabbarDesign.tabbar1.rawValue:
             self.setupTabbar3()
         default:
             return
+        }
+        
+        if let activeColorCombination = tabbarSettings?.colorsCombination?.first {
+            switch activeColorCombination {
+            case "tab_bar_active_1":
+                self.tabBar.tintColor = ThemeManager.colorPalette?.tabBarActive1?.toUIColor(hexa: ThemeManager.colorPalette?.tabBarActive1 ?? "")
+                self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.tabBarInactive1?.toUIColor(hexa: ThemeManager.colorPalette?.tabBarInactive1 ?? "")
+            case "tab_bar_active_2":
+                self.tabBar.tintColor = ThemeManager.colorPalette?.tabBarActive2?.toUIColor(hexa: ThemeManager.colorPalette?.tabBarActive2 ?? "")
+                self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.tabBarInactive2?.toUIColor(hexa: ThemeManager.colorPalette?.tabBarInactive2 ?? "")
+            case "tab_bar_active_3":
+                self.tabBar.tintColor = ThemeManager.colorPalette?.tabBarActive3?.toUIColor(hexa: ThemeManager.colorPalette?.tabBarActive3 ?? "")
+                self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.tabBarInactive3?.toUIColor(hexa: ThemeManager.colorPalette?.tabBarInactive3 ?? "")
+            default:
+                self.tabBar.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
+                self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.buttonIconColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonIconColor4 ?? "")
+            }
         }
     }
     
