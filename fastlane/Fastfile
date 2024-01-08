@@ -59,16 +59,6 @@ platform :ios do
       app_identifier: 'com.squadio.buildUp',
       readonly: true
     )
-
-ios_version = "15.0" # Replace with your desired version
-update_xcodeproj(
-      # xcodeproj: "path/to/YourProject.xcodeproj", # Replace with your project path
-      target: "BuildUp", # Replace with your target name
-      build_settings: {
-        'IPHONEOS_DEPLOYMENT_TARGET' => ios_version
-      }
-    )
-
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
   key_id: "Y99X6X5676",
