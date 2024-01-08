@@ -54,6 +54,12 @@ platform :ios do
  desc "deploy"
   lane :deploy do
     setup_ci
+ios_version = "14.0" # Change this to the iOS version supported by your Xcode
+gym(
+      scheme: "BuildUp", # Replace with your app's scheme
+      export_xcodebuild_args: "-sdk iphoneos#{ios_version}" # Sets the SDK version
+    )
+
     sync_code_signing(
       type: "appstore",
       app_identifier: 'com.squadio.buildUp',
