@@ -140,72 +140,10 @@
             filePath = "BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "paymentManager(didFinishTransaction:error:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2 - 643da0271dfbbbea"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "271"
-                  endingLineNumber = "271"
-                  offsetFromSymbolStart = "4534">
-               </Location>
-               <Location
-                  uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2 - 643da0271dfbbbcb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "270"
-                  endingLineNumber = "270"
-                  offsetFromSymbolStart = "4534">
-               </Location>
-               <Location
-                  uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2 - 643da0271dfa46f2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "295"
-                  endingLineNumber = "295"
-                  offsetFromSymbolStart = "4534">
-               </Location>
-               <Location
-                  uuid = "471EC874-787B-4A47-8B1C-9B0C3E8820D2 - 643da0271dfa4695"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "296"
-                  endingLineNumber = "296"
-                  offsetFromSymbolStart = "4534">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,87 +156,10 @@
             filePath = "BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "paymentManager(didFinishTransaction:error:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AB86A49C-26D3-44BC-8BDC-29B9C4F61974 - 643da0271dfbbaf5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "264"
-                  endingLineNumber = "264"
-                  offsetFromSymbolStart = "4084">
-               </Location>
-               <Location
-                  uuid = "AB86A49C-26D3-44BC-8BDC-29B9C4F61974 - 643da0271dfbbaf5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "264"
-                  endingLineNumber = "264"
-                  offsetFromSymbolStart = "3432">
-               </Location>
-               <Location
-                  uuid = "AB86A49C-26D3-44BC-8BDC-29B9C4F61974 - 643da0271dfbbad2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "263"
-                  endingLineNumber = "263"
-                  offsetFromSymbolStart = "3432">
-               </Location>
-               <Location
-                  uuid = "AB86A49C-26D3-44BC-8BDC-29B9C4F61974 - 643da0271dfbb99d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "288"
-                  endingLineNumber = "288"
-                  offsetFromSymbolStart = "3432">
-               </Location>
-               <Location
-                  uuid = "AB86A49C-26D3-44BC-8BDC-29B9C4F61974 - 643da0271dfbb9bc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.paymentManager(didFinishTransaction: Swift.Optional&lt;PaymentSDK.PaymentSDKTransactionDetails&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "289"
-                  endingLineNumber = "289"
-                  offsetFromSymbolStart = "3432">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1070,13 +931,13 @@
             filePath = "BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "decryptMsg(config:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D8E6622C-9DBE-4B37-8F53-B2CE2AA54106 - 1b190ea9598dea3d"
+                  uuid = "D8E6622C-9DBE-4B37-8F53-B2CE2AA54106 - 1b190ea9598deab1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1086,12 +947,12 @@
                   urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "2235">
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "1983">
                </Location>
                <Location
-                  uuid = "D8E6622C-9DBE-4B37-8F53-B2CE2AA54106 - 1b190ea9598dea3d"
+                  uuid = "D8E6622C-9DBE-4B37-8F53-B2CE2AA54106 - 1b190ea9598deab1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1101,87 +962,9 @@
                   urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "2242">
-               </Location>
-               <Location
-                  uuid = "D8E6622C-9DBE-4B37-8F53-B2CE2AA54106 - 1b190ea9598dea3d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.decryptMsg(config: Swift.String) -&gt; Swift.Optional&lt;BuildUp.PaymentConfig&gt;"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "2236">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BCE73327-A19F-4F1F-A5B4-F814F6CED2E2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "decryptMsg(config:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BCE73327-A19F-4F1F-A5B4-F814F6CED2E2 - 1b190ea9598debb9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.decryptMsg(config: Swift.String) -&gt; Swift.Optional&lt;BuildUp.PaymentConfig&gt;"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "1634">
-               </Location>
-               <Location
-                  uuid = "BCE73327-A19F-4F1F-A5B4-F814F6CED2E2 - 1b190ea9598debb9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.decryptMsg(config: Swift.String) -&gt; Swift.Optional&lt;BuildUp.PaymentConfig&gt;"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "1640">
-               </Location>
-               <Location
-                  uuid = "BCE73327-A19F-4F1F-A5B4-F814F6CED2E2 - 1b190ea9598debb9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CheckoutReviewViewController.decryptMsg(config: Swift.String) -&gt; Swift.Optional&lt;BuildUp.PaymentConfig&gt;"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "1623">
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "2218">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1277,6 +1060,54 @@
             startingLineNumber = "85"
             endingLineNumber = "85"
             landmarkName = "initialize()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1479E017-AAC4-4143-BB13-83847C18A9AF - 7791f9493e80d5fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.AppTabBarViewController.initialize() -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Base/AppTabBarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "4883">
+               </Location>
+               <Location
+                  uuid = "1479E017-AAC4-4143-BB13-83847C18A9AF - 7791f9493e80d5fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BuildUp.AppTabBarViewController.initialize() -&gt; ()"
+                  moduleName = "BuildUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Base/AppTabBarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "4889">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9CE58CBC-9B5D-4E81-94E1-94DD1AC8AEE8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/Checkout/ReviewStep/CheckoutReviewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "decryptMsg(config:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

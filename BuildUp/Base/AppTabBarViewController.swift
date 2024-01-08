@@ -68,9 +68,9 @@ class AppTabBarViewController: UITabBarController {
         switch tabbarSettings?.tabbarDesign {
         case TabbarDesign.tabbar1.rawValue:
             self.setupTabbar1()
-        case TabbarDesign.tabbar1.rawValue:
+        case TabbarDesign.tabbar2.rawValue:
             self.setupTabbar2()
-        case TabbarDesign.tabbar1.rawValue:
+        case TabbarDesign.tabbar3.rawValue:
             self.setupTabbar3()
         default:
             return

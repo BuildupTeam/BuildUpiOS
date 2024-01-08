@@ -139,6 +139,9 @@ extension CheckoutReviewViewController {
             let encryptedData = Array(decodedData[16..<(decodedData.count - 32)])
             let secret = SymmetricKey(data: key)
             /* Decrypt the message, given derived encContentValues and initialization vector. */
+            
+            let padding = Padding.noPadding.add(to: encryptedData, blockSize: AES.blockSize)
+
             let cipher = try AES(key: key, blockMode: CBC(iv: iv), padding: .pkcs7)
 //            let cipher = try AES(key: secret, iv: iv, padding: .noPadding)
             let decryptedData = try cipher.decrypt(encryptedData)
@@ -148,6 +151,7 @@ extension CheckoutReviewViewController {
                 //try JSONDecoder().decode(PaymentConfig.self, from: json.data(using: .utf8)!)
             }
         } catch {
+            print("error = \(error)")
             return nil
         }
         return nil
