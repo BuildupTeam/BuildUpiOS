@@ -3419,11 +3419,11 @@
 			);
 			mainGroup = 3931740F2A19134A00AF64BC;
 			packageReferences = (
-				394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder.git" */,
-				394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
-				39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView.git" */,
+				394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */,
 				399318452B348E8B00B15A43 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
-				393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */,
+				393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = 393174192A19134A00AF64BC /* Products */;
 			projectDirPath = "";
@@ -4382,7 +4382,7 @@
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4428,7 +4428,7 @@
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4665,7 +4665,7 @@
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4817,7 +4817,7 @@
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4943,7 +4943,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */ = {
+		393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
@@ -4951,7 +4951,7 @@
 				minimumVersion = 1.8.0;
 			};
 		};
-		394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder.git" */ = {
+		394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
 			requirement = {
@@ -4959,7 +4959,7 @@
 				minimumVersion = 1.7.0;
 			};
 		};
-		394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
+		394D8CA32B3481F7009386AD /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -4975,7 +4975,7 @@
 				minimumVersion = 3.7.6;
 			};
 		};
-		39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView.git" */ = {
+		39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kizitonwose/CountryPickerView.git";
 			requirement = {
@@ -4988,12 +4988,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		393974D42B4352B300B65F77 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */;
+			package = 393974D32B4352B300B65F77 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
 		394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder.git" */;
+			package = 394D8CA02B3481DA009386AD /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
 			productName = SDWebImageSVGCoder;
 		};
 		399318462B348E8B00B15A43 /* PhoneNumberKit */ = {
@@ -5003,7 +5003,7 @@
 		};
 		39B8C8172B3487B000C0B8B4 /* CountryPickerView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView.git" */;
+			package = 39B8C8162B3487B000C0B8B4 /* XCRemoteSwiftPackageReference "CountryPickerView" */;
 			productName = CountryPickerView;
 		};
 /* End XCSwiftPackageProductDependency section */
