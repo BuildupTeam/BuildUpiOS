@@ -18,6 +18,9 @@ default_platform(:ios)
 before_all do
     ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "tvng-tntn-ijci-zfxk"
     ENV["FASTLANE_PASSWORD"] = "Sobhy288"
+
+# Install the required pods
+    cocoapods
   end
 
 platform :ios do
@@ -53,7 +56,8 @@ platform :ios do
 
  desc "deploy"
   lane :deploy do
-    # setup_ci
+    clean_build_artifacts
+
     sync_code_signing(
       type: "appstore",
       app_identifier: 'com.squadio.buildUp',
