@@ -53,8 +53,6 @@ platform :ios do
 
  desc "deploy"
   lane :deploy do
-    clean_build_artifacts
-
     sync_code_signing(
       type: "appstore",
       app_identifier: 'com.squadio.buildUp',
