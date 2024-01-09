@@ -448,69 +448,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6923A316-1352-44FE-A7B4-48F55858734F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Network/Service/RealTimeDatabaseService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "getFavoriteProducts(compeltion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6923A316-1352-44FE-A7B4-48F55858734F - 1c0b52fabb745b0f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in static BuildUp.RealTimeDatabaseService.getFavoriteProducts(compeltion: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "243"
-                  endingLineNumber = "243"
-                  offsetFromSymbolStart = "723">
-               </Location>
-               <Location
-                  uuid = "6923A316-1352-44FE-A7B4-48F55858734F - 36a536d5dd48172e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static BuildUp.RealTimeDatabaseService.getFavoriteProducts(compeltion: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "243"
-                  endingLineNumber = "243"
-                  offsetFromSymbolStart = "121">
-               </Location>
-               <Location
-                  uuid = "6923A316-1352-44FE-A7B4-48F55858734F - 1c0b52fabb745b0f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in static BuildUp.RealTimeDatabaseService.getFavoriteProducts(compeltion: (Swift.Array&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Network/Service/RealTimeDatabaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "243"
-                  endingLineNumber = "243"
-                  offsetFromSymbolStart = "120">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5542DED2-2315-4F0F-ABAF-8C5C31D55028"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -782,84 +719,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DD449AB4-4FE5-4F6A-9526-CF3372740EE6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Features/Cart/Cells/Products/CartProductList1TableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "bindData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DD449AB4-4FE5-4F6A-9526-CF3372740EE6 - 6240655bfb1d90b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CartProductList1TableViewCell.bindData() -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Cart/Cells/Products/CartProductList1TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "998">
-               </Location>
-               <Location
-                  uuid = "DD449AB4-4FE5-4F6A-9526-CF3372740EE6 - 6240655bfb1d90b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CartProductList1TableViewCell.bindData() -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Cart/Cells/Products/CartProductList1TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "1298">
-               </Location>
-               <Location
-                  uuid = "DD449AB4-4FE5-4F6A-9526-CF3372740EE6 - 6240655bfb1d9157"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CartProductList1TableViewCell.bindData() -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Cart/Cells/Products/CartProductList1TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "998">
-               </Location>
-               <Location
-                  uuid = "DD449AB4-4FE5-4F6A-9526-CF3372740EE6 - 6240655bfb1d9157"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.CartProductList1TableViewCell.bindData() -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Features/Cart/Cells/Products/CartProductList1TableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "1298">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "695AC867-4CD3-4397-8F83-2E16D32F3230"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -951,22 +810,6 @@
                   offsetFromSymbolStart = "165">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "63B3C555-9F20-4C96-A9F2-4A4BBB283479"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Base/BaseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "networkErrorResponse()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1066,132 +909,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F9A1FCAF-A454-4408-B1E5-5499D8E226E8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/UIConfiguration/Response/ColorPaletteModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "getTabbarActiveColor(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F9A1FCAF-A454-4408-B1E5-5499D8E226E8 - 7c193bd4c1cf90e7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.ColorPaletteModel.mapping(map: ObjectMapper.Map) -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/UIConfiguration/Response/ColorPaletteModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "3155">
-               </Location>
-               <Location
-                  uuid = "F9A1FCAF-A454-4408-B1E5-5499D8E226E8 - 8a426241f9cfc763"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.ColorPaletteModel.getTabbarActiveColor(Swift.String) -&gt; Swift.String"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/UIConfiguration/Response/ColorPaletteModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "1030">
-               </Location>
-               <Location
-                  uuid = "F9A1FCAF-A454-4408-B1E5-5499D8E226E8 - 8a426241f9cfc763"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.ColorPaletteModel.getTabbarActiveColor(Swift.String) -&gt; Swift.String"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/UIConfiguration/Response/ColorPaletteModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "1288">
-               </Location>
-               <Location
-                  uuid = "F9A1FCAF-A454-4408-B1E5-5499D8E226E8 - 8a426241f9cfc702"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.ColorPaletteModel.getTabbarActiveColor(Swift.String) -&gt; Swift.String"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/UIConfiguration/Response/ColorPaletteModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "107"
-                  endingLineNumber = "107"
-                  offsetFromSymbolStart = "944">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1479E017-AAC4-4143-BB13-83847C18A9AF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuildUp/Base/AppTabBarViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "initialize()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1479E017-AAC4-4143-BB13-83847C18A9AF - 7791f9493e80d5fb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.AppTabBarViewController.initialize() -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Base/AppTabBarViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "4883">
-               </Location>
-               <Location
-                  uuid = "1479E017-AAC4-4143-BB13-83847C18A9AF - 7791f9493e80d5fb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuildUp.AppTabBarViewController.initialize() -&gt; ()"
-                  moduleName = "BuildUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Base/AppTabBarViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "4889">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9CE58CBC-9B5D-4E81-94E1-94DD1AC8AEE8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1235,6 +952,38 @@
                   offsetFromSymbolStart = "3024">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA31F47D-BACB-4776-BF08-8E1BE3268D04"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Base/BaseViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "getProductsWithFavorites(products:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8CC70C8E-65CC-4610-8E75-13029C76E0FE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuildUp/Features/Lists/Products/ListProducts/ProductsListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "favoriteProductUpdatedResponse()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

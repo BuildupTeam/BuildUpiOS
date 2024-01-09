@@ -30,6 +30,8 @@ class CartViewModel: BaseViewModel {
             switch result {
             case .success(let response):
                 self.cartModel = response.data
+                self.getFavoriteProductsUUIDS()
+                self.cartModel?.products = self.getProductsWithFavorites(products: self.cartModel?.products ?? [])
                 self.onCart?()
             case .failure(let error):
                 print(error)
@@ -37,6 +39,13 @@ class CartViewModel: BaseViewModel {
                     self.onNetworkError?(error)
                 }
             }
+        }
+    }
+    
+    func getFavoriteProductsUUIDS() {
+        ObservationService.observeOnFavorite()
+        RealTimeDatabaseService.getFavoriteProductsFromFirebase { favoriteIDS in
+            NotificationCenter.default.post(name: .favoriteUpdated, object: nil, userInfo: nil)
         }
     }
     

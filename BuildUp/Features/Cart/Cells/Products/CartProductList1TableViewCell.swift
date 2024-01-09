@@ -142,8 +142,10 @@ extension CartProductList1TableViewCell {
             }
             
             if model.isFavorite {
+                addToWishListLabel.text = L10n.Cart.removeWishList
                 self.addToWishListImage.image = Asset.productFavorite.image
             } else {
+                addToWishListLabel.text = L10n.Cart.addWishList
                 self.addToWishListImage.image = Asset.productUnFavorite.image
             }
             

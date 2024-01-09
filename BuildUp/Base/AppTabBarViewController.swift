@@ -23,7 +23,8 @@ class AppTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getCachedData()
+
         self.delegate = self
         self.tabBar.isTranslucent = false
         self.tabBar.layer.borderWidth = 0
@@ -42,7 +43,6 @@ class AppTabBarViewController: UITabBarController {
         }
         
         setupTabbarShadow()
-        getCachedData()
         initialize()
     }
     

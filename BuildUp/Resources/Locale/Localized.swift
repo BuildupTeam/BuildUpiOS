@@ -32,7 +32,7 @@ internal enum L10n {
     }
 
     internal enum Cart {
-        /// Add Wish List
+        /// Add Wishlist
         internal static var addWishList: String {
           return L10n.tr("Localizable", "cart.addWishList")
         }
@@ -55,6 +55,10 @@ internal enum L10n {
         /// Remove
         internal static var remove: String {
           return L10n.tr("Localizable", "cart.remove")
+        }
+        /// Remove Wishlist
+        internal static var removeWishList: String {
+          return L10n.tr("Localizable", "cart.removeWishList")
         }
         /// You saved
         internal static var saved: String {

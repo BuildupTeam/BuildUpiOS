@@ -136,11 +136,13 @@ extension CartProductList2TableViewCell {
                 productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
             
-//            if model.isFavorite {
+            if model.isFavorite {
+                addToWishListLabel.text = L10n.Cart.removeWishList
 //                self.addToWishListImage.image = Asset.productFavorite.image
-//            } else {
+            } else {
+                addToWishListLabel.text = L10n.Cart.addWishList
 //                self.addToWishListImage.image = Asset.productUnFavorite.image
-//            }
+            }
             
             checkIfCanMinusPlus(model: model)
         }

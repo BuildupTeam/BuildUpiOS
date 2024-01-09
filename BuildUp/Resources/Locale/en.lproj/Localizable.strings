@@ -73,7 +73,8 @@
 
 // MARK: - Cart
 "cart.title" = "Cart";
-"cart.addWishList" = "Add Wish List";
+"cart.addWishList" = "Add Wishlist";
+"cart.removeWishList" = "Remove Wishlist";
 "cart.remove" = "Remove";
 "cart.currency" = "SAR ";
 "cart.subtotal" = "Subtotal";

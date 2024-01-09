@@ -223,6 +223,7 @@ extension CartViewController {
     
     private func setupResponses() {
         cartResponse()
+        favoriteProductUpdatedResponse()
     }
 }
 
@@ -250,6 +251,14 @@ extension CartViewController {
                 self.setupEmptyView(screenType: .emptyScreen)
             }
         }
+    }
+    
+    private func favoriteProductUpdatedResponse() {
+        ObservationService.favItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            self.viewModel.cartModel?.products = self.viewModel.getProductsWithFavorites(products: self.viewModel.cartModel?.products ?? [])
+            self.tableView.reloadData()
+        })
     }
 }
 
