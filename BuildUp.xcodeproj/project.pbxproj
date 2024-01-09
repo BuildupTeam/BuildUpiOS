@@ -3646,7 +3646,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		403D52F3CF323179C38EAF17 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -3656,9 +3656,10 @@
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BuildUp/Pods-BuildUp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BuildUp/Pods-BuildUp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		50EC8091B72373B50AB6576A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
