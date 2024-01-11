@@ -230,7 +230,6 @@ extension RealTimeDatabaseService {
     }
     
     static func favoriteUnfavoriteProduct(model: FirebaseFavoriteModel) {
-//        guard let currentUser = Auth.auth().currentUser else { return }
         let ref = getFavoriteNode()?.child(model.uuid ?? "")
         
         ref?.observeSingleEvent(of: .value) { (snapshot) in

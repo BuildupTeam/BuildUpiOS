@@ -60,13 +60,14 @@ class ProductDetailsSliderType3TableViewCell: UITableViewCell {
         productOutOfStockLabel.textColor = ThemeManager.colorPalette?.tabsTextInactive?.toUIColor(hexa: ThemeManager.colorPalette?.tabsTextInactive ?? "")
         
         addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
-        addToFavoriteView.layer.masksToBounds = true
-        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
+//        addToFavoriteView.layer.masksToBounds = true
+//        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
         
         productOutOfStockView.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBg?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBg ?? "")
         productOutOfStockView.layer.masksToBounds = true
         productOutOfStockView.layer.cornerRadius = 4
         
+        ThemeManager.setCornerRadious(element: addToFavoriteView, radius: addToFavoriteView.frame.size.width / 2)
 //        ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
     }
     
@@ -110,6 +111,11 @@ class ProductDetailsSliderType3TableViewCell: UITableViewCell {
     
     @IBAction func favoriteButtonAction(_ sender: UIButton) {
         if let model = productModel {
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            }
             let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
             RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }

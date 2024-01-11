@@ -1787,6 +1787,13 @@
 			path = Shimmer;
 			sourceTree = "<group>";
 		};
+		392948372B5004CA00560AB0 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		3931740F2A19134A00AF64BC = {
 			isa = PBXGroup;
 			children = (
@@ -2898,6 +2905,7 @@
 		39C91A3D2ABA3B1000C10C16 /* CategoriesTab */ = {
 			isa = PBXGroup;
 			children = (
+				392948372B5004CA00560AB0 /* CollectionViewCells */,
 				39D500322B18E23F009C20E1 /* Cell */,
 				39C91A392ABA3B0900C10C16 /* CategoriesTabViewController.swift */,
 				39D5002E2B18DF41009C20E1 /* CategoriesTabViewController+TableView.swift */,

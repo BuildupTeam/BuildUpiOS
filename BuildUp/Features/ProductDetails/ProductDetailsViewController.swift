@@ -41,9 +41,9 @@ class ProductDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupResponse()
         setupView()
         startShimmer()
-        setupResponse()
         getProductDetailsData()
     }
     
@@ -197,12 +197,6 @@ extension ProductDetailsViewController {
         quantityCircleView.isUserInteractionEnabled = false
     }
     
-    private func checktoActivateQuantityAction() {
-//        if let model = self.combinationModel {
-//            
-//        }
-    }
-    
     private func addToCartFirebase() {
         if let model = viewModel.productModel {
             if let combinationModel = model.selectedCombination {
@@ -216,37 +210,6 @@ extension ProductDetailsViewController {
             self.showSuccessMessage(message: "Added To Cart")
         }
     }
-    
-    /*
-    private func checkIfCombinationsExist() {
-        if let model = viewModel.productModel {
-            if model.selectedCombination != nil {
-                activateQuantityView()
-            } else {
-                deactivateQuantityView()
-            }
-//            if let combinations = model.combinations, !combinations.isEmpty {
-//                deactivateQuantityView()
-//            } else {
-//                activateQuantityView()
-//            }
-        }
-    }
-    
-    private func checkIsOutOfStock() {
-        if let model = viewModel.productModel {
-            if model.orderInOutOfStock ?? false {
-                activateQuantityView()
-            } else {
-                if (model.quantity ?? 0) > 0 {
-                    activateQuantityView()
-                } else {
-                    deactivateQuantityView()
-                }
-            }
-        }
-    }
-    */
     
     private func checkToActivateAddToCartButton() {
         if let model = viewModel.productModel {

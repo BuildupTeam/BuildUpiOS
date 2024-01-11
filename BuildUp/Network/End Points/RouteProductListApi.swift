@@ -77,11 +77,9 @@ extension RouteProductListApi: TargetType {
             }
             
             if let subcategories = model.subcategories, !subcategories.isEmpty {
-//                let subcategoriesIDs = model.subcategories?.map({$0.id})
                 parameters["categories_ids"] = subcategories
             } else {
                 if let categories = model.categories, !categories.isEmpty {
-//                    let categoriesIDs = model.categories?.map({$0.id})
                     parameters["categories_ids"] = categories
                 }
             }
@@ -90,10 +88,6 @@ extension RouteProductListApi: TargetType {
             
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
-        
-        //https://my-app-3.backend.buildupapp.co/api/v1/ec/f/products?limit=10&sort[by]=id&sort[dir]=desc&categories_ids[0]=1&discount=&discount_range[from]=null&discount_range[to]=&has_discount='
-        
-        //curl --location -g 'https://my-app-3.backend.buildupapp.co/api/v1/ec/f/products?sort[by]=price&sort[dir]=desc&categories_ids[0]=1&discount=&discount_range[from]=null&discount_range[to]=&has_discount=&cursor_by=id&cursor_dir=desc&cursor_meta=1&per_page=5&cursor='
     }
     
     var headers: [String: String]? {

@@ -42,7 +42,10 @@ extension RouteCategoriesTabApi: TargetType {
     var task: Task {
         switch self {
         case .getCategories(limit: let limit):
-            var parameters: [String: Any] = ["limit": limit]
+            var parameters: [String: Any] = [:]
+            parameters["sort[by]"] = "id"
+            parameters["sort[dir]"] = "desc"
+            parameters["subcategory"] = "1"
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
@@ -50,6 +53,8 @@ extension RouteCategoriesTabApi: TargetType {
             var parameters: [String: Any] = ["per_page": perPage]
             parameters["page"] = page
             parameters["categories_ids[0]"] = model.id
+            parameters["sort[by]"] = "id"
+            parameters["sort[dir]"] = "desc"
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
