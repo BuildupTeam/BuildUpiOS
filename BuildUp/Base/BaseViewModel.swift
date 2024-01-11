@@ -9,6 +9,7 @@ import Foundation
 import Moya
 
 enum ObservationType {
+    case cartUpdated
     case all
 }
 
@@ -18,18 +19,13 @@ class BaseViewModel {
         
     var onNetworkError: ((NetworkError?) -> Void)?
     var onBusinessError: ((String?) -> Void)?
-    var onAuthenticationError: (() -> Void)?
+    var onAuthenticationError: ((BaseResponse) -> Void)?
     var onForceUpdate: ((BaseResponse) -> Void)?
     var onUserData: (() -> Void)?
     var observationType: ObservationType
     var onAdStatusChanged: (() -> Void)?
     var onAdStatusWarning: (() -> Void)?
-    var onRegisterTokenResponse: (() -> Void)?
-    var onDeleteTokenResponse: (() -> Void)?
-    var onDeleteAccount: (() -> Void)?
-    var onVerifyEmail: (() -> Void)?
-    var onIsVerifyEmail: (() -> Void)?
-    var onIsNotVerifyEmail: (() -> Void)?
+    var carItemUpdated: (() -> Void)?
 
     var adModelToUpdate: AdModel?
     
@@ -37,13 +33,13 @@ class BaseViewModel {
         self.baseService = service
         self.observationType = observationType
         
-        if observationType == .all {
-            observeOnAll()
+        if observationType == .cartUpdated {
+//            observeOnCart()
         }
     }
     
     deinit {
-//        removeAllObservations()
+//        removeCartObservations()
     }
     
     func getUserData() {
@@ -212,11 +208,44 @@ class BaseViewModel {
     */
 }
 
+// MARK: - Firebase RealTimeDatabase
+extension BaseViewModel {
+    func getProductsWithCartQuantity(products: [ProductModel]) -> [ProductModel] {
+        guard let defaultCartProducts = CachingService.getDefaultCartProducts() else { return products }
+        for product in products {
+            guard let uuid = product.uuid else { return [] }
+            if defaultCartProducts[uuid] != nil {
+                if let values = defaultCartProducts[uuid] {
+                    product.cartQuantity = values["default"] ?? 0
+                }
+            } else {
+                product.cartQuantity = nil
+            }
+        }
+        
+        return products
+    }
+    
+    func getProductsWithFavorites(products: [ProductModel]) -> [ProductModel] {
+        let favoriteProducts = CachingService.getFavoriteProducts()
+        for product in products {
+            guard let uuid = product.uuid else { return [] }
+            if favoriteProducts.contains(uuid) {
+                product.isFavorite = true
+            } else {
+                product.isFavorite = false
+            }
+        }
+        
+        return products
+    }
+}
+
 // MARK: - Error Handling
 extension BaseViewModel {
     func handleError(response: BaseResponse) {
         if response.statusCode == 401 {
-            self.onAuthenticationError?()
+            self.onAuthenticationError?(response)
         } else {
             if response.code == 12 {
                 self.onForceUpdate?(response)
@@ -227,24 +256,25 @@ extension BaseViewModel {
     }
 }
 
-// MARK: - Observation Handler
+/*
+// MARK: - Firebase & Observation Handler
 extension BaseViewModel {
-    func observeOnAll() {
-        //        NotificationCenter.default.addObserver(
-        //            self,
-        //            selector: #selector(newsBookmarkUpdatedAction(_:)),
-        //            name: .newsBookmarkupdated,
-        //            object: nil)
+    func observeOnCart() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(cartUpdatedAction(_:)),
+            name: .cartupdated,
+            object: nil)
+    }
+    
+    @objc
+    func cartUpdatedAction(_ notification: Notification) {
+        self.carItemUpdated?()
+//        removeCartObservations()
+    }
+    
+    func removeCartObservations() {
+        NotificationCenter.default.removeObserver(self, name: .cartupdated, object: nil)
     }
 }
-
-// MARK: - Intercome
-extension BaseViewModel {
-    private func intercomeLogin() {
-//        if let profileId = CachingService.getUser()?.profileId,
-//            let email = CachingService.getUser()?.email {
-//
-//            Intercom.registerUser(withUserId: "\(profileId)", email: email)
-//        }
-    }
-}
+*/

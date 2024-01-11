@@ -142,7 +142,6 @@ extension CategoriesListViewController {
             guard let `self` = self else { return }
             self.reloadTableViewData()
             self.isReloadingTableView = false
-            print("recieved")
         }
     }
 }

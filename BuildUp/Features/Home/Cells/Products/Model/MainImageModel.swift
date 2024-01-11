@@ -18,6 +18,11 @@ class MainImageModel: NSObject, NSCoding, Mappable {
         
     }
     
+    
+    init(path: String?) {
+        self.path = path
+    }
+    
     func mapping(map: Map) {
         id <- map["id"]
         path <- map["path"]

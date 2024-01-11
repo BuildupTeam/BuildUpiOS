@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddToCartInnerDelegate: AnyObject {
+        
+}
+
 class ProductVerticalList1InnerTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var productImageView: UIImageView!
@@ -19,6 +23,8 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
 
+    weak var delegate: AddToCartDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -43,15 +49,6 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
-
-//        containerView.setShadow(
-//            shadowRadius: CGFloat(5),
-//            xOffset: 0,
-//            yOffset: 0,
-//            color: .black,
-//            opacity: 0.15,
-//            cornerRadius: 8,
-//            masksToBounds: false)
         
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
         ThemeManager.setCornerRadious(element: addToCartView, radius: 8)
@@ -59,7 +56,17 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = productModel {
-            addToCartView.productModel = model
+            if model.hasCombinations ?? false {
+                addToCartView.hideView()
+            } else {
+                if model.getMaxQuantity() > 0 {
+                    addToCartView.showView()
+                    addToCartView.productModel = model
+                } else {
+                    addToCartView.hideView()
+                }
+            }
+            
             productNameLabel.text = model.name ?? ""
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
@@ -79,5 +86,10 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
             }
         }
     }
-    
+}
+
+extension ProductVerticalList1InnerTableViewCell: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        delegate?.productModelUpdated(model, nil)
+    }
 }

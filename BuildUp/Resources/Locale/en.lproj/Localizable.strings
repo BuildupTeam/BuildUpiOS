@@ -64,6 +64,97 @@
 "productDetails.quantityShort" = "Qty";
 "productDetails.currency" = " SAR";
 
+// MARK: - TabBar
+"tabbar.home" = "Home";
+"tabbar.categories" = "Categories";
+"tabbar.cart" = "Cart";
+"tabbar.orders" = "Orders";
+"tabbar.profile" = "Profile";
+
+// MARK: - Cart
+"cart.title" = "Cart";
+"cart.addWishList" = "Add Wishlist";
+"cart.removeWishList" = "Remove Wishlist";
+"cart.remove" = "Remove";
+"cart.currency" = "SAR ";
+"cart.subtotal" = "Subtotal";
+"cart.saved" = "You saved";
+"cart.items" = "Items";
+"cart.checkout" = "Checkout";
+"cart.emptyMessage" = "Your Cart is Empty, start adding products";
+
+// MARK: - Checkout
+"checkout.title" = "Checkout";
+"checkout.shipping" = "Shipping";
+"checkout.shippingInfo" = "Shipping Info";
+"checkout.payment" = "Payment";
+"checkout.review" = "Review";
+"checkout.step1" = "1";
+"checkout.step2" = "2";
+"checkout.step3" = "3";
+"checkout.contactInfo" = "Contact Info";
+"checkout.fullName" = "Full Name";
+"checkout.mobile" = "Mobile no.";
+"checkout.deliveryInfo" = "Delivery Info";
+"checkout.country" = "Country";
+"checkout.countries" = "Countries";
+"checkout.city" = "City";
+"checkout.area" = "Area";
+"checkout.cities" = "Cities";
+"checkout.areas" = "Areas";
+"checkout.detailedAddress" = "Detailed Address";
+"checkout.countryPlaceholder" = "Choose Country";
+"checkout.cityPlaceholder" = "Choose City";
+"checkout.areaPlaceholder" = "Choose Area";
+"checkout.detailedAddressPlaceholder" = "Write Your Detailed Address";
+"checkout.choosePayment" = "Choose payment method";
+"checkout.onlinePayement" = "Online Payement";
+"checkout.cashOnDelivery" = "Cash on delivery";
+"checkout.button.continue" = "Continue";
+"checkout.orderSummery" = "Order Summery";
+"checkout.subtotal" = "Subtotal";
+"checkout.estimatedVat" = "Estimated VAT";
+"checkout.delivery" = "Delivery";
+"checkout.address" = "Address";
+"checkout.change" = "change";
+"checkout.continue" = "Continue";
+"checkout.edit" = "Edit";
+"checkout.addNewAddress" = "Add New Address";
+"checkout.addresses" = "Addresses List";
+"checkout.updateAddress" = "Update Address";
+"checkout.errors.selectCountryFirst" = "Please Choose Your Country First";
+"checkout.errors.selectCityFirst" = "Please Choose Your City First";
+"checkout.items" = "items";
+"checkout.totalAmount" = "Total Amount";
+"checkout.Number" = "Number";
+
+// MARK: - Order History Screen
+"orders.title" = "Order History";
+"orders.current" = "Current";
+"orders.past" = "Past";
+"orders.order" = "Order ";
+"orders.placedOn" = "Placed On ";
+"orders.viewDetails" = "View Details";
+"orders.status.arriving" = "Arriving";
+"orders.status.pending" = "Pending";
+"orders.status.delivered" = "Delivered";
+
+// MARK: - Order Details
+"orderDetails.orderNumber" = "Order #";
+
+// MARK: - Profile Screen
+"profile.editProfile" = "Edit Profile";
+"profile.savedAddresses" = "Saved Addresses";
+"profile.settings" = "Settings";
+"profile.wishlist" = "Wishlist";
+"profile.logout" = "Log out";
+"profile.update.camera" = "Camera";
+"profile.update.gellary" = "Gallery";
+"profile.update.chooseImage" = "Choose Image";
+"profile.update.cancel" = "Cancel";
+"profile.update.updateProfile" = "Update Profile";
+"profile.guest" = "Guest";
+
 // MARK: - QRCode Screen
 "QRCode.title" = "Scan QR Code";
 "QRCode.content" = "Scan the QR Code that appears in the mobile mockup in your dashboard to be able to view your app demo";
@@ -72,6 +163,11 @@
 
 // MARK: - Category Details
 "emptyScreen.noData" = "No Data Found";
+"emptyScreen.loginFirst" = "Please Login First";
+"emptyScreen.button.login" = "Login";
+
+// MARK: - Categories Tab
+"categories.title" = "Categories";
 
 // MARK: - Profile
 "profile.logout" = "logout";

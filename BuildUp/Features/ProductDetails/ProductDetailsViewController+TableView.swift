@@ -196,10 +196,6 @@ extension ProductDetailsViewController {
             for: indexPath) as? ProductDetailsVariants3TableViewCell
         else { return UITableViewCell() }
         
-        let combinationModel = self.viewModel.productModel?.selectedCombination
-        if let model = combinationModel {
-            
-        }
         cell.delegate = self
         cell.optionModel = productModel.options?[indexPath.row]
         cell.selectionStyle = .none

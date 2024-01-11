@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="BuildUp" customModuleProvider="target">
             <connections>
-                <outlet property="containerView" destination="Hgk-h4-ClJ" id="ZQ2-3y-7oc"/>
-                <outlet property="logoutButton" destination="cS3-qp-4Di" id="kqv-aT-0de"/>
+                <outlet property="containerView" destination="tNJ-OC-Sub" id="Hzp-WK-gpi"/>
+                <outlet property="tableView" destination="xax-OT-ILI" id="Ep2-tp-cr6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,32 +21,34 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgk-h4-ClJ">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNJ-OC-Sub">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cS3-qp-4Di">
-                            <rect key="frame" x="157.66666666666666" y="362" width="78" height="35"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xax-OT-ILI">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="logoutAction:" destination="-1" eventType="touchUpInside" id="ZWE-2E-P5s"/>
+                                <outlet property="dataSource" destination="-1" id="PMA-WD-5rg"/>
+                                <outlet property="delegate" destination="-1" id="lxl-0x-fxL"/>
                             </connections>
-                        </button>
+                        </tableView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="cS3-qp-4Di" firstAttribute="centerX" secondItem="Hgk-h4-ClJ" secondAttribute="centerX" id="Xx8-3K-DSA"/>
-                        <constraint firstItem="cS3-qp-4Di" firstAttribute="centerY" secondItem="Hgk-h4-ClJ" secondAttribute="centerY" id="kgT-Lb-YT2"/>
+                        <constraint firstItem="xax-OT-ILI" firstAttribute="leading" secondItem="tNJ-OC-Sub" secondAttribute="leading" id="0p4-Yr-gtd"/>
+                        <constraint firstAttribute="trailing" secondItem="xax-OT-ILI" secondAttribute="trailing" id="kX8-MJ-s0R"/>
+                        <constraint firstAttribute="bottom" secondItem="xax-OT-ILI" secondAttribute="bottom" id="sNM-rt-1Jc"/>
+                        <constraint firstItem="xax-OT-ILI" firstAttribute="top" secondItem="tNJ-OC-Sub" secondAttribute="top" id="vgg-0r-YYl"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Hgk-h4-ClJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bg2-Sh-V4x"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Hgk-h4-ClJ" secondAttribute="bottom" id="dNO-ap-gg9"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hgk-h4-ClJ" secondAttribute="trailing" id="dqh-Uw-0bY"/>
-                <constraint firstItem="Hgk-h4-ClJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pDs-eG-4Al"/>
+                <constraint firstItem="tNJ-OC-Sub" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="6Um-Vx-DwQ"/>
+                <constraint firstItem="tNJ-OC-Sub" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="IiH-0S-tZM"/>
+                <constraint firstAttribute="bottom" secondItem="tNJ-OC-Sub" secondAttribute="bottom" id="Lyw-pm-LGA"/>
+                <constraint firstItem="tNJ-OC-Sub" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SUc-h1-iR1"/>
             </constraints>
             <point key="canvasLocation" x="110" y="21"/>
         </view>

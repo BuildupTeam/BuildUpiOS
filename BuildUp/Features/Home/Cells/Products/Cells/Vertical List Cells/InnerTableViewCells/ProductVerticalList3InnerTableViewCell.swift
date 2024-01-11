@@ -7,9 +7,13 @@
 
 import UIKit
 
+protocol ProductFavoriteDelegate: AnyObject {
+    func productFavorite(model: ProductModel)
+}
+
 class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var productImageView: UIImageView!
+    @IBOutlet weak var productImageView: UIImageView!
     
     @IBOutlet private weak var productNameLabel: UILabel!
     @IBOutlet private weak var productOldPriceLabel: UILabel!
@@ -18,11 +22,15 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var addToFavoriteButton: UIButton!
     
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var addToFavoriteImage: UIImageView!
+    
     @IBOutlet private weak var addToCartView: AddToCartIconView!
     @IBOutlet private weak var addToFavoriteView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
     @IBOutlet private weak var productImageContainerView: UIView!
 
+    weak var delegate: ProductFavoriteDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -47,8 +55,8 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
         
         addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
 
-        addToFavoriteView.layer.masksToBounds = true
-        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
+//        addToFavoriteView.layer.masksToBounds = true
+//        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
 
@@ -70,13 +78,24 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
                                cornerRadius: 8,
                                masksToBounds: false)
         
+        ThemeManager.setCornerRadious(element: addToFavoriteView, radius: addToFavoriteView.frame.size.width / 2)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
         ThemeManager.setCornerRadious(element: addToFavoriteButton, radius: addToFavoriteButton.frame.width / 2)
     }
     
     private func bindData() {
         if let model = productModel {
-            addToCartView.productModel = model
+            if model.hasCombinations ?? false {
+                addToCartView.hideView()
+            } else {
+                if model.getMaxQuantity() > 0 {
+                    addToCartView.showView()
+                    addToCartView.productModel = model
+                } else {
+                    addToCartView.hideView()
+                }
+            }
+            
             productNameLabel.text = model.name ?? ""
             productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
             productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
@@ -94,11 +113,26 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
                 productOldPriceLabel.isHidden = true
                 productOldPriceMarkedView.isHidden = true
             }
+            
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            }
         }
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
-        
+        if let model = productModel {
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            }
+            delegate?.productFavorite(model: model)
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
+        }
     }
     
 }

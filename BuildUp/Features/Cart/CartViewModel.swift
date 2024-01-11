@@ -18,7 +18,7 @@ class CartViewModel: BaseViewModel {
     init(service: CartWebServiceProtocol = CartWebService.shared) {
         super.init(observationType: .all)
         self.service = service
-        self.getCachedData()
+//        self.getCachedData()
     }
     
     func getCart() {
@@ -27,10 +27,11 @@ class CartViewModel: BaseViewModel {
         }
         
         service.getCart() { (result) in
-            
             switch result {
             case .success(let response):
                 self.cartModel = response.data
+                self.getFavoriteProductsUUIDS()
+                self.cartModel?.products = self.getProductsWithFavorites(products: self.cartModel?.products ?? [])
                 self.onCart?()
             case .failure(let error):
                 print(error)
@@ -38,6 +39,13 @@ class CartViewModel: BaseViewModel {
                     self.onNetworkError?(error)
                 }
             }
+        }
+    }
+    
+    func getFavoriteProductsUUIDS() {
+        ObservationService.observeOnFavorite()
+        RealTimeDatabaseService.getFavoriteProductsFromFirebase { favoriteIDS in
+            NotificationCenter.default.post(name: .favoriteUpdated, object: nil, userInfo: nil)
         }
     }
     

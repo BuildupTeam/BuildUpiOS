@@ -8,7 +8,6 @@
 import UIKit
 import SwiftMessages
 import NVActivityIndicatorView
-import GoogleMaps
 import ObjectMapper
 import Windless
 //import AVKit
@@ -64,12 +63,7 @@ class BaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let tabbarVC = self.tabBarController as? AppTabBarViewController
-//        if prefersBottomBarHidden ?? false {
-//            tabbarVC?.middleButton?.hideView()
-//        } else {
-//            tabbarVC?.middleButton?.showView()
-//        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,7 +72,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let tabbarVC = self.tabBarController as? AppTabBarViewController
+        
     }
     
     func addFeedbackGenerator() {
@@ -175,6 +169,7 @@ class BaseViewController: UIViewController {
 }
 
 extension BaseViewController {
+    /*
     func getAddress(lat: Double, lng: Double) {
         var center: CLLocationCoordinate2D = CLLocationCoordinate2D()
         let ceo: CLGeocoder = CLGeocoder()
@@ -214,6 +209,7 @@ extension BaseViewController {
             }
         })
     }
+     */
 }
 
 extension BaseViewController {
@@ -287,11 +283,9 @@ extension BaseViewController {
     }
 }
 
-// MARK: - Base Requests
+// MARK: - Firebase
 extension BaseViewController {
-//    func updateReadLater(newsModel: NewsModel?) {
-//        baseViewModel.updateReadLater(newsModel: newsModel)
-//    }
+     
 }
 
 // MARK: - Base Responses
@@ -329,10 +323,25 @@ extension BaseViewController {
     }
     
     private func authenticationErrorResponse() {
-        baseViewModel.onAuthenticationError = { [weak self] () in
+        baseViewModel.onAuthenticationError = { [weak self] (response) in
             guard let `self` = self else { return }
             self.hideLoading()
-            LauncherViewController.logoutToLoginView()
+            if !(self.navigationController?.viewControllers.isEmpty ?? true) &&
+                self.navigationController?.topViewController is LoginViewController {
+                self.showError(message: response.message ?? "")
+            } else {
+                LauncherViewController.logoutToLoginView()
+            }
+            
+//            if let viewControllers = navigationController?.viewControllers {
+//                for viewController in viewControllers {
+//                    if viewController.isKind(of: LoginViewController.self) {
+//                        self.showError(message: response.message ?? "")
+//                    } else {
+//                        LauncherViewController.logoutToLoginView()
+//                    }
+//                }
+//            }
         }
     }
     

@@ -38,7 +38,7 @@ extension RouteLoginApi: TargetType {
         case .loginUser(loginModel: let model):
             
             var parameters: [String: Any] = [:]
-            parameters["phone"] = model.phone
+            parameters["phone"] = model.phoneWithoutZero
             parameters["country_code"] = model.countryCodeWithoutPlus
             parameters["password"] = model.password
             

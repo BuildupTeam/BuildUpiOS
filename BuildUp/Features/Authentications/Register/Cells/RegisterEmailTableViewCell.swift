@@ -25,6 +25,12 @@ class RegisterEmailTableViewCell: UITableViewCell {
         }
     }
     
+    var editProfileModel: EditProfileModel? {
+        didSet {
+            bindUserData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -65,6 +71,14 @@ class RegisterEmailTableViewCell: UITableViewCell {
     
     func bindData() {
         if let model = registerModel {
+            if let email = model.email {
+                self.textField.text = email
+            }
+        }
+    }
+    
+    private func bindUserData() {
+        if let model = editProfileModel {
             if let email = model.email {
                 self.textField.text = email
             }

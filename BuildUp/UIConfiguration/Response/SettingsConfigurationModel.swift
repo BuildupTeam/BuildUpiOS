@@ -15,13 +15,17 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
     var quantityPosition: String?
     var quantityStyle: String?
     var list: String?
+    var categoriesTabDesign: String?
     var productCartDesign: String?
     var cartSummaryDesign: CartSummeryModel?
     var cartButtonDesign: String?
+    var tabbarDesign: String?
+    var colorsCombination: [String]?
     var coverPhoto: CoverPhotoModel?
     var subcategoryTabs: SubcategoryTabsModel?
     var productsList: ProductsListModel?
     var recommendedProducts: RecommendedProductsModel?
+    
     
     required init?(map: Map) {
         
@@ -34,6 +38,8 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         quantityPosition <- map["quantity_position"]
         quantityStyle <- map["quantity_style"]
         list <- map["list"]
+        categoriesTabDesign <- map["design"]
+        tabbarDesign <- map["design"]
         productCartDesign <- map["product_card_design"]
         cartSummaryDesign <- map["summary"]
         cartButtonDesign <- map["button"]
@@ -41,6 +47,7 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         subcategoryTabs <- map["subcategory_tabs"]
         productsList <- map["products_list"]
         recommendedProducts <- map["recommended_products"]
+        colorsCombination <- map["colors_combination"]
     }
     
     override init() {
@@ -55,12 +62,15 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         quantityStyle = aDecoder.decodeObject(forKey: "quantityStyle") as? String
         list = aDecoder.decodeObject(forKey: "list") as? String
         productCartDesign = aDecoder.decodeObject(forKey: "productCartDesign") as? String
+        categoriesTabDesign = aDecoder.decodeObject(forKey: "categoriesTabDesign") as? String
         cartSummaryDesign = aDecoder.decodeObject(forKey: "cartSummaryDesign") as? CartSummeryModel
         cartButtonDesign = aDecoder.decodeObject(forKey: "cartButtonDesign") as? String
+        tabbarDesign = aDecoder.decodeObject(forKey: "tabbarDesign") as? String
         coverPhoto = aDecoder.decodeObject(forKey: "coverPhoto") as? CoverPhotoModel
         subcategoryTabs = aDecoder.decodeObject(forKey: "subcategoryTabs") as? SubcategoryTabsModel
         productsList = aDecoder.decodeObject(forKey: "productsList") as? ProductsListModel
         recommendedProducts = aDecoder.decodeObject(forKey: "recommendedProducts") as? RecommendedProductsModel
+        colorsCombination = aDecoder.decodeObject(forKey: "colorsCombination") as? [String]
     }
     
     @objc
@@ -83,6 +93,9 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         if list != nil {
             aCoder.encode(list, forKey: "list")
         }
+        if categoriesTabDesign != nil {
+            aCoder.encode(categoriesTabDesign, forKey: "categoriesTabDesign")
+        }
         if productCartDesign != nil {
             aCoder.encode(productCartDesign, forKey: "productCartDesign")
         }
@@ -103,6 +116,12 @@ class SettingsConfigurationModel: NSObject, NSCoding, Mappable {
         }
         if recommendedProducts != nil {
             aCoder.encode(recommendedProducts, forKey: "recommendedProducts")
+        }
+        if tabbarDesign != nil {
+            aCoder.encode(tabbarDesign, forKey: "tabbarDesign")
+        }
+        if colorsCombination != nil {
+            aCoder.encode(colorsCombination, forKey: "colorsCombination")
         }
     }
 }

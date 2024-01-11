@@ -12,6 +12,9 @@ class ProductVerticalList1TableViewCell: UITableViewCell {
     @IBOutlet private weak var tableView: UITableView!
     var isLoadingShimmer: Bool?
     weak var delegate: HomeProductsCellDelegate?
+    
+    weak var addTocartDelegate: AddToCartDelegate?
+
 
     var homeSectionModel: HomeSectionModel? {
         didSet {
@@ -72,6 +75,8 @@ extension ProductVerticalList1TableViewCell: UITableViewDataSource, UITableViewD
             cell.productModel = sectionModel.products?[indexPath.row]
         }
         
+        cell.delegate = self
+        
         cell.selectionStyle = .none
         return cell
     }
@@ -84,5 +89,11 @@ extension ProductVerticalList1TableViewCell: UITableViewDataSource, UITableViewD
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
             delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row], componentModel: sectionModel.component)
         }
+    }
+}
+
+extension ProductVerticalList1TableViewCell: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        addTocartDelegate?.productModelUpdated(model, self.homeSectionModel)
     }
 }

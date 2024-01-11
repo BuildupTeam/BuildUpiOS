@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 class FormatedPriceModel: NSObject, NSCoding, Mappable {
-    var amount: Int?
+    var amount: Double?
     var formatted: String?
     var currency: String?
 
@@ -28,7 +28,7 @@ class FormatedPriceModel: NSObject, NSCoding, Mappable {
     
     convenience required init?(coder aDecoder: NSCoder) {
         self.init()
-        amount = aDecoder.decodeObject(forKey: "amount") as? Int
+        amount = aDecoder.decodeObject(forKey: "amount") as? Double
         formatted = aDecoder.decodeObject(forKey: "formatted") as? String
         currency = aDecoder.decodeObject(forKey: "currency") as? String
     }

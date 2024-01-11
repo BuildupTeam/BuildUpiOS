@@ -35,8 +35,8 @@ extension RouteConfigurationApi: TargetType {
     var task: Task {
         switch self {
         case .getConfiguration:
-//            var parameters: [String: Any] = [:]
-            return .requestPlain
+            var parameters: [String: Any] = ["platform": 1]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
     

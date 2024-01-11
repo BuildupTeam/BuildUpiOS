@@ -71,6 +71,14 @@ class Coordinator {
             navigation.setViewControllers([viewController], animated: true)
             return navigation
         }
+        //OrderHistoryContainerViewController
+        class func createOrderHistoryViewController() -> UIViewController {
+            let viewController = OrderHistoryContainerViewController()
+            
+            let navigation = Coordinator.AppBase.baseNavigationController()
+            navigation.setViewControllers([viewController], animated: true)
+            return navigation
+        }
         
         class func createProfileViewController(viewModel: ProfileViewModel = ProfileViewModel()) -> UIViewController {
             let viewController = ProfileViewController(viewModel: viewModel)
@@ -135,6 +143,7 @@ class Coordinator {
                 let viewController = ProductsListViewController(viewModel: viewModel)
                 return viewController
             }
+        
         class func createProductsGridViewController(
             homeSectionModel: HomeSectionModel? = nil,
             componentModel: ComponentConfigurationModel? = nil,
@@ -144,6 +153,7 @@ class Coordinator {
                 let viewController = ProductsGridViewController(viewModel: viewModel)
                 return viewController
             }
+        
         class func createCategoryDetailsListViewController(categoryModel: CategoryModel? = nil,
                                                            viewModel: CategoryDetailsViewModel = CategoryDetailsViewModel()) -> CategoryDetailsListViewController {
             viewModel.categoryModel = categoryModel
@@ -169,6 +179,77 @@ class Coordinator {
         
         class func createSubdomainViewController(viewModel: SubdomainViewModel = SubdomainViewModel()) -> SubdomainViewController {
             let viewController = SubdomainViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCheckoutShippingViewController(viewModel: CheckoutShippingViewModel = CheckoutShippingViewModel()) -> CheckoutShippingViewController {
+            let viewController = CheckoutShippingViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCheckoutPaymentViewController(viewModel: CheckoutPaymentViewModel = CheckoutPaymentViewModel()) -> CheckoutPaymentViewController {
+            let viewController = CheckoutPaymentViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCheckoutReviewViewController(viewModel: CheckoutReviewViewModel = CheckoutReviewViewModel()) -> CheckoutReviewViewController {
+            let viewController = CheckoutReviewViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCountiresViewController(viewModel: CountiresViewModel = CountiresViewModel()) -> CountriesViewController {
+            let viewController = CountriesViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCitiesViewController(countryModel: CountryModel? = nil
+                                              ,viewModel: CitiesViewModel = CitiesViewModel()) -> CitiesViewController {
+            viewModel.countryModel = countryModel
+            let viewController = CitiesViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createAreasViewController(cityModel: CityModel? = nil
+                                              ,viewModel: AreasViewModel = AreasViewModel()) -> AreasViewController {
+            viewModel.cityModel = cityModel
+            let viewController = AreasViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createAddressesViewController(viewModel: AddressesViewModel = AddressesViewModel()) -> AddressesViewController {
+            let viewController = AddressesViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createAddNewAddressViewController(viewModel: AddNewAddressViewModel = AddNewAddressViewModel()) -> AddNewAddressViewController {
+            let viewController = AddNewAddressViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createPastOrdersViewController(viewModel: OrderHistoryViewModel = OrderHistoryViewModel()) -> PastOrdersViewController {
+            let viewController = PastOrdersViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createCurrentOrdersViewController(viewModel: OrderHistoryViewModel = OrderHistoryViewModel()) -> CurrentOrdersViewController {
+            let viewController = CurrentOrdersViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createWishListViewController(viewModel: WishListViewModel = WishListViewModel()) -> WishlistViewController {
+            let viewController = WishlistViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createEditProfileViewController(viewModel: EditProfileViewModel = EditProfileViewModel()) -> EditProfileViewController {
+            let viewController = EditProfileViewController(viewModel: viewModel)
+            return viewController
+        }
+        
+        class func createOrderDetailsViewController(orderModel: OrderModel? = nil,
+                                                           viewModel: OrderDetailsViewModel = OrderDetailsViewModel()) -> OrderDetailsViewController {
+            viewModel.orderModel = orderModel
+            let viewController = OrderDetailsViewController(viewModel: viewModel)
             return viewController
         }
     }

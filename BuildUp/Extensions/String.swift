@@ -192,28 +192,14 @@ extension String {
 }
 
 extension Notification.Name {
-    static let readerFinished = Notification.Name("readerFinished")
-    static let readerError = Notification.Name("readerError")
-    static let readerStarted = Notification.Name("readerStarted")
+    static let cartupdated = Notification.Name("cart_updated")
+    static let favoriteUpdated = Notification.Name("favorite_updated")
 
-    static let newsBookmarkupdated = Notification.Name("newsBookmarkupdated")
-    static let tagFollow = Notification.Name("tagFollow")
-    static let hashTagFollow = Notification.Name("hashTagFollow")
-
-    static let pageControlChanged = Notification.Name("page_control_changed")
-    static let refreshCommentsList = Notification.Name("refresh_comments")
-    static let refreshUserLikes = Notification.Name("refresh_user_likes")
-    static let refreshMyChoices = Notification.Name("refresh_user_choices")
-    static let userImageUpdated = Notification.Name("user_image_updated")
     static let notificationFCMToken = Notification.Name("FCMToken")
     static let languageChanged = Notification.Name("languageChanged")
-    static let refreshFilter = Notification.Name("refreshFilter")
     static let willEnterForground = Notification.Name("willEnterForground")
     static let didEnterForground = Notification.Name("didEnterForground")
-    static let chatPayload = Notification.Name("chatPayload")
     static let notificationRedirection = Notification.Name("notification_redirection")
-    static let dismissPayment = Notification.Name("dismissPayment")
-    static let rootedDevice = Notification.Name("rootedDevice")
 
 }
 

@@ -10,12 +10,16 @@ import ObjectMapper
 
 class CartModel: Mappable {
     
-    var id: Int?
-    var cartItems: [CartItemModel]?
+    var total: Int?
+    var subtotal: Double?
+    var subtotalBeforeDiscount: Double?
+    var products: [ProductModel]?
     
     func mapping(map: Map) {
-        id <- map["id"]
-        cartItems <- map["cartItems"]
+        total <- map["total"]
+        subtotal <- map["subtotal"]
+        subtotalBeforeDiscount <- map["subtotal_before_discount"]
+        products <- map["products"]
     }
     
     required init?(map: Map) {

@@ -41,9 +41,9 @@ class ProductDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupResponse()
         setupView()
         startShimmer()
-        setupResponse()
         getProductDetailsData()
     }
     
@@ -75,6 +75,12 @@ class ProductDetailsViewController: BaseViewController {
 
 // MARK: - Actions
 extension ProductDetailsViewController {
+    @IBAction func addToCartButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            return
+        }
+        addToCartFirebase()
+    }
     
     @objc
     func cartBarAction(sender: UIBarButtonItem) {
@@ -87,7 +93,7 @@ extension ProductDetailsViewController {
     }
 }
 
-// MARK: - SetupUI
+// MARK: - Private Functions
 extension ProductDetailsViewController {
     private func setupView() {
         isLoadingShimmer = true
@@ -97,6 +103,7 @@ extension ProductDetailsViewController {
         quantityCircleView.delegate = self
         quantityDropDownView.delegate = self
         
+        subTotalPriceTitleLabel.text = L10n.Cart.subtotal
         subTotalPriceTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         subTotalPriceLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
@@ -164,11 +171,14 @@ extension ProductDetailsViewController {
                           animations: {
             self.subtotalViewHeightConstraint.constant = 137
         })
-        let subtotalPrice = (combinationModel.price ?? 0) * (self.viewModel.productModel?.quantitySelected ?? 0)
+        let subtotalPrice = (combinationModel.currentPrice ?? 0) * (Double(combinationModel.cartQuantity ?? 0))
         subTotalPriceLabel.text = String(subtotalPrice) + L10n.ProductDetails.currency
     }
     
     private func activateQuantityView() {
+        addToCartButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        addToCartButton.isUserInteractionEnabled = true
+
         quantityDropDownView.alpha = 1
         quantityDropDownView.isUserInteractionEnabled = true
         
@@ -177,6 +187,9 @@ extension ProductDetailsViewController {
     }
     
     private func deactivateQuantityView() {
+        addToCartButton.backgroundColor = UIColor.dimmedButtonGray
+        addToCartButton.isUserInteractionEnabled = false
+
         quantityDropDownView.alpha = 0.6
         quantityDropDownView.isUserInteractionEnabled = false
         
@@ -184,20 +197,62 @@ extension ProductDetailsViewController {
         quantityCircleView.isUserInteractionEnabled = false
     }
     
-    private func checktoActivateQuantityAction() {
-        if let model = self.combinationModel {
+    private func addToCartFirebase() {
+        if let model = viewModel.productModel {
+            if let combinationModel = model.selectedCombination {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: combinationModel.cartQuantity, combinationId: combinationModel.id)
+                RealTimeDatabaseService.addProductFromDetails(model: firebaseProductModel)
+            } else {
+                let firebaseProductModel = FirebaseProductModel(uuid: model.uuid, quantity: model.cartQuantity, combinationId: model.selectedCombination?.id)
+                RealTimeDatabaseService.addProductFromDetails(model: firebaseProductModel)
+            }
             
+            self.showSuccessMessage(message: "Added To Cart")
         }
     }
     
+    private func checkToActivateAddToCartButton() {
+        if let model = viewModel.productModel {
+            if let combinations = model.combinations, !combinations.isEmpty {
+                if model.selectedCombination != nil {
+                    if model.orderInOutOfStock ?? false {
+                        activateQuantityView()
+                    } else {
+                        if (model.quantity ?? 0) > 0 {
+                            activateQuantityView()
+                        } else {
+                            deactivateQuantityView()
+                        }
+                    }
+                } else {
+                    deactivateQuantityView()
+                }
+            } else {
+                if model.orderInOutOfStock ?? false {
+                    activateQuantityView()
+                } else {
+                    if (model.quantity ?? 0) > 0 {
+                        activateQuantityView()
+                    } else {
+                        deactivateQuantityView()
+                    }
+                }
+            }
+        }
+    }
 }
 
 // MARK: - ProductDetailsQuantityDropDown
 extension ProductDetailsViewController: ProductDetailsQuantityDelegate {
-    func qunatitySelected(quantity: Int) {
-        self.viewModel.productModel?.quantitySelected = quantity
-        self.viewModel.productModel?.subtotalPrice = (self.viewModel.productModel?.currentPrice ?? 0) * quantity
-        subTotalPriceLabel.text = String((self.viewModel.productModel?.currentPrice ?? 0) * quantity) + L10n.ProductDetails.currency
+    func qunatitySelected(quantity: Int, model: ProductModel) {
+        self.viewModel.productModel = model
+
+        if let combination = model.selectedCombination {
+            subTotalPriceLabel.text = String((combination.currentPrice ?? 0) * Double(quantity)) + L10n.ProductDetails.currency
+        } else {
+            subTotalPriceLabel.text = String((model.currentPrice ?? 0) * Double(quantity)) + L10n.ProductDetails.currency
+        }
+        
         self.tableView.reloadData()
     }
 }
@@ -210,14 +265,22 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
         print("selectedOptionsValues = \(self.viewModel.selectedOptionsValues)")
         
         let combinationModel = self.viewModel.productModel?.selectedCombination
+        
         if let model = combinationModel {
             self.combinationModel = model
             self.viewModel.productModel?.currentPrice = model.currentPrice
             self.viewModel.productModel?.originalPrice = model.price
-            self.tableView.reloadSections([ProductDetailsSection.slider.rawValue], with: .none)
-            activateQuantityView()
+            
+            self.viewModel.productModel?.selectedCombination?.cartQuantity = 1
+            self.viewModel.productModel?.cartCombinations?.first(where: { $0.id == combinationModel?.id })?.cartQuantity = 1
+            
+            self.tableView.reloadSections([ProductDetailsSection.slider.rawValue, ProductDetailsSection.quantity.rawValue], with: .none)
             setupAddToCartView(model)
+        } else {
+            subtotalViewHeightConstraint.constant = 94
         }
+        
+        checkToActivateAddToCartButton()
     }
 }
 
@@ -272,6 +335,7 @@ extension ProductDetailsViewController {
     
     private func setupResponse() {
         productDetailsResponse()
+        favoriteProductUpdatedResponse()
     }
 }
 
@@ -291,7 +355,17 @@ extension ProductDetailsViewController {
             })
             self.quantityCircleView.productModel = self.viewModel.productModel
             self.quantityDropDownView.productModel = self.viewModel.productModel
+            
+            self.checkToActivateAddToCartButton()
         }
+    }
+    
+    private func favoriteProductUpdatedResponse() {
+        ObservationService.favItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            self.viewModel.productModel = self.viewModel.updateProductModelWithFavorite()
+            self.tableView.reloadData()
+        })
     }
     
     private func relatedProductsResponse() {

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WishlistViewController" customModule="BuildUp" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="dm3-K8-ZEg" id="t4N-Ri-fhE"/>
+                <outlet property="tableView" destination="SCh-1m-ToO" id="h50-bD-Spb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dm3-K8-ZEg">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SCh-1m-ToO">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="7gY-Kw-bI9"/>
+                                <outlet property="delegate" destination="-1" id="AO3-it-9Sg"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="SCh-1m-ToO" secondAttribute="bottom" id="HsW-tK-lJo"/>
+                        <constraint firstAttribute="trailing" secondItem="SCh-1m-ToO" secondAttribute="trailing" id="VKk-Tl-Mfd"/>
+                        <constraint firstItem="SCh-1m-ToO" firstAttribute="top" secondItem="dm3-K8-ZEg" secondAttribute="top" id="aFl-pI-Uf8"/>
+                        <constraint firstItem="SCh-1m-ToO" firstAttribute="leading" secondItem="dm3-K8-ZEg" secondAttribute="leading" id="lob-ms-J3t"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="dm3-K8-ZEg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="1XA-rG-CR8"/>
+                <constraint firstItem="dm3-K8-ZEg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ame-SB-S7L"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dm3-K8-ZEg" secondAttribute="trailing" id="hj0-an-J4Z"/>
+                <constraint firstAttribute="bottom" secondItem="dm3-K8-ZEg" secondAttribute="bottom" id="qki-Vk-M7B"/>
+            </constraints>
+            <point key="canvasLocation" x="65" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

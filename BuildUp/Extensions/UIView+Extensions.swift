@@ -58,17 +58,17 @@ extension UIView {
         viewWidth: CGFloat,
         viewHeight: CGFloat,
         cornerRadius: CGFloat) {
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.locations = [0, 0.7]
-        gradientLayer.cornerRadius = cornerRadius
-        gradientLayer.frame = CGRect(x: bounds.minX, y: bounds.minY, width: viewWidth, height: viewHeight)
-        
-        layer.insertSublayer(gradientLayer, at: 0)
-    }
+            
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
+            gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+            gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+            gradientLayer.locations = [0, 0.7]
+            gradientLayer.cornerRadius = cornerRadius
+            gradientLayer.frame = CGRect(x: bounds.minX, y: bounds.minY, width: viewWidth, height: viewHeight)
+            
+            layer.insertSublayer(gradientLayer, at: 0)
+        }
     
     func setViewCornerRadius(_ radius: CGFloat) {
         self.layer.cornerRadius = radius
@@ -89,14 +89,17 @@ extension UIView {
         opacity: Float,
         cornerRadius: CGFloat = CGFloat(0),
         masksToBounds: Bool) {
-        
-        self.layer.cornerRadius = cornerRadius
-        self.layer.shadowColor = color.cgColor
-        self.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
-        self.layer.shadowRadius = shadowRadius
-        self.layer.shadowOpacity = opacity
-        self.layer.masksToBounds = masksToBounds
-    }
+            
+            let shadowPath0 = UIBezierPath(roundedRect: self.bounds, cornerRadius: 0)
+            self.layer.shadowPath = shadowPath0.cgPath
+            
+            self.layer.cornerRadius = cornerRadius
+            self.layer.shadowColor = UIColor(red: 0.655, green: 0.655, blue: 0.655, alpha: 0.23).cgColor
+            self.layer.shadowOffset = CGSize(width: 0, height: 2)
+            self.layer.shadowRadius = shadowRadius
+            self.layer.shadowOpacity = opacity
+            self.layer.masksToBounds = masksToBounds
+        }
     
     func setShadowBorder(
         shadowRadius: CGFloat,
@@ -107,16 +110,19 @@ extension UIView {
         cornerRadius: CGFloat = CGFloat(0),
         masksToBounds: Bool,
         borderColor: UIColor) {
-        
-        self.layer.cornerRadius = cornerRadius
-        self.layer.shadowColor = color.cgColor
-        self.layer.shadowOffset = CGSize(width: xOffset, height: yOffset)
-        self.layer.shadowRadius = shadowRadius
-        self.layer.shadowOpacity = opacity
-        self.layer.masksToBounds = masksToBounds
-        self.layer.borderColor = borderColor.cgColor
-        self.layer.borderWidth = 1
-    }
+            
+            let shadowPath0 = UIBezierPath(roundedRect: self.bounds, cornerRadius: 0)
+            self.layer.shadowPath = shadowPath0.cgPath
+            
+            self.layer.cornerRadius = cornerRadius
+            self.layer.shadowColor = UIColor(red: 0.655, green: 0.655, blue: 0.655, alpha: 0.23).cgColor
+            self.layer.shadowOffset = CGSize(width: 0, height: 2)
+            self.layer.shadowRadius = shadowRadius
+            self.layer.shadowOpacity = opacity
+            self.layer.masksToBounds = masksToBounds
+            self.layer.borderColor = borderColor.cgColor
+            self.layer.borderWidth = 1
+        }
 }
 
 extension UIViewController {

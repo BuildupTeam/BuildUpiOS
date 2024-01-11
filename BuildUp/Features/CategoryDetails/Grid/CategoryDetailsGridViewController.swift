@@ -170,7 +170,6 @@ extension CategoryDetailsGridViewController {
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = collectionViewContainerView.frame //collectionView.backgroundView?.frame ?? CGRect()
         emptyNib.title = L10n.EmptyScreen.noData
-//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
         emptyNib.showButton = false
         collectionView.backgroundView = emptyNib
     }
@@ -233,12 +232,12 @@ extension CategoryDetailsGridViewController {
             guard let `self` = self else { return }
             self.reloadCollectionViewData()
             self.isReloadingCollectionView = false
-            if viewModel.products.isEmpty {
+            if self.viewModel.products.isEmpty {
                 self.setupEmptyView()
             } else {
                 self.removeBackgroundViews()
             }
-            self.stopShimmerOn(collectionView: collectionView)
+            self.stopShimmerOn(collectionView: self.collectionView)
         }
     }
     
@@ -247,7 +246,6 @@ extension CategoryDetailsGridViewController {
             guard let `self` = self else { return }
             self.reloadCollectionViewData()
             self.isReloadingCollectionView = false
-            print("recieved")
         }
     }
 }

@@ -211,6 +211,8 @@ extension CategoryDetailsListViewController {
         categoryDetailsResponse()
         productsResponse()
         loadMoreProductsResponse()
+        cartItemUpdatedResponse()
+        favoriteProductUpdatedResponse()
     }
 }
 
@@ -233,8 +235,8 @@ extension CategoryDetailsListViewController {
             self.subcategoryTabsView.subCategories = self.viewModel.subCategories
             
             if self.viewModel.subCategories.isEmpty {
-                subcategoriesContainerViewHeightContriant.constant = 0
-                subcategoryTabsView.isHidden = true
+                self.subcategoriesContainerViewHeightContriant.constant = 0
+                self.subcategoryTabsView.isHidden = true
             }
         }
     }
@@ -242,7 +244,7 @@ extension CategoryDetailsListViewController {
     private func productsResponse() {
         viewModel.onProducts = { [weak self] () in
             guard let `self` = self else { return }
-            if viewModel.products.isEmpty {
+            if self.viewModel.products.isEmpty {
                 self.setupEmptyView()
             } else {
                 self.removeBackgroundViews()
@@ -259,7 +261,22 @@ extension CategoryDetailsListViewController {
             self.tableView.tableFooterView = nil
             self.reloadTableViewData()
             self.isReloadingTableView = false
-            print("recieved")
         }
+    }
+    
+    private func cartItemUpdatedResponse() {
+        ObservationService.carItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            self.viewModel.products = self.viewModel.getProductsWithCartQuantity(products: self.viewModel.products)
+            self.tableView.reloadData()
+        })
+    }
+    
+    private func favoriteProductUpdatedResponse() {
+        ObservationService.favItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            self.viewModel.products = self.viewModel.getProductsWithFavorites(products: self.viewModel.products)
+            self.tableView.reloadData()
+        })
     }
 }

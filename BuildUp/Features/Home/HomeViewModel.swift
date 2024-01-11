@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 enum PageName: String {
     case home = "home"
     case productDetails = "product-details"
     case productList = "product-list"
     case categoryDetails = "category-details"
+    case categoriesList = "category-list"
     case cart = "cart"
+    case categoriesTab = "category-tab"
+    case tabBar = "tab-bar"
     
 }
 
@@ -28,7 +32,7 @@ class HomeViewModel: BaseViewModel {
     
     // MARK: - Model
     var homeData = HomeModel()
-    
+    var favoriteUUIDS: [String]?
     var viewTitle: String?
     
     // MARK: - Data Observables
@@ -37,10 +41,25 @@ class HomeViewModel: BaseViewModel {
     init(service: HomeWebServiceProtocol = HomeWebService.shared) {
         super.init(observationType: .all)
         self.service = service
+        self.getCartProducts()
         self.getCachedThemeData()
         self.getCachedHomeData()
     }
     
+    func getCartProducts() {
+        ObservationService.observeOnCart()
+        RealTimeDatabaseService.getCartProducts { dict in
+            NotificationCenter.default.post(name: .cartupdated, object: nil, userInfo: nil)
+        }
+    }
+    
+    func getFavoriteProductsUUIDS() {
+        ObservationService.observeOnFavorite()
+        RealTimeDatabaseService.getFavoriteProductsFromFirebase { favoriteIDS in
+//            self.favoriteUUIDS = favoriteIDS
+            NotificationCenter.default.post(name: .favoriteUpdated, object: nil, userInfo: nil)
+        }
+    }
     
     func getHomeTemplate() {
         guard let service = service else {
@@ -74,14 +93,15 @@ class HomeViewModel: BaseViewModel {
      
     
     func getFirebaseToken() {
-        if let token = CachingService.getUser()?.accessToken {
+        if let token = CachingService.getUser()?.accessToken, Auth.auth().currentUser == nil {
             service?.getFirebaseToken(token: token, compeltion: { result in
                 switch result {
                 case .success(let response):
                     if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                         if let token = response.data?.token?.token {
                             RealTimeDatabaseService.loginUser(token: token) { firebaseToken in
-                                print("firebase token = \(firebaseToken)")
+//                            RealTimeDatabaseService.addUserToFirebase()
+                            print("firebase token = \(firebaseToken)")
                             }
                         }
                     } else {
@@ -96,6 +116,7 @@ class HomeViewModel: BaseViewModel {
             })
         }
     }
+    
     func getProducts(limit: Int,
                      componentModel: ComponentConfigurationModel,
                      contentTypeCompletion: @escaping (() -> String),
@@ -111,8 +132,9 @@ class HomeViewModel: BaseViewModel {
                     self.homeData.editHomeSectionsArrayWIthData(
                         contentType: contentTypeCompletion(),
                         order: orderCompletion(),
-                        products: response.data ?? [])
+                        products: self.getProductsWithCartQuantity(products: response.data ?? []))
                     
+                    self.getFavoriteProductsUUIDS()
                     self.checkDataAvailability()
                 } else {
                     self.handleError(response: response)
@@ -150,6 +172,26 @@ class HomeViewModel: BaseViewModel {
                 print(error)
                 if error.message != "Request explicitly cancelled." {
                     self.onNetworkError?(error)
+                }
+            }
+        }
+    }
+    
+    func updateAllHomeSectionsWithCartItems() {
+        for homeSection in self.homeData.homeSections {
+            if !(homeSection.products?.isEmpty ?? true) {
+                if let products = homeSection.products {
+                    homeSection.products = getProductsWithCartQuantity(products: products)
+                }
+            }
+        }
+    }
+    
+    func updateAllHomeSectionsWitFavoriteProducts() {
+        for homeSection in self.homeData.homeSections {
+            if !(homeSection.products?.isEmpty ?? true) {
+                if let products = homeSection.products {
+                    homeSection.products = getProductsWithFavorites(products: products)
                 }
             }
         }

@@ -263,6 +263,7 @@ extension HomeViewController {
             for: indexPath) as? ProductVerticalList1TableViewCell
         else { return UITableViewCell() }
         
+        cell.addTocartDelegate = self
         cell.delegate = self
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -521,8 +522,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //        } else {
 //            return 0
 //        }
-        
-        print("viewModel.homeData.homeSections.count = \(viewModel.homeData.homeSections.count)")
         return viewModel.homeData.homeSections.count
     }
     

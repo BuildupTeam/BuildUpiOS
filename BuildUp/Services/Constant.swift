@@ -21,6 +21,9 @@ class Constant {
         static let productDetails = "product_details"
         static let theme = "theme"
         static let subdomain = "subdomain_String"
+        static let defaultCartProducts = "default_cart_products"
+        static let favoriteProducts = "favorite_products"
+        static let combinationsCartProducts = "combinations_cart_products"
     }
     
     struct ControllerName {

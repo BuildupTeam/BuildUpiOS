@@ -111,7 +111,7 @@ class CachingService: NSObject {
     
     static func getSubdomain() -> String {
         let userDefaults = UserDefaults.standard
-        return userDefaults.string(forKey: Constant.Keys.subdomain) ?? ""
+        return userDefaults.string(forKey: Constant.Keys.subdomain) ?? "my-app-3"
     }
     
     static func setThemeData(theme: ThemeConfigurationDataModel) {
@@ -135,6 +135,101 @@ class CachingService: NSObject {
                 if let theme = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
                     decoded as Data) as? ThemeConfigurationDataModel {
                     return theme
+                }
+            } catch {
+                
+            }
+        }
+        return nil
+    }
+    
+    static func setCartProducts(products: [String: [String: Int]]) {
+        var defaultDic: [String: [String: Int]] = [:]
+        var compinationDic: [String: [String: Int]] = [:]
+        
+        for productKey in products.keys {
+            guard let value = products[productKey] else { return }
+            for key in value.keys {
+                if key == "default" {
+                    defaultDic[productKey] = value
+                } else {
+                    compinationDic[productKey] = value
+                }
+            }
+        }
+        
+        let userDefaults = UserDefaults.standard
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(
+                withRootObject: defaultDic,
+                requiringSecureCoding: false)
+            userDefaults.set(encodedData, forKey: Constant.Keys.defaultCartProducts)
+            userDefaults.synchronize()
+        } catch {
+            
+        }
+        
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(
+                withRootObject: compinationDic,
+                requiringSecureCoding: false)
+            userDefaults.set(encodedData, forKey: Constant.Keys.combinationsCartProducts)
+            userDefaults.synchronize()
+        } catch {
+            
+        }
+    }
+    
+    static func setFavoriteProducts(products: [String]) {
+        let userDefaults = UserDefaults.standard
+        do {
+            let encodedData: Data = try NSKeyedArchiver.archivedData(
+                withRootObject: products,
+                requiringSecureCoding: false)
+            userDefaults.set(encodedData, forKey: Constant.Keys.favoriteProducts)
+            userDefaults.synchronize()
+        } catch {
+            
+        }
+    }
+    
+    static func getFavoriteProducts() -> [String] {
+        if UserDefaults.standard.object(forKey: Constant.Keys.favoriteProducts) != nil {
+            guard let decoded = UserDefaults.standard.object(forKey: Constant.Keys.favoriteProducts) as? Data else { return [] }
+            do {
+                if let cartProducts = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
+                    decoded as Data) as? [String] {
+                    return cartProducts
+                }
+            } catch {
+                
+            }
+        }
+        return []
+    }
+    
+    static func getDefaultCartProducts() -> [String: [String: Int]]? {
+        if UserDefaults.standard.object(forKey: Constant.Keys.defaultCartProducts) != nil {
+            guard let decoded = UserDefaults.standard.object(forKey: Constant.Keys.defaultCartProducts) as? Data else { return nil }
+            do {
+                if let cartProducts = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
+                    decoded as Data) as? [String: [String: Int]] {
+                    return cartProducts
+                }
+            } catch {
+                
+            }
+        }
+        return nil
+    }
+    
+    static func getCombinationsCartProducts() -> [String: [String: Int]]? {
+        if UserDefaults.standard.object(forKey: Constant.Keys.combinationsCartProducts) != nil {
+            guard let decoded = UserDefaults.standard.object(forKey: Constant.Keys.combinationsCartProducts) as? Data else { return nil }
+            do {
+                if let cartProducts = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
+                    decoded as Data) as? [String: [String: Int]] {
+                    return cartProducts
                 }
             } catch {
                 

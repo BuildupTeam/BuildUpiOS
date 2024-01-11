@@ -11,6 +11,7 @@ import Moya
 
 protocol ProfileWebServiceProtocol: AnyObject {
     func logoutUser(token: String, compeltion: @escaping ((Result<BaseResponse, NetworkError>) -> Void))
+    func getProfile(compeltion: @escaping ((Result<ProfileResponseModel, NetworkError>) -> Void))
 }
 
 class ProfileWebService: ProfileWebServiceProtocol {
@@ -27,6 +28,22 @@ class ProfileWebService: ProfileWebServiceProtocol {
                 }
                 searchResponse.statusCode = statusCode
                 compeltion(Result.success(searchResponse))
+            case .failure(var error):
+                error.statusCode = statusCode
+                compeltion(Result.failure(error))
+            }
+        }
+    }
+    
+    func getProfile(compeltion: @escaping ((Result<ProfileResponseModel, NetworkError>) -> Void)) {
+        MainWebService.fetch(endPoint: RouteProfileApi.getProfile) { (result, statusCode) in
+            switch result {
+            case .success(let response):
+                guard let profileResponse = Mapper<ProfileResponseModel>().map(JSONObject: response) else {
+                    return
+                }
+                profileResponse.statusCode = statusCode
+                compeltion(Result.success(profileResponse))
             case .failure(var error):
                 error.statusCode = statusCode
                 compeltion(Result.failure(error))

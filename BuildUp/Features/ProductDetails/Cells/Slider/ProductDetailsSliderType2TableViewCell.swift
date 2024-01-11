@@ -72,7 +72,9 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+}
+// MARK: - Private Func
+extension ProductDetailsSliderType2TableViewCell {
     private func setupCell() {
         registerCollectionViewCells()
         collectionView.delegate = self
@@ -135,6 +137,7 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
+            productDescriptionLabel.text = (model.productDescription ?? "")//.maxLength(length: 69)
             productOldPriceLabel.text = "SAR " + String(model.originalPrice ?? 0)
             productNewPriceLabel.text = "SAR " + String(model.currentPrice ?? 0)
             
@@ -179,9 +182,24 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
                 productOldPriceLabel.isHidden = true
                 productOldPriceMarkedView.isHidden = true
             }
+            
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            }
         }
     }
     
+    private func registerCollectionViewCells() {
+        self.collectionView.register(
+            UINib(nibName: ProductDetailsSliderType2CollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: ProductDetailsSliderType2CollectionViewCell.identifier)
+    }
+}
+
+// MARK: - Actions
+extension ProductDetailsSliderType2TableViewCell {
     @IBAction func seeMoreButtonClicked(_ sender: UIButton) {
         if var model = productModel {
             if !model.descriptionIsExpaned {
@@ -199,11 +217,19 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
         self.sizeToFit()
     }
     
-    private func registerCollectionViewCells() {
-        self.collectionView.register(
-            UINib(nibName: ProductDetailsSliderType2CollectionViewCell.identifier, bundle: nil),
-            forCellWithReuseIdentifier: ProductDetailsSliderType2CollectionViewCell.identifier)
+    @IBAction func favoriteButtonAction(_ sender: UIButton) {
+        if let model = productModel {
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            }
+            
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
+        }
     }
+    
 }
 
 // MARK: - CollectionView Delegate && DataSource

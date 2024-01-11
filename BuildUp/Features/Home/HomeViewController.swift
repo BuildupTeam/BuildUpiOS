@@ -47,7 +47,7 @@ class HomeViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.title = " "
+        self.navigationItem.title = " "
     }
     
     func scrollToFirstRow() {
@@ -161,6 +161,8 @@ extension HomeViewController {
     
     private func setupResponse() {
         homeResponse()
+        cartItemUpdatedResponse()
+        favoriteProductUpdatedResponse()
     }
 }
 
@@ -171,7 +173,7 @@ extension HomeViewController {
         viewModel.onData = { [weak self] () in
             guard let `self` = self else { return }
             print("Normal Reload")
-            containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+            self.containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
             self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
             
             self.hideLoading()
@@ -180,6 +182,24 @@ extension HomeViewController {
             self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()
         }
+    }
+    
+    private func cartItemUpdatedResponse() {
+        ObservationService.carItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            //getProductsWithCartQuantity
+            self.viewModel.updateAllHomeSectionsWithCartItems()
+            self.tableView.reloadData()
+        })
+    }
+    
+    private func favoriteProductUpdatedResponse() {
+        ObservationService.favItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            //getProductsWithCartQuantity
+            self.viewModel.updateAllHomeSectionsWitFavoriteProducts()
+            self.tableView.reloadData()
+        })
     }
 }
 
@@ -248,5 +268,20 @@ extension HomeViewController: HomeHeaderCellDelegate {
                 return
             }
         }
+    }
+}
+
+// MARK: - HomeHeaderCellDelegate
+extension HomeViewController: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        if var products = self.viewModel.homeData.homeSections.first(where: { $0.component == homeSectionModel?.component })?.products {
+            if let index = products.firstIndex(where: { $0.uuid == model.uuid }) {
+                products[index].cartQuantity = model.cartQuantity
+                self.viewModel.homeData.homeSections.first(where: { $0.component == homeSectionModel?.component })?.products = products
+                
+                self.tableView.reloadData()
+            }
+        }
+         
     }
 }
