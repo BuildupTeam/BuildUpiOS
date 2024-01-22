@@ -52,6 +52,7 @@ class AddToCartIconView: UIView {
     
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
         if CachingService.getUser() == nil {
+            delegate?.userShouldLoginFirst()
             return
         }
         addToCartButton.hideView()

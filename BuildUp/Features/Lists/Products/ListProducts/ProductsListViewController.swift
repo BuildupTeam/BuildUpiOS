@@ -25,7 +25,6 @@ class ProductsListViewController: BaseViewController {
     // MARK: - Private Variables
     
     var viewModel: ProductListViewModel!
-//    var homeSectionModel: HomeSectionModel?
     
     init(viewModel: ProductListViewModel) {
         super.init(viewModel: viewModel)
@@ -135,6 +134,7 @@ extension ProductsListViewController {
         viewModel.page = 1
         viewModel.perPage = 20
         viewModel.totalCount = 0
+        viewModel.cursor = nil
         getProducts()
     }
     

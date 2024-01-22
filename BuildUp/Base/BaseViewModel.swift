@@ -42,7 +42,7 @@ class BaseViewModel {
 //        removeCartObservations()
     }
     
-    func getUserData() {
+    func getUserData() { 
         /*
         guard let baseService = baseService else {
             return

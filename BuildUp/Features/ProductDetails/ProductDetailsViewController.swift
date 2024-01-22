@@ -77,6 +77,7 @@ class ProductDetailsViewController: BaseViewController {
 extension ProductDetailsViewController {
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
         if CachingService.getUser() == nil {
+            showLoginPopup()
             return
         }
         addToCartFirebase()
@@ -239,6 +240,18 @@ extension ProductDetailsViewController {
                 }
             }
         }
+    }
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+// MARK: - Popup Delegate
+extension ProductDetailsViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
     }
 }
 

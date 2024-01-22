@@ -82,6 +82,9 @@ class RecommentedProductsType2CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            return
+        }
         if let model = productModel {
             if model.isFavorite {
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image

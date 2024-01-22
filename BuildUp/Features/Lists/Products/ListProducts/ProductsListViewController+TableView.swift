@@ -132,7 +132,7 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
         if indexPath.row == (viewModel.products.count - 1) &&
             (viewModel.products.count >= viewModel.perPage) {
             if !isReloadingTableView {
-                if viewModel.products.count < viewModel.totalCount {
+                if viewModel.responseModel?.pagination?.cursorMeta?.nextCursor != nil {
                     self.loadMoreProducts()
                     addSpinnerToTableView()
                 }

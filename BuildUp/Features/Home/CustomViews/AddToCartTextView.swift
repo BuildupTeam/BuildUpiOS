@@ -9,6 +9,7 @@ import UIKit
 
 protocol AddToCartDelegate: AnyObject {
     func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?)
+    func userShouldLoginFirst()
 }
 
 class AddToCartTextView: UIView {
@@ -87,14 +88,6 @@ class AddToCartTextView: UIView {
         RealTimeDatabaseService.removeProductModelFromCart(model: firebaseProductModel)
     }
     
-    private func userLoggedIn() -> Bool {
-        if CachingService.getUser() != nil {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     private func checkIfCanMinusPlus(model: ProductModel) {
         if (model.cartQuantity ?? 0) >= (model.getMaxQuantity()) {
             plusButton.isEnabled = false
@@ -103,16 +96,6 @@ class AddToCartTextView: UIView {
             plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
             plusButton.isEnabled = true
         }
-        
-        /*
-        if (model.cartQuantity ?? 0) <= 1 {
-            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor3?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor3 ?? "")
-            minusButton.isEnabled = false
-        } else {
-            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
-            minusButton.isEnabled = true
-        }
-         */
     }
 }
 
@@ -120,6 +103,7 @@ class AddToCartTextView: UIView {
 extension AddToCartTextView {
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
         if CachingService.getUser() == nil {
+            delegate?.userShouldLoginFirst()
             return
         }
         addToCartButton.hideView()

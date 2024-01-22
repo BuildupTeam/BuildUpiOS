@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProductFavoriteDelegate: AnyObject {
     func productFavorite(model: ProductModel)
+    func pleaseLoginFirst()
 }
 
 class ProductVerticalList3InnerTableViewCell: UITableViewCell {
@@ -30,6 +31,7 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var productImageContainerView: UIView!
 
     weak var delegate: ProductFavoriteDelegate?
+    weak var addToCartDelegate: AddToCartDelegate?
     
     var productModel: ProductModel? {
         didSet {
@@ -44,6 +46,8 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        addToCartView.delegate = self
+        
         productNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
@@ -123,6 +127,10 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            delegate?.pleaseLoginFirst()
+            return
+        }
         if let model = productModel {
             if model.isFavorite {
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image
@@ -135,4 +143,14 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
         }
     }
     
+}
+
+extension ProductVerticalList3InnerTableViewCell: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        addToCartDelegate?.productModelUpdated(model, nil)
+    }
+    
+    func userShouldLoginFirst() {
+        addToCartDelegate?.userShouldLoginFirst()
+    }
 }

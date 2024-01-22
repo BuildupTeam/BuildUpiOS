@@ -16,6 +16,8 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var addToCartView: AddToCartIconView!
     @IBOutlet private weak var containerView: UIView!
     
+    weak var delegate: AddToCartDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -29,6 +31,8 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
+        addToCartView.delegate = self
+        
         containerView.setShadow(
             shadowRadius: CGFloat(5),
             xOffset: 0,
@@ -73,5 +77,15 @@ class ProductVerticalGrid3CollectionViewCell: UICollectionViewCell {
             }
         }
     }
-
 }
+
+extension ProductVerticalGrid3CollectionViewCell: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        delegate?.productModelUpdated(model, nil)
+    }
+    
+    func userShouldLoginFirst() {
+        delegate?.userShouldLoginFirst()
+    }
+}
+

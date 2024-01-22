@@ -40,6 +40,8 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     private func setupCell() {
 //        addToCartView.initialize()
         
+        addToCartView.delegate = self
+        
         productNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
@@ -91,5 +93,9 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
 extension ProductVerticalList1InnerTableViewCell: AddToCartDelegate {
     func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
         delegate?.productModelUpdated(model, nil)
+    }
+    
+    func userShouldLoginFirst() {
+        delegate?.userShouldLoginFirst()
     }
 }

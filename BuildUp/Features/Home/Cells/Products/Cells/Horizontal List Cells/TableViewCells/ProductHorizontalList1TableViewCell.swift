@@ -14,6 +14,7 @@ class ProductHorizontalList1TableViewCell: UITableViewCell {
 
     var isLoadingShimmer: Bool?
     weak var delegate: HomeProductsCellDelegate?
+    weak var addToFavDelegate: ProductFavoriteDelegate?
 
     var homeSectionModel: HomeSectionModel? {
         didSet {
@@ -82,6 +83,7 @@ extension ProductHorizontalList1TableViewCell: UICollectionViewDelegate, UIColle
                 cell.productModel = sectionModel.products?[indexPath.row]
             }
             
+            cell.addToFavDelegate = self
             return cell
         }
     
@@ -94,5 +96,15 @@ extension ProductHorizontalList1TableViewCell: UICollectionViewDelegate, UIColle
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
             delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row], componentModel: sectionModel.component)
         }
+    }
+}
+
+extension ProductHorizontalList1TableViewCell: ProductFavoriteDelegate {
+    func pleaseLoginFirst() {
+        addToFavDelegate?.pleaseLoginFirst()
+    }
+    
+    func productFavorite(model: ProductModel) {
+        
     }
 }

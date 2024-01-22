@@ -143,7 +143,7 @@ extension CartProductList3TableViewCell {
     }
     
     private func checkIfCanMinusPlus(model: ProductModel) {
-        if (model.cartQuantity ?? 0) >= (model.getMaxQuantity()) {
+        if (model.cartQuantity ?? 0) >= (model.getCartMaxQuantity()) {
             plusButton.isEnabled = false
             plusButton.backgroundColor = .white
             
@@ -186,7 +186,7 @@ extension CartProductList3TableViewCell {
     @IBAction func plusButtonAction(_ sender: UIButton) {
         if let model = productModel, var quantity = model.cartQuantityValue {
             if quantity >= 1 {
-                if (quantity + 1 ) <= (model.getMaxQuantity()) {
+                if (quantity + 1 ) <= (model.getCartMaxQuantity()) {
                     quantity += 1
                 }
             }

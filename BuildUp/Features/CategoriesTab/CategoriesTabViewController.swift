@@ -95,6 +95,19 @@ extension CategoriesTabViewController {
     private func removeBackgroundViews() {
         tableView.backgroundView = nil
     }
+    
+    func setupEmptyView() {
+        removeBackgroundViews()
+        let emptyNib = EmptyScreenView.instantiateFromNib()
+        emptyNib.frame = collectionView.frame //collectionView.backgroundView?.frame ?? CGRect()
+        emptyNib.title = L10n.EmptyScreen.noData
+        emptyNib.showButton = false
+        collectionView.backgroundView = emptyNib
+    }
+    
+    func removeBackgroundViewFromCollection() {
+        collectionView.backgroundView = nil
+    }
 }
 
 // MARK: - Actions
@@ -149,9 +162,11 @@ extension CategoriesTabViewController {
             self.hideLoading()
             self.stopShimmerOn(collectionView: self.collectionView)
             self.collectionView.reloadData()
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-//                self.collectionView.reloadData()
-//            }
+            if self.viewModel.products.isEmpty {
+                self.setupEmptyView()
+            } else {
+                self.removeBackgroundViewFromCollection()
+            }
         }
     }
     

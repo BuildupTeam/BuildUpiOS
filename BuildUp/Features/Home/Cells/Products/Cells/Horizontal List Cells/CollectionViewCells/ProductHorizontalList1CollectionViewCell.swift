@@ -23,6 +23,8 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var productImageContainerView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
 
+    weak var addToFavDelegate: ProductFavoriteDelegate?
+
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -95,6 +97,10 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            addToFavDelegate?.pleaseLoginFirst()
+            return
+        }
         if let model = productModel {
             if model.isFavorite {
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image
@@ -105,5 +111,4 @@ class ProductHorizontalList1CollectionViewCell: UICollectionViewCell {
             RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }
     }
-
 }

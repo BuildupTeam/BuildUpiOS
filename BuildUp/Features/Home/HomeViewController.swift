@@ -129,6 +129,19 @@ extension HomeViewController {
     private func getFirebaseToken() {
         viewModel.getFirebaseToken()
     }
+    
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+// MARK: - Popup Delegate
+extension HomeViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
+    }
 }
 
 // MARK: - Actions
@@ -282,6 +295,20 @@ extension HomeViewController: AddToCartDelegate {
                 self.tableView.reloadData()
             }
         }
-         
+    }
+    
+    func userShouldLoginFirst() {
+        self.showLoginPopup()
+    }
+}
+
+// MARK: - HomeHeaderCellDelegate
+extension HomeViewController: ProductFavoriteDelegate {
+    func productFavorite(model: ProductModel) {
+        
+    }
+    
+    func pleaseLoginFirst() {
+        showLoginPopup()
     }
 }
