@@ -17,6 +17,7 @@ class ProductVerticalGrid1TableViewCell: UITableViewCell {
     @IBOutlet private weak var collectionViewHeightConstrains: NSLayoutConstraint!
     
     weak var delegate: HomeProductsCellDelegate?
+    weak var addToFavDelegate: ProductFavoriteDelegate?
 
     var isLoadingShimmer: Bool?
 
@@ -92,6 +93,8 @@ extension ProductVerticalGrid1TableViewCell: UICollectionViewDelegate, UICollect
                 cell.productModel = sectionModel.products?[indexPath.row]
             }
             
+            cell.addToFavDelegate = self
+            
             return cell
         }
     
@@ -106,5 +109,15 @@ extension ProductVerticalGrid1TableViewCell: UICollectionViewDelegate, UICollect
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
             delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row], componentModel: sectionModel.component)
         }
+    }
+}
+
+extension ProductVerticalGrid1TableViewCell: ProductFavoriteDelegate {
+    func pleaseLoginFirst() {
+        addToFavDelegate?.pleaseLoginFirst()
+    }
+    
+    func productFavorite(model: ProductModel) {
+        
     }
 }

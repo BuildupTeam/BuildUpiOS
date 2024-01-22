@@ -13,6 +13,7 @@ class ProductVerticalGrid3TableViewCell: UITableViewCell {
     @IBOutlet private weak var collectionViewHeightConstrains: NSLayoutConstraint!
 
     weak var delegate: HomeProductsCellDelegate?
+    weak var addTocartDelegate: AddToCartDelegate?
 
     var isLoadingShimmer: Bool?
 
@@ -90,6 +91,8 @@ extension ProductVerticalGrid3TableViewCell: UICollectionViewDelegate, UICollect
                 cell.productModel = sectionModel.products?[indexPath.row]
             }
             
+            cell.delegate = self
+            
             return cell
         }
     
@@ -104,5 +107,15 @@ extension ProductVerticalGrid3TableViewCell: UICollectionViewDelegate, UICollect
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
             delegate?.homeProductTapped(productModel: sectionModel.products?[indexPath.row], componentModel: sectionModel.component)
         }
+    }
+}
+
+extension ProductVerticalGrid3TableViewCell: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        addTocartDelegate?.productModelUpdated(model, self.homeSectionModel)
+    }
+    
+    func userShouldLoginFirst() {
+        addTocartDelegate?.userShouldLoginFirst()
     }
 }

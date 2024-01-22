@@ -39,7 +39,7 @@ class BaseViewController: UIViewController {
     final override var hidesBottomBarWhenPushed: Bool {
         get {
             
-            let tabbarVC = self.tabBarController as? AppTabBarViewController
+//            let tabbarVC = self.tabBarController as? AppTabBarViewController
             
             if navigationController?.viewControllers.last == self {
                 return prefersBottomBarHidden ?? super.hidesBottomBarWhenPushed

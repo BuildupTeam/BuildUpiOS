@@ -170,25 +170,27 @@ extension CartProductList1TableViewCell {
     func checkToShowMenu() {
         var elements: [UIAction] = []
         guard let model = productModel else { return }
-        let quantityCount = model.getMaxQuantity()
+        let quantityCount = model.getCartMaxQuantity()
                 
         if quantityCount <= 1 {
+            productQuantityButton.showsMenuAsPrimaryAction = false
             return
         }
         
         for i in (1 ... quantityCount) {
-            let first = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
+            let element = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
                 print(String(i))
                 if (model.cartCombinations?.first) != nil {
-                    self.productModel?.cartCombinations?.first?.cartQuantity = i
+                    model.cartCombinations?.first?.cartQuantity = i
                 } else {
-                    self.productModel?.cartQuantity = i
+                    model.cartQuantity = i
                 }
+                
                 self.productQuantityLabel.text = String(i)
                 self.delegate?.quantityChanged(quantity: i, model: model)
                 self.addToCartFirebase()
             }
-            elements.append(first)
+            elements.append(element)
         }
         
         menu = menu?.replacingChildren(elements)

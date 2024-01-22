@@ -58,6 +58,13 @@
 "validation.invalidEmailFormate" = "Invalid email format" ;
 "validation.invalidPasswordFormate" = "Password must be more than 8 char, with one capital" ;
 
+// MARK: - Popups
+"popups.login" = "Login";
+"popups.loginMsg" = "You don’t have an account please login first";
+"popups.logout" = "Logout";
+"popups.logoutMsg" = "Are you Sure you want to logout ?";
+"popups.cancel" = "Cancel";
+
 // MARK: - Product Details
 "productDetails.seeMore" = "المزيد.." ;
 "productDetails.quantity" = "العدد";

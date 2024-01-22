@@ -39,6 +39,7 @@ class ProfileViewController: BaseViewController {
     }
 }
 
+// MARK: Private Func
 extension ProfileViewController {
     private func setupView() {
         registerTableViewCells()
@@ -81,14 +82,26 @@ extension ProfileViewController {
             self.tableView.reloadData()
         }
     }
-}
     
+    private func showLogoutPopup() {
+        let logoutVC = LogoutPopupViewController()
+        logoutVC.delegate = self
+        self.presentPanModal(logoutVC)
+    }
+}
 
+extension ProfileViewController: LogoutPopupProtocol {
+    func logoutButtonClicked() {
+        self.showLoading()
+        self.viewModel.logoutUser()
+    }
+}
+
+// MARK: Actions
 extension ProfileViewController {
     func logoutAction() {
         if CachingService.getUser() != nil {
-            self.showLoading()
-            self.viewModel.logoutUser()
+            showLogoutPopup()
         } else {
             LauncherViewController.logoutToLoginView()
         }

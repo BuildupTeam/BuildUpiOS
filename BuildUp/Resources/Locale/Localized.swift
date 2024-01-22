@@ -452,6 +452,29 @@ internal enum L10n {
       }
     }
 
+    internal enum Popups {
+        /// Cancel
+        internal static var cancel: String {
+          return L10n.tr("Localizable", "popups.cancel")
+        }
+        /// Login
+        internal static var login: String {
+          return L10n.tr("Localizable", "popups.login")
+        }
+        /// You don’t have an account please login first
+        internal static var loginMsg: String {
+          return L10n.tr("Localizable", "popups.loginMsg")
+        }
+        /// Logout
+        internal static var logout: String {
+          return L10n.tr("Localizable", "popups.logout")
+        }
+        /// Are you Sure you want to logout ?
+        internal static var logoutMsg: String {
+          return L10n.tr("Localizable", "popups.logoutMsg")
+        }
+    }
+
     internal enum ProductDetails {
         ///  SAR
         internal static var currency: String {

@@ -50,6 +50,8 @@ internal enum Asset {
   internal static let icDipatched = ImageAsset(name: "ic_dipatched")
   internal static let icPlaced = ImageAsset(name: "ic_placed")
   internal static let icArrowLeft = ImageAsset(name: "ic_arrow_left")
+  internal static let icLogin = ImageAsset(name: "ic_login")
+  internal static let icLogout = ImageAsset(name: "ic_logout")
   internal static let add = ImageAsset(name: "add")
   internal static let addProductSpecification = ImageAsset(name: "add_product_specification")
   internal static let arrowDown = ImageAsset(name: "arrow_down")

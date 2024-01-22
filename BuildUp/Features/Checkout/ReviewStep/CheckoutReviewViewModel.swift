@@ -67,7 +67,7 @@ class CheckoutReviewViewModel: BaseViewModel {
         
         service.paymentCancelled(orderUUID: checkoutData.order?.uuid ?? "") { result in
             switch result {
-            case .success(let response):
+            case .success(_):
                 self.onPaymentCancelled?()
             case .failure(let error):
                 print(error)

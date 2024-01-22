@@ -19,7 +19,9 @@ class ProductListViewModel: BaseViewModel {
     var perPage: Int = 20
     var homeSectionModel: HomeSectionModel?
     var componentModel: ComponentConfigurationModel?
-
+    var responseModel: ProductsResponseModel?
+    var cursor: String?
+    
     public var onProducts: (() -> Void)?
     public var onLoadMoreProducts: (() -> Void)?
     
@@ -31,20 +33,21 @@ class ProductListViewModel: BaseViewModel {
     
     func getProducts(productModel: ProductModel,
                      currentPageCompletion: @escaping (() -> String)) {
-        
         guard let service = service else {
             return
         }
-        service.getProductList(perPage: perPage, page: page, productModel: productModel) { (result) in
+        service.getProductList(perPage: perPage, page: page, cursor: cursor, productModel: productModel) { (result) in
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                    if (response.meta?.currentPage ?? 0) == 1 {
-                        //self.products = response.data ?? []
+                    self.responseModel = response
+                    self.cursor = self.responseModel?.pagination?.cursorMeta?.nextCursor
+                    
+                    if self.page == 1  {
                         self.products = self.getProductsWithCartQuantity(products: response.data ?? [])
                         self.products = self.getProductsWithFavorites(products: self.products)
                         self.onProducts?()
-                    } else if (response.meta?.currentPage ?? 0) > 1 {
+                    } else {
                         self.products.append(contentsOf: self.getProductsWithCartQuantity(products: response.data ?? []))
                         self.products = self.getProductsWithFavorites(products: self.products)
                         self.onLoadMoreProducts?()
@@ -62,20 +65,23 @@ class ProductListViewModel: BaseViewModel {
     }
     
     func getComponentProductList(componentModel: ComponentConfigurationModel,
-                     currentPageCompletion: @escaping (() -> String)) {
+                                 currentPageCompletion: @escaping (() -> String)) {
         
         guard let service = service else {
             return
         }
-        service.getComponentProductList(perPage: perPage, page: page, componentModel: componentModel) { (result) in
+        service.getComponentProductList(perPage: perPage, page: page, cursor: cursor, componentModel: componentModel) { (result) in
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                    if (response.meta?.currentPage ?? 0) == 1 {
+                    self.responseModel = response
+                    self.cursor = self.responseModel?.pagination?.cursorMeta?.nextCursor
+                    
+                    if self.page == 1  {
                         self.products = self.getProductsWithCartQuantity(products: response.data ?? [])
                         self.products = self.getProductsWithFavorites(products: self.products)
                         self.onProducts?()
-                    } else if (response.meta?.currentPage ?? 0) > 1 {
+                    } else {
                         self.products.append(contentsOf: self.getProductsWithCartQuantity(products: response.data ?? []))
                         self.products = self.getProductsWithFavorites(products: self.products)
                         self.onLoadMoreProducts?()

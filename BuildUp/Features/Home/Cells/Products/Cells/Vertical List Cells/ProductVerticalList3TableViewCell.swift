@@ -13,7 +13,9 @@ class ProductVerticalList3TableViewCell: UITableViewCell {
     
     var isLoadingShimmer: Bool?
     weak var delegate: HomeProductsCellDelegate?
-        
+    weak var addTocartDelegate: AddToCartDelegate?
+    weak var addToFavDelegate: ProductFavoriteDelegate?
+
     var homeSectionModel: HomeSectionModel? {
         didSet {
             self.tableView.reloadData()
@@ -47,7 +49,9 @@ class ProductVerticalList3TableViewCell: UITableViewCell {
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
-        
+        if CachingService.getUser() == nil {
+            return
+        }
     }
 }
 
@@ -80,6 +84,8 @@ extension ProductVerticalList3TableViewCell: UITableViewDataSource, UITableViewD
         if let sectionModel = homeSectionModel, !(sectionModel.products?.isEmpty ?? false) {
             cell.productModel = sectionModel.products?[indexPath.row]
         }
+        cell.addToCartDelegate = self
+        cell.delegate = self
         
         cell.selectionStyle = .none
         return cell
@@ -95,4 +101,24 @@ extension ProductVerticalList3TableViewCell: UITableViewDataSource, UITableViewD
         }
     }
     
+}
+
+extension ProductVerticalList3TableViewCell: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        addTocartDelegate?.productModelUpdated(model, self.homeSectionModel)
+    }
+    
+    func userShouldLoginFirst() {
+        addTocartDelegate?.userShouldLoginFirst()
+    }
+}
+
+extension ProductVerticalList3TableViewCell: ProductFavoriteDelegate {
+    func pleaseLoginFirst() {
+        addToFavDelegate?.pleaseLoginFirst()
+    }
+    
+    func productFavorite(model: ProductModel) {
+        addToFavDelegate?.productFavorite(model: model)
+    }
 }

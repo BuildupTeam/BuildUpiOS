@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PanModal
 
 class WishlistViewController: BaseViewController {
 
@@ -115,6 +116,19 @@ extension WishlistViewController {
             self.tableView.reloadData()
         })
     }
+    
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+// MARK: - Popup Delegate
+extension WishlistViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
+    }
 }
 
 // MARK: Register TableView Cells
@@ -174,5 +188,9 @@ extension WishlistViewController: ProductFavoriteDelegate {
             self.tableView.reloadData()
             self.checkIfProductsEmpty()
         }
+    }
+    
+    func pleaseLoginFirst() {
+        showLoginPopup()
     }
 }

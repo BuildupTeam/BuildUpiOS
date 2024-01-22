@@ -137,10 +137,10 @@ extension CheckoutReviewViewController {
             let iv = Array(decodedData[0..<16]) // Extract IV (first 16 bytes)
             let key = Array(decodedData[(decodedData.count - 32)..<decodedData.count])
             let encryptedData = Array(decodedData[16..<(decodedData.count - 32)])
-            let secret = SymmetricKey(data: key)
+//            let secret = SymmetricKey(data: key)
             /* Decrypt the message, given derived encContentValues and initialization vector. */
             
-            let padding = Padding.noPadding.add(to: encryptedData, blockSize: AES.blockSize)
+//            let padding = Padding.noPadding.add(to: encryptedData, blockSize: AES.blockSize)
 
             let cipher = try AES(key: key, blockMode: CBC(iv: iv), padding: .pkcs7)
 //            let cipher = try AES(key: secret, iv: iv, padding: .noPadding)

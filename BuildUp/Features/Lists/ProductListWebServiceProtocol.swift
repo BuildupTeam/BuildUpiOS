@@ -12,13 +12,15 @@ import ObjectMapper
 protocol ProductListWebServiceProtocol: AnyObject {
     func getProductList(perPage: Int,
                         page: Int?,
+                        cursor: String?,
                         productModel: ProductModel,
                         compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void))
     
     func getComponentProductList(perPage: Int,
-                        page: Int?,
-                        componentModel: ComponentConfigurationModel,
-                        compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void))
+                                 page: Int?,
+                                 cursor: String?,
+                                 componentModel: ComponentConfigurationModel,
+                                 compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void))
 }
 
 class ProductListWebService: BaseWebService, ProductListWebServiceProtocol {
@@ -27,10 +29,11 @@ class ProductListWebService: BaseWebService, ProductListWebServiceProtocol {
     
     func getProductList(perPage: Int,
                         page: Int?,
+                        cursor: String?,
                         productModel: ProductModel,
                         compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void)) {
         MainWebService.fetch(
-            endPoint: RouteProductListApi.getProductList(perPage: perPage, page: page, productModel: productModel)) { (result, statusCode) in
+            endPoint: RouteProductListApi.getProductList(perPage: perPage, page: page, cursor: cursor, productModel: productModel)) { (result, statusCode) in
                 switch result {
                 case .success(let response):
                     guard let productsResponse = Mapper<ProductsResponseModel>().map(JSONObject: response) else {
@@ -46,11 +49,12 @@ class ProductListWebService: BaseWebService, ProductListWebServiceProtocol {
     }
     
     func getComponentProductList(perPage: Int,
-                        page: Int?,
-                        componentModel: ComponentConfigurationModel,
-                        compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void)) {
+                                 page: Int?,
+                                 cursor: String?,
+                                 componentModel: ComponentConfigurationModel,
+                                 compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void)) {
         MainWebService.fetch(
-            endPoint: RouteProductListApi.getComponentProductList(perPage: perPage, page: page, componentModel: componentModel)) { (result, statusCode) in
+            endPoint: RouteProductListApi.getComponentProductList(perPage: perPage, page: page, cursor: cursor, componentModel: componentModel)) { (result, statusCode) in
                 switch result {
                 case .success(let response):
                     guard let productsResponse = Mapper<ProductsResponseModel>().map(JSONObject: response) else {

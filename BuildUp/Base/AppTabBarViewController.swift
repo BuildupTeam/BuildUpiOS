@@ -36,11 +36,11 @@ class AppTabBarViewController: UITabBarController {
         self.tabBar.selectionIndicatorImage = UIImage()
 //        self.tabBar.items?.forEach({ $0.titlePositionAdjustment = UIOffset(horizontal: 0.0, vertical: -2.0) })
 
-        if let activeColorCombination = tabbarSettings?.colorsCombination?.first {
-            self.tabBar.tintColor = ThemeManager.colorPalette?.getTabbarActiveColor(activeColorCombination).toUIColor(hexa: ThemeManager.colorPalette?.getTabbarActiveColor(activeColorCombination) ?? "")
-//                .buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
-            self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.buttonIconColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonIconColor4 ?? "")
-        }
+//        if let activeColorCombination = tabbarSettings?.colorsCombination?.first {
+//            self.tabBar.tintColor = ThemeManager.colorPalette?.getTabbarActiveColor(activeColorCombination).toUIColor(hexa: ThemeManager.colorPalette?.getTabbarActiveColor(activeColorCombination) ?? "")
+////                .buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
+//            self.tabBar.unselectedItemTintColor = ThemeManager.colorPalette?.buttonIconColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonIconColor4 ?? "")
+//        }
         
         setupTabbarShadow()
         initialize()
