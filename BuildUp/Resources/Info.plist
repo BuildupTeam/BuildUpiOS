@@ -8,6 +8,8 @@
 	<string>$(CONFIGURATION)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+	<string>14</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

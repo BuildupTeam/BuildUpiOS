@@ -137,6 +137,7 @@ extension ProductDetailsSliderType2TableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
+            productDescriptionLabel.text = (model.productDescription ?? "")//.maxLength(length: 69)
             productOldPriceLabel.text = "SAR " + String(model.originalPrice ?? 0)
             productNewPriceLabel.text = "SAR " + String(model.currentPrice ?? 0)
             
@@ -217,7 +218,17 @@ extension ProductDetailsSliderType2TableViewCell {
     }
     
     @IBAction func favoriteButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            delegate?.userIsNotLoggedIn()
+            return
+        }
         if let model = productModel {
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            }
+            
             let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
             RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }

@@ -23,7 +23,8 @@ class CartProductList1TableViewCell: UITableViewCell {
     @IBOutlet private weak var tableViewHeightConstrains: NSLayoutConstraint!
     
     @IBOutlet private weak var productImageView: UIImageView!
-    
+    @IBOutlet private weak var addToWishListImage: UIImageView!
+
     @IBOutlet private weak var productNameLabel: UILabel!
     @IBOutlet private weak var productDescriptionLabel: UILabel!
     @IBOutlet private weak var productOldPriceLabel: UILabel!
@@ -37,6 +38,7 @@ class CartProductList1TableViewCell: UITableViewCell {
     @IBOutlet private weak var removeProductButton: UIButton!
 
     weak var delegate: CartProductListDelegate?
+    var menu: UIMenu?
     
     var productModel: ProductModel? {
         didSet {
@@ -72,9 +74,9 @@ extension CartProductList1TableViewCell {
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productDescriptionLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
-        removeProductLabel.textColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "")
-        addToWishListLabel.textColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "")
-        productQuantityLabel.textColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "")
+        removeProductLabel.textColor = ThemeManager.colorPalette?.buttonTextColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor4 ?? "")
+        addToWishListLabel.textColor = ThemeManager.colorPalette?.buttonTextColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor4 ?? "")
+        productQuantityLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
         addToWishListLabel.text = L10n.Cart.addWishList
         removeProductLabel.text = L10n.Cart.remove
@@ -107,8 +109,15 @@ extension CartProductList1TableViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             productDescriptionLabel.text = (model.productDescription ?? "")
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            
+            if let combinationModel = model.cartCombinations?.first {
+                productOldPriceLabel.text = String(combinationModel.price ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(combinationModel.currentPrice ?? 0) + L10n.ProductDetails.currency
+            } else {
+                productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            }
+            
             productQuantityLabel.text = String(model.cartQuantityValue ?? 0)
 
             let tableViewHeight = CGFloat((model.cartCombinations?.first?.options?.count ?? 0) * 25)
@@ -131,6 +140,18 @@ extension CartProductList1TableViewCell {
             } else {
                 productImageView.image = UIImage() //  Asset.icPlaceholderProduct.image
             }
+            
+            if model.isFavorite {
+                addToWishListLabel.text = L10n.Cart.removeWishList
+                self.addToWishListImage.image = Asset.productFavorite.image
+            } else {
+                addToWishListLabel.text = L10n.Cart.addWishList
+                self.addToWishListImage.image = Asset.productUnFavorite.image
+            }
+            
+            menu = UIMenu(title: L10n.ProductDetails.quantity, identifier: .alignment, options: .displayInline, children: [])
+            productQuantityButton.menu = menu
+            checkToShowMenu()
         }
     }
     
@@ -145,39 +166,41 @@ extension CartProductList1TableViewCell {
             }
         }
     }
+    
+    func checkToShowMenu() {
+        var elements: [UIAction] = []
+        guard let model = productModel else { return }
+        let quantityCount = model.getCartMaxQuantity()
+                
+        if quantityCount <= 1 {
+            productQuantityButton.showsMenuAsPrimaryAction = false
+            return
+        }
+        
+        for i in (1 ... quantityCount) {
+            let element = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
+                print(String(i))
+                if (model.cartCombinations?.first) != nil {
+                    model.cartCombinations?.first?.cartQuantity = i
+                } else {
+                    model.cartQuantity = i
+                }
+                
+                self.productQuantityLabel.text = String(i)
+                self.delegate?.quantityChanged(quantity: i, model: model)
+                self.addToCartFirebase()
+            }
+            elements.append(element)
+        }
+        
+        menu = menu?.replacingChildren(elements)
+        productQuantityButton.showsMenuAsPrimaryAction = false
+    }
 }
 
 // MARK: - @IBActions
 extension CartProductList1TableViewCell {
     @IBAction func quantityActionButton(_ sender: UIButton) {
-        var elements: [UIAction] = []
-        guard let model = productModel else { return }
-        var quantityCount = model.quantity ?? 0
-        
-        if let combinationModel = model.cartCombinations?.first {
-            quantityCount = combinationModel.quantity ?? 0
-        }
-                
-        if quantityCount <= 1 {
-            return
-        }
-        
-        for i in (1 ... quantityCount) {
-            let first = UIAction(title: String(i), image: UIImage(), attributes: [], state: .off) { action in
-                print(String(i))
-                if (model.cartCombinations?.first) != nil {
-                    self.productModel?.cartCombinations?.first?.cartQuantity = i
-                } else {
-                    self.productModel?.cartQuantity = i
-                }
-                self.productQuantityLabel.text = String(i)
-                self.delegate?.quantityChanged(quantity: i, model: model)
-                self.addToCartFirebase()
-            }
-            elements.append(first)
-        }
-        
-        let menu = UIMenu(title: L10n.ProductDetails.quantity, identifier: .alignment, options: .displayInline, children: elements)
         productQuantityButton.showsMenuAsPrimaryAction = true
         productQuantityButton.menu = menu
     }
@@ -193,6 +216,13 @@ extension CartProductList1TableViewCell {
             }
             
             delegate?.removeButtonClicked(model: model)
+        }
+    }
+    
+    @IBAction func addToWishlistAction(_ sender: UIButton) {
+        if let model = productModel {
+            let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
+            RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }
     }
 }

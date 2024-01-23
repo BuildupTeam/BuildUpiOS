@@ -111,7 +111,7 @@ extension CurrentOrdersViewController {
     private func ordersResponse() {
         self.viewModel.onOrders = { [weak self]() in
             guard let `self` = self else { return }
-            if viewModel.orders?.isEmpty ?? false {
+            if self.viewModel.orders?.isEmpty ?? false {
                 self.setupEmptyView()
             } else {
                 self.removeBackgroundViews()

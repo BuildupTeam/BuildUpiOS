@@ -27,6 +27,19 @@ class RegisterModel {
         return countryCode?.replacingOccurrences(of: "+", with: "") ?? ""
     }
     
+    var phoneWithoutZero: String {
+        return deleteLeadingZeroIfExist(str: phone ?? "")
+    }
+    
+    func deleteLeadingZeroIfExist(str: String) -> String {
+        if let firstIndex = str.first {
+            if firstIndex == "0" {
+                return String(str.dropFirst())
+            }
+        }
+        return str
+    }
+    
     init() {
         
     }

@@ -17,7 +17,9 @@ class ProductVerticalGrid1CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var addToFavoriteView: UIView!
     @IBOutlet private weak var containerView: UIView!
-            
+           
+    weak var addToFavDelegate: ProductFavoriteDelegate?
+
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -35,13 +37,13 @@ class ProductVerticalGrid1CollectionViewCell: UICollectionViewCell {
         productNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
         addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
-        addToFavoriteView.layer.masksToBounds = true
-        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
+//        addToFavoriteView.layer.masksToBounds = true
+//        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
 
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
-        ThemeManager.setCornerRadious(element: addToFavoriteView, radius: 8)
+        ThemeManager.setCornerRadious(element: addToFavoriteView, radius: addToFavoriteView.frame.size.width / 2)
     }
     
     func bindData() {
@@ -65,6 +67,10 @@ class ProductVerticalGrid1CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            addToFavDelegate?.pleaseLoginFirst()
+            return
+        }
         if let model = productModel {
             if model.isFavorite {
                 self.addToFavoriteImageView.image = Asset.productUnFavorite.image

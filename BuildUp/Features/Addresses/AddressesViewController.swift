@@ -37,6 +37,7 @@ class AddressesViewController: BaseViewController {
         super.viewDidLoad()
         setupView()
         addressesResponse()
+        defaultAddressResponse()
         startShimmerOn(tableView: tableView)
     }
     
@@ -141,8 +142,17 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let model = self.viewModel.addresses?[indexPath.row] {
-            delegate?.addressTaped(addressModel: model)
+        if let addresses = self.viewModel.addresses {
+            for address in addresses {
+                address.isSelected = false
+            }
+            
+            if let model = self.viewModel.addresses?[indexPath.row] {
+                model.isSelected = true
+                self.viewModel.addresses?[indexPath.row] = model
+                self.showLoading()
+                self.viewModel.setDefaultAddress(adddressId: model.id ?? 0)
+            }
         }
     }
 }
@@ -161,13 +171,24 @@ extension AddressesViewController {
     private func addressesResponse() {
         self.viewModel.onAddresses = { [weak self]() in
             guard let `self` = self else { return }
-            if viewModel.addresses?.isEmpty ?? false {
+            if self.viewModel.addresses?.isEmpty ?? false {
                 self.setupEmptyView()
             } else {
                 self.removeBackgroundViews()
             }
             self.tableView.reloadData()
             self.stopShimmerOn(tableView: self.tableView)
+        }
+    }
+    
+    private func defaultAddressResponse() {
+        self.viewModel.onDefaultAddress = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            if let address = self.viewModel.addresses?.filter({ $0.isSelected == true }).first {
+                self.delegate?.addressTaped(addressModel: address)
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }

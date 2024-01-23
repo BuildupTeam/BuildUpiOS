@@ -52,7 +52,6 @@ class OrderDetailsStatusTableViewCell: UITableViewCell {
                                cornerRadius: 8,
                                masksToBounds: false)
         
-        
     }
     
     private func setupStep1Active() {
@@ -81,13 +80,13 @@ class OrderDetailsStatusTableViewCell: UITableViewCell {
                 orderStatusImageView.image = Asset.icArriving.image
                 setupStep3Active()
             case OrderStatus.delivered.rawValue:
-                orderStatusImageView.image = Asset.icArriving.image
+                orderStatusImageView.image = Asset.icDelivered.image
                 setupStep3Active()
             case OrderStatus.arriving.rawValue:
                 orderStatusImageView.image = Asset.icArriving.image
                 setupStep1Active()
             case OrderStatus.canceled.rawValue:
-                orderStatusImageView.image = Asset.icArriving.image
+                orderStatusImageView.image = Asset.icCancelled.image
             default:
                 return
             }

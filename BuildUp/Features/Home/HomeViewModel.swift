@@ -16,6 +16,7 @@ enum PageName: String {
     case categoriesList = "category-list"
     case cart = "cart"
     case categoriesTab = "category-tab"
+    case tabBar = "tab-bar"
     
 }
 
@@ -54,7 +55,7 @@ class HomeViewModel: BaseViewModel {
     
     func getFavoriteProductsUUIDS() {
         ObservationService.observeOnFavorite()
-        RealTimeDatabaseService.getFavoriteProducts { favoriteIDS in
+        RealTimeDatabaseService.getFavoriteProductsFromFirebase { favoriteIDS in
 //            self.favoriteUUIDS = favoriteIDS
             NotificationCenter.default.post(name: .favoriteUpdated, object: nil, userInfo: nil)
         }

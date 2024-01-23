@@ -10,7 +10,7 @@ import Foundation
 class AppHeaders {
     
     static var appHeaders: [String: String] {
-        var configuraion = Configuration()
+//        var configuraion = Configuration()
         var headers: [String: String] = [:]
         
 //        headers["x-api-key"] = configuraion.environment.xApiKey

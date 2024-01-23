@@ -33,13 +33,22 @@ class CartViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        self.viewModel.getCachedData()
         setupResponses()
-        startShimmerOn(tableView: tableView)
+        if CachingService.getUser() != nil {
+            isLoadingShimmer = true
+            startShimmerOn(tableView: tableView)
+        } else {
+            setupEmptyView(screenType: .loginFirst)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getCart()
+        if CachingService.getUser() != nil {
+            getCart()
+        }
+        
         self.navigationItem.title = L10n.Cart.title
     }
     
@@ -53,9 +62,7 @@ class CartViewController: BaseViewController {
 // MARK: - Private Func
 extension CartViewController {
     private func setupView() {
-        isLoadingShimmer = true
-        self.checkoutContainerView.hideView()
-        self.checkoutContainerViewHeightConstraint.constant = 0
+        self.checkoutContainerView.showView()
         
         registerTableViewCells()
         
@@ -113,6 +120,9 @@ extension CartViewController {
     }
     
     private func setupCartCheckoutType1View() {
+        if cartCheckoutType1View != nil {
+            cartCheckoutType1View?.removeFromSuperview()
+        }
         cartCheckoutType1View = CartCheckout1View.instantiateFromNib()
         cartCheckoutType1View?.initialize()
         cartCheckoutType1View?.delegate = self
@@ -129,6 +139,9 @@ extension CartViewController {
     }
     
     private func setupCartCheckoutType2View() {
+        if cartCheckoutType2View != nil {
+            cartCheckoutType2View?.removeFromSuperview()
+        }
         cartCheckoutType2View = CartCheckout2View.instantiateFromNib()
         cartCheckoutType2View?.initialize()
         cartCheckoutType2View?.delegate = self
@@ -145,6 +158,9 @@ extension CartViewController {
     }
     
     private func setupCartCheckoutType3View() {
+        if cartCheckoutType3View != nil {
+            cartCheckoutType3View?.removeFromSuperview()
+        }
         cartCheckoutType3View = CartCheckout3View.instantiateFromNib()
         cartCheckoutType3View?.initialize()
         cartCheckoutType3View?.delegate = self
@@ -160,18 +176,34 @@ extension CartViewController {
         }
     }
     
-    func setupEmptyView() {
+    func setupEmptyView(screenType: EmptyScreenType) {
         removeBackgroundViews()
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = tableView.frame
-        emptyNib.title = L10n.Cart.emptyMessage
-//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
-        emptyNib.showButton = false
+        emptyNib.screenType = screenType
+        if screenType == .loginFirst {
+            emptyNib.showButton = true
+            emptyNib.title = L10n.Cart.emptyMessage
+        } else {
+            emptyNib.showButton = false
+            emptyNib.title = L10n.EmptyScreen.noData
+        }
         tableView.backgroundView = emptyNib
     }
     
     func removeBackgroundViews() {
         tableView.backgroundView = nil
+    }
+    
+    private func checkToClearPage() {
+        if self.viewModel.cartModel?.products?.isEmpty ?? false {
+            CachingService.setCartProducts(products: [:])
+            RealTimeDatabaseService.clearCart()
+            
+            self.checkoutContainerView.hideView()
+//            self.checkoutContainerViewHeightConstraint.constant = 0
+            setupEmptyView(screenType: .emptyScreen)
+        }
     }
 }
 
@@ -191,6 +223,7 @@ extension CartViewController {
     
     private func setupResponses() {
         cartResponse()
+        favoriteProductUpdatedResponse()
     }
 }
 
@@ -199,20 +232,33 @@ extension CartViewController {
     private func cartResponse() {
         viewModel.onCart = {[weak self] () in
             guard let `self` = self else { return }
-            if self.viewModel.cartModel != nil {
-                self.checkoutContainerView.showView()
-                self.checkoutContainerViewHeightConstraint.constant = 80
-                self.removeBackgroundViews()
-            } else {
-                self.setupEmptyView()
-                self.checkoutContainerViewHeightConstraint.constant = 0
-                self.checkoutContainerView.hideView()
-            }
-            self.fillData()
             self.reloadTableViewData()
             self.isReloadingTableView = false
             self.stopShimmerOn(tableView: self.tableView)
+            
+            if self.viewModel.cartModel != nil {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.fillData()
+                    self.checkoutContainerView.showView()
+//                    self.checkoutContainerViewHeightConstraint.constant = 80
+                }
+                self.removeBackgroundViews()
+            } else {
+                DispatchQueue.main.async {
+                    self.checkoutContainerView.hideView()
+//                    self.checkoutContainerViewHeightConstraint.constant = 0
+                }
+                self.setupEmptyView(screenType: .emptyScreen)
+            }
         }
+    }
+    
+    private func favoriteProductUpdatedResponse() {
+        ObservationService.favItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            self.viewModel.cartModel?.products = self.viewModel.getProductsWithFavorites(products: self.viewModel.cartModel?.products ?? [])
+            self.tableView.reloadData()
+        })
     }
 }
 
@@ -230,6 +276,7 @@ extension CartViewController: CartProductListDelegate {
         if let index = viewModel.cartModel?.products?.firstIndex(where: { $0 == model }) {
             viewModel.cartModel?.products?.remove(at: index)
             calculateCartSubtotal()
+            checkToClearPage()
             tableView.reloadData()
         }
     }

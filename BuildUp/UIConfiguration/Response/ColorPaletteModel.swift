@@ -59,6 +59,21 @@ class ColorPaletteModel: NSObject, NSCoding, Mappable {
     var indicatorActiveColor: String?
     var indicatorInactiveColor: String?
     
+    var orderStatusPlacedBackground: String?
+    var orderStatusPlacedTitle: String?
+    var orderStatusDispatchedBackground: String?
+    var orderStatusDispatchedTitle: String?
+    var orderStatusDeliveredBackground: String?
+    var orderStatusDeliveredTitle: String?
+    var orderStatusCanceledBackground: String?
+    var orderStatusCanceledTitle: String?
+    var tabBarActive1: String?
+    var tabBarInactive1: String?
+    var tabBarActive2: String?
+    var tabBarInactive2: String?
+    var tabBarActive3: String?
+    var tabBarInactive3: String?
+    
     func getMainBG() -> String {
         if let themeData = CachingService.getThemeData() {
             if themeData.systemStyle == "curved" {
@@ -83,6 +98,16 @@ class ColorPaletteModel: NSObject, NSCoding, Mappable {
     
     required init?(map: Map) {
         
+    }
+    
+    func getTabbarActiveColor(_ color: String) -> String {
+        if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.tabBar.rawValue})?.settings {
+            if let activeColorCombination = settings.colorsCombination?.first {
+                
+            }
+        }
+        
+        return ""
     }
     
     func mapping(map: Map) {
@@ -135,7 +160,21 @@ class ColorPaletteModel: NSObject, NSCoding, Mappable {
         separator <- map["separator"]
         indicatorActiveColor <- map["indicator_active_color"]
         indicatorInactiveColor <- map["indicator_inactive_color"]
-
+        
+        orderStatusPlacedBackground <- map["order_status_placed_background"]
+        orderStatusPlacedTitle <- map["order_status_placed_title"]
+        orderStatusDispatchedBackground <- map["order_status_dispatched_background"]
+        orderStatusDispatchedTitle <- map["order_status_dispatched_title"]
+        orderStatusDeliveredBackground <- map["order_status_delivered_background"]
+        orderStatusDeliveredTitle <- map["order_status_delivered_title"]
+        orderStatusCanceledBackground <- map["order_status_canceled_background"]
+        orderStatusCanceledTitle <- map["order_status_canceled_title"]
+        tabBarActive1 <- map["tab_bar_active_1"]
+        tabBarInactive1 <- map["tab_bar_inactive_1"]
+        tabBarActive2 <- map["tab_bar_active_2"]
+        tabBarInactive2 <- map["tab_bar_inactive_2"]
+        tabBarActive3 <- map["tab_bar_active_3"]
+        tabBarInactive3 <- map["tab_bar_inactive_3"]
     }
     
     override init() {
@@ -192,6 +231,21 @@ class ColorPaletteModel: NSObject, NSCoding, Mappable {
         separator = aDecoder.decodeObject(forKey: "separator") as? String
         indicatorActiveColor = aDecoder.decodeObject(forKey: "indicatorActiveColor") as? String
         indicatorInactiveColor = aDecoder.decodeObject(forKey: "indicatorInactiveColor") as? String
+        
+        orderStatusPlacedBackground = aDecoder.decodeObject(forKey: "orderStatusPlacedBackground") as? String
+        orderStatusPlacedTitle = aDecoder.decodeObject(forKey: "orderStatusPlacedTitle") as? String
+        orderStatusDispatchedBackground = aDecoder.decodeObject(forKey: "orderStatusDispatchedBackground") as? String
+        orderStatusDispatchedTitle = aDecoder.decodeObject(forKey: "orderStatusDispatchedTitle") as? String
+        orderStatusDeliveredBackground = aDecoder.decodeObject(forKey: "orderStatusDeliveredBackground") as? String
+        orderStatusDeliveredTitle = aDecoder.decodeObject(forKey: "orderStatusDeliveredTitle") as? String
+        orderStatusCanceledBackground = aDecoder.decodeObject(forKey: "orderStatusCanceledBackground") as? String
+        orderStatusCanceledTitle = aDecoder.decodeObject(forKey: "orderStatusCanceledTitle") as? String
+        tabBarActive1 = aDecoder.decodeObject(forKey: "tabBarActive1") as? String
+        tabBarInactive1 = aDecoder.decodeObject(forKey: "tabBarInactive1") as? String
+        tabBarActive2 = aDecoder.decodeObject(forKey: "tabBarActive2") as? String
+        tabBarInactive2 = aDecoder.decodeObject(forKey: "tabBarInactive2") as? String
+        tabBarActive3 = aDecoder.decodeObject(forKey: "tabBarActive3") as? String
+        tabBarInactive3 = aDecoder.decodeObject(forKey: "tabBarInactive3") as? String
     }
     
     @objc
@@ -342,6 +396,50 @@ class ColorPaletteModel: NSObject, NSCoding, Mappable {
         }
         if indicatorInactiveColor != nil {
             aCoder.encode(indicatorInactiveColor, forKey: "indicatorInactiveColor")
+        }
+        
+        
+        if orderStatusPlacedBackground != nil {
+            aCoder.encode(orderStatusPlacedBackground, forKey: "orderStatusPlacedBackground")
+        }
+        if orderStatusPlacedTitle != nil {
+            aCoder.encode(orderStatusPlacedTitle, forKey: "orderStatusPlacedTitle")
+        }
+        if orderStatusDispatchedBackground != nil {
+            aCoder.encode(orderStatusDispatchedBackground, forKey: "orderStatusDispatchedBackground")
+        }
+        if orderStatusDispatchedTitle != nil {
+            aCoder.encode(orderStatusDispatchedTitle, forKey: "orderStatusDispatchedTitle")
+        }
+        if orderStatusDeliveredBackground != nil {
+            aCoder.encode(orderStatusDeliveredBackground, forKey: "orderStatusDeliveredBackground")
+        }
+        if orderStatusDeliveredTitle != nil {
+            aCoder.encode(orderStatusDeliveredTitle, forKey: "orderStatusDeliveredTitle")
+        }
+        if orderStatusCanceledBackground != nil {
+            aCoder.encode(orderStatusCanceledBackground, forKey: "orderStatusCanceledBackground")
+        }
+        if orderStatusCanceledTitle != nil {
+            aCoder.encode(orderStatusCanceledTitle, forKey: "orderStatusCanceledTitle")
+        }
+        if tabBarActive1 != nil {
+            aCoder.encode(tabBarActive1, forKey: "tabBarActive1")
+        }
+        if tabBarInactive1 != nil {
+            aCoder.encode(tabBarInactive1, forKey: "tabBarInactive1")
+        }
+        if tabBarActive2 != nil {
+            aCoder.encode(tabBarActive2, forKey: "tabBarActive2")
+        }
+        if tabBarInactive2 != nil {
+            aCoder.encode(tabBarInactive2, forKey: "tabBarInactive2")
+        }
+        if tabBarActive3 != nil {
+            aCoder.encode(tabBarActive3, forKey: "tabBarActive3")
+        }
+        if tabBarInactive3 != nil {
+            aCoder.encode(tabBarInactive3, forKey: "tabBarInactive3")
         }
     }
 }

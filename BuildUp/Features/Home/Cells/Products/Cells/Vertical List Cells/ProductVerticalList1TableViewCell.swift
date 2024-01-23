@@ -11,10 +11,9 @@ class ProductVerticalList1TableViewCell: UITableViewCell {
     
     @IBOutlet private weak var tableView: UITableView!
     var isLoadingShimmer: Bool?
-    weak var delegate: HomeProductsCellDelegate?
     
+    weak var delegate: HomeProductsCellDelegate?
     weak var addTocartDelegate: AddToCartDelegate?
-
 
     var homeSectionModel: HomeSectionModel? {
         didSet {
@@ -95,5 +94,9 @@ extension ProductVerticalList1TableViewCell: UITableViewDataSource, UITableViewD
 extension ProductVerticalList1TableViewCell: AddToCartDelegate {
     func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
         addTocartDelegate?.productModelUpdated(model, self.homeSectionModel)
+    }
+    
+    func userShouldLoginFirst() {
+        addTocartDelegate?.userShouldLoginFirst()
     }
 }

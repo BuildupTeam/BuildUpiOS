@@ -40,6 +40,8 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     private func setupCell() {
 //        addToCartView.initialize()
         
+        addToCartView.delegate = self
+        
         productNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
@@ -56,12 +58,15 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = productModel {
-            if model.hasCombinations ?? false || model.quantity == 0 {
+            if model.hasCombinations ?? false {
                 addToCartView.hideView()
             } else {
-                addToCartView.showView()
-                addToCartView.delegate = self
-                addToCartView.productModel = model
+                if model.getMaxQuantity() > 0 {
+                    addToCartView.showView()
+                    addToCartView.productModel = model
+                } else {
+                    addToCartView.hideView()
+                }
             }
             
             productNameLabel.text = model.name ?? ""
@@ -88,5 +93,9 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
 extension ProductVerticalList1InnerTableViewCell: AddToCartDelegate {
     func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
         delegate?.productModelUpdated(model, nil)
+    }
+    
+    func userShouldLoginFirst() {
+        delegate?.userShouldLoginFirst()
     }
 }

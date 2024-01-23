@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ProductFavoriteDelegate: AnyObject {
+    func productFavorite(model: ProductModel)
+    func pleaseLoginFirst()
+}
+
 class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var productImageView: UIImageView!
@@ -25,6 +30,9 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
     @IBOutlet private weak var productImageContainerView: UIView!
 
+    weak var delegate: ProductFavoriteDelegate?
+    weak var addToCartDelegate: AddToCartDelegate?
+    
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -38,6 +46,8 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        addToCartView.delegate = self
+        
         productNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         productOldPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
         productNewPriceLabel.font = .appFont(ofSize: 13, weight: .bold)
@@ -49,8 +59,8 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
         
         addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
 
-        addToFavoriteView.layer.masksToBounds = true
-        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
+//        addToFavoriteView.layer.masksToBounds = true
+//        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
 
@@ -72,17 +82,22 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
                                cornerRadius: 8,
                                masksToBounds: false)
         
+        ThemeManager.setCornerRadious(element: addToFavoriteView, radius: addToFavoriteView.frame.size.width / 2)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
         ThemeManager.setCornerRadious(element: addToFavoriteButton, radius: addToFavoriteButton.frame.width / 2)
     }
     
     private func bindData() {
         if let model = productModel {
-            if model.hasCombinations ?? false || model.quantity == 0 {
+            if model.hasCombinations ?? false {
                 addToCartView.hideView()
             } else {
-                addToCartView.showView()
-                addToCartView.productModel = model
+                if model.getMaxQuantity() > 0 {
+                    addToCartView.showView()
+                    addToCartView.productModel = model
+                } else {
+                    addToCartView.hideView()
+                }
             }
             
             productNameLabel.text = model.name ?? ""
@@ -112,10 +127,30 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            delegate?.pleaseLoginFirst()
+            return
+        }
         if let model = productModel {
+            if model.isFavorite {
+                self.addToFavoriteImage.image = Asset.productUnFavorite.image
+            } else {
+                self.addToFavoriteImage.image = Asset.productFavorite.image
+            }
+            delegate?.productFavorite(model: model)
             let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
             RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }
     }
     
+}
+
+extension ProductVerticalList3InnerTableViewCell: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        addToCartDelegate?.productModelUpdated(model, nil)
+    }
+    
+    func userShouldLoginFirst() {
+        addToCartDelegate?.userShouldLoginFirst()
+    }
 }

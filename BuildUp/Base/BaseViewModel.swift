@@ -19,7 +19,7 @@ class BaseViewModel {
         
     var onNetworkError: ((NetworkError?) -> Void)?
     var onBusinessError: ((String?) -> Void)?
-    var onAuthenticationError: (() -> Void)?
+    var onAuthenticationError: ((BaseResponse) -> Void)?
     var onForceUpdate: ((BaseResponse) -> Void)?
     var onUserData: (() -> Void)?
     var observationType: ObservationType
@@ -42,7 +42,7 @@ class BaseViewModel {
 //        removeCartObservations()
     }
     
-    func getUserData() {
+    func getUserData() { 
         /*
         guard let baseService = baseService else {
             return
@@ -218,6 +218,8 @@ extension BaseViewModel {
                 if let values = defaultCartProducts[uuid] {
                     product.cartQuantity = values["default"] ?? 0
                 }
+            } else {
+                product.cartQuantity = nil
             }
         }
         
@@ -243,7 +245,7 @@ extension BaseViewModel {
 extension BaseViewModel {
     func handleError(response: BaseResponse) {
         if response.statusCode == 401 {
-            self.onAuthenticationError?()
+            self.onAuthenticationError?(response)
         } else {
             if response.code == 12 {
                 self.onForceUpdate?(response)

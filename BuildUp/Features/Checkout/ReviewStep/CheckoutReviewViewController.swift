@@ -8,6 +8,10 @@
 import UIKit
 import PaymentSDK
 import PassKit
+import CryptoSwift
+import Foundation
+import ObjectMapper
+import CryptoKit
 
 enum CheckoutReviewCells: Int {
     case payment = 0
@@ -72,6 +76,8 @@ extension CheckoutReviewViewController {
         headerView.setupView()
         headerView.setupReviewView()
         
+        headerView.backgroundColor = ThemeManager.colorPalette?.mainBg2?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg2 ?? "")
+        
         checkoutContainerHeightConstraint.constant = 0
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
@@ -90,6 +96,8 @@ extension CheckoutReviewViewController {
         checkoutButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         checkoutButton.setTitle(L10n.Checkout.continue, for: .normal)
         checkoutButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        self.decryptMsg(config: checkoutModel?.paymentMethod?.gateway?.config ?? "")
     }
     
     private func registerTableViewCells() {
@@ -118,23 +126,35 @@ extension CheckoutReviewViewController {
         checkoutContainerHeightConstraint.constant = 137
         checkoutContainerView.showView()
         if let summary = self.viewModel.summaryData?.summary {
-            subtotalLabel.text = (summary.formattedSubtotal?.formatted ?? "")
-            //String(summary.formattedSubtotal?.formatted) + L10n.ProductDetails.currency
+            let subtotal = (summary.subtotal ?? 0) + (summary.shippingDetails?.amount ?? 0)
+            subtotalLabel.text = L10n.Cart.currency + String(subtotal)
         }
     }
     
-    private func setupResponses() {
-        checkoutResponse()
-        summaryResponse()
-    }
-    
-    private func summaryResponse() {
-        self.viewModel.onSummary = { [weak self]() in
-            guard let `self` = self else { return }
-            self.hideLoading()
-            setupTotalPrice()
-            self.tableView.reloadData()
+    private func decryptMsg(config: String) -> PaymentConfig? {
+        do {
+            guard let decodedData = Data(base64Encoded: config) else { return nil }
+            let iv = Array(decodedData[0..<16]) // Extract IV (first 16 bytes)
+            let key = Array(decodedData[(decodedData.count - 32)..<decodedData.count])
+            let encryptedData = Array(decodedData[16..<(decodedData.count - 32)])
+//            let secret = SymmetricKey(data: key)
+            /* Decrypt the message, given derived encContentValues and initialization vector. */
+            
+//            let padding = Padding.noPadding.add(to: encryptedData, blockSize: AES.blockSize)
+
+            let cipher = try AES(key: key, blockMode: CBC(iv: iv), padding: .pkcs7)
+//            let cipher = try AES(key: secret, iv: iv, padding: .noPadding)
+            let decryptedData = try cipher.decrypt(encryptedData)
+            if let jsonResponse = String(data: Data(decryptedData), encoding: .utf8) {
+                let paymentConfigResponse = Mapper<PaymentConfig>().map(JSONObject: jsonResponse)
+                return paymentConfigResponse 
+                //try JSONDecoder().decode(PaymentConfig.self, from: json.data(using: .utf8)!)
+            }
+        } catch {
+            print("error = \(error)")
+            return nil
         }
+        return nil
     }
 }
 
@@ -229,7 +249,7 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
         let phone = model.phone
         let city = model.address?.city?.name
         let state = model.address?.area?.name
-        let countryCode = "EG"//model.countryCode
+        let countryCode = model.countryCodeText
         let addressLine = model.address?.addressDescription
         
         return PaymentSDKBillingDetails(name: name,
@@ -244,7 +264,8 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
     
     func getCardConfiguration() -> PaymentSDKConfiguration {
         guard let model = self.viewModel.checkoutData?.order else { return PaymentSDKConfiguration() }
-        
+        let countryCode = checkoutModel?.countryCodeText ?? "EG"
+
         let theme = PaymentSDKTheme.default
         theme.logoImage = UIImage(named: "Logo")
         return PaymentSDKConfiguration(profileID: profileID,
@@ -252,7 +273,7 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
                                        clientKey: clientKey,
                                        currency: "EGP",
                                        amount: model.total ?? 0.0,
-                                       merchantCountryCode: "EG")
+                                       merchantCountryCode: countryCode)
         .cartDescription("Flowers")
         .cartID(model.uuid ?? "")
         .screenTitle("Pay with Card")
@@ -271,6 +292,9 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
             
             if transactionDetails.isSuccess() {
                 print("Successful transaction")
+                self.viewModel.completeOrder(transactionId: transactionDetails.transactionReference ?? "")
+            } else {
+                self.viewModel.paymentCancelled()
             }
         } else if let error = error {
             showError(message: error.localizedDescription)
@@ -280,13 +304,52 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
 
 // MARK: - Responses
 extension CheckoutReviewViewController {
+    private func setupResponses() {
+        checkoutResponse()
+        summaryResponse()
+        paymentCancelledResponse()
+        completeOrderResponse()
+    }
+    
+    private func summaryResponse() {
+        self.viewModel.onSummary = { [weak self]() in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            self.setupTotalPrice()
+            self.tableView.reloadData()
+        }
+    }
+    
     private func checkoutResponse() {
         self.viewModel.onCheckout = { [weak self] (response) in
             guard let `self` = self else { return }
             self.hideLoading()
-            self.payWithCard()
+            if let data = self.viewModel.checkoutData {
+                if data.confirmed ?? false {
+                    RealTimeDatabaseService.clearCart()
+                    LauncherViewController.showTabBar()
+                } else {
+                    self.payWithCard()
+                }
+            }
+        }
+    }
+    
+    private func paymentCancelledResponse() {
+        self.viewModel.onPaymentCancelled = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
+//            RealTimeDatabaseService.clearCart()
+//            LauncherViewController.showTabBar()
+        }
+    }
+    
+    private func completeOrderResponse() {
+        self.viewModel.onCompleteOrder = { [weak self] () in
+            guard let `self` = self else { return }
+            self.hideLoading()
             RealTimeDatabaseService.clearCart()
-            // LauncherViewController.showTabBar()
+            LauncherViewController.showTabBar()
         }
     }
 }

@@ -116,7 +116,10 @@ extension CartViewController {
 // MARK: TableView Delegate && DataSource
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        if CachingService.getUser() != nil && !(self.viewModel.cartModel?.products?.isEmpty ?? true) {
+            return 3
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

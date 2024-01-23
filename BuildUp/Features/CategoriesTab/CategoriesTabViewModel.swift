@@ -24,6 +24,8 @@ class CategoriesTabViewModel: BaseViewModel {
     var limit = 20
     var page = 1
     var perPage: Int = 20
+    var responseModel: ProductsResponseModel?
+    var cursor: String?
     
     public var onCategories: (() -> Void)?
     public var onProducts: (() -> Void)?
@@ -69,11 +71,14 @@ class CategoriesTabViewModel: BaseViewModel {
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
-                    if (response.meta?.currentPage ?? 0) == 1 {
+                    self.responseModel = response
+                    self.cursor = self.responseModel?.pagination?.cursorMeta?.nextCursor
+                    
+                    if self.page == 1 {
                         self.products = self.getProductsWithCartQuantity(products: response.data ?? [])
                         self.products = self.getProductsWithFavorites(products: self.products)
                         self.onProducts?()
-                    } else if (response.meta?.currentPage ?? 0) > 1 {
+                    } else {
                         self.products.append(contentsOf: self.getProductsWithCartQuantity(products: response.data ?? []))
                         self.products = self.getProductsWithFavorites(products: self.products)
                         self.onLoadMoreProducts?()

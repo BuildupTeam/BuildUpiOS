@@ -37,7 +37,7 @@ extension RouteRegisterApi: TargetType {
             var parameters: [String: Any] = [:]
             
             parameters["full_name"] = model.name
-            parameters["phone"] = model.phone
+            parameters["phone"] = model.phoneWithoutZero
             parameters["country_code"] = model.countryCodeWithoutPlus
             parameters["password"] = model.password
             parameters["password_confirmation"] = model.password

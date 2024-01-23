@@ -27,8 +27,13 @@ class OrderHistoryViewModel: BaseViewModel {
         service.getOrders(completed: completed) { (result) in
             switch result {
             case .success(let response):
-                self.orders = response.data
-                self.onOrders?()
+                if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
+                    self.orders = response.data
+                    self.onOrders?()
+                } else {
+                    self.handleError(response: response)
+                }
+                
             case .failure(let error):
                 print(error)
                 if error.message != "Request explicitly cancelled." {

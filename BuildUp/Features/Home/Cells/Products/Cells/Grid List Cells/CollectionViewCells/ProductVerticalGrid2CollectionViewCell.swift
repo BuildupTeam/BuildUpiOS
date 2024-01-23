@@ -23,6 +23,8 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var productOldPriceMarkedView: UIView!
 
+    weak var addToFavDelegate: ProductFavoriteDelegate?
+
     var productModel: ProductModel? {
         didSet {
             bindData()
@@ -55,13 +57,13 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
         productOldPriceMarkedView.backgroundColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         
         addToFavoriteView.backgroundColor = ThemeManager.colorPalette?.favouriteBg?.toUIColor(hexa: ThemeManager.colorPalette?.favouriteBg ?? "")
-        addToFavoriteView.layer.masksToBounds = true
-        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
+//        addToFavoriteView.layer.masksToBounds = true
+//        addToFavoriteView.layer.cornerRadius = addToFavoriteView.frame.size.width / 2
 
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
 
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
-//        ThemeManager.roundCorners(element: productImageView, corners: [.topLeft, .topRight], radius: 8)
+        ThemeManager.setCornerRadious(element: addToFavoriteView, radius: addToFavoriteView.frame.size.width / 2)
     }
     
     func bindData() {
@@ -94,7 +96,16 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func addToFavoriteAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            addToFavDelegate?.pleaseLoginFirst()
+            return
+        }
         if let model = productModel {
+            if model.isFavorite {
+                self.addToFavoriteImageView.image = Asset.productUnFavorite.image
+            } else {
+                self.addToFavoriteImageView.image = Asset.productFavorite.image
+            }
             let favoriteModel = FirebaseFavoriteModel(uuid: model.uuid ?? "", isFavorite: model.isFavorite,createdAt: (Date().timeIntervalSince1970 * 1000))
             RealTimeDatabaseService.favoriteUnfavoriteProduct(model: favoriteModel)
         }

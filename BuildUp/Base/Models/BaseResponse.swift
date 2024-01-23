@@ -16,6 +16,7 @@ class BaseResponse: Mappable {
     var statusCode: Int?
     var code: Int?
     var meta: MetaModel?
+    var pagination: PaginationModel?
     var moyaError: MoyaError?
     
     init(statusCode: Int) {
@@ -32,5 +33,6 @@ class BaseResponse: Mappable {
         statusCode <- map["statusCode"]
         code <- map["code"]
         meta <- map["pagination"]
+        pagination <- map["pagination"]
     }
 }

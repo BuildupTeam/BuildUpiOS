@@ -107,7 +107,11 @@ extension RealTimeDatabaseService {
     }
 
     static func getCartNode() -> DatabaseReference? {
-       return shared.ref?.child(Auth.auth().currentUser?.uid ?? "").child(CachingService.getUser()?.customer?.uuid ?? "").child("cart")
+        if let currentUserUUid = Auth.auth().currentUser?.uid, let csutomerUUID = CachingService.getUser()?.customer?.uuid  {
+            return shared.ref?.child(currentUserUUid).child(csutomerUUID).child("cart")
+        }
+        
+       return nil
     }
     
     static func addProductModel(model: FirebaseProductModel) {
@@ -121,6 +125,10 @@ extension RealTimeDatabaseService {
         var quantity = model.quantity ?? 0
         
         if let combinationId = model.combinationId {
+            if combinationCartProducts.keys.isEmpty {
+                getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                return
+            }
             for productKey in combinationCartProducts.keys {
                 if productKey == model.uuid {
                     let dict = combinationCartProducts[productKey]
@@ -131,6 +139,10 @@ extension RealTimeDatabaseService {
                 }
             }
         } else {
+            if defaultCartProducts.keys.isEmpty {
+                getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
+                return
+            }
             for productKey in defaultCartProducts.keys {
                 if productKey == model.uuid {
                     print("found product key")
@@ -147,7 +159,6 @@ extension RealTimeDatabaseService {
     }
     
     static func addProductModelFromCart(model: FirebaseProductModel) {
-//        getCartNode()?.child(model.uuid ?? "").setValue(model.dict)
         let defaultCartProducts = CachingService.getDefaultCartProducts() ?? [:]
         let combinationCartProducts = CachingService.getCombinationsCartProducts() ?? [:]
         
@@ -156,9 +167,6 @@ extension RealTimeDatabaseService {
         if let combinationId = model.combinationId {
             for productKey in combinationCartProducts.keys {
                 if productKey == model.uuid {
-//                    let dict = combinationCartProducts[productKey]
-//                    var quant = dict?["\(combinationId)"] ?? 0
-//                    quantity += quant
                     model.quantity = quantity
                     getCartNode()?.child(model.uuid ?? "").updateChildValues(model.dict)
                 }
@@ -206,7 +214,11 @@ extension RealTimeDatabaseService {
 //MARK: - Favorites
 extension RealTimeDatabaseService {
     static func getFavoriteNode() -> DatabaseReference? {
-       return shared.ref?.child(Auth.auth().currentUser?.uid ?? "").child(CachingService.getUser()?.customer?.uuid ?? "").child("favorites")
+        if let currentUserUUid = Auth.auth().currentUser?.uid, let csutomerUUID = CachingService.getUser()?.customer?.uuid  {
+            return shared.ref?.child(currentUserUUid).child(csutomerUUID).child("favorites")
+        }
+        
+       return nil
     }
     
     static func favoriteProductModel(model: FirebaseFavoriteModel) {
@@ -218,7 +230,6 @@ extension RealTimeDatabaseService {
     }
     
     static func favoriteUnfavoriteProduct(model: FirebaseFavoriteModel) {
-        guard let currentUser = Auth.auth().currentUser else { return }
         let ref = getFavoriteNode()?.child(model.uuid ?? "")
         
         ref?.observeSingleEvent(of: .value) { (snapshot) in
@@ -230,7 +241,7 @@ extension RealTimeDatabaseService {
         }
     }
     
-    static func getFavoriteProducts(compeltion: @escaping (([String]) -> Void)) {
+    static func getFavoriteProductsFromFirebase(compeltion: @escaping (([String]) -> Void)) {
         let prntRef = getFavoriteNode()
         prntRef?.observe(DataEventType.value, with: {(snap) in
             if let favDict = snap.value as? [String: AnyObject] {

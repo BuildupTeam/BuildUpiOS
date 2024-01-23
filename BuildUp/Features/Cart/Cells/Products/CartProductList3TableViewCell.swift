@@ -23,7 +23,6 @@ class CartProductList3TableViewCell: UITableViewCell {
     @IBOutlet private weak var productQuantityLabel: UILabel!
     @IBOutlet private weak var removeProductLabel: UILabel!
     
-    
     @IBOutlet private weak var removeProductButton: UIButton!
     @IBOutlet private weak var plusButton: UIButton!
     @IBOutlet private weak var minusButton: UIButton!
@@ -63,8 +62,8 @@ extension CartProductList3TableViewCell {
         productOldPriceLabel.textColor = ThemeManager.colorPalette?.priceBefore?.toUIColor(hexa: ThemeManager.colorPalette?.priceBefore ?? "")
         productNewPriceLabel.textColor = ThemeManager.colorPalette?.priceAfter?.toUIColor(hexa: ThemeManager.colorPalette?.priceAfter ?? "")
         productDescriptionLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
-        removeProductLabel.textColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "")
-        productQuantityLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
+        removeProductLabel.textColor = ThemeManager.colorPalette?.buttonTextColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor4 ?? "")
+        productQuantityLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
         removeProductLabel.text = L10n.Cart.remove
         
@@ -75,15 +74,14 @@ extension CartProductList3TableViewCell {
         removeProductView.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
         
         plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
 
-//        minusButton.layer.masksToBounds = true
-//        minusButton.layer.cornerRadius = minusButton.frame.size.width / 2
-        minusButton.layer.borderWidth = 1
-        minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
-        minusButton.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        if let model = productModel {
+            checkIfCanMinusPlus(model: model)
+        }
 
-        ThemeManager.setCornerRadious(element: minusButton, radius: 8)
-        ThemeManager.setCornerRadious(element: plusButton, radius: 8)
+        ThemeManager.setCornerRadious(element: minusButton, radius: minusButton.frame.size.width / 2)
+        ThemeManager.setCornerRadious(element: plusButton, radius: plusButton.frame.size.width / 2)
         ThemeManager.setCornerRadious(element: productImageView, radius: 8)
         ThemeManager.setCornerRadious(element: removeProductView, radius: 8)
     }
@@ -98,8 +96,15 @@ extension CartProductList3TableViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             productDescriptionLabel.text = (model.productDescription ?? "")
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            
+            if let combinationModel = model.cartCombinations?.first {
+                productOldPriceLabel.text = String(combinationModel.price ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(combinationModel.currentPrice ?? 0) + L10n.ProductDetails.currency
+            } else {
+                productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
+                productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            }
+            
             productQuantityLabel.text = String(model.cartQuantityValue ?? 0)
             
             let tableViewHeight = CGFloat((model.cartCombinations?.first?.options?.count ?? 0) * 25)
@@ -136,6 +141,44 @@ extension CartProductList3TableViewCell {
             }
         }
     }
+    
+    private func checkIfCanMinusPlus(model: ProductModel) {
+        if (model.cartQuantity ?? 0) >= (model.getCartMaxQuantity()) {
+            plusButton.isEnabled = false
+            plusButton.backgroundColor = .white
+            
+            let grayPlusImage = Asset.plusWhite.image.withRenderingMode(.alwaysTemplate).sd_tintedImage(with: ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "") ?? .red)
+            plusButton.setImage(grayPlusImage, for: .normal)
+            
+            plusButton.layer.borderWidth = 1
+            plusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
+        } else {
+            let grayPluImage = Asset.plusWhite.image
+            plusButton.setImage(grayPluImage, for: .normal)
+            
+            plusButton.layer.borderWidth = 0
+            plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+            plusButton.isEnabled = true
+        }
+        
+        if (model.cartQuantity ?? 0) <= 1 {
+            minusButton.backgroundColor = .white
+            minusButton.isEnabled = false
+            
+            let grayMinusImage = Asset.icMinusWhite.image.withRenderingMode(.alwaysTemplate).sd_tintedImage(with: ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "") ?? .red)
+            minusButton.setImage(grayMinusImage, for: .normal)
+            
+            minusButton.layer.borderWidth = 1
+            minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
+        } else {
+            let grayMinusImage = Asset.icMinusWhite.image
+            minusButton.setImage(grayMinusImage, for: .normal)
+            
+            minusButton.layer.borderWidth = 0
+            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+            minusButton.isEnabled = true
+        }
+    }
 }
 
 // MARK: - @IBActions
@@ -143,7 +186,7 @@ extension CartProductList3TableViewCell {
     @IBAction func plusButtonAction(_ sender: UIButton) {
         if let model = productModel, var quantity = model.cartQuantityValue {
             if quantity >= 1 {
-                if (quantity + 1 ) <= (model.maxAddedQuantity ?? 0) {
+                if (quantity + 1 ) <= (model.getCartMaxQuantity()) {
                     quantity += 1
                 }
             }
@@ -156,6 +199,8 @@ extension CartProductList3TableViewCell {
             
             productQuantityLabel.text = String(quantity)
             delegate?.quantityChanged(quantity: quantity, model: model)
+            
+            checkIfCanMinusPlus(model: model)
             addToCartFirebase()
         }
         
@@ -175,6 +220,8 @@ extension CartProductList3TableViewCell {
             
             productQuantityLabel.text = String(quantity)
             delegate?.quantityChanged(quantity: quantity, model: model)
+            
+            checkIfCanMinusPlus(model: model)
             addToCartFirebase()
         }
     }

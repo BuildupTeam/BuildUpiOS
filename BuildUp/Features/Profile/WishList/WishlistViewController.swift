@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PanModal
 
 class WishlistViewController: BaseViewController {
 
@@ -24,6 +25,7 @@ class WishlistViewController: BaseViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupResponses()
@@ -54,6 +56,14 @@ extension WishlistViewController {
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
     }
     
+    private func checkIfProductsEmpty() {
+        if self.viewModel.products?.isEmpty ?? false {
+            self.setupEmptyView()
+        } else {
+            self.removeBackgroundViews()
+        }
+    }
+    
     private func setupEmptyView() {
         removeBackgroundViews()
         let emptyNib = EmptyScreenView.instantiateFromNib()
@@ -81,7 +91,7 @@ extension WishlistViewController {
     private func wishlistResponses() {
         self.viewModel.onWishList = { [weak self]() in
             guard let `self` = self else { return }
-            if viewModel.products?.isEmpty ?? false {
+            if self.viewModel.products?.isEmpty ?? false {
                 self.setupEmptyView()
             } else {
                 self.removeBackgroundViews()
@@ -105,6 +115,19 @@ extension WishlistViewController {
             self.viewModel.products = self.viewModel.getProductsWithFavorites(products: self.viewModel.products ?? [])
             self.tableView.reloadData()
         })
+    }
+    
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+// MARK: - Popup Delegate
+extension WishlistViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
     }
 }
 
@@ -143,7 +166,31 @@ extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
         else { return UITableViewCell() }
         
         cell.productModel = self.viewModel.products?[indexPath.row]
+        cell.delegate = self
+        
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productModel = viewModel.products?[indexPath.row]
+        let detailsVC = Coordinator.Controllers.createProductDetailsViewController(productModel: productModel)
+        detailsVC.productModel = productModel
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+}
+
+// MARK: - TableViewDelegate & DataSource
+extension WishlistViewController: ProductFavoriteDelegate {
+    func productFavorite(model: ProductModel) {
+        if let index = self.viewModel.products?.firstIndex(where: { $0.uuid == model.uuid }) {
+            self.viewModel.products?.remove(at: index)
+            self.tableView.reloadData()
+            self.checkIfProductsEmpty()
+        }
+    }
+    
+    func pleaseLoginFirst() {
+        showLoginPopup()
     }
 }

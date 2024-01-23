@@ -1,30 +1,24 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-# source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 def ui_pods
   pod 'MessageViewController'
   pod 'SwiftMessages'
   pod 'NVActivityIndicatorView/Extended'
   pod 'ViewAnimator'
-  pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
   pod 'Windless', :git => 'https://github.com/Sob7y/Windless'
   pod 'PopupDialog'
   pod 'PanModal'
   pod 'Cosmos'
-  pod 'PhoneNumberKit', '~> 3.1'
-  pod 'CountryPickerView'
-  pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
+#  pod 'PhoneNumberKit', '~> 3.1'
   pod 'SwiftKeychainWrapper'
-  #pod 'UICircleProgressView'
   pod 'RangeSeekSlider'
   pod 'DPOTPView'
   pod "SCPageControl", :git => 'https://github.com/MahmoudNasserIbtikar/SCPageControl.git'
   pod 'lottie-ios'
   pod 'CarbonKit', :git => 'https://github.com/Sob7y/CarbonKit'
-#  pod 'PagerTabStripView', '~> 3.2.0'
-#  pod 'QRCodeReader.swift', '~> 10.1.0',
   pod 'PayTabsSDK', '~> 6.4.12'
 end
 
@@ -49,8 +43,8 @@ end
 def network_pods
   pod 'Moya'
   pod 'ObjectMapper'
-  pod 'SDWebImage'
-  pod 'SDWebImageSVGCoder'
+#  pod 'SDWebImage'
+#  pod 'SDWebImageSVGCoder'
 end
 
 def quality_pods
@@ -75,7 +69,7 @@ target 'BuildUp' do
   firebase_pods
   date_tools
   network_pods
-  googleMaps_pods
+#  googleMaps_pods
   quality_pods
   media_players
   analytics_pods

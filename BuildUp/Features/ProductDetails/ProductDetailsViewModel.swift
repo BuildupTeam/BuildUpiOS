@@ -50,6 +50,8 @@ class ProductDetailsViewModel: BaseViewModel {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     self.productModel = response.data
+                    self.getFavoriteProductsUUIDS()
+
                     let favoriteUUIDs = CachingService.getFavoriteProducts()
                     if favoriteUUIDs.contains(self.productModel?.uuid ?? "") {
                         self.productModel?.isFavorite = true
@@ -103,6 +105,13 @@ class ProductDetailsViewModel: BaseViewModel {
                     }
                 }
             }
+        }
+    }
+    
+    func getFavoriteProductsUUIDS() {
+        ObservationService.observeOnFavorite()
+        RealTimeDatabaseService.getFavoriteProductsFromFirebase { favoriteIDS in
+            NotificationCenter.default.post(name: .favoriteUpdated, object: nil, userInfo: nil)
         }
     }
     

@@ -1,24 +1,74 @@
 name: iOS Build
 
+# on:
+#   push:
+#     branches: [ ci ]
+#   pull_request:
+#     branches: [ ci ]
+
 on:
-  push:
-    branches: [ ci ]
-  pull_request:
-    branches: [ ci ]
+  workflow_dispatch:
+    inputs:
+      match_git_basic_authorization:
+        description: 'MATCH_GIT_BASIC_AUTHORIZATION value'
+        required: true
+      match_password:
+        description: 'MATCH_PASSWORD value'
+        required: true
+      match_username:
+        description: 'MATCH_USERNAME value'
+        required: true
+      app_store_connect_api_key_key_id:
+        description: 'APP_STORE_CONNECT_API_KEY_KEY_ID value'
+        required: true
+      app_store_connect_api_key_issuer_id:
+        description: 'APP_STORE_CONNECT_API_KEY_ISSUER_ID value'
+        required: true
+      app_store_connect_api_key_key:
+        description: 'APP_STORE_CONNECT_API_KEY_KEY value'
+        required: true
+      app_file: 
+        description: 'Appfile'
+        required: true
+      match_file:
+        description: 'Matchfile value'
+        required: true
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: 'macos-latest'
     steps:
     - uses: actions/checkout@v4
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2.2' # or the version you need
+    - name: Set up xcode
+      uses: maxim-lobanov/setup-xcode@v1.6.0
+      with:
+        xcode-version: 'latest-stable'
 
+    - name: Set .env.default
+      run: |
+        echo "MATCH_GIT_BASIC_AUTHORIZATION=${{ github.event.inputs.match_git_basic_authorization  }}" > fastlane/.env.default
+        echo "MATCH_PASSWORD=${{ github.event.inputs.match_password  }}" >> fastlane/.env.default
+        echo "MATCH_USERNAME=${{ github.event.inputs.match_username  }}" >> fastlane/.env.default
+        echo "APP_STORE_CONNECT_API_KEY_KEY_ID=${{ github.event.inputs.app_store_connect_api_key_key_id  }}" >> fastlane/.env.default
+        echo "APP_STORE_CONNECT_API_KEY_ISSUER_ID=${{ github.event.inputs.app_store_connect_api_key_issuer_id  }}" >> fastlane/.env.default
+        echo "APP_STORE_CONNECT_API_KEY_KEY=${{ github.event.inputs.app_store_connect_api_key_key  }}" >> fastlane/.env.default
+  
+    - name: Set Appfile
+      run: |
+        echo "${{ github.event.inputs.app_file}}" > fastlane/AppFile
+
+    - name: Set Matchfile
+      run: |
+        echo "${{ github.event.inputs.match_file}}" > fastlane/Matchfile
+        
     - name: Install dependencies
       run: |
         gem install bundler
+        pod install
         bundle update --full-index
 
     - name: Execute Fastlane
@@ -28,4 +78,5 @@ jobs:
     #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
     #     FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
       run: |
-        fastlane beta
+        fastlane deploy
+        

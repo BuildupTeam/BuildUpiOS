@@ -71,6 +71,46 @@ class ProductModel: NSObject, NSCoding, Mappable {
         return getSelectedOptions()
     }
     
+    func getMaxQuantity() -> Int {
+        var maxQuantity = 0
+        
+        if selectedCombination != nil {
+            maxQuantity = selectedCombination?.quantity ?? 0
+        } else {
+            maxQuantity = quantity ?? 0
+        }
+        
+        if orderInOutOfStock ?? false {
+            return (maxAddedQuantity ?? 0)
+        } else {
+            if maxQuantity > (maxAddedQuantity ?? 0) {
+                return (maxAddedQuantity ?? 0)
+            } else {
+                return maxQuantity
+            }
+        }
+    }
+    
+    func getCartMaxQuantity() -> Int {
+        var maxQuantity = 0
+        
+        if (cartCombinations?.first) != nil {
+            maxQuantity = cartCombinations?.first?.cartQuantity ?? 0
+        } else {
+            maxQuantity = quantity ?? 0
+        }
+        
+        if orderInOutOfStock ?? false {
+            return (maxAddedQuantity ?? 0)
+        } else {
+            if maxQuantity > (maxAddedQuantity ?? 0) {
+                return (maxAddedQuantity ?? 0)
+            } else {
+                return maxQuantity
+            }
+        }
+    }
+    
     required init?(map: Map) {
         
     }

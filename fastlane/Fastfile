@@ -15,16 +15,61 @@
 
 default_platform(:ios)
 
-platform :ios do
 before_all do
     ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "tvng-tntn-ijci-zfxk"
     ENV["FASTLANE_PASSWORD"] = "Sobhy288"
   end
 
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
-   # increment_build_number(xcodeproj: "BuildUp.xcodeproj")
-    build_app(workspace: "BuildUp.xcworkspace", scheme: "BuildUp")
-    upload_to_testflight
+platform :ios do
+   desc "Get certificates"
+  lane :certificates do
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: ['com.squadio.buildUp'], 
+      force_for_new_devices: true,
+      readonly: true
+    )
+
+    # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: 'com.squadio.buildUp',
+      readonly: true
+    )
+  end
+
+ desc "Generate new certificates"
+  lane :generate_new_certificates do
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: ['com.squadio.buildUp'], 
+      force_for_new_devices: true,
+      readonly: false
+    )
+    
+    # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
+
+  end
+
+ desc "deploy"
+  lane :deploy do
+    setup_ci
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: 'com.squadio.buildUp',
+      readonly: true
+    )
+
+ current_build_number = app_store_build_number(live: false, username: 'mohammed.khaled.sobhy@gmail.com', app_identifier: 'com.squadio.buildUp')
+increment_build_number(xcodeproj: 'BuildUp.xcodeproj', build_number: current_build_number + 1)
+
+    # increment_build_number(xcodeproj: "BuildUp.xcodeproj")
+    build_app(scheme: "BuildUp")
+    app_store_connect_api_key(
+  key_id: "Y99X6X5676",
+  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1",
+  key_content: "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JR1RBZ0VBTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEJIa3dkd0lCQVFRZ1BnQXdmcHhPMFFlYm5sSUUKelV3VHl2OU5SQm5YOFdLRk5SNFpXTkxKV2txZ0NnWUlLb1pJemowREFRZWhSQU5DQUFUdjBQVTlzbm90UmZyWgpSMmV1M29GbnZPalIwNFNtZU9ndlN2M3QyUG9veVNic2lJRDUxN2FSd2dNWlRoQUM3cm95TWZ6djkreVNjTlAyCjF1ZUFMK2xQCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0="
+)
+	upload_to_testflight
   end
 end

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +69,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMa-BM-Ppu">
-                                        <rect key="frame" x="8" y="208" width="110" height="32"/>
+                                        <rect key="frame" x="0.0" y="208" width="110" height="32"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smh-AP-Sil">
                                                 <rect key="frame" x="0.0" y="0.0" width="110" height="32"/>
@@ -174,6 +174,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="32"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="addToWishlistAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SLe-6c-QKk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,7 +204,7 @@
                                     <constraint firstAttribute="trailing" secondItem="TMD-dn-xsX" secondAttribute="trailing" constant="16" id="HnQ-mv-kAF"/>
                                     <constraint firstItem="km9-bJ-DhQ" firstAttribute="trailing" secondItem="jVX-RQ-hdx" secondAttribute="trailing" id="I03-NH-XVN"/>
                                     <constraint firstItem="PnT-NA-fWk" firstAttribute="leading" secondItem="xk1-Hh-Uew" secondAttribute="trailing" constant="16" id="M9l-DM-xes"/>
-                                    <constraint firstItem="YMa-BM-Ppu" firstAttribute="leading" secondItem="WYI-1b-qex" secondAttribute="leading" constant="8" id="MBE-CV-mVR"/>
+                                    <constraint firstItem="YMa-BM-Ppu" firstAttribute="leading" secondItem="WYI-1b-qex" secondAttribute="leading" id="MBE-CV-mVR"/>
                                     <constraint firstAttribute="bottom" secondItem="u06-VD-v8h" secondAttribute="bottom" constant="8" id="OBS-ol-0Ac"/>
                                     <constraint firstAttribute="trailing" secondItem="5ZQ-yb-5BN" secondAttribute="trailing" constant="6" id="RKT-2C-bHY"/>
                                     <constraint firstItem="u06-VD-v8h" firstAttribute="centerY" secondItem="YMa-BM-Ppu" secondAttribute="centerY" id="Rke-4F-oVT"/>

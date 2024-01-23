@@ -13,7 +13,8 @@ class CheckoutModel {
     var email: String?
     var phone: String?
     var countryCode: String?
-    var paymentMethod = "cod"
+    var countryCodeText: String?
+    var paymentMethod: PaymentMethodModel?
     var address: AddressModel?
     var countryFlag: UIImage?
 

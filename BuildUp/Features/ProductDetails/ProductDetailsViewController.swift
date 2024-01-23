@@ -41,9 +41,9 @@ class ProductDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupResponse()
         setupView()
         startShimmer()
-        setupResponse()
         getProductDetailsData()
     }
     
@@ -76,6 +76,10 @@ class ProductDetailsViewController: BaseViewController {
 // MARK: - Actions
 extension ProductDetailsViewController {
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            showLoginPopup()
+            return
+        }
         addToCartFirebase()
     }
     
@@ -194,12 +198,6 @@ extension ProductDetailsViewController {
         quantityCircleView.isUserInteractionEnabled = false
     }
     
-    private func checktoActivateQuantityAction() {
-//        if let model = self.combinationModel {
-//            
-//        }
-    }
-    
     private func addToCartFirebase() {
         if let model = viewModel.productModel {
             if let combinationModel = model.selectedCombination {
@@ -210,24 +208,50 @@ extension ProductDetailsViewController {
                 RealTimeDatabaseService.addProductFromDetails(model: firebaseProductModel)
             }
             
-            
+            self.showSuccessMessage(message: "Added To Cart")
         }
     }
     
-    private func checkIfCombinationsExist() {
+    private func checkToActivateAddToCartButton() {
         if let model = viewModel.productModel {
             if let combinations = model.combinations, !combinations.isEmpty {
-                deactivateQuantityView()
+                if model.selectedCombination != nil {
+                    if model.orderInOutOfStock ?? false {
+                        activateQuantityView()
+                    } else {
+                        if (model.quantity ?? 0) > 0 {
+                            activateQuantityView()
+                        } else {
+                            deactivateQuantityView()
+                        }
+                    }
+                } else {
+                    deactivateQuantityView()
+                }
             } else {
-                activateQuantityView()
+                if model.orderInOutOfStock ?? false {
+                    activateQuantityView()
+                } else {
+                    if (model.quantity ?? 0) > 0 {
+                        activateQuantityView()
+                    } else {
+                        deactivateQuantityView()
+                    }
+                }
             }
         }
     }
-    
-    private func checkIsOutOfStock() {
-        if let model = viewModel.productModel, model.quantity == 0 {
-            deactivateQuantityView()
-        }
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+// MARK: - Popup Delegate
+extension ProductDetailsViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
     }
 }
 
@@ -264,12 +288,12 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
             self.viewModel.productModel?.cartCombinations?.first(where: { $0.id == combinationModel?.id })?.cartQuantity = 1
             
             self.tableView.reloadSections([ProductDetailsSection.slider.rawValue, ProductDetailsSection.quantity.rawValue], with: .none)
-            activateQuantityView()
             setupAddToCartView(model)
         } else {
             subtotalViewHeightConstraint.constant = 94
-            deactivateQuantityView()
         }
+        
+        checkToActivateAddToCartButton()
     }
 }
 
@@ -277,6 +301,10 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
 extension ProductDetailsViewController: ProductDetailsSliderDelegate {
     func seeMoreButtonClicked() {
         self.tableView.reloadData()
+    }
+    
+    func userIsNotLoggedIn() {
+        showLoginPopup()
     }
 }
 
@@ -335,7 +363,6 @@ extension ProductDetailsViewController {
             guard let `self` = self else { return }
             print("Normal Reload")
             self.hideLoading()
-            self.checkIfCombinationsExist()
             self.stopShimmerOn(tableView: self.tableView)
             self.tableView.reloadData()
             UIView.transition(with: self.addToCartContainerView, duration: 0.5,
@@ -346,14 +373,13 @@ extension ProductDetailsViewController {
             self.quantityCircleView.productModel = self.viewModel.productModel
             self.quantityDropDownView.productModel = self.viewModel.productModel
             
-            self.checkIsOutOfStock()
+            self.checkToActivateAddToCartButton()
         }
     }
     
     private func favoriteProductUpdatedResponse() {
         ObservationService.favItemUpdated.append({ [weak self] () in
             guard let `self` = self else { return }
-            //getProductsWithCartQuantity
             self.viewModel.productModel = self.viewModel.updateProductModelWithFavorite()
             self.tableView.reloadData()
         })

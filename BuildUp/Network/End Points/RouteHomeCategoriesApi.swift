@@ -59,31 +59,22 @@ extension RouteHomeCategoriesApi: TargetType {
             }
             
             if let subcategories = model.subcategories, !subcategories.isEmpty {
-                parameters["ids"] = subcategories
+                categroiesSubcategoriesIDS.append(contentsOf: subcategories)
             } else {
                 parameters["subcategory"] = 0
             }
             
-//            if let subcategories = model.subcategories, !subcategories.isEmpty {
-//                categroiesSubcategoriesIDS.append(contentsOf: subcategories)
-//            } else {
-//                if let categories = model.categories, !categories.isEmpty {
-//                    categroiesSubcategoriesIDS.append(contentsOf: categories)
-//                }
-//            }
-//            
-//            if !categroiesSubcategoriesIDS.isEmpty {
-//                parameters["ids"] = categroiesSubcategoriesIDS
-//            }
+            if let categories = model.categories, !categories.isEmpty {
+                categroiesSubcategoriesIDS.append(contentsOf: categories)
+            }
+            if !categroiesSubcategoriesIDS.isEmpty {
+                parameters["ids"] = categroiesSubcategoriesIDS
+            }
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
-        
-        //https://my-app-3.backend.buildupapp.co/api/v1/ec/f/categories?limit=10&sort[by]=id&sort
-        //[dir]=desc&ids[0]=1'
-        //https://my-app-3.backend.buildupapp.co/api/v1/ec/f/categories?limit=10&sort[by]=id&sort[dir]=desc&is_main=1&parents_ids[0]=1&ids[0]=1
     }
     
     var headers: [String: String]? {

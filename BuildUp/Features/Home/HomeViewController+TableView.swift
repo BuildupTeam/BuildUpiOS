@@ -265,6 +265,7 @@ extension HomeViewController {
         
         cell.addTocartDelegate = self
         cell.delegate = self
+        cell.addTocartDelegate = self
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -289,6 +290,8 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
         cell.delegate = self
+        cell.addTocartDelegate = self
+        cell.addToFavDelegate = self
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
         return cell
@@ -301,6 +304,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
         cell.delegate = self
+        cell.addToFavDelegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -314,6 +318,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
         cell.delegate = self
+        cell.addToFavDelegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -327,6 +332,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
         cell.delegate = self
+        cell.addTocartDelegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none
@@ -366,6 +372,7 @@ extension HomeViewController {
         else { return UITableViewCell() }
         
         cell.delegate = self
+        cell.addToFavDelegate = self
         cell.isLoadingShimmer = self.isLoadingShimmer
         cell.homeSectionModel = homeSectionModel
         cell.selectionStyle = .none

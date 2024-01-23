@@ -31,6 +31,7 @@ struct ApiUrls {
         static let citiesUrl = "/cities"
         static let areasUrl = "/areas"
         static let addressesUrl = "/addresses"
+        static let setDefaultUrl = "/addresses/{id}/default"
         static let updateAdressUrl = "/addresses/{id}"
         static let summartUrl = "/checkout/summary"
         static let checkoutUrl = "/checkout"
@@ -38,6 +39,9 @@ struct ApiUrls {
         static let orderDetailsUrl = "/orders/{id}"
         static let profileUrl = "/me"
         static let wishListUrl = "favorites/products"
+        static let paymentCanceledUrl = "/checkout/{uuid}/payment-canceled"
+        static let completeOrderUrl = "/checkout/{uuid}/complete"
+        static let paymentMethodsUrl = "/payments/methods"
         
         static let fetchFirebaseToken = "/fcm-token"
     }

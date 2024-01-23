@@ -35,10 +35,11 @@ class ProfileViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.title = " "
+        self.navigationItem.title = " "
     }
 }
 
+// MARK: Private Func
 extension ProfileViewController {
     private func setupView() {
         registerTableViewCells()
@@ -81,13 +82,29 @@ extension ProfileViewController {
             self.tableView.reloadData()
         }
     }
-}
     
+    private func showLogoutPopup() {
+        let logoutVC = LogoutPopupViewController()
+        logoutVC.delegate = self
+        self.presentPanModal(logoutVC)
+    }
+}
 
-extension ProfileViewController {
-    func logoutAction() {
+extension ProfileViewController: LogoutPopupProtocol {
+    func logoutButtonClicked() {
         self.showLoading()
         self.viewModel.logoutUser()
+    }
+}
+
+// MARK: Actions
+extension ProfileViewController {
+    func logoutAction() {
+        if CachingService.getUser() != nil {
+            showLogoutPopup()
+        } else {
+            LauncherViewController.logoutToLoginView()
+        }
     }
     
     func openEditProfile() {
