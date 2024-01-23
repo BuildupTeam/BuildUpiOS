@@ -15,6 +15,10 @@
 
 default_platform(:ios)
 
+before_all do
+    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "tvng-tntn-ijci-zfxk"
+  end
+
 platform :ios do
    desc "Get certificates"
   lane :certificates do
@@ -48,11 +52,6 @@ platform :ios do
 
  desc "deploy"
   lane :deploy do
-
- current_build_number = app_store_build_number(live: false, username: 'mohammed.khaled.sobhy@gmail.com', app_identifier: 'com.squadio.buildUp')
-increment_build_number(xcodeproj: 'BuildUp.xcodeproj', build_number: current_build_number + 1)
-
-    # increment_build_number(xcodeproj: "BuildUp.xcodeproj")
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
   key_id: "Y99X6X5676",
