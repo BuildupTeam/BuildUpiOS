@@ -52,6 +52,7 @@ platform :ios do
 
  desc "deploy"
   lane :deploy do
+fastlane match appstore
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
   key_id: "Y99X6X5676",
