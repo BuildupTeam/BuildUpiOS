@@ -54,7 +54,15 @@ platform :ios do
  desc "deploy"
   lane :deploy do
     
-    build_app(scheme: "BuildUp")
+    #build_app(scheme: "BuildUp")
+ build_app(
+    export_method: "app-store",
+    export_options: {
+      provisioningProfiles: {
+        "com.squadio.buildUp" => "match AppStore com.squadio.buildUp ",
+      }
+    }
+  )
     app_store_connect_api_key(
   key_id: "Y99X6X5676",
   issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1",
