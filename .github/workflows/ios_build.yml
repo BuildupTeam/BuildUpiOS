@@ -32,4 +32,5 @@ jobs:
     #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
     #     FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
       run: |
-        fastlane deploy
+      fastlane certificates
+      fastlane deploy

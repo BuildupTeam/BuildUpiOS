@@ -207,7 +207,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  fastlane (= 2.205.0)
+  fastlane
 
 BUNDLED WITH
    2.4.10
