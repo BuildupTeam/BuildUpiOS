@@ -55,9 +55,12 @@ platform :ios do
   lane :deploy do
     setup_ci
     sync_code_signing(
+      git_url: 'https://github.com/BuildupTeam/FastlaneSigning.git',
+      verbose: true,
       type: "appstore",
       app_identifier: 'com.squadio.buildUp',
-      readonly: true
+      readonly: true,
+      force: true,
     )
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
