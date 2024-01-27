@@ -4419,7 +4419,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 58;
+				CURRENT_PROJECT_VERSION = 59;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4466,7 +4466,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 58;
+				CURRENT_PROJECT_VERSION = 59;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4704,7 +4704,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 58;
+				CURRENT_PROJECT_VERSION = 59;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4857,7 +4857,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 58;
+				CURRENT_PROJECT_VERSION = 59;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
