@@ -67,6 +67,13 @@ hhD7N1mMiIT4kpz2SJIWf/xSU7mgCgYIKoZIzj0DAQehRANCAARaJePeenpjJuj8
 rXoq2fqDz62m4DxsS/9iMRonv6iinalgzw6J8HZ+zZ1ld8wpGRHItX9y/XrxIgDP
 SdRzkDKl\n-----END PRIVATE KEY-----"
 )
-	upload_to_testflight 
+	upload_to_app_store(
+    username: "mohammed.khaled.sobhy@gmail.com", # Your Apple email ID
+    app_identifier: "com.squadio.buildUp",   # Your app's bundle identifier
+    skip_metadata: false,                  # Set to true to skip uploading metadata
+    skip_screenshots: false,               # Set to true to skip uploading screenshots
+    submit_for_review: true,              # Set to true to submit the app for review after upload
+    # Additional options can be specified here
+  ) 
   end
 end
