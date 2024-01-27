@@ -10,6 +10,7 @@ import Cosmos
 
 protocol ProductDetailsSliderDelegate: AnyObject {
     func seeMoreButtonClicked()
+    func userIsNotLoggedIn()
 }
 
 class ProductDetailsSliderType1TableViewCell: UITableViewCell {
@@ -192,6 +193,10 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
     }
     
     @IBAction func favoriteButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            delegate?.userIsNotLoggedIn()
+            return
+        }
         if let model = productModel {
             if model.isFavorite {
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image

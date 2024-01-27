@@ -302,6 +302,10 @@ extension ProductDetailsViewController: ProductDetailsSliderDelegate {
     func seeMoreButtonClicked() {
         self.tableView.reloadData()
     }
+    
+    func userIsNotLoggedIn() {
+        showLoginPopup()
+    }
 }
 
 extension ProductDetailsViewController: RecommentedProductsDelegate {

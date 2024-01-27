@@ -218,6 +218,10 @@ extension ProductDetailsSliderType2TableViewCell {
     }
     
     @IBAction func favoriteButtonAction(_ sender: UIButton) {
+        if CachingService.getUser() == nil {
+            delegate?.userIsNotLoggedIn()
+            return
+        }
         if let model = productModel {
             if model.isFavorite {
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image
