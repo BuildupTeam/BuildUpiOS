@@ -72,7 +72,8 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     		app_identifier: "com.squadio.buildUp",
     		skip_metadata: true,
     		skip_screenshots: true,
-    		submit_for_review: true
+    		submit_for_review: true,
+		run_precheck_before_submit: false
   )
   end
 end
