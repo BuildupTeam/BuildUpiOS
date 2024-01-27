@@ -57,7 +57,7 @@ platform :ios do
     sync_code_signing(
       type: "appstore",
       app_identifier: 'com.squadio.buildUp',
-      readonly: true
+      readonly: false
     )
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
