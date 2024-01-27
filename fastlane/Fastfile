@@ -61,7 +61,13 @@ platform :ios do
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
 	  key_id: "223H85GN24",
-	  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1", 	 key_content:"LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JR1RBZ0VBTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEJIa3dkd0lCQVFRZ2hHU3RZUmVIbkxzUytxQkwKaGhEN04xbU1pSVQ0a3B6MlNKSVdmL3hTVTdtZ0NnWUlLb1pJemowREFRZWhSQU5DQUFSYUplUGVlbnBqSnVqOApyWG9xMmZxRHo2Mm00RHhzUy85aU1Sb252NmlpbmFsZ3p3Nko4SForeloxbGQ4d3BHUkhJdFg5eS9YcnhJZ0RQClNkUnprREtsCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0="
+	  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1", 	 
+key_content:"-----BEGIN PRIVATE KEY-----
+\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQghGStYReHnLsS+qBL
+hhD7N1mMiIT4kpz2SJIWf/xSU7mgCgYIKoZIzj0DAQehRANCAARaJePeenpjJuj8
+rXoq2fqDz62m4DxsS/9iMRonv6iinalgzw6J8HZ+zZ1ld8wpGRHItX9y/XrxIgDP
+SdRzkDKl\n
+-----END PRIVATE KEY-----"
 )
 	upload_to_testflight 
   end
