@@ -73,7 +73,7 @@ class AppTabBarViewController: UITabBarController {
         case TabbarDesign.tabbar3.rawValue:
             self.setupTabbar3()
         default:
-            return
+            self.setupTabbar1()
         }
         
         if let activeColorCombination = tabbarSettings?.colorsCombination?.first {

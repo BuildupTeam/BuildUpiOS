@@ -168,7 +168,7 @@ extension RegisterViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             PersistanceManager.setLatestViewController(Constant.ControllerName.home)
-            LauncherViewController.showTabBar()
+            LauncherViewController.showTabBar(fromViewController: nil)
         }
     }
 }

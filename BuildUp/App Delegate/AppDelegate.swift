@@ -14,7 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        FirebaseApp.configure()
+        if let path = Bundle.main.path(forResource:"GoogleService-Info", ofType:"plist") {
+            if let options = FirebaseOptions(contentsOfFile: path) {
+                FirebaseApp.configure(options: options)
+            }
+          }
+        
+        let firebaseOptions = FirebaseOptions(googleAppID: "1:738116931986:ios:9bbd49842b4a82e366f14b",
+                                              gcmSenderID: "738116931986")
+        firebaseOptions.apiKey = "AIzaSyBC4KEHlAjoviwzZpeiSRxxGVV81CA0ssk"
+        firebaseOptions.projectID = "buildup-dev-4c1cd"
+        firebaseOptions.databaseURL = "https://buildup-dev-4c1cd-default-rtdb.firebaseio.com"
+        
+        // Configure an alternative FIRApp.
+        FirebaseApp.configure(name: "Buildup2", options: firebaseOptions)
+        
+        setupFirebaseRemoteNotifications(application: application)
         AppManager.launchApp(application)
         
         return true

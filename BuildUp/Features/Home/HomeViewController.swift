@@ -34,9 +34,6 @@ class HomeViewController: BaseViewController {
         setupResponse()
         getHomeData()
         scrollToFirstRow()
-        
-        updateInfoPlist()
-        
         getFirebaseToken()
     }
     
@@ -56,23 +53,6 @@ class HomeViewController: BaseViewController {
 //            getHomeData()
 //        }
     }
-    
-    private func updateInfoPlist() {
-        let playersDictionaryPath = Bundle.main.path(forResource: "GoogleService-test", ofType: "plist")
-        let playersDictionary = NSMutableDictionary(contentsOfFile: playersDictionaryPath!)
-        if let projectId = playersDictionary?.object(forKey: "PROJECT_ID") as? String {
-            playersDictionary?["PROJECT_ID"] = "my-app-3.ecommerce.buildupp.co"
-//            print("playersDictionary = \(playersDictionary)")
-            playersDictionary?.write(toFile: playersDictionaryPath!, atomically: true)
-        }
-        
-        if let bundleId = playersDictionary?.object(forKey: "BUNDLE_ID") as? String {
-            playersDictionary?["BUNDLE_ID"] = "com.sobhy.ibtikar"
-//            print("playersDictionary = \(playersDictionary)")
-            playersDictionary?.write(toFile: playersDictionaryPath!, atomically: true)
-        }
-    }
-    
 }
 
 // MARK: - SetupUI

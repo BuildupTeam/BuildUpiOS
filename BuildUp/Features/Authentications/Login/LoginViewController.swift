@@ -275,7 +275,7 @@ extension LoginViewController {
         viewModel.onLogin = { [weak self] () in
             guard let `self` = self else { return }
             PersistanceManager.setLatestViewController(Constant.ControllerName.home)
-            LauncherViewController.showTabBar()
+            LauncherViewController.showTabBar(fromViewController: nil)
         }
     }
 }
@@ -307,7 +307,7 @@ extension LoginViewController {
     
     @IBAction func skipAction(_ sender: Any) {
         PersistanceManager.setLatestViewController(Constant.ControllerName.home)
-        LauncherViewController.showTabBar()
+        LauncherViewController.showTabBar(fromViewController: nil)
     }
 }
 

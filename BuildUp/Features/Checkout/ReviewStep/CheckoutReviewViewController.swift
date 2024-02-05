@@ -327,7 +327,7 @@ extension CheckoutReviewViewController {
             if let data = self.viewModel.checkoutData {
                 if data.confirmed ?? false {
                     RealTimeDatabaseService.clearCart()
-                    LauncherViewController.showTabBar()
+                    LauncherViewController.showTabBar(fromViewController: nil)
                 } else {
                     self.payWithCard()
                 }
@@ -349,7 +349,7 @@ extension CheckoutReviewViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             RealTimeDatabaseService.clearCart()
-            LauncherViewController.showTabBar()
+            LauncherViewController.showTabBar(fromViewController: nil)
         }
     }
 }

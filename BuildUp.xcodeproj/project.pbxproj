@@ -366,6 +366,7 @@
 		3982F5E12A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3982F5DF2A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib */; };
 		3982F5E52A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982F5E32A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift */; };
 		3982F5E62A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3982F5E42A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib */; };
+		3985D5552B6F91FD00ADBD16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3985D5542B6F91FC00ADBD16 /* GoogleService-Info.plist */; };
 		398EC8942B2B16BC003D3762 /* RouteDefaultAddressApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398EC8932B2B16BC003D3762 /* RouteDefaultAddressApi.swift */; };
 		399007182ABDAC51002F6938 /* AddToCartTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007172ABDAC51002F6938 /* AddToCartTextView.swift */; };
 		3990071A2ABDAC66002F6938 /* AddToCartIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007192ABDAC66002F6938 /* AddToCartIconView.swift */; };
@@ -384,7 +385,6 @@
 		399007382ABDB67B002F6938 /* CartCheckout3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007372ABDB67B002F6938 /* CartCheckout3View.swift */; };
 		3990073A2ABDB68A002F6938 /* CartCheckout3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 399007392ABDB68A002F6938 /* CartCheckout3View.xib */; };
 		3990073C2ABDB741002F6938 /* CartWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3990073B2ABDB741002F6938 /* CartWebServiceProtocol.swift */; };
-		3990073F2AC0C72F002F6938 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3990073E2AC0C72F002F6938 /* GoogleService-Info.plist */; };
 		399007412AC0DAFF002F6938 /* RealTimeDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007402AC0DAFE002F6938 /* RealTimeDatabaseService.swift */; };
 		399318472B348E8B00B15A43 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 399318462B348E8B00B15A43 /* PhoneNumberKit */; };
 		3999AA462AC49CD1007D0ACB /* CartViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3999AA452AC49CD1007D0ACB /* CartViewController+TableView.swift */; };
@@ -622,7 +622,6 @@
 		39F5836C2A819BBE0060C4E1 /* RouteConfigurationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F5836B2A819BBE0060C4E1 /* RouteConfigurationApi.swift */; };
 		39F583762A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F583742A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.swift */; };
 		39F583772A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F583752A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.xib */; };
-		39F9D0F72AD3E921007BB6B9 /* GoogleService-test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39F9D0F62AD3E921007BB6B9 /* GoogleService-test.plist */; };
 		39F9D0FB2AD7452B007BB6B9 /* SubdomainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9D0F92AD7452B007BB6B9 /* SubdomainViewController.swift */; };
 		39F9D0FC2AD7452B007BB6B9 /* SubdomainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F9D0FA2AD7452B007BB6B9 /* SubdomainViewController.xib */; };
 		39F9D0FE2AD7453C007BB6B9 /* SubdomainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F9D0FD2AD7453C007BB6B9 /* SubdomainViewModel.swift */; };
@@ -1020,6 +1019,7 @@
 		3982F5DF2A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerProductHorizontalList1CollectionViewCell.xib; sourceTree = "<group>"; };
 		3982F5E32A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerBannerType1TableViewCell.swift; sourceTree = "<group>"; };
 		3982F5E42A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerBannerType1TableViewCell.xib; sourceTree = "<group>"; };
+		3985D5542B6F91FC00ADBD16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		398EC8932B2B16BC003D3762 /* RouteDefaultAddressApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDefaultAddressApi.swift; sourceTree = "<group>"; };
 		399007172ABDAC51002F6938 /* AddToCartTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartTextView.swift; sourceTree = "<group>"; };
 		399007192ABDAC66002F6938 /* AddToCartIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartIconView.swift; sourceTree = "<group>"; };
@@ -1039,7 +1039,6 @@
 		399007392ABDB68A002F6938 /* CartCheckout3View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartCheckout3View.xib; sourceTree = "<group>"; };
 		3990073B2ABDB741002F6938 /* CartWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartWebServiceProtocol.swift; sourceTree = "<group>"; };
 		3990073D2ABF1A29002F6938 /* BuildUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BuildUp.entitlements; sourceTree = "<group>"; };
-		3990073E2AC0C72F002F6938 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		399007402AC0DAFE002F6938 /* RealTimeDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeDatabaseService.swift; sourceTree = "<group>"; };
 		3999AA452AC49CD1007D0ACB /* CartViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+TableView.swift"; sourceTree = "<group>"; };
 		3999AA482AC49F0D007D0ACB /* CartResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponseModel.swift; sourceTree = "<group>"; };
@@ -1278,7 +1277,6 @@
 		39F5836B2A819BBE0060C4E1 /* RouteConfigurationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteConfigurationApi.swift; sourceTree = "<group>"; };
 		39F583742A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerProductVerticalListTableViewCell.swift; sourceTree = "<group>"; };
 		39F583752A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerProductVerticalListTableViewCell.xib; sourceTree = "<group>"; };
-		39F9D0F62AD3E921007BB6B9 /* GoogleService-test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-test.plist"; sourceTree = "<group>"; };
 		39F9D0F92AD7452B007BB6B9 /* SubdomainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubdomainViewController.swift; sourceTree = "<group>"; };
 		39F9D0FA2AD7452B007BB6B9 /* SubdomainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubdomainViewController.xib; sourceTree = "<group>"; };
 		39F9D0FD2AD7453C007BB6B9 /* SubdomainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubdomainViewModel.swift; sourceTree = "<group>"; };
@@ -1959,8 +1957,7 @@
 			isa = PBXGroup;
 			children = (
 				393174292A19134D00AF64BC /* Info.plist */,
-				3990073E2AC0C72F002F6938 /* GoogleService-Info.plist */,
-				39F9D0F62AD3E921007BB6B9 /* GoogleService-test.plist */,
+				3985D5542B6F91FC00ADBD16 /* GoogleService-Info.plist */,
 				393CD7D42A6ABB130053A55E /* Json Files */,
 				391529CE2A347314007F7E09 /* Fonts */,
 				39CE76B02A2F62100019A485 /* Locale */,
@@ -3511,7 +3508,6 @@
 				395D3BD62A9A2A3B00DA9859 /* ProductDetailsAddToCartType3TableViewCell.xib in Resources */,
 				395D3BC22A9A29ED00DA9859 /* ProductDetailsSliderType1TableViewCell.xib in Resources */,
 				390DC2162B1DFA5A00E1CBA9 /* OrderDetailsStatusTableViewCell.xib in Resources */,
-				3990073F2AC0C72F002F6938 /* GoogleService-Info.plist in Resources */,
 				395D3B992A977B5D00DA9859 /* ProductVerticalList2InnerTableViewCell.xib in Resources */,
 				39730D3E2AA213410088C9ED /* ProductDetailsVariants2CollectionViewCell.xib in Resources */,
 				3932B2AE2B13578600283B3D /* ShimmerCityTableViewCell.xib in Resources */,
@@ -3538,6 +3534,7 @@
 				390C3B802B14FA6600E40849 /* CheckoutShippingTableViewCell.xib in Resources */,
 				3921FCE92AABA0800019CCC2 /* ShimmerProductDetailsQuantityTableViewCell.xib in Resources */,
 				3919386F2A9558EA004D3B67 /* HomeHeaderTableViewCell.xib in Resources */,
+				3985D5552B6F91FD00ADBD16 /* GoogleService-Info.plist in Resources */,
 				3999AA782AD1BFFB007D0ACB /* Poppins-Medium.ttf in Resources */,
 				3999AA6E2AD1BFE5007D0ACB /* Montserrat-Medium.ttf in Resources */,
 				391529EE2A347BF4007F7E09 /* ProductVerticalList2TableViewCell.xib in Resources */,
@@ -3634,7 +3631,6 @@
 				39C6C4B12A3CC9EB00F11A6F /* CategoriesHorizontalList1CollectionViewCell.xib in Resources */,
 				39C6C4A62A3C90BC00F11A6F /* ProductsHeaderTableViewCell.xib in Resources */,
 				390C3B5C2B14DCFA00E40849 /* AreaTableViewCell.xib in Resources */,
-				39F9D0F72AD3E921007BB6B9 /* GoogleService-test.plist in Resources */,
 				39CE76D02A2F952F0019A485 /* HomeViewController.xib in Resources */,
 				39AE9C9E2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.xib in Resources */,
 				39C6C4D82A3DD99500F11A6F /* BannerType1TableViewCell.xib in Resources */,
@@ -4416,12 +4412,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 2C86JD592M;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuildUp;
@@ -4443,8 +4437,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.squadio.buildUp";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.buildUp";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4463,12 +4456,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 2C86JD592M;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4535,8 +4526,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.squadio.buildUp";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.buildUp";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4701,12 +4691,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 2C86JD592M;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuildUp;
@@ -4728,8 +4716,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.squadio.buildUp";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.buildUp";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4854,12 +4841,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Distribution: Ibtikar Technologies, Co. Ltd. (2C86JD592M)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = 2C86JD592M;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuildUp;
@@ -4881,8 +4866,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.squadio.buildUp";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.buildUp";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
