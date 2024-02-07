@@ -11,8 +11,8 @@ import ObjectMapper
 class CartCombinationsModel: Mappable {
     var id: Int?
     var options: [CartCombinationsOptionModel]?
-    var price: Double?
-    var currentPrice: Double?
+    var price: FormatedPriceModel?
+    var currentPrice: FormatedPriceModel?
     var quantity: Int?
     var cartQuantity: Int?
     

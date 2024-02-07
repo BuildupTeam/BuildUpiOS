@@ -13,8 +13,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var uuid: String?
     var name: String?
     var productDescription: String?
-    var originalPrice: Double?
-    var currentPrice: Double?
+    var originalPrice: FormatedPriceModel?
     var formattedPrice: FormatedPriceModel?
     var discount: Int?
     var mainImage: MainImageModel?
@@ -36,19 +35,19 @@ class ProductModel: NSObject, NSCoding, Mappable {
     var hasCombinations: Bool?
     
     var totalPriceOriginal: Double? {
-        return (originalPrice ?? 0) * Double((cartQuantityValue ?? 0))
+        return (originalPrice?.amount ?? 0) * Double((cartQuantityValue ?? 0))
     }
     
     var totalPriceCurrent: Double? {
-        return (currentPrice ?? 0) * Double((cartQuantityValue ?? 0))
+        return (formattedPrice?.amount ?? 0) * Double((cartQuantityValue ?? 0))
     }
     
     var totalPriceCombinationOriginal: Double? {
-        return (cartCombinations?.first?.price ?? 0) * Double((cartQuantityValue ?? 0))
+        return (cartCombinations?.first?.price?.amount ?? 0) * Double((cartQuantityValue ?? 0))
     }
     
     var totalPriceCombinationCurrent: Double? {
-        return (cartCombinations?.first?.currentPrice ?? 0) * Double((cartQuantityValue ?? 0))
+        return (cartCombinations?.first?.currentPrice?.amount ?? 0) * Double((cartQuantityValue ?? 0))
     }
     
     var cartQuantityValue: Int? {
@@ -121,7 +120,6 @@ class ProductModel: NSObject, NSCoding, Mappable {
         name <- map["name"]
         productDescription <- map["description"]
         originalPrice <- map["original_price"]
-        currentPrice <- map["current_price"]
         formattedPrice <- map["formatted_price"]
         discount <- map["discount"]
         mainImage <- map["main_image"]
@@ -147,8 +145,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
         uuid = aDecoder.decodeObject(forKey: "uuid") as? String
         name = aDecoder.decodeObject(forKey: "name") as? String
         productDescription = aDecoder.decodeObject(forKey: "productDescription") as? String
-        originalPrice = aDecoder.decodeObject(forKey: "originalPrice") as? Double
-        currentPrice = aDecoder.decodeObject(forKey: "currentPrice") as? Double
+        originalPrice = aDecoder.decodeObject(forKey: "originalPrice") as? FormatedPriceModel
         formattedPrice = aDecoder.decodeObject(forKey: "formattedPrice") as? FormatedPriceModel
         discount = aDecoder.decodeObject(forKey: "discount") as? Int
         mainImage = aDecoder.decodeObject(forKey: "mainImage") as? MainImageModel
@@ -170,9 +167,6 @@ class ProductModel: NSObject, NSCoding, Mappable {
         }
         if originalPrice != nil {
             aCoder.encode(originalPrice, forKey: "originalPrice")
-        }
-        if currentPrice != nil {
-            aCoder.encode(currentPrice, forKey: "currentPrice")
         }
         if formattedPrice != nil {
             aCoder.encode(formattedPrice, forKey: "formattedPrice")
@@ -201,7 +195,7 @@ class ProductModel: NSObject, NSCoding, Mappable {
         for combination in combinations ?? [] {
             let combinationIds = combination.options?.map({$0.optionValueId ?? 0}) ?? []
             if combinationIds.containsSameElements(as: selectedValues) {
-                return combination.price
+                return combination.price?.amount
             }
         }
         return 0

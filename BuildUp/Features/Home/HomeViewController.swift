@@ -6,6 +6,11 @@
 //
 
 import UIKit
+//import Foundation
+import ObjectMapper
+import CryptoKit
+import CryptoSwift
+import CommonCrypto
 
 class HomeViewController: BaseViewController {
     
@@ -14,7 +19,7 @@ class HomeViewController: BaseViewController {
 
     var isReloadingTableView = false
     var refreshControl = UIRefreshControl()
-
+    
     var viewModel: HomeViewModel!
     
     init(viewModel: HomeViewModel) {
@@ -135,9 +140,164 @@ extension HomeViewController {
     
     @objc
     func searchAction(sender: UIBarButtonItem) {
-        PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
-        LauncherViewController.showSubdomainScreen(fromViewController: nil)
+        let config = "9ZSRpc9c7Ndjw2zjkaAsIQLUhI0GZPJwmSvuj7xZyG5WgitTfFnEUxwzqhD+9vN1LVa6+Or3oCNPC0i1K6Yt0D0uFrpWfhYUw6V9yaKwsANH0uNW3Yv8Q8CqrAU7FAUhKaFfX91BJt8IYaYrFMnnEcC55UkUUDGiAIhNVFvOYSxJHx+QabV0j4A83dNKdWk6qQZ8fWiiYJ4UoW+KKZgN8RAaqitNt41BsbKUMLqRqOgw1w7Ra9PbNR+gPWu793CFYuGfQkz0wG7+73sZanh8JzGGMB+jy+ZNNa5XXRPNpxBb+gWshvrOFmDcHR/3MgR4BODOyTk2S1RwYlV5QjMwRElzQzh4c1BHUTRBOGNVNWN1NnJz"
+        
+        do {
+           let result = try decryptMessageWithCommonCrypto(config: config)
+            print(result)
+        } catch(let error) {
+            print(error)
+        }
+        /*
+         PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
+         LauncherViewController.showSubdomainScreen(fromViewController: nil)
+         */
     }
+    
+    
+    func decodeMessage(config: String) throws -> PaymentConfig? {
+        guard let decodedData = Data(base64Encoded: config) else {
+            throw NSError(domain: "Invalid Base64 encoding", code: 0, userInfo: nil)
+        }
+        
+        // Extract IV (first 16 bytes), key, and encrypted data
+        let iv = decodedData.prefix(16)
+        let keyData = decodedData.suffix(32)
+        let encryptedData = decodedData.subdata(in: 16..<decodedData.count - 32)
+        
+        // Create a SymmetricKey
+        let key = SymmetricKey(data: keyData)
+        
+        // Assuming you have the tag as well, or it's appended at the end of the encrypted data.
+        // If not, you need to adjust according to your data format.
+        // For demonstration, assuming no tag is appended:
+        let tag = Data() // Use an actual tag if available
+        
+        // Create a SealedBox for AES.GCM
+        guard let nonce = try? AES.GCM.Nonce(data: iv) else {
+            throw NSError(domain: "Invalid nonce", code: 0, userInfo: nil)
+        }
+        
+        do {
+            let sealedBox = try AES.GCM.SealedBox(nonce: nonce, ciphertext: encryptedData, tag: tag)
+            let decryptedData = try AES.GCM.open(sealedBox, using: key)
+            
+            // Assuming the decrypted data is a JSON string that can be decoded into a PaymentConfig object
+            let decoder = JSONDecoder()
+            let paymentConfig = try decoder.decode(PaymentConfig.self, from: decryptedData)
+            return paymentConfig
+        } catch(let error) {
+            print(error)
+        }
+        
+        // Decrypt the message
+        return nil
+    }
+    
+    func decryptMessageWithCommonCrypto(config: String) -> PaymentConfig? {
+        guard let decodedData = Data(base64Encoded: config),
+              decodedData.count > 48 else { // Ensuring there's enough data for IV, key, and ciphertext
+            return nil
+        }
+
+        let iv = Array(decodedData.prefix(16))
+        let keyData = Array(decodedData.suffix(32))
+        let encryptedData = Array(decodedData.subdata(in: 16..<decodedData.count - 32))
+
+        var decryptedData = Array<UInt8>(repeating: 0, count: encryptedData.count)
+        var numBytesDecrypted: size_t = 0
+
+        let status = CCCrypt(CCOperation(kCCDecrypt),
+                             CCAlgorithm(kCCAlgorithmAES),
+                             CCOptions(kCCOptionPKCS7Padding),
+                             keyData, keyData.count,
+                             iv,
+                             encryptedData, encryptedData.count,
+                             &decryptedData, decryptedData.count,
+                             &numBytesDecrypted)
+
+        guard status == kCCSuccess else {
+            print("Decryption failed with status: \(status)")
+            return nil
+        }
+        
+        let outputData = Data(decryptedData[0..<numBytesDecrypted])
+        
+        if let returnData = String(data: outputData, encoding: .utf8) {
+            
+        }
+        
+        if let jsonResponse = String(data: Data(outputData), encoding: .utf8) {
+            let paymentConfigResponse = Mapper<PaymentConfig>().map(JSONObject: jsonResponse)
+            return paymentConfigResponse
+            //try JSONDecoder().decode(PaymentConfig.self, from: json.data(using: .utf8)!)
+        }
+        
+        return nil //String(data: outputData, encoding: .utf8)
+    }
+    
+    //    func decodeMessage(config: String) {
+    //        let decodedData = Data(base64Encoded: config)!
+    //
+    //                // Extract IV (first 16 bytes), key, and encrypted data
+    //                let iv = decodedData.prefix(16)
+    //                let keyData = decodedData.suffix(32)
+    //                let encryptedData = decodedData.subdata(in: 16..<decodedData.count - 32)
+    //
+    //                // Create a SymmetricKey
+    //                let key = SymmetricKey(data: keyData)
+    //
+    //                // Decrypt the message
+    //                let cipher = try AES.GCM.open(encryptedData, using: key, nonce: AES.GCM.Nonce(data: iv))
+    //    }
+//
+//    func decryptMsg(config: String) -> PaymentConfig? {
+//        guard let decodedData = Data(base64Encoded: config) else { return nil }
+//        let iv = decodedData.prefix(16)
+//        let keyData = decodedData.suffix(32)
+//        let encryptedData = decodedData.subdata(in: 16..<decodedData.count - 32)
+//
+//        var decryptedData = Data(count: encryptedData.count)
+//        var numBytesDecrypted: size_t = 0
+//
+//        let status = keyData.withUnsafeBytes { keyBytes -> CCCryptorStatus in
+//            let keyPointer = keyBytes.bindMemory(to: UInt8.self).baseAddress!
+//            
+//            return iv.withUnsafeBytes { ivBytes -> CCCryptorStatus in
+//                let ivPointer = ivBytes.bindMemory(to: UInt8.self).baseAddress!
+//                
+//                return encryptedData.withUnsafeBytes { encryptedBytes -> CCCryptorStatus in
+//                    let encryptedPointer = encryptedBytes.bindMemory(to: UInt8.self).baseAddress!
+//                    
+//                    decryptedData = decryptedData.withUnsafeMutableBytes { decryptedBytes -> CCCryptorStatus in
+//                        let decryptedPointer = decryptedBytes.bindMemory(to: UInt8.self).baseAddress!
+//                        
+//                        return CCCrypt(CCOperation(kCCDecrypt),
+//                                       CCAlgorithm(kCCAlgorithmAES),
+//                                       CCOptions(kCCModeCTR),
+//                                       keyPointer, keyData.count,
+//                                       ivPointer,
+//                                       encryptedPointer, encryptedData.count,
+//                                       decryptedPointer, decryptedData.count,
+//                                       &numBytesDecrypted)
+//                    }
+//                    
+//                    return decryptedData
+//                }
+//            }
+//        }
+//
+//        guard status == kCCSuccess, numBytesDecrypted > 0 else { return nil }
+//        decryptedData.removeSubrange(numBytesDecrypted..<decryptedData.count)
+//
+//        do {
+//            let paymentConfig = try JSONDecoder().decode(PaymentConfig.self, from: decryptedData)
+//            return paymentConfig
+//        } catch {
+//            print("Decryption or JSON decoding failed with error: \(error)")
+//            return nil
+//        }
+//    }
     
     @objc
     private func refreshData() {

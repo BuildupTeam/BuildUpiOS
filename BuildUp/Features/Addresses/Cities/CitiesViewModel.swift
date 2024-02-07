@@ -12,7 +12,6 @@ class CitiesViewModel: BaseViewModel {
     weak var service: CitiesWebServiceProtocol?
     var cities: [CityModel]?
 
-    var countryModel: CountryModel?
     public var onCities: (() -> Void)?
 
     init(service: CitiesWebServiceProtocol = CitiesWebService.shared) {

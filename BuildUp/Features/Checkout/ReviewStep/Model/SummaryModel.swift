@@ -10,11 +10,7 @@ import ObjectMapper
 
 class SummaryModel: Mappable {
     
-    var total: Double?
-    var subtotal: Double?
-    var subtotal_before_discount: Double?
-    var taxes: Double?
-    var shipping: Double?
+    var subtotalBeforeDiscount: FormatedPriceModel?
     var taxDetails: [TaxDetailsModel]?
     var shippingDetails: ShippingDetailsModel?
     var formattedTotal: FormatedPriceModel?
@@ -22,13 +18,8 @@ class SummaryModel: Mappable {
     var formattedTaxes: FormatedPriceModel?
     var formattedShipping: FormatedPriceModel?
     
-
     func mapping(map: Map) {
-        total <- map["total"]
-        subtotal <- map["subtotal"]
-        subtotal_before_discount <- map["subtotal_before_discount"]
-        taxes <- map["taxes"]
-        shipping <- map["shipping"]
+        subtotalBeforeDiscount <- map["subtotal_before_discount"]
         taxDetails <- map["tax_details"]
         shippingDetails <- map["shipping_details"]
         formattedTotal <- map["formatted_total"]

@@ -366,7 +366,6 @@
 		3982F5E12A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3982F5DF2A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib */; };
 		3982F5E52A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982F5E32A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift */; };
 		3982F5E62A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3982F5E42A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib */; };
-		3985D5552B6F91FD00ADBD16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3985D5542B6F91FC00ADBD16 /* GoogleService-Info.plist */; };
 		398EC8942B2B16BC003D3762 /* RouteDefaultAddressApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398EC8932B2B16BC003D3762 /* RouteDefaultAddressApi.swift */; };
 		399007182ABDAC51002F6938 /* AddToCartTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007172ABDAC51002F6938 /* AddToCartTextView.swift */; };
 		3990071A2ABDAC66002F6938 /* AddToCartIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399007192ABDAC66002F6938 /* AddToCartIconView.swift */; };
@@ -576,6 +575,8 @@
 		39D500382B19283C009C20E1 /* RouteOrdersApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D500372B19283C009C20E1 /* RouteOrdersApi.swift */; };
 		39D5003C2B192A26009C20E1 /* ShimmerOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D5003A2B192A26009C20E1 /* ShimmerOrderTableViewCell.swift */; };
 		39D5003D2B192A26009C20E1 /* ShimmerOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D5003B2B192A26009C20E1 /* ShimmerOrderTableViewCell.xib */; };
+		39D59F932B7246F500CCE437 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D59F922B7246F500CCE437 /* SnapshotHelper.swift */; };
+		39D59F952B73761200CCE437 /* OrderTaxesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D59F942B73761200CCE437 /* OrderTaxesModel.swift */; };
 		39D714B92B178C8300B4497F /* ObservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D714B82B178C8300B4497F /* ObservationService.swift */; };
 		39D754272B5D8D4F00BFBC42 /* LogoutPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D754252B5D8D4F00BFBC42 /* LogoutPopupViewController.swift */; };
 		39D754282B5D8D4F00BFBC42 /* LogoutPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D754262B5D8D4F00BFBC42 /* LogoutPopupViewController.xib */; };
@@ -1019,7 +1020,6 @@
 		3982F5DF2A95798700073A96 /* ShimmerProductHorizontalList1CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerProductHorizontalList1CollectionViewCell.xib; sourceTree = "<group>"; };
 		3982F5E32A96B60500073A96 /* ShimmerBannerType1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerBannerType1TableViewCell.swift; sourceTree = "<group>"; };
 		3982F5E42A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerBannerType1TableViewCell.xib; sourceTree = "<group>"; };
-		3985D5542B6F91FC00ADBD16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		398EC8932B2B16BC003D3762 /* RouteDefaultAddressApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDefaultAddressApi.swift; sourceTree = "<group>"; };
 		399007172ABDAC51002F6938 /* AddToCartTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartTextView.swift; sourceTree = "<group>"; };
 		399007192ABDAC66002F6938 /* AddToCartIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartIconView.swift; sourceTree = "<group>"; };
@@ -1231,6 +1231,8 @@
 		39D500372B19283C009C20E1 /* RouteOrdersApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOrdersApi.swift; sourceTree = "<group>"; };
 		39D5003A2B192A26009C20E1 /* ShimmerOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerOrderTableViewCell.swift; sourceTree = "<group>"; };
 		39D5003B2B192A26009C20E1 /* ShimmerOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerOrderTableViewCell.xib; sourceTree = "<group>"; };
+		39D59F922B7246F500CCE437 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		39D59F942B73761200CCE437 /* OrderTaxesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTaxesModel.swift; sourceTree = "<group>"; };
 		39D714B82B178C8300B4497F /* ObservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationService.swift; sourceTree = "<group>"; };
 		39D754252B5D8D4F00BFBC42 /* LogoutPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutPopupViewController.swift; sourceTree = "<group>"; };
 		39D754262B5D8D4F00BFBC42 /* LogoutPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutPopupViewController.xib; sourceTree = "<group>"; };
@@ -1505,6 +1507,7 @@
 			children = (
 				390C3BD22B1757C900E40849 /* OrdersResponseModel.swift */,
 				390C3BD42B1757D500E40849 /* OrderModel.swift */,
+				39D59F942B73761200CCE437 /* OrderTaxesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1856,6 +1859,7 @@
 			isa = PBXGroup;
 			children = (
 				3931743C2A19134D00AF64BC /* BuildUpUITests.swift */,
+				39D59F922B7246F500CCE437 /* SnapshotHelper.swift */,
 				3931743E2A19134D00AF64BC /* BuildUpUITestsLaunchTests.swift */,
 			);
 			path = BuildUpUITests;
@@ -1957,7 +1961,6 @@
 			isa = PBXGroup;
 			children = (
 				393174292A19134D00AF64BC /* Info.plist */,
-				3985D5542B6F91FC00ADBD16 /* GoogleService-Info.plist */,
 				393CD7D42A6ABB130053A55E /* Json Files */,
 				391529CE2A347314007F7E09 /* Fonts */,
 				39CE76B02A2F62100019A485 /* Locale */,
@@ -3534,7 +3537,6 @@
 				390C3B802B14FA6600E40849 /* CheckoutShippingTableViewCell.xib in Resources */,
 				3921FCE92AABA0800019CCC2 /* ShimmerProductDetailsQuantityTableViewCell.xib in Resources */,
 				3919386F2A9558EA004D3B67 /* HomeHeaderTableViewCell.xib in Resources */,
-				3985D5552B6F91FD00ADBD16 /* GoogleService-Info.plist in Resources */,
 				3999AA782AD1BFFB007D0ACB /* Poppins-Medium.ttf in Resources */,
 				3999AA6E2AD1BFE5007D0ACB /* Montserrat-Medium.ttf in Resources */,
 				391529EE2A347BF4007F7E09 /* ProductVerticalList2TableViewCell.xib in Resources */,
@@ -3960,6 +3962,7 @@
 				393974C02B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.swift in Sources */,
 				39CE76B52A2F62310019A485 /* Localized.swift in Sources */,
 				391529F12A347F37007F7E09 /* ProductVerticalList3TableViewCell.swift in Sources */,
+				39D59F952B73761200CCE437 /* OrderTaxesModel.swift in Sources */,
 				39C91A262AB8E34600C10C16 /* RouteCategoriesListApi.swift in Sources */,
 				39730D342AA128B70088C9ED /* ProductDetailsVariants3TableViewCell.swift in Sources */,
 				3936139F2AB478F7007289DE /* RouteProductListApi.swift in Sources */,
@@ -4233,6 +4236,7 @@
 			files = (
 				3931743F2A19134D00AF64BC /* BuildUpUITestsLaunchTests.swift in Sources */,
 				3931743D2A19134D00AF64BC /* BuildUpUITests.swift in Sources */,
+				39D59F932B7246F500CCE437 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

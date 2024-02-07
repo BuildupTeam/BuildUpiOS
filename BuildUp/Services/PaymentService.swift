@@ -47,7 +47,7 @@ class PaymentService {
                                        serverKey: serverKey,
                                        clientKey: clientKey,
                                        currency: "SAR",
-                                       amount: model.subtotal ?? 0.0,
+                                       amount: model.formattedSubtotal?.amount ?? 0.0,
                                        merchantCountryCode: "AE")
             .cartDescription("Flowers")
             .cartID("1234")

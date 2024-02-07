@@ -10,14 +10,14 @@ import ObjectMapper
 
 class CartModel: Mappable {
     
-    var total: Int?
-    var subtotal: Double?
-    var subtotalBeforeDiscount: Double?
+    var formattedTotal: FormatedPriceModel?
+    var formattedSubtotal: FormatedPriceModel?
+    var subtotalBeforeDiscount: FormatedPriceModel?
     var products: [ProductModel]?
     
     func mapping(map: Map) {
-        total <- map["total"]
-        subtotal <- map["subtotal"]
+        formattedTotal <- map["formatted_total"]
+        formattedSubtotal <- map["formatted_subtotal"]
         subtotalBeforeDiscount <- map["subtotal_before_discount"]
         products <- map["products"]
     }

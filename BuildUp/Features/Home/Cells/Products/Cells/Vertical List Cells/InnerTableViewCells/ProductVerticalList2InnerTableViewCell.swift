@@ -66,8 +66,8 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            productOldPriceLabel.text = model.originalPrice?.formatted
+            productNewPriceLabel.text = model.formattedPrice?.formatted
             productDiscountLabel.text = "-" + String(model.discount ?? 0) + " %"
             
             if (model.discount ?? 0) > 0 {

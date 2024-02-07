@@ -43,9 +43,7 @@ class CartCheckout1View: UIView {
     
     private func bindData() {
         if let model = cartModel {
-            let subtotal = String(format: "%.2f", (model.subtotal ?? 0))
-
-            subtotalLabel.text = L10n.Cart.currency + String(subtotal)
+            subtotalLabel.text = model.formattedTotal?.formatted //L10n.Cart.currency + String(subtotal)
             checkoutButton.setTitle("\(L10n.Cart.checkout) (\(model.products?.count ?? 0))", for: .normal)
         }
     }

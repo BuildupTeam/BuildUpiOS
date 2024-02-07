@@ -8,7 +8,35 @@
 import XCTest
 
 final class BuildUpUITests: XCTestCase {
+    
+    private var app: XCUIApplication!
+    
+    @MainActor override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+        app = XCUIApplication()
+        setupSnapshot(app)
+        app.launch()
+    }
+    
+    @MainActor func testTakeSnapshots() {
+        snapshot("1-GameView")
 
+        let coordinate = app.tables.otherElements.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5))
+
+        for _ in 0...5 {
+            coordinate.tap()
+        }
+        snapshot("2-StepperIncremented")
+        app.navigationBars.firstMatch.buttons.firstMatch.tap()
+        app.textFields.firstMatch.tap()
+        app.textFields.buttons["Clear text"].tapElement()
+        app.typeText("Taboo")
+        snapshot("3-Alert")
+        app.buttons["Dismiss"].tap()
+        snapshot("4-GameChanged")
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -36,6 +64,19 @@ final class BuildUpUITests: XCTestCase {
             measure(metrics: [XCTApplicationLaunchMetric()]) {
                 XCUIApplication().launch()
             }
+        }
+    }
+}
+
+extension XCUIElement {
+
+    func tapElement() {
+        if isHittable {
+            tap()
+        }
+        else {
+            let coordinate: XCUICoordinate = self.coordinate(withNormalizedOffset: CGVector(dx: 0.0, dy: 0.0))
+            coordinate.tap()
         }
     }
 }

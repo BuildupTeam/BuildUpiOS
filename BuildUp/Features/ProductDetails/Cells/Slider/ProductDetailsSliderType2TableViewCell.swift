@@ -138,8 +138,8 @@ extension ProductDetailsSliderType2TableViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             productDescriptionLabel.text = (model.productDescription ?? "")//.maxLength(length: 69)
-            productOldPriceLabel.text = "SAR " + String(model.originalPrice ?? 0)
-            productNewPriceLabel.text = "SAR " + String(model.currentPrice ?? 0)
+            productOldPriceLabel.text = (model.originalPrice?.currency ?? "") + " " + String(model.originalPrice?.amount ?? 0.0)
+            productNewPriceLabel.text = (model.formattedPrice?.currency ?? "") + " " + String(model.formattedPrice?.amount ?? 0.0) 
             
             if !model.descriptionIsExpaned {
                 if let desc = model.productDescription, desc.count > 40 {
