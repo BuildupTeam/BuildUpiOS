@@ -18,7 +18,7 @@ class RealTimeDatabaseService {
         var configuration = Configuration()
         
         guard let secondary = FirebaseApp.app(name: "Buildup2")
-          else { assert(false, "Could not retrieve secondary app") }
+          else { return Database.database().reference() }
 
         // Retrieve a Real Time Database client configured against a specific app.
         let secondaryDb = Database.database(app: secondary).reference()
@@ -38,7 +38,7 @@ class RealTimeDatabaseService {
     
     static func loginUser(token: String, compeltion: @escaping ((Any) -> Void)) {
         guard let secondary = FirebaseApp.app(name: "Buildup2")
-          else { assert(false, "Could not retrieve secondary app") }
+          else { return }
         
         Auth.auth(app: secondary).signIn(withCustomToken: token) { auth, error in
             if error != nil {
@@ -54,7 +54,7 @@ class RealTimeDatabaseService {
     
     static func addUserToFirebase() {
         guard let secondary = FirebaseApp.app(name: "Buildup2")
-          else { assert(false, "Could not retrieve secondary app") }
+          else { return }
         
         let firebaseUserIdChild = Auth.auth(app: secondary).currentUser?.uid ?? ""
         let customerIdChild = CachingService.getUser()?.customer?.uuid ?? ""
@@ -68,7 +68,7 @@ class RealTimeDatabaseService {
     
     static func checkFirebaseUserAvailability(child: String, completion: @escaping (_ available: Bool)->()) {
         guard let secondary = FirebaseApp.app(name: "Buildup2")
-          else { assert(false, "Could not retrieve secondary app") }
+          else { return }
         
         guard Auth.auth(app: secondary).currentUser != nil else { completion(false); return }
         let ref = RealTimeDatabaseService.shared.ref?.child(child)
@@ -125,7 +125,7 @@ extension RealTimeDatabaseService {
 
     static func getCartNode() -> DatabaseReference? {
         guard let secondary = FirebaseApp.app(name: "Buildup2")
-          else { assert(false, "Could not retrieve secondary app") }
+          else { return shared.ref }
         
         if let currentUserUUid = Auth.auth(app: secondary).currentUser?.uid, let csutomerUUID = CachingService.getUser()?.customer?.uuid  {
             return shared.ref?.child(currentUserUUid).child(csutomerUUID).child("cart")
@@ -235,7 +235,7 @@ extension RealTimeDatabaseService {
 extension RealTimeDatabaseService {
     static func getFavoriteNode() -> DatabaseReference? {
         guard let secondary = FirebaseApp.app(name: "Buildup2")
-          else { assert(false, "Could not retrieve secondary app") }
+        else { return shared.ref }
         
         if let currentUserUUid = Auth.auth(app: secondary).currentUser?.uid, let csutomerUUID = CachingService.getUser()?.customer?.uuid  {
             return shared.ref?.child(currentUserUUid).child(csutomerUUID).child("favorites")

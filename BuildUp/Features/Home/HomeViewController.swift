@@ -140,59 +140,50 @@ extension HomeViewController {
     
     @objc
     func searchAction(sender: UIBarButtonItem) {
-        let config = "9ZSRpc9c7Ndjw2zjkaAsIQLUhI0GZPJwmSvuj7xZyG5WgitTfFnEUxwzqhD+9vN1LVa6+Or3oCNPC0i1K6Yt0D0uFrpWfhYUw6V9yaKwsANH0uNW3Yv8Q8CqrAU7FAUhKaFfX91BJt8IYaYrFMnnEcC55UkUUDGiAIhNVFvOYSxJHx+QabV0j4A83dNKdWk6qQZ8fWiiYJ4UoW+KKZgN8RAaqitNt41BsbKUMLqRqOgw1w7Ra9PbNR+gPWu793CFYuGfQkz0wG7+73sZanh8JzGGMB+jy+ZNNa5XXRPNpxBb+gWshvrOFmDcHR/3MgR4BODOyTk2S1RwYlV5QjMwRElzQzh4c1BHUTRBOGNVNWN1NnJz"
         
-        do {
-           let result = try decryptMessageWithCommonCrypto(config: config)
-            print(result)
-        } catch(let error) {
-            print(error)
-        }
-        /*
          PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
          LauncherViewController.showSubdomainScreen(fromViewController: nil)
-         */
     }
     
     
-    func decodeMessage(config: String) throws -> PaymentConfig? {
-        guard let decodedData = Data(base64Encoded: config) else {
-            throw NSError(domain: "Invalid Base64 encoding", code: 0, userInfo: nil)
-        }
-        
-        // Extract IV (first 16 bytes), key, and encrypted data
-        let iv = decodedData.prefix(16)
-        let keyData = decodedData.suffix(32)
-        let encryptedData = decodedData.subdata(in: 16..<decodedData.count - 32)
-        
-        // Create a SymmetricKey
-        let key = SymmetricKey(data: keyData)
-        
-        // Assuming you have the tag as well, or it's appended at the end of the encrypted data.
-        // If not, you need to adjust according to your data format.
-        // For demonstration, assuming no tag is appended:
-        let tag = Data() // Use an actual tag if available
-        
-        // Create a SealedBox for AES.GCM
-        guard let nonce = try? AES.GCM.Nonce(data: iv) else {
-            throw NSError(domain: "Invalid nonce", code: 0, userInfo: nil)
-        }
-        
-        do {
-            let sealedBox = try AES.GCM.SealedBox(nonce: nonce, ciphertext: encryptedData, tag: tag)
-            let decryptedData = try AES.GCM.open(sealedBox, using: key)
-            
-            // Assuming the decrypted data is a JSON string that can be decoded into a PaymentConfig object
-            let decoder = JSONDecoder()
-            let paymentConfig = try decoder.decode(PaymentConfig.self, from: decryptedData)
-            return paymentConfig
-        } catch(let error) {
-            print(error)
-        }
-        
-        // Decrypt the message
-        return nil
-    }
+//    func decodeMessage(config: String) throws -> PaymentConfig? {
+//        guard let decodedData = Data(base64Encoded: config) else {
+//            throw NSError(domain: "Invalid Base64 encoding", code: 0, userInfo: nil)
+//        }
+//        
+//        // Extract IV (first 16 bytes), key, and encrypted data
+//        let iv = decodedData.prefix(16)
+//        let keyData = decodedData.suffix(32)
+//        let encryptedData = decodedData.subdata(in: 16..<decodedData.count - 32)
+//        
+//        // Create a SymmetricKey
+//        let key = SymmetricKey(data: keyData)
+//        
+//        // Assuming you have the tag as well, or it's appended at the end of the encrypted data.
+//        // If not, you need to adjust according to your data format.
+//        // For demonstration, assuming no tag is appended:
+//        let tag = Data() // Use an actual tag if available
+//        
+//        // Create a SealedBox for AES.GCM
+//        guard let nonce = try? AES.GCM.Nonce(data: iv) else {
+//            throw NSError(domain: "Invalid nonce", code: 0, userInfo: nil)
+//        }
+//        
+//        do {
+//            let sealedBox = try AES.GCM.SealedBox(nonce: nonce, ciphertext: encryptedData, tag: tag)
+//            let decryptedData = try AES.GCM.open(sealedBox, using: key)
+//            
+//            // Assuming the decrypted data is a JSON string that can be decoded into a PaymentConfig object
+//            let decoder = JSONDecoder()
+//            let paymentConfig = try decoder.decode(PaymentConfig.self, from: decryptedData)
+//            return paymentConfig
+//        } catch(let error) {
+//            print(error)
+//        }
+//        
+//        // Decrypt the message
+//        return nil
+//    }
     
     func decryptMessageWithCommonCrypto(config: String) -> PaymentConfig? {
         guard let decodedData = Data(base64Encoded: config),
