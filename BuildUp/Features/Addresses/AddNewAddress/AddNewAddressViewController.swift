@@ -75,14 +75,14 @@ class AddNewAddressViewController: BaseViewController {
 extension AddNewAddressViewController {
     @IBAction func addNewAddressAction(_ sender: UIButton) {
         if let model = addressModel {
-            if let countryId = countryModel?.id, let cityId = cityModel?.id, let areaId = areaModel?.id, let address = detailedAddress {
+            if let countryId = CachingService.getThemeData()?.appCountryId, let cityId = cityModel?.id, let areaId = areaModel?.id, let address = detailedAddress {
                 self.showLoading()
-                self.viewModel.updateAddress(addressId: model.id ?? 0, countryId: countryId, cityId: cityId, areaId: areaId, address: address)
+                self.viewModel.updateAddress(addressId: model.id ?? 0, countryId: Int(countryId) ?? 0, cityId: cityId, areaId: areaId, address: address)
             }
         } else {
-            if let countryId = countryModel?.id, let cityId = cityModel?.id, let areaId = areaModel?.id, let address = detailedAddress {
+            if let countryId = CachingService.getThemeData()?.appCountryId, let cityId = cityModel?.id, let areaId = areaModel?.id, let address = detailedAddress {
                 self.showLoading()
-                self.viewModel.addNewAddress(countryId: countryId, cityId: cityId, areaId: areaId, address: address)
+                self.viewModel.addNewAddress(countryId: Int(countryId) ?? 0, cityId: cityId, areaId: areaId, address: address)
             }
         }
     }
@@ -113,7 +113,7 @@ extension AddNewAddressViewController {
     }
     
     private func updateAddAddressButtonAppearence() {
-        if countryModel?.id != nil &&
+        if CachingService.getThemeData()?.appCountryId != nil &&
             cityModel?.id != nil &&
             areaModel?.id != nil &&
             detailedAddress != nil &&
@@ -133,8 +133,8 @@ extension AddNewAddressViewController {
     }
     
     func openCitiesList() {
-        if let countryModel = countryModel {
-            let citiesVC = Coordinator.Controllers.createCitiesViewController(countryModel: countryModel)
+        if let countryId = CachingService.getThemeData()?.appCountryId {
+            let citiesVC = Coordinator.Controllers.createCitiesViewController()
             citiesVC.delegate = self
             self.present(citiesVC, animated: true, completion: nil)
         } else {

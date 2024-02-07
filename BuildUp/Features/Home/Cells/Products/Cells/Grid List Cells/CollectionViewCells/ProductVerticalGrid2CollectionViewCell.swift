@@ -70,8 +70,8 @@ class ProductVerticalGrid2CollectionViewCell: UICollectionViewCell {
         if let model = productModel {
             productNameLabel.text = model.name ?? ""
             addCurrencyToText(model)
-            productOldPriceLabel.text = String(model.originalPrice ?? 0) + L10n.ProductDetails.currency
-            productNewPriceLabel.text = String(model.currentPrice ?? 0) + L10n.ProductDetails.currency
+            productOldPriceLabel.text = model.originalPrice?.formatted
+            productNewPriceLabel.text = model.formattedPrice?.formatted
             
             if let imageUrl = model.mainImage?.path {
                 productImageView.setImage(with: imageUrl)

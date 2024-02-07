@@ -1,23 +1,24 @@
 //
-//  TaxDetailsModel.swift
+//  OrderTaxesModel.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 27/11/2023.
+//  Created by Mohammed Khaled on 07/02/2024.
 //
 
 import Foundation
 import ObjectMapper
 
-class TaxDetailsModel: Mappable {
+class OrderTaxesModel: Mappable {
     
-    var name: String?
     var amount: FormatedPriceModel?
     var rate: Double?
-
+    var name: String?
+    
+    
     func mapping(map: Map) {
-        name <- map["name"]
         amount <- map["amount"]
         rate <- map["rate"]
+        name <- map["name"]
     }
     
     required init?(map: Map) {

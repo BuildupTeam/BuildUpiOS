@@ -11,7 +11,7 @@ import ObjectMapper
 class ShippingDetailsModel: Mappable {
     
     var name: String?
-    var amount: Double?
+    var amount: FormatedPriceModel?
 
     func mapping(map: Map) {
         name <- map["name"]

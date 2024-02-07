@@ -8,7 +8,7 @@
 import Foundation
 import ObjectMapper
 
-class PaymentConfig: Mappable {
+class PaymentConfig: Mappable, Codable {
     
     var clientKey: String?
     var profileId: String?

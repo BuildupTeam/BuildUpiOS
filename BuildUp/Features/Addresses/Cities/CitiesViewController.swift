@@ -61,7 +61,9 @@ class CitiesViewController: BaseViewController {
     }
     
     private func getCities() {
-        self.viewModel.getCities(countryId: self.viewModel.countryModel?.id ?? 0)
+        if let countryId = CachingService.getThemeData()?.appCountryId {
+            self.viewModel.getCities(countryId: Int(countryId) ?? 0)
+        }
     }
     
     private func reloadTableViewData() {

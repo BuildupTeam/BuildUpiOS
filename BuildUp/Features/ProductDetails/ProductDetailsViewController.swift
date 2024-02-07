@@ -172,7 +172,7 @@ extension ProductDetailsViewController {
                           animations: {
             self.subtotalViewHeightConstraint.constant = 137
         })
-        let subtotalPrice = (combinationModel.currentPrice ?? 0) * (Double(combinationModel.cartQuantity ?? 0))
+        let subtotalPrice = (combinationModel.currentPrice?.amount ?? 0) * (Double(combinationModel.cartQuantity ?? 0))
         subTotalPriceLabel.text = String(subtotalPrice) + L10n.ProductDetails.currency
     }
     
@@ -261,9 +261,9 @@ extension ProductDetailsViewController: ProductDetailsQuantityDelegate {
         self.viewModel.productModel = model
 
         if let combination = model.selectedCombination {
-            subTotalPriceLabel.text = String((combination.currentPrice ?? 0) * Double(quantity)) + L10n.ProductDetails.currency
+            subTotalPriceLabel.text = String((combination.currentPrice?.amount ?? 0) * Double(quantity)) + L10n.ProductDetails.currency
         } else {
-            subTotalPriceLabel.text = String((model.currentPrice ?? 0) * Double(quantity)) + L10n.ProductDetails.currency
+            subTotalPriceLabel.text = String((model.formattedPrice?.amount ?? 0) * Double(quantity)) + L10n.ProductDetails.currency
         }
         
         self.tableView.reloadData()
@@ -281,7 +281,7 @@ extension ProductDetailsViewController: ProductDetailsVarientSelectedDelegate {
         
         if let model = combinationModel {
             self.combinationModel = model
-            self.viewModel.productModel?.currentPrice = model.currentPrice
+            self.viewModel.productModel?.formattedPrice = model.currentPrice
             self.viewModel.productModel?.originalPrice = model.price
             
             self.viewModel.productModel?.selectedCombination?.cartQuantity = 1

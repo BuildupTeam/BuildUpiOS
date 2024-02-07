@@ -58,13 +58,13 @@ class LauncherViewController: NSObject {
         showViewController(viewController: viewController, fromViewController: nil)
     }
     
-    static func showTabBar(selectedIndex: Int? = nil) {
-        let tabBarVC = AppTabBarViewController()
-        if let selectedIndex = selectedIndex {
-            tabBarVC.selectedIndex = selectedIndex
-        }
-        showViewController(viewController: tabBarVC, fromViewController: nil)
-    }
+//    static func showTabBar(selectedIndex: Int? = nil) {
+//        let tabBarVC = AppTabBarViewController()
+//        if let selectedIndex = selectedIndex {
+//            tabBarVC.selectedIndex = selectedIndex
+//        }
+//        showViewController(viewController: tabBarVC, fromViewController: nil)
+//    }
     
     static func showLoginView(fromViewController: UIViewController?) {
         let loginVC = Coordinator.Controllers.createLoginViewController()

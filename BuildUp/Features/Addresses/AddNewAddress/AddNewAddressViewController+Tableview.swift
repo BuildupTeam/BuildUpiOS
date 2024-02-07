@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum AddNewAddressCells: Int {
-    case country = 0
-    case city
+//    case country = 0
+    case city = 0
     case area
     case address
 }
@@ -37,21 +37,21 @@ extension AddNewAddressViewController {
 // MARK: TableView Delegate
 extension AddNewAddressViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-        case AddNewAddressCells.country.rawValue:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: AddNewAddressCountryTableViewCell.identifier,
-                for: indexPath) as? AddNewAddressCountryTableViewCell
-            else { return UITableViewCell() }
-            
-            cell.countryModel = countryModel
-            
-            cell.selectionStyle = .none
-            return cell
+//        case AddNewAddressCells.country.rawValue:
+//            guard let cell = tableView.dequeueReusableCell(
+//                withIdentifier: AddNewAddressCountryTableViewCell.identifier,
+//                for: indexPath) as? AddNewAddressCountryTableViewCell
+//            else { return UITableViewCell() }
+//            
+//            cell.countryModel = countryModel
+//            
+//            cell.selectionStyle = .none
+//            return cell
         case AddNewAddressCells.city.rawValue:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: AddNewAddressCityTableViewCell.identifier,
@@ -89,8 +89,8 @@ extension AddNewAddressViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case AddNewAddressCells.country.rawValue:
-            openCountriesList()
+//        case AddNewAddressCells.country.rawValue:
+//            openCountriesList()
         case AddNewAddressCells.city.rawValue:
             openCitiesList()
         case AddNewAddressCells.area.rawValue:

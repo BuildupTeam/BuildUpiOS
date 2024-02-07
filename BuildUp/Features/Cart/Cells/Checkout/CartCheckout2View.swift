@@ -37,9 +37,9 @@ class CartCheckout2View: UIView {
         
     private func bindData() {
         if let model = cartModel {
-            let subtotal = String(format: "%.2f", (model.subtotal ?? 0))
+//            let subtotal = String(format: "%.2f", (model.subtotal ?? 0))
             
-            subtotalLabel.text = L10n.Cart.currency + String(subtotal)
+            subtotalLabel.text = model.formattedSubtotal?.formatted
             itemsCountLabel.text = String(model.products?.count ?? 0) + " " + L10n.Cart.items
         }
     }

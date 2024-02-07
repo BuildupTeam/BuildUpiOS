@@ -31,7 +31,7 @@ class CartCheckout3View: UIView {
     
     private func bindData() {
         if let model = cartModel {
-            checkoutButton.setTitle("\(L10n.Cart.checkout) (\(L10n.Cart.currency + String(model.subtotal ?? 0)))", for: .normal)
+            checkoutButton.setTitle("\(L10n.Cart.checkout) (\(model.formattedSubtotal?.formatted ?? "")", for: .normal)
         }
     }
     

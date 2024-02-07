@@ -126,8 +126,7 @@ extension CheckoutReviewViewController {
         checkoutContainerHeightConstraint.constant = 137
         checkoutContainerView.showView()
         if let summary = self.viewModel.summaryData?.summary {
-            let subtotal = (summary.subtotal ?? 0) + (summary.shippingDetails?.amount ?? 0)
-            subtotalLabel.text = L10n.Cart.currency + String(subtotal)
+            subtotalLabel.text = summary.formattedTotal?.formatted
         }
     }
     
@@ -272,7 +271,7 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
                                        serverKey: serverKey,
                                        clientKey: clientKey,
                                        currency: "EGP",
-                                       amount: model.total ?? 0.0,
+                                       amount: model.formattedTotal?.amount ?? 0.0,
                                        merchantCountryCode: countryCode)
         .cartDescription("Flowers")
         .cartID(model.uuid ?? "")
@@ -327,7 +326,7 @@ extension CheckoutReviewViewController {
             if let data = self.viewModel.checkoutData {
                 if data.confirmed ?? false {
                     RealTimeDatabaseService.clearCart()
-                    LauncherViewController.showTabBar()
+                    LauncherViewController.showTabBar(fromViewController: nil)
                 } else {
                     self.payWithCard()
                 }
@@ -349,7 +348,7 @@ extension CheckoutReviewViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             RealTimeDatabaseService.clearCart()
-            LauncherViewController.showTabBar()
+            LauncherViewController.showTabBar(fromViewController: nil)
         }
     }
 }

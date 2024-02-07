@@ -202,9 +202,7 @@ class Coordinator {
             return viewController
         }
         
-        class func createCitiesViewController(countryModel: CountryModel? = nil
-                                              ,viewModel: CitiesViewModel = CitiesViewModel()) -> CitiesViewController {
-            viewModel.countryModel = countryModel
+        class func createCitiesViewController(viewModel: CitiesViewModel = CitiesViewModel()) -> CitiesViewController {
             let viewController = CitiesViewController(viewModel: viewModel)
             return viewController
         }

@@ -297,8 +297,8 @@ extension CartViewController: CartProductListDelegate {
                     }
                 }
                 
-                viewModel.cartModel?.subtotalBeforeDiscount = totalPriceOriginal
-                viewModel.cartModel?.subtotal = totalPriceCurrent
+                viewModel.cartModel?.subtotalBeforeDiscount?.amount = totalPriceOriginal
+                viewModel.cartModel?.formattedSubtotal?.amount = totalPriceCurrent
                 fillData()
             }
         }
