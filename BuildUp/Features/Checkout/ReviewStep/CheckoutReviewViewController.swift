@@ -36,9 +36,15 @@ class CheckoutReviewViewController: BaseViewController {
     
     var checkoutModel: CheckoutModel?
     
-    let profileID = "134477"
-    let serverKey = "S2J99KHW2M-JHJWBG99GD-GKG62BR2L9"
-    let clientKey = "CBK22V-V7TR6H-6V2TPP-TVQGBV"
+    var profileID: String?
+    var serverKey: String?
+    var clientKey: String?
+    
+    /*
+     var profileID = "134477"
+     var serverKey = "S2J99KHW2M-JHJWBG99GD-GKG62BR2L9"
+     var clientKey = "CBK22V-V7TR6H-6V2TPP-TVQGBV"
+     */
     
     override  var prefersBottomBarHidden: Bool? { return true }
 
@@ -96,8 +102,6 @@ extension CheckoutReviewViewController {
         checkoutButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         checkoutButton.setTitle(L10n.Checkout.continue, for: .normal)
         checkoutButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
-        
-        self.decryptMsg(config: checkoutModel?.paymentMethod?.gateway?.config ?? "")
     }
     
     private func registerTableViewCells() {
@@ -130,30 +134,49 @@ extension CheckoutReviewViewController {
         }
     }
     
-    private func decryptMsg(config: String) -> PaymentConfig? {
+    private func getPaymentCredentails() {
+        if let model = checkoutModel?.paymentMethod {
+            if let response = decryptMsg(encryptedString: model.gateway?.config ?? "") {
+                self.profileID = response["profile_id"]
+                self.serverKey = response["server_key"]
+                self.clientKey = response["client_key"]
+                
+                self.payWithCard()
+            }
+        }
+    }
+    
+    func decryptMsg(encryptedString: String) -> [String: String]? {
+        guard let decodedData = Data(base64Encoded: encryptedString) else {
+            print("Failed to decode Base64 string")
+            return [:]
+        }
+        
+        // Extract the IV, key, and encrypted data based on their positions
+        let iv = decodedData.prefix(16)
+        let key = decodedData.suffix(32)
+        let encryptedData = decodedData.dropFirst(16).dropLast(32)
+        
         do {
-            guard let decodedData = Data(base64Encoded: config) else { return nil }
-            let iv = Array(decodedData[0..<16]) // Extract IV (first 16 bytes)
-            let key = Array(decodedData[(decodedData.count - 32)..<decodedData.count])
-            let encryptedData = Array(decodedData[16..<(decodedData.count - 32)])
-//            let secret = SymmetricKey(data: key)
-            /* Decrypt the message, given derived encContentValues and initialization vector. */
+            let aes = try AES(key: Array(key), blockMode: CTR(iv: Array(iv)), padding: .noPadding)
+            let decryptedBytes = try aes.decrypt(Array(encryptedData))
+            let decryptedData = Data(decryptedBytes)
             
-//            let padding = Padding.noPadding.add(to: encryptedData, blockSize: AES.blockSize)
-
-            let cipher = try AES(key: key, blockMode: CBC(iv: iv), padding: .pkcs7)
-//            let cipher = try AES(key: secret, iv: iv, padding: .noPadding)
-            let decryptedData = try cipher.decrypt(encryptedData)
-            if let jsonResponse = String(data: Data(decryptedData), encoding: .utf8) {
-                let paymentConfigResponse = Mapper<PaymentConfig>().map(JSONObject: jsonResponse)
-                return paymentConfigResponse 
-                //try JSONDecoder().decode(PaymentConfig.self, from: json.data(using: .utf8)!)
+            if let decryptedString = String(data: decryptedData, encoding: .utf8) {
+                print("Decrypted string: \(decryptedString)")
+                
+                let dict = decryptedString.toJSON() as? [String: String]
+                print("dict = \(String(describing: dict))")
+                return dict
+                
+            } else {
+                print("Failed to convert decrypted data to string.")
             }
         } catch {
-            print("error = \(error)")
-            return nil
+            print("Decryption error: \(error.localizedDescription)")
         }
-        return nil
+        
+        return [:]
     }
 }
 
@@ -267,9 +290,9 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
 
         let theme = PaymentSDKTheme.default
         theme.logoImage = UIImage(named: "Logo")
-        return PaymentSDKConfiguration(profileID: profileID,
-                                       serverKey: serverKey,
-                                       clientKey: clientKey,
+        return PaymentSDKConfiguration(profileID: profileID ?? "",
+                                       serverKey: serverKey ?? "",
+                                       clientKey: clientKey ?? "",
                                        currency: "EGP",
                                        amount: model.formattedTotal?.amount ?? 0.0,
                                        merchantCountryCode: countryCode)
@@ -328,7 +351,8 @@ extension CheckoutReviewViewController {
                     RealTimeDatabaseService.clearCart()
                     LauncherViewController.showTabBar(fromViewController: nil)
                 } else {
-                    self.payWithCard()
+                    self.getPaymentCredentails()
+//                    self.payWithCard()
                 }
             }
         }

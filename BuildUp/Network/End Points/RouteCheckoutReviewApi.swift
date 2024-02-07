@@ -56,8 +56,13 @@ extension RouteCheckoutReviewApi: TargetType {
         case .checkout(checkoutModel: let model):
             var parameters: [String: Any] = [:]
             parameters["address_id"] = model.address?.id
-            parameters["payment_method"] = model.paymentMethod
+            parameters["payment_method"] = model.paymentMethod?.identifier
             parameters["customer_name"] = model.name
+            if model.paymentMethod?.identifier == "cod" {
+                parameters["payment_gateway"] = "cod"
+            } else {
+                parameters["payment_gateway"] = model.paymentMethod?.gateway?.identifier
+            }
             parameters["customer_country_code"] = model.countryCode
             parameters["customer_phone"] = model.phone
 
