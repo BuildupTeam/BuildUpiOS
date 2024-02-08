@@ -31,6 +31,14 @@ Get certificates
 
 Generate new certificates
 
+### ios screenshots
+
+```sh
+[bundle exec] fastlane ios screenshots
+```
+
+Generate new localized screenshots
+
 ### ios deploy
 
 ```sh

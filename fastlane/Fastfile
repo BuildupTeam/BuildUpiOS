@@ -50,6 +50,11 @@ platform :ios do
 
   end
 
+  desc “Generate new localized screenshots”
+ 	lane :screenshots do
+        capture_screenshots(workspace: “BuildUp.xcworkspace”, scheme: “BuildUpUITests”)
+ end
+
  desc "deploy"
   lane :deploy do
     setup_ci
@@ -58,6 +63,7 @@ platform :ios do
       app_identifier: 'com.squadio.buildUp',
       readonly: true
     )
+    increment_build_number(xcodeproj: “BuildUp.xcodeproj”)
     build_app(scheme: "BuildUp")
     app_store_connect_api_key(
 	  key_id: "223H85GN24",
@@ -71,7 +77,8 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     		username: "mohammed.khaled.sobhy@gmail.com",
     		app_identifier: "com.squadio.buildUp",
     		skip_metadata: true,
-    		skip_screenshots: true,
+    		skip_screenshots: false,
+   	        overwrite_screenshots: true,
     		submit_for_review: true,
 		run_precheck_before_submit: false,
 submission_information: {
