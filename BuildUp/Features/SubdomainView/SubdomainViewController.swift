@@ -121,7 +121,7 @@ extension SubdomainViewController {
         guard checkScanPermissions() else { 
 #if targetEnvironment(simulator)
             
-            CachingService.setSubdomain(subdomain: "my-app-3")
+            CachingService.setSubdomain(subdomain: "namshi")
             
             self.showLoading()
             self.viewModel.getHomeTemplate()

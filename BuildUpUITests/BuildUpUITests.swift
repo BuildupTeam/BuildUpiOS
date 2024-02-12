@@ -20,21 +20,22 @@ final class BuildUpUITests: XCTestCase {
     }
     
     @MainActor func testTakeSnapshots() {
-        snapshot("1-GameView")
+        snapshot("SubdomainViewController")
+//        app.buttons["scanMe"].tap()
+//        snapshot("LoginViewController")
+//        app.buttons["Skip"].tap()
+//        snapshot("HomeViewController")
 
-        let coordinate = app.tables.otherElements.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5))
-
-        for _ in 0...5 {
-            coordinate.tap()
-        }
-        snapshot("2-StepperIncremented")
-        app.navigationBars.firstMatch.buttons.firstMatch.tap()
-        app.textFields.firstMatch.tap()
-        app.textFields.buttons["Clear text"].tapElement()
-        app.typeText("Taboo")
-        snapshot("3-Alert")
-        app.buttons["Dismiss"].tap()
-        snapshot("4-GameChanged")
+//        let coordinate = app.tables.otherElements.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5))
+//
+//        for _ in 0...5 {
+//            coordinate.tap()
+//        }
+//        snapshot("2-StepperIncremented")
+//        app.navigationBars.firstMatch.buttons.firstMatch.tap()
+//        snapshot("3-Alert")
+//        app.buttons["Skip"].tap()
+//        snapshot("HomeViewController")
     }
     
     override func setUpWithError() throws {
