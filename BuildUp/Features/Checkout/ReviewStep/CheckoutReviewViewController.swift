@@ -278,8 +278,8 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
                                         email: email,
                                         phone: phone,
                                         addressLine: addressLine,
-                                        city: "Cairo",
-                                        state: "Nasr City",
+                                        city: city,
+                                        state: state,
                                         countryCode: countryCode,
                                         zip: "12345")
     }
@@ -287,13 +287,14 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
     func getCardConfiguration() -> PaymentSDKConfiguration {
         guard let model = self.viewModel.checkoutData?.order else { return PaymentSDKConfiguration() }
         let countryCode = checkoutModel?.countryCodeText ?? "EG"
-
+        let currency = CachingService.getThemeData()?.currency ?? ""
+        
         let theme = PaymentSDKTheme.default
         theme.logoImage = UIImage(named: "Logo")
         return PaymentSDKConfiguration(profileID: profileID ?? "",
                                        serverKey: serverKey ?? "",
                                        clientKey: clientKey ?? "",
-                                       currency: "EGP",
+                                       currency: currency,
                                        amount: model.formattedTotal?.amount ?? 0.0,
                                        merchantCountryCode: countryCode)
         .cartDescription("Flowers")
@@ -362,6 +363,7 @@ extension CheckoutReviewViewController {
         self.viewModel.onPaymentCancelled = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
+            self.showError(message: "payment cancelled")
 //            RealTimeDatabaseService.clearCart()
 //            LauncherViewController.showTabBar()
         }

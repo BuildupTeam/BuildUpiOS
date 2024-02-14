@@ -13,6 +13,7 @@ class OrderModel: Mappable {
     var uuid: String?
     var status: String?
     var paymentMethod: String?
+    var paymentMethodImage: String?
     var createdAt: String?
     var formattedTotal: FormatedPriceModel?
     var formattedSubtotal: FormatedPriceModel?
@@ -36,6 +37,7 @@ class OrderModel: Mappable {
         uuid <- map["uuid"]
         status <- map["status"]
         paymentMethod <- map["payment_method"]
+        paymentMethodImage <- map["payment_method_image"]
         createdAt <- map["created_at"]
         formattedTotal <- map["formatted_total"]
         products <- map["products"]
