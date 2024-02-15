@@ -10,10 +10,15 @@ import UIKit
 class OrderDetailsPaymentTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var paymentImageView: UIImageView!
     @IBOutlet private weak var paymentTitleLabel: UILabel!
     @IBOutlet private weak var onlinePaymentLabel: UILabel!
     
-    var orderModel: OrderModel?
+    var orderModel: OrderModel? {
+        didSet {
+            bindData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +36,7 @@ class OrderDetailsPaymentTableViewCell: UITableViewCell {
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
         paymentTitleLabel.text = L10n.Checkout.payment
-        onlinePaymentLabel.text = L10n.Checkout.cashOnDelivery
+//        onlinePaymentLabel.text = L10n.Checkout.cashOnDelivery
         
         ThemeManager.setShadow(element: containerView,
                                shadowRadius: CGFloat(11),
@@ -41,4 +46,15 @@ class OrderDetailsPaymentTableViewCell: UITableViewCell {
                                masksToBounds: false)
     }
     
+    private func bindData() {
+        if let model = orderModel {
+            onlinePaymentLabel.text = model.paymentMethod
+            
+            if let imageUrl = model.paymentMethodImage {
+                paymentImageView.setImage(with: imageUrl)
+            } else {
+                paymentImageView.image = UIImage()
+            }
+        }
+    }
 }

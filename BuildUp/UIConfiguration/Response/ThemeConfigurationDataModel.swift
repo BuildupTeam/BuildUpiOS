@@ -15,6 +15,7 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
     var systemStyle: String?
     var pages: [PageConfigurationModel]?
     var appCountryId: String?
+    var currency: String?
 
     required init?(map: Map) {
         
@@ -27,6 +28,7 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
         systemStyle <- map["system_style"]
         pages <- map["pages"]
         appCountryId <- map["app_country_id"]
+        currency <- map["currency"]
     }
     
     override init() {
@@ -40,6 +42,7 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
         systemStyle = aDecoder.decodeObject(forKey: "systemStyle") as? String
         pages = aDecoder.decodeObject(forKey: "pages") as? [PageConfigurationModel]
         appCountryId = aDecoder.decodeObject(forKey: "appCountryId") as? String
+        currency = aDecoder.decodeObject(forKey: "currency") as? String
     }
     
     @objc
@@ -61,6 +64,9 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
         }
         if appCountryId != nil {
             aCoder.encode(appCountryId, forKey: "appCountryId")
+        }
+        if currency != nil {
+            aCoder.encode(currency, forKey: "currency")
         }
     }
 }

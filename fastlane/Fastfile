@@ -15,8 +15,11 @@
 
 default_platform(:ios)
 
+require 'dotenv'
+Dotenv.load('.env')
+
 before_all do
-    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "fndq-kqhu-yagn-kbns"
+    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"]
   end
 
 platform :ios do
@@ -24,7 +27,7 @@ platform :ios do
   lane :certificates do
     sync_code_signing(
       type: "appstore",
-      app_identifier: ['com.squadio.buildUp'], 
+      app_identifier: ENV["BUNDLE_ID"], 
       force_for_new_devices: true,
       readonly: true
     )
@@ -32,7 +35,7 @@ platform :ios do
     # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
     sync_code_signing(
       type: "appstore",
-      app_identifier: 'com.squadio.buildUp',
+      app_identifier: ENV["BUNDLE_ID"],
       readonly: true
     )
   end
@@ -41,7 +44,7 @@ platform :ios do
   lane :generate_new_certificates do
     sync_code_signing(
       type: "appstore",
-      app_identifier: ['com.squadio.buildUp'], 
+      app_identifier: ENV["BUNDLE_ID"], 
       force_for_new_devices: true,
       readonly: false
     )
@@ -60,7 +63,7 @@ platform :ios do
     setup_ci
     sync_code_signing(
       type: "appstore",
-      app_identifier: 'com.squadio.buildUp',
+      app_identifier: ENV["BUNDLE_ID"],
       readonly: true
     )
     increment_build_number(xcodeproj: “BuildUp.xcodeproj”)
@@ -75,7 +78,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
 )	
 	upload_to_app_store(
     		username: "mohammed.khaled.sobhy@gmail.com",
-    		app_identifier: "com.squadio.buildUp",
+    		app_identifier: ENV["BUNDLE_ID"],
     		skip_metadata: true,
     		submit_for_review: true,
 		run_precheck_before_submit: false,
