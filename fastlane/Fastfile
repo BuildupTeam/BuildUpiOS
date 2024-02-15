@@ -53,11 +53,6 @@ platform :ios do
 
   end
 
-  desc “Generate new localized screenshots”
- 	lane :screenshots do
-        capture_screenshots(workspace: “BuildUp.xcworkspace”, scheme: “BuildUpUITests”)
- end
-
  desc "deploy"
   lane :deploy do
     setup_ci
@@ -66,8 +61,8 @@ platform :ios do
       app_identifier: ENV["BUNDLE_ID"],
       readonly: true
     )
-    increment_build_number(xcodeproj: “BuildUp.xcodeproj”)
-    build_app(scheme: "BuildUp")
+    increment_build_number(xcodeproj: ENV["BUILD_XCODE"])
+    build_app(scheme: ENV["BUILD_APP"])
     app_store_connect_api_key(
 	  key_id: "223H85GN24",
 	  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1", 	 
@@ -80,6 +75,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     		username: "mohammed.khaled.sobhy@gmail.com",
     		app_identifier: ENV["BUNDLE_ID"],
     		skip_metadata: true,
+		skip_screenshots: true,
     		submit_for_review: true,
 		run_precheck_before_submit: false,
 submission_information: {
