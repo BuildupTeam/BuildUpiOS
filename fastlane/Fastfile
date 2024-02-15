@@ -19,7 +19,7 @@ require 'dotenv'
 Dotenv.load('.env')
 
 before_all do
-    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"]
+    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "fndq-kqhu-yagn-kbns"
   end
 
 platform :ios do
