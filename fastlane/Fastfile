@@ -61,7 +61,7 @@ platform :ios do
       app_identifier: ENV["BUNDLE_ID"],
       readonly: true
     )
-    increment_build_number(xcodeproj: ENV["BUILD_XCODE"])
+   # increment_build_number(xcodeproj: ENV["BUILD_XCODE"])
     build_app(scheme: ENV["BUILD_APP"])
     app_store_connect_api_key(
 	  key_id: "223H85GN24",
