@@ -135,15 +135,20 @@ extension CheckoutReviewViewController {
     }
     
     private func getPaymentCredentails() {
-        if let model = checkoutModel?.paymentMethod {
-            if let response = decryptMsg(encryptedString: model.gateway?.config ?? "") {
-                self.profileID = response["profile_id"]
-                self.serverKey = response["server_key"]
-                self.clientKey = response["client_key"]
-                
-                self.payWithCard()
+        
+        if let payment = checkoutModel?.paymentMethod, payment.identifier == "cod" {
+//            self.viewModel.completeOrder(transactionId: transactionDetails.transactionReference ?? "")
+        } else {
+            if let model = checkoutModel?.paymentMethod {
+                if let response = decryptMsg(encryptedString: model.gateway?.config ?? "") {
+                    self.profileID = response["profile_id"]
+                    self.serverKey = response["server_key"]
+                    self.clientKey = response["client_key"]
+                    
+                    self.payWithCard()
+                }
             }
-        }
+        }        
     }
     
     func decryptMsg(encryptedString: String) -> [String: String]? {
@@ -339,6 +344,15 @@ extension CheckoutReviewViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             self.setupTotalPrice()
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func summaryErrorResponse() {
+        self.viewModel.onErrorMessage = { [weak self](message) in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            self.showError(message: message)
             self.tableView.reloadData()
         }
     }

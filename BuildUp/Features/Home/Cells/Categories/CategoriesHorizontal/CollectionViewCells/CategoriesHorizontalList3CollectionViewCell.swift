@@ -32,20 +32,10 @@ class CategoriesHorizontalList3CollectionViewCell: UICollectionViewCell {
         categoryNameLabel.font = .appFont(ofSize: 13, weight: .bold)
         categoryNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
-//        containerView.setShadow(
-//            shadowRadius: CGFloat(5),
-//            xOffset: 0,
-//            yOffset: 0,
-//            color: .black,
-//            opacity: 0.15,
-//            cornerRadius: 8,
-//            masksToBounds: false)
-        
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
 
         ThemeManager.setCornerRadious(element: categoryImageView, radius: 8)
         ThemeManager.setCornerRadious(element: categoryImageContainerView, radius: 8)
-//        ThemeManager.roundCorners(element: categoryImageView, corners: [.topLeft, .topRight], radius: 8)
     }
     
     func bindData() {

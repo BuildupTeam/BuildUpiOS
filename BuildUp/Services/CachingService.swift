@@ -111,7 +111,7 @@ class CachingService: NSObject {
     
     static func getSubdomain() -> String {
         let userDefaults = UserDefaults.standard
-        return userDefaults.string(forKey: Constant.Keys.subdomain) ?? "namshi" //my-app-3"
+        return userDefaults.string(forKey: Constant.Keys.subdomain) ?? "online-shop" //my-app-3"
     }
     
     static func setThemeData(theme: ThemeConfigurationDataModel) {

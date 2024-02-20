@@ -59,9 +59,10 @@ class ProductDetailsViewModel: BaseViewModel {
                         self.productModel?.isFavorite = false
                     }
                     
-                    if let files = self.productModel?.files {
+                    if var files = self.productModel?.files {
                         if !files.isEmpty {
                             let fileModel = ProductFileModel(path: self.productModel?.mainImage?.path ?? "")
+                            files.insert(fileModel, at: 0)
                             self.productModel?.files?.insert(fileModel, at: 0)
                             for (index, file) in files.enumerated() {
                                 if index == 0 {

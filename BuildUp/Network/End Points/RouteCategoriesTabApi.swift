@@ -45,7 +45,7 @@ extension RouteCategoriesTabApi: TargetType {
             var parameters: [String: Any] = [:]
             parameters["sort[by]"] = "id"
             parameters["sort[dir]"] = "desc"
-            parameters["subcategory"] = "1"
+//            parameters["subcategory"] = "1"
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)

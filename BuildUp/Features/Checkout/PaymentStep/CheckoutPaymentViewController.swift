@@ -74,7 +74,7 @@ class CheckoutPaymentViewController: BaseViewController {
     }
     
     private func getPaymentMethods() {
-        if let countryCode = checkoutModel?.countryCodeText {
+        if let countryCode = CachingService.getThemeData()?.appCountryId?.iso {
             self.viewModel.getPaymentMethods(countryCode: countryCode)
         }
     }

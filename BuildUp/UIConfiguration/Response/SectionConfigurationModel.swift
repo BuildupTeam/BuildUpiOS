@@ -19,7 +19,6 @@ class SectionConfigurationModel: NSObject, NSCoding, Mappable {
         
     }
     
-    
     func mapping(map: Map) {
         id <- map["id"]
         order <- map["order"]
@@ -29,6 +28,7 @@ class SectionConfigurationModel: NSObject, NSCoding, Mappable {
     }
     
     override init() {
+        
     }
     
     convenience required init?(coder aDecoder: NSCoder) {

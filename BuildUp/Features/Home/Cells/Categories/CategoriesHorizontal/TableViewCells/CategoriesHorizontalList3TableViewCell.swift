@@ -82,9 +82,21 @@ extension CategoriesHorizontalList3TableViewCell: UICollectionViewDelegate, UICo
             return cell
         }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {        
-        return CGSize(width: 120, height: 190)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 120, height: 190)
+//    }
+//    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if let text = homeSectionModel?.categories?[indexPath.item].name {
+            
+            let textHeight = text.height(withConstrainedWidth: 120, font: UIFont.appFont(ofSize: 13, weight: .bold))
+            print("boundingBox.height = \(textHeight)")
+            return CGSize(width: 120, height: textHeight + 190) // Add some padding for better presentation
+        }
+            
+
+            return CGSize(width: 120, height: 190) // Add some padding for better presentation
+        }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let sectionModel = homeSectionModel, !(sectionModel.categories?.isEmpty ?? false) {

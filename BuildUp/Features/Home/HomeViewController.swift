@@ -72,10 +72,17 @@ extension HomeViewController {
     }
     
     private func setupNavigationBar() {
-        let logoImageView = UIImageView(image: Asset.icSquadio.image)
         
-        logoImageView.contentMode = .scaleAspectFit
-        self.navigationItem.titleView = logoImageView
+        let logoView = HomeLogoView.instantiateFromNib()
+        logoView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        logoView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        logoView.setupView()
+
+        logoView.backgroundColor = .clear
+        self.navigationItem.titleView?.tintColor = .clear
+
+        self.navigationItem.titleView = logoView
         
         let searchItem = UIBarButtonItem(
             image: Asset.icSearch.image,

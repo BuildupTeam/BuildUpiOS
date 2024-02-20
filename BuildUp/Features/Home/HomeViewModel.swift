@@ -211,6 +211,8 @@ extension HomeViewModel {
         case HomeDesign.productVerticalGrid4.rawValue,
             HomeDesign.productVerticalGrid5.rawValue:
             limit = 6
+        case HomeDesign.productHorizontalList1.rawValue:
+            limit = 10
         default:
             limit = 4
         }

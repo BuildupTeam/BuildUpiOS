@@ -42,7 +42,7 @@ class ProductVerticalGrid5TableViewCell: UITableViewCell {
         if let homeSection = homeSectionModel {
             if !(homeSection.products?.isEmpty ?? false) {
                 if homeSection.products?.count ?? 0 > 3 {
-                    collectionViewHeightConstrains.constant = 414
+                    collectionViewHeightConstrains.constant = 430
                 } else {
                     collectionViewHeightConstrains.constant = 203
                 }

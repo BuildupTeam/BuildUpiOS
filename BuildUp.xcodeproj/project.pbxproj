@@ -339,6 +339,7 @@
 		395D3BF02A9AAF9900DA9859 /* ProductDetailsSliderType2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395D3BEE2A9AAF9900DA9859 /* ProductDetailsSliderType2CollectionViewCell.xib */; };
 		395D3BF32A9AAFA600DA9859 /* ProductDetailsSliderType3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D3BF12A9AAFA600DA9859 /* ProductDetailsSliderType3CollectionViewCell.swift */; };
 		395D3BF42A9AAFA600DA9859 /* ProductDetailsSliderType3CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395D3BF22A9AAFA600DA9859 /* ProductDetailsSliderType3CollectionViewCell.xib */; };
+		3969795C2B82458400F98336 /* AppCountryIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969795B2B82458400F98336 /* AppCountryIdModel.swift */; };
 		39730D2C2AA1289A0088C9ED /* ProductDetailsVariants1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730D2A2AA128990088C9ED /* ProductDetailsVariants1TableViewCell.swift */; };
 		39730D2D2AA1289A0088C9ED /* ProductDetailsVariants1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39730D2B2AA128990088C9ED /* ProductDetailsVariants1TableViewCell.xib */; };
 		39730D302AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39730D2E2AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift */; };
@@ -423,6 +424,9 @@
 		39A8D1A52B28C9EE00F518C3 /* CheckoutDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A8D1A42B28C9EE00F518C3 /* CheckoutDataModel.swift */; };
 		39AC982A2AEF0EF600CDEB2A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AC98282AEF0EF600CDEB2A /* RegisterViewController.swift */; };
 		39AC982B2AEF0EF600CDEB2A /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39AC98292AEF0EF600CDEB2A /* RegisterViewController.xib */; };
+		39AD47572B82DF140017E63C /* iOSAppIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AD47562B82DF140017E63C /* iOSAppIconModel.swift */; };
+		39AD47592B82E15C0017E63C /* HomeLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AD47582B82E15C0017E63C /* HomeLogoView.swift */; };
+		39AD475B2B82E1650017E63C /* HomeLogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39AD475A2B82E1650017E63C /* HomeLogoView.xib */; };
 		39AE9C9D2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE9C9B2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.swift */; };
 		39AE9C9E2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39AE9C9C2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.xib */; };
 		39AE9CA12AA239FD0075E99F /* RecommentedProductsType1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE9C9F2AA239FD0075E99F /* RecommentedProductsType1CollectionViewCell.swift */; };
@@ -993,6 +997,7 @@
 		395D3BEE2A9AAF9900DA9859 /* ProductDetailsSliderType2CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsSliderType2CollectionViewCell.xib; sourceTree = "<group>"; };
 		395D3BF12A9AAFA600DA9859 /* ProductDetailsSliderType3CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsSliderType3CollectionViewCell.swift; sourceTree = "<group>"; };
 		395D3BF22A9AAFA600DA9859 /* ProductDetailsSliderType3CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsSliderType3CollectionViewCell.xib; sourceTree = "<group>"; };
+		3969795B2B82458400F98336 /* AppCountryIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCountryIdModel.swift; sourceTree = "<group>"; };
 		39730D2A2AA128990088C9ED /* ProductDetailsVariants1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVariants1TableViewCell.swift; sourceTree = "<group>"; };
 		39730D2B2AA128990088C9ED /* ProductDetailsVariants1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsVariants1TableViewCell.xib; sourceTree = "<group>"; };
 		39730D2E2AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVariants2TableViewCell.swift; sourceTree = "<group>"; };
@@ -1077,6 +1082,9 @@
 		39A8D1A42B28C9EE00F518C3 /* CheckoutDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDataModel.swift; sourceTree = "<group>"; };
 		39AC98282AEF0EF600CDEB2A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		39AC98292AEF0EF600CDEB2A /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		39AD47562B82DF140017E63C /* iOSAppIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSAppIconModel.swift; sourceTree = "<group>"; };
+		39AD47582B82E15C0017E63C /* HomeLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLogoView.swift; sourceTree = "<group>"; };
+		39AD475A2B82E1650017E63C /* HomeLogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeLogoView.xib; sourceTree = "<group>"; };
 		39AE9C9B2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentedProductsType2CollectionViewCell.swift; sourceTree = "<group>"; };
 		39AE9C9C2AA239F00075E99F /* RecommentedProductsType2CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommentedProductsType2CollectionViewCell.xib; sourceTree = "<group>"; };
 		39AE9C9F2AA239FD0075E99F /* RecommentedProductsType1CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommentedProductsType1CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -2409,6 +2417,8 @@
 			children = (
 				3950B09B2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift */,
 				3950B09F2A6ABFD300E27111 /* ThemeConfigurationDataModel.swift */,
+				39AD47562B82DF140017E63C /* iOSAppIconModel.swift */,
+				3969795B2B82458400F98336 /* AppCountryIdModel.swift */,
 				390E6D6E2A903500009ECC00 /* ColorPaletteModel.swift */,
 				3950B0A12A6ABFF500E27111 /* PageConfigurationModel.swift */,
 				3950B0A32A6AC00200E27111 /* SectionConfigurationModel.swift */,
@@ -2596,6 +2606,8 @@
 			children = (
 				399007172ABDAC51002F6938 /* AddToCartTextView.swift */,
 				399007192ABDAC66002F6938 /* AddToCartIconView.swift */,
+				39AD47582B82E15C0017E63C /* HomeLogoView.swift */,
+				39AD475A2B82E1650017E63C /* HomeLogoView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -3614,6 +3626,7 @@
 				39DD4DF32AF2C35A009D3CEF /* ForgetPasswordViewController.xib in Resources */,
 				39C6C4C62A3CE04400F11A6F /* CategoriesVerticalGrid2CollectionViewCell.xib in Resources */,
 				3990073A2ABDB68A002F6938 /* CartCheckout3View.xib in Resources */,
+				39AD475B2B82E1650017E63C /* HomeLogoView.xib in Resources */,
 				390C3B842B14FA7300E40849 /* CheckoutProductsTableViewCell.xib in Resources */,
 				39F583772A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.xib in Resources */,
 				393613DC2AB79F6D007289DE /* CategoryDetailsCoverPhoto3.xib in Resources */,
@@ -3960,6 +3973,7 @@
 				39CE76912A2F61170019A485 /* Data+Extensions.swift in Sources */,
 				390C3BD82B175F8300E40849 /* OrderStatusView.swift in Sources */,
 				393974C02B3FAC2800B65F77 /* CheckoutPaymentMethodTableViewCell.swift in Sources */,
+				39AD47592B82E15C0017E63C /* HomeLogoView.swift in Sources */,
 				39CE76B52A2F62310019A485 /* Localized.swift in Sources */,
 				391529F12A347F37007F7E09 /* ProductVerticalList3TableViewCell.swift in Sources */,
 				39D59F952B73761200CCE437 /* OrderTaxesModel.swift in Sources */,
@@ -4111,6 +4125,7 @@
 				3932B2972B12833A00283B3D /* CheckoutPaymentWebServiceProtocol.swift in Sources */,
 				3921FCDF2AAB98810019CCC2 /* CompinationsOptionModel.swift in Sources */,
 				390C3BC92B1753AC00E40849 /* OrderHistoryViewModel.swift in Sources */,
+				3969795C2B82458400F98336 /* AppCountryIdModel.swift in Sources */,
 				391529BC2A2F99A8007F7E09 /* Assets.swift in Sources */,
 				39821FB92AFA983100388254 /* RouteLogoutApi.swift in Sources */,
 				393613DA2AB79F5F007289DE /* CategoryDetailsCoverPhoto3.swift in Sources */,
@@ -4214,6 +4229,7 @@
 				3921FCE32AAB9ED10019CCC2 /* ShimmerProductDetailsVariantsTableViewCell.swift in Sources */,
 				395D3B942A977B4300DA9859 /* ProductVerticalList1InnerTableViewCell.swift in Sources */,
 				395D3BEB2A9AAF8600DA9859 /* ProductDetailsSliderType1CollectionViewCell.swift in Sources */,
+				39AD47572B82DF140017E63C /* iOSAppIconModel.swift in Sources */,
 				3932B22D2B1130C500283B3D /* CountiresViewModel.swift in Sources */,
 				39BA0B492AA3C7A8008001F7 /* ProductDetailsOptionsModel.swift in Sources */,
 				39821FB02AFA2EC300388254 /* RouteFirebaseTokenApi.swift in Sources */,
@@ -4419,7 +4435,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4466,7 +4482,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4704,7 +4720,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -4857,7 +4873,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
