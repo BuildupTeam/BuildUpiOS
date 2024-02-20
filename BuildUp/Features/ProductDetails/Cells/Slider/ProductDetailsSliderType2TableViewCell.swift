@@ -184,8 +184,10 @@ extension ProductDetailsSliderType2TableViewCell {
             }
             
             if model.isFavorite {
+                self.favoriteButton.setBackgroundImage(Asset.productFavorite.image, for: .normal)
                 self.addToFavoriteImage.image = Asset.productFavorite.image
             } else {
+                self.favoriteButton.setBackgroundImage(Asset.productUnFavorite.image, for: .normal)
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image
             }
         }
@@ -224,8 +226,10 @@ extension ProductDetailsSliderType2TableViewCell {
         }
         if let model = productModel {
             if model.isFavorite {
+                self.favoriteButton.setBackgroundImage(Asset.productUnFavorite.image, for: .normal)
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image
             } else {
+                self.favoriteButton.setBackgroundImage(Asset.productFavorite.image, for: .normal)
                 self.addToFavoriteImage.image = Asset.productFavorite.image
             }
             

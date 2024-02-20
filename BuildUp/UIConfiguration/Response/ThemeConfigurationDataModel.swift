@@ -14,8 +14,9 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
     var colorPalette: ColorPaletteModel?
     var systemStyle: String?
     var pages: [PageConfigurationModel]?
-    var appCountryId: String?
+    var appCountryId: AppCountryIdModel?
     var currency: String?
+    var iOSAppIcon: iOSAppIconModel?
 
     required init?(map: Map) {
         
@@ -29,6 +30,7 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
         pages <- map["pages"]
         appCountryId <- map["app_country_id"]
         currency <- map["currency"]
+        iOSAppIcon <- map["ios_app_icon"]
     }
     
     override init() {
@@ -41,8 +43,9 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
         colorPalette = aDecoder.decodeObject(forKey: "colorPalette") as? ColorPaletteModel
         systemStyle = aDecoder.decodeObject(forKey: "systemStyle") as? String
         pages = aDecoder.decodeObject(forKey: "pages") as? [PageConfigurationModel]
-        appCountryId = aDecoder.decodeObject(forKey: "appCountryId") as? String
+        appCountryId = aDecoder.decodeObject(forKey: "appCountryId") as? AppCountryIdModel
         currency = aDecoder.decodeObject(forKey: "currency") as? String
+        iOSAppIcon = aDecoder.decodeObject(forKey: "iOSAppIcon") as? iOSAppIconModel
     }
     
     @objc
@@ -67,6 +70,9 @@ class ThemeConfigurationDataModel: NSObject, NSCoding, Mappable {
         }
         if currency != nil {
             aCoder.encode(currency, forKey: "currency")
+        }
+        if iOSAppIcon != nil {
+            aCoder.encode(iOSAppIcon, forKey: "iOSAppIcon")
         }
     }
 }

@@ -38,6 +38,7 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var cartButton: UIButton!
     @IBOutlet private weak var addToFavoriteButton: UIButton!    
+    @IBOutlet private weak var productNameTrailingConstraint: NSLayoutConstraint!
 
     weak var delegate: ProductDetailsSliderDelegate?
     
@@ -149,9 +150,11 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
             
             if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
                 if settings.actions == ProductDetailsActions.grouped.rawValue {
+                    productNameTrailingConstraint.constant = 16
                     addToFavoriteSeparatedView.isHidden = true
                     addToFavoriteGroupedView.isHidden = false
                 } else {
+                    productNameTrailingConstraint.constant = 62
                     addToFavoriteSeparatedView.isHidden = false
                     addToFavoriteGroupedView.isHidden = true
                 }
@@ -170,8 +173,10 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
             }
             
             if model.isFavorite {
+                self.favoriteButton.setBackgroundImage(Asset.productFavorite.image, for: .normal)
                 self.addToFavoriteImage.image = Asset.productFavorite.image
             } else {
+                self.favoriteButton.setBackgroundImage(Asset.productUnFavorite.image, for: .normal)
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image
             }
         }
@@ -200,8 +205,10 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         }
         if let model = productModel {
             if model.isFavorite {
+                self.favoriteButton.setBackgroundImage(Asset.productUnFavorite.image, for: .normal)
                 self.addToFavoriteImage.image = Asset.productUnFavorite.image
             } else {
+                self.favoriteButton.setBackgroundImage(Asset.productFavorite.image, for: .normal)
                 self.addToFavoriteImage.image = Asset.productFavorite.image
             }
             

@@ -14,6 +14,7 @@ class CheckoutReviewViewModel: BaseViewModel {
     var checkoutData: CheckoutDataModel?
 
     public var onSummary: (() -> Void)?
+    public var onErrorMessage: ((String) -> Void)?
     public var onCheckout: ((CheckoutResponseModel) -> Void)?
     public var onPaymentCancelled: (() -> Void)?
     public var onCompleteOrder: (() -> Void)?
@@ -31,8 +32,13 @@ class CheckoutReviewViewModel: BaseViewModel {
         service.getSummary(addressId: addressId) { (result) in
             switch result {
             case .success(let response):
-                self.summaryData = response.data
-                self.onSummary?()
+                if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
+                    self.summaryData = response.data
+                    self.onSummary?()
+                } else {
+                    self.onErrorMessage?(response.message ?? "")
+                }
+                
             case .failure(let error):
                 print(error)
                 if error.message != "Request explicitly cancelled." {

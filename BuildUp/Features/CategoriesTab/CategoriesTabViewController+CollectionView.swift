@@ -132,6 +132,9 @@ extension CategoriesTabViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if viewModel.products.isEmpty {
+            return
+        }
         let productModel = viewModel.products[indexPath.row]
         let detailsVC = Coordinator.Controllers.createProductDetailsViewController()
         detailsVC.productModel = productModel

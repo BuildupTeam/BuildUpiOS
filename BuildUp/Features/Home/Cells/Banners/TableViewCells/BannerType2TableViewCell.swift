@@ -34,20 +34,26 @@ class BannerType2TableViewCell: UITableViewCell {
 
         bannerTitleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         
-        ThemeManager.setShadow(element: containerView,
-                               shadowRadius: CGFloat(5),
-                               xOffset: 0,
-                               yOffset: 0,
-                               color: .black,
-                               opacity: 0.15,
-                               cornerRadius: 8,
-                               masksToBounds: false)
-        
         ThemeManager.setCornerRadious(element: backgroundImageView, radius: 8)
-        
-//        ThemeManager.roundCorners(element: bannerImageView, corners: [.topRight, .bottomRight], radius: 8)
+        ThemeManager.setCornerRadious(element: containerView, radius: 8)
         ThemeManager.roundCorners(element: bannerImageContainerView, corners: [.topRight, .bottomRight], radius: 8)
-        ThemeManager.roundCorners(element: bannerTitleView, corners: [.topLeft, .bottomLeft], radius: 8)
+        ThemeManager.roundCorners(element: bannerImageView, corners: [.topRight, .bottomRight], radius: 8)
+//        ThemeManager.roundCorners(element: bannerTitleView, corners: [.topLeft, .bottomLeft], radius: 8)
+        
+//        ThemeManager.setShadow(element: containerView,
+//                               shadowRadius: CGFloat(5),
+//                               xOffset: 0,
+//                               yOffset: 0,
+//                               color: .black,
+//                               opacity: 0.15,
+//                               cornerRadius: 8,
+//                               masksToBounds: false)
+        
+//        containerView.layer.masksToBounds = true
+//        containerView.layer.cornerRadius = 8
+        
+//        bannerImageContainerView.layer.masksToBounds = true
+//        bannerImageContainerView.layer.cornerRadius = 8
     }
 
     private func bindData() {

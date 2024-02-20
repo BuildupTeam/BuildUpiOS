@@ -25,7 +25,7 @@ final class MainWebService {
                     var networkError = NetworkError()
                     networkError.statusCode = response.statusCode
                     compltion(.failure(networkError), response.statusCode)
-                } else if response.statusCode == 401 || response.statusCode == 403 {
+                } else if response.statusCode == 401 {
                     if endPoint is RouteLoginApi {
                         do {
                             let jsonResponse = try response.mapJSON()

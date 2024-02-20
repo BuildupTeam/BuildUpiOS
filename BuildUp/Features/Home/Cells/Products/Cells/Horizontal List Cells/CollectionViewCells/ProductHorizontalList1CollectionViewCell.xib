@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,8 +24,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uer-cf-vb0">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVg-MV-80M">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YGa-4Z-qeL">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="150"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="V1P-Qh-rqk"/>
                                         </constraints>
@@ -64,11 +69,15 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="XVg-MV-80M" firstAttribute="trailing" secondItem="YGa-4Z-qeL" secondAttribute="trailing" id="27o-NH-yCc"/>
+                                    <constraint firstItem="XVg-MV-80M" firstAttribute="bottom" secondItem="YGa-4Z-qeL" secondAttribute="bottom" id="2VG-Ch-BfQ"/>
                                     <constraint firstItem="YGa-4Z-qeL" firstAttribute="leading" secondItem="uer-cf-vb0" secondAttribute="leading" id="3pQ-cT-6Qr"/>
                                     <constraint firstAttribute="height" constant="150" id="AUJ-Oa-hZH"/>
                                     <constraint firstItem="YGa-4Z-qeL" firstAttribute="top" secondItem="uer-cf-vb0" secondAttribute="top" id="Nen-C7-uog"/>
                                     <constraint firstItem="gLP-tJ-y4e" firstAttribute="top" secondItem="uer-cf-vb0" secondAttribute="top" constant="10" id="aBh-QT-Nd7"/>
                                     <constraint firstAttribute="trailing" secondItem="YGa-4Z-qeL" secondAttribute="trailing" id="bWn-am-bJL"/>
+                                    <constraint firstItem="XVg-MV-80M" firstAttribute="top" secondItem="YGa-4Z-qeL" secondAttribute="top" id="qKP-E3-BFX"/>
+                                    <constraint firstItem="XVg-MV-80M" firstAttribute="leading" secondItem="YGa-4Z-qeL" secondAttribute="leading" id="yUD-aU-fKo"/>
                                     <constraint firstItem="gLP-tJ-y4e" firstAttribute="leading" secondItem="uer-cf-vb0" secondAttribute="leading" constant="10" id="zf9-gM-Sus"/>
                                 </constraints>
                             </view>

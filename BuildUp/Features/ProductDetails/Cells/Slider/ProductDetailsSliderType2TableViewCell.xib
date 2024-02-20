@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +42,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="White knitted pullover with blue stripes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nod-dE-qvO">
-                                <rect key="frame" x="16" y="362" width="285" height="40.666666666666686"/>
+                                <rect key="frame" x="16" y="362" width="336" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -174,8 +174,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQi-2c-bW5">
                                                 <rect key="frame" x="0.0" y="44" width="22" height="21"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="product_details_fav"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" backgroundImage="product_details_fav"/>
+                                                <connections>
+                                                    <action selector="favoriteButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KEI-vC-fOW"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdO-Nx-xwQ">
                                                 <rect key="frame" x="0.0" y="88" width="22" height="21"/>
@@ -209,7 +212,7 @@
                             <constraint firstItem="NOO-Ft-FGo" firstAttribute="trailing" secondItem="2rT-m2-n8Q" secondAttribute="trailing" id="C9D-eI-NKU"/>
                             <constraint firstItem="ENI-1A-M1I" firstAttribute="bottom" secondItem="qQT-sE-ToC" secondAttribute="bottom" constant="-28" id="EHQ-Pr-1kA"/>
                             <constraint firstItem="jPN-oK-A0A" firstAttribute="centerX" secondItem="ORM-gk-S2b" secondAttribute="centerX" id="ELU-rr-Te0"/>
-                            <constraint firstItem="S31-Xd-q6c" firstAttribute="leading" secondItem="nod-dE-qvO" secondAttribute="trailing" constant="59" id="GYR-YI-bmt"/>
+                            <constraint firstItem="S31-Xd-q6c" firstAttribute="leading" secondItem="nod-dE-qvO" secondAttribute="trailing" constant="8" id="GYR-YI-bmt"/>
                             <constraint firstItem="he8-Gi-qXE" firstAttribute="leading" secondItem="cU8-DZ-Clm" secondAttribute="leading" constant="16" id="MkI-ph-tti"/>
                             <constraint firstAttribute="trailing" secondItem="mJz-xn-Gj3" secondAttribute="trailing" constant="18" id="OD1-m4-535"/>
                             <constraint firstAttribute="trailing" secondItem="he8-Gi-qXE" secondAttribute="trailing" constant="16" id="SHu-ok-qFn"/>
@@ -250,7 +253,7 @@
                 <outlet property="cartButton" destination="sZx-Pc-ldd" id="EIi-7C-CRi"/>
                 <outlet property="collectionView" destination="qQT-sE-ToC" id="eVH-fu-pet"/>
                 <outlet property="containerView" destination="cU8-DZ-Clm" id="eUP-C7-SqY"/>
-                <outlet property="favoriteButton" destination="d5A-qt-Wi6" id="8fb-bV-Kps"/>
+                <outlet property="favoriteButton" destination="jQi-2c-bW5" id="Nrz-na-s6T"/>
                 <outlet property="pageControlView" destination="ENI-1A-M1I" id="341-9c-80i"/>
                 <outlet property="productDescriptionLabel" destination="2rT-m2-n8Q" id="uHt-hE-igI"/>
                 <outlet property="productNameLabel" destination="nod-dE-qvO" id="FpN-rB-b4W"/>

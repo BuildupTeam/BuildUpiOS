@@ -49,7 +49,7 @@ class CartViewController: BaseViewController {
             getCart()
         }
         
-        self.navigationItem.title = L10n.Cart.title
+//        self.navigationItem.title = L10n.Cart.title
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,6 +63,7 @@ class CartViewController: BaseViewController {
 extension CartViewController {
     private func setupView() {
         self.checkoutContainerView.showView()
+        setupNavigationvView()
         
         registerTableViewCells()
         
@@ -87,6 +88,15 @@ extension CartViewController {
                 return
             }
         }
+    }
+    
+    private func setupNavigationvView(){
+        let logoView = HomeLogoView.instantiateFromNib()
+        logoView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        logoView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        logoView.backgroundColor = .clear
+        logoView.setupView()
+        self.navigationItem.titleView = logoView
     }
     
     private func setupNavigationBar() {

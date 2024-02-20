@@ -39,7 +39,7 @@ class CategoriesTabViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = L10n.Categories.title
+//        self.navigationItem.title = L10n.Categories.title
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,6 +52,8 @@ class CategoriesTabViewController: BaseViewController {
 // MARK: - Private Func
 extension CategoriesTabViewController {
     private func setupView() {
+        setupNavigationvView()
+        
         isLoadingShimmer = true
         registerTableViewCells()
         registerCollectionViewCells()
@@ -107,6 +109,15 @@ extension CategoriesTabViewController {
     
     func removeBackgroundViewFromCollection() {
         collectionView.backgroundView = nil
+    }
+    
+    private func setupNavigationvView(){
+        let logoView = HomeLogoView.instantiateFromNib()
+        logoView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        logoView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        logoView.backgroundColor = .clear
+        logoView.setupView()
+        self.navigationItem.titleView = logoView
     }
 }
 
