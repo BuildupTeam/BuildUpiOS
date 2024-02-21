@@ -19,17 +19,17 @@ jobs:
       uses: maxim-lobanov/setup-xcode@v1.6.0
       with:
         xcode-version: 'latest-stable'
-
+       
+    - name: Lanuch simulator
+      uses: futureware-tech/simulator-action@v3
+      with:
+        model: 'iPhone 11'
+        
     - name: Install dependencies
       run: |
         gem install bundler
         pod install
         bundle update --full-index
-        
-   - name: Launch Simulator
-      run: |
-        xcrun simctl boot "iPhone 11" || true
-        xcrun simctl bootstatus "iPhone 11"
         
     - name: Execute Fastlane
     #   env:
