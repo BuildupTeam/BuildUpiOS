@@ -28,7 +28,7 @@ jobs:
     - name: build actions
       uses: yukiarrr/ios-build-action@v1.11.2
       with:
-        schema: |
+        scheme: |
          BuildUp
          BuildUpUITests
         
