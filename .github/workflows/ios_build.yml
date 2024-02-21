@@ -2,9 +2,9 @@ name: iOS Build
 
 on:
   push:
-    branches: [ feature/AddToCart ]
+    branches: [ feature/GithubActions ]
   pull_request:
-    branches: [ feature/AddToCart ]
+    branches: [ feature/GithubActions ]
 
 jobs:
   build:
