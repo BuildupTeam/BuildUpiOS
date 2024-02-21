@@ -29,8 +29,8 @@ jobs:
       uses: yukiarrr/ios-build-action@v1.11.2
       with:
         scheme: |
-         BuildUp
-         BuildUpUITests
+         'BuildUp'
+         'BuildUpUITests'
         
     - name: Install dependencies
       run: |
