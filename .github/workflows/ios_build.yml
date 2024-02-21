@@ -26,6 +26,11 @@ jobs:
         pod install
         bundle update --full-index
         
+   - name: Launch Simulator
+      run: |
+        xcrun simctl boot "iPhone 11" || true
+        xcrun simctl bootstatus "iPhone 11"
+        
     - name: Execute Fastlane
     #   env:
     #     MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
