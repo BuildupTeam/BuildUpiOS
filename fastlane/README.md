@@ -23,6 +23,30 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Get certificates
 
+### ios screenshots
+
+```sh
+[bundle exec] fastlane ios screenshots
+```
+
+Generate new localized screenshots
+
+### ios change_main_host
+
+```sh
+[bundle exec] fastlane ios change_main_host
+```
+
+Change base url
+
+### ios base_screenshots
+
+```sh
+[bundle exec] fastlane ios base_screenshots
+```
+
+Change base url + screenshots
+
 ### ios generate_new_certificates
 
 ```sh

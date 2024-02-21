@@ -20,6 +20,14 @@ jobs:
       with:
         xcode-version: 'latest-stable'
 
+  - name: Launch Simulator
+      run: |
+        # Boot the simulator
+        xcrun simctl boot "iPhone 11" || true # Boot "iPhone 11" simulator, ignore if already booted
+
+        # Wait for the simulator to boot
+        xcrun simctl bootstatus "iPhone 11"
+
     - name: Install dependencies
       run: |
         gem install bundler
@@ -32,4 +40,4 @@ jobs:
     #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
     #     FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
       run: |
-        fastlane deploy
+        fastlane upload_app

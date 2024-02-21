@@ -49,6 +49,7 @@ class SubdomainViewController: BaseViewController {
         PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
         homeResponse()
         setupView()
+        getConfiguration()
     }
     
     private func setupView() {
@@ -68,6 +69,13 @@ class SubdomainViewController: BaseViewController {
         scanCodeButton.titleLabel?.text = L10n.QRCode.scanMe
         
         containerView.backgroundColor = .white
+    }
+    
+    private func getConfiguration() {
+//        CachingService.setSubdomain(subdomain: "online-shop")
+        
+        self.showLoading()
+        self.viewModel.getHomeTemplate()
     }
     
     private func checkScanPermissions() -> Bool {

@@ -24,7 +24,7 @@ platform :ios do
   lane :certificates do
     sync_code_signing(
       type: "appstore",
-      app_identifier: ['com.squadio.buildUp'], 
+      app_identifier: ["com.squadio.buildUp"], 
       force_for_new_devices: true,
       readonly: true
     )
@@ -32,16 +32,39 @@ platform :ios do
     # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
     sync_code_signing(
       type: "appstore",
-      app_identifier: 'com.squadio.buildUp',
+      app_identifier: "com.squadio.buildUp",
       readonly: true
     )
   end
+
+ desc “Generate new localized screenshots”
+ 	lane :screenshots do
+        capture_screenshots(workspace: “BuildUp.xcworkspace”, scheme: “BuildUpUITests”)
+ end
+
+ desc “Change base url”
+lane:change_main_host do
+    path = '../BuildUp/Services/Configuration.swift'
+    re = /\s+.stage(.*)/
+    s = File.read(path)
+    s[re, 0] = ' .stage:return "' + ENV['RELEASE_URL'] +"\""
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
+end
+
+ desc “Change base url + screenshots”
+lane:upload_app do
+    change_main_host()
+    screenshots()
+    deploy()
+end
 
  desc "Generate new certificates"
   lane :generate_new_certificates do
     sync_code_signing(
       type: "appstore",
-      app_identifier: ['com.squadio.buildUp'], 
+      app_identifier: ["com.squadio.buildUp"], 
       force_for_new_devices: true,
       readonly: false
     )
@@ -55,7 +78,7 @@ platform :ios do
     setup_ci
     sync_code_signing(
       type: "appstore",
-      app_identifier: 'com.squadio.buildUp',
+      app_identifier: "com.squadio.buildUp",
       readonly: true
     )
     build_app(scheme: "BuildUp")
@@ -71,8 +94,8 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     		username: "mohammed.khaled.sobhy@gmail.com",
     		app_identifier: "com.squadio.buildUp",
     		skip_metadata: true,
-    		skip_screenshots: true,
-    		submit_for_review: true,
+    		skip_screenshots: false,
+    		submit_for_review: false,
 		run_precheck_before_submit: false,
 submission_information: {
       add_id_info_limits_tracking: true,
