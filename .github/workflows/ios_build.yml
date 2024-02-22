@@ -33,7 +33,7 @@ jobs:
         
     - name: Run tests
       run: |
-       xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace
+       xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 11,OS=15'
 
         
     - name: Execute Fastlane
