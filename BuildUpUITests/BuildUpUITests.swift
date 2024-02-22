@@ -21,13 +21,11 @@ final class BuildUpUITests: XCTestCase {
     
     @MainActor func testTakeSnapshots() {
         sleep(10)
-        snapshot("HomeViewController")
-//        sleep(10)
-//        snapshot("LoginViewController")
-//        let button = app.buttons["Skip"]
-//        button.tap()
-//        sleep(10)
-//        snapshot("HomeViewController")        
+        snapshot("LoginViewController")
+        let button = app.buttons["Skip"]
+        button.tap()
+        sleep(10)
+        snapshot("HomeViewController")        
     }
     
     override func setUpWithError() throws {
