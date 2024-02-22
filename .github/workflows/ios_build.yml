@@ -25,13 +25,6 @@ jobs:
       with:
         model: 'iPhone 11'
         
-    - name: build actions
-      uses: yukiarrr/ios-build-action@v1.11.2
-      with:
-        scheme: |
-         'BuildUp'
-         'BuildUpUITests'
-        
     - name: Install dependencies
       run: |
         gem install bundler
