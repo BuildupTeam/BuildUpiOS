@@ -32,8 +32,8 @@ jobs:
         bundle update --full-index
         
     - name: Run tests
-    run: |
-      xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace
+      run: |
+       xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace
 
         
     - name: Execute Fastlane
