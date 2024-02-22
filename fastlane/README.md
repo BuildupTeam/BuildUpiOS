@@ -31,6 +31,14 @@ Get certificates
 
 Generate new localized screenshots
 
+### ios update_project_settings
+
+```sh
+[bundle exec] fastlane ios update_project_settings
+```
+
+Update App Identifier
+
 ### ios change_main_host
 
 ```sh
@@ -39,10 +47,10 @@ Generate new localized screenshots
 
 Change base url
 
-### ios base_screenshots
+### ios upload_app
 
 ```sh
-[bundle exec] fastlane ios base_screenshots
+[bundle exec] fastlane ios upload_app
 ```
 
 Change base url + screenshots

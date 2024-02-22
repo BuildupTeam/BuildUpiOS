@@ -24,7 +24,7 @@ platform :ios do
   lane :certificates do
     sync_code_signing(
       type: "appstore",
-      app_identifier: ["com.squadio.buildUp"], 
+      app_identifier: ENV['APP_IDENTIFIER'], 
       force_for_new_devices: true,
       readonly: true
     )
@@ -32,7 +32,7 @@ platform :ios do
     # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
     sync_code_signing(
       type: "appstore",
-      app_identifier: "com.squadio.buildUp",
+      app_identifier: ENV['APP_IDENTIFIER'],
       readonly: true
     )
   end
@@ -41,6 +41,22 @@ platform :ios do
  	lane :screenshots do
         capture_screenshots(workspace: “BuildUp.xcworkspace”, scheme: “BuildUpUITests”)
  end
+
+ desc “Update App Identifier”
+ lane :update_project_settings do
+  require 'xcodeproj'
+  project_path = '../BuildUp.xcodeproj'
+  project = Xcodeproj::Project.open(project_path)
+
+  project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['PRODUCT_BUNDLE_IDENTIFIER'] =  ENV['APP_IDENTIFIER']
+    end
+  end
+
+  project.save
+end
+  
 
  desc “Change base url”
 lane:change_main_host do
@@ -51,11 +67,15 @@ lane:change_main_host do
     f = File.new(path, 'w')
     f.write(s)
     f.close
+
+ update_app_identifier(app_identifier: ENV['APP_IDENTIFIER'], plist_path: "BuildUp/Resources/Info.plist")
+
 end
 
  desc “Change base url + screenshots”
 lane:upload_app do
     change_main_host()
+    update_project_settings()
     screenshots()
     deploy()
 end
@@ -64,7 +84,7 @@ end
   lane :generate_new_certificates do
     sync_code_signing(
       type: "appstore",
-      app_identifier: ["com.squadio.buildUp"], 
+      app_identifier: ENV['APP_IDENTIFIER'], 
       force_for_new_devices: true,
       readonly: false
     )
@@ -78,7 +98,7 @@ end
     setup_ci
     sync_code_signing(
       type: "appstore",
-      app_identifier: "com.squadio.buildUp",
+      app_identifier: ENV['APP_IDENTIFIER'],
       readonly: true
     )
     build_app(scheme: "BuildUp")
@@ -92,7 +112,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
 )	
 	upload_to_app_store(
     		username: "mohammed.khaled.sobhy@gmail.com",
-    		app_identifier: "com.squadio.buildUp",
+    		app_identifier: ENV['APP_IDENTIFIER'],
     		skip_metadata: true,
     		skip_screenshots: false,
     		submit_for_review: false,
