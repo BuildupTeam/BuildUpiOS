@@ -315,6 +315,13 @@ internal enum L10n {
       }
     }
 
+    internal enum Home {
+        /// See all
+        internal static var seeAll: String {
+          return L10n.tr("Localizable", "home.seeAll")
+        }
+    }
+
     internal enum Login {
         /// Create an account
         internal static var createAccount: String {

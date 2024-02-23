@@ -65,6 +65,9 @@
 "popups.logoutMsg" = "Are you Sure you want to logout ?";
 "popups.cancel" = "Cancel";
 
+// MARK: - Home
+"home.seeAll" = "See all";
+
 // MARK: - Product Details
 "productDetails.readMore" = "More Details";
 "productDetails.quantity" = "Quantity";
