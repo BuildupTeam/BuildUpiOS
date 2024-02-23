@@ -160,6 +160,7 @@
 "profile.update.chooseImage" = "Choose Image";
 "profile.update.cancel" = "Cancel";
 "profile.update.updateProfile" = "Update Profile";
+"profile.changeLanguage" = "Change Language";
 "profile.guest" = "Guest";
 
 // MARK: - QRCode Screen

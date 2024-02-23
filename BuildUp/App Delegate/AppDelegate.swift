@@ -14,12 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        if let path = Bundle.main.path(forResource:"GoogleService-Info", ofType:"plist") {
-//            if let options = FirebaseOptions(contentsOfFile: path) {
-//                FirebaseApp.configure(options: options)
-//            }
-//          }
-        
         let firebaseDefaultOptions = FirebaseOptions(googleAppID: "1:514166398561:ios:a20b0dc23fd38ce95d5420",
                                               gcmSenderID: "514166398561")
         firebaseDefaultOptions.apiKey = "AIzaSyBFsqwGxC1zsFm4HyJG1-30QBJi8AbybSk"
@@ -40,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupFirebaseRemoteNotifications(application: application)
         AppManager.launchApp(application)
+        
+        LocalizationManager.initSupportedLanguages()
+        LocalizationManager.syncLanguage()
+        LocalizationManager.swizzleLanguage()
         
         return true
     }

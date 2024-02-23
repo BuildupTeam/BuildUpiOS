@@ -13,7 +13,8 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var profileTitleLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    
+    @IBOutlet weak var arrowImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,6 +27,9 @@ class ProfileTableViewCell: UITableViewCell {
 
         profileTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         profileTitleLabel.font = .appFont(ofSize: 13, weight: .semiBold)
+        
+        let arrowImage = Asset.icProfileArrow.image.imageFlippedForRightToLeftLayoutDirection()
+        arrowImageView.image = arrowImage
     }
     
     func setupEditAccount() {

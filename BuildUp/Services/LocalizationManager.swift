@@ -44,13 +44,10 @@ class LocalizationManager {
             let arabicLanguage = LanguageModel(name: Language.arabic.languageName, code: Language.arabic.rawValue)
             arabicLanguage.isSelected = true
             
-            let portugueseLanguage = LanguageModel(name: Language.portuguese.languageName, code: Language.portuguese.rawValue)
-            portugueseLanguage.isSelected = false
-            
             let englishLanguage = LanguageModel(name: Language.english.languageName, code: Language.english.rawValue)
             englishLanguage.isSelected = false
             
-            supportedLanguages = [arabicLanguage, portugueseLanguage, englishLanguage]
+            supportedLanguages = [arabicLanguage, englishLanguage]
         }
     }
     
@@ -126,8 +123,6 @@ class LocalizationManager {
                 return Language.arabic.rawValue
             case Language.english.rawValue:
                 return Language.english.rawValue
-            case Language.portuguese.rawValue:
-                return Language.portuguese.rawValue
             default:
                 return Language.arabic.rawValue
             }
@@ -150,8 +145,6 @@ class LocalizationManager {
             return .arabic
         case Language.english.rawValue:
             return .english
-        case Language.portuguese.rawValue:
-            return .portuguese
         default:
             return .arabic
         }

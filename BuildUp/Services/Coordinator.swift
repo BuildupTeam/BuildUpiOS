@@ -250,5 +250,11 @@ class Coordinator {
             let viewController = OrderDetailsViewController(viewModel: viewModel)
             return viewController
         }
+        
+        class func createLanguageBottomSheetViewController(delegate: LanguageBottomSheetDelegate) -> LanguageBottomSheetViewController {
+            let viewVontroller = LanguageBottomSheetViewController()
+            viewVontroller.delegate = delegate
+            return viewVontroller
+        }
     }
 }
