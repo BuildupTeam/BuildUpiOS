@@ -56,7 +56,7 @@ extension ProfileViewController {
         case ProfileCells.wishlist.rawValue:
             cell.setupWishList()
         case ProfileCells.language.rawValue:
-            cell.setupSetting()
+            cell.setupLanguage()
         case ProfileCells.logout.rawValue:
             cell.setupLogout()
         default:
