@@ -14,11 +14,13 @@ protocol AddressCellDelegate: AnyObject {
 class AddressTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var defaultAddressView: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var countryTitleLabel: UILabel!
     @IBOutlet private weak var countryLabel: UILabel!
     @IBOutlet private weak var addressTitleLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
+    @IBOutlet private weak var defaultAddressLabel: UILabel!
     @IBOutlet private weak var editAddressButton: UIButton!
     
     weak var delegate: AddressCellDelegate?
@@ -43,6 +45,7 @@ class AddressTableViewCell: UITableViewCell {
         addressLabel.font = .appFont(ofSize: 13, weight: .medium)
         editAddressButton.titleLabel?.font = .appFont(ofSize: 13, weight: .medium)
 
+        defaultAddressView.backgroundColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         nameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         countryTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         countryLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
@@ -55,6 +58,8 @@ class AddressTableViewCell: UITableViewCell {
         countryTitleLabel.text = L10n.Checkout.country
         addressTitleLabel.text = L10n.Checkout.address
         editAddressButton.setTitle(L10n.Checkout.edit, for: .normal)
+        
+        ThemeManager.setCornerRadious(element: defaultAddressView, radius: 10)
         
         containerView.setShadow(
             shadowRadius: CGFloat(5),
@@ -75,6 +80,15 @@ class AddressTableViewCell: UITableViewCell {
             
             if let country = model.country?.name, let city = model.city?.name {
                 countryLabel.text = country + ", " + city
+            }
+            
+            if model.isDefault ?? false {
+                defaultAddressView.showView()
+                containerView.layer.borderWidth = 1
+                containerView.layer.borderColor = ThemeManager.colorPalette?.buttonBorderColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderColor ?? "").cgColor
+            } else {
+                defaultAddressView.hideView()
+                containerView.layer.borderColor = UIColor.clear.cgColor
             }
         }
     }

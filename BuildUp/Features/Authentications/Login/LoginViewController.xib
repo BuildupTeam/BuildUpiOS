@@ -77,7 +77,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3W-Vc-bRA">
                                                     <rect key="frame" x="8" y="10.666666666666686" width="58" height="24"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-fh-pQR">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-fh-pQR">
                                                             <rect key="frame" x="0.0" y="4" width="24" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="24" id="9U0-1b-8vO"/>
@@ -87,19 +87,20 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="th8-kH-J7u">
                                                             <rect key="frame" x="32" y="9.3333333333333144" width="9" height="5"/>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cv7-Za-xZp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="58" height="24"/>
-                                                            <connections>
-                                                                <action selector="countryCodeAction:" destination="-1" eventType="touchUpInside" id="kZX-gD-RBy"/>
-                                                            </connections>
-                                                        </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAt-pU-8re">
-                                                            <rect key="frame" x="53" y="2" width="1" height="20"/>
+                                                            <rect key="frame" x="47" y="2" width="1" height="20"/>
                                                             <color key="backgroundColor" red="0.83921568627450982" green="0.86274509803921573" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="1" id="AH5-z8-yJh"/>
                                                             </constraints>
                                                         </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cv7-Za-xZp">
+                                                            <rect key="frame" x="0.0" y="0.0" width="58" height="24"/>
+                                                            <buttonConfiguration key="configuration" style="plain"/>
+                                                            <connections>
+                                                                <action selector="countryCodeAction:" destination="-1" eventType="touchUpInside" id="kZX-gD-RBy"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -107,7 +108,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="Cv7-Za-xZp" secondAttribute="bottom" id="AyV-Kb-35p"/>
                                                         <constraint firstItem="x6c-fh-pQR" firstAttribute="leading" secondItem="c3W-Vc-bRA" secondAttribute="leading" id="CD9-Dw-ysX"/>
                                                         <constraint firstAttribute="bottom" secondItem="UAt-pU-8re" secondAttribute="bottom" constant="2" id="DzS-Be-30x"/>
-                                                        <constraint firstItem="UAt-pU-8re" firstAttribute="leading" secondItem="th8-kH-J7u" secondAttribute="trailing" constant="12" id="EW8-aZ-Urz"/>
+                                                        <constraint firstItem="UAt-pU-8re" firstAttribute="leading" secondItem="th8-kH-J7u" secondAttribute="trailing" constant="6" id="EW8-aZ-Urz"/>
                                                         <constraint firstItem="th8-kH-J7u" firstAttribute="leading" secondItem="x6c-fh-pQR" secondAttribute="trailing" constant="8" id="FPm-Qc-Fge"/>
                                                         <constraint firstAttribute="width" constant="58" id="P65-s0-2xe"/>
                                                         <constraint firstItem="UAt-pU-8re" firstAttribute="top" secondItem="c3W-Vc-bRA" secondAttribute="top" constant="2" id="W09-RM-hUm"/>

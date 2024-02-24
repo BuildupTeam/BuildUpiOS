@@ -31,6 +31,10 @@ class CheckoutStatusView: UIView {
         shippingStep1Label.font = .appFont(ofSize: 13, weight: .semiBold)
         paymentStep2Label.font = .appFont(ofSize: 13, weight: .semiBold)
         reviewStep3Label.font = .appFont(ofSize: 13, weight: .semiBold)
+        
+        shippingStep1Label.textAlignment = .center
+        paymentStep2Label.textAlignment = .center
+        reviewStep3Label.textAlignment = .center
        
         shippingLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         paymentLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")

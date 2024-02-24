@@ -46,11 +46,11 @@ class CheckoutShippingViewController: BaseViewController {
         registerTableViewCells()
         setupView()
         addressesResponse()
+        getAddresses()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getAddresses()
         self.title = L10n.Checkout.title
     }
     
@@ -184,6 +184,7 @@ extension CheckoutShippingViewController {
     private func openAddressesScreen() {
         let AddressesVC = Coordinator.Controllers.createAddressesViewController()
         AddressesVC.delegate = self
+        AddressesVC.isCommingFromShipping = true
         self.navigationController?.pushViewController(AddressesVC, animated: true)
     }
 }
@@ -315,17 +316,6 @@ extension CheckoutShippingViewController: UITableViewDelegate, UITableViewDataSo
             return
         }
     }
-    
-    /*
-     switch indexPath.row {
-     case 0:
-         return getAddressCell()
-     case 1:
-         return getAddNewAddressCell()
-     default:
-         return UITableViewCell()
-     }
-     */
 }
 
 // MARK: - Country PickerView Delegate

@@ -52,7 +52,7 @@ class ProfileViewModel: BaseViewModel {
             case .success(let response):
                 self.userModel = response.data
                 if let customer = response.data {
-                    if var usermodel = CachingService.getUser() {
+                    if let usermodel = CachingService.getUser() {
                         usermodel.customer = customer
                         CachingService.setUser(usermodel)
                     }

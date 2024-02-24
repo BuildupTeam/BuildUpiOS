@@ -13,7 +13,7 @@ class AddressesViewModel: BaseViewModel {
     var addresses: [AddressModel]?
 
     public var onAddresses: (() -> Void)?
-    public var onDefaultAddress: (() -> Void)?
+    public var onDefaultAddress: ((String?) -> Void)?
 
     init(service: AddressesWebServiceProtocol = AddressesWebService.shared) {
         super.init(observationType: .all)
@@ -47,7 +47,7 @@ class AddressesViewModel: BaseViewModel {
         service.setDefaultAddress(addressId: adddressId) { (result) in
             switch result {
             case .success(let response):
-                self.onDefaultAddress?()
+                self.onDefaultAddress?(response.message)
             case .failure(let error):
                 print(error)
                 if error.message != "Request explicitly cancelled." {

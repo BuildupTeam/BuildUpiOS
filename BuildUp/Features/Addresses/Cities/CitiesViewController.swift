@@ -79,8 +79,8 @@ class CitiesViewController: BaseViewController {
             } else {
                 self.removeBackgroundViews()
             }
-            self.tableView.reloadData()
             self.stopShimmerOn(tableView: self.tableView)
+            self.tableView.reloadData()
         }
     }
     
@@ -117,20 +117,20 @@ extension CitiesViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.selectionStyle = .none
             return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: CityTableViewCell.identifier,
+                for: indexPath) as? CityTableViewCell
+            else { return UITableViewCell() }
+            
+            if let cityModel = self.viewModel.cities?[indexPath.row] {
+                cell.cityModel = cityModel
+            }
+            
+            cell.selectionStyle = .none
+            
+            return cell
         }
-        
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CityTableViewCell.identifier,
-            for: indexPath) as? CityTableViewCell
-        else { return UITableViewCell() }
-        
-        if let cityModel = self.viewModel.cities?[indexPath.row] {
-            cell.cityModel = cityModel
-        }
-        
-        cell.selectionStyle = .none
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

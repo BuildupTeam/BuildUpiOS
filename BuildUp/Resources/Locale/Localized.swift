@@ -130,6 +130,10 @@ internal enum L10n {
         internal static var cityPlaceholder: String {
           return L10n.tr("Localizable", "checkout.cityPlaceholder")
         }
+        /// Confirm
+        internal static var confirm: String {
+          return L10n.tr("Localizable", "checkout.confirm")
+        }
         /// Contact Info
         internal static var contactInfo: String {
           return L10n.tr("Localizable", "checkout.contactInfo")
@@ -386,6 +390,10 @@ internal enum L10n {
           /// Please enter a valid amount
           internal static var invalidAmount: String {
             return L10n.tr("Localizable", "message.error.invalidAmount")
+          }
+          /// Please choose your address
+          internal static var selectDefaultAddress: String {
+            return L10n.tr("Localizable", "message.error.selectDefaultAddress")
           }
           /// Error
           internal static var title: String {

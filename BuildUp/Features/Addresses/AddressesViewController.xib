@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressesViewController" customModule="BuildUp" customModuleProvider="target">
             <connections>
-                <outlet property="addAddressButton" destination="3m9-8W-3o1" id="DaO-V8-4Wj"/>
+                <outlet property="addNewAddressContainerView" destination="897-RL-6u9" id="Xn8-4k-GAF"/>
+                <outlet property="addNewAddressLabel" destination="cSO-xv-3rS" id="Yc9-Fi-7U3"/>
+                <outlet property="confirmButton" destination="3m9-8W-3o1" id="G4W-pR-pcE"/>
+                <outlet property="confirmButtonHeightConstraint" destination="ySz-u6-rpY" id="8af-2W-ayL"/>
                 <outlet property="containerView" destination="D8e-F7-Ptg" id="FUa-73-iTr"/>
                 <outlet property="tableView" destination="63a-f1-f0d" id="5Zf-br-tIx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,13 +29,50 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="63a-f1-f0d">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="693"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="617"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="iWS-Q4-pzB"/>
                                 <outlet property="delegate" destination="-1" id="tMp-fs-2id"/>
                             </connections>
                         </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="897-RL-6u9">
+                            <rect key="frame" x="22" y="639" width="349" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_plus_circle" translatesAutoresizingMaskIntoConstraints="NO" id="dCg-qK-Ccv">
+                                    <rect key="frame" x="78.333333333333329" y="9.6666666666666288" width="21" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="21" id="S7z-Vl-GTz"/>
+                                        <constraint firstAttribute="height" constant="21" id="buJ-kR-NXS"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSO-xv-3rS">
+                                    <rect key="frame" x="107.33333333333333" y="9.9999999999999982" width="134.33333333333337" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbU-4a-qts">
+                                    <rect key="frame" x="8" y="8" width="333" height="24"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="addNewAddressAction:" destination="-1" eventType="touchUpInside" id="fNT-OB-lHR"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="dCg-qK-Ccv" firstAttribute="centerY" secondItem="897-RL-6u9" secondAttribute="centerY" id="AMX-2G-xCz"/>
+                                <constraint firstItem="cSO-xv-3rS" firstAttribute="centerX" secondItem="897-RL-6u9" secondAttribute="centerX" id="MJU-ff-AhT"/>
+                                <constraint firstAttribute="height" constant="40" id="NUp-sS-lf4"/>
+                                <constraint firstItem="cSO-xv-3rS" firstAttribute="leading" secondItem="dCg-qK-Ccv" secondAttribute="trailing" constant="8" id="UbI-LM-QeS"/>
+                                <constraint firstAttribute="trailing" secondItem="FbU-4a-qts" secondAttribute="trailing" constant="8" id="ZPc-SU-XeQ"/>
+                                <constraint firstItem="FbU-4a-qts" firstAttribute="top" secondItem="897-RL-6u9" secondAttribute="top" constant="8" id="feV-sO-AQs"/>
+                                <constraint firstItem="FbU-4a-qts" firstAttribute="leading" secondItem="897-RL-6u9" secondAttribute="leading" constant="8" id="n4R-Is-1Au"/>
+                                <constraint firstAttribute="bottom" secondItem="FbU-4a-qts" secondAttribute="bottom" constant="8" id="pD3-5j-buJ"/>
+                                <constraint firstItem="cSO-xv-3rS" firstAttribute="centerY" secondItem="dCg-qK-Ccv" secondAttribute="centerY" id="tEb-aG-NK7"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3m9-8W-3o1">
                             <rect key="frame" x="20" y="701" width="353" height="50"/>
                             <constraints>
@@ -41,19 +81,22 @@
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Button"/>
                             <connections>
-                                <action selector="addddressAction:" destination="-1" eventType="touchUpInside" id="0eE-qP-1z8"/>
+                                <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="lS5-hT-TFR"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="63a-f1-f0d" firstAttribute="top" secondItem="D8e-F7-Ptg" secondAttribute="top" id="5z1-gM-qJy"/>
+                        <constraint firstItem="897-RL-6u9" firstAttribute="leading" secondItem="D8e-F7-Ptg" secondAttribute="leading" constant="22" id="8MR-ZU-Sw6"/>
                         <constraint firstAttribute="trailing" secondItem="63a-f1-f0d" secondAttribute="trailing" id="K6n-ia-PUj"/>
                         <constraint firstItem="63a-f1-f0d" firstAttribute="leading" secondItem="D8e-F7-Ptg" secondAttribute="leading" id="M6F-ug-0rT"/>
                         <constraint firstAttribute="bottom" secondItem="3m9-8W-3o1" secondAttribute="bottom" constant="42" id="Nbn-Q0-2Wl"/>
+                        <constraint firstItem="897-RL-6u9" firstAttribute="top" secondItem="63a-f1-f0d" secondAttribute="bottom" constant="22" id="OTQ-dw-f7N"/>
                         <constraint firstItem="3m9-8W-3o1" firstAttribute="leading" secondItem="D8e-F7-Ptg" secondAttribute="leading" constant="20" id="Y7o-ug-FQH"/>
-                        <constraint firstItem="3m9-8W-3o1" firstAttribute="top" secondItem="63a-f1-f0d" secondAttribute="bottom" constant="8" id="bP9-iW-AXu"/>
+                        <constraint firstItem="3m9-8W-3o1" firstAttribute="top" secondItem="897-RL-6u9" secondAttribute="bottom" constant="22" id="bDH-c3-0pD"/>
                         <constraint firstAttribute="trailing" secondItem="3m9-8W-3o1" secondAttribute="trailing" constant="20" id="ea9-gW-2Wp"/>
+                        <constraint firstAttribute="trailing" secondItem="897-RL-6u9" secondAttribute="trailing" constant="22" id="yZj-iC-w3p"/>
                     </constraints>
                 </view>
             </subviews>
@@ -69,6 +112,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ic_plus_circle" width="21" height="21"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +43,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2BA-Ig-4IY">
                                                 <rect key="frame" x="8" y="10.666666666666668" width="58" height="24.000000000000004"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AKu-nB-YNz">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AKu-nB-YNz">
                                                         <rect key="frame" x="0.0" y="4" width="24" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="GW2-T5-08V"/>
@@ -53,19 +53,20 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="m2A-jv-g7I">
                                                         <rect key="frame" x="32" y="9.3333333333333286" width="9" height="5"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKi-oK-vju">
-                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="24"/>
-                                                        <connections>
-                                                            <action selector="countryCodeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="69E-1R-gt2"/>
-                                                        </connections>
-                                                    </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="puM-B1-dAq">
-                                                        <rect key="frame" x="53" y="2" width="1" height="20"/>
+                                                        <rect key="frame" x="47" y="2" width="1" height="20"/>
                                                         <color key="backgroundColor" red="0.83921568629999999" green="0.86274509799999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="pP8-bB-PJL"/>
                                                         </constraints>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKi-oK-vju">
+                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="24"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="countryCodeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="69E-1R-gt2"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -77,7 +78,7 @@
                                                     <constraint firstItem="m2A-jv-g7I" firstAttribute="leading" secondItem="AKu-nB-YNz" secondAttribute="trailing" constant="8" id="Krt-XQ-SDH"/>
                                                     <constraint firstAttribute="trailing" secondItem="mKi-oK-vju" secondAttribute="trailing" id="PjM-n5-2Ow"/>
                                                     <constraint firstItem="AKu-nB-YNz" firstAttribute="left" secondItem="2BA-Ig-4IY" secondAttribute="left" id="Tfr-bU-OfE"/>
-                                                    <constraint firstItem="puM-B1-dAq" firstAttribute="leading" secondItem="m2A-jv-g7I" secondAttribute="trailing" constant="12" id="UTM-r4-mUc"/>
+                                                    <constraint firstItem="puM-B1-dAq" firstAttribute="leading" secondItem="m2A-jv-g7I" secondAttribute="trailing" constant="6" id="UTM-r4-mUc"/>
                                                     <constraint firstItem="mKi-oK-vju" firstAttribute="leading" secondItem="2BA-Ig-4IY" secondAttribute="leading" id="Xy7-ga-LMx"/>
                                                     <constraint firstItem="mKi-oK-vju" firstAttribute="top" secondItem="2BA-Ig-4IY" secondAttribute="top" id="pvv-eB-Ew4"/>
                                                     <constraint firstAttribute="bottom" secondItem="mKi-oK-vju" secondAttribute="bottom" id="r9p-aQ-zpg"/>

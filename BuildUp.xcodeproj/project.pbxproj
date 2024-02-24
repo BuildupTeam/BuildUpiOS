@@ -291,6 +291,8 @@
 		394443F12B880375008232E5 /* LanguageElementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394443EF2B880375008232E5 /* LanguageElementTableViewCell.xib */; };
 		394443F42B88037C008232E5 /* LanguageBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394443F22B88037C008232E5 /* LanguageBottomSheetViewController.swift */; };
 		394443F52B88037C008232E5 /* LanguageBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394443F32B88037C008232E5 /* LanguageBottomSheetViewController.xib */; };
+		394443F82B892475008232E5 /* CheckoutTaxesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394443F62B892475008232E5 /* CheckoutTaxesTableViewCell.swift */; };
+		394443F92B892475008232E5 /* CheckoutTaxesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394443F72B892475008232E5 /* CheckoutTaxesTableViewCell.xib */; };
 		394D8CA22B3481DA009386AD /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */; };
 		3950B0982A6ABCA300E27111 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B0972A6ABCA300E27111 /* ThemeManager.swift */; };
 		3950B09C2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B09B2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift */; };
@@ -954,6 +956,8 @@
 		394443EF2B880375008232E5 /* LanguageElementTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageElementTableViewCell.xib; sourceTree = "<group>"; };
 		394443F22B88037C008232E5 /* LanguageBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageBottomSheetViewController.swift; sourceTree = "<group>"; };
 		394443F32B88037C008232E5 /* LanguageBottomSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageBottomSheetViewController.xib; sourceTree = "<group>"; };
+		394443F62B892475008232E5 /* CheckoutTaxesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTaxesTableViewCell.swift; sourceTree = "<group>"; };
+		394443F72B892475008232E5 /* CheckoutTaxesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutTaxesTableViewCell.xib; sourceTree = "<group>"; };
 		3950B0972A6ABCA300E27111 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		3950B09B2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfirgurationResponseModel.swift; sourceTree = "<group>"; };
 		3950B09F2A6ABFD300E27111 /* ThemeConfigurationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurationDataModel.swift; sourceTree = "<group>"; };
@@ -1412,6 +1416,8 @@
 				390C3B822B14FA7300E40849 /* CheckoutProductsTableViewCell.xib */,
 				390C3B852B14FA8100E40849 /* CheckoutSummaryTableViewCell.swift */,
 				390C3B862B14FA8100E40849 /* CheckoutSummaryTableViewCell.xib */,
+				394443F62B892475008232E5 /* CheckoutTaxesTableViewCell.swift */,
+				394443F72B892475008232E5 /* CheckoutTaxesTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -3528,6 +3534,7 @@
 				393174282A19134D00AF64BC /* LaunchScreen.storyboard in Resources */,
 				3932B2412B11359C00283B3D /* CityTableViewCell.xib in Resources */,
 				3921FCE42AAB9ED10019CCC2 /* ShimmerProductDetailsVariantsTableViewCell.xib in Resources */,
+				394443F92B892475008232E5 /* CheckoutTaxesTableViewCell.xib in Resources */,
 				39730D312AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.xib in Resources */,
 				395D3BEC2A9AAF8600DA9859 /* ProductDetailsSliderType1CollectionViewCell.xib in Resources */,
 				3999AA752AD1BFE5007D0ACB /* Montserrat-ExtraBold.ttf in Resources */,
@@ -3967,6 +3974,7 @@
 				3932B2312B11310C00283B3D /* CountriesWebServiceProtocol.swift in Sources */,
 				39730D3D2AA213410088C9ED /* ProductDetailsVariants2CollectionViewCell.swift in Sources */,
 				3999AA4D2AC4A441007D0ACB /* CartItemModel.swift in Sources */,
+				394443F82B892475008232E5 /* CheckoutTaxesTableViewCell.swift in Sources */,
 				39CE76992A2F61170019A485 /* UIButton+Extensions.swift in Sources */,
 				3932B2B12B1358B200283B3D /* ShimmerCountryTableViewCell.swift in Sources */,
 				39BA0B472AA3C725008001F7 /* ProductDetailsOptionValueModel.swift in Sources */,

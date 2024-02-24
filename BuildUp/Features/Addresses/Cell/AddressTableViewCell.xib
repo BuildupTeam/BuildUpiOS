@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="16" y="8" width="382" height="150"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnC-oz-mpm">
-                                <rect key="frame" x="14" y="13.999999999999998" width="302" height="21.333333333333329"/>
+                                <rect key="frame" x="14.000000000000004" y="13.999999999999998" width="41.333333333333343" height="21.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,18 +69,38 @@
                                     <action selector="editButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4tO-sl-h4h"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ua-M8-yuv">
+                                <rect key="frame" x="63.333333333333329" y="14.666666666666668" width="53" height="20.000000000000004"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCI-5s-F7e">
+                                        <rect key="frame" x="6" y="4" width="41" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="OCI-5s-F7e" firstAttribute="leading" secondItem="2ua-M8-yuv" secondAttribute="leading" constant="6" id="56i-9X-1CW"/>
+                                    <constraint firstItem="OCI-5s-F7e" firstAttribute="top" secondItem="2ua-M8-yuv" secondAttribute="top" constant="4" id="DZr-WY-I0r"/>
+                                    <constraint firstAttribute="height" constant="20" id="UTa-Mi-nZ0"/>
+                                    <constraint firstAttribute="trailing" secondItem="OCI-5s-F7e" secondAttribute="trailing" constant="6" id="peU-1M-2TH"/>
+                                    <constraint firstAttribute="bottom" secondItem="OCI-5s-F7e" secondAttribute="bottom" constant="4" id="yUH-C9-nAi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DnC-oz-mpm" firstAttribute="leading" secondItem="UFw-BX-mC9" secondAttribute="leading" constant="14" id="2A0-yh-pAU"/>
                             <constraint firstItem="o0a-zl-YD5" firstAttribute="centerY" secondItem="uBA-lp-WcN" secondAttribute="centerY" id="39a-AN-5c9"/>
                             <constraint firstItem="PEZ-Ds-sea" firstAttribute="centerY" secondItem="DnC-oz-mpm" secondAttribute="centerY" id="4v1-aK-Ils"/>
+                            <constraint firstItem="2ua-M8-yuv" firstAttribute="centerY" secondItem="DnC-oz-mpm" secondAttribute="centerY" id="5lh-5V-yIW"/>
                             <constraint firstItem="Ktb-6z-YpY" firstAttribute="leading" secondItem="UFw-BX-mC9" secondAttribute="leading" constant="14" id="B7W-7q-RMi"/>
                             <constraint firstAttribute="trailing" secondItem="Sdk-Vq-FeW" secondAttribute="trailing" constant="14" id="BJM-VP-vlR"/>
                             <constraint firstAttribute="trailing" secondItem="PEZ-Ds-sea" secondAttribute="trailing" constant="14" id="Fpb-3q-0fz"/>
                             <constraint firstItem="o0a-zl-YD5" firstAttribute="top" secondItem="Sdk-Vq-FeW" secondAttribute="bottom" constant="20" id="G9h-fz-McC"/>
                             <constraint firstItem="Sdk-Vq-FeW" firstAttribute="leading" secondItem="Ktb-6z-YpY" secondAttribute="trailing" constant="20" id="IV2-1p-ACF"/>
-                            <constraint firstItem="PEZ-Ds-sea" firstAttribute="leading" secondItem="DnC-oz-mpm" secondAttribute="trailing" constant="12" id="Kgd-BE-7B0"/>
+                            <constraint firstItem="2ua-M8-yuv" firstAttribute="leading" secondItem="DnC-oz-mpm" secondAttribute="trailing" constant="8" id="Jkc-wI-UaR"/>
                             <constraint firstAttribute="bottom" secondItem="o0a-zl-YD5" secondAttribute="bottom" constant="7.3300000000000001" id="LQY-Ad-96T"/>
                             <constraint firstItem="Sdk-Vq-FeW" firstAttribute="centerY" secondItem="Ktb-6z-YpY" secondAttribute="centerY" id="Nhh-4n-v2L"/>
                             <constraint firstItem="DnC-oz-mpm" firstAttribute="top" secondItem="UFw-BX-mC9" secondAttribute="top" constant="14" id="cO8-CE-tco"/>
@@ -107,10 +127,12 @@
                 <outlet property="containerView" destination="UFw-BX-mC9" id="5gI-a8-ciS"/>
                 <outlet property="countryLabel" destination="Sdk-Vq-FeW" id="jxy-6W-Hf3"/>
                 <outlet property="countryTitleLabel" destination="Ktb-6z-YpY" id="wI3-DR-UYR"/>
+                <outlet property="defaultAddressLabel" destination="OCI-5s-F7e" id="fSW-H2-4ZH"/>
+                <outlet property="defaultAddressView" destination="2ua-M8-yuv" id="JvZ-xS-TSH"/>
                 <outlet property="editAddressButton" destination="PEZ-Ds-sea" id="2YA-Xm-itg"/>
                 <outlet property="nameLabel" destination="DnC-oz-mpm" id="hKe-xb-xlb"/>
             </connections>
-            <point key="canvasLocation" x="-66" y="20"/>
+            <point key="canvasLocation" x="-67.175572519083971" y="19.718309859154932"/>
         </tableViewCell>
     </objects>
     <resources>

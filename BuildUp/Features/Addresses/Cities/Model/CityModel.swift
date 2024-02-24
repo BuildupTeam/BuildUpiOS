@@ -12,7 +12,7 @@ class CityModel: Mappable {
     
     var id: Int?
     var name: String?
-    var countryId: String?
+    var countryId: Int?
 
     func mapping(map: Map) {
         id <- map["id"]

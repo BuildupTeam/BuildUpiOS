@@ -137,6 +137,7 @@
 "checkout.items" = "items";
 "checkout.totalAmount" = "Total Amount";
 "checkout.Number" = "Number";
+"checkout.confirm" = "Confirm";
 
 // MARK: - Order History Screen
 "orders.title" = "Order History";
@@ -188,6 +189,7 @@
 "message.error.title" = "Error" ;
 "message.success.title" = "Success" ;
 "message.error.invalidAmount" = "Please enter a valid amount" ;
+"message.error.selectDefaultAddress"  = "Please choose your address" ;
 "networkError.noInternet" = "Check Your Internet Connection";
 "networkError.serverError" = "Internal Server Error";
 
