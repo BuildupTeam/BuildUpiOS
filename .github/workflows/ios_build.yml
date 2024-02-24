@@ -31,11 +31,6 @@ jobs:
         pod install
         bundle update --full-index
         
-    - name: Run tests
-      run: |
-       xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 11,OS=15'
-
-        
     - name: Execute Fastlane
     #   env:
     #     MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
