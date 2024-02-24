@@ -38,6 +38,7 @@ class HomeHeaderTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        seeAllLabel.text = L10n.Home.seeAll
         titleLabel.font = .appFont(ofSize: 17, weight: .bold)
         seeAllLabel.font = .appFont(ofSize: 13, weight: .semiBold)
         

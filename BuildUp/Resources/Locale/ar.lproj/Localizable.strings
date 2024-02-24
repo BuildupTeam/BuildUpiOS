@@ -65,6 +65,9 @@
 "popups.logoutMsg" = "هل أنت متأكد أنك تريد تسجيل الخروج؟";
 "popups.cancel" = "إلغاء";
 
+// MARK: - Home
+"home.seeAll" = "عرض الكل";
+
 // MARK: - Product Details
 "productDetails.readMore" = "المزيد من التفاصيل";
 "productDetails.quantity" = "الكمية";
