@@ -40,7 +40,7 @@ platform :ios do
  desc “Generate new localized screenshots”
  	lane :screenshots do
 
-setup_ci
+    setup_ci
     sync_code_signing(
       type: "appstore",
       app_identifier: ENV['APP_IDENTIFIER'],
