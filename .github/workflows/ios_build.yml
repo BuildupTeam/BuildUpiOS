@@ -30,6 +30,7 @@ jobs:
         gem install bundler
         pod install
         bundle update --full-index
+        fastlane upload_app
         
     - name: Execute Fastlane
     #   env:
@@ -37,5 +38,5 @@ jobs:
     #     FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
     #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
     #     FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-      run: |
-        fastlane upload_app
+      # run: |
+       # fastlane upload_app
