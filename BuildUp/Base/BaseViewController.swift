@@ -229,11 +229,11 @@ extension BaseViewController {
     func changeLanguageAtFirstLaunch(newLanguage: LanguageModel) {
         NotificationCenter.default.post(name: Notification.Name.languageChanged, object: nil, userInfo: nil)
         
-//        LocalizationManager.changeLanguage(
-//            language: newLanguage,
-//            splash: nil ) { () -> UIViewController in
-//                Coordinator.Controllers.createOnboardingViewController()
-//        }
+        LocalizationManager.changeLanguage(
+            language: newLanguage,
+            splash: nil ) { () -> UIViewController in
+                Coordinator.Controllers.createSubdomainViewController()
+        }
     }
 }
 

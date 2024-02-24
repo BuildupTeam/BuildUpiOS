@@ -126,6 +126,19 @@ extension ProfileViewController {
     func openSettings() {
         
     }
+    
+    func openLanguagesBottomSheet() {
+        let viewController = Coordinator.Controllers.createLanguageBottomSheetViewController(delegate: self)
+        self.presentPanModal(viewController)
+    }
 }
 
+// MARK: - Language Bottom Sheet Delegate
+extension ProfileViewController: LanguageBottomSheetDelegate {
+    func languageSelected(languageModel: LanguageModel, languages: [LanguageModel]) {
+        LocalizationManager.supportedLanguages = languages
+        CachingService.setSuportedLanguages(languages: languages)
+        self.changeLanguage(newLanguage: LocalizationManager.selectedLanguage)
+    }
+}
 

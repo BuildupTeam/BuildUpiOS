@@ -287,6 +287,10 @@
 		393B2FA52AEFFD0000827026 /* SubdomainWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2FA42AEFFD0000827026 /* SubdomainWebServiceProtocol.swift */; };
 		393B2FA72AF0137E00827026 /* RegisterViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2FA62AF0137E00827026 /* RegisterViewController+TableView.swift */; };
 		393CD7D62A6ABB5E0053A55E /* ResponseJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 393CD7D52A6ABB5E0053A55E /* ResponseJson.json */; };
+		394443F02B880375008232E5 /* LanguageElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394443EE2B880375008232E5 /* LanguageElementTableViewCell.swift */; };
+		394443F12B880375008232E5 /* LanguageElementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394443EF2B880375008232E5 /* LanguageElementTableViewCell.xib */; };
+		394443F42B88037C008232E5 /* LanguageBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394443F22B88037C008232E5 /* LanguageBottomSheetViewController.swift */; };
+		394443F52B88037C008232E5 /* LanguageBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394443F32B88037C008232E5 /* LanguageBottomSheetViewController.xib */; };
 		394D8CA22B3481DA009386AD /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */; };
 		3950B0982A6ABCA300E27111 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B0972A6ABCA300E27111 /* ThemeManager.swift */; };
 		3950B09C2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B09B2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift */; };
@@ -946,6 +950,10 @@
 		393B2FA42AEFFD0000827026 /* SubdomainWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubdomainWebServiceProtocol.swift; sourceTree = "<group>"; };
 		393B2FA62AF0137E00827026 /* RegisterViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+TableView.swift"; sourceTree = "<group>"; };
 		393CD7D52A6ABB5E0053A55E /* ResponseJson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResponseJson.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		394443EE2B880375008232E5 /* LanguageElementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageElementTableViewCell.swift; sourceTree = "<group>"; };
+		394443EF2B880375008232E5 /* LanguageElementTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageElementTableViewCell.xib; sourceTree = "<group>"; };
+		394443F22B88037C008232E5 /* LanguageBottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageBottomSheetViewController.swift; sourceTree = "<group>"; };
+		394443F32B88037C008232E5 /* LanguageBottomSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageBottomSheetViewController.xib; sourceTree = "<group>"; };
 		3950B0972A6ABCA300E27111 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		3950B09B2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfirgurationResponseModel.swift; sourceTree = "<group>"; };
 		3950B09F2A6ABFD300E27111 /* ThemeConfigurationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurationDataModel.swift; sourceTree = "<group>"; };
@@ -2404,6 +2412,25 @@
 			path = "Json Files";
 			sourceTree = "<group>";
 		};
+		394443EC2B880334008232E5 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				394443F22B88037C008232E5 /* LanguageBottomSheetViewController.swift */,
+				394443F32B88037C008232E5 /* LanguageBottomSheetViewController.xib */,
+				394443ED2B880346008232E5 /* Cells */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		394443ED2B880346008232E5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				394443EE2B880375008232E5 /* LanguageElementTableViewCell.swift */,
+				394443EF2B880375008232E5 /* LanguageElementTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		3950B0992A6ABE0F00E27111 /* UIConfiguration */ = {
 			isa = PBXGroup;
 			children = (
@@ -2897,6 +2924,7 @@
 		39C91A292ABA39CD00C10C16 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				394443EC2B880334008232E5 /* Language */,
 				39F19E572B206E5F00B69595 /* EditProfile */,
 				390DC1F92B1BCADC00E1CBA9 /* WishList */,
 				390DC1F42B1B9B9500E1CBA9 /* Model */,
@@ -3509,6 +3537,7 @@
 				391529F22A347F37007F7E09 /* ProductVerticalList3TableViewCell.xib in Resources */,
 				39152A062A34945D007F7E09 /* ProductVerticalGrid1CollectionViewCell.xib in Resources */,
 				393613952AB47539007289DE /* ProductsListViewController.xib in Resources */,
+				394443F52B88037C008232E5 /* LanguageBottomSheetViewController.xib in Resources */,
 				395D3BCA2A9A2A0300DA9859 /* ProductDetailsSliderType3TableViewCell.xib in Resources */,
 				3932B2292B1130A400283B3D /* CountriesViewController.xib in Resources */,
 				39AE9CA62AA23A1A0075E99F /* RecommentedProductsType1TableViewCell.xib in Resources */,
@@ -3653,6 +3682,7 @@
 				390DC20A2B1DEF5F00E1CBA9 /* OrderDetailsViewController.xib in Resources */,
 				390DC21A2B1E238800E1CBA9 /* OrderDetailsPaymentTableViewCell.xib in Resources */,
 				3982F5E62A96B60500073A96 /* ShimmerBannerType1TableViewCell.xib in Resources */,
+				394443F12B880375008232E5 /* LanguageElementTableViewCell.xib in Resources */,
 				3932B2452B1135AC00283B3D /* CountryTableViewCell.xib in Resources */,
 				3999AA7A2AD1BFFB007D0ACB /* Poppins-Thin.ttf in Resources */,
 				399007362ABDB664002F6938 /* CartCheckout2View.xib in Resources */,
@@ -3872,6 +3902,7 @@
 				395D3B9C2A977B6C00DA9859 /* ProductVerticalList3InnerTableViewCell.swift in Sources */,
 				390E6D752A929EAA009ECC00 /* MainImageModel.swift in Sources */,
 				390C3BB82B173DDB00E40849 /* CurrentOrdersViewController.swift in Sources */,
+				394443F02B880375008232E5 /* LanguageElementTableViewCell.swift in Sources */,
 				39C6C4A52A3C90BC00F11A6F /* ProductsHeaderTableViewCell.swift in Sources */,
 				390C3B772B14F56D00E40849 /* SummaryData.swift in Sources */,
 				39A2DD902A6BFEB3005B52FD /* ProductModel.swift in Sources */,
@@ -4159,6 +4190,7 @@
 				39AE9CAF2AA245280075E99F /* ProductDetailsWebServiceProtocol.swift in Sources */,
 				39821FC12AFE651700388254 /* ShimmerCartTableViewCell.swift in Sources */,
 				39730D302AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift in Sources */,
+				394443F42B88037C008232E5 /* LanguageBottomSheetViewController.swift in Sources */,
 				390C3B662B14DD6000E40849 /* AreasWebServiceProtocol.swift in Sources */,
 				3932B2242B11309800283B3D /* CitiesViewController.swift in Sources */,
 				39DD4E052AF30DE8009D3CEF /* ResetPasswordResponseModel.swift in Sources */,

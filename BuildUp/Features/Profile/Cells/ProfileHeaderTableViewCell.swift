@@ -58,12 +58,15 @@ class ProfileHeaderTableViewCell: UITableViewCell {
         
         userNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         userNameLabel.font = .appFont(ofSize: 16, weight: .bold)
+        userNameLabel.textAlignment = .center
         
         emailLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         emailLabel.font = .appFont(ofSize: 14, weight: .medium)
+        emailLabel.textAlignment = .center
         
         phoneLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         phoneLabel.font = .appFont(ofSize: 15, weight: .medium)
+        phoneLabel.textAlignment = .center
     }
     
     private func bindData() {

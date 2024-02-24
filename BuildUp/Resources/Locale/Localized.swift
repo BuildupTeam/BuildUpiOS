@@ -495,6 +495,10 @@ internal enum L10n {
     }
 
     internal enum Profile {
+        /// Change Language
+        internal static var changeLanguage: String {
+          return L10n.tr("Localizable", "profile.changeLanguage")
+        }
         /// Edit Profile
         internal static var editProfile: String {
           return L10n.tr("Localizable", "profile.editProfile")

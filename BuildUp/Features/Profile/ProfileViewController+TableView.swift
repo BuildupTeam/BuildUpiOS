@@ -13,7 +13,7 @@ enum ProfileCells: Int {
     case editProfile
     case savedAddreses
     case wishlist
-    case setting
+    case language
     case logout
 }
 
@@ -55,7 +55,7 @@ extension ProfileViewController {
             cell.setupSavedAddresses()
         case ProfileCells.wishlist.rawValue:
             cell.setupWishList()
-        case ProfileCells.setting.rawValue:
+        case ProfileCells.language.rawValue:
             cell.setupSetting()
         case ProfileCells.logout.rawValue:
             cell.setupLogout()
@@ -80,7 +80,7 @@ extension ProfileViewController {
             return self.getProfileTableViewCell(indexPath: indexPath)
         case ProfileCells.wishlist.rawValue:
             return self.getProfileTableViewCell(indexPath: indexPath)
-        case ProfileCells.setting.rawValue:
+        case ProfileCells.language.rawValue:
             return self.getProfileTableViewCell(indexPath: indexPath)
         case ProfileCells.logout.rawValue:
             return self.getProfileTableViewCell(indexPath: indexPath)
@@ -126,7 +126,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 return 0
             }
-        case ProfileCells.setting.rawValue:
+        case ProfileCells.language.rawValue:
             return UITableView.automaticDimension
         case ProfileCells.logout.rawValue:
             return UITableView.automaticDimension
@@ -143,8 +143,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             self.openAddresses()
         case ProfileCells.wishlist.rawValue:
             self.openWishList()
-        case ProfileCells.setting.rawValue:
-            self.openSettings()
+        case ProfileCells.language.rawValue:
+            self.openLanguagesBottomSheet()
         case ProfileCells.logout.rawValue:
             self.logoutAction()
         default:

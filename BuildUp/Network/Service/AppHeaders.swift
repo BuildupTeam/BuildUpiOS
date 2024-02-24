@@ -16,7 +16,7 @@ class AppHeaders {
 //        headers["x-api-key"] = configuraion.environment.xApiKey
 //        headers["Accept"] = Constant.Keys.contentType
 //        headers["Content-Type"] = Constant.Keys.contentType
-//        headers["Accept-Language"] = LocalizationManager.currentLanguage().code
+        headers["Accept-Language"] = LocalizationManager.currentLanguage().code
 //        headers["sec-key"] = Constant.Keys.clientSecret
 //
         if let userModel = CachingService.getUser() {

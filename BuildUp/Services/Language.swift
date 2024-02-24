@@ -11,7 +11,6 @@ enum Language: String {
     
     case arabic = "ar"
     case english = "en"
-    case portuguese = "pt"
     
 //    var languageCode: String {
 //        
@@ -44,7 +43,6 @@ enum Language: String {
         switch self {
         case .arabic: return "العربية"
         case .english: return "English"
-        case .portuguese: return "Português"
         }
     }
 }
