@@ -1,194 +1,194 @@
-/* 
-  Localizable.strings
-  BuildUp
-
-  Created by Mohammed Khaled on 06/06/2023.
-  
-*/
+/*
+ Localizable.strings
+ BuildUp
+ 
+ Created by Mohammed Khaled on 06/06/2023.
+ 
+ */
 
 // MARK: - Login
-"login.title" = "Login";
-"login.phone" ="Mobile no";
-"login.phone_placeholder" ="Enter your mobile number";
-"login.password" ="Password";
-"login.password_placeholder" ="Enter your password";
-"login.create_account" = "Create an account";
-"login.forget_password" ="Forget Password";
-"login.phone_error" ="Incorrect phone.";
-"login.password_error" ="Incorrect password.";
-"login.privacyTitle" = "By continuing, you agree to our" ;
-"login.termsLabel" = "Terms of Service" ;
-"login.privacyAnd" = " and " ;
-"login.privacyLabel" = "Privacy Policy" ;
-"login.skip" = "Skip" ;
+"login.title" = "تسجيل الدخول";
+"login.phone" = "رقم الجوال";
+"login.phone_placeholder" = "أدخل رقم جوالك";
+"login.password" = "كلمة المرور";
+"login.password_placeholder" = "أدخل كلمة المرور";
+"login.create_account" = "إنشاء حساب";
+"login.forget_password" = "نسيت كلمة المرور؟";
+"login.phone_error" = "رقم الهاتف غير صحيح.";
+"login.password_error" = "كلمة المرور غير صحيحة.";
+"login.privacyTitle" = "بالمتابعة، أنت توافق على";
+"login.termsLabel" = "شروط الخدمة";
+"login.privacyAnd" = " و ";
+"login.privacyLabel" = "سياسة الخصوصية";
+"login.skip" = "تخطي";
 
 // MARK: - Register
-"register.title" = "Register";
-"register.button.create_account" = "Create Account";
-"register.phone" ="Mobile no";
-"register.phone_placeholder" ="Enter your mobile number";
-"register.name" ="Name";
-"register.name_placeholder" ="Enter your name";
-"register.email" ="Email";
-"register.email_placeholder" ="Enter your email";
-"register.password" ="Password";
-"register.password_placeholder" ="Enter your password";
-"register.confirm_password" ="Confirm Password";
-"register.confirm_password_placeholder" ="Confirm your password";
+"register.title" = "تسجيل";
+"register.button.create_account" = "إنشاء حساب";
+"register.phone" = "رقم الجوال";
+"register.phone_placeholder" = "أدخل رقم جوالك";
+"register.name" = "الاسم";
+"register.name_placeholder" = "أدخل اسمك";
+"register.email" = "البريد الإلكتروني";
+"register.email_placeholder" = "أدخل بريدك الإلكتروني";
+"register.password" = "كلمة المرور";
+"register.password_placeholder" = "أدخل كلمة المرور";
+"register.confirm_password" = "تأكيد كلمة المرور";
+"register.confirm_password_placeholder" = "تأكيد كلمة المرور";
 
 // MARK: - Forget Password
-"forget_password.title" = "Forget Password";
-"forget_password.content" = "No worries! Enter your email address  below and we will send you a code to reset password.";
-"forget_password.email" = "Email";
-"forget_password.button.sendReset" = "Send Reset Link";
+"forget_password.title" = "نسيت كلمة المرور";
+"forget_password.content" = "لا تقلق! أدخل عنوان بريدك الإلكتروني أدناه وسنرسل لك رمزًا لإعادة تعيين كلمة المرور.";
+"forget_password.email" = "البريد الإلكتروني";
+"forget_password.button.sendReset" = "إرسال رابط إعادة التعيين";
 
 // MARK: - Reset Password
-"reset_password.title" = "Create New Password";
-"reset_password.content" = "Please enter and confirm your new password.\n You will need to login after you reset.";
-"reset_password.password" = "Password";
-"reset_password.confirm_password" = "Confirm Password";
-"reset_password.button.reset" = "Reset Password";
-"reset_password.code" = "Code";
-"reset_password.codePlaceholder" = "Enter your code";
+"reset_password.title" = "إنشاء كلمة مرور جديدة";
+"reset_password.content" = "يرجى إدخال كلمة المرور الجديدة وتأكيدها.\n ستحتاج إلى تسجيل الدخول بعد إعادة التعيين.";
+"reset_password.password" = "كلمة المرور";
+"reset_password.confirm_password" = "تأكيد كلمة المرور";
+"reset_password.button.reset" = "إعادة تعيين كلمة المرور";
+"reset_password.code" = "الرمز";
+"reset_password.codePlaceholder" = "أدخل الرمز";
 
 // MARK: - Validations
-"validation.invalidMobileNumber" = "Invalid Mobile Format" ;
-"validation.passwordNotMatch" = "Password is not matched" ;
-"validation.requiredField" = "This field is required" ;
-"validation.invalidEmailFormate" = "Invalid email format" ;
-"validation.invalidPasswordFormate" = "Password must be more than 8 char, with one capital" ;
+"validation.invalidMobileNumber" = "تنسيق الجوال غير صحيح";
+"validation.passwordNotMatch" = "كلمة المرور غير متطابقة";
+"validation.requiredField" = "هذا الحقل مطلوب";
+"validation.invalidEmailFormate" = "تنسيق البريد الإلكتروني غير صحيح";
+"validation.invalidPasswordFormate" = "يجب أن تكون كلمة المرور أكثر من 8 أحرف، مع حرف كبير واحد";
 
 // MARK: - Popups
-"popups.login" = "Login";
-"popups.loginMsg" = "You don’t have an account please login first";
-"popups.logout" = "Logout";
-"popups.logoutMsg" = "Are you Sure you want to logout ?";
-"popups.cancel" = "Cancel";
+"popups.login" = "تسجيل الدخول";
+"popups.loginMsg" = "ليس لديك حساب من فضلك قم بتسجيل الدخول أولا";
+"popups.logout" = "تسجيل الخروج";
+"popups.logoutMsg" = "هل أنت متأكد أنك تريد تسجيل الخروج؟";
+"popups.cancel" = "إلغاء";
 
 // MARK: - Product Details
-"productDetails.seeMore" = "المزيد.." ;
-"productDetails.quantity" = "العدد";
-"productDetails.quantityShort" = "العدد";
-"productDetails.currency" = " SAR";
+"productDetails.readMore" = "المزيد من التفاصيل";
+"productDetails.quantity" = "الكمية";
+"productDetails.quantityShort" = "الكمية";
+"productDetails.currency" = " ريال سعودي";
 
 // MARK: - TabBar
-"tabbar.home" = "Home";
-"tabbar.categories" = "Categories";
-"tabbar.cart" = "Cart";
-"tabbar.orders" = "Orders";
-"tabbar.profile" = "Profile";
+"tabbar.home" = "الرئيسية";
+"tabbar.categories" = "التصنيفات";
+"tabbar.cart" = "السلة";
+"tabbar.orders" = "الطلبات";
+"tabbar.profile" = "الملف الشخصي";
 
 // MARK: - Cart
-"cart.title" = "Cart";
-"cart.addWishList" = "Add Wishlist";
-"cart.removeWishList" = "Remove Wishlist";
-"cart.remove" = "Remove";
-"cart.currency" = "SAR ";
-"cart.subtotal" = "Subtotal";
-"cart.saved" = "You saved";
-"cart.items" = "Items";
-"cart.checkout" = "Checkout";
-"cart.emptyMessage" = "Your Cart is Empty, start adding products";
+"cart.title" = "السلة";
+"cart.addWishList" = "إضافة إلى قائمة الرغبات";
+"cart.removeWishList" = "إزالة من قائمة الرغبات";
+"cart.remove" = "إزالة";
+"cart.currency" = "ريال سعودي ";
+"cart.subtotal" = "المجموع الفرعي";
+"cart.saved" = "لقد وفرت";
+"cart.items" = "العناصر";
+"cart.checkout" = "الدفع";
+"cart.emptyMessage" = "سلتك فارغة";
 
 // MARK: - Checkout
-"checkout.title" = "Checkout";
-"checkout.shipping" = "Shipping";
-"checkout.shippingInfo" = "Shipping Info";
-"checkout.payment" = "Payment";
-"checkout.review" = "Review";
+"checkout.title" = "الدفع";
+"checkout.shipping" = "الشحن";
+"checkout.shippingInfo" = "معلومات الشحن";
+"checkout.payment" = "الدفع";
+"checkout.review" = "مراجعة";
 "checkout.step1" = "1";
 "checkout.step2" = "2";
 "checkout.step3" = "3";
-"checkout.contactInfo" = "Contact Info";
-"checkout.fullName" = "Full Name";
-"checkout.mobile" = "Mobile no.";
-"checkout.deliveryInfo" = "Delivery Info";
-"checkout.country" = "Country";
-"checkout.countries" = "Countries";
-"checkout.city" = "City";
-"checkout.area" = "Area";
-"checkout.cities" = "Cities";
-"checkout.areas" = "Areas";
-"checkout.detailedAddress" = "Detailed Address";
-"checkout.countryPlaceholder" = "Choose Country";
-"checkout.cityPlaceholder" = "Choose City";
-"checkout.areaPlaceholder" = "Choose Area";
-"checkout.detailedAddressPlaceholder" = "Write Your Detailed Address";
-"checkout.choosePayment" = "Choose payment method";
-"checkout.onlinePayement" = "Online Payement";
-"checkout.cashOnDelivery" = "Cash on delivery";
-"checkout.button.continue" = "Continue";
-"checkout.orderSummery" = "Order Summery";
-"checkout.subtotal" = "Subtotal";
-"checkout.estimatedVat" = "Estimated VAT";
-"checkout.delivery" = "Delivery";
-"checkout.address" = "Address";
-"checkout.change" = "change";
-"checkout.continue" = "Continue";
-"checkout.edit" = "Edit";
-"checkout.addNewAddress" = "Add New Address";
-"checkout.addresses" = "Addresses List";
-"checkout.errors.selectCountryFirst" = "Please Choose Your Country First";
-"checkout.updateAddress" = "Update Address";
-"checkout.errors.selectCityFirst" = "Please Choose Your City First";
-"checkout.items" = "items";
-"checkout.totalAmount" = "Total Amount";
-"checkout.Number" = "Number";
+"checkout.contactInfo" = "معلومات الاتصال";
+"checkout.fullName" = "الاسم الكامل";
+"checkout.mobile" = "رقم الجوال";
+"checkout.deliveryInfo" = "معلومات التوصيل";
+"checkout.country" = "البلد";
+"checkout.countries" = "البلدان";
+"checkout.city" = "المدينة";
+"checkout.area" = "المنطقة";
+"checkout.cities" = "المدن";
+"checkout.areas" = "المناطق";
+"checkout.detailedAddress" = "العنوان بالتفصيل";
+"checkout.countryPlaceholder" = "اختر البلد";
+"checkout.cityPlaceholder" = "اختر المدينة";
+"checkout.areaPlaceholder" = "اختر المنطقة";
+"checkout.detailedAddressPlaceholder" = "اكتب عنوانك بالتفصيل";
+"checkout.choosePayment" = "اختر طريقة الدفع";
+"checkout.onlinePayement" = "الدفع الإلكتروني";
+"checkout.cashOnDelivery" = "الدفع عند الاستلام";
+"checkout.button.continue" = "متابعة";
+"checkout.orderSummery" = "ملخص الطلب";
+"checkout.subtotal" = "المجموع الفرعي";
+"checkout.estimatedVat" = "ضريبة القيمة المضافة المقدرة";
+"checkout.delivery" = "التوصيل";
+"checkout.address" = "العنوان";
+"checkout.change" = "تغيير";
+"checkout.continue" = "متابعة";
+"checkout.edit" = "تعديل";
+"checkout.addNewAddress" = "إضافة عنوان جديد";
+"checkout.addresses" = "قائمة العناوين";
+"checkout.errors.selectCountryFirst" = "الرجاء اختيار البلد أولاً";
+"checkout.updateAddress" = "تحديث العنوان";
+"checkout.errors.selectCityFirst" = "الرجاء اختيار المدينة أولاً";
+"checkout.items" = "العناصر";
+"checkout.totalAmount" = "المبلغ الإجمالي";
+"checkout.Number" = "الرقم";
 
 // MARK: - Order History Screen
-"orders.title" = "Order History";
-"orders.current" = "Current";
-"orders.past" = "Past";
-"orders.order" = "Order ";
-"orders.placedOn" = "Placed On ";
-"orders.viewDetails" = "View Details";
-"orders.status.arriving" = "Arriving";
-"orders.status.pending" = "Pending";
-"orders.status.delivered" = "Delivered";
+"orders.title" = "سجل الطلبات";
+"orders.current" = "الحالية";
+"orders.past" = "السابقة";
+"orders.order" = "الطلب ";
+"orders.placedOn" = "تم الطلب في ";
+"orders.viewDetails" = "عرض التفاصيل";
+"orders.status.arriving" = "قادم";
+"orders.status.pending" = "قيد الانتظار";
+"orders.status.delivered" = "تم التوصيل";
 
 // MARK: - Order Details
-"orderDetails.orderNumber" = "Order #";
-
+"orderDetails.orderNumber" = "الطلب #";
 
 // MARK: - Profile Screen
-"profile.editProfile" = "Edit Profile";
-"profile.savedAddresses" = "Saved Addresses";
-"profile.settings" = "Settings";
-"profile.wishlist" = "Wishlist";
-"profile.logout" = "Log out";
-"profile.update.camera" = "Camera";
-"profile.update.gellary" = "Gallery";
-"profile.update.chooseImage" = "Choose Image";
-"profile.update.cancel" = "Cancel";
-"profile.update.updateProfile" = "Update Profile";
-"profile.changeLanguage" = "Change Language";
-"profile.guest" = "Guest";
+"profile.editProfile" = "تعديل الملف الشخصي";
+"profile.savedAddresses" = "العناوين المحفوظة";
+"profile.settings" = "الإعدادات";
+"profile.wishlist" = "قائمة الرغبات";
+"profile.logout" = "تسجيل الخروج";
+"profile.update.camera" = "الكاميرا";
+"profile.update.gellary" = "المعرض";
+"profile.update.chooseImage" = "اختر صورة";
+"profile.update.cancel" = "إلغاء";
+"profile.update.updateProfile" = "تحديث الملف الشخصي";
+"profile.changeLanguage" = "تغيير اللغة";
+"profile.language" = "اللغة";
+"profile.guest" = "ضيف";
 
 // MARK: - QRCode Screen
-"QRCode.title" = "Scan QR Code";
-"QRCode.content" = "Scan the QR Code that appears in the mobile mockup in your dashboard to be able to view your app demo";
-"QRCode.scanMe" = "Scan Me";
-"QRCode.skip" = "Skip";
+"QRCode.title" = "مسح كود QR";
+"QRCode.content" = "امسح كود QR الذي يظهر في نموذج الهاتف المحمول في لوحة التحكم لكي تتمكن من مشاهدة عرض توضيحي لتطبيقك";
+"QRCode.scanMe" ="امسحني";
+"QRCode.skip" = "تخطي";
 
 // MARK: - Category Details
 "emptyScreen.noData" = "لا يوجد بيانات";
-"emptyScreen.loginFirst" = "Please Login First";
-"emptyScreen.button.login" = "Login";
+"emptyScreen.loginFirst" = "الرجاء تسجيل الدخول أولاً";
+"emptyScreen.button.login" = "تسجيل الدخول";
 
 // MARK: - Categories Tab
-"categories.title" = "Categories";
+"categories.title" = "الفئات";
 
 // MARK: - Profile
-"profile.logout" = "logout";
+"profile.logout" = "تسجيل الخروج";
 
 // MARK: - Messages
-"message.error.title" = "خطأ" ;
-"message.success.title" = "تم بنجاح" ;
-"message.error.invalidAmount" = "يرجى إدخال مبلغ صالح" ;
-"networkError.noInternet" = "تأكد من إتصالك بالإنترنت";
-"networkError.serverError" = "حدث خطاْ في الخادم";
+"message.error.title"  = "خطأ" ;
+"message.success.title"  = "تم بنجاح" ;
+"message.error.invalidAmount"  = "يرجى إدخال مبلغ صالح" ;
+"networkError.noInternet"  = "تأكد من إتصالك بالإنترنت";
+"networkError.serverError"  = "حدث خطاْ في الخادم";
 
 // MARK: Force Update
-"forceUpdate.title" = "نسخة جديدة متاحة!" ;
-"forceUpdate.message" = "يلزم تحديث النسخه" ;
-"forceUpdate.updateACtion.title" = "تحديث" ;
+"forceUpdate.title"  = "نسخة جديدة متاحة!" ;
+"forceUpdate.message"  = "يلزم تحديث النسخه" ;
+"forceUpdate.updateACtion.title"  = "تحديث" ;

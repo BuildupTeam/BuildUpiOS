@@ -52,6 +52,11 @@ class ProfileTableViewCell: UITableViewCell {
         profileImageView.image = Asset.icProfileSetting.image
     }
     
+    func setupLanguage() {
+        profileTitleLabel.text = L10n.Profile.language
+        profileImageView.image = Asset.icProfileSetting.image
+    }
+    
     func setupLogout() {
         if CachingService.getUser() != nil {
             profileTitleLabel.text = L10n.Profile.logout

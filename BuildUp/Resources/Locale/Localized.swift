@@ -507,6 +507,10 @@ internal enum L10n {
         internal static var guest: String {
           return L10n.tr("Localizable", "profile.guest")
         }
+        /// Language
+        internal static var language: String {
+          return L10n.tr("Localizable", "profile.language")
+        }
         /// logout
         internal static var logout: String {
           return L10n.tr("Localizable", "profile.logout")
