@@ -30,6 +30,7 @@ jobs:
         gem install bundler
         pod install
         bundle update --full-index
+        sleep 20
         fastlane upload_app
         
     #  - name: Execute Fastlane
