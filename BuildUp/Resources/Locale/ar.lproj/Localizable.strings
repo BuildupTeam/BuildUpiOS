@@ -137,6 +137,7 @@
 "checkout.items" = "العناصر";
 "checkout.totalAmount" = "المبلغ الإجمالي";
 "checkout.Number" = "الرقم";
+"checkout.confirm" = "تأكيد";
 
 // MARK: - Order History Screen
 "orders.title" = "سجل الطلبات";
@@ -188,6 +189,7 @@
 "message.error.title"  = "خطأ" ;
 "message.success.title"  = "تم بنجاح" ;
 "message.error.invalidAmount"  = "يرجى إدخال مبلغ صالح" ;
+"message.error.selectDefaultAddress"  = "من فضلك اختر العنوان" ;
 "networkError.noInternet"  = "تأكد من إتصالك بالإنترنت";
 "networkError.serverError"  = "حدث خطاْ في الخادم";
 

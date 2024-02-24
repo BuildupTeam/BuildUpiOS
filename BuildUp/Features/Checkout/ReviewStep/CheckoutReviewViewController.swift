@@ -335,6 +335,7 @@ extension CheckoutReviewViewController {
     private func setupResponses() {
         checkoutResponse()
         summaryResponse()
+        summaryErrorResponse()
         paymentCancelledResponse()
         completeOrderResponse()
     }

@@ -28,8 +28,8 @@ class CheckoutAddAddressTableViewCell: UITableViewCell {
         
         containerView.layer.borderColor = ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "").cgColor
         containerView.layer.borderWidth = 1
-        containerView.layer.masksToBounds = true
-        containerView.layer.cornerRadius = 8
+        
+        ThemeManager.setCornerRadious(element: containerView, radius: 8)
     }
     
 }

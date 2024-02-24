@@ -15,12 +15,16 @@ class AddressesViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var addAddressButton: UIButton!
+    @IBOutlet private weak var confirmButton: UIButton!
+    @IBOutlet private weak var confirmButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var addNewAddressContainerView: UIView!
+    @IBOutlet private weak var addNewAddressLabel: UILabel!
 
     var isReloadingTableView = false
     weak var delegate: AddressesDelegate?
     
     var viewModel: AddressesViewModel!
+    var isCommingFromShipping = false
         
     override  var prefersBottomBarHidden: Bool? { return true }
 
@@ -58,16 +62,32 @@ extension AddressesViewController {
     private func setupView() {
         isLoadingShimmer = true
         registerTableViewCells()
+        deactivatConfirmButton()
         
-        addAddressButton.layer.masksToBounds = true
-        addAddressButton.layer.cornerRadius = 8
-        addAddressButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
-        addAddressButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
-        addAddressButton.setTitle(L10n.Checkout.addNewAddress, for: .normal)
-        addAddressButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        confirmButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
+        confirmButton.setTitle(L10n.Checkout.confirm, for: .normal)
+        confirmButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        
+        addNewAddressLabel.font = .appFont(ofSize: 14, weight: .medium)
+        addNewAddressLabel.textColor = ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "")
+        
+        addNewAddressLabel.text = L10n.Checkout.addNewAddress
+
+        addNewAddressContainerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+        
+        addNewAddressContainerView.layer.borderColor = ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "").cgColor
+        addNewAddressContainerView.layer.borderWidth = 1
+        
+        if isCommingFromShipping {
+            confirmButtonHeightConstraint.constant = 0
+            confirmButton.hideView()
+        }
+        
+        ThemeManager.setCornerRadious(element: addNewAddressContainerView, radius: 8)
+        ThemeManager.setCornerRadious(element: confirmButton, radius: 8)
     }
     
     private func registerTableViewCells() {
@@ -101,11 +121,35 @@ extension AddressesViewController {
         self.isReloadingTableView = true
         self.tableView.reloadData()
     }
+    
+    private func checkToActivateConfirmButton() {
+        let isSelected = self.viewModel.addresses?.first(where: {$0.isDefault ?? false})
+        if (isSelected != nil) {
+            activateConfirmButton()
+        } else {
+            deactivatConfirmButton()
+        }
+    }
+    
+    private func activateConfirmButton() {
+        confirmButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        confirmButton.isUserInteractionEnabled = true
+    }
+    
+    private func deactivatConfirmButton() {
+        confirmButton.backgroundColor = UIColor.dimmedButtonGray
+        confirmButton.isUserInteractionEnabled = false
+    }
 }
 
 // MARK: - Actions
 extension AddressesViewController {
-    @IBAction func addddressAction(_ sender: UIButton) {
+    @IBAction func confirmAction(_ sender: UIButton) {
+        self.showLoading()
+        self.viewModel.setDefaultAddress(adddressId: self.viewModel.addresses?.first(where: {$0.isDefault ?? false})?.id ?? 0)
+    }
+    
+    @IBAction func addNewAddressAction(_ sender: UIButton) {
         let addAddressVC = Coordinator.Controllers.createAddNewAddressViewController()
         self.navigationController?.pushViewController(addAddressVC, animated: true)
     }
@@ -126,33 +170,40 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.selectionStyle = .none
             return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: AddressTableViewCell.identifier,
+                for: indexPath) as? AddressTableViewCell
+            else { return UITableViewCell() }
+            
+            cell.delegate = self
+            cell.addressModel = self.viewModel.addresses?[indexPath.row]
+            
+            cell.selectionStyle = .none
+            
+            return cell
         }
-        
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: AddressTableViewCell.identifier,
-            for: indexPath) as? AddressTableViewCell
-        else { return UITableViewCell() }
-        
-        cell.delegate = self
-        cell.addressModel = self.viewModel.addresses?[indexPath.row]
-        
-        cell.selectionStyle = .none
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isCommingFromShipping {
+            if let model = self.viewModel.addresses?[indexPath.row] {
+                self.delegate?.addressTaped(addressModel: model)
+                self.navigationController?.popViewController(animated: true)
+            }
+            return
+        }
         if let addresses = self.viewModel.addresses {
             for address in addresses {
-                address.isSelected = false
+                address.isDefault = false
+            }
+            if let model = self.viewModel.addresses?[indexPath.row] {
+                model.isDefault = true
+                self.viewModel.addresses?[indexPath.row] = model
+                self.tableView.reloadData()
             }
             
-            if let model = self.viewModel.addresses?[indexPath.row] {
-                model.isSelected = true
-                self.viewModel.addresses?[indexPath.row] = model
-                self.showLoading()
-                self.viewModel.setDefaultAddress(adddressId: model.id ?? 0)
-            }
+            checkToActivateConfirmButton()
         }
     }
 }
@@ -176,19 +227,22 @@ extension AddressesViewController {
             } else {
                 self.removeBackgroundViews()
             }
-            self.tableView.reloadData()
             self.stopShimmerOn(tableView: self.tableView)
+            self.tableView.reloadData()
         }
     }
     
     private func defaultAddressResponse() {
-        self.viewModel.onDefaultAddress = { [weak self] () in
+        self.viewModel.onDefaultAddress = { [weak self] (message) in
             guard let `self` = self else { return }
             self.hideLoading()
-            if let address = self.viewModel.addresses?.filter({ $0.isSelected == true }).first {
-                self.delegate?.addressTaped(addressModel: address)
-                self.navigationController?.popViewController(animated: true)
+            if let message = message {
+                self.showSuccessMessage(message: message)
             }
+//            if let address = self.viewModel.addresses?.filter({ ($0.isDefault ?? false) == true }).first {
+//                self.delegate?.addressTaped(addressModel: address)
+//                self.navigationController?.popViewController(animated: true)
+//            }
         }
     }
 }
