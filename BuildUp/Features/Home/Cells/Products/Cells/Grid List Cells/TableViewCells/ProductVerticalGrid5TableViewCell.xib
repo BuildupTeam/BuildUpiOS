@@ -42,6 +42,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="collectionView" destination="Y7h-4l-OW7" id="3i1-GM-hjO"/>
+                <outlet property="collectionViewHeightConstrains" destination="unS-Yd-NcY" id="yEZ-NC-igf"/>
             </connections>
             <point key="canvasLocation" x="53" y="21"/>
         </tableViewCell>

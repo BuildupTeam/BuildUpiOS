@@ -13,7 +13,7 @@ class CheckoutReviewViewModel: BaseViewModel {
     var summaryData: SummaryData?
     var checkoutData: CheckoutDataModel?
 
-    public var onSummary: (() -> Void)?
+    public var onSummary: ((SummaryData?) -> Void)?
     public var onErrorMessage: ((String) -> Void)?
     public var onCheckout: ((CheckoutResponseModel) -> Void)?
     public var onPaymentCancelled: (() -> Void)?
@@ -34,7 +34,7 @@ class CheckoutReviewViewModel: BaseViewModel {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
                     self.summaryData = response.data
-                    self.onSummary?()
+                    self.onSummary?(response.data)
                 } else {
                     self.onErrorMessage?(response.message ?? "")
                 }

@@ -138,6 +138,9 @@
 "checkout.totalAmount" = "Total Amount";
 "checkout.Number" = "Number";
 "checkout.confirm" = "Confirm";
+"checkout.backToCart" = "Back to cart";
+"checkout.outOfStock" = "Out Of Stock";
+"checkout.runsOutOfStock" = "You have items run out of stock ";
 
 // MARK: - Order History Screen
 "orders.title" = "Order History";

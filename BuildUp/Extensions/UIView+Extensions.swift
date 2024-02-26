@@ -24,6 +24,14 @@ extension UIView {
     }
 }
 
+extension UINavigationController {
+  func popToViewController(ofClass: AnyClass, animated: Bool = true) {
+    if let vc = viewControllers.last(where: { $0.isKind(of: ofClass) }) {
+      popToViewController(vc, animated: animated)
+    }
+  }
+}
+
 extension UICollectionReusableView {
     class var identifier: String {
         return String(describing: self)
