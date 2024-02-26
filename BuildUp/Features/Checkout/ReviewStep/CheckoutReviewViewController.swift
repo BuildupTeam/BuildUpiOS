@@ -12,6 +12,7 @@ import CryptoSwift
 import Foundation
 import ObjectMapper
 import CryptoKit
+import PopupDialog
 
 enum CheckoutReviewCells: Int {
     case payment = 0
@@ -124,6 +125,15 @@ extension CheckoutReviewViewController {
             self.showLoading()
             self.viewModel.getSummary(model.address?.id ?? 0)
         }
+    }
+    
+    private func setupRejectedProducts(_ products: [ProductModel]) {
+        let vc = RejectedProductsViewController()
+        vc.delegate = self
+        let popup = PopupDialog(viewController: vc, buttonAlignment: .horizontal, transitionStyle: .bounceUp, tapGestureDismissal: false, panGestureDismissal: false)
+        
+        vc.products = products
+        self.present(popup, animated: true)
     }
     
     private func setupTotalPrice() {
@@ -330,6 +340,12 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
     }
 }
 
+extension CheckoutReviewViewController: RejectedProductsDelegate {
+    func backToCartButtonClicked() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
 // MARK: - Responses
 extension CheckoutReviewViewController {
     private func setupResponses() {
@@ -341,11 +357,15 @@ extension CheckoutReviewViewController {
     }
     
     private func summaryResponse() {
-        self.viewModel.onSummary = { [weak self]() in
+        self.viewModel.onSummary = { [weak self](summaryData) in
             guard let `self` = self else { return }
             self.hideLoading()
             self.setupTotalPrice()
             self.tableView.reloadData()
+            
+            if let rejectedPoducts = summaryData?.rejectedPoducts, !rejectedPoducts.isEmpty {
+                setupRejectedProducts(rejectedPoducts)
+            }
         }
     }
     

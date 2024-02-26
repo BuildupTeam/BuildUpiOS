@@ -138,6 +138,9 @@
 "checkout.totalAmount" = "المبلغ الإجمالي";
 "checkout.Number" = "الرقم";
 "checkout.confirm" = "تأكيد";
+"checkout.backToCart" = "العودة إلى السلة";
+"checkout.outOfStock" = "غير متوفر في المخزون";
+"checkout.runsOutOfStock" = "لديك عناصر نفدت من المخزون";
 
 // MARK: - Order History Screen
 "orders.title" = "سجل الطلبات";

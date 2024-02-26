@@ -293,6 +293,10 @@
 		394443F52B88037C008232E5 /* LanguageBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394443F32B88037C008232E5 /* LanguageBottomSheetViewController.xib */; };
 		394443F82B892475008232E5 /* CheckoutTaxesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394443F62B892475008232E5 /* CheckoutTaxesTableViewCell.swift */; };
 		394443F92B892475008232E5 /* CheckoutTaxesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394443F72B892475008232E5 /* CheckoutTaxesTableViewCell.xib */; };
+		394443FD2B8C8ECB008232E5 /* RejectedProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394443FB2B8C8ECB008232E5 /* RejectedProductsViewController.swift */; };
+		394443FE2B8C8ECB008232E5 /* RejectedProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394443FC2B8C8ECB008232E5 /* RejectedProductsViewController.xib */; };
+		394444022B8C9233008232E5 /* RejectedProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394444002B8C9233008232E5 /* RejectedProductTableViewCell.swift */; };
+		394444032B8C9233008232E5 /* RejectedProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394444012B8C9233008232E5 /* RejectedProductTableViewCell.xib */; };
 		394D8CA22B3481DA009386AD /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 394D8CA12B3481DA009386AD /* SDWebImageSVGCoder */; };
 		3950B0982A6ABCA300E27111 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B0972A6ABCA300E27111 /* ThemeManager.swift */; };
 		3950B09C2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3950B09B2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift */; };
@@ -958,6 +962,10 @@
 		394443F32B88037C008232E5 /* LanguageBottomSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageBottomSheetViewController.xib; sourceTree = "<group>"; };
 		394443F62B892475008232E5 /* CheckoutTaxesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTaxesTableViewCell.swift; sourceTree = "<group>"; };
 		394443F72B892475008232E5 /* CheckoutTaxesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutTaxesTableViewCell.xib; sourceTree = "<group>"; };
+		394443FB2B8C8ECB008232E5 /* RejectedProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectedProductsViewController.swift; sourceTree = "<group>"; };
+		394443FC2B8C8ECB008232E5 /* RejectedProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RejectedProductsViewController.xib; sourceTree = "<group>"; };
+		394444002B8C9233008232E5 /* RejectedProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RejectedProductTableViewCell.swift; sourceTree = "<group>"; };
+		394444012B8C9233008232E5 /* RejectedProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RejectedProductTableViewCell.xib; sourceTree = "<group>"; };
 		3950B0972A6ABCA300E27111 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		3950B09B2A6ABF7100E27111 /* UIConfirgurationResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfirgurationResponseModel.swift; sourceTree = "<group>"; };
 		3950B09F2A6ABFD300E27111 /* ThemeConfigurationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfigurationDataModel.swift; sourceTree = "<group>"; };
@@ -2224,6 +2232,7 @@
 		3932B28D2B12821E00283B3D /* ReviewStep */ = {
 			isa = PBXGroup;
 			children = (
+				394443FA2B8C8E99008232E5 /* RejectedProducts */,
 				390C3B782B14FA3200E40849 /* Cells */,
 				390C3B6B2B14EF2900E40849 /* Model */,
 				3932B21C2B11305300283B3D /* CheckoutReviewViewController.swift */,
@@ -2435,6 +2444,25 @@
 				394443EF2B880375008232E5 /* LanguageElementTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		394443FA2B8C8E99008232E5 /* RejectedProducts */ = {
+			isa = PBXGroup;
+			children = (
+				394443FF2B8C921F008232E5 /* Cell */,
+				394443FB2B8C8ECB008232E5 /* RejectedProductsViewController.swift */,
+				394443FC2B8C8ECB008232E5 /* RejectedProductsViewController.xib */,
+			);
+			path = RejectedProducts;
+			sourceTree = "<group>";
+		};
+		394443FF2B8C921F008232E5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				394444002B8C9233008232E5 /* RejectedProductTableViewCell.swift */,
+				394444012B8C9233008232E5 /* RejectedProductTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3950B0992A6ABE0F00E27111 /* UIConfiguration */ = {
@@ -3587,6 +3615,7 @@
 				3919386F2A9558EA004D3B67 /* HomeHeaderTableViewCell.xib in Resources */,
 				3999AA782AD1BFFB007D0ACB /* Poppins-Medium.ttf in Resources */,
 				3999AA6E2AD1BFE5007D0ACB /* Montserrat-Medium.ttf in Resources */,
+				394444032B8C9233008232E5 /* RejectedProductTableViewCell.xib in Resources */,
 				391529EE2A347BF4007F7E09 /* ProductVerticalList2TableViewCell.xib in Resources */,
 				393613DE2AB8C92B007289DE /* CategoryDetailsGridViewController.xib in Resources */,
 				3999AA7B2AD1BFFB007D0ACB /* Poppins-SemiBold.ttf in Resources */,
@@ -3662,6 +3691,7 @@
 				39DD4DF32AF2C35A009D3CEF /* ForgetPasswordViewController.xib in Resources */,
 				39C6C4C62A3CE04400F11A6F /* CategoriesVerticalGrid2CollectionViewCell.xib in Resources */,
 				3990073A2ABDB68A002F6938 /* CartCheckout3View.xib in Resources */,
+				394443FE2B8C8ECB008232E5 /* RejectedProductsViewController.xib in Resources */,
 				39AD475B2B82E1650017E63C /* HomeLogoView.xib in Resources */,
 				390C3B842B14FA7300E40849 /* CheckoutProductsTableViewCell.xib in Resources */,
 				39F583772A83E5890060C4E1 /* ShimmerProductVerticalListTableViewCell.xib in Resources */,
@@ -3892,6 +3922,7 @@
 				39F9D10F2AD74EC6007BB6B9 /* QRCodeReaderViewControllerBuilder.swift in Sources */,
 				3932B28F2B12827400283B3D /* CheckoutShippingViewModel.swift in Sources */,
 				39CE768E2A2F61170019A485 /* UIDevice+JailBroken.swift in Sources */,
+				394444022B8C9233008232E5 /* RejectedProductTableViewCell.swift in Sources */,
 				390C3B622B14DD1C00E40849 /* AreaModel.swift in Sources */,
 				390C3BA42B16649700E40849 /* SwipeDirection.swift in Sources */,
 				395D3BE72A9A2DC800DA9859 /* ProductDetailsResponseModel.swift in Sources */,
@@ -4184,6 +4215,7 @@
 				39CE76712A2F60880019A485 /* Language.swift in Sources */,
 				3932B2B52B135E1600283B3D /* ShimmerAddressTableViewCell.swift in Sources */,
 				393613C22AB522CD007289DE /* CategoryDetailsGridViewController+CollectionView.swift in Sources */,
+				394443FD2B8C8ECB008232E5 /* RejectedProductsViewController.swift in Sources */,
 				390C3BA62B16649700E40849 /* PagerTabStripViewController.swift in Sources */,
 				39C6C4E72A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.swift in Sources */,
 				39F19E5E2B206EA300B69595 /* EditProfileViewController.swift in Sources */,

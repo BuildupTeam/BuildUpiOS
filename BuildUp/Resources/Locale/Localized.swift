@@ -106,6 +106,10 @@ internal enum L10n {
         internal static var areas: String {
           return L10n.tr("Localizable", "checkout.areas")
         }
+        /// Back to cart
+        internal static var backToCart: String {
+          return L10n.tr("Localizable", "checkout.backToCart")
+        }
         /// Cash on delivery
         internal static var cashOnDelivery: String {
           return L10n.tr("Localizable", "checkout.cashOnDelivery")
@@ -202,6 +206,10 @@ internal enum L10n {
         internal static var orderSummery: String {
           return L10n.tr("Localizable", "checkout.orderSummery")
         }
+        /// Out Of Stock
+        internal static var outOfStock: String {
+          return L10n.tr("Localizable", "checkout.outOfStock")
+        }
         /// Payment
         internal static var payment: String {
           return L10n.tr("Localizable", "checkout.payment")
@@ -209,6 +217,10 @@ internal enum L10n {
         /// Review
         internal static var review: String {
           return L10n.tr("Localizable", "checkout.review")
+        }
+        /// You have items run out of stock 
+        internal static var runsOutOfStock: String {
+          return L10n.tr("Localizable", "checkout.runsOutOfStock")
         }
         /// Shipping
         internal static var shipping: String {

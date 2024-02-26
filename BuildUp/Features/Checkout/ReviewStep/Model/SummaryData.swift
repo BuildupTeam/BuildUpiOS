@@ -12,10 +12,12 @@ class SummaryData: Mappable {
     
     var summary: SummaryModel?
     var products: [ProductModel]?
+    var rejectedPoducts: [ProductModel]?
 
     func mapping(map: Map) {
         summary <- map["summary"]
         products <- map["products"]
+        rejectedPoducts <- map["rejected_products"]
     }
     
     required init?(map: Map) {
