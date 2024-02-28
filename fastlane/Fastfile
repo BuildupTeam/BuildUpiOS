@@ -88,11 +88,23 @@ lane:change_main_host do
 
 end
 
+desc "Set the build number to a specific value"
+  lane :set_build_number do
+    increment_build_number(build_number: ENV['APP_BUILD_NUMBER']) # Set a specific build number
+  end
+
  desc “Change base url + screenshots”
 lane:upload_app do
     change_main_host()
     update_project_settings()
-    screenshots()
+    # screenshots()
+    deploy()
+end
+
+ desc “Update App”
+lane:update_app do
+    change_main_host()
+    update_project_settings()
     deploy()
 end
 
@@ -130,7 +142,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     		username: "mohammed.khaled.sobhy@gmail.com",
     		app_identifier: ENV['APP_IDENTIFIER'],
     		skip_metadata: true,
-    		skip_screenshots: false,
+    		skip_screenshots: true,
     		submit_for_review: false,
 		run_precheck_before_submit: false,
 submission_information: {

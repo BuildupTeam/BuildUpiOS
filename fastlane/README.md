@@ -47,6 +47,14 @@ Update App Identifier
 
 Change base url
 
+### ios set_build_number
+
+```sh
+[bundle exec] fastlane ios set_build_number
+```
+
+Set the build number to a specific value
+
 ### ios upload_app
 
 ```sh

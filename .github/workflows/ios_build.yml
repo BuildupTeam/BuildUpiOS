@@ -20,10 +20,10 @@ jobs:
       with:
         xcode-version: 'latest-stable'
        
-    - name: Lanuch simulator
-      uses: futureware-tech/simulator-action@v3
-      with:
-        model: 'iPhone 11'
+        # - name: Lanuch simulator
+         #  uses: futureware-tech/simulator-action@v3
+         #  with:
+          #   model: 'iPhone 11'
         
     - name: Install dependencies
       run: |
@@ -38,4 +38,4 @@ jobs:
     #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
     #     FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
       run: |
-        fastlane screenshots
+        fastlane update_app
