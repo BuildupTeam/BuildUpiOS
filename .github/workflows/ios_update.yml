@@ -1,4 +1,4 @@
-name: iOS Build with secrets
+name: iOS Update with secrets
 
 on:
   push:
@@ -65,9 +65,9 @@ jobs:
           pod install
           bundle update --full-index
 
-      - name: Execute update_app
+      - name: Execute fastlane
         run: |
-          fastlane deploy
+          fastlane update_app
 
       - name: Send Failure Notification
         if: failure()
