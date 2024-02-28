@@ -16,21 +16,25 @@ enum Environment: String {
     case demo
     
     var baseURL: String {
-        let subDomain = CachingService.getSubdomain() 
+        let url = "https://online-shop.ecommerce.buildupp.co/"
+        return url + "ec/api/v1/f"
+        /*
+        let subDomain = CachingService.getSubdomain()
         
-        switch self {
-        case .stage:return "https://online-shop.ecommerce.buildupp.co/ec/api/v1/f"
-        case .live: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
-        case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/api/v1/f"
-        case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
-        }
+         switch self {
+         case .stage: return "https://online-shop.ecommerce.buildupp.co/"
+         case .live: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+         case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/api/v1/f"
+         case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+         }
+         */
     }
     
     var hostURL: String {
         let subDomain = CachingService.getSubdomain()
 
         switch self {
-        case .stage: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+        case .stage: return "https://online-shop.ecommerce.buildupp.co/"
         case .live: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
         case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/ec/api/v1/f"
         case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"

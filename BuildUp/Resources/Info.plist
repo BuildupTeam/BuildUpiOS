@@ -5,7 +5,7 @@
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.squadio.buildUpApp</string>
+	<string>com.squadio.buildUp</string>
 	<key>Configuration</key>
 	<string>$(CONFIGURATION)</string>
 	<key>IPHONEOS_DEPLOYMENT_TARGET</key>

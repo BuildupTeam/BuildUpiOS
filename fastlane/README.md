@@ -63,6 +63,14 @@ Set the build number to a specific value
 
 Change base url + screenshots
 
+### ios update_app
+
+```sh
+[bundle exec] fastlane ios update_app
+```
+
+Update App
+
 ### ios generate_new_certificates
 
 ```sh
