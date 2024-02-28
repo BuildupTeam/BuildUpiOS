@@ -1,41 +1,150 @@
-name: iOS Build
+name: iOS Build with secrets
 
 on:
   push:
-    branches: [ feature/GithubActions ]
+    branches: [ fakeDummyRepo ]
   pull_request:
-    branches: [ feature/GithubActions ]
+    branches: [ fakeDummyRepo ]
+  workflow_dispatch:
+    inputs:
+      env_file:
+        description: 'Env file'
+        required: true
+      app_file:
+        description: 'Appfile'
+        required: true
+      match_file:
+        description: 'Matchfile value'
+        required: true
+      deployment_id:
+        description: 'Deployment id'
+        required: true
+      client_app:
+        description: 'Client app slug'
+        required: true
+      splash_background:
+        description: 'Splash background'
+        required: true
 
 jobs:
   build:
     runs-on: 'macos-latest'
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.2.2' # or the version you need
-    - name: Set up xcode
-      uses: maxim-lobanov/setup-xcode@v1.6.0
-      with:
-        xcode-version: 'latest-stable'
-       
-        # - name: Lanuch simulator
-         #  uses: futureware-tech/simulator-action@v3
-         #  with:
-          #   model: 'iPhone 11'
-        
-    - name: Install dependencies
-      run: |
-        gem install bundler
-        pod install
-        bundle update --full-index
-        
-    - name: Execute Fastlane
-    #   env:
-    #     MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-    #     FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-    #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
-    #     FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-      run: |
-        fastlane update_app
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2.2' # or the version you need
+      - name: Set up xcode
+        uses: maxim-lobanov/setup-xcode@v1.6.0
+        with:
+          xcode-version: 'latest-stable'
+
+      - name: Set .env.default
+        run: |
+          rm fastlane/.env.default
+          echo "${{ github.event.inputs.env_file}}" > fastlane/.env.default
+          cat fastlane/.env.default
+
+      - name: display fastlane file
+        run: |
+          cat fastlane/Fastfile
+
+      - name: Set Appfile
+        run: |
+          rm fastlane/AppFile
+          echo "${{ github.event.inputs.app_file}}" > fastlane/AppFile
+          cat fastlane/AppFile
+
+      - name: Set Matchfile
+        run: |
+          rm fastlane/Matchfile
+          echo "${{ github.event.inputs.match_file}}" > fastlane/Matchfile
+          cat fastlane/Matchfile
+
+      - name: Replace launch screen
+        run: |
+          # Read the content of the file
+          file_path="BuildUp/Base.lproj/LaunchScreen.storyboard"
+          new_file_path="BuildUp/Resources/LaunchScreen/TempLaunchScreen.storyboard"
+          content=$(cat $file_path)
+          background_color="${{ github.event.inputs.splash_background }}"
+
+          # Replace ${keyword} with "new keyword"
+          new_content=$(echo "$content" | sed "s/\${colors}/$background_color/g")
+  
+          # Write the modified content to a new file
+          echo "$new_content" > $new_file_path
+  
+          # Move the new file to the desired location
+          mv $new_file_path $file_path
+          cat ${file_path}
+
+        shell: bash
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          pod install
+          bundle update --full-index
+
+        #    - name: Execute Fastlane
+        #   env:
+        #     MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        #     FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+        #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+        #     FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+      #      uses: BuildupTeam/github_actions/run-and-capture-error@main
+      #      with:
+      #        command: fastlane deploy
+      #        step-name: Run Fastlane Build Lens
+      #        error-log-path: ${{ github.workspace }}/errors.txt
+
+      # - name: Execute Fastlane generate new certificate
+      #   run: |
+      #   fastlane generate_new_certificates
+
+      - name: Execute Fastlane
+        run: |
+          fastlane deploy
+
+      - name: Send Failure Notification
+        if: failure()
+        run: |
+          echo "CI/CD pipeline failed. Sending API request..."
+          ERROR_MESSAGE=$(<errors.txt)
+          PAYLOAD=$(jq -n \
+          --arg auth "${{ github.event.inputs.client_app }}" \
+          --arg deployment_id "${{ github.event.inputs.deployment_id }}" \
+          --arg run_number "${GITHUB_RUN_NUMBER}" \
+          --arg msg "$ERROR_MESSAGE" \
+          '{authorization: $auth, workflow_run_number: $run_number, error_message: $msg, deployment_id: $deployment_id}')
+          curl -X POST -H "Content-Type: application/json" \
+            -d "$PAYLOAD" \
+            "https://ecommerce.buildupp.co/api/v1/deploy/ios/publish-failure"
+
+      - name: Send Success Notification
+        if: success()
+        run: |
+          echo "CI/CD pipeline failed. Sending API request..."
+          ERROR_MESSAGE=$(<errors.txt)
+          ERROR_MESSAGE_JSON=$(echo "$ERROR_MESSAGE" | jq -aRs .)
+          max_attempts=3
+          attempt=1
+          sleep_seconds=5
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt of $max_attempts"
+            curl -X POST -H "Content-Type: multipart/form-data" \
+                 -F "authorization=${{ github.event.inputs.client_app }}" \
+                 -F "deployment_id=${{ github.event.inputs.deployment_id }}" \
+                 -F "workflow_run_number=${GITHUB_RUN_NUMBER}" \
+                 -F "error_message=$ERROR_MESSAGE_JSON" \
+                 "https://ecommerce.buildupp.co/api/v1/deploy/ios/publish-success" && break
+            echo "curl command failed, retrying in $sleep_seconds seconds..."
+            sleep $sleep_seconds
+            attempt=$(( attempt + 1 ))
+          done
+          if [ $attempt -gt $max_attempts ]; then
+            echo "curl command failed after $max_attempts attempts"
+            exit 1
+          fi
