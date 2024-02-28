@@ -73,13 +73,11 @@ jobs:
         if: failure()
         run: |
           echo "CI/CD pipeline failed. Sending API request..."
-          ERROR_MESSAGE=$(<errors.txt)
           PAYLOAD=$(jq -n \
           --arg auth "${{ github.event.inputs.client_app }}" \
           --arg deployment_id "${{ github.event.inputs.deployment_id }}" \
           --arg run_number "${GITHUB_RUN_NUMBER}" \
-          --arg msg "$ERROR_MESSAGE" \
-          '{authorization: $auth, workflow_run_number: $run_number, error_message: $msg, deployment_id: $deployment_id}')
+          '{authorization: $auth, workflow_run_number: $run_number, deployment_id: $deployment_id}')
           curl -X POST -H "Content-Type: application/json" \
             -d "$PAYLOAD" \
             "https://ecommerce.buildupp.co/api/v1/deploy/ios/update-failure"
@@ -88,8 +86,6 @@ jobs:
         if: success()
         run: |
           echo "CI/CD pipeline failed. Sending API request..."
-          ERROR_MESSAGE=$(<errors.txt)
-          ERROR_MESSAGE_JSON=$(echo "$ERROR_MESSAGE" | jq -aRs .)
           max_attempts=3
           attempt=1
           sleep_seconds=5
@@ -99,7 +95,6 @@ jobs:
                  -F "authorization=${{ github.event.inputs.client_app }}" \
                  -F "deployment_id=${{ github.event.inputs.deployment_id }}" \
                  -F "workflow_run_number=${GITHUB_RUN_NUMBER}" \
-                 -F "error_message=$ERROR_MESSAGE_JSON" \
                  "https://ecommerce.buildupp.co/api/v1/deploy/ios/update-success" && break
             echo "curl command failed, retrying in $sleep_seconds seconds..."
             sleep $sleep_seconds
