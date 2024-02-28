@@ -30,6 +30,7 @@ class LoginPopupViewController: UIViewController {
 
     private func setupView() {
         titleLabel.text = L10n.Popups.loginMsg
+        titleLabel.textAlignment = .center
         titleLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         titleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         

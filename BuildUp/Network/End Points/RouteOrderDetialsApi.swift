@@ -10,6 +10,7 @@ import Moya
 
 enum RouteOrderDetialsApi {
     case getOrderDetails(orderId: String)
+    case cancelOrder(orderId: String)
 }
 
 extension RouteOrderDetialsApi: TargetType {
@@ -23,11 +24,18 @@ extension RouteOrderDetialsApi: TargetType {
         switch self {
         case .getOrderDetails(orderId: let orderId):
             return ApiUrls.Apis.orderDetailsUrl.replacingOccurrences(of: "{id}", with: orderId)
+        case .cancelOrder(orderId: let orderId):
+            return ApiUrls.Apis.cancelOrderUrl.replacingOccurrences(of: "{id}", with: orderId)
         }
     }
     
     var method: Moya.Method {
-        return .get
+        switch self {
+        case .getOrderDetails(orderId: let orderId):
+            return .get
+        case .cancelOrder(orderId: let orderId):
+            return .post
+        }
     }
     
     var sampleData: Data {
@@ -37,6 +45,8 @@ extension RouteOrderDetialsApi: TargetType {
     var task: Task {
         switch self {
         case .getOrderDetails:
+            return .requestPlain
+        case .cancelOrder:
             return .requestPlain
         }
     }

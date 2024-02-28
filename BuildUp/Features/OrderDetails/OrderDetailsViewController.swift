@@ -19,6 +19,8 @@ class OrderDetailsViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var cancelOrderButton: UIButton!
+    @IBOutlet private weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     var viewModel: OrderDetailsViewModel!
         
@@ -39,15 +41,30 @@ class OrderDetailsViewController: BaseViewController {
         setupResponses()
         getOrderDetails()
     }
+    
+    @IBAction func cancelOrderAction(_ sender: UIButton) {
+        let cancelOrderVC = CancelOrderPopupViewController()
+        cancelOrderVC.delegate = self
+        self.presentPanModal(cancelOrderVC)
+    }
 
 }
 
 // MARK: - Private Func
 extension OrderDetailsViewController {
     private func setupView() {
+        cancelOrderButton.hideView()
+        
         registerTableViewCells()
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+        
+        cancelOrderButton.setTitle(L10n.OrderDetails.cancelOrder, for: .normal)
+        cancelOrderButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
+        cancelOrderButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        cancelOrderButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        
+        ThemeManager.setCornerRadious(element: cancelOrderButton, radius: 8)
     }
     
     private func registerTableViewCells() {
@@ -75,20 +92,39 @@ extension OrderDetailsViewController {
         }
     }
     
-    private func setupTitle() {
+    private func setupData() {
         self.title = L10n.OrderDetails.orderNumber + (self.viewModel.orderModel?.uuid ?? "")
+        
+        if let model = self.viewModel.orderModel {
+            if model.status == OrderStatus.delivered.rawValue {
+                tableViewBottomConstraint.constant = 0
+                cancelOrderButton.hideView()
+            } else {
+                tableViewBottomConstraint.constant = 100
+                cancelOrderButton.showView()
+            }
+        }
     }
     
     private func setupResponses() {
         orderDetailsResponse()
+        cancelOrderResponse()
     }
     
     private func orderDetailsResponse() {
         self.viewModel.onOrderDetails = { [weak self]() in
             guard let `self` = self else { return }
             self.hideLoading()
-            self.setupTitle()
+            self.setupData()
             self.tableView.reloadData()
+        }
+    }
+    
+    private func cancelOrderResponse() {
+        self.viewModel.onCancelOrder = { [weak self]() in
+            guard let `self` = self else { return }
+            self.hideLoading()
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
@@ -173,3 +209,8 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
+extension OrderDetailsViewController: CancelOrderPopupProtocol {
+    func cancelOrderClicked() {
+        self.viewModel.cancelOrder()
+    }
+}

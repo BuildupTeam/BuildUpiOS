@@ -432,6 +432,10 @@ internal enum L10n {
     }
 
     internal enum OrderDetails {
+        /// Cancel Order
+        internal static var cancelOrder: String {
+          return L10n.tr("Localizable", "orderDetails.cancelOrder")
+        }
         /// Order #
         internal static var orderNumber: String {
           return L10n.tr("Localizable", "orderDetails.orderNumber")
@@ -483,6 +487,14 @@ internal enum L10n {
         /// Cancel
         internal static var cancel: String {
           return L10n.tr("Localizable", "popups.cancel")
+        }
+        /// Are you Sure You want to cancel  this order
+        internal static var cancelOrderMsg: String {
+          return L10n.tr("Localizable", "popups.cancelOrderMsg")
+        }
+        /// Confirm
+        internal static var confirm: String {
+          return L10n.tr("Localizable", "popups.confirm")
         }
         /// Login
         internal static var login: String {

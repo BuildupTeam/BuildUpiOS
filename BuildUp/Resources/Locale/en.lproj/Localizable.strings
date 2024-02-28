@@ -63,7 +63,9 @@
 "popups.loginMsg" = "You don’t have an account please login first";
 "popups.logout" = "Logout";
 "popups.logoutMsg" = "Are you Sure you want to logout ?";
+"popups.cancelOrderMsg" = "Are you Sure You want to cancel  this order";
 "popups.cancel" = "Cancel";
+"popups.confirm" = "Confirm";
 
 // MARK: - Home
 "home.seeAll" = "See all";
@@ -155,6 +157,7 @@
 
 // MARK: - Order Details
 "orderDetails.orderNumber" = "Order #";
+"orderDetails.cancelOrder" = "Cancel Order";
 
 // MARK: - Profile Screen
 "profile.editProfile" = "Edit Profile";

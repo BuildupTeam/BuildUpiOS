@@ -52,13 +52,13 @@ class RegisterViewController: BaseViewController {
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
-        registerButton.layer.masksToBounds = true
-        registerButton.layer.cornerRadius = 8
         registerButton.backgroundColor = .dimmedButtonGray
         //ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         registerButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         registerButton.setTitle(L10n.Register.Button.createAccount, for: .normal)
         registerButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: registerButton, radius: 8)
         
         titleLabel.text = L10n.Register.title
         titleLabel.font = .appFont(ofSize: 24, weight: .semiBold)

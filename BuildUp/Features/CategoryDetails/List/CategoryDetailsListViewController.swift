@@ -214,6 +214,44 @@ extension CategoryDetailsListViewController {
         cartItemUpdatedResponse()
         favoriteProductUpdatedResponse()
     }
+    
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+// MARK: - Popup Delegate
+extension CategoryDetailsListViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
+    }
+}
+
+// MARK: - HomeHeaderCellDelegate
+extension CategoryDetailsListViewController: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        
+    }
+    
+    func userShouldLoginFirst() {
+        self.showLoginPopup()
+    }
+}
+
+// MARK: - TableViewDelegate & DataSource
+extension CategoryDetailsListViewController: ProductFavoriteDelegate {
+    func productFavorite(model: ProductModel) {
+        if let index = self.viewModel.products.firstIndex(where: { $0.uuid == model.uuid }) {
+            self.viewModel.products.remove(at: index)
+            self.tableView.reloadData()
+        }
+    }
+    
+    func pleaseLoginFirst() {
+        showLoginPopup()
+    }
 }
 
 extension CategoryDetailsListViewController: subcategoryTabsViewDelegate {

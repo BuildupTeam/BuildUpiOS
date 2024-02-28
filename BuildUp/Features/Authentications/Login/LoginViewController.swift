@@ -92,13 +92,13 @@ extension LoginViewController {
         forgetPasswordLable.font = .appFont(ofSize: 12, weight: .regular)
         forgetPasswordLable.textColor = ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "")
         
-        loginButton.layer.masksToBounds = true
-        loginButton.layer.cornerRadius = 8
         loginButton.backgroundColor = .dimmedButtonGray
         //ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         loginButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         loginButton.setTitle(L10n.Login.title, for: .normal)
         loginButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: loginButton, radius: 8)
         
         skipButton.titleLabel?.font = .appFont(ofSize: 13, weight: .semiBold)
         skipButton.setTitle(L10n.Login.skip, for: .normal)

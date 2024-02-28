@@ -63,7 +63,9 @@
 "popups.loginMsg" = "ليس لديك حساب من فضلك قم بتسجيل الدخول أولا";
 "popups.logout" = "تسجيل الخروج";
 "popups.logoutMsg" = "هل أنت متأكد أنك تريد تسجيل الخروج؟";
+"popups.cancelOrderMsg" = "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟";
 "popups.cancel" = "إلغاء";
+"popups.confirm" = "تأكيد";
 
 // MARK: - Home
 "home.seeAll" = "عرض الكل";
@@ -155,6 +157,7 @@
 
 // MARK: - Order Details
 "orderDetails.orderNumber" = "الطلب #";
+"orderDetails.cancelOrder" = "الغاء الطلب";
 
 // MARK: - Profile Screen
 "profile.editProfile" = "تعديل الملف الشخصي";

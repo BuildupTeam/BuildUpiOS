@@ -40,9 +40,7 @@ class CurrentOrderTableViewCell: UITableViewCell {
         registerCollectionViewCells()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        orderStatusView.setupDeliveredStatus()
-        
+                
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
         viewDetailsLabel.text = L10n.Orders.viewDetails
@@ -89,6 +87,8 @@ class CurrentOrderTableViewCell: UITableViewCell {
                     orderDateLabel.text = L10n.Orders.placedOn + dateString
                 }
             }
+            
+            orderStatusView.orderModel = model
         }
     }
 

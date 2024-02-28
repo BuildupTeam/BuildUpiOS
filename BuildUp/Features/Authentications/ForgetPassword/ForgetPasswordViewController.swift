@@ -53,13 +53,13 @@ extension ForgetPasswordViewController {
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
-        forgetPasswordButton.layer.masksToBounds = true
-        forgetPasswordButton.layer.cornerRadius = 8
         forgetPasswordButton.backgroundColor = .dimmedButtonGray
         //ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         forgetPasswordButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         forgetPasswordButton.setTitle(L10n.ForgetPassword.Button.sendReset, for: .normal)
         forgetPasswordButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: forgetPasswordButton, radius: 8)
         
         titleLable.text = L10n.ForgetPassword.title
         titleLable.font = .appFont(ofSize: 24, weight: .semiBold)

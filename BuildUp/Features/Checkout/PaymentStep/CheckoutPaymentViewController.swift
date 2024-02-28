@@ -65,12 +65,12 @@ class CheckoutPaymentViewController: BaseViewController {
         choosePaymentLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         choosePaymentLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         
-        continueButton.layer.masksToBounds = true
-        continueButton.layer.cornerRadius = 8
         continueButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         continueButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         continueButton.setTitle(L10n.Checkout.continue, for: .normal)
         continueButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: continueButton, radius: 8)
     }
     
     private func getPaymentMethods() {

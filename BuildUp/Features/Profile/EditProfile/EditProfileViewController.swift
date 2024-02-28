@@ -70,13 +70,13 @@ class EditProfileViewController: BaseViewController {
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
-        updateProfileButton.layer.masksToBounds = true
-        updateProfileButton.layer.cornerRadius = 8
         updateProfileButton.backgroundColor = .dimmedButtonGray
         //ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         updateProfileButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         updateProfileButton.setTitle(L10n.Profile.Update.updateProfile, for: .normal)
         updateProfileButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: updateProfileButton, radius: 8)
     }
     
     private func updateUpdateProfileButtonAppearence() {
