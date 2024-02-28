@@ -22,9 +22,6 @@ on:
       client_app:
         description: 'Client app slug'
         required: true
-      splash_background:
-        description: 'Splash background'
-        required: true
 
 jobs:
   build:
@@ -61,26 +58,6 @@ jobs:
           rm fastlane/Matchfile
           echo "${{ github.event.inputs.match_file}}" > fastlane/Matchfile
           cat fastlane/Matchfile
-
-      - name: Replace launch screen
-        run: |
-          # Read the content of the file
-          file_path="${{ github.workspace }}/BuildUp/Base.lproj/LaunchScreen.storyboard"
-          new_file_path="${{ github.workspace }}/LaunchScreen.txt"
-          content=$(cat $file_path)
-          background_color="${{ github.event.inputs.splash_background }}"
-
-          # Replace ${keyword} with "new keyword"
-          new_content=$(echo "$content" | sed "s/\${colors}/$background_color/g")
-  
-          # Write the modified content to a new file
-          echo "$new_content" > $new_file_path
-  
-          # Move the new file to the desired location
-          mv $new_file_path $file_path
-          cat ${file_path}
-
-        shell: bash
 
       - name: Install dependencies
         run: |
