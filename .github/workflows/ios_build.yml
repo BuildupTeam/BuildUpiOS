@@ -65,8 +65,8 @@ jobs:
       - name: Replace launch screen
         run: |
           # Read the content of the file
-          file_path="BuildUp/Base.lproj/LaunchScreen.storyboard"
-          new_file_path="BuildUp/Resources/LaunchScreen/TempLaunchScreen.storyboard"
+          file_path="${{ github.workspace }}/BuildUp/Base.lproj/LaunchScreen.storyboard"
+          new_file_path="${{ github.workspace }}/LaunchScreen.txt"
           content=$(cat $file_path)
           background_color="${{ github.event.inputs.splash_background }}"
 
