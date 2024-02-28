@@ -46,7 +46,7 @@ platform :ios do
       app_identifier: ENV['APP_IDENTIFIER'],
       readonly: true
     )
-    build_app(scheme: "BuildUp")
+    build_app(scheme: ENV['SCHEME'])
     app_store_connect_api_key(
 	  key_id: "223H85GN24",
 	  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1", 	 
@@ -88,6 +88,37 @@ lane:change_main_host do
 
 end
 
+lane:change_background_color do
+    path = '../BuildUp/Base.lproj/LaunchScreen.storyboard'
+    re = / key="backgroundColor"(.*)/
+    s = File.read(path)
+    background = ' key=“backgroundColor” red="' + ENV['RED'] + ’" green="' + ENV['GREEN’] +’" blue="‘ + ENV[‘BLUE’] +’”  alpha=“1" colorSpace="custom" customColorSpace="sRGB"/>'
+    s[re, 0] = background
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
+end
+
+lane :change_launch_screen_background do
+  # Define the path to your LaunchScreen.storyboard file
+  storyboard_path = "../BuildUp/Base.lproj/LaunchScreen.storyboard"
+
+  # Define the new background color values
+  new_red_value = ENV['RED']
+  new_green_value = ENV['GREEN']
+  new_blue_value = ENV['BLUE']
+  new_alpha_value = ENV['ALPHA']
+
+  # Backup the original LaunchScreen.storyboard file
+  sh "cp #{storyboard_path} #{storyboard_path}.bak"
+
+  # Use sed to replace the background color in LaunchScreen.storyboard
+  sh "sed -i '' 's/<color key=\"backgroundColor\" .* \\/>/<color key=\"backgroundColor\" red=\"#{new_red_value}\" green=\"#{new_green_value}\" blue=\"#{new_blue_value}\" alpha=\"#{new_alpha_value}\" colorSpace=\"custom\" customColorSpace=\"sRGB\"\\/>/' #{storyboard_path}"
+
+  UI.message("Launch screen background color has been updated.")
+end
+
+
 desc "Set the build number to a specific value"
   lane :set_build_number do
     increment_build_number(build_number: ENV['APP_BUILD_NUMBER']) # Set a specific build number
@@ -106,6 +137,7 @@ lane:update_app do
     change_main_host()
     update_project_settings()
     set_build_number()
+    change_background_color
     deploy()
 end
 
@@ -130,7 +162,7 @@ end
       app_identifier: ENV['APP_IDENTIFIER'],
       readonly: true
     )
-    build_app(scheme: "BuildUp")
+    build_app(scheme: ENV['SCHEME'])
     app_store_connect_api_key(
 	  key_id: "223H85GN24",
 	  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1", 	 
