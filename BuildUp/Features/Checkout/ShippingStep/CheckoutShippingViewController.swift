@@ -93,12 +93,13 @@ extension CheckoutShippingViewController {
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
-        continueButton.layer.masksToBounds = true
-        continueButton.layer.cornerRadius = 8
 //        continueButton.backgroundColor = .dimmedButtonGray
         continueButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         continueButton.setTitle(L10n.Checkout.continue, for: .normal)
         continueButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: continueButton, radius: 8)
+
     }
     
     private func fillUserData() {

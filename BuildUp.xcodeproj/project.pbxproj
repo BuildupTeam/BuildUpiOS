@@ -494,6 +494,9 @@
 		39C6C4E42A45C10A00F11A6F /* CategoriesHorizontalList3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C6C4E22A45C10A00F11A6F /* CategoriesHorizontalList3TableViewCell.xib */; };
 		39C6C4E72A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C6C4E52A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.swift */; };
 		39C6C4E82A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C6C4E62A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.xib */; };
+		39C8CF382B8FB3BB004C2A7D /* TempLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C8CF372B8FB3BB004C2A7D /* TempLaunchScreen.storyboard */; };
+		39C8CF3B2B8FBEA4004C2A7D /* CancelOrderPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C8CF392B8FBEA4004C2A7D /* CancelOrderPopupViewController.swift */; };
+		39C8CF3C2B8FBEA4004C2A7D /* CancelOrderPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C8CF3A2B8FBEA4004C2A7D /* CancelOrderPopupViewController.xib */; };
 		39C91A1F2AB8D80400C10C16 /* CategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A1D2AB8D80400C10C16 /* CategoriesListViewController.swift */; };
 		39C91A202AB8D80400C10C16 /* CategoriesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C91A1E2AB8D80400C10C16 /* CategoriesListViewController.xib */; };
 		39C91A222AB8DED900C10C16 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C91A212AB8DED900C10C16 /* CategoriesViewModel.swift */; };
@@ -1161,6 +1164,9 @@
 		39C6C4E22A45C10A00F11A6F /* CategoriesHorizontalList3TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesHorizontalList3TableViewCell.xib; sourceTree = "<group>"; };
 		39C6C4E52A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesHorizontalList3CollectionViewCell.swift; sourceTree = "<group>"; };
 		39C6C4E62A45C22000F11A6F /* CategoriesHorizontalList3CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesHorizontalList3CollectionViewCell.xib; sourceTree = "<group>"; };
+		39C8CF372B8FB3BB004C2A7D /* TempLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TempLaunchScreen.storyboard; sourceTree = "<group>"; };
+		39C8CF392B8FBEA4004C2A7D /* CancelOrderPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderPopupViewController.swift; sourceTree = "<group>"; };
+		39C8CF3A2B8FBEA4004C2A7D /* CancelOrderPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CancelOrderPopupViewController.xib; sourceTree = "<group>"; };
 		39C91A1D2AB8D80400C10C16 /* CategoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListViewController.swift; sourceTree = "<group>"; };
 		39C91A1E2AB8D80400C10C16 /* CategoriesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesListViewController.xib; sourceTree = "<group>"; };
 		39C91A212AB8DED900C10C16 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
@@ -1990,6 +1996,7 @@
 		393174512A19195100AF64BC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				39C8CF362B8FB38A004C2A7D /* LaunchScreen */,
 				393174292A19134D00AF64BC /* Info.plist */,
 				393CD7D42A6ABB130053A55E /* Json Files */,
 				391529CE2A347314007F7E09 /* Fonts */,
@@ -2943,6 +2950,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		39C8CF362B8FB38A004C2A7D /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				39C8CF372B8FB3BB004C2A7D /* TempLaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		39C91A1C2AB8D39B00C10C16 /* CategroiesList */ = {
 			isa = PBXGroup;
 			children = (
@@ -3198,6 +3213,8 @@
 				39D754262B5D8D4F00BFBC42 /* LogoutPopupViewController.xib */,
 				39D754292B5D9DF600BFBC42 /* LoginPopupViewController.swift */,
 				39D7542A2B5D9DF600BFBC42 /* LoginPopupViewController.xib */,
+				39C8CF392B8FBEA4004C2A7D /* CancelOrderPopupViewController.swift */,
+				39C8CF3A2B8FBEA4004C2A7D /* CancelOrderPopupViewController.xib */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -3570,6 +3587,7 @@
 				395D3BB12A995CB600DA9859 /* ShimmerCategoriesVerticalGrid3CollectionViewCell.xib in Resources */,
 				39EF7F522A39C165003E7641 /* ProductHorizontalList1TableViewCell.xib in Resources */,
 				391529F22A347F37007F7E09 /* ProductVerticalList3TableViewCell.xib in Resources */,
+				39C8CF3C2B8FBEA4004C2A7D /* CancelOrderPopupViewController.xib in Resources */,
 				39152A062A34945D007F7E09 /* ProductVerticalGrid1CollectionViewCell.xib in Resources */,
 				393613952AB47539007289DE /* ProductsListViewController.xib in Resources */,
 				394443F52B88037C008232E5 /* LanguageBottomSheetViewController.xib in Resources */,
@@ -3627,6 +3645,7 @@
 				39730D4C2AA236BF0088C9ED /* ProductSpecificationsTableViewCell.xib in Resources */,
 				3932B2622B126F1400283B3D /* AddNewAddressViewController.xib in Resources */,
 				39152A002A348AAB007F7E09 /* ProductVerticalGrid3TableViewCell.xib in Resources */,
+				39C8CF382B8FB3BB004C2A7D /* TempLaunchScreen.storyboard in Resources */,
 				390DC1ED2B1B842500E1CBA9 /* ProfileHeaderTableViewCell.xib in Resources */,
 				390E6D692A90327A009ECC00 /* ShimmerProductVerticalGrid4CollectionViewCell.xib in Resources */,
 				3999AA732AD1BFE5007D0ACB /* Montserrat-Light.ttf in Resources */,
@@ -4204,6 +4223,7 @@
 				39A2DD8D2A6B44E4005B52FD /* HomeSectionModel.swift in Sources */,
 				39152A052A34945D007F7E09 /* ProductVerticalGrid1CollectionViewCell.swift in Sources */,
 				39CE766D2A2F60880019A485 /* CachingService.swift in Sources */,
+				39C8CF3B2B8FBEA4004C2A7D /* CancelOrderPopupViewController.swift in Sources */,
 				393613C02AB522A9007289DE /* CategoryDetailsWebServiceProtocol.swift in Sources */,
 				391529FB2A348A9A007F7E09 /* ProductVerticalGrid2TableViewCell.swift in Sources */,
 				393613942AB47539007289DE /* ProductsListViewController.swift in Sources */,

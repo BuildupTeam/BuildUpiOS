@@ -1,27 +1,27 @@
 //
-//  LogoutPopupViewController.swift
+//  CancelOrderPopupViewController.swift
 //  BuildUp
 //
-//  Created by Mohammed Khaled on 21/01/2024.
+//  Created by Mohammed Khaled on 28/02/2024.
 //
 
 import UIKit
 import PanModal
 
-protocol LogoutPopupProtocol: AnyObject {
-    func logoutButtonClicked()
+protocol CancelOrderPopupProtocol: AnyObject {
+    func cancelOrderClicked()
 }
 
-class LogoutPopupViewController: UIViewController {
+class CancelOrderPopupViewController: BaseViewController {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var seperatorView: UIView!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
     
-    weak var delegate: LogoutPopupProtocol?
+    weak var delegate: CancelOrderPopupProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +29,15 @@ class LogoutPopupViewController: UIViewController {
     }
     
     private func setupView() {
-        titleLabel.text = L10n.Popups.logoutMsg
+        titleLabel.text = L10n.Popups.cancelOrderMsg
         titleLabel.textAlignment = .center
         titleLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         titleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         
-        logoutButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
-        logoutButton.setTitle(L10n.Popups.logout, for: .normal)
-        logoutButton.setTitleColor(ThemeManager.colorPalette?.cardBg1?.toUIColor(hexa: ThemeManager.colorPalette?.cardBg1 ?? "") , for: .normal)
-        logoutButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        confirmButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
+        confirmButton.setTitle(L10n.Popups.confirm, for: .normal)
+        confirmButton.setTitleColor(ThemeManager.colorPalette?.cardBg1?.toUIColor(hexa: ThemeManager.colorPalette?.cardBg1 ?? "") , for: .normal)
+        confirmButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         
         cancelButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         cancelButton.setTitle(L10n.Popups.cancel, for: .normal)
@@ -47,21 +47,23 @@ class LogoutPopupViewController: UIViewController {
         cancelButton.layer.borderWidth = 1.0
         cancelButton.layer.borderColor = ThemeManager.colorPalette?.buttonBorderColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderColor ?? "").cgColor
         
-        ThemeManager.setCornerRadious(element: logoutButton, radius: 2)
+        ThemeManager.setCornerRadious(element: confirmButton, radius: 2)
         ThemeManager.setCornerRadious(element: cancelButton, radius: 2)
     }
     
-    @IBAction func logoutAction(_ sender: UIButton) {
-        delegate?.logoutButtonClicked()
+    @IBAction func confirmAction(_ sender: UIButton) {
+        delegate?.cancelOrderClicked()
+        dismiss(animated: true)
     }
 
     @IBAction func cancelAction(_ sender: UIButton) {
         dismiss(animated: true)
     }
+
 }
 
 // MARK: PanModel Delegate
-extension LogoutPopupViewController: PanModalPresentable {
+extension CancelOrderPopupViewController: PanModalPresentable {
     
     var panScrollable: UIScrollView? {
         return nil

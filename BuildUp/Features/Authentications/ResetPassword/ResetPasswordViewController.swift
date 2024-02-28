@@ -69,12 +69,12 @@ class ResetPasswordViewController: BaseViewController {
         contentLable.font = .appFont(ofSize: 13, weight: .regular)
         contentLable.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
         
-        resetPasswordButton.layer.masksToBounds = true
-        resetPasswordButton.layer.cornerRadius = 8
         resetPasswordButton.backgroundColor = .dimmedButtonGray
         resetPasswordButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         resetPasswordButton.setTitle(L10n.ResetPassword.Button.reset, for: .normal)
         resetPasswordButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: resetPasswordButton, radius: 8)
         
         passwordTitleLable.text = L10n.Login.password
         passwordTitleLable.font = .appFont(ofSize: 14, weight: .medium)

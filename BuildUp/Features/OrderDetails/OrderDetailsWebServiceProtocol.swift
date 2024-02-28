@@ -11,6 +11,7 @@ import Moya
 
 protocol OrderDetailsWebServiceProtocol: AnyObject {
     func getOrderDetails(orderId: String, compeltion: @escaping ((Result<OrderDetailsResponseModel, NetworkError>) -> Void))
+    func cancelOrder(orderId: String, compeltion: @escaping ((Result<BaseResponse, NetworkError>) -> Void))
 }
 
 class OrderDetailsWebService: OrderDetailsWebServiceProtocol {
@@ -22,6 +23,22 @@ class OrderDetailsWebService: OrderDetailsWebServiceProtocol {
             switch result {
             case .success(let response):
                 guard let orderDetailsResponse = Mapper<OrderDetailsResponseModel>().map(JSONObject: response) else {
+                    return
+                }
+                orderDetailsResponse.statusCode = statusCode
+                compeltion(Result.success(orderDetailsResponse))
+            case .failure(var error):
+                error.statusCode = statusCode
+                compeltion(Result.failure(error))
+            }
+        }
+    }
+    
+    func cancelOrder(orderId: String, compeltion: @escaping ((Result<BaseResponse, NetworkError>) -> Void)) {
+        MainWebService.fetch(endPoint: RouteOrderDetialsApi.cancelOrder(orderId: orderId)) { (result, statusCode) in
+            switch result {
+            case .success(let response):
+                guard let orderDetailsResponse = Mapper<BaseResponse>().map(JSONObject: response) else {
                     return
                 }
                 orderDetailsResponse.statusCode = statusCode

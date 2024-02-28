@@ -8,7 +8,7 @@
 import UIKit
 
 enum OrderStatus: String {
-    case completed = "completed"
+    case placed = "completed"
     case arriving = "arriving"
     case delivered = "delivered"
     case canceled = "canceled"
@@ -38,6 +38,7 @@ class OrderDetailsStatusTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        orderStatusLabel.textAlignment = .center
         orderStatusLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         orderStatusLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
@@ -54,43 +55,50 @@ class OrderDetailsStatusTableViewCell: UITableViewCell {
         
     }
     
-    private func setupStep1Active() {
+    private func setupPlacedActive() {
         step1View.backgroundColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         step2View.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "")
         step3View.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "")
     }
     
-    private func setupStep2Active() {
+    private func setupArrivingActive() {
         step1View.backgroundColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         step2View.backgroundColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         step3View.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "")
     }
     
-    private func setupStep3Active() {
+    private func setupDeliveredActive() {
         step1View.backgroundColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         step2View.backgroundColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         step3View.backgroundColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
     }
     
+    private func setupCancelledActive() {
+        step1View.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "")
+        step2View.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "")
+        step3View.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "")
+    }
+    
     private func bindData() {
         if let model = orderModel {
-            orderStatusLabel.text = model.statusLabel
+            orderStatusLabel.text = model.status
+            
             switch model.status {
-            case OrderStatus.completed.rawValue:
-                orderStatusImageView.image = Asset.icArriving.image
-                setupStep3Active()
+            case OrderStatus.placed.rawValue:
+                orderStatusImageView.image = Asset.icPlaced.image
+                setupPlacedActive()
             case OrderStatus.delivered.rawValue:
                 orderStatusImageView.image = Asset.icDelivered.image
-                setupStep3Active()
+                setupDeliveredActive()
             case OrderStatus.arriving.rawValue:
                 orderStatusImageView.image = Asset.icArriving.image
-                setupStep1Active()
+                setupArrivingActive()
             case OrderStatus.canceled.rawValue:
                 orderStatusImageView.image = Asset.icCancelled.image
+                setupCancelledActive()
             default:
                 return
             }
         }
     }
-    
 }

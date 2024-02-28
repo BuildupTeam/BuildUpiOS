@@ -42,8 +42,6 @@ class PastOrderTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        orderStatusView.setupDeliveredStatus()
-        
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
         viewDetailsLabel.text = L10n.Orders.viewDetails
@@ -91,6 +89,8 @@ class PastOrderTableViewCell: UITableViewCell {
                     orderDateLabel.text = L10n.Orders.placedOn + dateString
                 }
             }
+            
+            orderStatusView.orderModel = model
         }
     }
     

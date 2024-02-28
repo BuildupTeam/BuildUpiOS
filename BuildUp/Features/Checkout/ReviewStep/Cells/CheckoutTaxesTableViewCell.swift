@@ -34,6 +34,7 @@ class CheckoutTaxesTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = taxDetailsModel {
+            estimatedVatTitleLabel.text = model.name
             estimatedVatLabel.text = model.amount?.formatted
         }
     }

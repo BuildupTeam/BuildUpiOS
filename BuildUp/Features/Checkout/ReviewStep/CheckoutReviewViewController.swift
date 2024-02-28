@@ -97,12 +97,13 @@ extension CheckoutReviewViewController {
         subtotalTitleLabel.font = .appFont(ofSize: 17, weight: .medium)
         subtotalLabel.font = .appFont(ofSize: 16, weight: .bold)
         
-        checkoutButton.layer.masksToBounds = true
-        checkoutButton.layer.cornerRadius = 8
         checkoutButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
         checkoutButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         checkoutButton.setTitle(L10n.Checkout.continue, for: .normal)
         checkoutButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: checkoutButton, radius: 8)
+
     }
     
     private func registerTableViewCells() {

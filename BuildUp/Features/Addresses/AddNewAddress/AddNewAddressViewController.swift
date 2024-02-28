@@ -105,11 +105,10 @@ extension AddNewAddressViewController {
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         
-        addAddressButton.layer.masksToBounds = true
-        addAddressButton.layer.cornerRadius = 8
-//        continueButton.backgroundColor = .dimmedButtonGray
         addAddressButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         addAddressButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
+        
+        ThemeManager.setCornerRadious(element: addAddressButton, radius: 8)
     }
     
     private func updateAddAddressButtonAppearence() {

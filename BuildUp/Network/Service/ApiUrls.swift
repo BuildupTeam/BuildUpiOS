@@ -42,6 +42,7 @@ struct ApiUrls {
         static let paymentCanceledUrl = "/checkout/{uuid}/payment-canceled"
         static let completeOrderUrl = "/checkout/{uuid}/complete"
         static let paymentMethodsUrl = "/payments/methods"
+        static let cancelOrderUrl = "/orders/{id}/cancel"
         
         static let fetchFirebaseToken = "/fcm-token"
     }
