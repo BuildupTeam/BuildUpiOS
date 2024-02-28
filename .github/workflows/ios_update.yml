@@ -65,9 +65,9 @@ jobs:
           pod install
           bundle update --full-index
 
-      - name: Execute Fastlane
+      - name: Execute update_app
         run: |
-          fastlane upload_app
+          fastlane deploy
 
       - name: Send Failure Notification
         if: failure()
@@ -82,7 +82,7 @@ jobs:
           '{authorization: $auth, workflow_run_number: $run_number, error_message: $msg, deployment_id: $deployment_id}')
           curl -X POST -H "Content-Type: application/json" \
             -d "$PAYLOAD" \
-            "https://ecommerce.buildupp.co/api/v1/deploy/ios/publish-failure"
+            "https://ecommerce.buildupp.co/api/v1/deploy/ios/update-failure"
 
       - name: Send Success Notification
         if: success()
@@ -100,7 +100,7 @@ jobs:
                  -F "deployment_id=${{ github.event.inputs.deployment_id }}" \
                  -F "workflow_run_number=${GITHUB_RUN_NUMBER}" \
                  -F "error_message=$ERROR_MESSAGE_JSON" \
-                 "https://ecommerce.buildupp.co/api/v1/deploy/ios/publish-success" && break
+                 "https://ecommerce.buildupp.co/api/v1/deploy/ios/update-success" && break
             echo "curl command failed, retrying in $sleep_seconds seconds..."
             sleep $sleep_seconds
             attempt=$(( attempt + 1 ))
