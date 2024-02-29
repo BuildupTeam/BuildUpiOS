@@ -63,12 +63,12 @@ jobs:
           cat fastlane/Matchfile
 
       # Generating app icon with different sizes
-      - name: Set up ImageMagick
-        run: brew install imagemagick
-
-      - name: Set up splash icon
-        run: |
-          curl ${{ github.event.inputs.app_icon }} -o BuildUp/Resources/Assets/Assets.xcassets/Splash/splash_logo.imageset/splash_logo.svg
+#      - name: Set up ImageMagick
+#        run: brew install imagemagick
+#
+#      - name: Set up splash icon
+#        run: |
+#          curl ${{ github.event.inputs.app_icon }} -o BuildUp/Resources/Assets/Assets.xcassets/Splash/splash_logo.imageset/splash_logo.svg
 
 #      - name: Run Image Resize Script
 #        run: |
