@@ -64,7 +64,7 @@ jobs:
 
       # Generating app icon with different sizes
       - name: Set up ImageMagick
-        run: sudo apt-get install -y imagemagick
+        run: brew install imagemagick
 
       - name: Set up splash icon
         run: |
