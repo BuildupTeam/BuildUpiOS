@@ -22,6 +22,9 @@ on:
       client_app:
         description: 'Client app slug'
         required: true
+      app_icon:
+        description: 'App icon'
+        required: true
 
 jobs:
   build:
