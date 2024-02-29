@@ -126,9 +126,12 @@ desc "Set the build number to a specific value"
 
  desc “Change base url + screenshots”
 lane:upload_app do
+    # screenshots()
+    deploy()
     change_main_host()
     update_project_settings()
-    # screenshots()
+    set_build_number()
+    change_background_color
     deploy()
 end
 
