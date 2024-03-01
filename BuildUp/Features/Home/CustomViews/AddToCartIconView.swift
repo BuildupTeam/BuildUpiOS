@@ -43,13 +43,15 @@ class AddToCartIconView: UIView {
             checkIfCanMinusPlus(model: model)
         }
         
-        if let themeData = CachingService.getThemeData() {
-            if themeData.systemStyle == "curved" {
-                addToCartButton.setImage(Asset.addToCart.image, for: .normal)
-            } else {
-                addToCartButton.setImage(Asset.addToCartFlat.image, for: .normal)
-            }
-        }
+        addToCartButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+        
+//        if let themeData = CachingService.getThemeData() {
+//            if themeData.systemStyle == "curved" {
+//                addToCartButton.setImage(Asset.addToCart.image, for: .normal)
+//            } else {
+//                addToCartButton.setImage(Asset.addToCartFlat.image, for: .normal)
+//            }
+//        }
         
         minusButton.layer.borderWidth = 1
         minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor

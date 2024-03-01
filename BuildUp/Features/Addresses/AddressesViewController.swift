@@ -65,7 +65,6 @@ extension AddressesViewController {
         deactivatConfirmButton()
         
         confirmButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
-        confirmButton.setTitle(L10n.Checkout.confirm, for: .normal)
         confirmButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
@@ -82,8 +81,9 @@ extension AddressesViewController {
         addNewAddressContainerView.layer.borderWidth = 1
         
         if isCommingFromShipping {
-            confirmButtonHeightConstraint.constant = 0
-            confirmButton.hideView()
+            confirmButton.setTitle(L10n.Checkout.confirm, for: .normal)
+        } else {
+            confirmButton.setTitle(L10n.Checkout.Addresses.setAsDefault, for: .normal)
         }
         
         ThemeManager.setCornerRadious(element: addNewAddressContainerView, radius: 8)
@@ -145,8 +145,15 @@ extension AddressesViewController {
 // MARK: - Actions
 extension AddressesViewController {
     @IBAction func confirmAction(_ sender: UIButton) {
-        self.showLoading()
-        self.viewModel.setDefaultAddress(adddressId: self.viewModel.addresses?.first(where: {$0.isDefault ?? false})?.id ?? 0)
+        if isCommingFromShipping {
+            if let model = self.viewModel.addresses?.first(where: {$0.isDefault ?? false}) {
+                self.delegate?.addressTaped(addressModel: model)
+                self.navigationController?.popViewController(animated: true)
+            }
+        } else {
+            self.showLoading()
+            self.viewModel.setDefaultAddress(adddressId: self.viewModel.addresses?.first(where: {$0.isDefault ?? false})?.id ?? 0)
+        }
     }
     
     @IBAction func addNewAddressAction(_ sender: UIButton) {
@@ -185,13 +192,6 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isCommingFromShipping {
-            if let model = self.viewModel.addresses?[indexPath.row] {
-                self.delegate?.addressTaped(addressModel: model)
-                self.navigationController?.popViewController(animated: true)
-            }
-            return
-        }
         if let addresses = self.viewModel.addresses {
             for address in addresses {
                 address.isDefault = false

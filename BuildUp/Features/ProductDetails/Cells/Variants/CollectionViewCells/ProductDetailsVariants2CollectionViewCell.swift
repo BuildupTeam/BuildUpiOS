@@ -26,7 +26,8 @@ class ProductDetailsVariants2CollectionViewCell: UICollectionViewCell {
     
     private func setupCell() {
         titleLabel.font = .appFont(ofSize: 12, weight: .semiBold)
-        
+        titleLabel.textAlignment = .center
+
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
         

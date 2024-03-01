@@ -12,8 +12,8 @@ class LocalizationManager {
     
     static var defaultLanguage: LanguageModel {
         let languageModel = LanguageModel(
-            name: Language.arabic.languageName,
-            code: Language.arabic.rawValue)
+            name: Language.english.languageName,
+            code: Language.english.rawValue)
 
         return languageModel
     }
@@ -42,10 +42,10 @@ class LocalizationManager {
             supportedLanguages = cachedSupportedLanguages
         } else {
             let arabicLanguage = LanguageModel(name: Language.arabic.languageName, code: Language.arabic.rawValue)
-            arabicLanguage.isSelected = true
+            arabicLanguage.isSelected = false
             
             let englishLanguage = LanguageModel(name: Language.english.languageName, code: Language.english.rawValue)
-            englishLanguage.isSelected = false
+            englishLanguage.isSelected = true
             
             supportedLanguages = [arabicLanguage, englishLanguage]
         }

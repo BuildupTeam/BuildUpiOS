@@ -31,7 +31,8 @@ class ProductDetailsVariants1CollectionViewCell: UICollectionViewCell {
         containerView.layer.borderColor = ThemeManager.colorPalette?.tabsInactiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBorder ?? "").cgColor
         
         titleLabel.font = .appFont(ofSize: 12, weight: .semiBold)
-        
+        titleLabel.textAlignment = .center
+
         titleLabel.textColor = ThemeManager.colorPalette?.tabsTextInactive?.toUIColor(hexa: ThemeManager.colorPalette?.tabsTextInactive ?? "")
     }
 
