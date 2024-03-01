@@ -13,6 +13,7 @@ class AddressModel: Mappable {
     var id: Int?
     var addressDescription: String?
     var isDefault: Bool?
+    var isSelected = false
     var country: CountryModel?
     var city: CityModel?
     var area: AreaModel?

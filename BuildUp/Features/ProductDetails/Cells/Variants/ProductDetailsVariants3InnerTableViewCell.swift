@@ -24,6 +24,8 @@ class ProductDetailsVariants3InnerTableViewCell: UITableViewCell {
     }
 
     private func setupCell() {
+        variantValueLabel.textAlignment = .center
+
         variantValueLabel.font = .appFont(ofSize: 12, weight: .semiBold)
         variantNameLabel.font = .appFont(ofSize: 13, weight: .regular)
         

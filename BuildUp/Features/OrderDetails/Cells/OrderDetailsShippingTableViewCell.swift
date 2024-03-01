@@ -47,7 +47,7 @@ class OrderDetailsShippingTableViewCell: UITableViewCell {
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
         shippingTitleLabel.text = L10n.Checkout.shippingInfo
-        countryTitleLabel.text = L10n.Checkout.country
+        countryTitleLabel.text = L10n.Checkout.number
         addressTitleLabel.text = L10n.Checkout.address
     }
     
@@ -62,7 +62,7 @@ class OrderDetailsShippingTableViewCell: UITableViewCell {
         if let model = orderModel {
             userNameLabel.text = model.customerName
             addressLabel.text = model.shippingAddressDescription
-            countryLabel.text = (model.shippingCountry?.name ?? "") + ", " + (model.shippingCity?.name ?? "")
+            countryLabel.text = (model.customerCountryCode ?? "") + " " + (model.customerPhone ?? "")
         }
     }
 }

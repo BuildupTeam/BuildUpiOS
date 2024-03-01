@@ -27,7 +27,7 @@ class OrderStatusView: UIView {
     
     func bindData() {
         if let model = orderModel {
-            statusLabel.text = model.status
+            statusLabel.text = model.statusLabel
             
             switch model.status {
             case OrderStatus.placed.rawValue:

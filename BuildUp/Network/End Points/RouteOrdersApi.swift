@@ -9,7 +9,10 @@ import Foundation
 import Moya
 
 enum RouteOrdersApi {
-    case getOrders(completed: Int)
+    case getOrders(perPage: Int,
+                   page: Int? = nil,
+                   cursor: String? = nil,
+                   completed: Int)
 }
 
 extension RouteOrdersApi: TargetType {
@@ -33,8 +36,20 @@ extension RouteOrdersApi: TargetType {
     
     var task: Task {
         switch self {
-        case .getOrders(completed: let completed):
-            let parameters: [String: Any] = ["current": completed]
+        case .getOrders(perPage: let perPage,
+                        page: let page,
+                        cursor: let cursor,
+                        completed: let completed):
+            
+            var parameters: [String: Any] = ["current": completed]
+            
+            parameters["sort[by]"] = "id"
+            parameters["sort[dir]"] = "desc"
+            parameters["cursor"] = cursor
+            parameters["cursor_meta"] = "1"
+            parameters["cursor_by"] = "id"
+            parameters["cursor_dir"] = "desc"
+            
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }

@@ -14,6 +14,7 @@ class CurrentOrdersViewController: BaseViewController {
     
     // MARK: - init methods
     var isReloadingTableView = false
+    var refreshControl = UIRefreshControl()
     
     override  var prefersBottomBarHidden: Bool? { return true }
 
@@ -28,7 +29,7 @@ class CurrentOrdersViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ordersResponse()
+        setupResponse()
         setupView()
     }
     
@@ -76,6 +77,38 @@ class CurrentOrdersViewController: BaseViewController {
     private func removeBackgroundViews() {
         tableView.backgroundView = nil
     }
+    
+    private func addRefreshControl() {
+        self.refreshControl.removeFromSuperview()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    private func reloadTableViewData() {
+        self.isReloadingTableView = true
+        self.tableView.reloadData()
+    }
+    
+    func addSpinnerToTableView() {
+        let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        spinner.frame = CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: 44)
+        spinner.hidesWhenStopped = false
+        spinner.color = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        spinner.startAnimating()
+        tableView.tableFooterView = spinner
+    }
+    
+    @objc
+    private func refreshData() {
+        addFeedbackGenerator()
+        viewModel.page = 1
+        viewModel.perPage = 20
+        viewModel.cursor = nil
+        getOrders()
+    }
 
 }
 
@@ -85,7 +118,7 @@ extension CurrentOrdersViewController: UITableViewDelegate, UITableViewDataSourc
         if isLoadingShimmer {
             return 10
         }
-        return self.viewModel.orders?.count ?? 0
+        return self.viewModel.orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,20 +136,31 @@ extension CurrentOrdersViewController: UITableViewDelegate, UITableViewDataSourc
                 for: indexPath) as? CurrentOrderTableViewCell
             else { return UITableViewCell() }
             
-            if let model = self.viewModel.orders?[indexPath.row] {
-                cell.orderModel = model
-            }
+            cell.orderModel = self.viewModel.orders[indexPath.row]
             
             cell.selectionStyle = .none
             return cell
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let orderModel = self.viewModel.orders?[indexPath.row] {
-            let orderDetailsVC = Coordinator.Controllers.createOrderDetailsViewController(orderModel: orderModel)
-            self.navigationController?.pushViewController(orderDetailsVC, animated: true)
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == (viewModel.orders.count - 1) &&
+            (viewModel.orders.count >= viewModel.perPage) {
+            if !isReloadingTableView {
+                if viewModel.responseModel?.pagination?.cursorMeta?.nextCursor != nil {
+                    self.loadMoreOrders()
+                    addSpinnerToTableView()
+                }
+            } else {
+                isReloadingTableView = false
+            }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let orderModel = self.viewModel.orders[indexPath.row]
+        let orderDetailsVC = Coordinator.Controllers.createOrderDetailsViewController(orderModel: orderModel)
+        self.navigationController?.pushViewController(orderDetailsVC, animated: true)
     }
 }
 
@@ -126,16 +170,39 @@ extension CurrentOrdersViewController {
         self.viewModel.getOrders(completed: 1)
     }
     
+    func loadMoreOrders() {
+        viewModel.page += 1
+        getOrders()
+    }
+    
+    private func setupResponse() {
+        ordersResponse()
+        loadMoreOrdersResponse()
+    }
+    
     private func ordersResponse() {
         self.viewModel.onOrders = { [weak self]() in
             guard let `self` = self else { return }
-            if self.viewModel.orders?.isEmpty ?? false {
+            self.tableView.refreshControl?.endRefreshing()
+            self.addRefreshControl()
+
+            if self.viewModel.orders.isEmpty {
                 self.setupEmptyView(screenType: .emptyScreen)
             } else {
                 self.removeBackgroundViews()
             }
             self.stopShimmerOn(tableView: self.tableView)
-            self.tableView.reloadData()
+            self.reloadTableViewData()
+            self.isReloadingTableView = false            
+        }
+    }
+    
+    private func loadMoreOrdersResponse() {
+        viewModel.onLoadMoreOrders = { [weak self] () in
+            guard let `self` = self else { return }
+            self.tableView.tableFooterView = nil
+            self.reloadTableViewData()
+            self.isReloadingTableView = false
         }
     }
 }

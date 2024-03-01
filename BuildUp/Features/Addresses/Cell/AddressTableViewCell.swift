@@ -43,21 +43,34 @@ class AddressTableViewCell: UITableViewCell {
         countryLabel.font = .appFont(ofSize: 13, weight: .medium)
         addressTitleLabel.font = .appFont(ofSize: 13, weight: .regular)
         addressLabel.font = .appFont(ofSize: 13, weight: .medium)
-        editAddressButton.titleLabel?.font = .appFont(ofSize: 13, weight: .medium)
+        defaultAddressLabel.font = .appFont(ofSize: 13, weight: .medium)
 
-        defaultAddressView.backgroundColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
+        defaultAddressView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        
+        defaultAddressLabel.textColor = ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? "")
         nameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         countryTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         countryLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         addressTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         addressLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
-        editAddressButton.setTitleColor(ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? ""), for: .normal)
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
         countryTitleLabel.text = L10n.Checkout.country
         addressTitleLabel.text = L10n.Checkout.address
-        editAddressButton.setTitle(L10n.Checkout.edit, for: .normal)
+        
+        let yourAttributes: [NSAttributedString.Key: Any] = [
+              .font: UIFont.appFont(ofSize: 13, weight: .medium),
+              .foregroundColor: ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "") ?? .gray,
+              .underlineStyle: NSUnderlineStyle.single.rawValue
+          ]
+        
+        let attributeString = NSMutableAttributedString(
+                string: L10n.Checkout.edit,
+                attributes: yourAttributes
+             )
+        
+        editAddressButton.setAttributedTitle(attributeString, for: .normal)
         
         ThemeManager.setCornerRadious(element: defaultAddressView, radius: 10)
         
