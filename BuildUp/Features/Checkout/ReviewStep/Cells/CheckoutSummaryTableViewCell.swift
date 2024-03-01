@@ -49,9 +49,6 @@ class CheckoutSummaryTableViewCell: UITableViewCell {
         
         subtotalTitleLabel.font = .appFont(ofSize: 14, weight: .medium)
         subtotalLabel.font = .appFont(ofSize: 13, weight: .medium)
-        
-//        estimatedVatTitleLabel.font = .appFont(ofSize: 14, weight: .medium)
-//        estimatedVatLabel.font = .appFont(ofSize: 13, weight: .medium)
 
         orderSummaryTitleLabel .textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         
@@ -61,19 +58,14 @@ class CheckoutSummaryTableViewCell: UITableViewCell {
         subtotalTitleLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
         subtotalLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
         
-//        estimatedVatTitleLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
-//        estimatedVatLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
-        
         orderSummaryTitleLabel.text = L10n.Checkout.orderSummery
         deliveryTitleLabel.text = L10n.Checkout.delivery
-//        estimatedVatTitleLabel.text = L10n.Checkout.estimatedVat
         subtotalTitleLabel.text = L10n.Checkout.subtotal
     }
     
     private func bindData() {
         if let model = summaryModel {
             deliveryLabel.text = model.shippingDetails?.amount?.formatted
-//            estimatedVatLabel.text = model.formattedTaxes?.formatted
             subtotalLabel.text = model.formattedSubtotal?.formatted
         }
     }

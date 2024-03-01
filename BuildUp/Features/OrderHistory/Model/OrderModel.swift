@@ -21,7 +21,7 @@ class OrderModel: Mappable {
     var formattedTotalShippingCost: FormatedPriceModel?
     var formattedTotalTax: FormatedPriceModel?
     var products: [ProductModel]?
-    var orderTaxes: [OrderTaxesModel]?
+    var orderTaxes: [TaxDetailsModel]?
     
     var customerEmail: String?
     var customerPhone: String?

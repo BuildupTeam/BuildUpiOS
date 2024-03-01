@@ -46,12 +46,6 @@ class OrderDetailsShippingTableViewCell: UITableViewCell {
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
-        shippingTitleLabel.text = L10n.Checkout.shippingInfo
-        countryTitleLabel.text = L10n.Checkout.number
-        addressTitleLabel.text = L10n.Checkout.address
-    }
-    
-    private func bindData() {
         ThemeManager.setShadow(element: containerView,
                                shadowRadius: CGFloat(11),
                                xOffset: 0, yOffset: 0,
@@ -59,6 +53,12 @@ class OrderDetailsShippingTableViewCell: UITableViewCell {
                                cornerRadius: 8,
                                masksToBounds: false)
         
+        shippingTitleLabel.text = L10n.Checkout.shippingInfo
+        countryTitleLabel.text = L10n.Checkout.number
+        addressTitleLabel.text = L10n.Checkout.address
+    }
+    
+    private func bindData() {
         if let model = orderModel {
             userNameLabel.text = model.customerName
             addressLabel.text = model.shippingAddressDescription

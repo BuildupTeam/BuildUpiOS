@@ -20,9 +20,16 @@ class OrderDetailsSummaryTableViewCell: UITableViewCell {
     @IBOutlet weak var totalAmountTitleLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topViewHeightConstraint: NSLayoutConstraint!
+    
     var orderModel: OrderModel? {
         didSet {
             bindData()
+            setupTableViewHeight()
+            self.tableView.reloadData()
         }
     }
     
@@ -33,6 +40,13 @@ class OrderDetailsSummaryTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        registerTableViewCell()
+        
+        containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+        
         orderSummaryTitleLabel.font = .appFont(ofSize: 15, weight: .semiBold)
 
         deliveryTitleLabel.font = .appFont(ofSize: 14, weight: .medium)
@@ -40,10 +54,7 @@ class OrderDetailsSummaryTableViewCell: UITableViewCell {
         
         subtotalTitleLabel.font = .appFont(ofSize: 14, weight: .medium)
         subtotalLabel.font = .appFont(ofSize: 13.5, weight: .medium)
-        
-        estimatedVatTitleLabel.font = .appFont(ofSize: 14, weight: .medium)
-        estimatedVatLabel.font = .appFont(ofSize: 13.5, weight: .medium)
-        
+                
         totalAmountTitleLabel.font = .appFont(ofSize: 16, weight: .bold)
         totalAmountLabel.font = .appFont(ofSize: 17.5, weight: .medium)
 
@@ -54,10 +65,7 @@ class OrderDetailsSummaryTableViewCell: UITableViewCell {
         
         subtotalTitleLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
         subtotalLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
-        
-        estimatedVatTitleLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
-        estimatedVatLabel.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
-        
+                
         totalAmountTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         totalAmountLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
         
@@ -71,16 +79,51 @@ class OrderDetailsSummaryTableViewCell: UITableViewCell {
         totalAmountTitleLabel.text = L10n.Checkout.totalAmount
         orderSummaryTitleLabel.text = L10n.Checkout.orderSummery
         deliveryTitleLabel.text = L10n.Checkout.delivery
-        estimatedVatTitleLabel.text = L10n.Checkout.estimatedVat
         subtotalTitleLabel.text = L10n.Checkout.subtotal
+    }
+    
+    private func setupTableViewHeight() {
+        if let taxDetails = orderModel?.orderTaxes, !taxDetails.isEmpty {
+            tableViewHeightConstraint.constant = CGFloat(21 * (taxDetails.count))
+        } else {
+            tableViewHeightConstraint.constant = 0
+        }
+        
+        containerViewHeightConstraint.constant = 116 + tableViewHeightConstraint.constant
+//        topViewHeightConstraint.constant = 66 + tableViewHeightConstraint.constant
+    }
+    
+    private func registerTableViewCell() {
+        self.tableView.register(
+            UINib(nibName: CheckoutTaxesTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: CheckoutTaxesTableViewCell.identifier)
     }
     
     private func bindData() {
         if let model = orderModel {
             deliveryLabel.text = model.formattedTotalShippingCost?.formatted
-            estimatedVatLabel.text = model.formattedTotalTax?.formatted
             subtotalLabel.text = model.formattedSubtotal?.formatted
             totalAmountLabel.text = model.formattedTotal?.formatted
         }
+    }
+}
+
+extension OrderDetailsSummaryTableViewCell: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orderModel?.orderTaxes?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CheckoutTaxesTableViewCell.identifier,
+            for: indexPath) as? CheckoutTaxesTableViewCell
+        else { return UITableViewCell() }
+        
+        if let model = self.orderModel?.orderTaxes?[indexPath.row] {
+            cell.taxDetailsModel = model
+        }
+
+        cell.selectionStyle = .none
+        return cell
     }
 }
