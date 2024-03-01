@@ -126,6 +126,7 @@ lane:upload_app do
     update_project_settings()
     set_build_number()
     update_colors()
+    match(type: "appstore")
     deploy()
 end
 
@@ -135,6 +136,7 @@ lane:update_app do
     update_project_settings()
     set_build_number()
     update_colors()
+    match(type: "appstore")
     deploy()
 end 
 
