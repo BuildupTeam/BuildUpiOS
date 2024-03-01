@@ -1,4 +1,4 @@
-name: iOS Build with secrets
+name: iOS Update with secrets
 
 on:
   push:
@@ -65,10 +65,10 @@ jobs:
       # Generating app icon with different sizes
       - name: Set up ImageMagick
         run: brew install imagemagick
-#
-#      - name: Set up splash icon
-#        run: |
-#          curl ${{ github.event.inputs.app_icon }} -o BuildUp/Resources/Assets/Assets.xcassets/Splash/splash_logo.imageset/splash_logo.svg
+
+      - name: Set up splash icon
+        run: |
+          curl ${{ github.event.inputs.app_icon }} -o BuildUp/Resources/Assets/Assets.xcassets/Splash/splash_logo.imageset/splash_logo.svg
 
       - name: Run Image Resize Script
         run: |
@@ -96,7 +96,7 @@ jobs:
           pod install
           bundle update --full-index
 
-      - name: Execute Fastlane
+      - name: Execute fastlane
         run: |
           fastlane update_app
 
@@ -111,7 +111,7 @@ jobs:
           '{authorization: $auth, workflow_run_number: $run_number, deployment_id: $deployment_id}')
           curl -X POST -H "Content-Type: application/json" \
             -d "$PAYLOAD" \
-            "https://ecommerce.buildupp.co/api/v1/apps/deploy/ios/publish-failure"
+            "https://ecommerce.buildupp.co/api/v1/apps/update/ios/update-failure"
 
       - name: Send Success Notification
         if: success()
@@ -126,7 +126,7 @@ jobs:
                  -F "authorization=${{ github.event.inputs.client_app }}" \
                  -F "deployment_id=${{ github.event.inputs.deployment_id }}" \
                  -F "workflow_run_number=${GITHUB_RUN_NUMBER}" \
-                 "https://ecommerce.buildupp.co/api/v1/apps/deploy/ios/publish-success" && break
+                 "https://ecommerce.buildupp.co/api/v1/apps/update/ios/update-success" && break
             echo "curl command failed, retrying in $sleep_seconds seconds..."
             sleep $sleep_seconds
             attempt=$(( attempt + 1 ))
@@ -135,4 +135,3 @@ jobs:
             echo "curl command failed after $max_attempts attempts"
             exit 1
           fi
-

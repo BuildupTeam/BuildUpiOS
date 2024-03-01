@@ -16,12 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="d68-u7-4MM">
-                                <rect key="frame" x="128" y="398" width="137" height="56"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="d68-u7-4MM">
+                                <rect key="frame" x="0.0" y="20" width="393" height="812"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.3411764705882353" green="0.3411764705882353" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" ${colors} colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="d68-u7-4MM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fl3-gg-4tk"/>
                             <constraint firstItem="d68-u7-4MM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iwe-8t-nbj"/>
@@ -34,6 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash_logo" width="137" height="56"/>
+        <image name="Splash" width="393" height="812"/>
     </resources>
 </document>

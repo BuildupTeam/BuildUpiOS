@@ -365,7 +365,7 @@ extension CheckoutReviewViewController {
             self.tableView.reloadData()
             
             if let rejectedPoducts = summaryData?.rejectedPoducts, !rejectedPoducts.isEmpty {
-                setupRejectedProducts(rejectedPoducts)
+                self.setupRejectedProducts(rejectedPoducts)
             }
         }
     }

@@ -23,6 +23,70 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Get certificates
 
+### ios screenshots
+
+```sh
+[bundle exec] fastlane ios screenshots
+```
+
+Generate new localized screenshots
+
+### ios update_project_settings
+
+```sh
+[bundle exec] fastlane ios update_project_settings
+```
+
+Update App Identifier
+
+### ios change_main_host
+
+```sh
+[bundle exec] fastlane ios change_main_host
+```
+
+Change base url
+
+### ios change_background_color
+
+```sh
+[bundle exec] fastlane ios change_background_color
+```
+
+
+
+### ios change_launch_screen_background
+
+```sh
+[bundle exec] fastlane ios change_launch_screen_background
+```
+
+
+
+### ios set_build_number
+
+```sh
+[bundle exec] fastlane ios set_build_number
+```
+
+Set the build number to a specific value
+
+### ios upload_app
+
+```sh
+[bundle exec] fastlane ios upload_app
+```
+
+Change base url + screenshots
+
+### ios update_app
+
+```sh
+[bundle exec] fastlane ios update_app
+```
+
+Update App
+
 ### ios generate_new_certificates
 
 ```sh
