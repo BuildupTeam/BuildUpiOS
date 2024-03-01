@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddNewAddressDelegate: AnyObject {
+    func newAddressAdded()
+}
+
 class AddNewAddressViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +24,8 @@ class AddNewAddressViewController: BaseViewController {
     var addressModel: AddressModel?
     
     var viewModel: AddNewAddressViewModel!
+    
+    weak var delegate: AddNewAddressDelegate?
             
     override  var prefersBottomBarHidden: Bool? { return true }
 
@@ -57,6 +63,7 @@ class AddNewAddressViewController: BaseViewController {
         self.viewModel.onAddNewAddress = { [weak self]() in
             guard let `self` = self else { return }
             self.hideLoading()
+            self.delegate?.newAddressAdded()
             self.navigationController?.popViewController(animated: true)
         }
     }

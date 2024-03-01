@@ -65,7 +65,8 @@ class CheckoutPaymentViewController: BaseViewController {
         choosePaymentLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         choosePaymentLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         
-        continueButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+        continueButton.backgroundColor = .dimmedButtonGray
+        continueButton.isUserInteractionEnabled = false
         continueButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         continueButton.setTitle(L10n.Checkout.continue, for: .normal)
         continueButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
@@ -83,6 +84,16 @@ class CheckoutPaymentViewController: BaseViewController {
         self.tableView.register(
             UINib(nibName: CheckoutPaymentMethodTableViewCell.identifier, bundle: nil),
             forCellReuseIdentifier: CheckoutPaymentMethodTableViewCell.identifier)
+    }
+    
+    private func updateContinueButtonAppearence() {
+        if let selectedPayment = self.viewModel.paymentMethods?.first(where: {$0.isSelected}) {
+            continueButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+            continueButton.isUserInteractionEnabled = true
+        } else {
+            continueButton.backgroundColor = .dimmedButtonGray
+            continueButton.isUserInteractionEnabled = false
+        }
     }
 }
 
@@ -116,6 +127,8 @@ extension CheckoutPaymentViewController: UITableViewDelegate, UITableViewDataSou
                 self.tableView.reloadData()
             }
         }
+        
+        updateContinueButtonAppearence()
     }
 }
 

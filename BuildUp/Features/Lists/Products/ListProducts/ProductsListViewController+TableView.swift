@@ -57,6 +57,7 @@ extension ProductsListViewController {
             for: indexPath) as? ProductVerticalList1InnerTableViewCell
         else { return UITableViewCell() }
         
+        cell.delegate = self
         cell.productModel = productModel
         cell.selectionStyle = .none
         return cell
@@ -79,6 +80,8 @@ extension ProductsListViewController {
             for: indexPath) as? ProductVerticalList3InnerTableViewCell
         else { return UITableViewCell() }
         
+        cell.delegate = self
+        cell.addToCartDelegate = self
         cell.productModel = productModel
         cell.selectionStyle = .none
         return cell

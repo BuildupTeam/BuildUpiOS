@@ -180,7 +180,6 @@ extension AddressesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.addressModel = self.viewModel.addresses?[indexPath.row]
             
             cell.selectionStyle = .none
-            
             return cell
         }
     }

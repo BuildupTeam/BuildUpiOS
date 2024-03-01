@@ -143,6 +143,7 @@
 "checkout.backToCart" = "العودة إلى السلة";
 "checkout.outOfStock" = "غير متوفر في المخزون";
 "checkout.runsOutOfStock" = "لديك عناصر نفدت من المخزون";
+"checkout.addresses.setAsDefault" = "تعيين كافتراضي";
 
 // MARK: - Order History Screen
 "orders.title" = "سجل الطلبات";
@@ -184,6 +185,7 @@
 "emptyScreen.noData" = "لا يوجد بيانات";
 "emptyScreen.loginFirst" = "الرجاء تسجيل الدخول أولاً";
 "emptyScreen.button.login" = "تسجيل الدخول";
+"emptyScreen.noOrders" = "لا يوجد طلبات";
 
 // MARK: - Categories Tab
 "categories.title" = "الفئات";

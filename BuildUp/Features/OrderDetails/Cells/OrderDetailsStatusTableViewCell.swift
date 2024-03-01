@@ -81,20 +81,24 @@ class OrderDetailsStatusTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = orderModel {
-            orderStatusLabel.text = model.status
+            orderStatusLabel.text = model.statusLabel
             
             switch model.status {
             case OrderStatus.placed.rawValue:
-                orderStatusImageView.image = Asset.icPlaced.image
+                orderStatusImageView.image = Asset.icPlaced.image.withRenderingMode(.alwaysTemplate)
+                orderStatusImageView.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
                 setupPlacedActive()
             case OrderStatus.delivered.rawValue:
-                orderStatusImageView.image = Asset.icDelivered.image
+                orderStatusImageView.image = Asset.icDelivered.image.withRenderingMode(.alwaysTemplate)
+                orderStatusImageView.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
                 setupDeliveredActive()
             case OrderStatus.arriving.rawValue:
-                orderStatusImageView.image = Asset.icArriving.image
+                orderStatusImageView.image = Asset.icDipatched.image.withRenderingMode(.alwaysTemplate)
+                orderStatusImageView.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
                 setupArrivingActive()
             case OrderStatus.canceled.rawValue:
-                orderStatusImageView.image = Asset.icCancelled.image
+                orderStatusImageView.image = Asset.icCancelled.image.withRenderingMode(.alwaysTemplate)
+                orderStatusImageView.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
                 setupCancelledActive()
             default:
                 return

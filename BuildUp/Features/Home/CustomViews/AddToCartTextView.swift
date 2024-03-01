@@ -42,6 +42,7 @@ class AddToCartTextView: UIView {
         countLabel.textColor = ThemeManager.colorPalette?.quantityCounterColor?.toUIColor(hexa: ThemeManager.colorPalette?.quantityCounterColor ?? "")
         
         countLabel.font = .appFont(ofSize: 15, weight: .semiBold)
+        countLabel.textAlignment = .center
         
         if let model = productModel {
             if let quantity = model.cartQuantity, quantity > 0 {

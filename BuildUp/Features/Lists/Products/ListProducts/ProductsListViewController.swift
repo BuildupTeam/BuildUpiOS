@@ -123,6 +123,19 @@ extension ProductsListViewController {
         
         self.navigationItem.rightBarButtonItems = [cartItem, shareItem]
     }
+    
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+// MARK: - Popup Delegate
+extension ProductsListViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
+    }
 }
 
 // MARK: - Actions
@@ -146,6 +159,31 @@ extension ProductsListViewController {
     @objc
     func shareAction(sender: UIBarButtonItem) {
         
+    }
+}
+
+// MARK: - HomeHeaderCellDelegate
+extension ProductsListViewController: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        
+    }
+    
+    func userShouldLoginFirst() {
+        self.showLoginPopup()
+    }
+}
+
+// MARK: - TableViewDelegate & DataSource
+extension ProductsListViewController: ProductFavoriteDelegate {
+    func productFavorite(model: ProductModel) {
+        if let index = self.viewModel.products.firstIndex(where: { $0.uuid == model.uuid }) {
+            self.viewModel.products.remove(at: index)
+            self.tableView.reloadData()
+        }
+    }
+    
+    func pleaseLoginFirst() {
+        showLoginPopup()
     }
 }
 

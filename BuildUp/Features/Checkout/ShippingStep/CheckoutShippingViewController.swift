@@ -110,7 +110,6 @@ extension CheckoutShippingViewController {
         let countryFlag = countryPickerView.getCountryByPhoneCode(phoneCode)?.flag
         let countryCodeText = countryPickerView.getCountryByPhoneCode(phoneCode)?.code
         
-        
         checkoutModel.name = userName
         checkoutModel.email = email
         checkoutModel.phone = phone
@@ -179,6 +178,7 @@ extension CheckoutShippingViewController {
     
     private func openAddAddressScreen() {
         let addAddressVC = Coordinator.Controllers.createAddNewAddressViewController()
+        addAddressVC.delegate = self
         self.navigationController?.pushViewController(addAddressVC, animated: true)
     }
     
@@ -390,6 +390,12 @@ extension CheckoutShippingViewController: AddressesDelegate {
 extension CheckoutShippingViewController: CheckoutAddressCellDelegate {
     func changeButtonClicked() {
         openAddressesScreen()
+    }
+}
+
+extension CheckoutShippingViewController: AddNewAddressDelegate {
+    func newAddressAdded() {
+        self.viewModel.getAddresses()
     }
 }
 
