@@ -136,7 +136,7 @@ lane:update_app do
     set_build_number()
     update_colors()
     deploy()
-end
+end 
 
  desc "Generate new certificates"
   lane :generate_new_certificates do
