@@ -244,6 +244,11 @@ class Coordinator {
             return viewController
         }
         
+        class func createSplashViewController(viewModel: SplashViewModel = SplashViewModel()) -> SplashViewController {
+            let viewController = SplashViewController(viewModel: viewModel)
+            return viewController
+        }
+        
         class func createOrderDetailsViewController(orderModel: OrderModel? = nil,
                                                            viewModel: OrderDetailsViewModel = OrderDetailsViewModel()) -> OrderDetailsViewController {
             viewModel.orderModel = orderModel

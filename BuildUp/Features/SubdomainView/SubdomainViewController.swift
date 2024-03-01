@@ -72,8 +72,6 @@ class SubdomainViewController: BaseViewController {
     }
     
     private func getConfiguration() {
-//        CachingService.setSubdomain(subdomain: "online-shop")
-        
         self.showLoading()
         self.viewModel.getHomeTemplate()
     }

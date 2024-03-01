@@ -88,6 +88,11 @@ lane:change_main_host do
 
 end
 
+lane:update_colors do
+    change_background_color()
+    change_splash_background_color()
+end
+
 lane:change_background_color do
     path = '../BuildUp/Base.lproj/LaunchScreen.storyboard'
     re = / key="backgroundColor"(.*)/
@@ -99,25 +104,16 @@ lane:change_background_color do
     f.close
 end
 
-lane :change_launch_screen_background do
-  # Define the path to your LaunchScreen.storyboard file
-  storyboard_path = "../BuildUp/Base.lproj/LaunchScreen.storyboard"
-
-  # Define the new background color values
-  new_red_value = ENV['RED']
-  new_green_value = ENV['GREEN']
-  new_blue_value = ENV['BLUE']
-  new_alpha_value = ENV['ALPHA']
-
-  # Backup the original LaunchScreen.storyboard file
-  sh "cp #{storyboard_path} #{storyboard_path}.bak"
-
-  # Use sed to replace the background color in LaunchScreen.storyboard
-  sh "sed -i '' 's/<color key=\"backgroundColor\" .* \\/>/<color key=\"backgroundColor\" red=\"#{new_red_value}\" green=\"#{new_green_value}\" blue=\"#{new_blue_value}\" alpha=\"#{new_alpha_value}\" colorSpace=\"custom\" customColorSpace=\"sRGB\"\\/>/' #{storyboard_path}"
-
-  UI.message("Launch screen background color has been updated.")
+lane:change_splash_background_color do
+    path = '../BuildUp/Features/Splash/SplashViewController.xib'
+    re = / key="backgroundColor"(.*)/
+    s = File.read(path)
+    background = ' key=“backgroundColor” red="' + ENV['RED'] + ’" green="' + ENV['GREEN’] +’" blue="‘ + ENV[‘BLUE’] +’”  alpha=“1" colorSpace="custom" customColorSpace="sRGB"/>'
+    s[re, 0] = background
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
 end
-
 
 desc "Set the build number to a specific value"
   lane :set_build_number do
@@ -126,12 +122,10 @@ desc "Set the build number to a specific value"
 
  desc “Change base url + screenshots”
 lane:upload_app do
-    # screenshots()
-    deploy()
     change_main_host()
     update_project_settings()
     set_build_number()
-    change_background_color
+    update_colors()
     deploy()
 end
 
@@ -140,7 +134,7 @@ lane:update_app do
     change_main_host()
     update_project_settings()
     set_build_number()
-    change_background_color
+    update_colors()
     deploy()
 end
 

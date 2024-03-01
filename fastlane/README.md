@@ -47,10 +47,26 @@ Update App Identifier
 
 Change base url
 
+### ios update_colors
+
+```sh
+[bundle exec] fastlane ios update_colors
+```
+
+
+
 ### ios change_background_color
 
 ```sh
 [bundle exec] fastlane ios change_background_color
+```
+
+
+
+### ios change_splash_background_color
+
+```sh
+[bundle exec] fastlane ios change_splash_background_color
 ```
 
 

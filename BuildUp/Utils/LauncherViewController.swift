@@ -19,17 +19,15 @@ class LauncherViewController: NSObject {
         
     static public func showNextViewController() {
         
-        switch PersistanceManager.geLatestViewController() {
-        case Constant.ControllerName.subdomin:
-            showSubdomainScreen(fromViewController: nil)
-        case Constant.ControllerName.home:
-            showTabBar(fromViewController: nil)
-        case Constant.ControllerName.login:
-            showLoginView(fromViewController: nil)
-        default :
+        showSplashView(fromViewController: nil)
+//        switch PersistanceManager.geLatestViewController() {
+//        case Constant.ControllerName.home:
+//            showTabBar(fromViewController: nil)
+//        case Constant.ControllerName.login:
 //            showLoginView(fromViewController: nil)
-            showSubdomainScreen(fromViewController: nil)
-        }
+//        default:
+//            showSplashView(fromViewController: nil)
+//        }
     }
     
     static public func showViewController(viewController: UIViewController, fromViewController: UIViewController?) {
@@ -58,27 +56,14 @@ class LauncherViewController: NSObject {
         showViewController(viewController: viewController, fromViewController: nil)
     }
     
-//    static func showTabBar(selectedIndex: Int? = nil) {
-//        let tabBarVC = AppTabBarViewController()
-//        if let selectedIndex = selectedIndex {
-//            tabBarVC.selectedIndex = selectedIndex
-//        }
-//        showViewController(viewController: tabBarVC, fromViewController: nil)
-//    }
-    
     static func showLoginView(fromViewController: UIViewController?) {
         let loginVC = Coordinator.Controllers.createLoginViewController()
         showViewController(viewController: loginVC, fromViewController: nil)
     }
     
-    static func showWelcomeView(fromViewController: UIViewController?) {
-//        let welcomeVC = Coordinator.MainTaps.createWelcomeViewController()
-//        showViewController(viewController: welcomeVC, fromViewController: nil)
-    }
-
-    static func showOnboardingView(fromViewController: UIViewController?) {
-//        let loginVC = Coordinator.Controllers.createOnboardingViewController()
-//        showViewController(viewController: loginVC, fromViewController: nil)
+    static func showSplashView(fromViewController: UIViewController?) {
+        let splashVC = Coordinator.Controllers.createSplashViewController()
+        showViewController(viewController: splashVC, fromViewController: nil)
     }
     
     static func logoutToLoginView() {
@@ -92,16 +77,9 @@ class LauncherViewController: NSObject {
     static func logoutToFirstView() {
         CachingService.clearUserData()
         CachingService.removeAllCachedData()
-        
-//        let loginManager = LoginManager()
-//        loginManager.logOut()
-//
-//        showCountryView(fromViewController: nil)
     }
     
     static func logoutToHomeView() {
-//        CachingService.clearUserData()
-//        let tabBarVC = AppTabBarViewController()
-//        showViewController(viewController: tabBarVC, fromViewController: nil)
+        
     }
 }

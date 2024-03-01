@@ -602,6 +602,9 @@
 		39D9BA9D2B027463005CD5BA /* CartCombinationsOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9BA9C2B027463005CD5BA /* CartCombinationsOptionModel.swift */; };
 		39D9BA9F2B0274CC005CD5BA /* CartOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9BA9E2B0274CC005CD5BA /* CartOptionModel.swift */; };
 		39D9BAA12B027520005CD5BA /* CartCombinationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9BAA02B027520005CD5BA /* CartCombinationsModel.swift */; };
+		39DAEC232B923BA9003341AE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DAEC212B923BA9003341AE /* SplashViewController.swift */; };
+		39DAEC242B923BA9003341AE /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39DAEC222B923BA9003341AE /* SplashViewController.xib */; };
+		39DAEC282B923D32003341AE /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DAEC272B923D31003341AE /* SplashViewModel.swift */; };
 		39DD4DF22AF2C35A009D3CEF /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DD4DF02AF2C35A009D3CEF /* ForgetPasswordViewController.swift */; };
 		39DD4DF32AF2C35A009D3CEF /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39DD4DF12AF2C35A009D3CEF /* ForgetPasswordViewController.xib */; };
 		39DD4DF62AF2C375009D3CEF /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DD4DF42AF2C375009D3CEF /* ResetPasswordViewController.swift */; };
@@ -1275,6 +1278,9 @@
 		39D9BA9C2B027463005CD5BA /* CartCombinationsOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCombinationsOptionModel.swift; sourceTree = "<group>"; };
 		39D9BA9E2B0274CC005CD5BA /* CartOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartOptionModel.swift; sourceTree = "<group>"; };
 		39D9BAA02B027520005CD5BA /* CartCombinationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCombinationsModel.swift; sourceTree = "<group>"; };
+		39DAEC212B923BA9003341AE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		39DAEC222B923BA9003341AE /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		39DAEC272B923D31003341AE /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		39DD4DF02AF2C35A009D3CEF /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		39DD4DF12AF2C35A009D3CEF /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		39DD4DF42AF2C375009D3CEF /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -2009,6 +2015,7 @@
 		393174522A19197500AF64BC /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				39DAEC202B923B94003341AE /* Splash */,
 				39D754242B5D8D0E00BFBC42 /* Popups */,
 				390DC2042B1DEF3800E1CBA9 /* OrderDetails */,
 				390C3B8E2B16404200E40849 /* OrderHistory */,
@@ -3219,6 +3226,16 @@
 			path = Popups;
 			sourceTree = "<group>";
 		};
+		39DAEC202B923B94003341AE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				39DAEC212B923BA9003341AE /* SplashViewController.swift */,
+				39DAEC222B923BA9003341AE /* SplashViewController.xib */,
+				39DAEC272B923D31003341AE /* SplashViewModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		39DD4DEE2AF2C31C009D3CEF /* ForgetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -3678,6 +3695,7 @@
 				395D3BD22A9A2A3000DA9859 /* ProductDetailsAddToCartType2TableViewCell.xib in Resources */,
 				39730D2D2AA1289A0088C9ED /* ProductDetailsVariants1TableViewCell.xib in Resources */,
 				395D3BA12A995C0200DA9859 /* ShimmerCategoriesHorizontal2CollectionViewCell.xib in Resources */,
+				39DAEC242B923BA9003341AE /* SplashViewController.xib in Resources */,
 				390C3BBD2B173DED00E40849 /* PastOrdersViewController.xib in Resources */,
 				395D3BA52A995C1400DA9859 /* ShimmerCategoriesHorizontal3CollectionViewCell.xib in Resources */,
 				393B2F9B2AEFDC1600827026 /* RegisterPhoneTableViewCell.xib in Resources */,
@@ -4229,6 +4247,7 @@
 				393613942AB47539007289DE /* ProductsListViewController.swift in Sources */,
 				3950B0A62A6AC00F00E27111 /* ComponentConfigurationModel.swift in Sources */,
 				395D3BAC2A995CAB00DA9859 /* ShimmerCategoriesVerticalGrid2CollectionViewCell.swift in Sources */,
+				39DAEC232B923BA9003341AE /* SplashViewController.swift in Sources */,
 				39CE76B42A2F62300019A485 /* Localized+Runtime.swift in Sources */,
 				393B2F802AEFCA5B00827026 /* RegisterModel.swift in Sources */,
 				39F19E6D2B208D7300B69595 /* UpdateProfilePictureResponseModel.swift in Sources */,
@@ -4303,6 +4322,7 @@
 				39A8D1A12B28B62E00F518C3 /* PaymentService.swift in Sources */,
 				39F19E6A2B208A7500B69595 /* RouteUpdateProfileApi.swift in Sources */,
 				390E6D772A92A164009ECC00 /* ProductsResponseModel.swift in Sources */,
+				39DAEC282B923D32003341AE /* SplashViewModel.swift in Sources */,
 				395D3BA82A995CA000DA9859 /* ShimmerCategoriesVerticalGrid1CollectionViewCell.swift in Sources */,
 				39CE76612A2F603B0019A485 /* BaseViewController.swift in Sources */,
 				390C3BA72B16649700E40849 /* BarView.swift in Sources */,
