@@ -28,15 +28,22 @@ class CurrentOrdersViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         ordersResponse()
-        getOrders()
-        startShimmerOn(tableView: tableView)
+        setupView()
     }
     
     private func setupView() {
         registerTableViewCells()
-        isLoadingShimmer = true
+
+        if CachingService.getUser() != nil {
+            isLoadingShimmer = true
+            getOrders()
+            startShimmerOn(tableView: tableView)
+        } else {
+            isLoadingShimmer = false
+            setupEmptyView(screenType: .loginFirst)
+        }
+        
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
     }
     
@@ -49,12 +56,19 @@ class CurrentOrdersViewController: BaseViewController {
             forCellReuseIdentifier: ShimmerOrderTableViewCell.identifier)
     }
     
-    private func setupEmptyView() {
+    private func setupEmptyView(screenType: EmptyScreenType) {
         removeBackgroundViews()
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = tableView.backgroundView?.frame ?? CGRect()
-        emptyNib.title = L10n.EmptyScreen.noData
-//        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
+        emptyNib.screenType = screenType
+        if screenType == .emptyScreen {
+            emptyNib.title = L10n.EmptyScreen.noOrders
+            emptyNib.emptyImage = Asset.icNoOrders.image
+        } else if screenType == .loginFirst {
+            emptyNib.emptyImage = Asset.icLogin.image
+            emptyNib.title = L10n.Popups.loginMsg
+        }
+        
         emptyNib.showButton = false
         tableView.backgroundView = emptyNib
     }
@@ -68,7 +82,10 @@ class CurrentOrdersViewController: BaseViewController {
 // MARK: - TableView Delegate && DataSource
 extension CurrentOrdersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.orders?.count ?? 10
+        if isLoadingShimmer {
+            return 10
+        }
+        return self.viewModel.orders?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,18 +97,19 @@ extension CurrentOrdersViewController: UITableViewDelegate, UITableViewDataSourc
             
             cell.selectionStyle = .none
             return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: CurrentOrderTableViewCell.identifier,
+                for: indexPath) as? CurrentOrderTableViewCell
+            else { return UITableViewCell() }
+            
+            if let model = self.viewModel.orders?[indexPath.row] {
+                cell.orderModel = model
+            }
+            
+            cell.selectionStyle = .none
+            return cell
         }
-        
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CurrentOrderTableViewCell.identifier,
-            for: indexPath) as? CurrentOrderTableViewCell
-        else { return UITableViewCell() }
-        
-        cell.orderModel = self.viewModel.orders?[indexPath.row]
-        
-        cell.selectionStyle = .none
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -112,12 +130,12 @@ extension CurrentOrdersViewController {
         self.viewModel.onOrders = { [weak self]() in
             guard let `self` = self else { return }
             if self.viewModel.orders?.isEmpty ?? false {
-                self.setupEmptyView()
+                self.setupEmptyView(screenType: .emptyScreen)
             } else {
                 self.removeBackgroundViews()
             }
-            self.tableView.reloadData()
             self.stopShimmerOn(tableView: self.tableView)
+            self.tableView.reloadData()
         }
     }
 }

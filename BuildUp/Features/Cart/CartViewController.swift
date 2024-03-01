@@ -191,12 +191,15 @@ extension CartViewController {
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = tableView.frame
         emptyNib.screenType = screenType
+        
         if screenType == .loginFirst {
             emptyNib.showButton = true
-            emptyNib.title = L10n.Cart.emptyMessage
+            emptyNib.emptyImage = Asset.icLogin.image
+            emptyNib.title = L10n.Popups.loginMsg
         } else {
             emptyNib.showButton = false
-            emptyNib.title = L10n.EmptyScreen.noData
+            emptyNib.emptyImage = Asset.noCartItems.image
+            emptyNib.title = L10n.Cart.emptyMessage
         }
         tableView.backgroundView = emptyNib
     }

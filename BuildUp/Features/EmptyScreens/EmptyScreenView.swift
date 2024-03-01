@@ -21,7 +21,7 @@ class EmptyScreenView: UIView {
     @IBOutlet private weak var emptyImageView: UIImageView!
     @IBOutlet private weak var backToHomeButton: UIButton!
 
-    var screenType: EmptyScreenType = .emptyScreen {
+    var screenType: EmptyScreenType? {
         didSet {
             if screenType == .emptyScreen {
                 backToHomeButton.setTitle(L10n.EmptyScreen.noData, for: .normal)
@@ -39,14 +39,15 @@ class EmptyScreenView: UIView {
     
     var emptyImage: UIImage? {
         didSet {
-            emptyImageView.image = emptyImage
+            emptyImageView.image = emptyImage?.withRenderingMode(.alwaysTemplate)
+            emptyImageView.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         }
     }
     
-    var showButton: Bool? {
+    var showButton: Bool? = false {
         didSet {
             if showButton ?? false {
-                backToHomeButton.showView()
+                backToHomeButton.hideView()
             } else {
                 backToHomeButton.hideView()
             }
@@ -74,7 +75,7 @@ class EmptyScreenView: UIView {
 // MARK: - private functions
 extension EmptyScreenView {
     private func setupView() {
-        containerView.backgroundColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
+        containerView.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
         titleLabel.font = .appFont(ofSize: CGFloat(16), weight: .medium)
         titleLabel.textColor = .titlesBlack
         titleLabel.textAlignment = .center

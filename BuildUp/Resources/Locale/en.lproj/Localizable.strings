@@ -143,6 +143,7 @@
 "checkout.backToCart" = "Back to cart";
 "checkout.outOfStock" = "Out Of Stock";
 "checkout.runsOutOfStock" = "You have items run out of stock ";
+"checkout.addresses.setAsDefault" = "Set As Default";
 
 // MARK: - Order History Screen
 "orders.title" = "Order History";
@@ -184,6 +185,7 @@
 "emptyScreen.noData" = "No Data Found";
 "emptyScreen.loginFirst" = "Please Login First";
 "emptyScreen.button.login" = "Login";
+"emptyScreen.noOrders" = "No Orders exist";
 
 // MARK: - Categories Tab
 "categories.title" = "Categories";

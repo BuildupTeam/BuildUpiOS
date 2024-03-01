@@ -258,6 +258,12 @@ internal enum L10n {
         internal static var updateAddress: String {
           return L10n.tr("Localizable", "checkout.updateAddress")
         }
+      internal enum Addresses {
+          /// Set As Default
+          internal static var setAsDefault: String {
+            return L10n.tr("Localizable", "checkout.addresses.setAsDefault")
+          }
+      }
       internal enum Button {
           /// Continue
           internal static var `continue`: String {
@@ -284,6 +290,10 @@ internal enum L10n {
         /// No Data Found
         internal static var noData: String {
           return L10n.tr("Localizable", "emptyScreen.noData")
+        }
+        /// No Orders exist
+        internal static var noOrders: String {
+          return L10n.tr("Localizable", "emptyScreen.noOrders")
         }
       internal enum Button {
           /// Login

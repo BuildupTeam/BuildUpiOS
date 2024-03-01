@@ -82,7 +82,7 @@ class CheckoutSummaryTableViewCell: UITableViewCell {
         if let taxDetails = summaryModel?.taxDetails, !taxDetails.isEmpty {
             tableViewHeightConstraint.constant = CGFloat(21 * (taxDetails.count))
         } else {
-            tableViewHeightConstraint.constant = 21
+            tableViewHeightConstraint.constant = 0
         }
         
         containerViewHeightConstraint.constant = 130 + tableViewHeightConstraint.constant
