@@ -1,11 +1,7 @@
 {
   "images" : [
     {
-<<<<<<<< HEAD:BuildUp/Resources/Assets/Assets.xcassets/EmptyScreens/ic_no_orders.imageset/Contents.json
-      "filename" : "ic_no_orders.svg",
-========
       "filename" : "splash_logo.svg",
->>>>>>>> feature/GithubActions:BuildUp/Resources/Assets/Assets.xcassets/Splash/splash_logo.imageset/Contents.json
       "idiom" : "universal",
       "scale" : "1x"
     },
