@@ -17,6 +17,7 @@ default_platform(:ios)
 
 before_all do
     ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "fndq-kqhu-yagn-kbns"
+    ENV["FASTLANE_PASSWORD"] = 'uess-myzr-ewts-iowg'
   end
 
 platform :ios do
