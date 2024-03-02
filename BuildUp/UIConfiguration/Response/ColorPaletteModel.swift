@@ -175,6 +175,13 @@ class ColorPaletteModel: NSObject, NSCoding, Mappable {
         tabBarInactive2 <- map["tab_bar_inactive_2"]
         tabBarActive3 <- map["tab_bar_active_3"]
         tabBarInactive3 <- map["tab_bar_inactive_3"]
+        
+//        tabbar_active_3
+//        tabbar_active_2
+//        tabbar_active_1
+//        "tabbar_inactive_1"
+//        "tabbar_inactive_2"
+//        "tabbar_inactive_3"
     }
     
     override init() {

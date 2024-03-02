@@ -48,6 +48,12 @@ class LauncherViewController: NSObject {
         showViewController(viewController: tabBarVC, fromViewController: nil)
     }
     
+    static func showCartTabBar(fromViewController: UIViewController?) {
+        let tabBarVC = AppTabBarViewController()
+        tabBarVC.selectedIndex = 2
+        showViewController(viewController: tabBarVC, fromViewController: nil)
+    }
+    
     static func showHomeScreen(fromViewController: UIViewController?) {
         let viewController = Coordinator.MainTaps.createHomeViewController()
         showViewController(viewController: viewController, fromViewController: nil)

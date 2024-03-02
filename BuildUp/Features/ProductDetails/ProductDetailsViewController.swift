@@ -303,6 +303,10 @@ extension ProductDetailsViewController: ProductDetailsSliderDelegate {
         self.tableView.reloadData()
     }
     
+    func cartButtonClicked() {
+        LauncherViewController.showCartTabBar(fromViewController: nil)
+    }
+    
     func userIsNotLoggedIn() {
         showLoginPopup()
     }

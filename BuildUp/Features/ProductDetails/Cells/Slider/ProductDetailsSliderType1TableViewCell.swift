@@ -10,6 +10,7 @@ import Cosmos
 
 protocol ProductDetailsSliderDelegate: AnyObject {
     func seeMoreButtonClicked()
+    func cartButtonClicked()
     func userIsNotLoggedIn()
 }
 
@@ -196,6 +197,10 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         
         self.delegate?.seeMoreButtonClicked()
         self.sizeToFit()
+    }
+    
+    @IBAction func cartButtonClicked(_ sender: UIButton) {
+        self.delegate?.cartButtonClicked()
     }
     
     @IBAction func favoriteButtonAction(_ sender: UIButton) {
