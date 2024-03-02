@@ -219,6 +219,10 @@ extension ProductDetailsSliderType2TableViewCell {
         self.sizeToFit()
     }
     
+    @IBAction func cartButtonAction(_ sender: UIButton) {
+        self.delegate?.cartButtonClicked()
+    }
+    
     @IBAction func favoriteButtonAction(_ sender: UIButton) {
         if CachingService.getUser() == nil {
             delegate?.userIsNotLoggedIn()

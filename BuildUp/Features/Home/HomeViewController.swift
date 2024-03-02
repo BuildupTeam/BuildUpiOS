@@ -84,21 +84,14 @@ extension HomeViewController {
 
         self.navigationItem.titleView = logoView
         
-        let searchItem = UIBarButtonItem(
-            image: Asset.icSearch.image,
+        let scanItem = UIBarButtonItem(
+            image: Asset.icQrcodeScan.image,
             style: .plain,
             target: self,
-            action: #selector(searchAction(sender:))
+            action: #selector(scanAction(sender:))
         )
         
-        let notificationsItem = UIBarButtonItem(
-            image: Asset.icNotifications.image,
-            style: .plain,
-            target: self,
-            action: #selector(notificationAction(sender:))
-        )
-        
-        self.navigationItem.rightBarButtonItems = [searchItem, notificationsItem]
+        self.navigationItem.rightBarButtonItem = scanItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -146,8 +139,7 @@ extension HomeViewController {
     }
     
     @objc
-    func searchAction(sender: UIBarButtonItem) {
-        
+    func scanAction(sender: UIBarButtonItem) {
          PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
          LauncherViewController.showSubdomainScreen(fromViewController: nil)
     }

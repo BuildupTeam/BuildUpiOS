@@ -21,13 +21,13 @@ enum Environment: String {
         /*
         let subDomain = CachingService.getSubdomain()
         
-         switch self {
-         case .stage: return "https://online-shop.ecommerce.buildupp.co/"
-         case .live: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
-         case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/api/v1/f"
-         case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
-         }
-         */
+        switch self {
+        case .stage: return "https://online-shop.ecommerce.buildupp.co/"
+        case .live: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+        case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/api/v1/f"
+        case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
+        }
+        */
     }
     
     var hostURL: String {

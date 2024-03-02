@@ -49,7 +49,7 @@ class SubdomainViewController: BaseViewController {
         PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
         homeResponse()
         setupView()
-        getConfiguration()
+//        getConfiguration()
     }
     
     private func setupView() {

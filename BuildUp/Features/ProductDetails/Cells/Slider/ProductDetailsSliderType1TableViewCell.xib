@@ -37,6 +37,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="22" height="21"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="product_details_cart"/>
+                                                <connections>
+                                                    <action selector="cartButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Iuv-Lx-h53"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRj-7I-5wa">
                                                 <rect key="frame" x="0.0" y="44" width="22" height="21"/>
