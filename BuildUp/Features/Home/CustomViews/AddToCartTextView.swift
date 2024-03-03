@@ -65,6 +65,14 @@ class AddToCartTextView: UIView {
         ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
     }
     
+    func disableAddToCart() {
+        addToCartButton.isEnabled = false
+    }
+    
+    func enableAddToCart() {
+        addToCartButton.isEnabled = true
+    }
+    
     private func activateAddTocartButton() {
         DispatchQueue.main.async {
             self.addToCartButton.showView()
@@ -127,10 +135,9 @@ extension AddToCartTextView {
             }
             
             self.productModel = model
-            
-            countLabel.text = String(model.cartQuantity ?? 0)
             addToCartFirebase(model)
-            
+            countLabel.text = String(model.cartQuantity ?? 0)
+
             checkIfCanMinusPlus(model: model)
             delegate?.productModelUpdated(model, nil)
         }
@@ -149,6 +156,7 @@ extension AddToCartTextView {
                     activateAddTocartButton()
                 }
             } else {
+                model.cartQuantity = nil
                 removeFromCartFirebase(model)
                 activateAddTocartButton()
             }

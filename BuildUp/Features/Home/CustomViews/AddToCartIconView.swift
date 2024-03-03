@@ -45,20 +45,22 @@ class AddToCartIconView: UIView {
         
         addToCartButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
         
-//        if let themeData = CachingService.getThemeData() {
-//            if themeData.systemStyle == "curved" {
-//                addToCartButton.setImage(Asset.addToCart.image, for: .normal)
-//            } else {
-//                addToCartButton.setImage(Asset.addToCartFlat.image, for: .normal)
-//            }
-//        }
-        
         minusButton.layer.borderWidth = 1
         minusButton.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
         
         ThemeManager.setCornerRadious(element: minusButton, radius: minusButton.frame.size.width / 2)
         ThemeManager.setCornerRadious(element: plusButton, radius: plusButton.frame.size.width / 2)
-        ThemeManager.setCornerRadious(element: addToCartButton, radius: 15)
+        ThemeManager.setCornerRadious(element: addToCartButton, radius: 14)
+    }
+    
+    func disableAddToCart() {
+//        addToCartButton.showView()
+//        counterContainerView.hideView()
+        addToCartButton.isEnabled = false
+    }
+    
+    func enableAddToCart() {
+        addToCartButton.isEnabled = true
     }
     
     @IBAction func addToCartButtonAction(_ sender: UIButton) {
@@ -105,14 +107,6 @@ class AddToCartIconView: UIView {
             plusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
             plusButton.isEnabled = true
         }
-        
-//        if (model.cartQuantity ?? 0) <= 1 {
-//            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor3?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor3 ?? "")
-//            minusButton.isEnabled = false
-//        } else {
-//            minusButton.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
-//            minusButton.isEnabled = true
-//        }
     }
     
     @IBAction func plusButtonAction(_ sender: UIButton) {
@@ -144,6 +138,7 @@ class AddToCartIconView: UIView {
                     addToCartFirebase(model)
                     activateCounterView()
                 } else {
+                    model.cartQuantity = nil
                     removeFromCartFirebase(model)
                     activateAddTocartButton()
                 }

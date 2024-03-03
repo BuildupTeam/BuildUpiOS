@@ -170,6 +170,7 @@ extension CategoryDetailsGridViewController {
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = collectionViewContainerView.frame //collectionView.backgroundView?.frame ?? CGRect()
         emptyNib.title = L10n.EmptyScreen.noData
+        emptyNib.emptyImage = Asset.icNoOrders.image
         emptyNib.showButton = false
         collectionView.backgroundView = emptyNib
     }

@@ -44,6 +44,7 @@ class AreasViewController: BaseViewController {
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = tableView.backgroundView?.frame ?? CGRect()
         emptyNib.title = L10n.EmptyScreen.noData
+        emptyNib.emptyImage = Asset.icNoOrders.image
 //        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
         emptyNib.showButton = false
         tableView.backgroundView = emptyNib

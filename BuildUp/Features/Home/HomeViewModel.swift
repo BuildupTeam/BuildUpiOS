@@ -43,7 +43,7 @@ class HomeViewModel: BaseViewModel {
         self.service = service
         self.getCartProducts()
         self.getCachedThemeData()
-        self.getCachedHomeData()
+//        self.getCachedHomeData()
     }
     
     func getCartProducts() {
@@ -56,7 +56,6 @@ class HomeViewModel: BaseViewModel {
     func getFavoriteProductsUUIDS() {
         ObservationService.observeOnFavorite()
         RealTimeDatabaseService.getFavoriteProductsFromFirebase { favoriteIDS in
-//            self.favoriteUUIDS = favoriteIDS
             NotificationCenter.default.post(name: .favoriteUpdated, object: nil, userInfo: nil)
         }
     }
@@ -77,7 +76,6 @@ class HomeViewModel: BaseViewModel {
                             self.createHomeSectionArray(responseSections: sections)
                         }
                     }
-                    
                     self.prepareAndRequestHomeApis()
                 } else {
                     self.handleError(response: response)
@@ -282,6 +280,7 @@ extension HomeViewModel {
         case HomeContentType.categories.rawValue:
             self.getHomeCategories(order: order, componentModel: componentModel)
         default:
+            self.checkDataAvailability()
             print("No Such Component")
         }
     }

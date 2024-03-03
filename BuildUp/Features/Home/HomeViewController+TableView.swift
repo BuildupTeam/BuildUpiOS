@@ -112,7 +112,7 @@ extension HomeViewController {
     
     func getNumberOfRowsForSection(section: Int) -> Int {
         guard let design = viewModel.homeData.homeSections[section].component?.design else {
-            return  0
+            return 0
         }
         if isLoadingShimmer {
             return 1
@@ -164,7 +164,7 @@ extension HomeViewController {
     
     func getCellForSection(section: Int, indexPath: IndexPath) -> UITableViewCell {
         guard let design = viewModel.homeData.homeSections[section].component?.design else {
-            return  UITableViewCell()
+            return UITableViewCell()
         }
         
         let homeSectionModel = viewModel.homeData.homeSections[section]

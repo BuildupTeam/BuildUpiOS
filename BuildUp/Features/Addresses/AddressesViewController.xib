@@ -16,6 +16,7 @@
                 <outlet property="confirmButton" destination="3m9-8W-3o1" id="G4W-pR-pcE"/>
                 <outlet property="confirmButtonHeightConstraint" destination="ySz-u6-rpY" id="8af-2W-ayL"/>
                 <outlet property="containerView" destination="D8e-F7-Ptg" id="FUa-73-iTr"/>
+                <outlet property="plusImageView" destination="dCg-qK-Ccv" id="Ghr-Eb-nsz"/>
                 <outlet property="tableView" destination="63a-f1-f0d" id="5Zf-br-tIx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
