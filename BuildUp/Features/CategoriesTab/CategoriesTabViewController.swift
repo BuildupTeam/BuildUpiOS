@@ -104,6 +104,7 @@ extension CategoriesTabViewController {
         emptyNib.frame = collectionView.frame //collectionView.backgroundView?.frame ?? CGRect()
         emptyNib.title = L10n.EmptyScreen.noData
         emptyNib.emptyImage = Asset.icNoOrders.image
+        emptyNib.emptyImage = Asset.icNoOrders.image
         
         emptyNib.showButton = false
         collectionView.backgroundView = emptyNib

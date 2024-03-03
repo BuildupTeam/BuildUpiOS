@@ -19,6 +19,7 @@ class AddressesViewController: BaseViewController {
     @IBOutlet private weak var confirmButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var addNewAddressContainerView: UIView!
     @IBOutlet private weak var addNewAddressLabel: UILabel!
+    @IBOutlet private weak var plusImageView: UIImageView!
 
     var isReloadingTableView = false
     weak var delegate: AddressesDelegate?
@@ -73,6 +74,9 @@ extension AddressesViewController {
         addNewAddressLabel.font = .appFont(ofSize: 14, weight: .medium)
         addNewAddressLabel.textColor = ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "")
         
+        plusImageView.image = Asset.icPlusCircle.image.withRenderingMode(.alwaysTemplate)
+        plusImageView.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
+         
         addNewAddressLabel.text = L10n.Checkout.addNewAddress
 
         addNewAddressContainerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
@@ -104,6 +108,7 @@ extension AddressesViewController {
         let emptyNib = EmptyScreenView.instantiateFromNib()
         emptyNib.frame = tableView.backgroundView?.frame ?? CGRect()
         emptyNib.title = L10n.EmptyScreen.noData
+        emptyNib.emptyImage = Asset.icNoOrders.image
 //        emptyNib.emptyImage = Asset.icEmptyViewSearch.image
         emptyNib.showButton = false
         tableView.backgroundView = emptyNib

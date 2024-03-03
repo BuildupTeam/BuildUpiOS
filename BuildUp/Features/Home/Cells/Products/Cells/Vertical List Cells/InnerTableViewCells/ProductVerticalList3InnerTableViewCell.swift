@@ -90,13 +90,14 @@ class ProductVerticalList3InnerTableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             if model.hasCombinations ?? false {
-                addToCartView.hideView()
+//                addToCartView.hideView()
+                addToCartView.disableAddToCart()
             } else {
                 if model.getMaxQuantity() > 0 {
-                    addToCartView.showView()
+                    addToCartView.enableAddToCart()//showView()
                     addToCartView.productModel = model
                 } else {
-                    addToCartView.hideView()
+                    addToCartView.disableAddToCart() //hideView()
                 }
             }
             
