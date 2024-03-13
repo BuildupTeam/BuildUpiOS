@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -174,9 +174,8 @@
                                                             <rect key="frame" x="93.666666666666671" y="19" width="18" height="18"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PX2-z2-Hjv">
-                                                            <rect key="frame" x="79.666666666666671" y="8" width="40" height="40"/>
+                                                            <rect key="frame" x="0.0" y="8" width="120" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="7es-It-PUM"/>
                                                                 <constraint firstAttribute="height" constant="40" id="dtC-ds-m4P"/>
                                                             </constraints>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -187,7 +186,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMW-nh-m9s">
-                                                            <rect key="frame" x="46.666666666666671" y="17.666666666666629" width="21" height="20.666666666666671"/>
+                                                            <rect key="frame" x="46.666666666666671" y="17.666666666666629" width="7.6666666666666643" height="20.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -205,12 +204,12 @@
                                                         <constraint firstItem="UMW-nh-m9s" firstAttribute="leading" secondItem="FaR-lD-rie" secondAttribute="trailing" constant="8" id="KcU-LJ-oA5"/>
                                                         <constraint firstItem="iVb-L1-FUd" firstAttribute="centerY" secondItem="uIa-0D-NGd" secondAttribute="centerY" id="OxY-7r-eYB"/>
                                                         <constraint firstItem="PX2-z2-Hjv" firstAttribute="centerY" secondItem="uIa-0D-NGd" secondAttribute="centerY" id="RyX-kb-jQi"/>
-                                                        <constraint firstAttribute="trailing" secondItem="PX2-z2-Hjv" secondAttribute="trailing" constant="8" id="ZoX-ky-QRz"/>
                                                         <constraint firstAttribute="width" constant="127.67" id="iEq-Kh-DAX"/>
                                                         <constraint firstAttribute="height" constant="56" id="k2g-Ps-Kd3"/>
                                                         <constraint firstItem="UMW-nh-m9s" firstAttribute="centerY" secondItem="uIa-0D-NGd" secondAttribute="centerY" id="lKM-Ys-ohZ"/>
+                                                        <constraint firstItem="PX2-z2-Hjv" firstAttribute="leading" secondItem="uIa-0D-NGd" secondAttribute="leading" id="m8W-Nv-QlS"/>
                                                         <constraint firstItem="FaR-lD-rie" firstAttribute="centerY" secondItem="uIa-0D-NGd" secondAttribute="centerY" id="oG1-UG-X8X"/>
-                                                        <constraint firstItem="PX2-z2-Hjv" firstAttribute="leading" secondItem="UMW-nh-m9s" secondAttribute="trailing" constant="12" id="qwa-Kc-vx6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PX2-z2-Hjv" secondAttribute="trailing" id="sAu-Mz-wC4"/>
                                                         <constraint firstItem="FaR-lD-rie" firstAttribute="leading" secondItem="uIa-0D-NGd" secondAttribute="leading" constant="8" id="tXS-92-JEN"/>
                                                     </constraints>
                                                     <connections>

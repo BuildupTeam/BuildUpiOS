@@ -85,6 +85,11 @@ extension CategoriesTabViewController {
         self.tableView.reloadData()
     }
     
+    private func reloadCollevtionViewData() {
+        self.isReloadingTableView = true
+        self.collectionView.reloadData()
+    }
+    
     func addSpinnerToTableView() {
         let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         spinner.frame = CGRect(x: 0, y: 0, width: self.tableView.bounds.width, height: 44)
@@ -187,8 +192,8 @@ extension CategoriesTabViewController {
     private func loadMoreProductsResponse() {
         viewModel.onLoadMoreProducts = { [weak self] () in
             guard let `self` = self else { return }
-            self.tableView.tableFooterView = nil
-            self.reloadTableViewData()
+//            self.tableView.tableFooterView = nil
+            self.reloadCollevtionViewData()
             self.isReloadingTableView = false
         }
     }

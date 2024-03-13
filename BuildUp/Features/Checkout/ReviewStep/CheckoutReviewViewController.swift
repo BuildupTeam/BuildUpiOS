@@ -40,6 +40,7 @@ class CheckoutReviewViewController: BaseViewController {
     var profileID: String?
     var serverKey: String?
     var clientKey: String?
+    var region: String?
     
     /*
      var profileID = "134477"
@@ -155,6 +156,7 @@ extension CheckoutReviewViewController {
                     self.profileID = response["profile_id"]
                     self.serverKey = response["server_key"]
                     self.clientKey = response["client_key"]
+                    self.region = response["region"]
                     
                     self.payWithCard()
                 }
@@ -300,10 +302,26 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
                                         zip: "12345")
     }
     
+    private func getMerchantCountryCode(region: String) -> String {
+        if let region = self.region {
+            if region.caseInsensitiveCompare("SAU") == .orderedSame {
+                return "SA"
+            } else {
+                return "EG"
+            }
+        } else {
+            return "EG"
+        }
+        
+    }
+    
     func getCardConfiguration() -> PaymentSDKConfiguration {
         guard let model = self.viewModel.checkoutData?.order else { return PaymentSDKConfiguration() }
         let countryCode = checkoutModel?.countryCodeText ?? "EG"
         let currency = CachingService.getThemeData()?.currency ?? ""
+        let languageCode = LocalizationManager.selectedLanguage.code ?? "en"
+        let merchantCountryCode = getMerchantCountryCode(region: self.region ?? "")
+        
         
         let theme = PaymentSDKTheme.default
         theme.logoImage = UIImage(named: "Logo")
@@ -317,6 +335,8 @@ extension CheckoutReviewViewController: PaymentManagerDelegate {
         .cartID(model.uuid ?? "")
         .screenTitle("Pay with Card")
         .theme(theme)
+        .merchantCountryCode(merchantCountryCode)
+        .languageCode(languageCode)
         .billingDetails(getBillingAddress())
     }
     

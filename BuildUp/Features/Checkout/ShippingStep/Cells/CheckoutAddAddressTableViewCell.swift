@@ -11,7 +11,8 @@ class CheckoutAddAddressTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    
+    @IBOutlet private weak var plusImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +29,9 @@ class CheckoutAddAddressTableViewCell: UITableViewCell {
         
         containerView.layer.borderColor = ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "").cgColor
         containerView.layer.borderWidth = 1
+        
+        plusImageView.image = Asset.icPlusCircle.image.withRenderingMode(.alwaysTemplate)
+        plusImageView.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         
         ThemeManager.setCornerRadious(element: containerView, radius: 8)
     }

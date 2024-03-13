@@ -15,7 +15,7 @@ class OrderHistoryViewModel: BaseViewModel {
     var responseModel: OrdersResponseModel?
 
     var page = 1
-    var perPage: Int = 20
+    var perPage: Int = 10
     var cursor: String?
 
     public var onOrders: (() -> Void)?
@@ -47,7 +47,6 @@ class OrderHistoryViewModel: BaseViewModel {
                 } else {
                     self.handleError(response: response)
                 }
-                
             case .failure(let error):
                 print(error)
                 if error.message != "Request explicitly cancelled." {

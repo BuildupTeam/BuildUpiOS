@@ -60,6 +60,10 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
+    func clearHomeData() {
+//        self.homeData.clearData()
+    }
+    
     func getHomeTemplate() {
         guard let service = service else {
             return

@@ -146,7 +146,9 @@ extension HomeViewController {
     
     @objc
     private func refreshData() {
+        self.viewModel.clearHomeData()
         self.getHomeData()
+//        self.refreshDataOnly()
     }
 }
 // MARK: - Requests
@@ -157,6 +159,9 @@ extension HomeViewController {
         self.viewModel.getCachedThemeData()
      }
     
+    private func refreshDataOnly() {
+        self.viewModel.getCachedThemeData()
+    }
     private func setupResponse() {
         homeResponse()
         cartItemUpdatedResponse()

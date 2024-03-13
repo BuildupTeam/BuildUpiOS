@@ -43,6 +43,7 @@ extension RouteOrdersApi: TargetType {
             
             var parameters: [String: Any] = ["current": completed]
             
+            parameters["per_page"] = perPage
             parameters["sort[by]"] = "id"
             parameters["sort[dir]"] = "desc"
             parameters["cursor"] = cursor

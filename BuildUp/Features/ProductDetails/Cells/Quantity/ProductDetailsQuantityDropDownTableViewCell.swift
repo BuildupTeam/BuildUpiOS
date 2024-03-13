@@ -83,6 +83,7 @@ class ProductDetailsQuantityDropDownTableViewCell: UITableViewCell {
             elements.append(element)
         }
         
+        elements.reverse()
         menu = menu?.replacingChildren(elements)
         quantityActionButton.showsMenuAsPrimaryAction = false
     }

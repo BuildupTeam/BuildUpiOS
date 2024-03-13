@@ -385,6 +385,8 @@ extension ProductDetailsViewController {
         ObservationService.favItemUpdated.append({ [weak self] () in
             guard let `self` = self else { return }
             self.viewModel.productModel = self.viewModel.updateProductModelWithFavorite()
+            self.viewModel.productModel?.relatedProducts = self.viewModel.getProductsWithFavorites(products: self.viewModel.productModel?.relatedProducts ?? [])
+            self.tableView.reloadData()
             self.tableView.reloadData()
         })
     }

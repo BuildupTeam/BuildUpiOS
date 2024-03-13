@@ -57,6 +57,8 @@ extension CategoriesTabViewController: UITableViewDelegate, UITableViewDataSourc
         viewModel.categories[indexPath.row] = categoryModel
         self.isLoadingShimmer = true
         startShimmerOn(collectionView: collectionView)
+        
+        self.viewModel.page = 1
         self.viewModel.categoryModel = categoryModel
         self.tableView.reloadData()
     }

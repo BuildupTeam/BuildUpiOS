@@ -50,6 +50,10 @@ class HomeModel: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
 
     }
+    
+    func clearData() {
+        self.homeSections = []
+    }
 }
 
 extension HomeModel {

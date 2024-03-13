@@ -14,6 +14,7 @@ protocol CategoriesTabWebServiceProtocol: AnyObject {
                        compeltion: @escaping ((Result<CategoriesResponseModel, NetworkError>) -> Void))
     func getProductList(perPage: Int,
                         page: Int?,
+                        cursor: String?,
                         categoryModel: CategoryModel,
                         compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void))
 }
@@ -42,10 +43,11 @@ class CategoriesTabWebService: BaseWebService, CategoriesTabWebServiceProtocol {
     
     func getProductList(perPage: Int,
                         page: Int?,
+                        cursor: String?,
                         categoryModel: CategoryModel,
                         compeltion: @escaping ((Result<ProductsResponseModel, NetworkError>) -> Void)) {
         MainWebService.fetch(
-            endPoint: RouteCategoriesTabApi.getProductList(perPage: perPage, page: page, categoryModel: categoryModel)) { (result, statusCode) in
+            endPoint: RouteCategoriesTabApi.getProductList(perPage: perPage, page: page, cursor: cursor, categoryModel: categoryModel)) { (result, statusCode) in
                 switch result {
                 case .success(let response):
                     guard let productsResponse = Mapper<ProductsResponseModel>().map(JSONObject: response) else {

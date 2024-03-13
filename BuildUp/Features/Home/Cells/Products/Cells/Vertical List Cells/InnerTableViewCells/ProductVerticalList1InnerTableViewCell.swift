@@ -59,16 +59,16 @@ class ProductVerticalList1InnerTableViewCell: UITableViewCell {
     private func bindData() {
         if let model = productModel {
             if model.hasCombinations ?? false {
-//                addToCartView.hideView()
-                addToCartView.disableAddToCart()
+                addToCartView.hideView()
+//                addToCartView.disableAddToCart()
             } else {
                 if model.getMaxQuantity() > 0 {
-//                    addToCartView.showView()
-                    addToCartView.enableAddToCart()
+                    addToCartView.showView()
+//                    addToCartView.enableAddToCart()
                     addToCartView.productModel = model
                 } else {
-//                    addToCartView.hideView()
-                    addToCartView.disableAddToCart()
+                    addToCartView.hideView()
+//                    addToCartView.disableAddToCart()
                 }
             }
             

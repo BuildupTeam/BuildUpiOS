@@ -67,7 +67,7 @@ class CategoriesTabViewModel: BaseViewModel {
             return
         }
         
-        service.getProductList(perPage: perPage, page: page, categoryModel: model) { (result) in
+        service.getProductList(perPage: perPage, page: page, cursor: cursor, categoryModel: model) { (result) in
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {
