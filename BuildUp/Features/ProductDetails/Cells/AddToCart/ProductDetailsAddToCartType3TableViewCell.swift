@@ -24,6 +24,7 @@ class ProductDetailsAddToCartType3TableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        addToCartButton.setTitle(L10n.Cart.addToCart, for: .normal)
         addToCartButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         addToCartButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
         

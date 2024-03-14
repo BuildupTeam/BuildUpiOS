@@ -94,6 +94,7 @@
 "cart.items" = "Items";
 "cart.checkout" = "Checkout";
 "cart.emptyMessage" = "Your Cart is Empty, start adding products";
+"cart.addToCart" = "Add To Cart";
 
 // MARK: - Checkout
 "checkout.title" = "Checkout";

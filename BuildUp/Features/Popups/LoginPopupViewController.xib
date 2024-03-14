@@ -14,6 +14,7 @@
                 <outlet property="cancelButton" destination="GnZ-nr-tPe" id="xxR-KK-bvt"/>
                 <outlet property="containerView" destination="MZm-sz-eyx" id="B8j-SG-68G"/>
                 <outlet property="loginButton" destination="6hD-Le-pgf" id="CQk-VU-OAw"/>
+                <outlet property="loginImageView" destination="peR-xl-QOU" id="HFR-a3-wve"/>
                 <outlet property="seperatorView" destination="YM0-nN-Iqq" id="9ZA-z6-Lcs"/>
                 <outlet property="titleLabel" destination="XWt-vo-OEf" id="EDh-no-41f"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -102,7 +103,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

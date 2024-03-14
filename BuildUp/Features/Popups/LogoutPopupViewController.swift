@@ -20,6 +20,7 @@ class LogoutPopupViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var logoutImageView: UIImageView!
     
     weak var delegate: LogoutPopupProtocol?
     
@@ -43,6 +44,9 @@ class LogoutPopupViewController: UIViewController {
         cancelButton.setTitle(L10n.Popups.cancel, for: .normal)
         cancelButton.setTitleColor(ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "") , for: .normal)
         cancelButton.backgroundColor = ThemeManager.colorPalette?.cardBg1?.toUIColor(hexa: ThemeManager.colorPalette?.cardBg1 ?? "")
+        
+        logoutImageView.image = Asset.icLogout.image.withRenderingMode(.alwaysTemplate)
+        logoutImageView.tintColor = ThemeManager.colorPalette?.buttonBorderIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderIconColor ?? "")
         
         cancelButton.layer.borderWidth = 1.0
         cancelButton.layer.borderColor = ThemeManager.colorPalette?.buttonBorderColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderColor ?? "").cgColor

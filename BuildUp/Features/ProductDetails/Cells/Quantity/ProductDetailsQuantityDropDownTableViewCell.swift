@@ -32,6 +32,7 @@ class ProductDetailsQuantityDropDownTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        quantityTitleLabel.text = L10n.ProductDetails.quantity
         quantityTitleLabel.font = .appFont(ofSize: 13, weight: .regular)
         quantityLabel.font = .appFont(ofSize: 13, weight: .regular)
         

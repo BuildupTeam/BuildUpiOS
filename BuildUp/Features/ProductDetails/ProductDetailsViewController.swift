@@ -111,7 +111,7 @@ extension ProductDetailsViewController {
         subTotalPriceTitleLabel.font = .appFont(ofSize: 17, weight: .bold)
         subTotalPriceLabel.font = .appFont(ofSize: 17, weight: .bold)
         
-//        addToCartButton.setCornerRadius(24)
+        addToCartButton.setTitle(L10n.Cart.addToCart, for: .normal)
         addToCartButton.titleLabel?.font = .appFont(ofSize: 15, weight: .bold)
         addToCartButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
         addToCartButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")

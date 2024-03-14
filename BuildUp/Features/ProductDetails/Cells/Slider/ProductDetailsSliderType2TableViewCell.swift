@@ -83,6 +83,8 @@ extension ProductDetailsSliderType2TableViewCell {
 
 //        containerViewHeightConstraint.constant = 540
         
+        productOutOfStockLabel.text = L10n.Checkout.outOfStock
+        
         productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
         productDescriptionLabel.font = .appFont(ofSize: 14, weight: .semiBold)
         productOutOfStockLabel.font = .appFont(ofSize: 12, weight: .medium)
