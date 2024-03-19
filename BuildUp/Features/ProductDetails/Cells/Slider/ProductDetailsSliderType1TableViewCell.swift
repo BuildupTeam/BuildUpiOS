@@ -86,8 +86,6 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         addToFavoriteGroupedView.layer.cornerRadius = 16
         
         productOutOfStockView.backgroundColor = ThemeManager.colorPalette?.tabsInactiveBg?.toUIColor(hexa: ThemeManager.colorPalette?.tabsInactiveBg ?? "")
-//        productOutOfStockView.layer.masksToBounds = true
-//        productOutOfStockView.layer.cornerRadius = 4
         
         ThemeManager.setCornerRadious(element: productOutOfStockView, radius: 4)
     }
@@ -123,7 +121,10 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
             // "SAR " + String(model.currentPrice ?? 0)
             
             if !model.descriptionIsExpaned {
-                if let desc = model.productDescription, desc.count > 40 {
+                if var desc = model.productDescription, desc.count > 40 {
+                    if desc.contains("\n") {
+                        desc = desc.replacingOccurrences(of: "\n", with: " ")
+                    }
                     productDescriptionLabel.text = desc//.maxLength(length: 70)
                     
                     let readmoreFont = UIFont.appFont(ofSize: 14, weight: .bold)
@@ -237,6 +238,7 @@ extension ProductDetailsSliderType1TableViewCell: UICollectionViewDelegate, UICo
         if let model = productModel, !(model.files?.isEmpty ?? false) {
             return model.files?.count ?? 0
         }
+        
         return 0
     }
     

@@ -88,7 +88,13 @@ extension UILabel {
             trimmedString = trimmedString?.replacingOccurrences(of: "\n", with: " ")
         }
         
-        let location = (trimmedString?.count ?? 0) - readMoreLength
+        var location = 0
+        
+        print("trimmedString?.count = \((trimmedString?.count ?? 0))")
+        
+        if (trimmedString?.count ?? 0) > readMoreLength {
+            location = (trimmedString?.count ?? 0) - readMoreLength
+        }
         
         let trimmedForReadMore: String = (trimmedString! as NSString).replacingCharacters(in: NSRange(location: location, length: readMoreLength), with: "") + trailingText
         let answerAttributed = NSMutableAttributedString(string: trimmedForReadMore, attributes: [NSAttributedString.Key.font: self.font])
