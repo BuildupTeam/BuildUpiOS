@@ -131,6 +131,20 @@ extension CategoriesTabViewController: UICollectionViewDelegate, UICollectionVie
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == (viewModel.products.count - 1) &&
+            (viewModel.products.count >= viewModel.perPage) {
+            if !isReloadingTableView {
+                if viewModel.responseModel?.pagination?.cursorMeta?.nextCursor != nil {
+                    self.loadMoreProducts()
+//                    addSpinnerToTableView()
+                }
+            } else {
+                isReloadingTableView = false
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if viewModel.products.isEmpty {
             return

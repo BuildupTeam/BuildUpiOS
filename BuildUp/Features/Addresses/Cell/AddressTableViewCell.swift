@@ -86,13 +86,13 @@ class AddressTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = addressModel {
-            nameLabel.text = CachingService.getUser()?.customer?.fullName
+//            nameLabel.text = CachingService.getUser()?.customer?.fullName
             if let desc = model.addressDescription {
                 addressLabel.text = desc
             }
             
-            if let country = model.country?.name, let city = model.city?.name {
-                countryLabel.text = country + ", " + city
+            if let country = model.country?.name, let city = model.city?.name, let area = model.area?.name {
+                countryLabel.text = country + ", " + city + ", " + area
             }
             
             if model.isDefault ?? false {

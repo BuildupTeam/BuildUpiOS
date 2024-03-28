@@ -36,11 +36,7 @@
                                 <rect key="frame" x="213.66666666666666" y="19" width="11" height="6"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xtf-le-LuN">
-                                <rect key="frame" x="169" y="0.0" width="100" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="9AU-gi-7lP"/>
-                                    <constraint firstAttribute="height" constant="44" id="MBT-EJ-6D0"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="398" height="44"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <connections>
                                     <action selector="quantityButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eNu-cw-wz6"/>
@@ -50,14 +46,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="acZ-DO-dHP" firstAttribute="centerY" secondItem="O4h-Pw-Ar5" secondAttribute="centerY" id="10y-DZ-DaM"/>
+                            <constraint firstAttribute="trailing" secondItem="Xtf-le-LuN" secondAttribute="trailing" id="181-3U-vnn"/>
                             <constraint firstItem="knE-4j-Ms0" firstAttribute="centerY" secondItem="O4h-Pw-Ar5" secondAttribute="centerY" id="2Mn-gm-PCE"/>
+                            <constraint firstItem="Xtf-le-LuN" firstAttribute="top" secondItem="O4h-Pw-Ar5" secondAttribute="top" id="4B0-A5-cY0"/>
                             <constraint firstItem="acZ-DO-dHP" firstAttribute="leading" secondItem="O4h-Pw-Ar5" secondAttribute="leading" constant="8" id="5xl-vf-DYG"/>
                             <constraint firstItem="knE-4j-Ms0" firstAttribute="leading" secondItem="baL-hQ-IwT" secondAttribute="trailing" constant="60" id="DVu-Cc-WqL"/>
                             <constraint firstItem="knE-4j-Ms0" firstAttribute="centerX" secondItem="O4h-Pw-Ar5" secondAttribute="centerX" constant="20" id="FCX-tf-0oi"/>
-                            <constraint firstItem="Xtf-le-LuN" firstAttribute="centerX" secondItem="knE-4j-Ms0" secondAttribute="centerX" id="Z78-XF-q4z"/>
+                            <constraint firstAttribute="bottom" secondItem="Xtf-le-LuN" secondAttribute="bottom" id="T6E-dh-Xxa"/>
                             <constraint firstAttribute="height" constant="44" id="aNc-hq-PPE"/>
-                            <constraint firstItem="Xtf-le-LuN" firstAttribute="centerY" secondItem="knE-4j-Ms0" secondAttribute="centerY" id="bOn-TL-wZM"/>
                             <constraint firstItem="baL-hQ-IwT" firstAttribute="centerY" secondItem="acZ-DO-dHP" secondAttribute="centerY" id="pIk-od-DKV"/>
+                            <constraint firstItem="Xtf-le-LuN" firstAttribute="leading" secondItem="O4h-Pw-Ar5" secondAttribute="leading" id="zNw-9c-KAZ"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGp-yd-EGc">
@@ -86,7 +84,7 @@
                 <outlet property="quantityTitleLabel" destination="acZ-DO-dHP" id="0BD-wf-jSU"/>
                 <outlet property="seperatorView" destination="TGp-yd-EGc" id="IbH-2W-Q2v"/>
             </connections>
-            <point key="canvasLocation" x="37" y="20"/>
+            <point key="canvasLocation" x="36.641221374045799" y="19.718309859154932"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -33,9 +33,6 @@ class SettingsHeaderView: UIView {
         
         titleLabel.textColor = ThemeManager.colorPalette?.mainBg1?.toUIColor(hexa: ThemeManager.colorPalette?.mainBg1 ?? "")
         titleLabel.font = .appFont(ofSize: CGFloat(18.5), weight: .bold)
-        
-//        closeImageView.image = Asset.icCloseWhite.image
-//        closeImageView.tintColor = .white
     }
     
     func setPageTitle() {

@@ -193,6 +193,7 @@ extension CartProductList1TableViewCell {
             elements.append(element)
         }
         
+        elements.reverse()
         menu = menu?.replacingChildren(elements)
         productQuantityButton.showsMenuAsPrimaryAction = false
     }

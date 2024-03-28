@@ -36,9 +36,9 @@ class Coordinator {
             
             navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
             navigation.navigationBar.shadowImage = UIImage()
-            navigation.navigationBar.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "") //.white
-            navigation.navigationBar.tintColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "") //.titlesBlack
-            navigation.navigationBar.barTintColor = ThemeManager.colorPalette?.navButtonIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.navButtonIconColor ?? "") //.titlesBlack
+            navigation.navigationBar.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
+            navigation.navigationBar.tintColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
+            navigation.navigationBar.barTintColor = ThemeManager.colorPalette?.navButtonIconColor?.toUIColor(hexa: ThemeManager.colorPalette?.navButtonIconColor ?? "") 
             
             let extraHeight: CGFloat = 10
             let bounds = navigation.navigationBar.bounds

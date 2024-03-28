@@ -96,12 +96,12 @@ extension OrderDetailsViewController {
         self.title = L10n.OrderDetails.orderNumber + (self.viewModel.orderModel?.uuid ?? "")
         
         if let model = self.viewModel.orderModel {
-            if model.status == OrderStatus.delivered.rawValue {
-                tableViewBottomConstraint.constant = 0
-                cancelOrderButton.hideView()
-            } else {
+            if model.status == OrderStatus.placed.rawValue {
                 tableViewBottomConstraint.constant = 100
                 cancelOrderButton.showView()
+            } else {
+                tableViewBottomConstraint.constant = 0
+                cancelOrderButton.hideView()
             }
         }
     }

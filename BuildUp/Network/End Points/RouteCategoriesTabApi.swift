@@ -12,6 +12,7 @@ enum RouteCategoriesTabApi {
     case getCategories(limit: Int)
     case getProductList(perPage: Int,
                         page: Int?,
+                        cursor: String?,
                         categoryModel: CategoryModel)
 }
 
@@ -49,12 +50,17 @@ extension RouteCategoriesTabApi: TargetType {
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
-        case .getProductList(perPage: let perPage, page: let page, categoryModel: let model):
+        case .getProductList(perPage: let perPage, page: let page, cursor: let cursor, categoryModel: let model):
             var parameters: [String: Any] = ["per_page": perPage]
             parameters["page"] = page
             parameters["categories_ids[0]"] = model.id
             parameters["sort[by]"] = "id"
             parameters["sort[dir]"] = "desc"
+            
+            parameters["cursor"] = cursor
+            parameters["cursor_meta"] = "1"
+            parameters["cursor_by"] = "id"
+            parameters["cursor_dir"] = "desc"
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
