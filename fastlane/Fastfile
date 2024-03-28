@@ -21,8 +21,9 @@ before_all do
   end
 
 platform :ios do
-   desc "Get certificates"
-  lane :certificates do
+
+  desc "Get certificates"
+   lane :certificates do
     sync_code_signing(
       type: "appstore",
       app_identifier: ENV['APP_IDENTIFIER'], 
@@ -38,9 +39,8 @@ platform :ios do
     )
   end
 
- desc “Generate new localized screenshots”
- 	lane :screenshots do
-
+  desc “Generate new localized screenshots”
+   lane :screenshots do
     setup_ci
     sync_code_signing(
       type: "appstore",
@@ -59,11 +59,11 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
        capture_screenshots(workspace: “BuildUp.xcworkspace”, scheme: “BuildUpUITests”)
  end
 
- desc “Update App Identifier”
- lane :update_project_settings do
-  require 'xcodeproj'
-  project_path = '../BuildUp.xcodeproj'
-  project = Xcodeproj::Project.open(project_path)
+  desc “Update App Identifier”
+   lane :update_project_settings do
+   require 'xcodeproj'
+   project_path = '../BuildUp.xcodeproj'
+   project = Xcodeproj::Project.open(project_path)
 
   project.targets.each do |target|
     target.build_configurations.each do |config|
