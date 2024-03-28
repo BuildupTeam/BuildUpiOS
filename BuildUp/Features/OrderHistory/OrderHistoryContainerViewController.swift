@@ -17,7 +17,6 @@ class OrderHistoryContainerViewController: BaseViewController {
     }
     
     private func setupView() {
-         
         self.view.backgroundColor = ThemeManager.colorPalette?.getMainBG().toUIColor(hexa: ThemeManager.colorPalette?.getMainBG() ?? "")
     }
     
@@ -41,7 +40,13 @@ class OrderHistoryContainerViewController: BaseViewController {
         carbonTabSwipeNavigation.toolbar.clipsToBounds = true
         carbonTabSwipeNavigation.toolbar.backgroundColor = .clear
         carbonTabSwipeNavigation.setIndicatorHeight(3)
-        carbonTabSwipeNavigation.setTabBarHeight(50)//tab bar height
+        carbonTabSwipeNavigation.setTabBarHeight(50)    //tab bar height
+        
+        if CachingService.getUser() == nil {
+            carbonTabSwipeNavigation.setTabBarHeight(0)    //tab bar height
+        } else {
+            carbonTabSwipeNavigation.setTabBarHeight(50)    //tab bar height
+        }
         
         carbonTabSwipeNavigation.setIndicatorColor(ThemeManager.colorPalette?.tabsActiveBorder?.toUIColor(hexa: ThemeManager.colorPalette?.tabsActiveBorder ?? ""))
         

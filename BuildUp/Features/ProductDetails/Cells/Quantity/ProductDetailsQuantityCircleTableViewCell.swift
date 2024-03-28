@@ -26,6 +26,7 @@ class ProductDetailsQuantityCircleTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        quantityTitleLabel.text = L10n.ProductDetails.quantity
         quantityTitleLabel.font = .appFont(ofSize: 13, weight: .regular)
         quantityTitleLabel.textColor =  ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         seperatorView.backgroundColor = ThemeManager.colorPalette?.separator?.toUIColor(hexa: ThemeManager.colorPalette?.separator ?? "")

@@ -11,6 +11,542 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
+      /// Apple Pay country code is empty!
+      internal static var paymentSdkApplePayErrorMissingCountryCode: String {
+        return L10n.tr("Localizable", "payment_sdk_apple_pay_error_missing_country_code")
+      }
+      /// Apple Pay identifier is empty!
+      internal static var paymentSdkApplePayErrorMissingMerchantIdentifier: String {
+        return L10n.tr("Localizable", "payment_sdk_apple_pay_error_missing_merchant_identifier")
+      }
+      /// Merchant name is empty!
+      internal static var paymentSdkApplePayErrorMissingMerchantName: String {
+        return L10n.tr("Localizable", "payment_sdk_apple_pay_error_missing_merchant_name")
+      }
+      /// UnAuthorized Apple Pay networks
+      internal static var paymentSdkApplePayErrorUnauthorizedNetworks: String {
+        return L10n.tr("Localizable", "payment_sdk_apple_pay_error_unauthorized_networks")
+      }
+      /// Apple Pay isn't supported on simulator please try on a real device
+      internal static var paymentSdkApplePaySimulatorNotSupported: String {
+        return L10n.tr("Localizable", "payment_sdk_apple_pay_simulator_not_supported")
+      }
+      /// City
+      internal static var paymentSdkBillingAddressCity: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_address_city")
+      }
+      /// Country
+      internal static var paymentSdkBillingAddressCountry: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_address_country")
+      }
+      /// Email
+      internal static var paymentSdkBillingAddressEmail: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_address_email")
+      }
+      /// Full Name
+      internal static var paymentSdkBillingAddressFullName: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_address_full_name")
+      }
+      /// Phone Number
+      internal static var paymentSdkBillingAddressPhone: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_address_phone")
+      }
+      /// State
+      internal static var paymentSdkBillingAddressState: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_address_state")
+      }
+      /// Street
+      internal static var paymentSdkBillingAddressStree: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_address_stree")
+      }
+      /// Zip Code
+      internal static var paymentSdkBillingAddressZip: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_address_zip")
+      }
+      /// Billing Details
+      internal static var paymentSdkBillingDetails: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_details")
+      }
+      /// Select Country
+      internal static var paymentSdkBillingSelectCountry: String {
+        return L10n.tr("Localizable", "payment_sdk_billing_select_country")
+      }
+      /// Cancel
+      internal static var paymentSdkCancel: String {
+        return L10n.tr("Localizable", "payment_sdk_cancel")
+      }
+      /// Are you sure you want to cancel the payment?
+      internal static var paymentSdkCancelAlert: String {
+        return L10n.tr("Localizable", "payment_sdk_cancel_alert")
+      }
+      /// CAV
+      internal static var paymentSdkCardCav: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cav")
+      }
+      /// CAV
+      internal static var paymentSdkCardCavHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cav_hint")
+      }
+      /// CID
+      internal static var paymentSdkCardCid: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cid")
+      }
+      /// CID
+      internal static var paymentSdkCardCidHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cid_hint")
+      }
+      /// CVC
+      internal static var paymentSdkCardCvc: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cvc")
+      }
+      /// CVC
+      internal static var paymentSdkCardCvcHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cvc_hint")
+      }
+      /// CVD
+      internal static var paymentSdkCardCvd: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cvd")
+      }
+      /// CVD
+      internal static var paymentSdkCardCvdHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cvd_hint")
+      }
+      /// CVN
+      internal static var paymentSdkCardCvn: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cvn")
+      }
+      /// CVN
+      internal static var paymentSdkCardCvnHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cvn_hint")
+      }
+      /// CVV
+      internal static var paymentSdkCardCvv: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cvv")
+      }
+      /// CVV
+      internal static var paymentSdkCardCvvHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_cvv_hint")
+      }
+      /// Card number is empty!
+      internal static var paymentSdkCardErrorEmptyCardNumber: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_empty_card_number")
+      }
+      /// CID is empty!
+      internal static var paymentSdkCardErrorEmptyCid: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_empty_cid")
+      }
+      /// CVC is empty!
+      internal static var paymentSdkCardErrorEmptyCvc: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_empty_cvc")
+      }
+      /// CVN is empty!
+      internal static var paymentSdkCardErrorEmptyCvn: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_empty_cvn")
+      }
+      /// CVV is empty!
+      internal static var paymentSdkCardErrorEmptyCvv: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_empty_cvv")
+      }
+      /// Expiry date is empty!
+      internal static var paymentSdkCardErrorEmptyExpiryDate: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_empty_expiry_date")
+      }
+      /// Card holder name is empty!
+      internal static var paymentSdkCardErrorEmptyNameOnCard: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_empty_name_on_card")
+      }
+      /// Expired credit card
+      internal static var paymentSdkCardErrorExpiredExpiryDate: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_expired_expiry_date")
+      }
+      /// Invalid card number
+      internal static var paymentSdkCardErrorInvalidCardNumber: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_invalid_card_number")
+      }
+      /// Invalid CID!
+      internal static var paymentSdkCardErrorInvalidCid: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_invalid_cid")
+      }
+      /// Invalid CVC!
+      internal static var paymentSdkCardErrorInvalidCvc: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_invalid_cvc")
+      }
+      /// Invalid CVN!
+      internal static var paymentSdkCardErrorInvalidCvn: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_invalid_cvn")
+      }
+      /// Invalid CVV!
+      internal static var paymentSdkCardErrorInvalidCvv: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_invalid_cvv")
+      }
+      /// Invalid expiry date
+      internal static var paymentSdkCardErrorInvalidExpiryDate: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_invalid_expiry_date")
+      }
+      /// Invalid card holder name
+      internal static var paymentSdkCardErrorInvalidNameOnCard: String {
+        return L10n.tr("Localizable", "payment_sdk_card_error_invalid_name_on_card")
+      }
+      /// Expiry Date
+      internal static var paymentSdkCardExpiryDate: String {
+        return L10n.tr("Localizable", "payment_sdk_card_expiry_date")
+      }
+      /// MM/YY
+      internal static var paymentSdkCardExpiryDateHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_expiry_date_hint")
+      }
+      /// John Smith
+      internal static var paymentSdkCardNameOnCardHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_name_on_card_hint")
+      }
+      /// Name on Card
+      internal static var paymentSdkCardNameOnCardTitle: String {
+        return L10n.tr("Localizable", "payment_sdk_card_name_on_card_title")
+      }
+      /// Card Number
+      internal static var paymentSdkCardNumber: String {
+        return L10n.tr("Localizable", "payment_sdk_card_number")
+      }
+      /// 0000 0000 0000 0000
+      internal static var paymentSdkCardNumberHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_number_hint")
+      }
+      /// PAY NOW
+      internal static var paymentSdkCardPayButton: String {
+        return L10n.tr("Localizable", "payment_sdk_card_pay_button")
+      }
+      /// Not Now
+      internal static var paymentSdkCardScannerCameraPermissionDismiss: String {
+        return L10n.tr("Localizable", "payment_sdk_card_scanner_camera_permission_dismiss")
+      }
+      /// Please grant permission to use the Camera so that you can scan cards
+      internal static var paymentSdkCardScannerCameraPermissionMessage: String {
+        return L10n.tr("Localizable", "payment_sdk_card_scanner_camera_permission_message")
+      }
+      /// Open Settings
+      internal static var paymentSdkCardScannerCameraPermissionSettings: String {
+        return L10n.tr("Localizable", "payment_sdk_card_scanner_camera_permission_settings")
+      }
+      /// Card Scanner
+      internal static var paymentSdkCardScannerCameraPermissionTitle: String {
+        return L10n.tr("Localizable", "payment_sdk_card_scanner_camera_permission_title")
+      }
+      /// Line up card within the lines
+      internal static var paymentSdkCardScannerLineUpHint: String {
+        return L10n.tr("Localizable", "payment_sdk_card_scanner_line_up_hint")
+      }
+      /// Search
+      internal static var paymentSdkCountryListSearch: String {
+        return L10n.tr("Localizable", "payment_sdk_country_list_search")
+      }
+      /// You're paying
+      internal static var paymentSdkCreditCardPayAmount: String {
+        return L10n.tr("Localizable", "payment_sdk_credit_card_pay_amount")
+      }
+      /// Cancel
+      internal static var paymentSdkCreditCardScreenDismiss: String {
+        return L10n.tr("Localizable", "payment_sdk_credit_card_screen_dismiss")
+      }
+      /// Save card no. for future payments
+      internal static var paymentSdkCreditCardScreenSaveCardLabel: String {
+        return L10n.tr("Localizable", "payment_sdk_credit_card_screen_save_card_label")
+      }
+      /// To continue, you have to save the card info!
+      internal static var paymentSdkCreditCardScreenSaveCardMandatoryError: String {
+        return L10n.tr("Localizable", "payment_sdk_credit_card_screen_save_card_mandatory_error")
+      }
+      /// Payment Process
+      internal static var paymentSdkCreditCardScreenTitle: String {
+        return L10n.tr("Localizable", "payment_sdk_credit_card_screen_title")
+      }
+      /// Done
+      internal static var paymentSdkDone: String {
+        return L10n.tr("Localizable", "payment_sdk_done")
+      }
+      /// Failed to scan
+      internal static var paymentSdkErrorCardScannerFailed: String {
+        return L10n.tr("Localizable", "payment_sdk_error_card_scanner_failed")
+      }
+      /// Alternative payment methods list is empty
+      internal static var paymentSdkErrorEmptyAlternativePaymentMethods: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_alternative_payment_methods")
+      }
+      /// Billing address is empty!
+      internal static var paymentSdkErrorEmptyBillingAddress: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_billing_address")
+      }
+      /// Billing city is empty!
+      internal static var paymentSdkErrorEmptyBillingCity: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_billing_city")
+      }
+      /// Billing country code is empty!
+      internal static var paymentSdkErrorEmptyBillingCountryCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_billing_country_code")
+      }
+      /// Billing email is empty!
+      internal static var paymentSdkErrorEmptyBillingEmail: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_billing_email")
+      }
+      /// Billing full name is empty!
+      internal static var paymentSdkErrorEmptyBillingFullName: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_billing_full_name")
+      }
+      /// Billing phone number is empty!
+      internal static var paymentSdkErrorEmptyBillingPhone: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_billing_phone")
+      }
+      /// Billing state is empty!
+      internal static var paymentSdkErrorEmptyBillingState: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_billing_state")
+      }
+      /// Billing ZIP code is empty!
+      internal static var paymentSdkErrorEmptyBillingZipCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_billing_zip_code")
+      }
+      /// Shipping address is empty!
+      internal static var paymentSdkErrorEmptyShippingAddress: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_shipping_address")
+      }
+      /// Shipping city is empty!
+      internal static var paymentSdkErrorEmptyShippingCity: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_shipping_city")
+      }
+      /// Shipping country code is empty!
+      internal static var paymentSdkErrorEmptyShippingCountryCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_shipping_country_code")
+      }
+      /// Shipping email is empty!
+      internal static var paymentSdkErrorEmptyShippingEmail: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_shipping_email")
+      }
+      /// Shipping full name is empty!
+      internal static var paymentSdkErrorEmptyShippingFullName: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_shipping_full_name")
+      }
+      /// Shipping phone number is empty!
+      internal static var paymentSdkErrorEmptyShippingPhone: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_shipping_phone")
+      }
+      /// Shipping state is empty!
+      internal static var paymentSdkErrorEmptyShippingState: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_shipping_state")
+      }
+      /// Shipping ZIP code is empty!
+      internal static var paymentSdkErrorEmptyShippingZipCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_empty_shipping_zip_code")
+      }
+      /// Something went wrong!
+      internal static var paymentSdkErrorGeneric: String {
+        return L10n.tr("Localizable", "payment_sdk_error_generic")
+      }
+      /// Invalid amount
+      internal static var paymentSdkErrorInvalidAmount: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_amount")
+      }
+      /// Invalid billing address
+      internal static var paymentSdkErrorInvalidBillingAddress: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_billing_address")
+      }
+      /// Invalid billing city
+      internal static var paymentSdkErrorInvalidBillingCity: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_billing_city")
+      }
+      /// Invalid billing country code
+      internal static var paymentSdkErrorInvalidBillingCountryCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_billing_country_code")
+      }
+      /// Invalid billing email
+      internal static var paymentSdkErrorInvalidBillingEmail: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_billing_email")
+      }
+      /// Invalid billing full name
+      internal static var paymentSdkErrorInvalidBillingFullName: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_billing_full_name")
+      }
+      /// Invalid billing phone
+      internal static var paymentSdkErrorInvalidBillingPhone: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_billing_phone")
+      }
+      /// Invalid billing state
+      internal static var paymentSdkErrorInvalidBillingState: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_billing_state")
+      }
+      /// Invalid billing ZIP code
+      internal static var paymentSdkErrorInvalidBillingZipCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_billing_zip_code")
+      }
+      /// Invalid Currency
+      internal static var paymentSdkErrorInvalidCurrency: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_currency")
+      }
+      /// Invalid merchant country code (it should be alpha-2 ISO code)
+      internal static var paymentSdkErrorInvalidMerchantCountryCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_merchant_country_code")
+      }
+      /// Invalid shipping address
+      internal static var paymentSdkErrorInvalidShippingAddress: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_shipping_address")
+      }
+      /// Invalid shipping city
+      internal static var paymentSdkErrorInvalidShippingCity: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_shipping_city")
+      }
+      /// Invalid shipping country code
+      internal static var paymentSdkErrorInvalidShippingCountryCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_shipping_country_code")
+      }
+      /// Invalid shipping email
+      internal static var paymentSdkErrorInvalidShippingEmail: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_shipping_email")
+      }
+      /// Invalid shipping full name
+      internal static var paymentSdkErrorInvalidShippingFullName: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_shipping_full_name")
+      }
+      /// Invalid shipping phone number
+      internal static var paymentSdkErrorInvalidShippingPhone: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_shipping_phone")
+      }
+      /// Invalid shipping state
+      internal static var paymentSdkErrorInvalidShippingState: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_shipping_state")
+      }
+      /// Invalid shipping ZIP code
+      internal static var paymentSdkErrorInvalidShippingZipCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_invalid_shipping_zip_code")
+      }
+      /// Please provide billing info
+      internal static var paymentSdkErrorMissingBillingInfo: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_billing_info")
+      }
+      /// Cart description is empty!
+      internal static var paymentSdkErrorMissingCartDescription: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_cart_description")
+      }
+      /// Cart ID is empty!
+      internal static var paymentSdkErrorMissingCartId: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_cart_id")
+      }
+      /// Missing client key!
+      internal static var paymentSdkErrorMissingClientKey: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_client_key")
+      }
+      /// Invalid config data
+      internal static var paymentSdkErrorMissingConfigData: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_config_data")
+      }
+      /// Currency is empty!
+      internal static var paymentSdkErrorMissingCurrency: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_currency")
+      }
+      /// Missing data
+      internal static var paymentSdkErrorMissingDataTitle: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_data_title")
+      }
+      /// Missing merchant country code!
+      internal static var paymentSdkErrorMissingMerchantCountryCode: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_merchant_country_code")
+      }
+      /// Profile ID is empty!
+      internal static var paymentSdkErrorMissingProfileId: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_profile_id")
+      }
+      /// Invalid server IP
+      internal static var paymentSdkErrorMissingServerIp: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_server_ip")
+      }
+      /// Missing server key!
+      internal static var paymentSdkErrorMissingServerKey: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_server_key")
+      }
+      /// Please provide shipping info
+      internal static var paymentSdkErrorMissingShippingInfo: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_shipping_info")
+      }
+      /// Token is missing
+      internal static var paymentSdkErrorMissingTokenizationToken: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_tokenization_token")
+      }
+      /// Transaction reference is missing
+      internal static var paymentSdkErrorMissingTransactionReference: String {
+        return L10n.tr("Localizable", "payment_sdk_error_missing_transaction_reference")
+      }
+      /// Network error, please try again!
+      internal static var paymentSdkErrorNetwork: String {
+        return L10n.tr("Localizable", "payment_sdk_error_network")
+      }
+      /// Validation Error
+      internal static var paymentSdkErrorValidationTitle: String {
+        return L10n.tr("Localizable", "payment_sdk_error_validation_title")
+      }
+      /// No
+      internal static var paymentSdkNo: String {
+        return L10n.tr("Localizable", "payment_sdk_no")
+      }
+      /// Ok
+      internal static var paymentSdkOk: String {
+        return L10n.tr("Localizable", "payment_sdk_ok")
+      }
+      /// Powered By
+      internal static var paymentSdkPoweredBy: String {
+        return L10n.tr("Localizable", "payment_sdk_powered_by")
+      }
+      /// 3D Secure
+      internal static var paymentSdkRedirectionTitle: String {
+        return L10n.tr("Localizable", "payment_sdk_redirection_title")
+      }
+      /// SamsungPay token is empty
+      internal static var paymentSdkSamsungPayErrorMissingToken: String {
+        return L10n.tr("Localizable", "payment_sdk_samsung_pay_error_missing_token")
+      }
+      /// Save & Continue
+      internal static var paymentSdkSaveContinue: String {
+        return L10n.tr("Localizable", "payment_sdk_save_continue")
+      }
+      /// City
+      internal static var paymentSdkShippingAddressCity: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_address_city")
+      }
+      /// Country
+      internal static var paymentSdkShippingAddressCountry: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_address_country")
+      }
+      /// Email
+      internal static var paymentSdkShippingAddressEmail: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_address_email")
+      }
+      /// Full Name
+      internal static var paymentSdkShippingAddressFullName: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_address_full_name")
+      }
+      /// Phone Number
+      internal static var paymentSdkShippingAddressPhone: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_address_phone")
+      }
+      /// State
+      internal static var paymentSdkShippingAddressState: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_address_state")
+      }
+      /// Street
+      internal static var paymentSdkShippingAddressStree: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_address_stree")
+      }
+      /// Zip Code
+      internal static var paymentSdkShippingAddressZip: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_address_zip")
+      }
+      /// Shipping Details
+      internal static var paymentSdkShippingDetails: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_details")
+      }
+      /// Select Country
+      internal static var paymentSdkShippingSelectCountry: String {
+        return L10n.tr("Localizable", "payment_sdk_shipping_select_country")
+      }
+      /// Yes
+      internal static var paymentSdkYes: String {
+        return L10n.tr("Localizable", "payment_sdk_yes")
+      }
 
     internal enum QRCode {
         /// Scan the QR Code that appears in the mobile mockup in your dashboard to be able to view your app demo
@@ -32,6 +568,10 @@ internal enum L10n {
     }
 
     internal enum Cart {
+        /// Add To Cart
+        internal static var addToCart: String {
+          return L10n.tr("Localizable", "cart.addToCart")
+        }
         /// Add Wishlist
         internal static var addWishList: String {
           return L10n.tr("Localizable", "cart.addWishList")

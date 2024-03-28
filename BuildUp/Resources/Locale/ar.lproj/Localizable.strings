@@ -94,6 +94,7 @@
 "cart.items" = "العناصر";
 "cart.checkout" = "الدفع";
 "cart.emptyMessage" = "سلتك فارغة";
+"cart.addToCart" = "أضف إلى السلة";
 
 // MARK: - Checkout
 "checkout.title" = "الدفع";

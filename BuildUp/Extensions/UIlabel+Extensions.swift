@@ -81,9 +81,16 @@ extension UILabel {
         
         let lengthForVisibleString: Int = self.vissibleTextLength
         let mutableString: String = self.text!
-        let trimmedString: String? = (mutableString as NSString).replacingCharacters(in: NSRange(location: lengthForVisibleString, length: ((self.text?.count)! - lengthForVisibleString)), with: "")
+        var trimmedString: String? = (mutableString as NSString).replacingCharacters(in: NSRange(location: lengthForVisibleString, length: ((self.text?.count)! - lengthForVisibleString)), with: "")
         let readMoreLength: Int = (readMoreText.count)
-        let trimmedForReadMore: String = (trimmedString! as NSString).replacingCharacters(in: NSRange(location: ((trimmedString?.count ?? 0) - readMoreLength), length: readMoreLength), with: "") + trailingText
+        
+        if ((trimmedString?.contains("\n")) != nil) {
+            trimmedString = trimmedString?.replacingOccurrences(of: "\n", with: " ")
+        }
+        
+        let location = (trimmedString?.count ?? 0) - readMoreLength
+        
+        let trimmedForReadMore: String = (trimmedString! as NSString).replacingCharacters(in: NSRange(location: location, length: readMoreLength), with: "") + trailingText
         let answerAttributed = NSMutableAttributedString(string: trimmedForReadMore, attributes: [NSAttributedString.Key.font: self.font])
         let readMoreAttributed = NSMutableAttributedString(string: moreText, attributes: [NSAttributedString.Key.font: moreTextFont, NSAttributedString.Key.foregroundColor: moreTextColor])
         answerAttributed.append(readMoreAttributed)

@@ -25,6 +25,7 @@ class ProductDetailsAddToCartType2TableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        addToCartButton.setTitle(L10n.Cart.addToCart, for: .normal)
         addToCartButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
 
         quantityView.layer.masksToBounds = true

@@ -62,6 +62,7 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        productOutOfStockLabel.text = L10n.Checkout.outOfStock
         productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
         productDescriptionLabel.font = .appFont(ofSize: 14, weight: .regular)
         productOldPriceLabel.font = .appFont(ofSize: 14, weight: .medium)

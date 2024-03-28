@@ -33,6 +33,7 @@ class AddToCartTextView: UIView {
     }
     
     func initialize() {
+        addToCartButton.setTitle(L10n.Cart.addToCart, for: .normal)
         addToCartButton.titleLabel?.font = .appFont(ofSize: 13, weight: .semiBold)
         addToCartButton.setTitleColor(ThemeManager.colorPalette?.buttonTextColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonTextColor1 ?? ""), for: .normal)
         addToCartButton.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")

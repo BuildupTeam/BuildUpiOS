@@ -140,6 +140,7 @@ extension HomeViewController {
     
     @objc
     func scanAction(sender: UIBarButtonItem) {
+         clearData()
          PersistanceManager.setLatestViewController(Constant.ControllerName.subdomin)
          LauncherViewController.showSubdomainScreen(fromViewController: nil)
     }
@@ -149,6 +150,13 @@ extension HomeViewController {
         self.viewModel.clearHomeData()
         self.getHomeData()
 //        self.refreshDataOnly()
+    }
+    
+    func clearData() {
+        CachingService.clearUserData()
+        CachingService.removeAllCachedData()
+        CachingService.setCartProducts(products: [:])
+        RealTimeDatabaseService.clearCart()
     }
 }
 // MARK: - Requests

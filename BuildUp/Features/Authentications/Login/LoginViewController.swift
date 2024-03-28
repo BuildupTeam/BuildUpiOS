@@ -129,7 +129,6 @@ extension LoginViewController {
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
         
-        
         let privacyAttributeString = NSMutableAttributedString(
             string: L10n.Login.privacyLabel,
             attributes: privacyAttributes
