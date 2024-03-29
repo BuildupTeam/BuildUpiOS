@@ -95,18 +95,9 @@ jobs:
           gem install bundler
           pod install
           bundle update --full-index
-          
-      - name: Run fastlane match
-        env:
-           FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-           FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
-           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-        run: |
-          fastlane match appstore # Or any other match command you use
 
       - name: Execute Fastlane
         run: |
-          fastlane match
           fastlane generate_new_certificates
           fastlane update_app
 
