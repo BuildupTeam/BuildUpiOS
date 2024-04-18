@@ -318,6 +318,13 @@ extension NSMutableAttributedString {
         
         return newAttributedString
     }
+    
+    func setColorFontForText(textForAttribute: String, withColor color: UIColor, withFont font: UIFont) {
+        let range: NSRange = self.mutableString.range(of: textForAttribute, options: .caseInsensitive)
+        // Swift 4.2 and above
+        self.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+        self.addAttribute(NSAttributedString.Key.font, value: font, range: range)
+    }
 }
 
 extension String {

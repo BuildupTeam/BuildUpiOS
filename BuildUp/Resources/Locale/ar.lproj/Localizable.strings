@@ -121,6 +121,7 @@
 "checkout.areaPlaceholder" = "اختر المنطقة";
 "checkout.detailedAddressPlaceholder" = "اكتب عنوانك بالتفصيل";
 "checkout.choosePayment" = "اختر طريقة الدفع";
+"checkout.paymentMethod" = "طريقة الدفع";
 "checkout.onlinePayement" = "الدفع الإلكتروني";
 "checkout.cashOnDelivery" = "الدفع عند الاستلام";
 "checkout.button.continue" = "متابعة";

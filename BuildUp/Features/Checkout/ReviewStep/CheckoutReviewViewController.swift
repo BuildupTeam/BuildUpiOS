@@ -147,7 +147,6 @@ extension CheckoutReviewViewController {
     }
     
     private func getPaymentCredentails() {
-        
         if let payment = checkoutModel?.paymentMethod, payment.identifier == "cod" {
 //            self.viewModel.completeOrder(transactionId: transactionDetails.transactionReference ?? "")
         } else {
@@ -161,7 +160,7 @@ extension CheckoutReviewViewController {
                     self.payWithCard()
                 }
             }
-        }        
+        }
     }
     
     func decryptMsg(encryptedString: String) -> [String: String]? {
@@ -409,7 +408,6 @@ extension CheckoutReviewViewController {
                     LauncherViewController.showTabBar(fromViewController: nil)
                 } else {
                     self.getPaymentCredentails()
-//                    self.payWithCard()
                 }
             }
         }
@@ -420,8 +418,6 @@ extension CheckoutReviewViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             self.showError(message: "payment cancelled")
-//            RealTimeDatabaseService.clearCart()
-//            LauncherViewController.showTabBar()
         }
     }
     

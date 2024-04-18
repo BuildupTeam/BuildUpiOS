@@ -177,7 +177,7 @@ extension ResetPasswordViewController {
             guard let `self` = self else { return }
             self.hideLoading()
             PersistanceManager.setLatestViewController(Constant.ControllerName.home)
-            LauncherViewController.showTabBar(fromViewController: nil)
+            LauncherViewController.showLoginView(fromViewController: nil)
         }
     }
 }

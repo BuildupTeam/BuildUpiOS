@@ -29,7 +29,7 @@ class CheckoutShippingViewController: BaseViewController {
     var isReloadingTableView = false
     var addressModel: AddressModel?
     
-    override  var prefersBottomBarHidden: Bool? { return true }
+    override var prefersBottomBarHidden: Bool? { return true }
 
     init(viewModel: CheckoutShippingViewModel) {
         super.init(viewModel: viewModel)

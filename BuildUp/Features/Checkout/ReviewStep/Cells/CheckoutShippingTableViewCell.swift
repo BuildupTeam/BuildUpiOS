@@ -62,10 +62,6 @@ class CheckoutShippingTableViewCell: UITableViewCell {
                 if let desc = model.addressDescription {
                     addressLabel.text = desc
                 }
-                
-//                if let country = model.country?.name, let city = model.city?.name {
-//                    countryLabel.text = country + ", " + city
-//                }
             }
             
         }

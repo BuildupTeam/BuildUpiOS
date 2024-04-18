@@ -11,7 +11,6 @@ class CheckoutProductsTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var itemsCountTitleLabel: UILabel!
     @IBOutlet private weak var itemsCountLabel: UILabel!
 
     var products: [ProductModel]? {
@@ -36,19 +35,21 @@ class CheckoutProductsTableViewCell: UITableViewCell {
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
-        itemsCountTitleLabel.text = L10n.Checkout.items
-        
-        itemsCountTitleLabel.font = .appFont(ofSize: 15, weight: .semiBold)
         itemsCountLabel.font = .appFont(ofSize: 14, weight: .medium)
         
-        itemsCountTitleLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
-        itemsCountLabel.textColor = UIColor.checkoutItemsColor
-        //ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
     }
     
     private func bindData() {
         if let count = products?.count {
-            self.itemsCountLabel.text = "(\(String(count)) \(L10n.Checkout.items))"
+//            self.itemsCountLabel.text = "(\(String(count)) \(L10n.Checkout.items))"
+            
+            let stringValue = L10n.Checkout.items + " (\(String(count)) \(L10n.Checkout.items))"
+
+            let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: stringValue)
+            attributedString.setColorFontForText(textForAttribute: L10n.Checkout.items, withColor: ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "") ?? UIColor.gray, withFont: .appFont(ofSize: 15, weight: .semiBold))
+            attributedString.setColorFontForText(textForAttribute: " (\(String(count)) \(L10n.Checkout.items))", withColor: ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "") ?? UIColor.gray, withFont: .appFont(ofSize: 14, weight: .medium))
+            
+            itemsCountLabel.attributedText = attributedString
         }
     }
 

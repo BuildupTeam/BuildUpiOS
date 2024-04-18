@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1FF1BB537850595C4F536A99 /* Pods_BuildUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FD4454CEDB2EF7AC390C21 /* Pods_BuildUp.framework */; };
+		3900503A2BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390050392BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.xib */; };
+		3900503B2BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390050382BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.swift */; };
+		39037A652BBDC35200058EB0 /* CheckoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39037A642BBDC35200058EB0 /* CheckoutViewController.xib */; };
+		39037A662BBDC35200058EB0 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39037A632BBDC35200058EB0 /* CheckoutViewController.swift */; };
+		39037A682BBDCFBE00058EB0 /* CheckoutViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39037A672BBDCFBE00058EB0 /* CheckoutViewController+TableView.swift */; };
+		39037A6B2BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39037A6A2BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.xib */; };
+		39037A6C2BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39037A692BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.swift */; };
+		39037A702BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39037A6F2BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.xib */; };
+		39037A712BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39037A6E2BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.swift */; };
+		39037A732BBDD4EB00058EB0 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39037A722BBDD4EB00058EB0 /* CheckoutViewModel.swift */; };
+		39037A752BBDD51100058EB0 /* CheckoutWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39037A742BBDD51100058EB0 /* CheckoutWebServiceProtocol.swift */; };
+		39037A772BBDD6FF00058EB0 /* CheckoutViewController+Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39037A762BBDD6FF00058EB0 /* CheckoutViewController+Payment.swift */; };
 		390C3B532B14DC9100E40849 /* RouteAreasApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B522B14DC9100E40849 /* RouteAreasApi.swift */; };
 		390C3B572B14DCE700E40849 /* AreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390C3B552B14DCE700E40849 /* AreasViewController.swift */; };
 		390C3B582B14DCE700E40849 /* AreasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 390C3B562B14DCE700E40849 /* AreasViewController.xib */; };
@@ -677,6 +689,18 @@
 /* Begin PBXFileReference section */
 		139B9D6B74237797266641A4 /* Pods-BuildUpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuildUpTests.release.xcconfig"; path = "Target Support Files/Pods-BuildUpTests/Pods-BuildUpTests.release.xcconfig"; sourceTree = "<group>"; };
 		1EB4C9015C6852A348670EFB /* Pods_BuildUp_BuildUpUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BuildUp_BuildUpUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		390050382BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPaymentMethodsTableViewCell.swift; sourceTree = "<group>"; };
+		390050392BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutPaymentMethodsTableViewCell.xib; sourceTree = "<group>"; };
+		39037A632BBDC35200058EB0 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		39037A642BBDC35200058EB0 /* CheckoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutViewController.xib; sourceTree = "<group>"; };
+		39037A672BBDCFBE00058EB0 /* CheckoutViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController+TableView.swift"; sourceTree = "<group>"; };
+		39037A692BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutProductsListTableViewCell.swift; sourceTree = "<group>"; };
+		39037A6A2BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutProductsListTableViewCell.xib; sourceTree = "<group>"; };
+		39037A6E2BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutProductInnerTableViewCell.swift; sourceTree = "<group>"; };
+		39037A6F2BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckoutProductInnerTableViewCell.xib; sourceTree = "<group>"; };
+		39037A722BBDD4EB00058EB0 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
+		39037A742BBDD51100058EB0 /* CheckoutWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutWebServiceProtocol.swift; sourceTree = "<group>"; };
+		39037A762BBDD6FF00058EB0 /* CheckoutViewController+Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController+Payment.swift"; sourceTree = "<group>"; };
 		390C3B522B14DC9100E40849 /* RouteAreasApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAreasApi.swift; sourceTree = "<group>"; };
 		390C3B552B14DCE700E40849 /* AreasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreasViewController.swift; sourceTree = "<group>"; };
 		390C3B562B14DCE700E40849 /* AreasViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AreasViewController.xib; sourceTree = "<group>"; };
@@ -1373,6 +1397,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39037A622BBDC2F600058EB0 /* Checkout2 */ = {
+			isa = PBXGroup;
+			children = (
+				39037A6D2BBDD2A100058EB0 /* Cells */,
+				39037A632BBDC35200058EB0 /* CheckoutViewController.swift */,
+				39037A672BBDCFBE00058EB0 /* CheckoutViewController+TableView.swift */,
+				39037A762BBDD6FF00058EB0 /* CheckoutViewController+Payment.swift */,
+				39037A642BBDC35200058EB0 /* CheckoutViewController.xib */,
+				39037A722BBDD4EB00058EB0 /* CheckoutViewModel.swift */,
+				39037A742BBDD51100058EB0 /* CheckoutWebServiceProtocol.swift */,
+			);
+			path = Checkout2;
+			sourceTree = "<group>";
+		};
+		39037A6D2BBDD2A100058EB0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				39037A692BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.swift */,
+				39037A6A2BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.xib */,
+				39037A6E2BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.swift */,
+				39037A6F2BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.xib */,
+				390050382BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.swift */,
+				390050392BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		390C3B542B14DCD000E40849 /* Areas */ = {
 			isa = PBXGroup;
 			children = (
@@ -2050,6 +2101,7 @@
 		3932B2132B112F9500283B3D /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				39037A622BBDC2F600058EB0 /* Checkout2 */,
 				3932B2A02B12896800283B3D /* Model */,
 				3932B2462B113A8E00283B3D /* StatusView */,
 				3932B28B2B12820E00283B3D /* ShippingStep */,
@@ -3580,12 +3632,14 @@
 				3932B2412B11359C00283B3D /* CityTableViewCell.xib in Resources */,
 				3921FCE42AAB9ED10019CCC2 /* ShimmerProductDetailsVariantsTableViewCell.xib in Resources */,
 				394443F92B892475008232E5 /* CheckoutTaxesTableViewCell.xib in Resources */,
+				39037A6B2BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.xib in Resources */,
 				39730D312AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.xib in Resources */,
 				395D3BEC2A9AAF8600DA9859 /* ProductDetailsSliderType1CollectionViewCell.xib in Resources */,
 				3999AA752AD1BFE5007D0ACB /* Montserrat-ExtraBold.ttf in Resources */,
 				390DC21E2B1E239B00E1CBA9 /* OrderDetailsShippingTableViewCell.xib in Resources */,
 				395D3BB12A995CB600DA9859 /* ShimmerCategoriesVerticalGrid3CollectionViewCell.xib in Resources */,
 				39EF7F522A39C165003E7641 /* ProductHorizontalList1TableViewCell.xib in Resources */,
+				39037A702BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.xib in Resources */,
 				391529F22A347F37007F7E09 /* ProductVerticalList3TableViewCell.xib in Resources */,
 				39C8CF3C2B8FBEA4004C2A7D /* CancelOrderPopupViewController.xib in Resources */,
 				39152A062A34945D007F7E09 /* ProductVerticalGrid1CollectionViewCell.xib in Resources */,
@@ -3627,6 +3681,7 @@
 				3990072E2ABDB618002F6938 /* CartProductList3TableViewCell.xib in Resources */,
 				3932B2252B11309800283B3D /* CitiesViewController.xib in Resources */,
 				390E6D6D2A903289009ECC00 /* ShimmerProductVerticalGrid5CollectionViewCell.xib in Resources */,
+				39037A652BBDC35200058EB0 /* CheckoutViewController.xib in Resources */,
 				39AE9CA22AA239FD0075E99F /* RecommentedProductsType1CollectionViewCell.xib in Resources */,
 				390C3B802B14FA6600E40849 /* CheckoutShippingTableViewCell.xib in Resources */,
 				3921FCE92AABA0800019CCC2 /* ShimmerProductDetailsQuantityTableViewCell.xib in Resources */,
@@ -3752,6 +3807,7 @@
 				39D754282B5D8D4F00BFBC42 /* LogoutPopupViewController.xib in Resources */,
 				3990072A2ABDB60A002F6938 /* CartProductList2TableViewCell.xib in Resources */,
 				393174252A19134D00AF64BC /* Assets.xcassets in Resources */,
+				3900503A2BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.xib in Resources */,
 				39CE76DB2A2F95720019A485 /* LoginViewController.xib in Resources */,
 				393174232A19134A00AF64BC /* Main.storyboard in Resources */,
 			);
@@ -3893,6 +3949,7 @@
 				39C6C4D72A3DD99500F11A6F /* BannerType1TableViewCell.swift in Sources */,
 				39C91A2C2ABA39DD00C10C16 /* ProfileViewController.swift in Sources */,
 				39CE76942A2F61170019A485 /* UIlabel+Extensions.swift in Sources */,
+				39037A752BBDD51100058EB0 /* CheckoutWebServiceProtocol.swift in Sources */,
 				390DC2152B1DFA5A00E1CBA9 /* OrderDetailsStatusTableViewCell.swift in Sources */,
 				39BA0B422AA3BCFB008001F7 /* ShimmerProductDetailsSilderTableViewCell.swift in Sources */,
 				390C3BAA2B16649700E40849 /* BarPagerTabStripViewController.swift in Sources */,
@@ -3951,6 +4008,7 @@
 				39C91A362ABA3A6B00C10C16 /* CartViewModel.swift in Sources */,
 				39CE768C2A2F61170019A485 /* UIColor+Extensions.swift in Sources */,
 				393613992AB47575007289DE /* ProductListViewModel.swift in Sources */,
+				3900503B2BCDC0280014E5E4 /* CheckoutPaymentMethodsTableViewCell.swift in Sources */,
 				39CE76E62A2F95C20019A485 /* GoalModel.swift in Sources */,
 				39821FB22AFA300D00388254 /* FirebaseTokenResponseModel.swift in Sources */,
 				3950B0A42A6AC00200E27111 /* SectionConfigurationModel.swift in Sources */,
@@ -3993,6 +4051,7 @@
 				390E6D6C2A903289009ECC00 /* ShimmerProductVerticalGrid5CollectionViewCell.swift in Sources */,
 				390E6D682A90327A009ECC00 /* ShimmerProductVerticalGrid4CollectionViewCell.swift in Sources */,
 				39D7542B2B5D9DF600BFBC42 /* LoginPopupViewController.swift in Sources */,
+				39037A662BBDC35200058EB0 /* CheckoutViewController.swift in Sources */,
 				3999AA4B2AC4A10F007D0ACB /* CartModel.swift in Sources */,
 				39CE76972A2F61170019A485 /* Double+Extensions.swift in Sources */,
 				39CE76F02A2F97500019A485 /* CategoriesResponseModel.swift in Sources */,
@@ -4040,6 +4099,7 @@
 				391529C62A2F9B83007F7E09 /* SettingsHeaderView.swift in Sources */,
 				3999AA492AC49F0D007D0ACB /* CartResponseModel.swift in Sources */,
 				393613A52AB48671007289DE /* ProductsListViewController+TableView.swift in Sources */,
+				39037A712BBDD2DF00058EB0 /* CheckoutProductInnerTableViewCell.swift in Sources */,
 				393613AA2AB4EA1E007289DE /* ProductsGridViewController.swift in Sources */,
 				39CE769F2A2F61750019A485 /* KeyValuePersistence.swift in Sources */,
 				390C3B572B14DCE700E40849 /* AreasViewController.swift in Sources */,
@@ -4117,6 +4177,7 @@
 				390C3BA22B16649700E40849 /* ButtonBarViewCell.swift in Sources */,
 				39CE76AE2A2F61CE0019A485 /* ApiUrls.swift in Sources */,
 				39D077CC2AF18D9000867C87 /* RouteResetPasswordApi.swift in Sources */,
+				39037A732BBDD4EB00058EB0 /* CheckoutViewModel.swift in Sources */,
 				39F9D0FE2AD7453C007BB6B9 /* SubdomainViewModel.swift in Sources */,
 				390C3B7F2B14FA6600E40849 /* CheckoutShippingTableViewCell.swift in Sources */,
 				393B2F852AEFD11B00827026 /* RegisterResponseModel.swift in Sources */,
@@ -4136,6 +4197,7 @@
 				39A2DD862A6AF4C7005B52FD /* HomeViewModel.swift in Sources */,
 				390E6D712A905E5C009ECC00 /* ThemeModel.swift in Sources */,
 				399007292ABDB60A002F6938 /* CartProductList2TableViewCell.swift in Sources */,
+				39037A6C2BBDD29C00058EB0 /* CheckoutProductsListTableViewCell.swift in Sources */,
 				390C3B6D2B14EF3800E40849 /* SummaryResponseModel.swift in Sources */,
 				39CE76892A2F61170019A485 /* UITextFields+Extensions.swift in Sources */,
 				395D3BB02A995CB600DA9859 /* ShimmerCategoriesVerticalGrid3CollectionViewCell.swift in Sources */,
@@ -4172,6 +4234,7 @@
 				390DC1F02B1B843B00E1CBA9 /* ProfileTableViewCell.swift in Sources */,
 				39C6C4D12A3CE0A800F11A6F /* CategoriesVerticalGrid3TableViewCell.swift in Sources */,
 				39C91A3F2ABA3B2F00C10C16 /* CategoriesTabViewModel.swift in Sources */,
+				39037A682BBDCFBE00058EB0 /* CheckoutViewController+TableView.swift in Sources */,
 				3932B2AD2B13578600283B3D /* ShimmerCityTableViewCell.swift in Sources */,
 				393613B02AB4EA7C007289DE /* ProductsGridViewController+CollectionView.swift in Sources */,
 				39F19E712B20910200B69595 /* EditProfileModel.swift in Sources */,
@@ -4262,6 +4325,7 @@
 				3932B2162B11302500283B3D /* CheckoutShippingViewController.swift in Sources */,
 				3932B2442B1135AC00283B3D /* CountryTableViewCell.swift in Sources */,
 				39821FB42AFA302500388254 /* FirebaseTokenModel.swift in Sources */,
+				39037A772BBDD6FF00058EB0 /* CheckoutViewController+Payment.swift in Sources */,
 				39C91A382ABA3ACE00C10C16 /* SettingsViewModel.swift in Sources */,
 				39C91A332ABA3A6100C10C16 /* CartViewController.swift in Sources */,
 				390C3B7B2B14FA5800E40849 /* CheckoutPaymentTableViewCell.swift in Sources */,
@@ -4525,11 +4589,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 101;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
+				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuildUp;
@@ -4552,7 +4614,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.buildUp";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4572,11 +4633,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 101;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
+				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4644,7 +4703,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.buildUp";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4830,11 +4888,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 101;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
+				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuildUp;
@@ -4857,7 +4913,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.buildUp";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4993,11 +5048,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = BuildUp/BuildUp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 101;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
+				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BuildUp;
@@ -5020,7 +5073,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.buildUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.buildUp";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
