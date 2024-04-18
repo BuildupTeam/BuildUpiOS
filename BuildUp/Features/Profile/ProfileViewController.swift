@@ -92,7 +92,7 @@ extension ProfileViewController {
 
 extension ProfileViewController: LogoutPopupProtocol {
     func logoutButtonClicked() {
-        self.showLoading()
+        self.showLoading() 
         self.viewModel.logoutUser()
     }
 }
