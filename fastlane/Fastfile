@@ -67,7 +67,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
   desc “Update App Identifier”
    lane :update_project_settings do
    require 'xcodeproj'
-   project_path = '../§xcodeproj'
+   project_path = '../Buildup.xcodeproj'
    project = Xcodeproj::Project.open(project_path)
 
   project.targets.each do |target|
