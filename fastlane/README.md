@@ -53,7 +53,7 @@ Change base url
 [bundle exec] fastlane ios update_colors
 ```
 
-
+update colors
 
 ### ios change_background_color
 
@@ -61,7 +61,7 @@ Change base url
 [bundle exec] fastlane ios change_background_color
 ```
 
-
+change background color
 
 ### ios change_splash_background_color
 
@@ -69,15 +69,7 @@ Change base url
 [bundle exec] fastlane ios change_splash_background_color
 ```
 
-
-
-### ios change_launch_screen_background
-
-```sh
-[bundle exec] fastlane ios change_launch_screen_background
-```
-
-
+change splash background color
 
 ### ios set_build_number
 
