@@ -106,9 +106,7 @@ jobs:
 
       - name: Execute Fastlane
         run: |
-          fastlane match
-          fastlane generate_new_certificates
-          fastlane update_app
+          fastlane upload_app
 
       - name: Send Failure Notification
         if: failure()
