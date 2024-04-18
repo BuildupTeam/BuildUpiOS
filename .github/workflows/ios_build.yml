@@ -100,7 +100,7 @@ jobs:
         run: |
           fastlane upload_app
 
-      - name: Send Failure Notification
+      - name: Send Failure Notification 
         if: failure()
         run: |
           echo "CI/CD pipeline failed. Sending API request..."
