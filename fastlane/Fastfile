@@ -17,8 +17,6 @@ default_platform(:ios)
 
 before_all do
     ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "vtnl-kxne-pfhi-eubn" 
-    ENV["FASTLANE_PASSWORD"] = "vtnl-kxne-pfhi-eubn" 
-    ENV["FASTLANE_USER"] = "mohammed.khaled.sobhy@gmail.com" 
   end
 
 platform :ios do
@@ -69,7 +67,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
   desc “Update App Identifier”
    lane :update_project_settings do
    require 'xcodeproj'
-   project_path = '../BuildUp.xcodeproj'
+   project_path = '../§xcodeproj'
    project = Xcodeproj::Project.open(project_path)
 
   project.targets.each do |target|
