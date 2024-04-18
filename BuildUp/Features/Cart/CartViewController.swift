@@ -321,7 +321,10 @@ extension CartViewController: CartProductListDelegate {
 // MARK: - Checkout Button Delegates
 extension CartViewController: CartCheckoutDelegate {
     func checkoutButtonClicked() {
-        let checkoutShippingVC = Coordinator.Controllers.createCheckoutShippingViewController()
-        self.navigationController?.pushViewController(checkoutShippingVC, animated: true)
+//        let checkoutShippingVC = Coordinator.Controllers.createCheckoutShippingViewController()
+//        self.navigationController?.pushViewController(checkoutShippingVC, animated: true)
+        
+        let checkoutVC = Coordinator.Controllers.createCheckoutViewController()
+        self.navigationController?.pushViewController(checkoutVC, animated: true)
     }
 }

@@ -754,6 +754,10 @@ internal enum L10n {
         internal static var payment: String {
           return L10n.tr("Localizable", "checkout.payment")
         }
+        /// Payment Method
+        internal static var paymentMethod: String {
+          return L10n.tr("Localizable", "checkout.paymentMethod")
+        }
         /// Review
         internal static var review: String {
           return L10n.tr("Localizable", "checkout.review")

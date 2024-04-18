@@ -38,6 +38,7 @@ class RegisterViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupToHideKeyboardOnTapOnView()
         setupCountryPickerView()
         self.registerTableViewCells()
         registerResponse()

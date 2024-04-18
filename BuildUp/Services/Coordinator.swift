@@ -183,6 +183,11 @@ class Coordinator {
             return viewController
         }
         
+        class func createCheckoutViewController(viewModel: CheckoutViewModel = CheckoutViewModel()) -> CheckoutViewController {
+            let viewController = CheckoutViewController(viewModel: viewModel)
+            return viewController
+        }
+        
         class func createCheckoutShippingViewController(viewModel: CheckoutShippingViewModel = CheckoutShippingViewModel()) -> CheckoutShippingViewController {
             let viewController = CheckoutShippingViewController(viewModel: viewModel)
             return viewController

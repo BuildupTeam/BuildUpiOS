@@ -121,6 +121,7 @@
 "checkout.areaPlaceholder" = "Choose Area";
 "checkout.detailedAddressPlaceholder" = "Write Your Detailed Address";
 "checkout.choosePayment" = "Choose payment method";
+"checkout.paymentMethod" = "Payment Method";
 "checkout.onlinePayement" = "Online Payement";
 "checkout.cashOnDelivery" = "Cash on delivery";
 "checkout.button.continue" = "Continue";
