@@ -121,7 +121,6 @@ end
     update_project_settings()
     set_build_number()
     update_colors()
-    match(type: "appstore")
     deploy()
 end
 
