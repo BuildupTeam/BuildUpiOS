@@ -98,7 +98,6 @@ jobs:
 
       - name: Execute Fastlane
         run: |
-          fastlane generate_new_certificates
           fastlane upload_app
 
       - name: Send Failure Notification
