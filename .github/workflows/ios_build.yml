@@ -97,10 +97,12 @@ jobs:
           bundle update --full-index
 
       - name: Execute Fastlane
+        env: |
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
         run: |
-          fastlane upload_app
-
-      - name: Send Failure Notification 
+          bundle exec fastlane upload_app
+        
+      - name: Send Failure Notification
         if: failure()
         run: |
           echo "CI/CD pipeline failed. Sending API request..."

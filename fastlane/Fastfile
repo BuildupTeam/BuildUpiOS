@@ -153,7 +153,9 @@ end
     sync_code_signing(
       type: "appstore",
       app_identifier: ENV['APP_IDENTIFIER'],
-      readonly: true
+      readonly: false,
+      apple_id: "mohammed.khaled.sobhy@gmail.com",
+      password: ENV['FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD']
     )
     build_app(scheme: ENV['SCHEME'])
     app_store_connect_api_key(
