@@ -101,8 +101,6 @@ jobs:
           FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
           FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
         run: |
-          echo $FASTLANE_PASSWORD
-          echo $FASTLANE_SESSION
           fastlane bundle exec upload_app
 
       - name: Send Failure Notification 
