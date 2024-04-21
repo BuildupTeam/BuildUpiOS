@@ -97,8 +97,11 @@ jobs:
           bundle update --full-index
 
       - name: Execute Fastlane
+        env: |
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
         run: |
-          bundle exec fastlane upload_app
+          bundle exec fastlane generate_new_certificates
         
       - name: Send Failure Notification
         if: failure()
