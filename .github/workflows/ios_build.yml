@@ -40,6 +40,12 @@ jobs:
         with:
           xcode-version: 'latest-stable'
 
+      - name: testx
+        run: |
+          echo ${{ secrets.FASTLANE_PASSWORD }}
+          echo $FASTLANE_PASSWORD
+          echo $FASTLANE_SESSION
+
       - name: Set .env.default
         run: |
           rm fastlane/.env.default
@@ -97,8 +103,13 @@ jobs:
           bundle update --full-index
 
       - name: Execute Fastlane
+        env:
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+          FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
         run: |
-          fastlane upload_app
+          echo $FASTLANE_PASSWORD
+          echo $FASTLANE_SESSION
+          fastlane bundle exec upload_app
 
       - name: Send Failure Notification 
         if: failure()
