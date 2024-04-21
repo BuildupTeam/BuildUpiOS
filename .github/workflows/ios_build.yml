@@ -98,9 +98,10 @@ jobs:
 
       - name: Execute Fastlane
         env:
-          FASTLANE_USER: mohammed.khaled.sobhy@gmail.com
-          FASTLANE_PASSWORD: vtnl-kxne-pfhi-eubn
-          MATCH_PASSWORD: 1234
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
         run: |
           fastlane upload_app
         
