@@ -94,7 +94,7 @@ jobs:
         run: |
           gem install bundler
           pod install
-          bundle update --full-index
+          bundle update --full-index 
 
       - name: Execute Fastlane
         env:
