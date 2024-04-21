@@ -153,7 +153,7 @@ end
     sync_code_signing(
       type: "appstore",
       app_identifier: ENV['APP_IDENTIFIER'],
-      readonly: false
+      readonly: true
     )
     build_app(scheme: ENV['SCHEME'])
     app_store_connect_api_key(
