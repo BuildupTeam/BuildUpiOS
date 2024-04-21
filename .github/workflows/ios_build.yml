@@ -94,12 +94,13 @@ jobs:
         run: |
           gem install bundler
           pod install
-          bundle update --full-index 
+          bundle update --full-index
 
       - name: Execute Fastlane
         env:
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-          FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
+          FASTLANE_USER: mohammed.khaled.sobhy@gmail.com
+          FASTLANE_PASSWORD: vtnl-kxne-pfhi-eubn
+          MATCH_PASSWORD: 1234
         run: |
           fastlane upload_app
         
