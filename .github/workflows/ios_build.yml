@@ -90,6 +90,12 @@ jobs:
 
           ls -R "$GITHUB_WORKSPACE/$output_folder/"
 
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          pod install
+          bundle update --full-index
+
       - name: Execute Fastlane
         env:
           FASTLANE_USER: mohammed.khaled.sobhy@gmail.com
@@ -97,12 +103,6 @@ jobs:
           MATCH_PASSWORD: 1234
         run: |
           fastlane upload_app
-          
-      - name: Install dependencies
-        run: |
-          gem install bundler
-          pod install
-          bundle update --full-index
         
       - name: Send Failure Notification
         if: failure()
