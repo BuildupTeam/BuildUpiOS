@@ -97,8 +97,6 @@ jobs:
           bundle update --full-index
 
       - name: Execute Fastlane
-        env: |
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
         run: |
           bundle exec fastlane upload_app
         

@@ -155,7 +155,7 @@ end
       app_identifier: ENV['APP_IDENTIFIER'],
       readonly: false,
       apple_id: "mohammed.khaled.sobhy@gmail.com",
-      password: ENV['FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD']
+      password: "vtnl-kxne-pfhi-eubn"
     )
     build_app(scheme: ENV['SCHEME'])
     app_store_connect_api_key(
