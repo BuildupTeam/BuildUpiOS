@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Get certificates
 
+### ios generate_new_certificates
+
+```sh
+[bundle exec] fastlane ios generate_new_certificates
+```
+
+Generate new certificates
+
 ### ios screenshots
 
 ```sh
@@ -94,14 +102,6 @@ Change base url + screenshots
 ```
 
 Update App
-
-### ios generate_new_certificates
-
-```sh
-[bundle exec] fastlane ios generate_new_certificates
-```
-
-Generate new certificates
 
 ### ios deploy
 
