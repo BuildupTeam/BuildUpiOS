@@ -17,10 +17,6 @@ default_platform(:ios)
 
 before_all do
     ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "vtnl-kxne-pfhi-eubn"
-    ENV["FASTLANE_USER"] = "vtnl-kxne-pfhi-eubn"  
-    ENV["FASTLANE_PASSWORD"] = "vtnl-kxne-pfhi-eubn"
-    ENV["MATCH_PASSWORD"] = "1234"
-    FASTLANE_SESSION = ENV["FASTLANE_SESSION"]
   end
 
 platform :ios do
@@ -138,6 +134,7 @@ end
     update_project_settings()
     set_build_number()
     update_colors()
+    match(type: "appstore")
     deploy()
 end
 
