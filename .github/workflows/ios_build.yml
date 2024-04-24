@@ -98,9 +98,7 @@ jobs:
 
       - name: Execute Fastlane
         env:
-          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: vtnl-kxne-pfhi-eubn
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASS }}
         run: |
           fastlane upload_app
         
