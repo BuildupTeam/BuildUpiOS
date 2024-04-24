@@ -131,7 +131,6 @@ end
  desc “Change base url + screenshots”
   lane:upload_app do
     change_main_host()
-    update_project_settings()
     set_build_number()
     update_colors()
     api_key = app_store_connect_api_key(
@@ -143,6 +142,7 @@ rXoq2fqDz62m4DxsS/9iMRonv6iinalgzw6J8HZ+zZ1ld8wpGRHItX9y/XrxIgDP
 SdRzkDKl\n-----END PRIVATE KEY-----"
 )
     match(api_key: api_key)
+    update_project_settings()
     deploy()
 end
 

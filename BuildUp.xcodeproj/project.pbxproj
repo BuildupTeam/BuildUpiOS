@@ -3599,7 +3599,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 393174132A19134A00AF64BC /* Build configuration list for PBXProject "Buildup" */;
+			buildConfigurationList = 393174132A19134A00AF64BC /* Build configuration list for PBXProject "BuildUp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -4636,7 +4636,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.onlineshop";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.buildupecommerce.grocera";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4728,7 +4728,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.onlineshop";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.buildupecommerce.grocera";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4941,7 +4941,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.onlineshop";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.buildupecommerce.grocera";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -5104,7 +5104,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.squadio.onlineshop";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.buildupecommerce.grocera";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -5168,7 +5168,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		393174132A19134A00AF64BC /* Build configuration list for PBXProject "Buildup" */ = {
+		393174132A19134A00AF64BC /* Build configuration list for PBXProject "BuildUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				393174402A19134D00AF64BC /* Debug */,
