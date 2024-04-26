@@ -81,25 +81,15 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
  update_app_identifier(app_identifier: ENV['APP_IDENTIFIER'], plist_path: "BuildUp/Resources/Info.plist")
 end
 
-lane :update_provisioning do
-  update_project_provisioning(
+ desc “Update Provisioning”
+  lane :update_provisioning do
+    update_project_provisioning(
     xcodeproj: './Buildup.xcodeproj',
     profile: '/Users/mohammedkhaled/Library/MobileDevice/Provisioning Profiles/7df3cef0-4c92-4e07-bdfd-ecda5f2f5134.mobileprovision',
     target_filter: '.*',
     build_configuration: 'Release',
    code_signing_identity: 'iPhone Distribution'
   )
-end
-
-lane :update_code_signing_settings do
-   update_code_signing_settings(
-   path: './Buildup.xcodeproj',
-   team_id: '2C86JD592M',
-   bundle_identifier: ENV['APP_IDENTIFIER'],
-   code_signing_identity: 'iPhone Distribution',
-   sdk: 'iphoneos*',
-   profile_name: '/Users/mohammedkhaled/Library/MobileDevice/Provisioning Profiles/7df3cef0-4c92-4e07-bdfd-ecda5f2f5134.mobileprovision'
-)
 end
 
  desc “Change base url”
@@ -164,6 +154,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
 )
     match(api_key: api_key, readonly: false, force_for_new_devices: true)
     update_project_settings()
+    update_provisioning()
     deploy()
 end
 
