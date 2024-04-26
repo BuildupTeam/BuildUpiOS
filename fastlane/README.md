@@ -47,6 +47,22 @@ Generate new localized screenshots
 
 Update App Identifier
 
+### ios update_provisioning
+
+```sh
+[bundle exec] fastlane ios update_provisioning
+```
+
+
+
+### ios update_code_signing_settings
+
+```sh
+[bundle exec] fastlane ios update_code_signing_settings
+```
+
+
+
 ### ios change_main_host
 
 ```sh
