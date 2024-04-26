@@ -85,7 +85,7 @@ end
   lane :update_provisioning do
     update_project_provisioning(
     xcodeproj: './Buildup.xcodeproj',
-    profile: '~/Library/MobileDevice/Provisioning Profiles/7df3cef0-4c92-4e07-bdfd-ecda5f2f5134.mobileprovision',
+    profile: '/Users/runner/Library/MobileDevice/Provisioning Profiles/7df3cef0-4c92-4e07-bdfd-ecda5f2f5134.mobileprovision',
     target_filter: '.*',
     build_configuration: 'Release',
    code_signing_identity: 'iPhone Distribution'
