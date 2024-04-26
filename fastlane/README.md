@@ -53,15 +53,7 @@ Update App Identifier
 [bundle exec] fastlane ios update_provisioning
 ```
 
-
-
-### ios update_code_signing_settings
-
-```sh
-[bundle exec] fastlane ios update_code_signing_settings
-```
-
-
+Update Provisioning
 
 ### ios change_main_host
 
