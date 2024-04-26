@@ -46,11 +46,10 @@ desc "Generate new certificates"
 
   desc “Generate new localized screenshots”
    lane :screenshots do
-    setup_ci
     sync_code_signing(
       type: "appstore",
       app_identifier: ENV['APP_IDENTIFIER'],
-      readonly: true
+      readonly: false
     )
     build_app(scheme: ENV['SCHEME'])
     app_store_connect_api_key(
@@ -155,6 +154,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     match(api_key: api_key, readonly: false, force_for_new_devices: true)
     update_project_settings()
     update_provisioning()
+    screenshots)(
     deploy()
 end
 
