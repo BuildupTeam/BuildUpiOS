@@ -95,6 +95,14 @@ change splash background color
 
 Set the build number to a specific value
 
+### ios install_provisioning
+
+```sh
+[bundle exec] fastlane ios install_provisioning
+```
+
+
+
 ### ios upload_app
 
 ```sh

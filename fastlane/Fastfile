@@ -81,10 +81,11 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
 end
 
  desc “Update Provisioning”
+ profile_name = "AppStore_" + ENV['APP_IDENTIFIER'] + ".mobileprovision"
   lane :update_provisioning do
     update_project_provisioning(
     xcodeproj: './Buildup.xcodeproj',
-    profile: './8313e2a9-c738-46e2-8e12-8d7a515974a2.mobileprovision',
+    profile: profile_name,
     target_filter: '.*',
     build_configuration: 'Release',
    code_signing_identity: 'iPhone Distribution'
@@ -138,6 +139,13 @@ end
     increment_build_number(build_number: ENV['APP_BUILD_NUMBER']) # Set a specific build number
   end
 
+  lane:install_provisioning do
+   sigh(
+    app_identifier: ENV['APP_IDENTIFIER'],  # Your app's bundle identifier
+    username: "mohammed.khaled.sobhy@gmail.com"       # Your Apple developer account email
+  )
+ end
+
  desc “Change base url + screenshots”
   lane:upload_app do
     change_main_host()
@@ -153,8 +161,8 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
 )
     match(api_key: api_key, readonly: false, force_for_new_devices: true)
     update_project_settings()
+    install_provisioning()
     update_provisioning()
-    screenshots()
     deploy()
 end
 
