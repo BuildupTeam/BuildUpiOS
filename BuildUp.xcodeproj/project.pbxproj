@@ -3599,7 +3599,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 393174132A19134A00AF64BC /* Build configuration list for PBXProject "BuildUp" */;
+			buildConfigurationList = 393174132A19134A00AF64BC /* Build configuration list for PBXProject "Buildup" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -4633,7 +4633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.buildupapp.my-app-3";
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.onlineshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
@@ -4726,7 +4726,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.buildupapp.my-app-3";
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.onlineshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "13331cb4-bd27-4ea0-a6c0-01456761adeb";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.my-app-3";
@@ -4754,7 +4754,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.buildupapp.my-app-3";
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.onlineshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
@@ -4781,7 +4781,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.buildupapp.my-app-3";
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.onlineshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "13331cb4-bd27-4ea0-a6c0-01456761adeb";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.my-app-3";
@@ -4806,7 +4806,7 @@
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.buildupapp.my-app-3";
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.onlineshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
@@ -4831,7 +4831,7 @@
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.buildupapp.my-app-3";
+				PRODUCT_BUNDLE_IDENTIFIER = com.squadio.onlineshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "13331cb4-bd27-4ea0-a6c0-01456761adeb";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.my-app-3";
@@ -4848,7 +4848,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		393174132A19134A00AF64BC /* Build configuration list for PBXProject "BuildUp" */ = {
+		393174132A19134A00AF64BC /* Build configuration list for PBXProject "Buildup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				393174402A19134D00AF64BC /* Debug */,
