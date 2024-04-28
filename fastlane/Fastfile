@@ -162,7 +162,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     match(api_key: api_key, readonly: false, force_for_new_devices: true)
     update_project_settings()
     install_provisioning()
-    update_provisioning()
+    
     deploy()
 end
 
