@@ -13,7 +13,7 @@ import Moya
 final class Singleton {
     
     // Can't init is singleton
-    private init() { }
+    private init() { }  
     
     // MARK: Shared Instance
     
