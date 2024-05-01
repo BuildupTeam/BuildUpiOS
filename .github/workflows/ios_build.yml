@@ -75,7 +75,7 @@ jobs:
           input_image_url=${{ github.event.inputs.app_icon}}
           output_folder="BuildUp/Resources/Assets/Assets.xcassets/AppIcon.appiconset"
 
-          sizes=("ItunesArtwork:1024x1024")
+          sizes=("ItunesArtwork:1024x1024") 
 
           find "$GITHUB_WORKSPACE/$output_folder/" -type f -name "*.png" -exec rm -f {} \;
 
