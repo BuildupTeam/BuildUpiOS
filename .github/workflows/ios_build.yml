@@ -96,7 +96,7 @@ jobs:
       - name: Lanuch simulator
         uses: futureware-tech/simulator-action@v3
         with:
-         model: 'iPhone 11'
+         model: 'iPhone 15'
 
       - name: Install dependencies
         run: |
@@ -106,7 +106,7 @@ jobs:
         
       - name: Run tests
         run: |
-         xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 11,OS=15'
+         xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 15,OS=17'
 
       - name: Execute Fastlane
         env:
