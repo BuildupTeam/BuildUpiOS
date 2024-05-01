@@ -93,11 +93,20 @@ jobs:
 
           ls -R "$GITHUB_WORKSPACE/$output_folder/"
 
+      - name: Lanuch simulator
+        uses: futureware-tech/simulator-action@v3
+        with:
+         model: 'iPhone 11'
+
       - name: Install dependencies
         run: |
           gem install bundler
           pod install
           bundle update --full-index
+        
+      - name: Run tests
+        run: |
+         xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 11,OS=15'
 
       - name: Execute Fastlane
         env:
