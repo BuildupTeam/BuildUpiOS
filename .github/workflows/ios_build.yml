@@ -83,7 +83,7 @@ jobs:
 
           for size in "${sizes[@]}"; do
               size_name="${size%%:*}"
-              size_dimensions="${size##*:}"
+              size_dimensions="${size##*:}!"
               output_name="${size_name}.png"
               echo $size_dimensions
               convert <(curl -sL "$input_image_url") -resize "$size_dimensions" "$GITHUB_WORKSPACE/$output_folder/$output_name"
