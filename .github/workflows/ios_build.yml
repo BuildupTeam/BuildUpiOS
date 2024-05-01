@@ -75,7 +75,7 @@ jobs:
           input_image_url=${{ github.event.inputs.app_icon}}
           output_folder="BuildUp/Resources/Assets/Assets.xcassets/AppIcon.appiconset"
 
-          sizes=("ItunesArtwork:1024x1024") 
+          sizes=("ItunesArtwork:1024x1024")
 
           find "$GITHUB_WORKSPACE/$output_folder/" -type f -name "*.png" -exec rm -f {} \;
 
@@ -90,11 +90,20 @@ jobs:
 
           ls -R "$GITHUB_WORKSPACE/$output_folder/"
 
+      - name: Lanuch simulator
+        uses: futureware-tech/simulator-action@v3
+        with:
+         model: 'iPhone 11'
+
       - name: Install dependencies
         run: |
           gem install bundler
           pod install
           bundle update --full-index
+        
+      - name: Run tests
+        run: |
+         xcodebuild test -scheme BuildUpUITests -workspace BuildUp.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 11,OS=15'
 
       - name: Execute Fastlane
         env:
