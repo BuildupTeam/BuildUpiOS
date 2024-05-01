@@ -85,9 +85,7 @@ jobs:
               size_name="${size%%:*}"
               size_dimensions="${size##*:}!"
               output_name="${size_name}.png"
-              echo $size_dimensions
               convert <(curl -sL "$input_image_url") -resize "$size_dimensions" "$GITHUB_WORKSPACE/$output_folder/$output_name"
-              echo "$GITHUB_WORKSPACE/$output_folder/$output_name"
               identify -format "Width: %w pixels\nHeight: %h pixels\n" "$GITHUB_WORKSPACE/$output_folder/$output_name"
           done
 
