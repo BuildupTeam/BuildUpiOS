@@ -90,7 +90,10 @@ jobs:
 
           ls -R "$GITHUB_WORKSPACE/$output_folder/"
 
-      
+      - name: Lanuch simulator
+        uses: futureware-tech/simulator-action@v3
+        with:
+         model: 'iPhone 15'
 
       - name: Install dependencies
         run: |
