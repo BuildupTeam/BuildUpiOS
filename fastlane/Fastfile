@@ -194,6 +194,7 @@ hhD7N1mMiIT4kpz2SJIWf/xSU7mgCgYIKoZIzj0DAQehRANCAARaJePeenpjJuj8
 rXoq2fqDz62m4DxsS/9iMRonv6iinalgzw6J8HZ+zZ1ld8wpGRHItX9y/XrxIgDP
 SdRzkDKl\n-----END PRIVATE KEY-----"
 )	
+        capture_screenshots(workspace: “BuildUp.xcworkspace”, scheme: “BuildUpUITests”)
 	upload_to_app_store(
     		username: "mohammed.khaled.sobhy@gmail.com",
     		app_identifier: ENV['APP_IDENTIFIER'],
