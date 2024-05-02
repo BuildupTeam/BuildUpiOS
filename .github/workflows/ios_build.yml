@@ -97,6 +97,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          git config http.postBuffer 524288000
           gem install bundler
           pod install
           bundle update --full-index
