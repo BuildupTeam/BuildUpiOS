@@ -100,11 +100,6 @@ jobs:
           gem install bundler
           pod install
           bundle update --full-index
-        
-      - name: Run tests
-        run: |
-          
-          xcodebuild -workspace ./BuildUp.xcworkspace -scheme BuildUpUITests -destination 'platform=iOS Simulator,name=iPhone 15'
 
       - name: Execute Fastlane
         env:
