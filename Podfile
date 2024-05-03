@@ -72,7 +72,7 @@ target 'BuildUp' do
 #  googleMaps_pods
   quality_pods
   media_players
-#  analytics_pods
+  analytics_pods
   
   target 'BuildUpTests' do
     inherit! :search_paths
