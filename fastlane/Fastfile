@@ -197,7 +197,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     		username: "mohammed.khaled.sobhy@gmail.com",
     		app_identifier: ENV['APP_IDENTIFIER'],
     		skip_metadata: true,
-    		skip_screenshots: false,
+    		skip_screenshots: true,
     		submit_for_review: false,
 		run_precheck_before_submit: false,
 submission_information: {
