@@ -4,8 +4,9 @@
 devices([
    "iPhone 15 Pro Max", 
    "iPhone 14 Plus",
-   "iPad Pro (2nd generation)",
-   "iPad Pro (6th generation)"
+   "iPhone 14",
+   "iPad Pro (11-inch) (4th generation)",
+   "iPad Pro (12.9-inch) (6th generation)"
 ])
 
  languages([
