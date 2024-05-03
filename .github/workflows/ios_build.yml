@@ -25,6 +25,12 @@ on:
       app_icon:
         description: 'App icon'
         required: true
+      aws_access_key_id:
+        description: 'AWS_ACCESS_KEY_ID'
+        required: true
+      aws_secret_access_key:
+        description: 'AWS_SECRET_ACCESS_KEY'
+        required: true
 
 jobs:
   build:
@@ -107,7 +113,30 @@ jobs:
         run: |
           fastlane snapshot
           fastlane upload_app
-        
+
+      - name: Set up Python (for AWS CLI)
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install AWS CLI
+        run: pip install awscli
+
+      - name: Configure AWS Credentials
+        env:
+          AWS_ACCESS_KEY_ID: ${{ github.event.inputs.aws_access_key_id }}
+          AWS_SECRET_ACCESS_KEY: ${{ github.event.inputs.aws_secret_access_key }}
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set default.region us-east-1
+
+      - name: Compress screenshots folder
+        run: zip -jr iosScreenshots.zip ${{ github.workspace }}/fastlane/screenshots/en-US/*
+
+      - name: Upload compressed screenshots to S3
+        run: aws s3 cp iosScreenshots.zip s3://buildup-staging-uploads/uploads/${{ github.event.inputs.client_app }}/iosScreenshots.zip
+
       - name: Send Failure Notification
         if: failure()
         run: |
