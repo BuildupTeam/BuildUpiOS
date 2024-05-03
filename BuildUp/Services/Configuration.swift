@@ -16,7 +16,7 @@ enum Environment: String {
     case demo
     
     var baseURL: String {
-        let url = "https://online-shop.ecommerce.buildupp.co/"
+        let url = "https://online-shop.ecommerce.buildupp.co"
         return url + "/ec/api/v1/f"
         /*
         let subDomain = CachingService.getSubdomain()

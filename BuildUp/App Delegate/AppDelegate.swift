@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Configure an alternative FIRApp.
         FirebaseApp.configure(name: "Buildup2", options: firebaseOptions)
         
-        setupFirebaseRemoteNotifications(application: application)
+//        setupFirebaseRemoteNotifications(application: application)
         AppManager.launchApp(application)
         
         LocalizationManager.initSupportedLanguages()
