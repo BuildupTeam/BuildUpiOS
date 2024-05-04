@@ -21,47 +21,14 @@ before_all do
 
 platform :ios do
 
-  desc "Get certificates"
-   lane :certificates do
-    sync_code_signing(
-      type: "appstore",
-      app_identifier: ENV['APP_IDENTIFIER'], 
-      force_for_new_devices: true,
-      readonly: true
-    )
-  end
-
-desc "Generate new certificates"
-  lane :generate_new_certificates do
-   match(
-      type: "appstore",      
-      app_identifier: ENV['APP_IDENTIFIER'], 
-      readonly: false,              
-      force_for_new_devices: true
-    )
-    
-    # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
-
-  end
-
-  desc “Generate new localized screenshots”
-   lane :screenshots do
-    sync_code_signing(
-      type: "appstore",
-      app_identifier: ENV['APP_IDENTIFIER'],
-      readonly: false
-    )
-    build_app(scheme: ENV['SCHEME'])
-    app_store_connect_api_key(
-	  key_id: "223H85GN24",
-	  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1",  	 
-key_content:"-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQghGStYReHnLsS+qBL
-hhD7N1mMiIT4kpz2SJIWf/xSU7mgCgYIKoZIzj0DAQehRANCAARaJePeenpjJuj8
-rXoq2fqDz62m4DxsS/9iMRonv6iinalgzw6J8HZ+zZ1ld8wpGRHItX9y/XrxIgDP
-SdRzkDKl\n-----END PRIVATE KEY-----"
-)
-       capture_screenshots(workspace: “BuildUp.xcworkspace”, scheme: “BuildUpUITests”)
- end
+  desc "update_display_name"
+   lane :update_display_name do 
+   update_info_plist(
+    plist_path: "./Buildup/Resources/Info.plist",
+    xcodeproj: "./Buildup.xcodeproj",
+    display_name: ENV['APP_DISPLAY_NAME']
+  )
+end
 
   desc “Update App Identifier”
    lane :update_project_settings do
@@ -151,6 +118,7 @@ end
     change_main_host()
     set_build_number()
     update_colors()
+    update_display_name()
     api_key = app_store_connect_api_key(
 	  key_id: "223H85GN24",
 	  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1",  	 
@@ -169,10 +137,20 @@ end
  desc “Update App”
   lane:update_app do
     change_main_host()
-    update_project_settings()
     set_build_number()
     update_colors()
-    match(type: "appstore")
+    api_key = app_store_connect_api_key(
+	  key_id: "223H85GN24",
+	  issuer_id: "69a6de71-daeb-47e3-e053-5b8c7c11a4d1",  	 
+key_content:"-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQghGStYReHnLsS+qBL
+hhD7N1mMiIT4kpz2SJIWf/xSU7mgCgYIKoZIzj0DAQehRANCAARaJePeenpjJuj8
+rXoq2fqDz62m4DxsS/9iMRonv6iinalgzw6J8HZ+zZ1ld8wpGRHItX9y/XrxIgDP
+SdRzkDKl\n-----END PRIVATE KEY-----"
+)
+    match(api_key: api_key, readonly: false, force_for_new_devices: true)
+    update_project_settings()
+    install_provisioning()
+    update_provisioning()
     deploy()
 end 
 
