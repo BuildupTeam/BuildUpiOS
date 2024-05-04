@@ -79,6 +79,14 @@ change splash background color
 
 Set the build number to a specific value
 
+### ios set_version_number
+
+```sh
+[bundle exec] fastlane ios set_version_number
+```
+
+Set the version number to a specific value
+
 ### ios install_provisioning
 
 ```sh
