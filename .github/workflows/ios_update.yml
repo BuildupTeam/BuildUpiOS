@@ -1,4 +1,4 @@
-name: iOS Build with secrets
+name: iOS Update
 
 on:
   push:

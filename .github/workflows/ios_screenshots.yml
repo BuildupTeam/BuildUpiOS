@@ -1,10 +1,10 @@
-name: iOS Build with secrets
+name: iOS generate screenshots
 
 on:
   push:
-    branches: [ fake, feature/client_code ]
+    branches: [ fakeDummyRepo ]
   pull_request:
-    branches: [ fake, feature/client_code ]
+    branches: [ fakeDummyRepo ]
   workflow_dispatch:
     inputs:
       env_file:
