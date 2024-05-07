@@ -2,9 +2,9 @@ name: iOS Build with secrets
 
 on:
   push:
-    branches: [ fakeDummyRepo ]
+    branches: [ fake, feature/client_code ]
   pull_request:
-    branches: [ fakeDummyRepo ]
+    branches: [ fake, feature/client_code ]
   workflow_dispatch:
     inputs:
       env_file:
