@@ -110,7 +110,7 @@ desc "Set the version number to a specific value"
   lane :incre_version_number do
     # increment_version_number_in_xcodeproj
      increment_version_number_in_xcodeproj(
-     version_number: ENV['APP_VERSION_NUMBER'],   
+     version_number: '1.1.0',   
      xcodeproj: './BuildUp.xcodeproj',
      scheme: ENV['SCHEME']
 )
