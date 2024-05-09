@@ -65,7 +65,7 @@ extension HomeViewController {
     private func setupView() {
         isLoadingShimmer = true
         registerTableViewCells()       
-        setupNavigationBar()
+//        setupNavigationBar()
         if #available(iOS 15.0, *) {
             UITableView.appearance().sectionHeaderTopPadding = 0
         }
