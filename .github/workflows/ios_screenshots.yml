@@ -85,6 +85,7 @@ jobs:
         env:
           FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASS }}
         run: |
+          fastlane update_settings
           fastlane snapshot
 
       - name: Set up Python (for AWS CLI)
