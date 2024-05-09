@@ -126,9 +126,7 @@ desc "Set the version number to a specific value"
 desc “update colors”
   lane:update_settings do
     change_main_host()
-    set_build_number()
     update_colors()
-    update_display_name()
 end
 
  desc “Change base url + screenshots”
