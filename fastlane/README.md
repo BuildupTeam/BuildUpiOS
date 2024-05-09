@@ -95,6 +95,14 @@ Set the version number to a specific value
 
 
 
+### ios update_settings
+
+```sh
+[bundle exec] fastlane ios update_settings
+```
+
+update colors
+
 ### ios upload_app
 
 ```sh
