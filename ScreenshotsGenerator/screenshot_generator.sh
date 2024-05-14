@@ -67,6 +67,9 @@ echo "$CONFIGURATION" | jq -c 'to_entries[]' | while read -r entry; do
   echo "$entry" | jq -c '.value.files | to_entries[]' | while read -r file; do
     overlay="$device/"$(echo "$file" | jq -r '.key')
     base="../fastlane/screenshots/en-US/"$(echo "$file" | jq -r '.value')
+    pwd
+    ls ..
+    ls ../fastlane/screenshots/en-US/
 
     echo "Processing $overlay with $base for $device..."
 
