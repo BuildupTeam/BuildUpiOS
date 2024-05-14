@@ -88,6 +88,13 @@ jobs:
           fastlane update_settings
           fastlane snapshot
 
+      - name: Generate Screenshots Mockups
+        run: |
+          brew install jq
+          chmod +x ./ScreenshotsGenerator/screenshot_generator.sh
+          ./ScreenshotsGenerator/screenshot_generator.sh
+          zip -jr iosScreenshots.zip ${{ github.workspace }}/ScreenshotsGenerator/screenshots/screen_output/*
+
       - name: Set up Python (for AWS CLI)
         uses: actions/setup-python@v2
         with:
@@ -104,9 +111,6 @@ jobs:
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set default.region us-east-1
-
-      - name: Compress screenshots folder
-        run: zip -jr iosScreenshots.zip ${{ github.workspace }}/fastlane/screenshots/en-US/*
 
       - name: Upload compressed screenshots to S3
         run: aws s3 cp iosScreenshots.zip s3://buildup-staging-uploads/uploads/${{ github.event.inputs.client_app }}/iosScreenshots.zip
