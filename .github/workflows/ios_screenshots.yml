@@ -94,7 +94,7 @@ jobs:
           brew install jq
           chmod +x ./ScreenshotsGenerator/screenshot_generator.sh
           ./ScreenshotsGenerator/screenshot_generator.sh
-          zip -jr iosScreenshots.zip ${{ github.workspace }}/ScreenshotsGenerator/screen_output/*
+          zip -r iosScreenshots.zip ${{ github.workspace }}/ScreenshotsGenerator/screen_output/*
 
       - name: Set up Python (for AWS CLI)
         uses: actions/setup-python@v2
