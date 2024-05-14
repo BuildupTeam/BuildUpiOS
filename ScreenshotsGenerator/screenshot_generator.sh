@@ -70,7 +70,7 @@ echo "$CONFIGURATION" | jq -c 'to_entries[]' | while read -r entry; do
     pwd
     ls
     ls ..
-    ls ./fastlane/screenshots/en-US/
+    ls fastlane
 
     echo "Processing $overlay with $base for $device..."
 
