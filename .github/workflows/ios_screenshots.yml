@@ -49,43 +49,43 @@ jobs:
         with:
           xcode-version: 'latest-stable'
 
-#      - name: Set .env.default
-#        run: |
-#          rm fastlane/.env.default
-#          echo "${{ github.event.inputs.env_file}}" > fastlane/.env.default
-#          cat fastlane/.env.default
-#
-#      - name: display fastlane file
-#        run: |
-#          cat fastlane/Fastfile
-#
-#      - name: Set Appfile
-#        run: |
-#          rm fastlane/AppFile
-#          echo "${{ github.event.inputs.app_file}}" > fastlane/AppFile
-#          cat fastlane/AppFile
-#
-#      - name: Set Matchfile
-#        run: |
-#          rm fastlane/Matchfile
-#          echo "${{ github.event.inputs.match_file}}" > fastlane/Matchfile
-#          cat fastlane/Matchfile
-#
+      - name: Set .env.default
+        run: |
+          rm fastlane/.env.default
+          echo "${{ github.event.inputs.env_file}}" > fastlane/.env.default
+          cat fastlane/.env.default
+
+      - name: display fastlane file
+        run: |
+          cat fastlane/Fastfile
+
+      - name: Set Appfile
+        run: |
+          rm fastlane/AppFile
+          echo "${{ github.event.inputs.app_file}}" > fastlane/AppFile
+          cat fastlane/AppFile
+
+      - name: Set Matchfile
+        run: |
+          rm fastlane/Matchfile
+          echo "${{ github.event.inputs.match_file}}" > fastlane/Matchfile
+          cat fastlane/Matchfile
+
       - name: Set up ImageMagick
         run: brew install imagemagick
-#
-#      - name: Install dependencies
-#        run: |
-#          gem install bundler
-#          pod install
-#          bundle update --full-index
-#
-#      - name: Execute Fastlane
-#        env:
-#          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASS }}
-#        run: |
-#          fastlane update_settings
-#          fastlane snapshot
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          pod install
+          bundle update --full-index
+
+      - name: Execute Fastlane
+        env:
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASS }}
+        run: |
+          fastlane update_settings
+          fastlane snapshot
 
       - name: Generate Screenshots Mockups
         env:
