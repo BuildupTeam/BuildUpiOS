@@ -54,6 +54,9 @@ read -r -d '' CONFIGURATION <<'EOF'
 }
 EOF
 
+echo $PROJECT_PATH
+baseUrl="$PROJECT_PATH/ScreenshotsGenerator"
+
 # Loop through each device configuration
 echo "$CONFIGURATION" | jq -c 'to_entries[]' | while read -r entry; do
   device=$(echo "$entry" | jq -r '.key')
@@ -65,8 +68,8 @@ echo "$CONFIGURATION" | jq -c 'to_entries[]' | while read -r entry; do
 
   # Loop through each file pair
   echo "$entry" | jq -c '.value.files | to_entries[]' | while read -r file; do
-    overlay="$device/"$(echo "$file" | jq -r '.key')
-    base="../fastlane/screenshots/en-US/"$(echo "$file" | jq -r '.value')
+    overlay="$baseUrl/$device/"$(echo "$file" | jq -r '.key')
+    base="$PROJECT_PATH/fastlane/screenshots/en-US/"$(echo "$file" | jq -r '.value')
     pwd
     ls
     ls ..
@@ -75,12 +78,12 @@ echo "$CONFIGURATION" | jq -c 'to_entries[]' | while read -r entry; do
     echo "Processing $overlay with $base for $device..."
 
     # Perform the image manipulation
-    identify -format "%wx%h" "$overlay" > dimensions.txt && read WIDTH HEIGHT < dimensions.txt
-    convert -size "${WIDTH}x${HEIGHT}"! xc:black -colorspace sRGB black.png
-    convert "$base" -resize ${mock_width}x${mock_height}! -colorspace sRGB resized_base.png
-    composite -geometry +${ml}+${mt} resized_base.png black.png -colorspace sRGB positioned_base.png
-    mkdir -p "./$output"
-    convert positioned_base.png "$overlay" -composite -colorspace sRGB "./$output/$(basename "$overlay")"
+    identify -format "%wx%h" "$overlay" > "$baseUrl/dimensions.txt" && read WIDTH HEIGHT < "$baseUrl/dimensions.txt"
+    convert -size "${WIDTH}x${HEIGHT}"! xc:black -colorspace sRGB "$baseUrl/black.png"
+    convert "$base" -resize ${mock_width}x${mock_height}! -colorspace sRGB "$baseUrl/resized_base.png"
+    composite -geometry +${ml}+${mt} "$baseUrl/resized_base.png" "$baseUrl/black.png" -colorspace sRGB "$baseUrl/positioned_base.png"
+    mkdir -p "$baseUrl/$output"
+    convert "$baseUrl/positioned_base.png" "$overlay" -composite -colorspace sRGB "$baseUrl/$output/$(basename "$overlay")"
 #
     echo "Finished processing $overlay..."
   done

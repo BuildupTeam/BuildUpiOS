@@ -88,6 +88,8 @@ jobs:
 #          fastlane snapshot
 
       - name: Generate Screenshots Mockups
+        env:
+          PROJECT_PATH: ${{ github.workspace }}
         run: |
           brew install jq
           chmod +x ./ScreenshotsGenerator/screenshot_generator.sh
