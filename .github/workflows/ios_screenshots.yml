@@ -71,8 +71,8 @@ jobs:
 #          echo "${{ github.event.inputs.match_file}}" > fastlane/Matchfile
 #          cat fastlane/Matchfile
 #
-#      - name: Set up ImageMagick
-#        run: brew install imagemagick
+      - name: Set up ImageMagick
+        run: brew install imagemagick
 #
 #      - name: Install dependencies
 #        run: |

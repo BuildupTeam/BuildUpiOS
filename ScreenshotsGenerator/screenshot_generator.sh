@@ -54,7 +54,6 @@ read -r -d '' CONFIGURATION <<'EOF'
 }
 EOF
 
-echo $PROJECT_PATH
 baseUrl="$PROJECT_PATH/ScreenshotsGenerator"
 
 # Loop through each device configuration
@@ -70,10 +69,6 @@ echo "$CONFIGURATION" | jq -c 'to_entries[]' | while read -r entry; do
   echo "$entry" | jq -c '.value.files | to_entries[]' | while read -r file; do
     overlay="$baseUrl/$device/"$(echo "$file" | jq -r '.key')
     base="$PROJECT_PATH/fastlane/screenshots/en-US/"$(echo "$file" | jq -r '.value')
-    pwd
-    ls
-    ls ..
-    ls fastlane
 
     echo "Processing $overlay with $base for $device..."
 
