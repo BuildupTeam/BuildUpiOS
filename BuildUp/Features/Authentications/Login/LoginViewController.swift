@@ -308,6 +308,17 @@ extension LoginViewController {
         PersistanceManager.setLatestViewController(Constant.ControllerName.home)
         LauncherViewController.showTabBar(fromViewController: nil)
     }
+    
+    @IBAction func termsOfUseAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func privacyPolicyAction(_ sender: Any) {
+        var configuration = Configuration()
+        let privacyPolicyUrl = configuration.environment.privacyPolicyURL
+        
+        openWebView(url: privacyPolicyUrl, pageTitle: L10n.Login.privacyLabel)
+    }
 }
 
 // MARK: - Search TextField Delegate

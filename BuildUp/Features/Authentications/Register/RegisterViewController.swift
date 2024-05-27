@@ -159,6 +159,17 @@ class RegisterViewController: BaseViewController {
         self.showLoading()
         viewModel.registerUser(model: self.registerModel)
     }
+    
+    @IBAction func termsOfUseAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func privacyPolicyAction(_ sender: Any) {
+        var configuration = Configuration()
+        let privacyPolicyUrl = configuration.environment.privacyPolicyURL
+        
+        openWebView(url: privacyPolicyUrl, pageTitle: L10n.Login.privacyLabel)
+    }
 
 }
 
