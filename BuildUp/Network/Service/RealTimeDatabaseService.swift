@@ -206,6 +206,9 @@ extension RealTimeDatabaseService {
     }
     
     static func removeProductModelFromCart(model: FirebaseProductModel) {
+        getCartProducts { (snap) in
+            
+        }
         let combinationString = (model.dict.compactMap({ (key, value) -> String in
             return "\(key)"
         }) as Array).joined(separator: ",")

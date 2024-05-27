@@ -88,12 +88,12 @@ extension CategoriesHorizontalList2TableViewCell: UICollectionViewDelegate, UICo
             let model = sectionModel.categories?[indexPath.row]
             let textWidth = model?.name?.width(withConstrainedHeight: 88, font: .appFont(ofSize: 15, weight: .regular)) ?? 0
             if (textWidth + 32) < 88 {
-                return CGSize(width: 90, height: 110)
+                return CGSize(width: 90, height: 125)
             }
-            return CGSize(width: (textWidth + 32), height: 110)
+            return CGSize(width: (textWidth + 32), height: 125)
         }
         
-        return CGSize(width: 90, height: 110)
+        return CGSize(width: 90, height: 125)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -56,7 +56,6 @@ extension RouteHomeProductsApi: TargetType {
                 parameters["discount_range[to]"] = discount
             }
             
-            
             if let subcategories = model.subcategories, !subcategories.isEmpty {
                 categroiesSubcategoriesIDS.append(contentsOf: subcategories)
             } else {

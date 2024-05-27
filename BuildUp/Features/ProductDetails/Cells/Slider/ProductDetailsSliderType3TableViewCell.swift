@@ -29,7 +29,12 @@ class ProductDetailsSliderType3TableViewCell: UITableViewCell {
     var productModel: ProductModel? {
         didSet {
             bindData()
-            self.collectionView.reloadData()
+            if (productModel?.files?.count ?? 0 > 1) {
+                self.collectionView.reloadData()
+                self.collectionView.showView()
+            } else {
+                self.collectionView.hideView()
+            }
         }
     }
     override func awakeFromNib() {

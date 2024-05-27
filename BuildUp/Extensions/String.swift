@@ -205,6 +205,7 @@ extension Notification.Name {
     static let willEnterForground = Notification.Name("willEnterForground")
     static let didEnterForground = Notification.Name("didEnterForground")
     static let notificationRedirection = Notification.Name("notification_redirection")
+    static let refreshCart = Notification.Name("refresh_cart")
 
 }
 

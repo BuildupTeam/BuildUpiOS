@@ -73,10 +73,42 @@ class ProductDetailsQuantityCircleView: UIView {
         minusContainerView.layer.borderColor = ThemeManager.colorPalette?.buttonColor4?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor4 ?? "").cgColor
     }
     
-    @IBAction func plusButtonAction(_ sender: UIButton) {
-        if CachingService.getUser() == nil {
-            return
+    private func checkIfCanMinusPlus(model: ProductModel) {
+        if (model.cartQuantity ?? 0) >= (model.getMaxQuantity()) {
+            plusButton.isEnabled = false
+            plusContainerView.backgroundColor = ThemeManager.colorPalette?.buttonColor3?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor3 ?? "")
+        } else {
+            if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
+                if settings.quantityPosition == ProductDetailsQuantityPosition.upper.rawValue {
+                    plusContainerView.backgroundColor = ThemeManager.colorPalette?.buttonColor1?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor1 ?? "")
+                    
+                } else {
+                    plusContainerView.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "")
+                }
+            }
+            
+            plusButton.isEnabled = true
         }
+    }
+    
+    @IBAction func plusButtonAction(_ sender: UIButton) {
+         if let model = productModel {
+             if var cartQuantity = model.cartQuantity {
+                 if (cartQuantity + 1 ) <= (model.maxAddedQuantity ?? 0) {
+                     cartQuantity += 1
+                     model.cartQuantity = cartQuantity
+                 }
+             } else {
+                 model.cartQuantity = 1
+             }
+             
+             self.productModel = model
+             countLabel.text = String(model.cartQuantity ?? 0)
+
+             checkIfCanMinusPlus(model: model)
+             self.delegate?.qunatitySelected(quantity: model.cartQuantity ?? 0, model: model)
+         }
+         /*
         if let model = productModel {
             if let combinationModel = model.cartCombinations?.first {
                 if var cartQuantity = combinationModel.cartQuantity {
@@ -104,9 +136,27 @@ class ProductDetailsQuantityCircleView: UIView {
                 self.delegate?.qunatitySelected(quantity: model.cartQuantity ?? 0, model: model)
             }
         }
+          */
     }
     
     @IBAction func minusButtonAction(_ sender: UIButton) {
+        if let model = productModel {
+            if var cartQuantity = model.cartQuantity {
+                if (cartQuantity - 1 ) >= 1 {
+                    cartQuantity -= 1
+                    model.cartQuantity = cartQuantity
+                } else {
+                    model.cartQuantity = nil
+                }
+            }
+            
+            self.productModel = model
+            countLabel.text = String(model.cartQuantity ?? 0)
+            
+            checkIfCanMinusPlus(model: model)
+            self.delegate?.qunatitySelected(quantity: model.cartQuantity ?? 0, model: model)
+        }
+        /*
         if let model = productModel {
             if var cartQuantity = model.cartQuantity {
                 if (cartQuantity - 1 ) >= 1 {
@@ -120,5 +170,6 @@ class ProductDetailsQuantityCircleView: UIView {
             countLabel.text = String(model.cartQuantity ?? 0)
             self.delegate?.qunatitySelected(quantity: model.cartQuantity ?? 0, model: model)
         }
+         */
     }
 }

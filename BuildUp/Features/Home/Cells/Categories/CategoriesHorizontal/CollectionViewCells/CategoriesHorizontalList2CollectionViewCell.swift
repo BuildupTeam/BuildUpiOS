@@ -31,6 +31,7 @@ class CategoriesHorizontalList2CollectionViewCell: UICollectionViewCell {
     private func setupCell() {
         categoryNameLabel.font = .appFont(ofSize: 13, weight: .semiBold)
         categoryNameLabel.textColor = ThemeManager.colorPalette?.titleColor?.toUIColor(hexa: ThemeManager.colorPalette?.titleColor ?? "")
+        categoryNameLabel.textAlignment = .center
         
         containerView.setShadow(
             shadowRadius: CGFloat(5),

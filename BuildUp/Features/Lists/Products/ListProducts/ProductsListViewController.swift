@@ -176,10 +176,10 @@ extension ProductsListViewController: AddToCartDelegate {
 // MARK: - TableViewDelegate & DataSource
 extension ProductsListViewController: ProductFavoriteDelegate {
     func productFavorite(model: ProductModel) {
-        if let index = self.viewModel.products.firstIndex(where: { $0.uuid == model.uuid }) {
-            self.viewModel.products.remove(at: index)
-            self.tableView.reloadData()
-        }
+//        if let index = self.viewModel.products.firstIndex(where: { $0.uuid == model.uuid }) {
+//            self.viewModel.products.remove(at: index)
+//            self.tableView.reloadData()
+//        }
     }
     
     func pleaseLoginFirst() {

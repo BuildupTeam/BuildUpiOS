@@ -45,7 +45,7 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
             for view in scPageControl.subviews {
                 view.removeFromSuperview()
             }
-            if !(productModel?.files?.isEmpty ?? false) {
+            if !(productModel?.files?.isEmpty ?? false) && (productModel?.files?.count ?? 0 > 1) {
                 scPageControl.set_view(productModel?.files?.count ?? 0,
                                        current: 0,
                                        current_color: ThemeManager.colorPalette?.indicatorActiveColor?.toUIColor(hexa: ThemeManager.colorPalette?.indicatorActiveColor ?? "") ?? .backgroundLightGray,
@@ -53,6 +53,9 @@ class ProductDetailsSliderType2TableViewCell: UITableViewCell {
                                        scNormal_height: 10)
                 self.collectionView.reloadData()
                 collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: false)
+                if LocalizationManager.isRTLdirection() {
+                    pageControlView.transform = CGAffineTransform(scaleX: -1, y: 1)
+                }
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
                     self.collectionView.reloadData()

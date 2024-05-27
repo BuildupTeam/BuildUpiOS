@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -116,7 +116,6 @@
                             <constraint firstItem="1hk-pK-zQn" firstAttribute="trailing" secondItem="Rmw-Uv-jdN" secondAttribute="trailing" id="7tv-ar-NIO"/>
                             <constraint firstItem="BSb-1e-NQZ" firstAttribute="leading" secondItem="NrE-hp-omd" secondAttribute="leading" constant="8" id="AFB-xD-nnN"/>
                             <constraint firstItem="uer-cf-vb0" firstAttribute="top" secondItem="NrE-hp-omd" secondAttribute="top" id="GOm-nV-ddk"/>
-                            <constraint firstAttribute="height" constant="234" id="GrR-ac-EI5"/>
                             <constraint firstAttribute="bottom" secondItem="Rmw-Uv-jdN" secondAttribute="bottom" constant="8" id="SVi-H7-E6d"/>
                             <constraint firstItem="BSb-1e-NQZ" firstAttribute="top" secondItem="h3e-AV-5fp" secondAttribute="bottom" constant="4" id="T94-c2-9K2"/>
                             <constraint firstAttribute="trailing" secondItem="uer-cf-vb0" secondAttribute="trailing" id="TY6-OC-FJh"/>

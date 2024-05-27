@@ -62,6 +62,7 @@ extension ProductsGridViewController: UICollectionViewDelegate, UICollectionView
                         for: indexPath) as? ProductVerticalGrid1CollectionViewCell else { return UICollectionViewCell() }
                     
                     cell.productModel = viewModel.products[indexPath.row]
+                    cell.addToFavDelegate = self
                     
                     return cell
                 case ProductListDesign.grid2.rawValue:
@@ -70,6 +71,7 @@ extension ProductsGridViewController: UICollectionViewDelegate, UICollectionView
                         for: indexPath) as? ProductVerticalGrid2CollectionViewCell else { return UICollectionViewCell() }
                     
                     cell.productModel = viewModel.products[indexPath.row]
+                    cell.addToFavDelegate = self
                     
                     return cell
                 case ProductListDesign.grid3.rawValue:
@@ -78,6 +80,7 @@ extension ProductsGridViewController: UICollectionViewDelegate, UICollectionView
                         for: indexPath) as? ProductVerticalGrid3CollectionViewCell else { return UICollectionViewCell() }
                     
                     cell.productModel = viewModel.products[indexPath.row]
+                    cell.delegate = self
                     
                     return cell
                 case ProductListDesign.grid4.rawValue:
@@ -105,7 +108,18 @@ extension ProductsGridViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let noOfCellsInRow = 2   //number of column you want
+//        let noOfCellsInRowInCase45 = 3
+        var noOfCellsInRow = 2   //number of column you want
+        
+        if let settings = viewModel.productListSettings {
+            switch settings.list {
+            case ProductListDesign.grid4.rawValue, ProductListDesign.grid5.rawValue:
+                noOfCellsInRow = 3
+            default:
+                noOfCellsInRow = 2
+            }
+        }
+        
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left
         + flowLayout.sectionInset.right
@@ -115,8 +129,9 @@ extension ProductsGridViewController: UICollectionViewDelegate, UICollectionView
         
         if let settings = viewModel.productListSettings {
             switch settings.list {
-            case ProductListDesign.grid1.rawValue,
-                ProductListDesign.grid5.rawValue:
+            case ProductListDesign.grid1.rawValue:
+                return CGSize(width: size, height: 210)
+            case ProductListDesign.grid5.rawValue:
                 return CGSize(width: size, height: 210)
             case ProductListDesign.grid2.rawValue:
                 return CGSize(width: size, height: 260)
@@ -129,6 +144,19 @@ extension ProductsGridViewController: UICollectionViewDelegate, UICollectionView
             }
         }
         return CGSize(width: size, height: 240)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == (viewModel.products.count - 1) &&
+            (viewModel.products.count >= viewModel.perPage) {
+            if !isReloadingTableView {
+                if viewModel.responseModel?.pagination?.cursorMeta?.nextCursor != nil {
+                    self.loadMoreProducts()
+                }
+            } else {
+                isReloadingTableView = false
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

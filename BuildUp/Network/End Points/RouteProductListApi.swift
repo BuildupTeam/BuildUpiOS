@@ -55,10 +55,6 @@ extension RouteProductListApi: TargetType {
             parameters["cursor_by"] = "id"
             parameters["cursor_dir"] = "desc"
             
-            //            if let page = page {
-            //                parameters["page"] = page
-            //            }
-            
             if let subcategories = model.subcategories, !subcategories.isEmpty {
                 let subcategoriesIDs = model.subcategories?.map({$0.id})
                 parameters["categories_ids"] = subcategoriesIDs
@@ -78,8 +74,23 @@ extension RouteProductListApi: TargetType {
                                       cursor: let cursor,
                                       componentModel: let model):
             var parameters: [String: Any] = ["per_page": perPage]
-            parameters["sort[by]"] = "id"
-            parameters["sort[dir]"] = "desc"
+            
+            if let sortBy = model.orderBy {
+                parameters["sort[by]"] = sortBy
+            } else {
+                parameters["sort[by]"] = "id"
+            }
+            
+            if let sortDir = model.orderDir {
+                parameters["sort[dir]"] = sortDir
+            } else {
+                parameters["sort[dir]"] = "desc"
+            }
+            
+            if let discount = model.filters?.discount {
+                parameters["discount_range[from]"] = "0"
+                parameters["discount_range[to]"] = discount
+            }
             
             parameters["cursor"] = cursor
             parameters["cursor_meta"] = "1"

@@ -27,7 +27,19 @@ enum Environment: String {
         case .demo: return "https://\(subDomain).ecommerce-demo.buildupp.co/api/v1/f"
         case .preLive: return "https://\(subDomain).ecommerce.buildupp.co/ec/api/v1/f"
         }
-        //         */
+        
+        /*
+         switch self {
+         case .stage:
+             return "https://\(subDomain).bk.ecommerce-clients.buildupp.co/ec/api/v1/f"
+         case .live:
+             return "https://\(subDomain).bk.ecommerce-clients.buildupp.co/ec/api/v1/f"
+         case .demo:
+             return "https://\(subDomain).bk.ecommerce-clients.buildupp.co/ec/api/v1/f"
+         case .preLive:
+             return "https://\(subDomain).bk.ecommerce-clients.buildupp.co/ec/api/v1/f"
+         }
+         */
     }
     
     var hostURL: String {
