@@ -68,7 +68,17 @@ end
     f = File.new(path, 'w')
     f.write(s)
     f.close
+end
 
+desc “Change privacy Policy url”
+  lane:change_privacy_policy do
+    path = '../BuildUp/Services/Configuration.swift'
+    re = /\s+privacyPolicyURL =(.*)/
+    s = File.read(path)
+    s[re, 0] = ' privacyPolicyURL = "' + ENV['RELEASE_URL'] +"\""
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
 end
 
  desc “update colors”
@@ -132,6 +142,7 @@ end
  desc “Change base url + screenshots”
   lane:upload_app do
     change_main_host()
+    change_privacy_policy()
     set_build_number()
     update_colors()
     update_display_name()
@@ -153,6 +164,7 @@ end
  desc “Update App”
   lane:update_app do
     change_main_host()
+    change_privacy_policy()
     set_build_number()
     incre_version_number()
     update_colors()

@@ -56,6 +56,7 @@ class ProductVerticalList2InnerTableViewCell: UITableViewCell {
                                masksToBounds: false)
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
+        productDiscountView.backgroundColor = ThemeManager.colorPalette?.badgeColor?.toUIColor(hexa: ThemeManager.colorPalette?.badgeColor ?? "")
 
 //        ThemeManager.setCornerRadious(element: containerView, radius: 8)
         ThemeManager.setCornerRadious(element: productDiscountView, radius: 8)

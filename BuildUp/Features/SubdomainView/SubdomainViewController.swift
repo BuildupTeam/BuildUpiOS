@@ -64,6 +64,7 @@ class SubdomainViewController: BaseViewController {
         
         scanCodeButton.titleLabel?.font = .appFont(ofSize: 15, weight: .semiBold)
         scanCodeButton.backgroundColor = UIColor.scanMeButtonColor
+        scanCodeButton.setTitleColor(UIColor.white, for: .normal)
         scanCodeButton.layer.masksToBounds = true
         scanCodeButton.layer.cornerRadius = 8
         scanCodeButton.titleLabel?.text = L10n.QRCode.scanMe

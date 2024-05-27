@@ -47,6 +47,14 @@ Update Provisioning
 
 Change base url
 
+### ios change_privacy_policy
+
+```sh
+[bundle exec] fastlane ios change_privacy_policy
+```
+
+Change privacy Policy url
+
 ### ios update_colors
 
 ```sh
@@ -118,6 +126,14 @@ Change base url + screenshots
 ```
 
 Update App
+
+### ios deploy_and_submit
+
+```sh
+[bundle exec] fastlane ios deploy_and_submit
+```
+
+deploy
 
 ### ios deploy
 

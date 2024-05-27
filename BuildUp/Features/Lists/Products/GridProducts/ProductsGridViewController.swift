@@ -133,6 +133,7 @@ extension ProductsGridViewController {
         viewModel.page = 1
         viewModel.perPage = 20
         viewModel.totalCount = 0
+        viewModel.cursor = nil
         getProducts()
     }
     
@@ -171,6 +172,40 @@ extension ProductsGridViewController  {
         loadMoreProductsResponse()
         cartItemUpdatedResponse()
         favoriteProductUpdatedResponse()
+    }
+}
+
+// MARK: - TableViewDelegate & DataSource
+extension ProductsGridViewController: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        
+    }
+    
+    func userShouldLoginFirst() {
+        self.showLoginPopup()
+    }
+    
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+extension ProductsGridViewController: ProductFavoriteDelegate {
+    func productFavorite(model: ProductModel) {
+        
+    }
+    
+    func pleaseLoginFirst() {
+        showLoginPopup()
+    }
+}
+
+// MARK: - Popup Delegate
+extension ProductsGridViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
     }
 }
 

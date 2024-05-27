@@ -69,6 +69,15 @@ extension HomeViewController {
         if #available(iOS 15.0, *) {
             UITableView.appearance().sectionHeaderTopPadding = 0
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshCartItems), name: Notification.Name.refreshCart, object: nil)
+
+    }
+    
+        @objc func refreshCartItems(notif: NSNotification) {
+          //Insert code here
+            self.viewModel.updateAllHomeSectionsWithCartItems()
+            self.tableView.reloadData()
     }
     
     private func setupNavigationBar() {

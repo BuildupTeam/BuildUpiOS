@@ -76,7 +76,7 @@ class ProductDetailsQuantityDropDownView: UIView {
             elements.append(first)
         }
         
-        elements.reverse()
+//        elements.reverse()
         menu = menu?.replacingChildren(elements)
         quantityActionButton.showsMenuAsPrimaryAction = false
     }

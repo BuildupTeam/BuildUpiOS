@@ -76,6 +76,7 @@ class LauncherViewController: NSObject {
         CachingService.clearUserData()
         CachingService.removeAllCachedData()
         CachingService.setCartProducts(products: [:])
+        CachingService.setFavoriteProducts(products: [])
         RealTimeDatabaseService.clearCart()
         showLoginView(fromViewController: nil)
     }

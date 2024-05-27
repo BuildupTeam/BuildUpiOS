@@ -137,7 +137,6 @@ extension CategoriesTabViewController: UICollectionViewDelegate, UICollectionVie
             if !isReloadingTableView {
                 if viewModel.responseModel?.pagination?.cursorMeta?.nextCursor != nil {
                     self.loadMoreProducts()
-//                    addSpinnerToTableView()
                 }
             } else {
                 isReloadingTableView = false

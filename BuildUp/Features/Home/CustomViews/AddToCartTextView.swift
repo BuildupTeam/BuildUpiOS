@@ -153,11 +153,11 @@ extension AddToCartTextView {
                     addToCartFirebase(model)
                     activateCounterView()
                 } else {
+                    model.cartQuantity = nil
                     removeFromCartFirebase(model)
                     activateAddTocartButton()
                 }
             } else {
-                model.cartQuantity = nil
                 removeFromCartFirebase(model)
                 activateAddTocartButton()
             }

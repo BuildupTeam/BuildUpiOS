@@ -85,7 +85,7 @@ extension ProductDetailsViewController {
     
     @objc
     func cartBarAction(sender: UIBarButtonItem) {
-        
+        LauncherViewController.showCartTabBar(fromViewController: nil)
     }
     
     @objc

@@ -48,8 +48,6 @@ class CartViewController: BaseViewController {
         if CachingService.getUser() != nil {
             getCart()
         }
-        
-//        self.navigationItem.title = L10n.Cart.title
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -237,6 +235,7 @@ extension CartViewController {
     private func setupResponses() {
         cartResponse()
         favoriteProductUpdatedResponse()
+        cartItemUpdatedResponse()
     }
 }
 
@@ -253,17 +252,23 @@ extension CartViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     self.fillData()
                     self.checkoutContainerView.showView()
-//                    self.checkoutContainerViewHeightConstraint.constant = 80
                 }
                 self.removeBackgroundViews()
             } else {
                 DispatchQueue.main.async {
                     self.checkoutContainerView.hideView()
-//                    self.checkoutContainerViewHeightConstraint.constant = 0
                 }
                 self.setupEmptyView(screenType: .emptyScreen)
             }
         }
+    }
+    
+    private func cartItemUpdatedResponse() {
+        ObservationService.carItemUpdated.append({ [weak self] () in
+            guard let `self` = self else { return }
+            
+            self.tableView.reloadData()
+        })
     }
     
     private func favoriteProductUpdatedResponse() {
@@ -292,6 +297,8 @@ extension CartViewController: CartProductListDelegate {
             checkToClearPage()
             tableView.reloadData()
         }
+        
+        NotificationCenter.default.post(name: Notification.Name.refreshCart, object: nil)
     }
     
     private func calculateCartSubtotal() {
@@ -321,10 +328,10 @@ extension CartViewController: CartProductListDelegate {
 // MARK: - Checkout Button Delegates
 extension CartViewController: CartCheckoutDelegate {
     func checkoutButtonClicked() {
-//        let checkoutShippingVC = Coordinator.Controllers.createCheckoutShippingViewController()
-//        self.navigationController?.pushViewController(checkoutShippingVC, animated: true)
+        let checkoutShippingVC = Coordinator.Controllers.createCheckoutShippingViewController()
+        self.navigationController?.pushViewController(checkoutShippingVC, animated: true)
         
-        let checkoutVC = Coordinator.Controllers.createCheckoutViewController()
-        self.navigationController?.pushViewController(checkoutVC, animated: true)
+//        let checkoutVC = Coordinator.Controllers.createCheckoutViewController()
+//        self.navigationController?.pushViewController(checkoutVC, animated: true)
     }
 }

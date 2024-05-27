@@ -32,6 +32,11 @@ enum Environment: String {
         */
     }
     
+    var privacyPolicyURL: String {
+        let privacyPolicyURL = "https://localiosbuild4.bk.ecommerce-clients.buildupp.co"
+        return privacyPolicyURL + "/ec/privacy-policy"
+    }
+    
     var hostURL: String {
         let subDomain = CachingService.getSubdomain()
 
