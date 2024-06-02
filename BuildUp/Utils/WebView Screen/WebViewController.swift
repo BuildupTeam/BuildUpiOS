@@ -39,7 +39,7 @@ class WebViewController: BaseViewController {
     
     func setPageTitle() {
         headerView.title = pageTitle ?? ""
-        headerView.backgroundColor = .primaryColor
+        headerView.backgroundColor = ThemeManager.colorPalette?.buttonColor2?.toUIColor(hexa: ThemeManager.colorPalette?.buttonColor2 ?? "") //.primaryColor
     }
     
     func setupWebView() {

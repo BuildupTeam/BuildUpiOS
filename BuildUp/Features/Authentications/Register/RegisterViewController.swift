@@ -170,7 +170,6 @@ class RegisterViewController: BaseViewController {
         
         openWebView(url: privacyPolicyUrl, pageTitle: L10n.Login.privacyLabel)
     }
-
 }
 
 // MARK: - Response
