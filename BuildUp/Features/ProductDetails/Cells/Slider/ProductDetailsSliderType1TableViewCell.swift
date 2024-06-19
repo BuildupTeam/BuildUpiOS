@@ -62,6 +62,11 @@ class ProductDetailsSliderType1TableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        collectionView.collectionViewLayout = RTLCollectionFlow()
+        if LocalizationManager.isRTLdirection() {
+            collectionView.semanticContentAttribute = .forceRightToLeft
+        }
+        
         productOutOfStockLabel.text = L10n.Checkout.outOfStock
         productNameLabel.font = .appFont(ofSize: 20, weight: .semiBold)
         productDescriptionLabel.font = .appFont(ofSize: 14, weight: .regular)

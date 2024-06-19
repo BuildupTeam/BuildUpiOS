@@ -13,6 +13,7 @@ enum RouteCategoryDetailsApi {
     case getProductsList(categoryId: Int,
                          perPage: Int,
                          page: Int? = nil,
+                         cursor: String? = nil,
                          componentModel: ComponentConfigurationModel)
 }
 
@@ -45,15 +46,6 @@ extension RouteCategoryDetailsApi: TargetType {
         switch self {
         case .getSubcategories(parentId: let parentId):
             let parameters: [String: Any] = ["parents_ids[0]": parentId]
-//            if let sortBy = model.orderBy {
-//                parameters["sort[by]"] = sortBy
-//            }
-//            if let sortDir = model.orderDir {
-//                parameters["sort[dir]"] = sortDir
-//            }
-//            if let discount = model.filters?.discount {
-//                parameters["discount"] = discount
-//            }
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             
@@ -62,29 +54,18 @@ extension RouteCategoryDetailsApi: TargetType {
         case .getProductsList(categoryId: let categoryId,
                              perPage: let perPage,
                              page: let page,
+                             cursor: let cursor,
                              componentModel: let model):
             var parameters: [String: Any] = ["per_page": perPage]
             
             parameters["categories_ids[0]"] = categoryId
             parameters["sort[by]"] = "id"
             parameters["sort[dir]"] = "desc"
-
-            if let page = page {
-                parameters["page"] = page
-            }
-//            
-//            if let sortBy = model.orderBy {
-//                parameters["sort[by]"] = sortBy
-//            }
-//            
-//            if let sortDir = model.orderDir {
-//                parameters["sort[dir]"] = sortDir
-//            }
-//            
-//            
-//            if let discount = model.filters?.discount {
-//                parameters["discount"] = discount
-//            }
+            
+            parameters["cursor"] = cursor
+            parameters["cursor_meta"] = "1"
+            parameters["cursor_by"] = "id"
+            parameters["cursor_dir"] = "desc"
             
             JsonStringService.printParametersAsJson(parameters: parameters, baseUrl: self.baseURL.absoluteString, path: self.path)
             

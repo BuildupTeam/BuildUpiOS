@@ -47,7 +47,7 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
         
         return self.viewModel.products.count
     }
-
+    
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -116,32 +116,54 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let noOfCellsInRow = 2 //number of column you want
+        var noOfCellsInRow = 2   //number of column you want
+        
+        if let settings = viewModel.categoryDetailsSettings {
+            switch settings.productsList?.design {
+            case ProductListDesign.grid4.rawValue, ProductListDesign.grid5.rawValue:
+                noOfCellsInRow = 3
+            default:
+                noOfCellsInRow = 2
+            }
+        }
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left
         + flowLayout.sectionInset.right
         + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
-
+        
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
-
+        
         if let settings = viewModel.categoryDetailsSettings {
             switch settings.productsList?.design {
             case ProductListDesign.grid1.rawValue:
-                return CGSize(width: size, height: 200)
+                return CGSize(width: size, height: 210)
+            case ProductListDesign.grid5.rawValue:
+                return CGSize(width: size, height: 210)
             case ProductListDesign.grid2.rawValue:
                 return CGSize(width: size, height: 260)
             case ProductListDesign.grid3.rawValue:
-                return CGSize(width: size, height: 250)
+                return CGSize(width: size, height: 255)
             case ProductListDesign.grid4.rawValue:
                 return CGSize(width: size, height: 155)
-            case ProductListDesign.grid5.rawValue:
-                return CGSize(width: size, height: 210)
             default:
                 return CGSize.zero
             }
         }
-
-        return CGSize(width: size, height: 260)
+        
+        return CGSize(width: size, height: 240)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == (viewModel.products.count - 1) &&
+            (viewModel.products.count >= viewModel.perPage) {
+            if !isReloadingCollectionView {
+                if viewModel.responseModel?.pagination?.cursorMeta?.nextCursor != nil {
+                    self.loadMoreProducts()
+                }
+            } else {
+                isReloadingCollectionView = false
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

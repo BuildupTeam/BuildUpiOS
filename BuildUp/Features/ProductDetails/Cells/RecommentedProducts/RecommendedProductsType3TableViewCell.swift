@@ -37,6 +37,11 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        collectionView.collectionViewLayout = RTLCollectionFlow()
+        if LocalizationManager.isRTLdirection() {
+            collectionView.semanticContentAttribute = .forceRightToLeft
+        }
+        
         headerTitleLabel.textColor = ThemeManager.colorPalette?.sectionTitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.sectionTitleColor ?? "")
         headerTitleLabel.font = .appFont(ofSize: 17, weight: .semiBold)
         headerSeeMoreButton.titleLabel?.font = .appFont(ofSize: 13, weight: .semiBold)
@@ -60,7 +65,6 @@ class RecommendedProductsType3TableViewCell: UITableViewCell {
                 
             } else {
                 headerView.isHidden = true
-//                headerViewHeightContraints.constant = 0
             }
         }
     }
