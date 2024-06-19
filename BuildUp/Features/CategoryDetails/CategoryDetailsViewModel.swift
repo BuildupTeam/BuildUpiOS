@@ -66,7 +66,7 @@ class CategoryDetailsViewModel: BaseViewModel {
         guard let service = service else {
             return
         }
-        service.getProductList(categoryId: categoryId, perPage: perPage, page: page, componentModel: componentModel) { (result) in
+        service.getProductList(categoryId: categoryId, perPage: perPage, page: page, cursor: cursor, componentModel: componentModel) { (result) in
             switch result {
             case .success(let response):
                 if (response.statusCode ?? 0) >= 200 && (response.statusCode ?? 0) < 300 {

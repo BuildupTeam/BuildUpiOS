@@ -81,7 +81,6 @@ class LocalizationManager {
     }
 
     class func currentLanguage() -> LanguageModel {
-        
         return LocalizationManager.selectedLanguage
     }
     
@@ -168,14 +167,6 @@ class LocalizationManager {
             let rootView = resetBlock()
             rootView.view.layoutIfNeeded()
           appWindow.rootViewController = rootView
-//            UIView.transition(with: appWindow!,
-//                              duration: animationDuration,
-//                              options: options,
-//                              animations: {
-//                                appWindow!.rootViewController = rootView
-//            }, completion: { _ in
-//                // maybe do something here
-//            })
         }
 
     }
@@ -200,6 +191,8 @@ class LocalizationManager {
 //        UITextField.appearance().textAlignment
 //        = (language.semantic == UISemanticContentAttribute.forceLeftToRight)
 //            ? NSTextAlignment.left : NSTextAlignment.right
+        
+        // uiview.appearance().semanticContentAttribute = langauge.semantic
     }
 
     private class func swizzleMethodsForClass(className: AnyClass,

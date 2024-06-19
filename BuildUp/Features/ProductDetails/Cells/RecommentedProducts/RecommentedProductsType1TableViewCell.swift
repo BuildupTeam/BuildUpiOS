@@ -70,15 +70,8 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
                 } else {
                     headerSeeMoreButton.isHidden = true
                 }
-                
-//                if (settings.recommendedProducts?.displayTitle ?? false) && ( settings.recommendedProducts?.displaySeeMore ?? false) {
-//                    headerView.isHidden = false
-//                } else {
-//                    headerView.isHidden = true
-//                }
             } else {
                 headerView.isHidden = true
-//                headerViewHeightContraints.constant = 0
             }
         }
     }
