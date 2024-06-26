@@ -310,7 +310,10 @@ extension LoginViewController {
     }
     
     @IBAction func termsOfUseAction(_ sender: Any) {
+        var configuration = Configuration()
+        let termsOfUseURL = configuration.environment.termsOfUseURL
         
+        openWebView(url: termsOfUseURL, pageTitle: L10n.Login.termsLabel)
     }
     
     @IBAction func privacyPolicyAction(_ sender: Any) {

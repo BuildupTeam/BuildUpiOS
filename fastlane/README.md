@@ -55,6 +55,14 @@ Change base url
 
 Change privacy Policy url
 
+### ios change_terms_use
+
+```sh
+[bundle exec] fastlane ios change_terms_use
+```
+
+Change Terms Of use url
+
 ### ios update_colors
 
 ```sh

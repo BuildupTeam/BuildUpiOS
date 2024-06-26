@@ -34,7 +34,12 @@ enum Environment: String {
     
     var privacyPolicyURL: String {
         let privacyPolicyURL = "https://localiosbuild4.bk.ecommerce-clients.buildupp.co"
-        return privacyPolicyURL + "/ec/privacy-policy"
+        return privacyPolicyURL + "/ec\/privacy-policy"
+    }
+    
+    var termsOfUseURL: String {
+        let termsOfUseURL = "https://localiosbuild4.bk.ecommerce-clients.buildupp.co"
+        return termsOfUseURL + "/ec\/terms"
     }
     
     var hostURL: String {

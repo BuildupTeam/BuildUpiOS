@@ -81,6 +81,17 @@ desc “Change privacy Policy url”
     f.close
 end
 
+desc “Change Terms Of use url”
+  lane:change_terms_use do
+    path = '../BuildUp/Services/Configuration.swift'
+    re = /\s+termsOfUseURL =(.*)/
+    s = File.read(path)
+    s[re, 0] = ' termsOfUseURL = "' + ENV['RELEASE_URL'] +"\""
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
+end
+
  desc “update colors”
   lane:update_colors do
     change_background_color()
@@ -143,6 +154,7 @@ end
   lane:upload_app do
     change_main_host()
     change_privacy_policy()
+    change_terms_use()
     set_build_number()
     update_colors()
     update_display_name()
@@ -165,6 +177,7 @@ end
   lane:update_app do
     change_main_host()
     change_privacy_policy()
+    change_terms_use()
     set_build_number()
     incre_version_number()
     update_colors()
