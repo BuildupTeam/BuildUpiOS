@@ -24,8 +24,8 @@ class LauncherViewController: NSObject {
             showSubdomainScreen(fromViewController: nil)
         case Constant.ControllerName.home:
             showTabBar(fromViewController: nil)
-        case Constant.ControllerName.login:
-            showLoginView(fromViewController: nil)
+//        case Constant.ControllerName.login:
+//            showLoginView(fromViewController: nil)
         default :
 //            showLoginView(fromViewController: nil)
             showSubdomainScreen(fromViewController: nil)

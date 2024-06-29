@@ -141,7 +141,6 @@ extension LoginViewController {
         
         privacyButton.setAttributedTitle(privacyAttributeString, for: .normal)
         termsButton.setAttributedTitle(termsAttributeString, for: .normal)
-        
     }
     
     private func setupCountryPickerView() {

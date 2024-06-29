@@ -66,6 +66,8 @@
 "popups.cancelOrderMsg" = "Are you Sure You want to cancel  this order";
 "popups.cancel" = "Cancel";
 "popups.confirm" = "Confirm";
+"popups.demoApp" = "You are on Demo, This is only a preview of your custom-build mobile application";
+"popups.ok" = "Ok";
 
 // MARK: - Home
 "home.seeAll" = "See all";

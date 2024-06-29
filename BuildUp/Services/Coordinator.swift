@@ -178,9 +178,15 @@ class Coordinator {
             return viewController
         }
         
-        class func createSubdomainViewController(viewModel: SubdomainViewModel = SubdomainViewModel()) -> SubdomainViewController {
+        class func createSubdomainViewController(viewModel: SubdomainViewModel = SubdomainViewModel()) -> UIViewController {
+//            let viewController = SubdomainViewController(viewModel: viewModel)
+//            return viewController
+            
             let viewController = SubdomainViewController(viewModel: viewModel)
-            return viewController
+
+            let navigation = Coordinator.AppBase.baseNavigationController()
+            navigation.setViewControllers([viewController], animated: true)
+            return navigation
         }
         
         class func createCheckoutViewController(viewModel: CheckoutViewModel = CheckoutViewModel()) -> CheckoutViewController {

@@ -66,6 +66,8 @@
 "popups.cancelOrderMsg" = "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟";
 "popups.cancel" = "إلغاء";
 "popups.confirm" = "تأكيد";
+"popups.demoApp" = "أنت الآن في العرض التجريبي، وهذه مجرد معاينة لتطبيق الهاتف المحمول المصمم خصيصًا لك";
+"popups.ok" = "حسنا";
 
 // MARK: - Home
 "home.seeAll" = "عرض الكل";

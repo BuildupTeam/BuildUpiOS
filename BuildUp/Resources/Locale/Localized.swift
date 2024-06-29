@@ -1050,6 +1050,10 @@ internal enum L10n {
         internal static var confirm: String {
           return L10n.tr("Localizable", "popups.confirm")
         }
+        /// You are on Demo, This is only a preview of your custom-build mobile application
+        internal static var demoApp: String {
+          return L10n.tr("Localizable", "popups.demoApp")
+        }
         /// Login
         internal static var login: String {
           return L10n.tr("Localizable", "popups.login")
@@ -1065,6 +1069,10 @@ internal enum L10n {
         /// Are you Sure you want to logout ?
         internal static var logoutMsg: String {
           return L10n.tr("Localizable", "popups.logoutMsg")
+        }
+        /// Ok
+        internal static var ok: String {
+          return L10n.tr("Localizable", "popups.ok")
         }
     }
 

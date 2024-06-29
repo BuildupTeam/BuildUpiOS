@@ -16,6 +16,11 @@ class SubdomainViewController: BaseViewController {
     @IBOutlet weak var scanContentLabel: UILabel!
     @IBOutlet weak var scanCodeButton: UIButton!
     
+    @IBOutlet private weak var privacyLabel1: UILabel!
+    @IBOutlet private weak var privacyLabel2: UILabel!
+    @IBOutlet private weak var termsButton: UIButton!
+    @IBOutlet private weak var privacyButton: UIButton!
+    
     var viewModel: SubdomainViewModel!
     
     // initialization and each time we need to scan a QRCode
@@ -53,6 +58,7 @@ class SubdomainViewController: BaseViewController {
     }
     
     private func setupView() {
+        setupPrivacySection()
         scanTitleLabel.font = .appFont(ofSize: 17, weight: .semiBold)
         scanContentLabel.font = .appFont(ofSize: 13, weight: .medium)
         
@@ -70,6 +76,38 @@ class SubdomainViewController: BaseViewController {
         scanCodeButton.titleLabel?.text = L10n.QRCode.scanMe
         
         containerView.backgroundColor = .white
+    }
+    
+    private func setupPrivacySection() {
+        privacyLabel1.font = .appFont(ofSize: 12, weight: .regular)
+        privacyLabel2.font = .appFont(ofSize: 12, weight: .regular)
+
+        privacyLabel1.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
+        privacyLabel2.textColor = ThemeManager.colorPalette?.subtitleColor?.toUIColor(hexa: ThemeManager.colorPalette?.subtitleColor ?? "")
+        
+        privacyLabel1.text = L10n.Login.privacyTitle
+        privacyLabel2.text = L10n.Login.privacyAnd
+        privacyLabel1.textAlignment = .center
+        privacyLabel2.textAlignment = .center
+
+        let privacyAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.appFont(ofSize: 12, weight: .regular),
+            .foregroundColor: ThemeManager.colorPalette?.buttonBorderTextColor?.toUIColor(hexa: ThemeManager.colorPalette?.buttonBorderTextColor ?? "") ?? .gray,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+        
+        let privacyAttributeString = NSMutableAttributedString(
+            string: L10n.Login.privacyLabel,
+            attributes: privacyAttributes
+        )
+        
+        let termsAttributeString = NSMutableAttributedString(
+            string: L10n.Login.termsLabel,
+            attributes: privacyAttributes
+        )
+        
+        privacyButton.setAttributedTitle(privacyAttributeString, for: .normal)
+        termsButton.setAttributedTitle(termsAttributeString, for: .normal)
     }
     
     private func getConfiguration() {
@@ -115,8 +153,7 @@ class SubdomainViewController: BaseViewController {
 extension SubdomainViewController {
     @IBAction func setSubdomain(_ sender: UIButton) {
         PersistanceManager.setLatestViewController(Constant.ControllerName.home)
-        LauncherViewController.showLoginView(fromViewController: nil)
-//        LauncherViewController.showHomeScreen(fromViewController: nil)
+        LauncherViewController.showTabBar(fromViewController: nil)
     }
     
     @IBAction func scanAction(_ sender: AnyObject) {
@@ -148,8 +185,22 @@ extension SubdomainViewController {
             print("Completion with result: \(result.value) of type \(result.metadataType)")
           }
         }
-
+        
         present(readerVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func termsOfUseAction(_ sender: Any) {
+        var configuration = Configuration()
+        let termsOfUseURL = configuration.environment.termsOfUseURL
+        
+        openWebView(url: termsOfUseURL, pageTitle: L10n.Login.termsLabel)
+    }
+    
+    @IBAction func privacyPolicyAction(_ sender: Any) {
+        var configuration = Configuration()
+        let privacyPolicyUrl = configuration.environment.privacyPolicyURL
+        
+        openWebView(url: privacyPolicyUrl, pageTitle: L10n.Login.privacyLabel)
     }
 }
 
@@ -158,8 +209,8 @@ extension SubdomainViewController {
         viewModel.onData = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
-            PersistanceManager.setLatestViewController(Constant.ControllerName.login)
-            LauncherViewController.showLoginView(fromViewController: nil)
+            PersistanceManager.setLatestViewController(Constant.ControllerName.home)
+            LauncherViewController.showTabBar(fromViewController: nil)
         }
     }
 }

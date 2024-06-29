@@ -22,24 +22,19 @@ enum Environment: String {
         let subDomain = CachingService.getSubdomain()
         
         switch self {
-        case .stage: return "https://\(subDomain).bk.ecommerce.buildupp.co/api/v1/f"
-        case .live: return "https://\(subDomain).bk.ecommerce.buildupp.co/api/v1/f"
-        case .demo: return "https://\(subDomain).bk.ecommerce.buildupp.co/api/v1/f"
-        case .preLive: return "https://\(subDomain).bk.ecommerce.buildupp.co/api/v1/f"
+        case .stage: return "https://\(subDomain).bk.ecommerce.buildupp.co/ec/api/v1/f"
+        case .live: return "https://\(subDomain).bk.ecommerce.buildupp.co/ec/api/v1/f"
+        case .demo: return "https://\(subDomain).bk.ecommerce.buildupp.co/ec/api/v1/f"
+        case .preLive: return "https://\(subDomain).bk.ecommerce.buildupp.coec//api/v1/f"
         }
-        
-        /*
-         switch self {
-         case .stage:
-             return "https://\(subDomain).bk.ecommerce-clients.buildupp.co/ec/api/v1/f"
-         case .live:
-             return "https://\(subDomain).bk.ecommerce-clients.buildupp.co/ec/api/v1/f"
-         case .demo:
-             return "https://\(subDomain).bk.ecommerce-clients.buildupp.co/ec/api/v1/f"
-         case .preLive:
-             return "https://\(subDomain).bk.ecommerce-clients.buildupp.co/ec/api/v1/f"
-         }
-         */
+    }
+    
+    var privacyPolicyURL: String {
+        return "https://builder.ecommerce.buildupp.co/privacy-policy"
+    }
+    
+    var termsOfUseURL: String {
+        return "https://builder.ecommerce.buildupp.co/terms"
     }
     
     var hostURL: String {

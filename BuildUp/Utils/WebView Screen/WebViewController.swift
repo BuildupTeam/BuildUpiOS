@@ -71,6 +71,7 @@ class WebViewController: BaseViewController {
     deinit {
         print(#keyPath(WKWebView.estimatedProgress))
         webview.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
+//        webview.removeObserver(self, forKeyPath: "estimatedProgress")
     }
     
     func constrainView(view: UIView, toView contentView: UIView) {
