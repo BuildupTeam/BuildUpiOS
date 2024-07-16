@@ -11,6 +11,7 @@ class ProfileViewModel: BaseViewModel {
     
     weak var service: ProfileWebServiceProtocol?
 
+    public var onDeleteAccount: (() -> Void)?
     public var onProfile: (() -> Void)?
     public var onLogout: (() -> Void)?
     public var onTokenNotExist: (() -> Void)?
@@ -58,6 +59,23 @@ class ProfileViewModel: BaseViewModel {
                     }
                 }
                 self.onProfile?()
+            case .failure(let error):
+                print(error)
+                if error.message != "Request explicitly cancelled." {
+                    self.onNetworkError?(error)
+                }
+            }
+        }
+    }
+    
+    func deleteAccount() {
+        guard let service = service else {
+            return
+        }
+        service.deleteAccount { (result) in
+            switch result {
+            case .success(_):
+                self.onDeleteAccount?()
             case .failure(let error):
                 print(error)
                 if error.message != "Request explicitly cancelled." {

@@ -57,6 +57,11 @@ class ProfileTableViewCell: UITableViewCell {
         profileImageView.image = Asset.icProfileSetting.image
     }
     
+    func setupDeleteAccount() {
+        profileTitleLabel.text = L10n.Profile.deleteAccount
+        profileImageView.image = Asset.icDeleteAccount.image
+    }
+    
     func setupLogout() {
         if CachingService.getUser() != nil {
             profileTitleLabel.text = L10n.Profile.logout

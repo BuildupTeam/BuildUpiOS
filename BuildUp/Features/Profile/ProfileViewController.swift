@@ -88,12 +88,25 @@ extension ProfileViewController {
         logoutVC.delegate = self
         self.presentPanModal(logoutVC)
     }
+    
+    func showDeleteAccountPopup() {
+        let logoutVC = DeleteAccountPopupViewController()
+        logoutVC.delegate = self
+        self.presentPanModal(logoutVC)
+    }
 }
 
 extension ProfileViewController: LogoutPopupProtocol {
     func logoutButtonClicked() {
         self.showLoading() 
         self.viewModel.logoutUser()
+    }
+}
+
+extension ProfileViewController: DeleteAccountPopupProtocol {
+    func deleteAccountButtonClicked() {
+        self.showLoading()
+        self.viewModel.deleteAccount()
     }
 }
 

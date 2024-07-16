@@ -14,6 +14,7 @@ enum ProfileCells: Int {
     case savedAddreses
     case wishlist
     case language
+    case deleteAccount
     case logout
 }
 
@@ -57,6 +58,8 @@ extension ProfileViewController {
             cell.setupWishList()
         case ProfileCells.language.rawValue:
             cell.setupLanguage()
+        case ProfileCells.deleteAccount.rawValue:
+            cell.setupDeleteAccount()
         case ProfileCells.logout.rawValue:
             cell.setupLogout()
         default:
@@ -82,6 +85,8 @@ extension ProfileViewController {
             return self.getProfileTableViewCell(indexPath: indexPath)
         case ProfileCells.language.rawValue:
             return self.getProfileTableViewCell(indexPath: indexPath)
+        case ProfileCells.deleteAccount.rawValue:
+            return self.getProfileTableViewCell(indexPath: indexPath)
         case ProfileCells.logout.rawValue:
             return self.getProfileTableViewCell(indexPath: indexPath)
         default:
@@ -93,7 +98,7 @@ extension ProfileViewController {
 // MARK: TableView Delegate
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,6 +133,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case ProfileCells.language.rawValue:
             return UITableView.automaticDimension
+        case ProfileCells.deleteAccount.rawValue:
+            if CachingService.getUser() != nil {
+                return UITableView.automaticDimension
+            } else {
+                return 0
+            }
         case ProfileCells.logout.rawValue:
             return UITableView.automaticDimension
         default:
@@ -145,6 +156,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             self.openWishList()
         case ProfileCells.language.rawValue:
             self.openLanguagesBottomSheet()
+        case ProfileCells.deleteAccount.rawValue:
+            self.showDeleteAccountPopup()
         case ProfileCells.logout.rawValue:
             self.logoutAction()
         default:

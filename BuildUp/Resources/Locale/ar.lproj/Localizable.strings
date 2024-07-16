@@ -66,6 +66,8 @@
 "popups.cancelOrderMsg" = "هل أنت متأكد أنك تريد إلغاء هذا الطلب؟";
 "popups.cancel" = "إلغاء";
 "popups.confirm" = "تأكيد";
+"popups.deleteAccount" = "هل أنت متأكد أنك تريد حذف الحساب؟";
+"popups.confirmDeleteAccount" = "نعم, احذف الحساب";
 
 // MARK: - Home
 "home.seeAll" = "عرض الكل";
@@ -175,6 +177,7 @@
 "profile.update.updateProfile" = "تحديث الملف الشخصي";
 "profile.changeLanguage" = "تغيير اللغة";
 "profile.language" = "اللغة";
+"profile.deleteAccount" = "حذف الحساب";
 "profile.guest" = "ضيف";
 
 // MARK: - QRCode Screen

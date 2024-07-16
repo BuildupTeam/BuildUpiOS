@@ -278,6 +278,9 @@
 		393974D02B42D34D00B65F77 /* RouteCheckoutPaymentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974CF2B42D34D00B65F77 /* RouteCheckoutPaymentApi.swift */; };
 		393974D22B434A4300B65F77 /* PaymentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393974D12B434A4300B65F77 /* PaymentConfig.swift */; };
 		393974D52B4352B300B65F77 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 393974D42B4352B300B65F77 /* CryptoSwift */; };
+		393A08FD2C46A88600918CC3 /* RouteDeleteAccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A08FC2C46A88600918CC3 /* RouteDeleteAccountApi.swift */; };
+		393A09012C46AC8400918CC3 /* DeleteAccountPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A08FF2C46AC8400918CC3 /* DeleteAccountPopupViewController.swift */; };
+		393A09022C46AC8400918CC3 /* DeleteAccountPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393A09002C46AC8400918CC3 /* DeleteAccountPopupViewController.xib */; };
 		393B2F762AEFBF1C00827026 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2F752AEFBF1C00827026 /* RegisterViewModel.swift */; };
 		393B2F782AEFBF2F00827026 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2F772AEFBF2F00827026 /* LoginViewModel.swift */; };
 		393B2F7B2AEFC9C200827026 /* RegisterWebServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393B2F7A2AEFC9C200827026 /* RegisterWebServiceProtocol.swift */; };
@@ -965,6 +968,9 @@
 		393974CD2B42D1F600B65F77 /* PaymentGatewayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentGatewayModel.swift; sourceTree = "<group>"; };
 		393974CF2B42D34D00B65F77 /* RouteCheckoutPaymentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCheckoutPaymentApi.swift; sourceTree = "<group>"; };
 		393974D12B434A4300B65F77 /* PaymentConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfig.swift; sourceTree = "<group>"; };
+		393A08FC2C46A88600918CC3 /* RouteDeleteAccountApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteDeleteAccountApi.swift; sourceTree = "<group>"; };
+		393A08FF2C46AC8400918CC3 /* DeleteAccountPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAccountPopupViewController.swift; sourceTree = "<group>"; };
+		393A09002C46AC8400918CC3 /* DeleteAccountPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteAccountPopupViewController.xib; sourceTree = "<group>"; };
 		393B2F752AEFBF1C00827026 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		393B2F772AEFBF2F00827026 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		393B2F7A2AEFC9C200827026 /* RegisterWebServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWebServiceProtocol.swift; sourceTree = "<group>"; };
@@ -3123,6 +3129,7 @@
 				390DC2022B1BCF9900E1CBA9 /* RouteWishListApi.swift */,
 				390DC20D2B1DEFB300E1CBA9 /* RouteOrderDetialsApi.swift */,
 				39F19E692B208A7500B69595 /* RouteUpdateProfileApi.swift */,
+				393A08FC2C46A88600918CC3 /* RouteDeleteAccountApi.swift */,
 			);
 			path = "End Points";
 			sourceTree = "<group>";
@@ -3274,6 +3281,8 @@
 				39D7542A2B5D9DF600BFBC42 /* LoginPopupViewController.xib */,
 				39C8CF392B8FBEA4004C2A7D /* CancelOrderPopupViewController.swift */,
 				39C8CF3A2B8FBEA4004C2A7D /* CancelOrderPopupViewController.xib */,
+				393A08FF2C46AC8400918CC3 /* DeleteAccountPopupViewController.swift */,
+				393A09002C46AC8400918CC3 /* DeleteAccountPopupViewController.xib */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -3713,6 +3722,7 @@
 				3999AA762AD1BFE5007D0ACB /* Montserrat-SemiBold.ttf in Resources */,
 				393613AB2AB4EA1E007289DE /* ProductsGridViewController.xib in Resources */,
 				393613B52AB52217007289DE /* CategoryDetailsListViewController.xib in Resources */,
+				393A09022C46AC8400918CC3 /* DeleteAccountPopupViewController.xib in Resources */,
 				390DC2222B1E311300E1CBA9 /* OrderDetailsProductsTableViewCell.xib in Resources */,
 				39730D4C2AA236BF0088C9ED /* ProductSpecificationsTableViewCell.xib in Resources */,
 				3932B2622B126F1400283B3D /* AddNewAddressViewController.xib in Resources */,
@@ -4044,6 +4054,7 @@
 				395D3BC92A9A2A0300DA9859 /* ProductDetailsSliderType3TableViewCell.swift in Sources */,
 				390C3B8C2B15014E00E40849 /* CheckoutProductCollectionViewCell.swift in Sources */,
 				390DC20C2B1DEF7700E1CBA9 /* OrderDetailsWebServiceProtocol.swift in Sources */,
+				393A08FD2C46A88600918CC3 /* RouteDeleteAccountApi.swift in Sources */,
 				3932B2AA2B134F2D00283B3D /* RouteAddNewAddressApi.swift in Sources */,
 				399007252ABDB5F9002F6938 /* CartProductList1TableViewCell.swift in Sources */,
 				39DD4DFB2AF2C638009D3CEF /* ForgetPasswordViewModel.swift in Sources */,
@@ -4334,6 +4345,7 @@
 				39730D302AA128A90088C9ED /* ProductDetailsVariants2TableViewCell.swift in Sources */,
 				394443F42B88037C008232E5 /* LanguageBottomSheetViewController.swift in Sources */,
 				390C3B662B14DD6000E40849 /* AreasWebServiceProtocol.swift in Sources */,
+				393A09012C46AC8400918CC3 /* DeleteAccountPopupViewController.swift in Sources */,
 				3932B2242B11309800283B3D /* CitiesViewController.swift in Sources */,
 				39DD4E052AF30DE8009D3CEF /* ResetPasswordResponseModel.swift in Sources */,
 				3932B2122B0BB45400283B3D /* FirebaseFavoriteModel.swift in Sources */,

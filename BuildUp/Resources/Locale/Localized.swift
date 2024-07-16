@@ -1050,6 +1050,14 @@ internal enum L10n {
         internal static var confirm: String {
           return L10n.tr("Localizable", "popups.confirm")
         }
+        /// yes, Delete My Account
+        internal static var confirmDeleteAccount: String {
+          return L10n.tr("Localizable", "popups.confirmDeleteAccount")
+        }
+        /// Are you sure you want to delete your account?
+        internal static var deleteAccount: String {
+          return L10n.tr("Localizable", "popups.deleteAccount")
+        }
         /// Login
         internal static var login: String {
           return L10n.tr("Localizable", "popups.login")
@@ -1091,6 +1099,10 @@ internal enum L10n {
         /// Change Language
         internal static var changeLanguage: String {
           return L10n.tr("Localizable", "profile.changeLanguage")
+        }
+        /// Delete Account
+        internal static var deleteAccount: String {
+          return L10n.tr("Localizable", "profile.deleteAccount")
         }
         /// Edit Profile
         internal static var editProfile: String {

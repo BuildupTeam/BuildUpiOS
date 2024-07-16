@@ -66,6 +66,8 @@
 "popups.cancelOrderMsg" = "Are you Sure You want to cancel  this order";
 "popups.cancel" = "Cancel";
 "popups.confirm" = "Confirm";
+"popups.deleteAccount" = "Are you sure you want to delete your account?";
+"popups.confirmDeleteAccount" = "yes, Delete My Account";
 
 // MARK: - Home
 "home.seeAll" = "See all";
@@ -175,6 +177,7 @@
 "profile.update.updateProfile" = "Update Profile";
 "profile.changeLanguage" = "Change Language";
 "profile.language" = "Language";
+"profile.deleteAccount" = "Delete Account";
 "profile.guest" = "Guest";
 
 // MARK: - QRCode Screen
