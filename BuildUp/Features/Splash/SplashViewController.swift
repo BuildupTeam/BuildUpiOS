@@ -35,8 +35,14 @@ class SplashViewController: BaseViewController {
         viewModel.onData = { [weak self] () in
             guard let `self` = self else { return }
             self.hideLoading()
-            PersistanceManager.setLatestViewController(Constant.ControllerName.login)
-            LauncherViewController.showLoginView(fromViewController: nil)
+            if CachingService.getUser() != nil {
+                PersistanceManager.setLatestViewController(Constant.ControllerName.home)
+                LauncherViewController.showTabBar(fromViewController: nil)
+            } else {
+                PersistanceManager.setLatestViewController(Constant.ControllerName.login)
+                LauncherViewController.showLoginView(fromViewController: nil)
+            }
+            
         }
     }
 }

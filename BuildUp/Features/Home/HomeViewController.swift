@@ -100,7 +100,7 @@ extension HomeViewController {
             action: #selector(scanAction(sender:))
         )
         
-        self.navigationItem.rightBarButtonItem = scanItem
+//        self.navigationItem.rightBarButtonItem = scanItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
