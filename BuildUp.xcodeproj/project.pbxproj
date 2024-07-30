@@ -4628,7 +4628,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Grocera;
+				INFOPLIST_KEY_CFBundleDisplayName = XXXXXX;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Buildup wants to access your camera to scan QR code";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "The App would like to use your current location";
@@ -4645,10 +4645,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildupapp.ecommerce-furnistyle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.ecommerce-furnistyle";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4721,7 +4721,7 @@
 					"\"$(SOURCE_ROOT)/SDWebImage\"",
 				);
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Grocera;
+				INFOPLIST_KEY_CFBundleDisplayName = XXXXXX;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Buildup wants to access your camera to scan QR code";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "The App would like to use your current location";
@@ -4738,10 +4738,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildupapp.ecommerce-furnistyle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.ecommerce-furnistyle";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4766,10 +4766,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildupapp.ecommerce-furnistyle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.ecommerce-furnistyle";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4793,10 +4793,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildupapp.ecommerce-furnistyle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.ecommerce-furnistyle";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4818,10 +4818,10 @@
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildupapp.ecommerce-furnistyle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.ecommerce-furnistyle";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -4843,10 +4843,10 @@
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildupapp.ecommerce-furnistyle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7df3cef0-4c92-4e07-bdfd-ecda5f2f5134";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupecommerce.grocera";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.buildupapp.ecommerce-furnistyle";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
