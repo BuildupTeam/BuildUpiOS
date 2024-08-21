@@ -9,6 +9,8 @@ import UIKit
 
 class SplashViewController: BaseViewController {
 
+    @IBOutlet private weak var logoImageView: UIImageView!
+
     var viewModel: SplashViewModel!
     
     init(viewModel: SplashViewModel) {
