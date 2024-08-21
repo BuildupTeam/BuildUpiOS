@@ -228,7 +228,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     update_project_settings()
     install_provisioning()
     update_provisioning()
-    deploy()
+    deploy_and_submit()
 end 
 
 desc "deploy"
