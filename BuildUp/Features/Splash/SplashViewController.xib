@@ -18,11 +18,11 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-ex-qxp">
-                    <rect key="frame" x="128" y="398" width="137" height="56"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-ex-qxp">
+                    <rect key="frame" x="126.66666666666669" y="356" width="140" height="140"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="fFt-9T-tnZ"/>
-                        <constraint firstAttribute="width" constant="137" id="qU7-oO-i33"/>
+                        <constraint firstAttribute="height" constant="140" id="fFt-9T-tnZ"/>
+                        <constraint firstAttribute="width" constant="140" id="qU7-oO-i33"/>
                     </constraints>
                 </imageView>
             </subviews>
