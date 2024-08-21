@@ -176,8 +176,9 @@ desc "Set the version number to a specific value"
   )
  end
 
-desc “update colors”
+desc “update Settings”
   lane:update_settings do
+    update_project_settings()
     change_main_host()
     update_colors()
 end
@@ -228,7 +229,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     update_project_settings()
     install_provisioning()
     update_provisioning()
-    deploy()
+    deploy_and_submit()
 end 
 
 desc "deploy"

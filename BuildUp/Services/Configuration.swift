@@ -16,7 +16,7 @@ enum Environment: String {
     case demo
     
     var baseURL: String {
-        let url = "https://localiosbuild4.bk.ecommerce-clients.buildupp.co"
+        let url = "https://furnistyle.bk.ecommerce.buildupp.co"
         return url + "/ec/api/v1/f"
         
 //    https://localiosbuild4.bk.ecommerce-clients.buildupp.co/ec/api/v1/f/settings
