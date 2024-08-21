@@ -4628,9 +4628,9 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Grocera;
+				INFOPLIST_KEY_CFBundleDisplayName = Sobhy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Buildup wants to access your camera to scan QR code";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This App wants to access your camera to scan QR code";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "The App would like to use your current location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Do you allow The App to know your current location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -4721,9 +4721,9 @@
 					"\"$(SOURCE_ROOT)/SDWebImage\"",
 				);
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Grocera;
+				INFOPLIST_KEY_CFBundleDisplayName = Sobhy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Buildup wants to access your camera to scan QR code";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This App wants to access your camera to scan QR code";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "The App would like to use your current location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Do you allow The App to know your current location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -4764,6 +4764,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Sobhy;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
@@ -4791,6 +4792,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Sobhy;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
@@ -4817,6 +4819,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Sobhy;
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4842,6 +4845,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Sobhy;
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildupecommerce.grocera;
 				PRODUCT_NAME = "$(TARGET_NAME)";

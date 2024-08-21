@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 update_display_name
 
+### ios update_displayed_name
+
+```sh
+[bundle exec] fastlane ios update_displayed_name
+```
+
+update_displayed_name
+
 ### ios update_project_settings
 
 ```sh
@@ -38,6 +46,14 @@ Update App Identifier
 ```
 
 Update Provisioning
+
+### ios update_display_name_in_xcodeproj
+
+```sh
+[bundle exec] fastlane ios update_display_name_in_xcodeproj
+```
+
+Change Project AppName
 
 ### ios change_main_host
 

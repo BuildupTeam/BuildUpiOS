@@ -223,6 +223,8 @@ DEPENDENCIES
   fastlane-plugin-update_project_codesigning
   fastlane-plugin-versioning
   nokogiri
+  plist
+  xcodeproj
 
 BUNDLED WITH
    2.4.10

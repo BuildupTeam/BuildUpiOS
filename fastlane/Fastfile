@@ -30,6 +30,21 @@ platform :ios do
   )
  end
 
+desc "update_displayed_name"
+lane :update_displayed_name do |options|
+  # Path to the Info.plist file
+  info_plist_path = "./Buildup/Resources/Info.plist"  # Update this path to the correct path of your Info.plist file
+
+  # Update the CFBundleDisplayName in the Info.plist
+  update_info_plist(
+    plist_path: info_plist_path,
+    block: lambda do |plist|
+      plist['CFBundleDisplayName'] = ENV['APP_DISPLAY_NAME']
+    end
+  )
+
+end
+
   desc “Update App Identifier”
    lane :update_project_settings do
    require 'xcodeproj'
@@ -57,6 +72,23 @@ end
     build_configuration: 'Release',
    code_signing_identity: 'iPhone Distribution'
   )
+end
+
+desc “Change Project AppName”
+  lane :update_display_name_in_xcodeproj do |options|
+
+  project_path = '../Buildup.xcodeproj'
+  project = Xcodeproj::Project.open(project_path)
+
+  # Iterate over all build configurations to update the display name
+  project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['INFOPLIST_KEY_CFBundleDisplayName'] = ENV['APP_DISPLAY_NAME']
+    end
+  end
+
+  # Save the project file after modifying the build settings
+  project.save
 end
 
  desc “Change base url”
