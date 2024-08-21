@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,10 +20,14 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-ex-qxp">
                     <rect key="frame" x="128" y="398" width="137" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="fFt-9T-tnZ"/>
+                        <constraint firstAttribute="width" constant="137" id="qU7-oO-i33"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="169" green="169" blue="40"  alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.3411764705882353" green="0.3411764705882353" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Jbj-ex-qxp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8Vf-rJ-GyU"/>
                 <constraint firstItem="Jbj-ex-qxp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ufL-Pt-vQ1"/>
@@ -32,6 +36,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logo" width="136.33332824707031" height="55.333332061767578"/>
+        <image name="logo" width="137" height="56"/>
     </resources>
 </document>
