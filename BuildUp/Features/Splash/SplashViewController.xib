@@ -20,18 +20,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-ex-qxp">
-                    <rect key="frame" x="126.66666666666669" y="356" width="140" height="140"/>
+                    <rect key="frame" x="100" y="346" width="193" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="fFt-9T-tnZ"/>
-                        <constraint firstAttribute="width" constant="140" id="qU7-oO-i33"/>
+                        <constraint firstAttribute="height" constant="160" id="Hgd-kE-cX2"/>
                     </constraints>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.3411764705882353" green="0.3411764705882353" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Jbj-ex-qxp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8Vf-rJ-GyU"/>
-                <constraint firstItem="Jbj-ex-qxp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ufL-Pt-vQ1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jbj-ex-qxp" secondAttribute="trailing" constant="100" id="3fB-90-9FV"/>
+                <constraint firstItem="Jbj-ex-qxp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7gV-Pl-a2K"/>
+                <constraint firstItem="Jbj-ex-qxp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="BDP-3Q-zJM"/>
             </constraints>
             <point key="canvasLocation" x="112" y="21"/>
         </view>
