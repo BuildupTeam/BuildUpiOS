@@ -96,19 +96,11 @@ jobs:
           pod install
           bundle update --full-index
 
-      - name: display xcode file before
-        run: |
-          cat BuildUp.xcodeproj/project.pbxproj
-
       - name: Execute Fastlane
         env:
           FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASS }}
         run: |
           fastlane update_app
-
-      - name: display xcode file
-        run: |
-          cat BuildUp.xcodeproj/project.pbxproj
 
       - name: Send Success Notification
         if: success()
