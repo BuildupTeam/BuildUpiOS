@@ -256,6 +256,9 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     		skip_screenshots: true,
     		submit_for_review: true,
 		run_precheck_before_submit: false,
+                release_notes: {
+                'en-US' => "Bug fixes   and performance improvements"
+                 },
 submission_information: {
       add_id_info_limits_tracking: true,
       add_id_info_serves_ads: false,
