@@ -133,7 +133,7 @@ Set the version number to a specific value
 [bundle exec] fastlane ios update_settings
 ```
 
-update colors
+update Settings
 
 ### ios upload_app
 

@@ -6,6 +6,8 @@
 	<string>Sobhy</string>
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.buildupapp.ecommerce-electronest</string>
 	<key>Configuration</key>
 	<string>$(CONFIGURATION)</string>
 	<key>IPHONEOS_DEPLOYMENT_TARGET</key>
