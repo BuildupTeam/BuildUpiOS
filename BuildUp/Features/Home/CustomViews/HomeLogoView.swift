@@ -34,10 +34,9 @@ class HomeLogoView: UIView {
     }
     
     func setupView() {
-        if let imagePath = CachingService.getThemeData()?.iOSAppIcon?.path {
+        if let imagePath = CachingService.getThemeData()?.projectLogo?.path {
             logoImageView.setImage(with: imagePath)
             logoImageView.backgroundColor = .clear
-//            logoImageView.setImage(image: Asset.icSquadio.image)
         }
     }
 

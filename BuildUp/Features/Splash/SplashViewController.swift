@@ -9,6 +9,8 @@ import UIKit
 
 class SplashViewController: BaseViewController {
 
+    @IBOutlet private weak var logoImageView: UIImageView!
+
     var viewModel: SplashViewModel!
     
     init(viewModel: SplashViewModel) {
@@ -24,6 +26,11 @@ class SplashViewController: BaseViewController {
         super.viewDidLoad()
         configurationResponse()
         getConfiguration()
+        
+        if let imagePath = CachingService.getThemeData()?.projectLogo?.path {
+            logoImageView.setImage(with: imagePath)
+            logoImageView.backgroundColor = .clear
+        }
     }
     
     private func getConfiguration() {
@@ -41,6 +48,11 @@ class SplashViewController: BaseViewController {
             } else {
                 PersistanceManager.setLatestViewController(Constant.ControllerName.login)
                 LauncherViewController.showLoginView(fromViewController: nil)
+            }
+            
+            if let imagePath = CachingService.getThemeData()?.projectLogo?.path {
+                logoImageView.setImage(with: imagePath)
+                logoImageView.backgroundColor = .clear
             }
         }
     }
