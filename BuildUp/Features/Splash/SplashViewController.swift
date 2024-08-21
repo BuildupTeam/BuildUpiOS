@@ -42,7 +42,6 @@ class SplashViewController: BaseViewController {
                 PersistanceManager.setLatestViewController(Constant.ControllerName.login)
                 LauncherViewController.showLoginView(fromViewController: nil)
             }
-            
         }
     }
 }
