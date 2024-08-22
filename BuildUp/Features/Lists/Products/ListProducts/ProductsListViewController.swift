@@ -121,7 +121,8 @@ extension ProductsListViewController {
             action: #selector(shareAction(sender:))
         )
         
-        self.navigationItem.rightBarButtonItems = [cartItem, shareItem]
+//        self.navigationItem.rightBarButtonItems = [cartItem, shareItem]
+        self.navigationItem.rightBarButtonItem = cartItem
     }
     
     private func showLoginPopup() {

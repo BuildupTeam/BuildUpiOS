@@ -68,7 +68,8 @@ class ProductDetailsViewController: BaseViewController {
             action: #selector(shareBarAction(sender:))
         )
         
-        self.navigationItem.rightBarButtonItems = [cartButtonItem, shareButtonItem]
+//        self.navigationItem.rightBarButtonItems = [cartButtonItem, shareButtonItem]
+        self.navigationItem.rightBarButtonItem = cartButtonItem
     }
 
 }
