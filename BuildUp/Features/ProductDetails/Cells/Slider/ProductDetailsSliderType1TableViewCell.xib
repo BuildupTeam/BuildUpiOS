@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -68,10 +68,10 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cgB-yW-thd">
-                                <rect key="frame" x="24" y="276" width="366" height="60"/>
+                                <rect key="frame" x="24" y="266" width="366" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="xoo-ss-id8"/>
+                                    <constraint firstAttribute="height" constant="70" id="xoo-ss-id8"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MMw-tq-n0G">
                                     <size key="itemSize" width="128" height="128"/>
@@ -102,7 +102,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMb-p9-Tkf">
-                                <rect key="frame" x="360" y="366" width="30" height="30"/>
+                                <rect key="frame" x="360" y="362" width="30" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_favorite" translatesAutoresizingMaskIntoConstraints="NO" id="j8n-ul-PS8">
                                         <rect key="frame" x="7.6666666666666847" y="8.6666666666666856" width="14.666666666666661" height="12.666666666666664"/>
@@ -234,12 +234,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xMb-p9-Tkf" firstAttribute="top" secondItem="RSV-4j-HxG" secondAttribute="top" id="3lU-rT-kfH"/>
                             <constraint firstItem="tOE-3h-cb4" firstAttribute="leading" secondItem="fAh-tQ-ofF" secondAttribute="leading" id="4Wr-3b-RHA"/>
                             <constraint firstItem="SJu-Tb-utF" firstAttribute="leading" secondItem="fAh-tQ-ofF" secondAttribute="leading" constant="16" id="6SU-J8-fo6"/>
                             <constraint firstItem="cZH-eb-Igb" firstAttribute="centerY" secondItem="cNu-dv-cJs" secondAttribute="centerY" id="6sD-NP-THJ"/>
                             <constraint firstItem="ozL-PZ-bRh" firstAttribute="top" secondItem="fAh-tQ-ofF" secondAttribute="top" constant="28" id="81A-xz-w99"/>
                             <constraint firstItem="cNu-dv-cJs" firstAttribute="top" secondItem="SJu-Tb-utF" secondAttribute="bottom" constant="12" id="9DK-Bg-vhX"/>
-                            <constraint firstItem="xMb-p9-Tkf" firstAttribute="top" secondItem="tOE-3h-cb4" secondAttribute="bottom" constant="16" id="DVk-L1-tB2"/>
                             <constraint firstItem="MCr-vp-mg2" firstAttribute="bottom" secondItem="SJu-Tb-utF" secondAttribute="bottom" id="KdC-yv-FYJ"/>
                             <constraint firstItem="S8i-Xd-rVY" firstAttribute="top" secondItem="deJ-xp-Nxu" secondAttribute="bottom" constant="8" id="M7i-ZN-mTK"/>
                             <constraint firstAttribute="trailing" secondItem="ozL-PZ-bRh" secondAttribute="trailing" constant="18" id="MnV-ve-guD"/>
