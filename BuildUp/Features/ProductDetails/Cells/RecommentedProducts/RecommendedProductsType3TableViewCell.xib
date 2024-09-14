@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -59,6 +59,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="FAY-0m-dno" secondAttribute="bottom" id="5Q4-bO-6Qt"/>
                                     <constraint firstItem="pj5-bG-udP" firstAttribute="leading" secondItem="Oas-IJ-Syu" secondAttribute="leading" constant="8" id="9xL-re-sko"/>
+                                    <constraint firstAttribute="height" constant="40" id="DB9-hu-jLI"/>
                                     <constraint firstItem="FAY-0m-dno" firstAttribute="leading" secondItem="pj5-bG-udP" secondAttribute="trailing" constant="8" id="DwJ-FB-S3z"/>
                                     <constraint firstItem="pj5-bG-udP" firstAttribute="top" secondItem="Oas-IJ-Syu" secondAttribute="top" constant="8" id="RBI-NU-nHF"/>
                                     <constraint firstItem="FAY-0m-dno" firstAttribute="top" secondItem="Oas-IJ-Syu" secondAttribute="top" id="bG8-2i-hTm"/>
@@ -93,6 +94,7 @@
                 <outlet property="headerSeeMoreButton" destination="FAY-0m-dno" id="hvI-dI-tjE"/>
                 <outlet property="headerTitleLabel" destination="pj5-bG-udP" id="MGL-mU-654"/>
                 <outlet property="headerView" destination="Oas-IJ-Syu" id="JPy-IO-a7j"/>
+                <outlet property="headerViewHeightContraints" destination="DB9-hu-jLI" id="DOY-ah-H4s"/>
             </connections>
             <point key="canvasLocation" x="88" y="21"/>
         </tableViewCell>

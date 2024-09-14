@@ -216,6 +216,30 @@ extension CategoryDetailsGridViewController: subcategoryTabsViewDelegate {
     }
 }
 
+// MARK: - TableViewDelegate & DataSource
+extension CategoryDetailsGridViewController: AddToCartDelegate {
+    func productModelUpdated(_ model: ProductModel, _ homeSectionModel: HomeSectionModel?) {
+        
+    }
+    
+    func userShouldLoginFirst() {
+        self.showLoginPopup()
+    }
+    
+    private func showLoginPopup() {
+        let loginVC = LoginPopupViewController()
+        loginVC.delegate = self
+        self.presentPanModal(loginVC)
+    }
+}
+
+// MARK: - Popup Delegate
+extension CategoryDetailsGridViewController: LoginPopupProtocol {
+    func loginButtonClicked() {
+        LauncherViewController.showLoginView(fromViewController: nil)
+    }
+}
+
 // MARK: - Responses
 extension CategoryDetailsGridViewController {
     private func categoryDetailsResponse() {

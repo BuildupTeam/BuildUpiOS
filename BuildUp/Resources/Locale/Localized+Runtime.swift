@@ -16,7 +16,7 @@ extension L10n {
      //            let langBundle = Bundle(path: langPath ) {
      //          bundle = langBundle
      //        } else {
-     //            bundle =  Bundle.main
+     //            bundle =  Bundle.main/Users/mohammedkhaled/Work/Squadio/BuildUp/BuildUp/Resources/Locale/Localized+Runtime.swift
      //        }
 
      let format = NSLocalizedString(key, tableName: table, bundle: Bundle.main, comment: "")

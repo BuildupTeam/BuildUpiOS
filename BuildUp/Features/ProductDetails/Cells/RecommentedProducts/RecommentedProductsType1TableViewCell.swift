@@ -57,6 +57,8 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
                 
         if let settings = CachingService.getThemeData()?.pages?.first(where: {$0.page == PageName.productDetails.rawValue})?.settings {
             if ((settings.recommendedProducts?.title) != nil) {
+                headerViewHeightContraints.constant = 48
+                
                 headerTitleLabel.text = settings.recommendedProducts?.title
                 
                 if settings.recommendedProducts?.displayTitle ?? false {
@@ -72,6 +74,7 @@ class RecommentedProductsType1TableViewCell: UITableViewCell {
                 }
             } else {
                 headerView.isHidden = true
+                headerViewHeightContraints.constant = 0
             }
         }
     }
