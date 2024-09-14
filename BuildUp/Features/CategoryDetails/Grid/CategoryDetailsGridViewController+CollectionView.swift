@@ -90,6 +90,7 @@ extension CategoryDetailsGridViewController: UICollectionViewDelegate, UICollect
                         for: indexPath) as? ProductVerticalGrid3CollectionViewCell else { return UICollectionViewCell() }
                     
                     cell.productModel = viewModel.products[indexPath.row]
+                    cell.delegate = self
                     
                     return cell
                 case ProductListDesign.grid4.rawValue:

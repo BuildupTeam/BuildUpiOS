@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +43,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0Z-hf-GQx">
-                                        <rect key="frame" x="219.66666666666666" y="7" width="76.333333333333343" height="34.333333333333336"/>
+                                        <rect key="frame" x="219.66666666666666" y="5" width="76.333333333333343" height="38.333333333333336"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="76.329999999999998" id="Njs-Nm-PZE"/>
                                         </constraints>
@@ -60,6 +60,7 @@
                                     <constraint firstItem="aIo-7y-N9R" firstAttribute="leading" secondItem="QhY-n3-qrt" secondAttribute="leading" constant="8" id="FJj-hK-fq2"/>
                                     <constraint firstAttribute="trailing" secondItem="u0Z-hf-GQx" secondAttribute="trailing" constant="8" id="G9i-Vk-fIN"/>
                                     <constraint firstItem="u0Z-hf-GQx" firstAttribute="leading" secondItem="aIo-7y-N9R" secondAttribute="trailing" constant="8" id="RJl-U1-s57"/>
+                                    <constraint firstAttribute="height" constant="48" id="UQI-Ml-ay4"/>
                                     <constraint firstItem="aIo-7y-N9R" firstAttribute="top" secondItem="QhY-n3-qrt" secondAttribute="top" constant="8" id="XqX-XQ-Fae"/>
                                     <constraint firstAttribute="bottom" secondItem="aIo-7y-N9R" secondAttribute="bottom" constant="8" id="XyO-E5-mVh"/>
                                 </constraints>
@@ -92,6 +93,7 @@
                 <outlet property="headerSeeMoreButton" destination="u0Z-hf-GQx" id="dfi-Yr-36g"/>
                 <outlet property="headerTitleLabel" destination="aIo-7y-N9R" id="epg-fM-hHz"/>
                 <outlet property="headerView" destination="QhY-n3-qrt" id="iDg-jp-Ob5"/>
+                <outlet property="headerViewHeightContraints" destination="UQI-Ml-ay4" id="Taq-kf-Hga"/>
             </connections>
             <point key="canvasLocation" x="33.587786259541986" y="19.718309859154932"/>
         </tableViewCell>
