@@ -91,6 +91,22 @@ desc “Change Project AppName”
   project.save
 end
 
+ desc “disable_bitcode”
+lane :disable_bitcode do
+  require 'xcodeproj'
+  project_path = '../Buildup.xcodeproj' # Adjust path as necessary
+  project = Xcodeproj::Project.open(project_path)
+
+  project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+  end
+
+  project.save
+  UI.success("Bitcode has been disabled for all targets and configurations.")
+end
+
  desc “Change base url”
   lane:change_main_host do
     path = '../BuildUp/Services/Configuration.swift'
@@ -204,6 +220,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     update_project_settings()
     install_provisioning()
     update_provisioning()
+    disable_bitcode()
     deploy()
 end
 

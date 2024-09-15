@@ -55,6 +55,14 @@ Update Provisioning
 
 Change Project AppName
 
+### ios disable_bitcode
+
+```sh
+[bundle exec] fastlane ios disable_bitcode
+```
+
+disable_bitcode
+
 ### ios change_main_host
 
 ```sh
