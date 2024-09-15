@@ -3608,7 +3608,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 393174132A19134A00AF64BC /* Build configuration list for PBXProject "Buildup" */;
+			buildConfigurationList = 393174132A19134A00AF64BC /* Build configuration list for PBXProject "BuildUp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -4626,6 +4626,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
+				ENABLE_BITCODE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BuildUp/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Sobhy;
@@ -4674,6 +4675,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2C86JD592M;
+				ENABLE_BITCODE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4864,7 +4866,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		393174132A19134A00AF64BC /* Build configuration list for PBXProject "Buildup" */ = {
+		393174132A19134A00AF64BC /* Build configuration list for PBXProject "BuildUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				393174402A19134D00AF64BC /* Debug */,
