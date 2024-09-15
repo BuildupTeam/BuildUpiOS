@@ -16,7 +16,7 @@
 default_platform(:ios)
 
 before_all do
-    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"]
+    ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = ENV['FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD']
   end
 
 platform :ios do
@@ -195,7 +195,7 @@ end
     api_key = app_store_connect_api_key(
 	  key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
           issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
-          key: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
+          key_content: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
 )
     match(api_key: api_key, readonly: false, force_for_new_devices: true)
     update_project_settings()
@@ -217,7 +217,7 @@ end
     api_key = app_store_connect_api_key(
 	  key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
           issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
-          key: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
+          key_content: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
 )
     match(api_key: api_key, readonly: false, force_for_new_devices: true)
     update_project_settings()
@@ -238,7 +238,7 @@ desc "deploy"
     app_store_connect_api_key(
 	  key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
           issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
-          key: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
+          key_content: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
 )	
 	upload_to_app_store(
     		username: ENV['USER_NAME'],
@@ -283,7 +283,7 @@ submission_information: {
     app_store_connect_api_key(
 	  key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
           issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
-          key: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
+          key_content: ENV["APP_STORE_CONNECT_API_KEY_KEY"]
 )	
 	upload_to_app_store(
     		username: ENV['USER_NAME'],
