@@ -19,7 +19,7 @@ def ui_pods
   pod "SCPageControl", :git => 'https://github.com/MahmoudNasserIbtikar/SCPageControl.git'
   pod 'lottie-ios'
   pod 'CarbonKit', :git => 'https://github.com/Sob7y/CarbonKit'
-  pod 'PayTabsSDK', '~> 6.4.12'
+  pod 'PayTabsSDK'
 end
 
 def date_tools
@@ -72,7 +72,7 @@ target 'BuildUp' do
 #  googleMaps_pods
   quality_pods
   media_players
-  analytics_pods
+  # analytics_pods
   
   target 'BuildUpTests' do
     inherit! :search_paths

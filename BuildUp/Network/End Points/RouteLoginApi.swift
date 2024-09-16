@@ -6,7 +6,6 @@
 //
 import Foundation
 import Moya
-import AppsFlyerLib
 import AdSupport
 
 // swiftlint:disable force_unwrapping
