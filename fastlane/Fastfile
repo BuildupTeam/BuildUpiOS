@@ -328,7 +328,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
 )	
  pilot(
     skip_submission: true,                        
-    skip_waiting_for_build_processing: true
+    skip_waiting_for_build_processing: false
   )
   end
 end
