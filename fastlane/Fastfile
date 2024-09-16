@@ -70,7 +70,10 @@ end
     profile: profile_name,
     target_filter: '.*',
     build_configuration: 'Release',
-   code_signing_identity: 'iPhone Distribution'
+   code_signing_identity: 'iPhone Distribution',
+   other_action_parameters: {
+      'ENABLE_BITCODE' => 'NO'
+    }
   )
 end
 
