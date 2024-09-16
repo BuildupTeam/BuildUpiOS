@@ -70,10 +70,7 @@ end
     profile: profile_name,
     target_filter: '.*',
     build_configuration: 'Release',
-   code_signing_identity: 'iPhone Distribution',
-   other_action_parameters: {
-      'ENABLE_BITCODE' => 'NO'
-    }
+   code_signing_identity: 'iPhone Distribution'
   )
 end
 
@@ -202,6 +199,13 @@ desc “update Settings”
     update_colors()
 end
 
+lane :strip_bitcode do
+  Dir.glob("./**/*.framework").each do |framework_path|
+    UI.message("Stripping bitcode from #{framework_path}")
+    sh "xcrun bitcode_strip -r #{framework_path}/PaymentSDK -o #{framework_path}/PaymentSDK"
+  end
+end
+
  desc “Change base url + screenshots”
   lane:upload_app do
     change_main_host()
@@ -223,6 +227,7 @@ SdRzkDKl\n-----END PRIVATE KEY-----"
     update_project_settings()
     install_provisioning()
     update_provisioning()
+    strip_bitcode()
     disable_bitcode()
     deploy()
 end
