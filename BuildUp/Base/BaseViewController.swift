@@ -12,7 +12,6 @@ import ObjectMapper
 import Windless
 //import AVKit
 import PopupDialog
-import AppsFlyerLib
 import Lottie
 
 // swiftlint:disable force_unwrapping

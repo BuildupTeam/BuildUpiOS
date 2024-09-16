@@ -201,7 +201,6 @@ end
 
 lane :strip_bitcode do
   Dir.glob("./**/*.framework").each do |framework_path|
-    UI.message("Stripping bitcode from #{framework_path}")
     sh "xcrun bitcode_strip -r #{framework_path}/PaymentSDK -o #{framework_path}/PaymentSDK"
   end
 end

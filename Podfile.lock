@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (5.8.1)
-  - AppsFlyerFramework (6.12.3):
-    - AppsFlyerFramework/Main (= 6.12.3)
-  - AppsFlyerFramework/Main (6.12.3)
   - CarbonKit (2.3.1)
   - Cosmos (23.0.0)
   - DateToolsSwift (5.0.0)
@@ -122,7 +119,7 @@ PODS:
     - NVActivityIndicatorView/Base
   - ObjectMapper (4.2.0)
   - PanModal (1.2.7)
-  - PayTabsSDK (6.4.13)
+  - PayTabsSDK (6.6.20)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
   - PromisesObjC (2.3.1)
@@ -138,7 +135,6 @@ PODS:
   - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
-  - AppsFlyerFramework
   - CarbonKit (from `https://github.com/Sob7y/CarbonKit`)
   - Cosmos
   - DateToolsSwift
@@ -154,7 +150,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView/Extended
   - ObjectMapper
   - PanModal
-  - PayTabsSDK (~> 6.4.12)
+  - PayTabsSDK
   - PopupDialog
   - RangeSeekSlider
   - SCPageControl (from `https://github.com/MahmoudNasserIbtikar/SCPageControl.git`)
@@ -168,7 +164,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - AppsFlyerFramework
     - Cosmos
     - DateToolsSwift
     - DPOTPView
@@ -188,7 +183,6 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - ObjectMapper
     - PanModal
-    - PayTabsSDK
     - PopupDialog
     - PromisesObjC
     - RangeSeekSlider
@@ -197,6 +191,8 @@ SPEC REPOS:
     - SwiftMessages
     - ViewAnimator
     - youtube-ios-player-helper
+  trunk:
+    - PayTabsSDK
 
 EXTERNAL SOURCES:
   CarbonKit:
@@ -249,7 +245,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
-  AppsFlyerFramework: fdc5c2fa3a3cfcd62eae58dfba4b8f59c6c77219
   CarbonKit: b60e24dbdb47179990d5e074efa87ab819c8de98
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   DateToolsSwift: 4207ada6ad615d8dc076323d27037c94916dbfa6
@@ -275,7 +270,7 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
-  PayTabsSDK: fe1ecd597ced57d58a9ba642ee9b6a41d5b5a862
+  PayTabsSDK: da92d5a9804886f3ab9b82f658870a7706de6298
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
@@ -287,6 +282,6 @@ SPEC CHECKSUMS:
   Windless: 9dea19b4d239d948e4cec3891fac1fe863e13136
   youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 79e415ca0c75a4fa2b88fd3ce6b5b8cd99c62137
+PODFILE CHECKSUM: ae8e07bb13ef00d8eff6a58384e514de442b1ce5
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.15.2
