@@ -223,8 +223,6 @@ end
     update_project_settings()
     install_provisioning()
     update_provisioning()
-    strip_bitcode()
-    disable_bitcode()
     deploy()
 end
 
