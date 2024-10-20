@@ -21,6 +21,7 @@
 "login.privacyAnd" = " and " ;
 "login.privacyLabel" = "Privacy Policy" ;
 "login.skip" = "Skip" ;
+"login.empty.navigation" = "" ;
 
 // MARK: - Register
 "register.title" = "Register";

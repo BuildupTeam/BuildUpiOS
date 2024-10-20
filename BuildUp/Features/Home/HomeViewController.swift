@@ -49,7 +49,7 @@ class HomeViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationItem.title = " "
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: L10n.Login.Empty.navigation, style: .plain, target: nil, action: nil)
     }
     
     func scrollToFirstRow() {

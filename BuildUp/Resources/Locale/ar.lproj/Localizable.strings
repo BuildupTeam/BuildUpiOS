@@ -21,6 +21,7 @@
 "login.privacyAnd" = " و ";
 "login.privacyLabel" = "سياسة الخصوصية";
 "login.skip" = "تخطي";
+"login.empty.navigation" = "" ;
 
 // MARK: - Register
 "register.title" = "تسجيل";

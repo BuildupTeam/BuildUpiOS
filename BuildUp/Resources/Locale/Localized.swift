@@ -949,6 +949,12 @@ internal enum L10n {
         internal static var title: String {
           return L10n.tr("Localizable", "login.title")
         }
+      internal enum Empty {
+          /// 
+          internal static var navigation: String {
+            return L10n.tr("Localizable", "login.empty.navigation")
+          }
+      }
     }
 
     internal enum Message {
