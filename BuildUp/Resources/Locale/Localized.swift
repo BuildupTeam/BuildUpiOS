@@ -803,6 +803,10 @@ internal enum L10n {
           return L10n.tr("Localizable", "checkout.updateAddress")
         }
       internal enum Addresses {
+          /// Default
+          internal static var `default`: String {
+            return L10n.tr("Localizable", "checkout.addresses.default")
+          }
           /// Set As Default
           internal static var setAsDefault: String {
             return L10n.tr("Localizable", "checkout.addresses.setAsDefault")

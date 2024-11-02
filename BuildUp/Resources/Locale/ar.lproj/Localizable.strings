@@ -149,6 +149,7 @@
 "checkout.outOfStock" = "غير متوفر في المخزون";
 "checkout.runsOutOfStock" = "لديك عناصر نفدت من المخزون";
 "checkout.addresses.setAsDefault" = "تعيين كافتراضي";
+"checkout.addresses.default" = "افتراضي";
 
 // MARK: - Order History Screen
 "orders.title" = "سجل الطلبات";

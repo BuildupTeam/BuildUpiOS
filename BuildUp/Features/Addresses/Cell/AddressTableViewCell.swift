@@ -56,6 +56,7 @@ class AddressTableViewCell: UITableViewCell {
         
         containerView.backgroundColor = ThemeManager.colorPalette?.getCardBG().toUIColor(hexa: ThemeManager.colorPalette?.getCardBG() ?? "")
         
+        defaultAddressLabel.text = L10n.Checkout.Addresses.default
         countryTitleLabel.text = L10n.Checkout.country
         addressTitleLabel.text = L10n.Checkout.address
         
@@ -86,7 +87,8 @@ class AddressTableViewCell: UITableViewCell {
     
     private func bindData() {
         if let model = addressModel {
-//            nameLabel.text = CachingService.getUser()?.customer?.fullName
+            nameLabel.text = CachingService.getUser()?.customer?.fullName
+            
             if let desc = model.addressDescription {
                 addressLabel.text = desc
             }
